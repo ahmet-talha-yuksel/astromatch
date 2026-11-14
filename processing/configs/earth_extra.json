@@ -1,0 +1,40 @@
+{
+  "sites": [
+    {
+      "id": "meke",
+      "name": "Meke Maar",
+      "lat": 37.68694444444444,
+      "lon": 33.643055555555556,
+      "coordinate_source": "https://rsis.ramsar.org/RISapp/files/RISrep/TR1618RIS.pdf",
+      "coordinate_note": "Ramsar site reference coordinate.",
+      "quality_note": "Volcanic lake surface/terrain only; no mineral detection claim."
+    },
+    {
+      "id": "tuz_golu",
+      "name": "Tuz Golu",
+      "lat": 38.75,
+      "lon": 33.33,
+      "coordinate_source": "https://whc.unesco.org/en/tentativelists/5824",
+      "coordinate_note": "Operator-selected center within the UNESCO-listed protected-area coordinate range, not a monitoring station.",
+      "quality_note": "Seasonally shallow salt-lake surface is not bathymetry or a dry-land-only sample."
+    },
+    {
+      "id": "haughton",
+      "name": "Haughton",
+      "lat": 75.3775,
+      "lon": -89.65361111111112,
+      "coordinate_source": "https://impact.uwo.ca/impact-craters/map/?crater_id=59",
+      "coordinate_note": "Impact Earth crater reference coordinate.",
+      "quality_note": "Polar control locality, not a confirmed negative analog class."
+    },
+    {
+      "id": "meteor_crater",
+      "name": "Meteor Crater",
+      "lat": 35.03333333333333,
+      "lon": -111.01666666666667,
+      "coordinate_source": "https://ntrs.nasa.gov/api/citations/19860002234/downloads/19860002234.pdf",
+      "coordinate_note": "NASA crater catalog reference coordinate (arc-minute precision).",
+      "quality_note": "Crater structure is small relative to 500 m/1000 m analysis; control locality is not a negative class."
+    }
+  ]
+}

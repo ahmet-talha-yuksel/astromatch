@@ -51,7 +51,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 0.9991386219978332,
           "data_status": "derived",
           "comparable": false
         }
@@ -61,12 +61,22 @@
         "coverage": "fallback_dem",
         "warnings": [
           "Source selection: srtm_access_unavailable.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r254_c418",
+          "land_fraction": 0.9991386219978332,
+          "unknown_fraction": 0.0,
+          "source_sampling_difference": 0.00011027107238770206,
+          "qa_passed": true,
+          "duration_s": 1.6603714579250664,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -172,7 +182,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 0.9939966353418419,
           "data_status": "derived",
           "comparable": false
         }
@@ -182,12 +192,22 @@
         "coverage": "fallback_dem",
         "warnings": [
           "Source selection: srtm_access_unavailable.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r254_c419",
+          "land_fraction": 0.9939966353418419,
+          "unknown_fraction": 0.002880000105500269,
+          "source_sampling_difference": 0.00024891230377332985,
+          "qa_passed": true,
+          "duration_s": 0.6949476250447333,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -293,7 +313,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 0.9989392262339591,
           "data_status": "derived",
           "comparable": false
         }
@@ -303,12 +323,22 @@
         "coverage": "fallback_dem",
         "warnings": [
           "Source selection: srtm_access_unavailable.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r255_c418",
+          "land_fraction": 0.9989392262339591,
+          "unknown_fraction": 0.0,
+          "source_sampling_difference": 7.594233751306856e-05,
+          "qa_passed": true,
+          "duration_s": 0.649348207982257,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -414,7 +444,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 0.9477831617821653,
           "data_status": "derived",
           "comparable": false
         }
@@ -424,12 +454,23 @@
         "coverage": "fallback_dem",
         "warnings": [
           "Source selection: srtm_access_unavailable.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r255_c419",
+          "land_fraction": 0.9477831617821653,
+          "unknown_fraction": 0.000108000171184508,
+          "source_sampling_difference": 0.0002117928498543975,
+          "qa_passed": true,
+          "duration_s": 0.49768541706725955,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -535,7 +576,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 1.0,
           "data_status": "derived",
           "comparable": false
         }
@@ -545,12 +586,22 @@
         "coverage": "fallback_dem",
         "warnings": [
           "Source selection: srtm_access_unavailable.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r130_c221",
+          "land_fraction": 1.0,
+          "unknown_fraction": 0.0,
+          "source_sampling_difference": 0.0,
+          "qa_passed": true,
+          "duration_s": 0.8845184158999473,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -656,7 +707,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 0.9999219193935395,
           "data_status": "derived",
           "comparable": false
         }
@@ -666,12 +717,22 @@
         "coverage": "fallback_dem",
         "warnings": [
           "Source selection: srtm_access_unavailable.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r131_c220",
+          "land_fraction": 0.9999219193935395,
+          "unknown_fraction": 0.0,
+          "source_sampling_difference": 6.253623962337862e-06,
+          "qa_passed": true,
+          "duration_s": 0.2069470421411097,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -777,7 +838,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 0.9712078479148447,
           "data_status": "derived",
           "comparable": false
         }
@@ -787,12 +848,22 @@
         "coverage": "full",
         "warnings": [
           "Source selection: outside_nominal_srtm_latitudes.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r308_c320",
+          "land_fraction": 0.9712078479148447,
+          "unknown_fraction": 0.0,
+          "source_sampling_difference": 0.00024995485214740487,
+          "qa_passed": true,
+          "duration_s": 0.5507700839079916,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -898,7 +969,7 @@
       },
       "earth_filters": {
         "land_fraction": {
-          "value": null,
+          "value": 0.9915206477224827,
           "data_status": "derived",
           "comparable": false
         }
@@ -908,12 +979,22 @@
         "coverage": "full",
         "warnings": [
           "Source selection: outside_nominal_srtm_latitudes.",
-          "Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.",
+          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": false
+        "validation_eligible": false,
+        "landmask": {
+          "region_id": "earth_grid_r309_c321",
+          "land_fraction": 0.9915206477224827,
+          "unknown_fraction": 0.0,
+          "source_sampling_difference": 3.9069187641183056e-05,
+          "qa_passed": true,
+          "duration_s": 0.3202987078111619,
+          "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+          "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",

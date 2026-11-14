@@ -145,7 +145,7 @@ def test_shared_real_pilot_outputs_are_offline_readable():
         assert r['dem_source'] == 'copernicus_glo90'
         assert not r['resolution_validated']
         assert all(f['value'] is not None and not f['comparable'] for f in r['features'].values())
-        assert r['earth_filters']['land_fraction']['value'] is None
+        assert 0 <= r['earth_filters']['land_fraction']['value'] <= 1
         meta = r['heightmap']
         with Image.open(root/meta['path']) as image:
             pixels = np.asarray(image)
@@ -156,7 +156,7 @@ def test_shared_real_pilot_outputs_are_offline_readable():
     table = pq.read_table(root/'earth_grid.parquet')
     assert table.num_rows == 8
     assert str(table.schema.field('land_fraction').type) == 'double'
-    assert table['land_fraction'].null_count == 8
+    assert table['land_fraction'].null_count == 0
     coverage = json.loads((root/'coverage.geojson').read_text())['features']
     assert len(coverage) == 408
     assert sum(f['properties']['status'] == 'scanned' for f in coverage) == 8
@@ -167,9 +167,9 @@ def test_shared_real_pilot_outputs_are_offline_readable():
         assert ring[2][0]-ring[0][0] == .5
         assert ring[2][1]-ring[0][1] == .5
     timing = json.loads((root/'pilot_timing.json').read_text())
-    assert timing['global_decision']['status'] == 'deferred'
-    assert timing['global_decision']['estimated_hours_range'] is None
-    assert timing['landmask']['duration_s'] is None
+    assert timing['global_decision']['status'] == 'provisional'
+    assert len(timing['global_decision']['estimated_hours_range']) == 2
+    assert timing['landmask']['duration_s'] > 0
     assert timing['dem_sources_measured'] == ['copernicus_glo90']
     for item in timing['measurements']:
         assert all(v >= 0 for v in item['processing'].values())

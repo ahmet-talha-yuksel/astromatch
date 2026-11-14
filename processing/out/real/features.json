@@ -220,108 +220,6 @@
     },
     {
       "schema_version": "2.3",
-      "region_id": "earth_salda_regional",
-      "kind": "candidate",
-      "body": "earth",
-      "name": "Salda",
-      "lat": 37.55,
-      "lon": 29.67,
-      "scale": "regional",
-      "window_km": 50,
-      "analysis_resolution_m": 1000,
-      "source_resolution_m": 30.922080775909325,
-      "resolution_validated": true,
-      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus",
-      "dem_version": "GLO-30 Public 2021 release; tile last-modified 2022-05-09",
-      "features": {
-        "slope_median_deg": {
-          "value": 3.6173788146135064,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "slope_p90_deg": {
-          "value": 9.051425510043037,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "flat_fraction": {
-          "value": 0.6424,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "tri_median_m": {
-          "value": 202.2859305186336,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "relief_m": {
-          "value": 843.8074480159298,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "elevation_std_m": {
-          "value": 253.29882730021828,
-          "data_status": "derived",
-          "comparable": true
-        }
-      },
-      "earth_filters": null,
-      "quality": {
-        "nodata_ratio": 0.0,
-        "coverage": "full",
-        "warnings": [
-          "Copernicus is a DSM; Salda lake surface is not lake-bed topography."
-        ],
-        "validation_eligible": true
-      },
-      "processing_version": "0.3.0",
-      "method": "metric-gradient-riley8-p95p5-v1",
-      "data_status": "derived",
-      "synthetic": false,
-      "tags": [],
-      "provenance": {
-        "source_url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N37_00_E029_00_DEM/Copernicus_DSM_COG_10_N37_00_E029_00_DEM.tif",
-        "accessed_on": "2026-11-14",
-        "source_file": "salda_glo30.tif",
-        "source_file_sha256": "2d87a3e2509d1a43ddce8c6aeee9e2e0c0f9f3fe1fe2645ba4110d2f0582c3f5",
-        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
-        "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
-        "vertical_unit": "m",
-        "band_scale": 1.0,
-        "band_offset": 0.0,
-        "resampling": "average",
-        "georeferencing_verified": true,
-        "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
-      },
-      "heightmap": {
-        "path": "heightmaps/earth_salda_regional.png",
-        "metadata_path": "heightmaps/earth_salda_regional.json",
-        "width": 50,
-        "height": 50,
-        "bit_depth": 16,
-        "offset": 747.9799012636669,
-        "scale": 0.1,
-        "NoData": 0,
-        "nodata_mask": "pixel == 0",
-        "pixel_size_x_m": 1000,
-        "pixel_size_y_m": 1000,
-        "origin_x_m": -25000,
-        "origin_y_m": 25000,
-        "row_direction": "south",
-        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus",
-        "vertical_reference": "EGM2008 orthometric height",
-        "elevation_unit": "m",
-        "vertical_exaggeration": 1,
-        "synthetic": false,
-        "decode": "elevation_m = pixel * scale + offset"
-      }
-    },
-    {
-      "schema_version": "2.3",
       "region_id": "mars_jezero_regional",
       "kind": "target",
       "body": "mars",
@@ -429,6 +327,1580 @@
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",18.38,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",77.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
         "dem_source": "mola",
         "vertical_reference": "GMM3 (mgm1025) degree/order 50 areoid",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_kula_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Kula",
+      "lat": 38.58,
+      "lon": 28.52,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 30.922080775909325,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "features": {
+        "slope_median_deg": {
+          "value": 2.5968231364802827,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 5.70285952000872,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.83,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 70.69418064547287,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 227.341872201024,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 66.43348673836047,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
+          "Surface terrain context only; 500 m analysis does not resolve individual lava tubes."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "accessed_on": "2026-11-14",
+        "source_file": "kula_glo30.tif",
+        "source_file_sha256": "df51fb59a785bfea17cf0ef7ea155c17a3203edb7cda1d8bd33e9dde8fb0d8fa",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_kula_local.png",
+        "metadata_path": "heightmaps/earth_kula_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": 610.9045503183307,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_hassa_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Hassa",
+      "lat": 36.8,
+      "lon": 36.55,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 30.922080775909325,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.9323226614334967,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 8.368027392329946,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.7825,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 18.529889092995887,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 353.11613640457995,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 123.9176016366889,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
+          "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "accessed_on": "2026-11-14",
+        "source_file": "hassa_glo30.tif",
+        "source_file_sha256": "aae672d5aeeb98fbcd590cef36c312b20fdc05ab77cfafb672c1f45c6a6719bb",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_hassa_local.png",
+        "metadata_path": "heightmaps/earth_hassa_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": 325.5118601620181,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_atacama_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Atacama (Yungay)",
+      "lat": -24.063777777777776,
+      "lon": -69.8805,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 30.922080775909325,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "features": {
+        "slope_median_deg": {
+          "value": 2.796185520455148,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 8.809199949276291,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.69,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 89.4947804944178,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 264.1341402644043,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 91.89634787716,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
+          "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "accessed_on": "2026-11-14",
+        "source_file": "atacama_glo30.tif",
+        "source_file_sha256": "957997bd705aece1f98e4def2f59f44b0ca7949712ac5ff6766936181bb880af",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_atacama_local.png",
+        "metadata_path": "heightmaps/earth_atacama_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": 951.4884280393593,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_meke_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Meke Maar",
+      "lat": 37.68694444444444,
+      "lon": 33.643055555555556,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 30.922080775909325,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.6869444444444,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.6430555555556,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "features": {
+        "slope_median_deg": {
+          "value": 1.4629104526208179,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 5.1266136466442696,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.8925,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 45.04939422545952,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 167.31659130293826,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 56.04678566118805,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Ramsar site reference coordinate.",
+          "Volcanic lake surface/terrain only; no mineral detection claim."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "accessed_on": "2026-11-14",
+        "source_file": "meke_glo30.tif",
+        "source_file_sha256": "5117b90b20fc385eded5165390b26f55f8495f27528138cfdf8fa84f65938b87",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_meke_local.png",
+        "metadata_path": "heightmaps/earth_meke_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": 980.4095789331484,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.6869444444444,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.6430555555556,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_tuz_golu_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Tuz Golu",
+      "lat": 38.75,
+      "lon": 33.33,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 30.922080775909325,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.33,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.037273787221964845,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.10635046991863822,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 1.649887200283404,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 1.884188644146434,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 0.6597674621700778,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Operator-selected center within the UNESCO-listed protected-area coordinate range, not a monitoring station.",
+          "Seasonally shallow salt-lake surface is not bathymetry or a dry-land-only sample."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "accessed_on": "2026-11-14",
+        "source_file": "tuz_golu_glo30.tif",
+        "source_file_sha256": "ae9bff6b8d9199933b873244822745305bcd3d6365f747f8104df90a03199e2d",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_tuz_golu_local.png",
+        "metadata_path": "heightmaps/earth_tuz_golu_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": 902.4,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.33,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_haughton_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Haughton",
+      "lat": 75.3775,
+      "lon": -89.65361111111112,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 92.76624232772797,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",75.3775,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-89.6536111111111,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "features": {
+        "slope_median_deg": {
+          "value": 1.574140141337685,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 3.9492587254474207,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.9475,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 43.90457486256983,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 102.3654190541063,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 31.354062564650977,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Impact Earth crater reference coordinate.",
+          "Polar control locality, not a confirmed negative analog class."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "accessed_on": "2026-11-14",
+        "source_file": "haughton_glo30.tif",
+        "source_file_sha256": "efd8b7f0c20bb79c0560ddbd5a4752adcf83a040e080bc909b0c186bbd0d9239",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_haughton_local.png",
+        "metadata_path": "heightmaps/earth_haughton_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": 82.53018404429797,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",75.3775,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-89.6536111111111,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_meteor_crater_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Meteor Crater",
+      "lat": 35.03333333333333,
+      "lon": -111.01666666666667,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 30.922080775909325,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",35.0333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-111.016666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.6497488250716643,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 1.2306402499293438,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.985,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 14.535385832004414,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 87.6836962787379,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 26.80596502719889,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "NASA crater catalog reference coordinate (arc-minute precision).",
+          "Crater structure is small relative to 500 m/1000 m analysis; control locality is not a negative class."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "accessed_on": "2026-11-14",
+        "source_file": "meteor_crater_glo30.tif",
+        "source_file_sha256": "b742d693b070e0a288444cb4a5e1cb93d18af13e6ab14f0ad350f0e9ad790b07",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_meteor_crater_local.png",
+        "metadata_path": "heightmaps/earth_meteor_crater_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": 1584.9162962639402,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",35.0333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-111.016666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_salda_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Salda",
+      "lat": 37.55,
+      "lon": 29.67,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 92.76624232772798,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 3.5991836793873127,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 9.04200253743063,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.6432,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 201.44976164565287,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 845.2529411956114,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 253.378047896941,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "fallback_dem",
+        "warnings": [
+          "Copernicus is a DSM; Salda lake surface is not lake-bed topography.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_salda_regional.tif",
+        "source_file_sha256": "ef300bc9de48e3a4947e5afb6b4ad178b86655c04f50105b9bf51a1bfc92418b",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_salda_regional.png",
+        "metadata_path": "heightmaps/earth_salda_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": 747.4358403033373,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_kula_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Kula",
+      "lat": 38.58,
+      "lon": 28.52,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 92.76624232772798,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 3.035499428514818,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 6.563148210400196,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.7872,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 153.91835913554144,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 742.6302687136666,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 235.60582406347586,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "fallback_dem",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
+          "Surface terrain context only; 500 m analysis does not resolve individual lava tubes.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_kula_regional.tif",
+        "source_file_sha256": "47497db0c1ff8bfac52005126c7628aefd34a9fe948a1c612b74a9fd9e1d99c4",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_kula_regional.png",
+        "metadata_path": "heightmaps/earth_kula_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": 96.69315083209271,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_hassa_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Hassa",
+      "lat": 36.8,
+      "lon": 36.55,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 92.76624232772798,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 5.07252512967624,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 12.478932966058373,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.492,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 291.1785716878187,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 1377.8540309821262,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 421.13173088217115,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "fallback_dem",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
+          "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_hassa_regional.tif",
+        "source_file_sha256": "8998754f80e6c3d915bf2ab1ae0f95da7d5457c2ee413cfd2dd1270af9fb3349",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_hassa_regional.png",
+        "metadata_path": "heightmaps/earth_hassa_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": 92.12759402557099,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_atacama_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Atacama (Yungay)",
+      "lat": -24.063777777777776,
+      "lon": -69.8805,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 92.76624232772798,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 1.7426624323401199,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 5.192648064025161,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.8884,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 87.74787351442608,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 641.6400604765485,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 195.63979887211437,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "fallback_dem",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
+          "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_atacama_regional.tif",
+        "source_file_sha256": "7c2acf2bd722ca7abd019d34a627ebd3a52688498c7bfae8f08c0d48cb2baa0b",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_atacama_regional.png",
+        "metadata_path": "heightmaps/earth_atacama_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": 724.892927110768,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_meke_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Meke Maar",
+      "lat": 37.68694444444444,
+      "lon": 33.643055555555556,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 92.76624232772798,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.6869444444444,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.6430555555556,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.3862473998316527,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 4.227053591714217,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.9236,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 21.88717245559544,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 397.0078466432908,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 141.73661346391023,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "fallback_dem",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Ramsar site reference coordinate.",
+          "Volcanic lake surface/terrain only; no mineral detection claim.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_meke_regional.tif",
+        "source_file_sha256": "ec695a4c79536db9758d634010cd6ee9e273485237ddd65eb2942d5f89203d6a",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_meke_regional.png",
+        "metadata_path": "heightmaps/earth_meke_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": 984.4524048783413,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.6869444444444,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.6430555555556,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_tuz_golu_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Tuz Golu",
+      "lat": 38.75,
+      "lon": 33.33,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 92.76624232772798,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.33,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.05233467452563617,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.9210565040749858,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.9936,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 2.6447404415560944,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 70.85079799757045,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 30.020158381096227,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "fallback_dem",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Operator-selected center within the UNESCO-listed protected-area coordinate range, not a monitoring station.",
+          "Seasonally shallow salt-lake surface is not bathymetry or a dry-land-only sample.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_tuz_golu_regional.tif",
+        "source_file_sha256": "40ebb2c4dc044894cd8c30470e4d8c41887be9716dba41566a23f909f1a14008",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_tuz_golu_regional.png",
+        "metadata_path": "heightmaps/earth_tuz_golu_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": 902.1590090850202,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.33,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_haughton_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Haughton",
+      "lat": 75.3775,
+      "lon": -89.65361111111112,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 278.29872698318394,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",75.3775,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-89.6536111111111,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 1.2085474691619842,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 4.02734611464025,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.9264,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 67.58869284054485,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 369.1339340064317,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 106.6298432143245,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "Impact Earth crater reference coordinate.",
+          "Polar control locality, not a confirmed negative analog class.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "Outside nominal SRTM acquisition latitudes; GLO-90 selected."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_haughton_regional.tif",
+        "source_file_sha256": "a70118291a95282b327869c42c8da5d72b2651e2afe2240ae63a8879a310f72c",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_haughton_regional.png",
+        "metadata_path": "heightmaps/earth_haughton_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -0.1,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",75.3775,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-89.6536111111111,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_meteor_crater_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Meteor Crater",
+      "lat": 35.03333333333333,
+      "lon": -111.01666666666667,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 92.76624232772798,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",35.0333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-111.016666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "copernicus_glo90",
+      "dem_version": "GLO-90 Public 2021 release",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.7170573087281693,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 1.550464100257526,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.9848,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 32.493398641970344,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 516.6365892730514,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 161.59984577391143,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "fallback_dem",
+        "warnings": [
+          "Copernicus DSM includes surface cover; not bare-earth geology.",
+          "NASA crater catalog reference coordinate (arc-minute precision).",
+          "Crater structure is small relative to 500 m/1000 m analysis; control locality is not a negative class.",
+          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
+          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+        ],
+        "validation_eligible": true
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://dataspace.copernicus.eu/",
+        "accessed_on": "2026-11-14",
+        "source_file": "earth_meteor_crater_regional.tif",
+        "source_file_sha256": "df1836e3bf658d04eaeab0f828ca50fdea3a54428aaf13579cf45026a84c3525",
+        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "source_radius_m": 6378137.0,
+        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": true,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/earth_meteor_crater_regional.png",
+        "metadata_path": "heightmaps/earth_meteor_crater_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": 1436.2797856279126,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",35.0333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-111.016666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "copernicus_glo90",
+        "vertical_reference": "EGM2008 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -675,154 +2147,50 @@
     },
     {
       "schema_version": "2.3",
-      "region_id": "earth_kula_local",
-      "kind": "candidate",
-      "body": "earth",
-      "name": "Kula",
-      "lat": 38.58,
-      "lon": 28.52,
-      "scale": "local",
-      "window_km": 10,
-      "analysis_resolution_m": 500,
-      "source_resolution_m": 30.922080775909325,
-      "resolution_validated": true,
-      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus",
-      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
-      "features": {
-        "slope_median_deg": {
-          "value": 2.5968231364802827,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "slope_p90_deg": {
-          "value": 5.70285952000872,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "flat_fraction": {
-          "value": 0.83,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "tri_median_m": {
-          "value": 70.69418064547287,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "relief_m": {
-          "value": 227.341872201024,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "elevation_std_m": {
-          "value": 66.43348673836047,
-          "data_status": "derived",
-          "comparable": true
-        }
-      },
-      "earth_filters": null,
-      "quality": {
-        "nodata_ratio": 0.0,
-        "coverage": "full",
-        "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
-          "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
-          "Surface terrain context only; 500 m analysis does not resolve individual lava tubes."
-        ],
-        "validation_eligible": true
-      },
-      "processing_version": "0.3.0",
-      "method": "metric-gradient-riley8-p95p5-v1",
-      "data_status": "derived",
-      "synthetic": false,
-      "tags": [],
-      "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-        "accessed_on": "2026-11-14",
-        "source_file": "kula_glo30.tif",
-        "source_file_sha256": "df51fb59a785bfea17cf0ef7ea155c17a3203edb7cda1d8bd33e9dde8fb0d8fa",
-        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
-        "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
-        "vertical_unit": "m",
-        "band_scale": 1.0,
-        "band_offset": 0.0,
-        "resampling": "average",
-        "georeferencing_verified": true,
-        "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
-      },
-      "heightmap": {
-        "path": "heightmaps/earth_kula_local.png",
-        "metadata_path": "heightmaps/earth_kula_local.json",
-        "width": 20,
-        "height": 20,
-        "bit_depth": 16,
-        "offset": 610.9045503183307,
-        "scale": 0.1,
-        "NoData": 0,
-        "nodata_mask": "pixel == 0",
-        "pixel_size_x_m": 500,
-        "pixel_size_y_m": 500,
-        "origin_x_m": -5000,
-        "origin_y_m": 5000,
-        "row_direction": "south",
-        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus",
-        "vertical_reference": "EGM2008 orthometric height",
-        "elevation_unit": "m",
-        "vertical_exaggeration": 1,
-        "synthetic": false,
-        "decode": "elevation_m = pixel * scale + offset"
-      }
-    },
-    {
-      "schema_version": "2.3",
-      "region_id": "earth_kula_regional",
-      "kind": "candidate",
-      "body": "earth",
-      "name": "Kula",
-      "lat": 38.58,
-      "lon": 28.52,
+      "region_id": "moon_marius_hills_regional",
+      "kind": "target",
+      "body": "moon",
+      "name": "Marius Hills Pit regional context",
+      "lat": 14.0917,
+      "lon": -56.77010000000001,
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 30.922080775909325,
-      "resolution_validated": true,
-      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus",
-      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "source_resolution_m": 236.90117518866782,
+      "resolution_validated": false,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",14.0917,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-56.7701,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "lola",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_128/LDEC_128 V3.0 (2017)",
       "features": {
         "slope_median_deg": {
-          "value": 3.0207858299547534,
+          "value": 1.1002738201094764,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         },
         "slope_p90_deg": {
-          "value": 6.584606265768741,
+          "value": 3.2037712521020785,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         },
         "flat_fraction": {
-          "value": 0.7864,
+          "value": 0.9788,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         },
         "tri_median_m": {
-          "value": 154.04296573550857,
+          "value": 55.73932097759034,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         },
         "relief_m": {
-          "value": 742.7878052948626,
+          "value": 670.7349112903605,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         },
         "elevation_std_m": {
-          "value": 235.69697108581116,
+          "value": 204.81175667463864,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         }
       },
       "earth_filters": null,
@@ -830,11 +2198,23 @@
         "nodata_ratio": 0.0,
         "coverage": "full",
         "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
-          "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
-          "Surface terrain context only; 500 m analysis does not resolve individual lava tubes."
+          "Regional terrain context only; a 1000 m analysis cannot resolve the roughly 50 m pit entrance.",
+          "Global LOLA sampling is sparse at low latitudes; effective-resolution QA remains required.",
+          "Product georeferencing and sampling/quality review is not yet verified.",
+          "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
+          "Some analysis cells have no directly observed source bins or no counts coverage.",
+          "Awaiting matching target/Earth window, resolution and method validation."
         ],
-        "validation_eligible": true
+        "validation_eligible": false,
+        "sampling": {
+          "counts_file": "ldec_128.tif",
+          "mean_observed_bin_fraction": 0.3429884612560272,
+          "min_observed_bin_fraction": 0.0,
+          "analysis_cells_without_counts_coverage": 0,
+          "analysis_cells_without_observed_bins": 248,
+          "analysis_cells_total": 2500,
+          "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -842,28 +2222,28 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+        "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_128.img",
         "accessed_on": "2026-11-14",
-        "source_file": "kula_glo30.tif",
-        "source_file_sha256": "df51fb59a785bfea17cf0ef7ea155c17a3203edb7cda1d8bd33e9dde8fb0d8fa",
-        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
-        "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "source_file": "ldem_128.tif",
+        "source_file_sha256": "51c7e8c2ce1b410a98ef078fa5f2bc643c5a15b0ca01e275e1c89addcd3a3a4f",
+        "source_crs": "GEOGCS[\"unknown\",DATUM[\"unknown\",SPHEROID[\"unknown\",1737400,0]],PRIMEM[\"Reference meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "source_radius_m": 1737400.0,
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
         "vertical_unit": "m",
-        "band_scale": 1.0,
+        "band_scale": 0.5,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
-        "source_quality_verified": true,
+        "source_quality_verified": false,
         "max_nodata_ratio": 0.05
       },
       "heightmap": {
-        "path": "heightmaps/earth_kula_regional.png",
-        "metadata_path": "heightmaps/earth_kula_regional.json",
+        "path": "heightmaps/moon_marius_hills_regional.png",
+        "metadata_path": "heightmaps/moon_marius_hills_regional.json",
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 96.72441486311715,
+        "offset": -2043.2919171070887,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -872,425 +2252,9 @@
         "origin_x_m": -25000,
         "origin_y_m": 25000,
         "row_direction": "south",
-        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus",
-        "vertical_reference": "EGM2008 orthometric height",
-        "elevation_unit": "m",
-        "vertical_exaggeration": 1,
-        "synthetic": false,
-        "decode": "elevation_m = pixel * scale + offset"
-      }
-    },
-    {
-      "schema_version": "2.3",
-      "region_id": "earth_hassa_local",
-      "kind": "candidate",
-      "body": "earth",
-      "name": "Hassa",
-      "lat": 36.8,
-      "lon": 36.55,
-      "scale": "local",
-      "window_km": 10,
-      "analysis_resolution_m": 500,
-      "source_resolution_m": 30.922080775909325,
-      "resolution_validated": true,
-      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus",
-      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
-      "features": {
-        "slope_median_deg": {
-          "value": 0.9323226614334967,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "slope_p90_deg": {
-          "value": 8.368027392329946,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "flat_fraction": {
-          "value": 0.7825,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "tri_median_m": {
-          "value": 18.529889092995887,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "relief_m": {
-          "value": 353.11613640457995,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "elevation_std_m": {
-          "value": 123.9176016366889,
-          "data_status": "derived",
-          "comparable": true
-        }
-      },
-      "earth_filters": null,
-      "quality": {
-        "nodata_ratio": 0.0,
-        "coverage": "full",
-        "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
-          "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
-          "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim."
-        ],
-        "validation_eligible": true
-      },
-      "processing_version": "0.3.0",
-      "method": "metric-gradient-riley8-p95p5-v1",
-      "data_status": "derived",
-      "synthetic": false,
-      "tags": [],
-      "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-        "accessed_on": "2026-11-14",
-        "source_file": "hassa_glo30.tif",
-        "source_file_sha256": "aae672d5aeeb98fbcd590cef36c312b20fdc05ab77cfafb672c1f45c6a6719bb",
-        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
-        "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
-        "vertical_unit": "m",
-        "band_scale": 1.0,
-        "band_offset": 0.0,
-        "resampling": "average",
-        "georeferencing_verified": true,
-        "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
-      },
-      "heightmap": {
-        "path": "heightmaps/earth_hassa_local.png",
-        "metadata_path": "heightmaps/earth_hassa_local.json",
-        "width": 20,
-        "height": 20,
-        "bit_depth": 16,
-        "offset": 325.5118601620181,
-        "scale": 0.1,
-        "NoData": 0,
-        "nodata_mask": "pixel == 0",
-        "pixel_size_x_m": 500,
-        "pixel_size_y_m": 500,
-        "origin_x_m": -5000,
-        "origin_y_m": 5000,
-        "row_direction": "south",
-        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus",
-        "vertical_reference": "EGM2008 orthometric height",
-        "elevation_unit": "m",
-        "vertical_exaggeration": 1,
-        "synthetic": false,
-        "decode": "elevation_m = pixel * scale + offset"
-      }
-    },
-    {
-      "schema_version": "2.3",
-      "region_id": "earth_hassa_regional",
-      "kind": "candidate",
-      "body": "earth",
-      "name": "Hassa",
-      "lat": 36.8,
-      "lon": 36.55,
-      "scale": "regional",
-      "window_km": 50,
-      "analysis_resolution_m": 1000,
-      "source_resolution_m": 30.922080775909325,
-      "resolution_validated": true,
-      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus",
-      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
-      "features": {
-        "slope_median_deg": {
-          "value": 5.086589334869096,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "slope_p90_deg": {
-          "value": 12.497831332555428,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "flat_fraction": {
-          "value": 0.4924,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "tri_median_m": {
-          "value": 289.99856344279783,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "relief_m": {
-          "value": 1374.2938412364679,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "elevation_std_m": {
-          "value": 421.2626803765239,
-          "data_status": "derived",
-          "comparable": true
-        }
-      },
-      "earth_filters": null,
-      "quality": {
-        "nodata_ratio": 0.0,
-        "coverage": "full",
-        "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
-          "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
-          "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim."
-        ],
-        "validation_eligible": true
-      },
-      "processing_version": "0.3.0",
-      "method": "metric-gradient-riley8-p95p5-v1",
-      "data_status": "derived",
-      "synthetic": false,
-      "tags": [],
-      "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-        "accessed_on": "2026-11-14",
-        "source_file": "hassa_glo30.tif",
-        "source_file_sha256": "aae672d5aeeb98fbcd590cef36c312b20fdc05ab77cfafb672c1f45c6a6719bb",
-        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
-        "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
-        "vertical_unit": "m",
-        "band_scale": 1.0,
-        "band_offset": 0.0,
-        "resampling": "average",
-        "georeferencing_verified": true,
-        "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
-      },
-      "heightmap": {
-        "path": "heightmaps/earth_hassa_regional.png",
-        "metadata_path": "heightmaps/earth_hassa_regional.json",
-        "width": 50,
-        "height": 50,
-        "bit_depth": 16,
-        "offset": 92.27726330541796,
-        "scale": 0.1,
-        "NoData": 0,
-        "nodata_mask": "pixel == 0",
-        "pixel_size_x_m": 1000,
-        "pixel_size_y_m": 1000,
-        "origin_x_m": -25000,
-        "origin_y_m": 25000,
-        "row_direction": "south",
-        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus",
-        "vertical_reference": "EGM2008 orthometric height",
-        "elevation_unit": "m",
-        "vertical_exaggeration": 1,
-        "synthetic": false,
-        "decode": "elevation_m = pixel * scale + offset"
-      }
-    },
-    {
-      "schema_version": "2.3",
-      "region_id": "earth_atacama_local",
-      "kind": "candidate",
-      "body": "earth",
-      "name": "Atacama (Yungay)",
-      "lat": -24.063777777777776,
-      "lon": -69.8805,
-      "scale": "local",
-      "window_km": 10,
-      "analysis_resolution_m": 500,
-      "source_resolution_m": 30.922080775909325,
-      "resolution_validated": true,
-      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus",
-      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
-      "features": {
-        "slope_median_deg": {
-          "value": 2.796185520455148,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "slope_p90_deg": {
-          "value": 8.809199949276291,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "flat_fraction": {
-          "value": 0.69,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "tri_median_m": {
-          "value": 89.4947804944178,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "relief_m": {
-          "value": 264.1341402644043,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "elevation_std_m": {
-          "value": 91.89634787716,
-          "data_status": "derived",
-          "comparable": true
-        }
-      },
-      "earth_filters": null,
-      "quality": {
-        "nodata_ratio": 0.0,
-        "coverage": "full",
-        "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
-          "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
-          "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
-        ],
-        "validation_eligible": true
-      },
-      "processing_version": "0.3.0",
-      "method": "metric-gradient-riley8-p95p5-v1",
-      "data_status": "derived",
-      "synthetic": false,
-      "tags": [],
-      "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-        "accessed_on": "2026-11-14",
-        "source_file": "atacama_glo30.tif",
-        "source_file_sha256": "957997bd705aece1f98e4def2f59f44b0ca7949712ac5ff6766936181bb880af",
-        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
-        "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
-        "vertical_unit": "m",
-        "band_scale": 1.0,
-        "band_offset": 0.0,
-        "resampling": "average",
-        "georeferencing_verified": true,
-        "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
-      },
-      "heightmap": {
-        "path": "heightmaps/earth_atacama_local.png",
-        "metadata_path": "heightmaps/earth_atacama_local.json",
-        "width": 20,
-        "height": 20,
-        "bit_depth": 16,
-        "offset": 951.4884280393593,
-        "scale": 0.1,
-        "NoData": 0,
-        "nodata_mask": "pixel == 0",
-        "pixel_size_x_m": 500,
-        "pixel_size_y_m": 500,
-        "origin_x_m": -5000,
-        "origin_y_m": 5000,
-        "row_direction": "south",
-        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus",
-        "vertical_reference": "EGM2008 orthometric height",
-        "elevation_unit": "m",
-        "vertical_exaggeration": 1,
-        "synthetic": false,
-        "decode": "elevation_m = pixel * scale + offset"
-      }
-    },
-    {
-      "schema_version": "2.3",
-      "region_id": "earth_atacama_regional",
-      "kind": "candidate",
-      "body": "earth",
-      "name": "Atacama (Yungay)",
-      "lat": -24.063777777777776,
-      "lon": -69.8805,
-      "scale": "regional",
-      "window_km": 50,
-      "analysis_resolution_m": 1000,
-      "source_resolution_m": 30.922080775909325,
-      "resolution_validated": true,
-      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus",
-      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
-      "features": {
-        "slope_median_deg": {
-          "value": 1.7523100105597775,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "slope_p90_deg": {
-          "value": 5.208796637753011,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "flat_fraction": {
-          "value": 0.89,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "tri_median_m": {
-          "value": 88.08394392591066,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "relief_m": {
-          "value": 640.7939108523789,
-          "data_status": "derived",
-          "comparable": true
-        },
-        "elevation_std_m": {
-          "value": 195.66426421261053,
-          "data_status": "derived",
-          "comparable": true
-        }
-      },
-      "earth_filters": null,
-      "quality": {
-        "nodata_ratio": 0.0,
-        "coverage": "full",
-        "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
-          "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
-          "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
-        ],
-        "validation_eligible": true
-      },
-      "processing_version": "0.3.0",
-      "method": "metric-gradient-riley8-p95p5-v1",
-      "data_status": "derived",
-      "synthetic": false,
-      "tags": [],
-      "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
-        "accessed_on": "2026-11-14",
-        "source_file": "atacama_glo30.tif",
-        "source_file_sha256": "957997bd705aece1f98e4def2f59f44b0ca7949712ac5ff6766936181bb880af",
-        "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
-        "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
-        "vertical_unit": "m",
-        "band_scale": 1.0,
-        "band_offset": 0.0,
-        "resampling": "average",
-        "georeferencing_verified": true,
-        "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
-      },
-      "heightmap": {
-        "path": "heightmaps/earth_atacama_regional.png",
-        "metadata_path": "heightmaps/earth_atacama_regional.json",
-        "width": 50,
-        "height": 50,
-        "bit_depth": 16,
-        "offset": 724.8006058422783,
-        "scale": 0.1,
-        "NoData": 0,
-        "nodata_mask": "pixel == 0",
-        "pixel_size_x_m": 1000,
-        "pixel_size_y_m": 1000,
-        "origin_x_m": -25000,
-        "origin_y_m": 25000,
-        "row_direction": "south",
-        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus",
-        "vertical_reference": "EGM2008 orthometric height",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",14.0917,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-56.7701,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "lola",
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,

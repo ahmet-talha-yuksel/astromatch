@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "path": "../raw/marius_hills/ldem_128.tif",
+      "region_id": "moon_marius_hills_regional",
+      "name": "Marius Hills Pit regional context",
+      "body": "moon",
+      "product": "lola",
+      "lat": 14.0917,
+      "lon": -56.77010000000001,
+      "scale": "regional",
+      "source_resolution_m": 236.90117518866782,
+      "vertical_unit": "m",
+      "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+      "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_128.img",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_128/LDEC_128 V3.0 (2017)",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "georeferencing_verified": true,
+      "source_quality_verified": false,
+      "counts_path": "../raw/marius_hills/ldec_128.tif",
+      "quality_notes": [
+        "Regional terrain context only; a 1000 m analysis cannot resolve the roughly 50 m pit entrance.",
+        "Global LOLA sampling is sparse at low latitudes; effective-resolution QA remains required."
+      ]
+    }
+  ],
+  "retrieval_manifest": "../raw/marius_hills/retrieval.json"
+}

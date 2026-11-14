@@ -1,5 +1,16 @@
 # NASA Data Processing — v2.3
 
+Güncel ekip teslimi: `out/real/features.json` **21 kayıt** içerir (8 Dünya
+sahası × 2 ölçek, Jezero × 2, Shackleton × 2, Marius Hills regional).
+18 kaydın topoğrafik işlem QA bayrakları açıktır; Jezero ve Marius Hills
+skorlamaya kapalıdır. Local Dünya girdileri GLO-30, regional girdiler GLO-90'dır.
+Kişi 2 için ham veri gerektirmeyen paket: `out/handoff/kisi2_v2_3.zip`.
+ZIP içindeki HANDOFF.md v2.3 okuyucu sözleşmesini açıklar. Motor aynı pencere,
+çözünürlük ve yöntemi kontrol etmeli; iki tarafta comparable=true olmayan
+ölçütleri dışlamalıdır. JSON zaten v2.3 biçimindedir; elle dönüştürme gerekmez.
+Aşağıdaki ilk teslim açıklamaları ve QA anlık görüntüleri denetim bağlamıdır.
+
+
 Güncel ortak teslim `out/real/` altındadır. Bu pakette dört Dünya sahası ile
 Shackleton'ın local/regional topoğrafik karşılaştırması işlem QA kontrolünden
 geçmiştir (10 kayıt comparable=true). Jezero'nun iki kaydı ve ön pilot hâlâ

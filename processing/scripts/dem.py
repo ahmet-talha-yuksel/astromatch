@@ -43,6 +43,7 @@ class DemRequest:
     counts_path: str | None = None
     quality_notes: tuple[str, ...] = ()
     qa_report_path: str | None = None
+    is_fallback_dem: bool = False
 
 
 def process_dem(request: DemRequest, timings=None):
@@ -145,7 +146,7 @@ def process_dem(request: DemRequest, timings=None):
               'crs': dst_crs.to_wkt(), 'dem_source': r.product, 'dem_version': r.dem_version,
               'features': features, 'earth_filters': None,
               'quality': {'nodata_ratio': ratio, 'coverage': 'none' if ratio == 1 else
-                          ('full' if ratio == 0 else 'partial'), 'warnings': warnings,
+                          (('fallback_dem' if r.is_fallback_dem else 'full') if ratio == 0 else 'partial'), 'warnings': warnings,
                           'validation_eligible': eligible},
               'processing_version': '0.3.0', 'method': METHOD,
               'data_status': 'mock' if r.synthetic else 'derived', 'synthetic': r.synthetic,

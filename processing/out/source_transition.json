@@ -1,0 +1,137 @@
+{
+  "schema_version": "2.3",
+  "comparisons": [
+    {
+      "primary_source": "srtmgl30",
+      "reference_source": "copernicus_glo90",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "primary_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
+      "reference_file_sha256": "ef300bc9de48e3a4947e5afb6b4ad178b86655c04f50105b9bf51a1bfc92418b",
+      "differences": {
+        "slope_median_deg": -0.13228098728853244,
+        "slope_p90_deg": -0.523040038947558,
+        "flat_fraction": 0.020399999999999974,
+        "tri_median_m": -17.6094577549205,
+        "relief_m": -6.807574319425385,
+        "elevation_std_m": -2.7164137505070585
+      },
+      "note": "Differences are source/processing sensitivity, not an independent error estimate. Vertical datums differ (EGM96 vs EGM2008).",
+      "region_id": "earth_salda_regional"
+    },
+    {
+      "primary_source": "srtmgl30",
+      "reference_source": "copernicus_glo90",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "primary_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
+      "reference_file_sha256": "47497db0c1ff8bfac52005126c7628aefd34a9fe948a1c612b74a9fd9e1d99c4",
+      "differences": {
+        "slope_median_deg": -0.1475151100215899,
+        "slope_p90_deg": -0.4178826564140312,
+        "flat_fraction": 0.03279999999999994,
+        "tri_median_m": -12.683203029473702,
+        "relief_m": -2.0604180130070517,
+        "elevation_std_m": -1.4321047054095288
+      },
+      "note": "Differences are source/processing sensitivity, not an independent error estimate. Vertical datums differ (EGM96 vs EGM2008).",
+      "region_id": "earth_kula_regional"
+    },
+    {
+      "primary_source": "srtmgl30",
+      "reference_source": "copernicus_glo90",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "primary_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
+      "reference_file_sha256": "8998754f80e6c3d915bf2ab1ae0f95da7d5457c2ee413cfd2dd1270af9fb3349",
+      "differences": {
+        "slope_median_deg": -0.18591799347607996,
+        "slope_p90_deg": -0.7703703994283604,
+        "flat_fraction": 0.016800000000000037,
+        "tri_median_m": -30.55224719190926,
+        "relief_m": -20.25328867706844,
+        "elevation_std_m": -3.564050374329156
+      },
+      "note": "Differences are source/processing sensitivity, not an independent error estimate. Vertical datums differ (EGM96 vs EGM2008).",
+      "region_id": "earth_hassa_regional"
+    },
+    {
+      "primary_source": "srtmgl30",
+      "reference_source": "copernicus_glo90",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "primary_file_sha256": "68e4b8ab0fcf1221811ea0c16096ccc9114138099887f68a1883a9a244133354",
+      "reference_file_sha256": "7c2acf2bd722ca7abd019d34a627ebd3a52688498c7bfae8f08c0d48cb2baa0b",
+      "differences": {
+        "slope_median_deg": -0.04772716645922692,
+        "slope_p90_deg": -0.3541484708046525,
+        "flat_fraction": 0.020400000000000085,
+        "tri_median_m": -5.202953713450583,
+        "relief_m": -0.969946044319272,
+        "elevation_std_m": -1.7628801302851116
+      },
+      "note": "Differences are source/processing sensitivity, not an independent error estimate. Vertical datums differ (EGM96 vs EGM2008).",
+      "region_id": "earth_atacama_regional"
+    },
+    {
+      "primary_source": "srtmgl30",
+      "reference_source": "copernicus_glo90",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "primary_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
+      "reference_file_sha256": "ec695a4c79536db9758d634010cd6ee9e273485237ddd65eb2942d5f89203d6a",
+      "differences": {
+        "slope_median_deg": 0.006805006671180891,
+        "slope_p90_deg": -0.19343750825119432,
+        "flat_fraction": 0.0044000000000000705,
+        "tri_median_m": -1.1137112287437674,
+        "relief_m": -0.13225140930387624,
+        "elevation_std_m": -1.1694136346933988
+      },
+      "note": "Differences are source/processing sensitivity, not an independent error estimate. Vertical datums differ (EGM96 vs EGM2008).",
+      "region_id": "earth_meke_regional"
+    },
+    {
+      "primary_source": "srtmgl30",
+      "reference_source": "copernicus_glo90",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "primary_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
+      "reference_file_sha256": "40ebb2c4dc044894cd8c30470e4d8c41887be9716dba41566a23f909f1a14008",
+      "differences": {
+        "slope_median_deg": -0.018867483274164265,
+        "slope_p90_deg": 0.0028242645167527725,
+        "flat_fraction": 0.0020000000000000018,
+        "tri_median_m": -0.8701028574605405,
+        "relief_m": -0.4250610868920148,
+        "elevation_std_m": -0.3128444280497895
+      },
+      "note": "Differences are source/processing sensitivity, not an independent error estimate. Vertical datums differ (EGM96 vs EGM2008).",
+      "region_id": "earth_tuz_golu_regional"
+    },
+    {
+      "primary_source": "srtmgl30",
+      "reference_source": "copernicus_glo90",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "primary_file_sha256": "ed2b80738dea625104422dee9b8e1f52c0b561810c9483b99e26743230bb547f",
+      "reference_file_sha256": "df1836e3bf658d04eaeab0f828ca50fdea3a54428aaf13579cf45026a84c3525",
+      "differences": {
+        "slope_median_deg": -0.01600385799302173,
+        "slope_p90_deg": -0.05246051695655218,
+        "flat_fraction": 0.005199999999999982,
+        "tri_median_m": -1.1399451171178825,
+        "relief_m": -1.8701202290094443,
+        "elevation_std_m": -0.4181344966303584
+      },
+      "note": "Differences are source/processing sensitivity, not an independent error estimate. Vertical datums differ (EGM96 vs EGM2008).",
+      "region_id": "earth_meteor_crater_regional"
+    }
+  ],
+  "sources": [
+    "SRTMGL30.002",
+    "Copernicus GLO-90 Public 2021"
+  ],
+  "status": "overlap_measured",
+  "independent_accuracy_validated": false
+}

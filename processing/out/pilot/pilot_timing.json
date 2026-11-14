@@ -22,12 +22,13 @@
         "acquisition_wall_s": 7.643844624981284
       },
       "processing": {
-        "reprojection_s": 0.015879041980952024,
-        "feature_extraction_s": 0.0003352079074829817,
-        "validation_provenance_s": 0.009532417170703411,
-        "processing_wall_s": 0.025746667059138417,
-        "heightmap_export_s": 0.003852665890008211
-      }
+        "reprojection_s": 0.027713916962966323,
+        "feature_extraction_s": 0.0013481669593602419,
+        "validation_provenance_s": 0.057529706973582506,
+        "processing_wall_s": 0.08659179089590907,
+        "heightmap_export_s": 0.005730750039219856
+      },
+      "landmask_s": 1.6603714579250664
     },
     {
       "region_id": "earth_grid_r254_c419",
@@ -40,12 +41,13 @@
         "acquisition_wall_s": 3.148288916097954
       },
       "processing": {
-        "reprojection_s": 0.008626834023743868,
-        "feature_extraction_s": 0.0002704998478293419,
-        "validation_provenance_s": 0.0010604159906506538,
-        "processing_wall_s": 0.009957749862223864,
-        "heightmap_export_s": 0.0004373749252408743
-      }
+        "reprojection_s": 0.00898745795711875,
+        "feature_extraction_s": 0.00027774996124207973,
+        "validation_provenance_s": 0.0015319169033318758,
+        "processing_wall_s": 0.010797124821692705,
+        "heightmap_export_s": 0.000599374994635582
+      },
+      "landmask_s": 0.6949476250447333
     },
     {
       "region_id": "earth_grid_r255_c418",
@@ -58,12 +60,13 @@
         "acquisition_wall_s": 0.07203654199838638
       },
       "processing": {
-        "reprojection_s": 0.008616958046332002,
-        "feature_extraction_s": 0.00025558285415172577,
-        "validation_provenance_s": 0.0010738340206444263,
-        "processing_wall_s": 0.009946374921128154,
-        "heightmap_export_s": 0.00038833310827612877
-      }
+        "reprojection_s": 0.008656417019665241,
+        "feature_extraction_s": 0.00021962495520710945,
+        "validation_provenance_s": 0.0012272908352315426,
+        "processing_wall_s": 0.010103332810103893,
+        "heightmap_export_s": 0.0005343749653548002
+      },
+      "landmask_s": 0.649348207982257
     },
     {
       "region_id": "earth_grid_r255_c419",
@@ -76,12 +79,13 @@
         "acquisition_wall_s": 0.06824508286081254
       },
       "processing": {
-        "reprojection_s": 0.008279499830678105,
-        "feature_extraction_s": 0.0002251670230180025,
-        "validation_provenance_s": 0.0010050833225250244,
-        "processing_wall_s": 0.009509750176221132,
-        "heightmap_export_s": 0.0003279170487076044
-      }
+        "reprojection_s": 0.009176083141937852,
+        "feature_extraction_s": 0.0002615419216454029,
+        "validation_provenance_s": 0.0012912920210510492,
+        "processing_wall_s": 0.010728917084634304,
+        "heightmap_export_s": 0.0005355838220566511
+      },
+      "landmask_s": 0.49768541706725955
     },
     {
       "region_id": "earth_grid_r130_c221",
@@ -94,12 +98,13 @@
         "acquisition_wall_s": 4.028820958221331
       },
       "processing": {
-        "reprojection_s": 0.007371624931693077,
-        "feature_extraction_s": 0.0002448330633342266,
-        "validation_provenance_s": 0.0008701260667294264,
-        "processing_wall_s": 0.00848658406175673,
-        "heightmap_export_s": 0.00029041687957942486
-      }
+        "reprojection_s": 0.00793175003491342,
+        "feature_extraction_s": 0.00024112500250339508,
+        "validation_provenance_s": 0.0014140838757157326,
+        "processing_wall_s": 0.009586958913132548,
+        "heightmap_export_s": 0.00035841716453433037
+      },
+      "landmask_s": 0.8845184158999473
     },
     {
       "region_id": "earth_grid_r131_c220",
@@ -112,12 +117,13 @@
         "acquisition_wall_s": 1.0375227502081543
       },
       "processing": {
-        "reprojection_s": 0.0071661660913378,
-        "feature_extraction_s": 0.00020150002092123032,
-        "validation_provenance_s": 0.0008169589564204216,
-        "processing_wall_s": 0.008184625068679452,
-        "heightmap_export_s": 0.000261958921328187
-      }
+        "reprojection_s": 0.00782833294942975,
+        "feature_extraction_s": 0.00023016612976789474,
+        "validation_provenance_s": 0.001126000890508294,
+        "processing_wall_s": 0.00918449996970594,
+        "heightmap_export_s": 0.0002814170438796282
+      },
+      "landmask_s": 0.2069470421411097
     },
     {
       "region_id": "earth_grid_r308_c320",
@@ -130,12 +136,13 @@
         "acquisition_wall_s": 2.047284625004977
       },
       "processing": {
-        "reprojection_s": 0.007513832999393344,
-        "feature_extraction_s": 0.00023949984461069107,
-        "validation_provenance_s": 0.0008328752592206001,
-        "processing_wall_s": 0.008586208103224635,
-        "heightmap_export_s": 0.00030533317476511
-      }
+        "reprojection_s": 0.007800125051289797,
+        "feature_extraction_s": 0.00021358300000429153,
+        "validation_provenance_s": 0.0011731667909771204,
+        "processing_wall_s": 0.009186874842271209,
+        "heightmap_export_s": 0.00048812502063810825
+      },
+      "landmask_s": 0.5507700839079916
     },
     {
       "region_id": "earth_grid_r309_c321",
@@ -148,18 +155,24 @@
         "acquisition_wall_s": 0.9473400840070099
       },
       "processing": {
-        "reprojection_s": 0.007524457992985845,
-        "feature_extraction_s": 0.00020745792426168919,
-        "validation_provenance_s": 0.0008835429325699806,
-        "processing_wall_s": 0.008615458849817514,
-        "heightmap_export_s": 0.00030874996446073055
-      }
+        "reprojection_s": 0.008076000027358532,
+        "feature_extraction_s": 0.00024154107086360455,
+        "validation_provenance_s": 0.0011087087914347649,
+        "processing_wall_s": 0.009426249889656901,
+        "heightmap_export_s": 0.0002702500205487013
+      },
+      "landmask_s": 0.3202987078111619
     }
   ],
   "landmask": {
-    "status": "not_run",
-    "duration_s": null,
-    "reason": "No validated land/water mask supplied; zero elevation is not treated as ocean."
+    "status": "operational_sampling_qa_passed",
+    "duration_s": 5.464886957779527,
+    "product": "ESA WorldCover 2021 v200",
+    "policy": {
+      "max_unknown_fraction": 0.05,
+      "max_absolute_sampling_difference": 0.01
+    },
+    "limitations": "Permanent-water classification and systematic sampling; not current water extent or independent map accuracy validation."
   },
   "srtm_probes": {
     "turkey": {
@@ -189,21 +202,52 @@
     "reason": "No SRTMGL30 input raster available."
   },
   "global_decision": {
-    "status": "deferred",
-    "estimated_hours_range": null,
-    "scope": null,
-    "reasons": [
-      "Validated land mask and target land-cell count are unavailable.",
-      "SRTMGL30/GLO-90 overlap measurements are unavailable.",
-      "8 selected windows and mixed cache conditions do not establish global throughput."
-    ]
+    "status": "provisional",
+    "estimated_hours_range": [
+      3.0734500389843014,
+      92.62399145248811
+    ],
+    "scope": "turkey_surroundings_usgs_and_sample_arid_belts",
+    "final_source_validation_complete": false,
+    "scenarios": [
+      {
+        "name": "high_reuse_sparse_land_selection",
+        "cells": 23859,
+        "per_cell_seconds": 0.4637419900391251,
+        "assumption": "25% of WorldCover-tile-covered grid centers selected; observed lower-quartile mask+processing cost; existing DEM cache."
+      },
+      {
+        "name": "all_candidate_centers_conservative_latency",
+        "cells": 95436,
+        "per_cell_seconds": 3.493926497641951,
+        "assumption": "All WorldCover-supported centers; twice slowest observed mask+processing cost for unmeasured latency/source variance."
+      }
+    ],
+    "candidate_domain": {
+      "worldcover_tiles": 2651,
+      "candidate_cells_upper": 95436,
+      "compressed_worldcover_bytes": 124027923380,
+      "latitude_edges": [
+        -84,
+        84
+      ],
+      "exact_land_cell_count": null
+    },
+    "limitations": [
+      "Scenario endpoints are conditional workloads, not guaranteed global duration bounds.",
+      "Tile coverage includes water cells; true land-only cell count is not established.",
+      "DEM cold download costs are reported separately and are NOT extrapolated from this small sample.",
+      "SRTMGL30 overlap/throughput validation awaits authenticated input.",
+      "Polar/dateline support and supplied USGS cells require separate operational checks."
+    ],
+    "operational_action": "Keep a regional pilot delivery until source access and broader resource measurements are available."
   },
   "assumptions": {
     "grid_step_deg": 0.5,
     "window_km": 50,
     "analysis_resolution_m": 1000,
     "cache_state": "per-tile cache_hit recorded; mixed cold/warm conditions",
-    "land_fraction": null,
+    "land_fraction": "Per pilot cell; global exact land count unavailable.",
     "global_land_cell_count": null
   },
   "limitations": [

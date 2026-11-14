@@ -23,8 +23,8 @@ def tile_name(lat, lon):
 
 
 def footprint_bounds(lat, lon, width_m=52000):
-    if not (-49 < lat < 49 and -179 < lon < 179):
-        raise ValueError('This curated-site downloader currently supports |lat|<49 and no dateline crossing')
+    if not (-84 < lat < 84 and -179 < lon < 179):
+        raise ValueError('This curated-site downloader currently supports |lat|<84 and no dateline crossing')
     laea = CRS.from_proj4(f'+proj=laea +lat_0={lat} +lon_0={lon} +datum=WGS84 +units=m')
     transform = Transformer.from_crs(laea, 'EPSG:4326', always_xy=True)
     half = width_m/2
@@ -48,11 +48,14 @@ def mosaic(paths, destination, bounds):
         for src in sources:
             if src.count != 1 or src.crs != rasterio.crs.CRS.from_epsg(4326):
                 raise ValueError('Expected single-band WGS84 GLO-30 source')
-            if not np.allclose(src.res, (1/3600, 1/3600), rtol=0, atol=1e-10):
+            if not np.isclose(src.res[1], 1/3600, rtol=0, atol=1e-10) or not any(
+                    np.isclose(src.res[0], factor/3600, rtol=0, atol=1e-10)
+                    for factor in (1, 1.5, 2, 3, 5, 10)):
                 raise ValueError('Unexpected GLO-30 native grid spacing')
             if src.scales[0] != 1 or src.offsets[0] != 0:
                 raise ValueError('Unexpected Copernicus vertical encoding')
-        data, transform = merge(sources, bounds=bounds, nodata=np.nan, dtype='float32')
+        data, transform = merge(sources, bounds=bounds, res=(max(s.res[0] for s in sources), 1/3600),
+                                nodata=np.nan, dtype='float32')
         profile = sources[0].profile.copy()
         profile.update(driver='GTiff', width=data.shape[2], height=data.shape[1],
                        transform=transform, dtype='float32', nodata=np.nan, compress='deflate')
@@ -66,14 +69,16 @@ def mosaic(paths, destination, bounds):
     return data.shape[1:]
 
 
-def acquire(root, sites_config, accessed_on):
+def acquire(root, sites_config, accessed_on, batch_name='earth_sites'):
     date.fromisoformat(accessed_on)
     root = Path(root).resolve()
     sites = json.loads(Path(sites_config).read_text(encoding='utf-8'))['sites']
     ids = [s['id'] for s in sites]
     if not ids or len(set(ids)) != len(ids) or any(not i.replace('_', '').isalnum() for i in ids):
         raise ValueError('Sites require unique safe identifiers')
-    raw = root / 'raw' / 'earth_sites'
+    if not batch_name.replace('_', '').isalnum():
+        raise ValueError('Invalid batch name')
+    raw = root / 'raw' / batch_name
     tiles = raw / 'tiles'
     tiles.mkdir(parents=True, exist_ok=True)
     inputs, records, windows = [], [], []
@@ -110,9 +115,9 @@ def acquire(root, sites_config, accessed_on):
                             'georeferencing_verified': True, 'source_quality_verified': True,
                             'quality_notes': ['Copernicus DSM includes surface cover; not bare-earth geology.',
                                               site['coordinate_note'], site['quality_note']]})
-    config = root / 'configs' / 'earth_sites.real.json'
+    config = root / 'configs' / f'{batch_name}.real.json'
     config.parent.mkdir(parents=True, exist_ok=True)
-    write_json(config, {'records': records, 'retrieval_manifest': '../raw/earth_sites/retrieval.json'})
+    write_json(config, {'records': records, 'retrieval_manifest': f'../raw/{batch_name}/retrieval.json'})
     write_json(raw / 'retrieval.json', {'accessed_on': accessed_on, 'inputs': inputs,
                                       'windows': windows, 'physical_crop_width_m': 52000,
                                       'source_portal': 'https://dataspace.copernicus.eu/'})
@@ -125,5 +130,6 @@ if __name__ == '__main__':
     parser.add_argument('--root', type=Path, default=root_default)
     parser.add_argument('--sites', type=Path, default=root_default / 'configs/earth_sites.json')
     parser.add_argument('--accessed-on', required=True)
+    parser.add_argument('--batch-name', default='earth_sites')
     args = parser.parse_args()
-    print(acquire(args.root, args.sites, args.accessed_on))
+    print(acquire(args.root, args.sites, args.accessed_on, args.batch_name))

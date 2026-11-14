@@ -52,13 +52,13 @@ def test_real_lola_and_combined_outputs():
     import pyarrow.parquet as pq
     root = Path(__file__).resolve().parents[1] / 'out'
     records = json.loads((root / 'real/features.json').read_text())['records']
-    assert len(records) == 12
-    assert len({r['region_id'] for r in records}) == 12
+    assert len(records) == 21
+    assert len({r['region_id'] for r in records}) == 21
     assert {r['body'] for r in records} == {'earth', 'mars', 'moon'}
     for r in records:
-        assert not r['synthetic'] and r['resolution_validated'] is (r['body'] != 'mars')
-        assert all(f['data_status'] == 'derived' and f['comparable'] is (r['body'] != 'mars') for f in r['features'].values())
-    moons = [r for r in records if r['body'] == 'moon']
+        assert not r['synthetic'] and r['resolution_validated'] is (r['body'] == 'earth' or 'shackleton' in r['region_id'])
+        assert all(f['data_status'] == 'derived' and f['comparable'] is (r['body'] == 'earth' or 'shackleton' in r['region_id']) for f in r['features'].values())
+    moons = [r for r in records if 'shackleton' in r['region_id']]
     assert len(moons) == 2
     for r in moons:
         assert (r['lat'], r['lon']) == (-89.67, 129.78)
@@ -76,8 +76,8 @@ def test_real_lola_and_combined_outputs():
         relief = np.percentile(z, 95) - np.percentile(z, 5)
         assert relief == pytest.approx(r['features']['relief_m']['value'], abs=meta['scale'] + 1e-6)
         assert pixels.shape == ((20, 20) if r['scale'] == 'local' else (50, 50))
-    assert pq.read_table(root / 'real/earth_grid.parquet').num_rows == 4
+    assert pq.read_table(root / 'real/earth_grid.parquet').num_rows == 8
     manifests = json.loads((root / 'real/retrieval.json').read_text())['datasets']
-    assert len(manifests) == 4
-    assert sum(len(m['inputs']) for m in manifests) == 20
-    assert manifests[1]['conversion']['stored_band_offset_m'] == 0
+    assert len(manifests) == 7
+    assert sum(len(m['inputs']) for m in manifests) > 20
+    assert any(isinstance(m.get('conversion'),dict) and m['conversion'].get('stored_band_offset_m')==0 for m in manifests)

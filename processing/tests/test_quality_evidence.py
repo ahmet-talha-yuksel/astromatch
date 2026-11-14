@@ -122,19 +122,19 @@ def test_real_reviewed_package_unlocks_only_qualified_pairs():
         assert e['primary']['quality']['sampling']['min_observed_bin_fraction'] == 1
         assert e['reference']['source_resolution_m'] == 120
     records = json.loads((root/'real/features.json').read_text())['records']
-    assert len(records) == 12
-    assert sum(r['resolution_validated'] for r in records) == 10
+    assert len(records) == 21
+    assert sum(r['resolution_validated'] for r in records) == 18
     for r in records:
-        expected = r['body'] != 'mars'
+        expected = r['body'] == 'earth' or 'shackleton' in r['region_id']
         assert r['resolution_validated'] is expected
         assert all(f['comparable'] is expected for f in r['features'].values())
-        if r['body'] == 'moon':
+        if 'shackleton' in r['region_id']:
             assert r['quality']['qa_validation']['status'] == 'passed'
             evidence = r['quality']['qa_validation']
             assert len(evidence['report_sha256']) == 64
             assert file_hash(root/'real'/evidence['report_file']) == evidence['report_sha256']
     rows = pq.read_table(root/'real/earth_grid.parquet').to_pylist()
-    assert len(rows) == 4 and all(r['slope_median_deg__comparable'] for r in rows)
+    assert len(rows) == 8 and all(r['slope_median_deg__comparable'] for r in rows)
     # Original preliminary deliverable remains available as an audit snapshot.
     original = json.loads((root/'quality_review/preliminary_features.json').read_text())['records']
     assert not any(r['resolution_validated'] for r in original)

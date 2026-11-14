@@ -9,8 +9,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "full",
-        "dem_source": "copernicus"
+        "coverage": "fallback_dem",
+        "dem_source": "copernicus_glo90"
       },
       "geometry": {
         "type": "Polygon",
@@ -48,8 +48,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "full",
-        "dem_source": "copernicus"
+        "coverage": "fallback_dem",
+        "dem_source": "copernicus_glo90"
       },
       "geometry": {
         "type": "Polygon",
@@ -87,8 +87,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "full",
-        "dem_source": "copernicus"
+        "coverage": "fallback_dem",
+        "dem_source": "copernicus_glo90"
       },
       "geometry": {
         "type": "Polygon",
@@ -126,8 +126,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "full",
-        "dem_source": "copernicus"
+        "coverage": "fallback_dem",
+        "dem_source": "copernicus_glo90"
       },
       "geometry": {
         "type": "Polygon",
@@ -152,6 +152,162 @@
             [
               -70.1305,
               -24.313777777777776
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_meke_regional",
+      "properties": {
+        "region_id": "earth_meke_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "fallback_dem",
+        "dem_source": "copernicus_glo90"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              33.393055555555556,
+              37.43694444444444
+            ],
+            [
+              33.893055555555556,
+              37.43694444444444
+            ],
+            [
+              33.893055555555556,
+              37.93694444444444
+            ],
+            [
+              33.393055555555556,
+              37.93694444444444
+            ],
+            [
+              33.393055555555556,
+              37.43694444444444
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_tuz_golu_regional",
+      "properties": {
+        "region_id": "earth_tuz_golu_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "fallback_dem",
+        "dem_source": "copernicus_glo90"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              33.08,
+              38.5
+            ],
+            [
+              33.58,
+              38.5
+            ],
+            [
+              33.58,
+              39.0
+            ],
+            [
+              33.08,
+              39.0
+            ],
+            [
+              33.08,
+              38.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_haughton_regional",
+      "properties": {
+        "region_id": "earth_haughton_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "full",
+        "dem_source": "copernicus_glo90"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.90361111111112,
+              75.1275
+            ],
+            [
+              -89.40361111111112,
+              75.1275
+            ],
+            [
+              -89.40361111111112,
+              75.6275
+            ],
+            [
+              -89.90361111111112,
+              75.6275
+            ],
+            [
+              -89.90361111111112,
+              75.1275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_meteor_crater_regional",
+      "properties": {
+        "region_id": "earth_meteor_crater_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "fallback_dem",
+        "dem_source": "copernicus_glo90"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -111.26666666666667,
+              34.78333333333333
+            ],
+            [
+              -110.76666666666667,
+              34.78333333333333
+            ],
+            [
+              -110.76666666666667,
+              35.28333333333333
+            ],
+            [
+              -111.26666666666667,
+              35.28333333333333
+            ],
+            [
+              -111.26666666666667,
+              34.78333333333333
             ]
           ]
         ]

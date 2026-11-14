@@ -24,7 +24,7 @@ def test_physical_window_bounds_enclose_all_corners():
             xx, yy = inverse.transform(x, y)
             assert west < xx < east and south < yy < north
     with pytest.raises(ValueError):
-        footprint_bounds(60, 30)
+        footprint_bounds(85, 30)
 
 
 def test_mosaic_preserves_both_sides_and_masks_nodata(tmp_path):
@@ -79,10 +79,10 @@ def test_real_four_site_deliverable_is_readable_and_cautious():
     records = json.loads((root / 'real/features.json').read_text())['records']
     earth = [r for r in records if r['body'] == 'earth']
     assert {r['region_id'] for r in earth} == {
-        f'earth_{name}_{scale}' for name in ('salda', 'kula', 'hassa', 'atacama')
+        f'earth_{name}_{scale}' for name in ('salda', 'kula', 'hassa', 'atacama', 'meke', 'tuz_golu', 'haughton', 'meteor_crater')
         for scale in ('local', 'regional')}
     for r in earth:
-        assert r['quality']['nodata_ratio'] == 0 and r['quality']['coverage'] == 'full'
+        assert r['quality']['nodata_ratio'] == 0 and r['quality']['coverage'] == ('fallback_dem' if r['scale']=='regional' and r['lat']<=60 else 'full')
         assert r['data_status'] == 'derived' and not r['synthetic']
         assert r['resolution_validated']
         assert all(f['comparable'] and f['value'] is not None for f in r['features'].values())

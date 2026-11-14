@@ -196,3 +196,30 @@ anlık görüntüsünde saklanır.
   kanıt geçersiz sayılır. Rapor paketin quality/ dizininde hash adıyla taşınır.
 - Bu inceleme MOLA'nın örnekleme boşluklarını, pilotun kara maskesini veya
   SRTMGL30 erişim sorununu çözmüş sayılmaz. Diğer paketler kendi bayraklarını korur.
+
+
+## Genişletilmiş teslim ve kara filtresi
+
+Güncel ortak paket 21 kayda genişledi: Meke, Tuz Gölü, Haughton ve Meteor Crater
+local/regional; Marius Hills regional eklendi. Dünya regional verileri ayrı
+GLO-90 kaynaklarından, local veriler GLO-30'dan üretilir. Marius Hills Pit
+merkezi 14.0917°K, 303.2299°D ([LROC atlası](https://lroc.im-ldi.com/atlases/pits/1));
+çıktı boylamı -56.7701°'dir. Global LOLA 128 ppd V3.0 height/counts katmanları
+kullanıldı; düşük enlem ölçüm boşlukları ve 50 m pitin 1 km gridde çözülmemesi
+uyarısı saklanır. MOLA ölçümlü-bin-only duyarlılık raporu quality_review/mola_support.json'dadır.
+
+Pilot kara filtresi ESA WorldCover 2021 v200 sınıf haritasından COG penceresiyle
+üretildi. 80 su, diğer geçerli sınıflar kara, 0/bilinmeyen NaN olarak ele alındı.
+50/100 m sistematik alt örnekleme farkı ve bilinmeyen alan sınırı kontrol edildi.
+Ürün güncel su seviyesi veya batimetri değildir. Kaynaklar pilot/landmask.json
+ve [ESA veri sayfası](https://esa-worldcover.org/en/data-access) içinde.
+© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium
+
+Global senaryolar 2651 WorldCover karosundaki 95436 olası hücre merkezini üst
+aday sayısı olarak kullanır; bunlar kesin kara hücresi sayısı değildir. İki
+koşullu iş yükü senaryosu v2.3'ün >8 saat bölgesel dalını önerir. Bu bir kesin
+küresel süre tahmini değildir; ön karar ve kısıtlar pilot/global_scenarios.json'dadır.
+Kullanıcıdan alınan gerçek SRTMGL30 ZIP'leriyle yedi Dünya sahasında GLO-90
+örtüşme karşılaştırması yapılmıştır; sayısal farklar source_transition.json'dadır.
+Bu sonraki kaynak katmanı henüz bu teslimin GLO-90 regional kayıtlarının yerine
+yayınlanmamıştır; geçiş ayrı kontrol aşamasıdır.
