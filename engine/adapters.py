@@ -43,7 +43,7 @@ def adapt(raw: dict, kind: str | None = None, defaults: list[str] | None = None,
         if comparable is None:
             comparable = bool(resolution and key in TOPO)
             defaults.append(f'{rid}: features.{key}.comparable -> {comparable}')
-        features[key] = Feature(value=value, data_status=fs, comparable=bool(comparable), comparability_note=item.get('comparability_note'))
+        features[key] = Feature(value=value, data_status=fs, comparable=bool(comparable), comparability_note=item.get('comparability_note'), uncertainty=item.get('uncertainty') if isinstance(item.get('uncertainty'),(int,float)) else None)
     filters = dict(raw.get('earth_filters') or {})
     filters.update({k.split('__',1)[1]:v for k,v in raw.items() if k.startswith('earth_filters__')})
     filters={key:(value.get('value') if isinstance(value,dict) else value) for key,value in filters.items()}

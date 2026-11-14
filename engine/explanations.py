@@ -4,7 +4,7 @@ from .io import config
 from .measurement import target_confidence, support_summary
 from .discrimination import NO_CLOSE_ANALOG
 
-def build(target,candidate,criteria,score,flags,not_compared,match_level=None,discrimination_label=None,commonality=None):
+def build(target,candidate,criteria,score,flags,not_compared,match_level=None,discrimination_label=None,commonality=None,uncertainty=None):
     ordered=sorted(criteria.items(),key=lambda kv:(-kv[1]['s_i'],kv[0]))
     strongest=[{'feature':k,**v} for k,v in ordered[:3]]
     weakest=[{'feature':k,**v} for k,v in sorted(criteria.items(),key=lambda kv:(kv[1]['s_i'],kv[0]))[:2]]
@@ -22,6 +22,10 @@ def build(target,candidate,criteria,score,flags,not_compared,match_level=None,di
         summary=NO_CLOSE_ANALOG
     if commonality and commonality.get('explanation'):
         summary=f"{summary} {commonality['explanation']}"
+    if uncertainty and uncertainty.get('score_ci_low') is not None:
+        low=uncertainty['score_ci_low'];high=uncertainty['score_ci_high']
+        stability=uncertainty['top10_stability']
+        summary=f'Score {score:.0f} (90% interval {low:.0f}–{high:.0f}); in top 10 in {stability:.0%} of perturbations. {summary}'
     support=support_summary(target)
     note='Interpolated MOLA values were not used.' if target.body=='mars' else None
     return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=not_compared,analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label)

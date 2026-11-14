@@ -52,7 +52,7 @@ def write_results(ds,out,presets,k,stamp):
                 for alias,base in config('target_aliases.yaml').items():
                     if base and t.region_id in (base,f'{base}_{t.scale}') and alias in index['target_statuses']:
                         index['target_statuses'][alias]['method_sensitive']=t.method_sensitive
-            result=rank(ds,t.region_id,t.scale,preset,k=k,detailed=(t.scale=='local'))
+            result=rank(ds,t.region_id,t.scale,preset,k=k,detailed=(t.scale=='local'),include_uncertainty=True)
             stem=_stem(t.region_id,t.scale,preset)
             write(out/f'{stem}.json',result.model_dump())
             index.setdefault('discrimination',{})[stem]={'label':result.discrimination_label,'explanation':result.discrimination_explanation,'median_score_geo':float(np.median([r['score_geo'] for r in result.full_scores])) if result.full_scores else None}

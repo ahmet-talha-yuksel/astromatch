@@ -6,6 +6,7 @@ class Feature(BaseModel):
     data_status: str = 'mock'
     comparable: bool = False
     comparability_note: str | None = None
+    uncertainty: float | None = None
 
 class Region(BaseModel):
     region_id: str
