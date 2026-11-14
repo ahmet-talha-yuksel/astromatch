@@ -1,6 +1,7 @@
 """Convert legacy fixtures, v2.3 JSON and flattened Parquet rows to Region."""
 from __future__ import annotations
 import math
+import pandas as pd
 from .models import Region, Feature
 
 ALIASES = {'slope_deg': 'slope_median_deg', 'tri_m': 'tri_median_m'}
@@ -32,6 +33,7 @@ def adapt(raw: dict, kind: str | None = None, defaults: list[str] | None = None,
             continue
         if not isinstance(item, dict): item = {'value': item}
         value = item.get('value')
+        if value is not None and pd.isna(value): value = None
         if value is not None and (isinstance(value, bool) or not math.isfinite(float(value))):
             raise ValueError(f'{rid}: features.{key}.value invalid')
         fs = item.get('data_status', raw.get(old + '__status', status))

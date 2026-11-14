@@ -49,7 +49,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
     if k<1: raise ValueError('k must be positive')
     target=next((t for t in ds.targets if t.region_id==target_id and t.scale==scale),None)
     if target is None: raise ValueError(f'Target {target_id} at {scale} not found')
-    candidates=[c for c in ds.candidates if c.scale==scale and c.body=='earth']
+    candidates=[c for c in ds.candidates if c.scale==scale and c.body=='earth' and c.kind in ('earth_site','earth_grid')]
     if ds.mode=='real' and (target.data_status=='mock' or any(c.data_status=='mock' for c in candidates) or any(f.data_status=='mock' for f in target.features.values()) or any(f.data_status=='mock' for c in candidates for f in c.features.values())):
         raise ValueError('Real mode cannot score mock records. Current data/processed fixtures are synthetic; supply validated v2.3 records via processing/out/features.json or --features PATH, or use --mock for demos.')
     fconfig=config('features.yaml'); feats=fconfig['features']; presets=config('presets.yaml')
@@ -65,13 +65,19 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
     comparable=np.zeros((n,m),bool)
     resolution=np.array([c.resolution_validated for c in candidates],bool)
     sig={}
+    grid_mask=np.array([c.kind=='earth_grid' for c in candidates],bool)
+    references=[r for r in ds.candidates if r.kind=='earth_reference' and r.scale==scale and (ds.mode=='mock' or r.data_status!='mock')]
     for j,key in enumerate(keys):
         column=[c.features.get(key) for c in candidates]
         values[:,j]=[f.value if f is not None and f.value is not None else np.nan for f in column]
         comparable[:,j]=[bool(f.comparable) if f is not None else False for f in column]
-        spec=feats[key]['sigma']
-        regional=[r.features[key].value for r in ds.candidates if r.scale=='regional' and r.kind=='earth_grid' and key in r.features and r.features[key].value is not None] if np.isfinite(values[:,j]).sum()<fconfig.get('min_sigma_samples',200) else []
-        sig[key]=sigma_metadata(values[:,j],key,scale,feats[key],regional,fconfig.get('min_sigma_samples',200))
+        same=values[grid_mask,j]
+        reference_values=[r.features[key].value for r in references if key in r.features and r.features[key].value is not None and (ds.mode=='mock' or r.features[key].data_status!='mock')]
+        if reference_values: same=np.concatenate((same,np.asarray(reference_values,dtype=float)))
+        if np.isfinite(same).sum()<fconfig.get('min_sigma_samples',200):
+            regional=[r.features[key].value for r in ds.candidates if r.scale=='regional' and r.kind in ('earth_grid','earth_reference') and key in r.features and r.features[key].value is not None and (ds.mode=='mock' or r.features[key].data_status!='mock')]
+        else: regional=[]
+        sig[key]=sigma_metadata(same,key,scale,feats[key],regional,fconfig.get('min_sigma_samples',200))
         tf=target.features.get(key)
         if tf is None or tf.value is None or not tf.comparable or not target.resolution_validated: continue
         mask=np.isfinite(values[:,j]) & comparable[:,j] & resolution
@@ -91,7 +97,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
             out.append({'feature':key,'reason':reason})
         return out
     geo,arith,coverage,valid,norm=aggregate_matrix(scores,eligible,w,fconfig.get('min_features',3))
-    known_distances=nearest_known_distances(candidates,ds.known_analogs)
+    known_distances=nearest_known_distances(candidates,[r for r in ds.known_analogs if r.kind!='earth_reference'])
     excluded=[]; full=[]
     candidate_index={c.region_id:i for i,c in enumerate(candidates)}
     for i,c in enumerate(candidates):
@@ -106,7 +112,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         row={'id':c.region_id,'name':c.name,'lat':c.lat,'lon':c.lon,'score_geo':float(geo[i]),'score_arith':float(arith[i]),'criteria_coverage':float(coverage[i]),'flags':flags,'distance_to_known_km':known_dist,'is_known':known_dist is not None and known_dist<=50,'agreement':'unavailable'}
         if detailed:
             row['floored_criteria']=[key for j,key in enumerate(keys) if eligible[i,j] and scores[i,j]<=.01]
-            row['per_criterion']={key:{'target_value':target.features[key].value,'candidate_value':c.features[key].value,'sigma':sig[key]['value'],'sigma_source':sig[key]['sigma_source'],'s_i':float(scores[i,j]),'weight':float(norm[i,j])} for j,key in enumerate(keys) if eligible[i,j] and w[j]>0}
+            row['per_criterion']={key:{'target_value':target.features[key].value,'candidate_value':c.features[key].value,'sigma':sig[key]['value'],'sigma_source':sig[key]['sigma_source'],'n_samples':sig[key]['n_samples'],'s_i':float(scores[i,j]),'weight':float(norm[i,j])} for j,key in enumerate(keys) if eligible[i,j] and w[j]>0}
             row['not_compared']=missing_reasons(i)
         if ds.mode=='mock': row.update(data_status='mock',disclaimer=DISCLAIMER)
         full.append(row)
@@ -114,9 +120,9 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
     best=full[0]['score_geo'] if full else 0.0
     top_five=max(1,math.ceil(len(full)*.05))
     for position,row in enumerate(full):
-        row['score_relative']=min(100.0,100*row['score_geo']/best) if best else 0.0
+        row['score_relative']=100.0 if position==0 else min(100.0,100*row['score_geo']/best) if best else 0.0
         row['score_percentile']=100*(len(full)-position)/len(full)
-        row['match_level']='absolute_strong' if row['score_geo']>=80 else 'absolute_moderate' if row['score_geo']>=60 else 'relative_only' if position<top_five else 'weak'
+        row['match_level']='absolute_strong' if row['score_geo']>=80 else 'absolute_moderate' if row['score_geo']>=60 else 'relative_only' if (row['score_relative']>=90 if scale=='local' else position<top_five) else 'weak'
     top=[]; separation=20 if scale=='local' else 150
     for row in full:
         if len(top)>=k: break
@@ -135,7 +141,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         i=candidate_index[row['id']]; c=candidates[i]
         if not detailed:
             row['floored_criteria']=[key for j,key in enumerate(keys) if eligible[i,j] and scores[i,j]<=.01]
-            row['per_criterion']={key:{'target_value':target.features[key].value,'candidate_value':c.features[key].value,'sigma':sig[key]['value'],'sigma_source':sig[key]['sigma_source'],'s_i':float(scores[i,j]),'weight':float(norm[i,j])} for j,key in enumerate(keys) if eligible[i,j] and w[j]>0}
+            row['per_criterion']={key:{'target_value':target.features[key].value,'candidate_value':c.features[key].value,'sigma':sig[key]['value'],'sigma_source':sig[key]['sigma_source'],'n_samples':sig[key]['n_samples'],'s_i':float(scores[i,j]),'weight':float(norm[i,j])} for j,key in enumerate(keys) if eligible[i,j] and w[j]>0}
             row['not_compared']=missing_reasons(i)
         row['explanation']=build(target,c,row['per_criterion'],row['score_geo'],row['flags'],row['not_compared'],row['match_level']).model_dump()
     if ds.mode=='mock':
