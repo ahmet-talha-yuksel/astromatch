@@ -114,7 +114,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
     best=full[0]['score_geo'] if full else 0.0
     top_five=max(1,math.ceil(len(full)*.05))
     for position,row in enumerate(full):
-        row['score_relative']=100*row['score_geo']/best if best else 0.0
+        row['score_relative']=min(100.0,100*row['score_geo']/best) if best else 0.0
         row['score_percentile']=100*(len(full)-position)/len(full)
         row['match_level']='absolute_strong' if row['score_geo']>=80 else 'absolute_moderate' if row['score_geo']>=60 else 'relative_only' if position<top_five else 'weak'
     top=[]; separation=20 if scale=='local' else 150
