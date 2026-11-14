@@ -30,6 +30,7 @@ class RankResponse(BaseModel):
     method_sensitive: bool = False
     discrimination_label: str | None = None
     discrimination_explanation: str | None = None
+    terrain_commonality: dict[str, Any] | None = None
 
 class Envelope(BaseModel):
     data_status: str
@@ -62,6 +63,7 @@ class SitesResponse(Envelope):
     target_reason: str | None = None
     discrimination_label: str | None = None
     discrimination_explanation: str | None = None
+    terrain_commonality: dict[str, Any] | None = None
 
 class HeatResponse(Envelope):
     target_id: str

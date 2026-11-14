@@ -103,3 +103,4 @@ class RankResult(BaseModel):
     discrimination_label: str | None = None
     discrimination_explanation: str | None = None
     comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'
+    terrain_commonality: dict | None = None

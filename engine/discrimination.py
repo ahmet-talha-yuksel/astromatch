@@ -7,10 +7,6 @@ NO_CLOSE_ANALOG = (
     'No close Earth analog at this scale; ranking shows the closest available '
     'by standardized distance.'
 )
-PHOENIX_LIMIT = (
-    'Flat terrain is common on Earth; topography alone does not single out a '
-    'Phoenix analog — its defining property (shallow ground ice) is not in this comparison.'
-)
 
 
 def classify(scores, *, target_id=None):
@@ -24,5 +20,5 @@ def classify(scores, *, target_id=None):
         return 'uniformly_dissimilar', NO_CLOSE_ANALOG
     top = np.sort(values)[::-1][:10]
     if len(top) == 10 and float(top[0] - top[-1]) < 2:
-        return 'poorly_discriminated', PHOENIX_LIMIT if target_id == 'mars_phoenix_regional' else None
+        return 'poorly_discriminated', None
     return 'discriminated', None
