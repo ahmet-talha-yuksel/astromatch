@@ -1,0 +1,538 @@
+{
+  "schema_version": "2.3",
+  "records": [
+    {
+      "schema_version": "2.3",
+      "region_id": "mars_phoenix_regional",
+      "kind": "target",
+      "body": "mars",
+      "name": "Phoenix regional feasibility probe",
+      "lat": 68.2,
+      "lon": -125.69999999999999,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 463.05766716974557,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",68.2,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-125.7,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "MOLA MEGDR + measured-bin mask",
+      "dem_version": "MGS-M-MOLA-5-MEGDR-L3-V1.0; product version 2.0",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.5177671325201396,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 1.8191552148154386,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.9793857803954564,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 26.66210913044658,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 243.37090745778505,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 88.38017399226243,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.04920000000000002,
+        "coverage": "partial",
+        "warnings": [
+          "measured-only; raw unmeasured 7.92%; all features within sensitivity thresholds",
+          "Engineering sensitivity validation; not independent accuracy or landing suitability validation."
+        ],
+        "validation_eligible": true,
+        "sampling": {
+          "counts_file": "phoenix_counts.tif",
+          "mean_observed_bin_fraction": 0.34159019589424133,
+          "min_observed_bin_fraction": 0.0,
+          "analysis_cells_without_counts_coverage": 0,
+          "analysis_cells_without_observed_bins": 198,
+          "analysis_cells_total": 2500,
+          "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+        }
+      },
+      "processing_version": "0.3.0",
+      "method": "measured_only_planefit_v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt88n180hb.img",
+        "accessed_on": "2026-11-14",
+        "source_file": "phoenix_topography.tif",
+        "source_file_sha256": "0ffd8db4e6e74db137df225c54c6c5a216ffeabe6c9b539c8b9b270460e86952",
+        "source_crs": "GEOGCS[\"unknown\",DATUM[\"unknown\",SPHEROID[\"unknown\",3396000,0]],PRIMEM[\"Reference meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "source_radius_m": 3396000.0,
+        "vertical_reference": "GMM3 (mgm1025) degree/order 50 areoid",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": false,
+        "max_nodata_ratio": 0.3,
+        "validation_policy": "measured_only_planefit_v1",
+        "counts_file_sha256": "316a0ec28920a66a8df0e8d932c2afee3c8883eec9307af5002389d972aa3d38"
+      },
+      "features_interpolated": {
+        "slope_median_deg": 0.4882656982879783,
+        "slope_p90_deg": 1.8149913555593855,
+        "flat_fraction": 0.9803685897435898,
+        "tri_median_m": 24.95314237256334,
+        "relief_m": 236.26661479208178,
+        "elevation_std_m": 85.82260022112365
+      },
+      "measurement_support": {
+        "raw_unmeasured_ratio": 0.07920000000000005,
+        "effective_nodata_ratio": 0.04920000000000002,
+        "min_measured_neighbors": 6,
+        "sensitivity": {
+          "slope_median_deg": {
+            "abs_diff": 0.02950143423216134,
+            "rel_diff": 0.06042086170624553,
+            "pass": true
+          },
+          "slope_p90_deg": {
+            "abs_diff": 0.004163859256053115,
+            "rel_diff": 0.0022941482576757516,
+            "pass": true
+          },
+          "flat_fraction": {
+            "abs_diff": 0.0009828093481333289,
+            "rel_diff": 0.0010024896334044908,
+            "pass": true
+          },
+          "tri_median_m": {
+            "abs_diff": 1.708966757883239,
+            "rel_diff": 0.06848703591585702,
+            "pass": true
+          },
+          "relief_m": {
+            "abs_diff": 7.1042926657032694,
+            "rel_diff": 0.030068965401460358,
+            "pass": true
+          },
+          "elevation_std_m": {
+            "abs_diff": 2.5575737711387774,
+            "rel_diff": 0.029800702432099903,
+            "pass": true
+          }
+        },
+        "thresholds": {
+          "rel": 0.15,
+          "abs": {
+            "slope_median_deg": 0.2,
+            "slope_p90_deg": 0.2,
+            "flat_fraction": 0.05,
+            "tri_median_m": 2.0,
+            "relief_m": 10.0,
+            "elevation_std_m": 5.0
+          },
+          "max_effective_nodata": 0.3
+        },
+        "validation_basis": "User-approved engineering sensitivity threshold; same observations, not independent accuracy validation",
+        "raw_ratio_definition": "Analysis cells with no measured source-bin contribution / all analysis cells",
+        "tri_definition": "Riley sqrt(sum squared differences), measured neighbors only, measured center required",
+        "edge_rule": "Outside window is NoData; six measured samples still required",
+        "unscorable_reasons": []
+      },
+      "target_id": "T-04",
+      "heightmap": {
+        "path": "heightmaps/mars_phoenix_regional.png",
+        "metadata_path": "heightmaps/mars_phoenix_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -4699.4557394385365,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",68.2,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-125.7,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "MOLA MEGDR + measured-bin mask",
+        "vertical_reference": "GMM3 (mgm1025) degree/order 50 areoid",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "mars_jezero_regional",
+      "kind": "target",
+      "body": "mars",
+      "name": "Jezero",
+      "lat": 18.38,
+      "lon": 77.58,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 463.05766716974557,
+      "resolution_validated": false,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",18.38,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",77.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "MOLA MEGDR + measured-bin mask",
+      "dem_version": "MGS-M-MOLA-5-MEGDR-L3-V1.0; product version 2.0",
+      "features": {
+        "slope_median_deg": {
+          "value": 1.4405468701916186,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "slope_p90_deg": {
+          "value": 6.81472376721167,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "flat_fraction": {
+          "value": 0.8421052631578947,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "tri_median_m": {
+          "value": 75.35858128519882,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "relief_m": {
+          "value": 805.8346206741674,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "elevation_std_m": {
+          "value": 275.6281483361571,
+          "data_status": "derived",
+          "comparable": false
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.2248,
+        "coverage": "partial",
+        "warnings": [
+          "measured-only; raw unmeasured 23.32%; Sensitivity thresholds exceeded or metric missing: slope_p90_deg",
+          "Engineering sensitivity validation; not independent accuracy or landing suitability validation."
+        ],
+        "validation_eligible": false,
+        "sampling": {
+          "counts_file": "jezero_mola_counts.tif",
+          "mean_observed_bin_fraction": 0.34594687819480896,
+          "min_observed_bin_fraction": 0.0,
+          "analysis_cells_without_counts_coverage": 0,
+          "analysis_cells_without_observed_bins": 583,
+          "analysis_cells_total": 2500,
+          "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+        }
+      },
+      "processing_version": "0.3.0",
+      "method": "measured_only_planefit_v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img",
+        "accessed_on": "2026-11-14",
+        "source_file": "jezero_mola_topography.tif",
+        "source_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92",
+        "source_crs": "GEOGCS[\"unknown\",DATUM[\"unknown\",SPHEROID[\"unknown\",3396000,0]],PRIMEM[\"Reference meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "source_radius_m": 3396000.0,
+        "vertical_reference": "GMM3 (mgm1025) degree/order 50 areoid",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": false,
+        "max_nodata_ratio": 0.3,
+        "validation_policy": "measured_only_planefit_v1",
+        "counts_file_sha256": "28dacc66945d54947ab10152949d851f0df89645e3e7c2ee81299da49f35e320"
+      },
+      "features_interpolated": {
+        "slope_median_deg": 1.485084182684334,
+        "slope_p90_deg": 5.903066506367388,
+        "flat_fraction": 0.8649839743589743,
+        "tri_median_m": 75.07388738354584,
+        "relief_m": 763.2187413981055,
+        "elevation_std_m": 267.39518006737205
+      },
+      "measurement_support": {
+        "raw_unmeasured_ratio": 0.23319999999999996,
+        "effective_nodata_ratio": 0.2248,
+        "min_measured_neighbors": 6,
+        "sensitivity": {
+          "slope_median_deg": {
+            "abs_diff": 0.04453731249271531,
+            "rel_diff": 0.02998975614447175,
+            "pass": true
+          },
+          "slope_p90_deg": {
+            "abs_diff": 0.9116572608442821,
+            "rel_diff": 0.1544379111875016,
+            "pass": false
+          },
+          "flat_fraction": {
+            "abs_diff": 0.02287871120107965,
+            "rel_diff": 0.02644986714122038,
+            "pass": true
+          },
+          "tri_median_m": {
+            "abs_diff": 0.2846939016529859,
+            "rel_diff": 0.0037921827625431196,
+            "pass": true
+          },
+          "relief_m": {
+            "abs_diff": 42.61587927606183,
+            "rel_diff": 0.0558370450887982,
+            "pass": true
+          },
+          "elevation_std_m": {
+            "abs_diff": 8.232968268785044,
+            "rel_diff": 0.03078951635070868,
+            "pass": true
+          }
+        },
+        "thresholds": {
+          "rel": 0.15,
+          "abs": {
+            "slope_median_deg": 0.2,
+            "slope_p90_deg": 0.2,
+            "flat_fraction": 0.05,
+            "tri_median_m": 2.0,
+            "relief_m": 10.0,
+            "elevation_std_m": 5.0
+          },
+          "max_effective_nodata": 0.3
+        },
+        "validation_basis": "User-approved engineering sensitivity threshold; same observations, not independent accuracy validation",
+        "raw_ratio_definition": "Analysis cells with no measured source-bin contribution / all analysis cells",
+        "tri_definition": "Riley sqrt(sum squared differences), measured neighbors only, measured center required",
+        "edge_rule": "Outside window is NoData; six measured samples still required",
+        "unscorable_reasons": [
+          "Sensitivity thresholds exceeded or metric missing: slope_p90_deg"
+        ]
+      },
+      "target_id": "T-01",
+      "heightmap": {
+        "path": "heightmaps/mars_jezero_regional.png",
+        "metadata_path": "heightmaps/mars_jezero_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -2905.1,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",18.38,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",77.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "MOLA MEGDR + measured-bin mask",
+        "vertical_reference": "GMM3 (mgm1025) degree/order 50 areoid",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "mars_arcadia_regional",
+      "kind": "target",
+      "body": "mars",
+      "name": "Arcadia regional feasibility probe",
+      "lat": 40.0,
+      "lon": -170.0,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 463.05766716974557,
+      "resolution_validated": true,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",40,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-170,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "MOLA MEGDR + measured-bin mask",
+      "dem_version": "MGS-M-MOLA-5-MEGDR-L3-V1.0; product version 2.0",
+      "features": {
+        "slope_median_deg": {
+          "value": 1.561265225667561,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 5.56271103116208,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 0.882762046696473,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 72.74473959887547,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 555.947572603035,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 194.3951733580952,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.19479999999999997,
+        "coverage": "partial",
+        "warnings": [
+          "measured-only; raw unmeasured 20.56%; all features within sensitivity thresholds",
+          "Engineering sensitivity validation; not independent accuracy or landing suitability validation."
+        ],
+        "validation_eligible": true,
+        "sampling": {
+          "counts_file": "arcadia_counts.tif",
+          "mean_observed_bin_fraction": 0.32269132137298584,
+          "min_observed_bin_fraction": 0.0,
+          "analysis_cells_without_counts_coverage": 0,
+          "analysis_cells_without_observed_bins": 514,
+          "analysis_cells_total": 2500,
+          "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+        }
+      },
+      "processing_version": "0.3.0",
+      "method": "measured_only_planefit_v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n180hb.img",
+        "accessed_on": "2026-11-14",
+        "source_file": "arcadia_topography.tif",
+        "source_file_sha256": "315873b4dd249a673ee2bfc7c930e8f4de50edd21f79800ad3d32583e6519a50",
+        "source_crs": "GEOGCS[\"unknown\",DATUM[\"unknown\",SPHEROID[\"unknown\",3396000,0]],PRIMEM[\"Reference meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "source_radius_m": 3396000.0,
+        "vertical_reference": "GMM3 (mgm1025) degree/order 50 areoid",
+        "vertical_unit": "m",
+        "band_scale": 1.0,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": false,
+        "max_nodata_ratio": 0.3,
+        "validation_policy": "measured_only_planefit_v1",
+        "counts_file_sha256": "b796fb7c06852f0838bb905e31f50f46b01832b0736cf2b8e77a9a01bfcf9d91"
+      },
+      "features_interpolated": {
+        "slope_median_deg": 1.5888257965484929,
+        "slope_p90_deg": 5.2081863866708495,
+        "flat_fraction": 0.8902243589743589,
+        "tri_median_m": 74.21234073267252,
+        "relief_m": 548.3552534934838,
+        "elevation_std_m": 191.03272203531833
+      },
+      "measurement_support": {
+        "raw_unmeasured_ratio": 0.2056,
+        "effective_nodata_ratio": 0.19479999999999997,
+        "min_measured_neighbors": 6,
+        "sensitivity": {
+          "slope_median_deg": {
+            "abs_diff": 0.02756057088093189,
+            "rel_diff": 0.017346502644156124,
+            "pass": true
+          },
+          "slope_p90_deg": {
+            "abs_diff": 0.35452464449123067,
+            "rel_diff": 0.06807065227130785,
+            "pass": true
+          },
+          "flat_fraction": {
+            "abs_diff": 0.007462312277885963,
+            "rel_diff": 0.008382507401261641,
+            "pass": true
+          },
+          "tri_median_m": {
+            "abs_diff": 1.4676011337970465,
+            "rel_diff": 0.01977570198309248,
+            "pass": true
+          },
+          "relief_m": {
+            "abs_diff": 7.592319109551227,
+            "rel_diff": 0.013845621175655331,
+            "pass": true
+          },
+          "elevation_std_m": {
+            "abs_diff": 3.3624513227768773,
+            "rel_diff": 0.017601441716122455,
+            "pass": true
+          }
+        },
+        "thresholds": {
+          "rel": 0.15,
+          "abs": {
+            "slope_median_deg": 0.2,
+            "slope_p90_deg": 0.2,
+            "flat_fraction": 0.05,
+            "tri_median_m": 2.0,
+            "relief_m": 10.0,
+            "elevation_std_m": 5.0
+          },
+          "max_effective_nodata": 0.3
+        },
+        "validation_basis": "User-approved engineering sensitivity threshold; same observations, not independent accuracy validation",
+        "raw_ratio_definition": "Analysis cells with no measured source-bin contribution / all analysis cells",
+        "tri_definition": "Riley sqrt(sum squared differences), measured neighbors only, measured center required",
+        "edge_rule": "Outside window is NoData; six measured samples still required",
+        "unscorable_reasons": []
+      },
+      "target_id": "T-05",
+      "heightmap": {
+        "path": "heightmaps/mars_arcadia_regional.png",
+        "metadata_path": "heightmaps/mars_arcadia_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -3994.805034597849,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",3396000,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",40,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-170,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "MOLA MEGDR + measured-bin mask",
+        "vertical_reference": "GMM3 (mgm1025) degree/order 50 areoid",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    }
+  ]
+}
