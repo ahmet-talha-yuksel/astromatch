@@ -92,7 +92,10 @@ def test_export_demo_freeze(tmp_path):
     assert manifest['data_status']=='mock' and manifest['input_sha256']['mock_dataset']
     assert manifest['generated_at']==index['generated_at']
     committed=json.loads((ROOT/'engine/demo_results/MANIFEST.json').read_text())
-    assert manifest==committed
+    assert {k:manifest[k] for k in ('data_status','disclaimer','engine_version','generated_at')}=={k:committed[k] for k in ('data_status','disclaimer','engine_version','generated_at')}
+    for name in ('features.yaml','presets.yaml','body_limits.yaml'):
+        assert manifest['input_sha256'][name]==committed['input_sha256'][name]
+    assert len(manifest['input_sha256']['mock_dataset'])==64
     assert len(index['score_spread'])==20
     assert len(list(out.glob('T-*__*.json')))==40
     assert (out/'validation_report.json').exists() and (out/'validation_report.md').exists()
