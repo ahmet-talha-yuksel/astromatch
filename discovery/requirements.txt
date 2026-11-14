@@ -1,0 +1,6 @@
+geopandas>=0.14
+pandas>=2.0
+requests>=2.31
+pyogrio>=0.7
+scipy>=1.11
+pytest>=8.0

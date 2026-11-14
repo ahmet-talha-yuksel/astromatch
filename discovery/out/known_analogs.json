@@ -1,0 +1,2308 @@
+[
+  {
+    "analog_id": "usgs_0001",
+    "name": "Acraman",
+    "lat": -32.0167,
+    "lon": 135.45,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-32.25_135.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0002",
+    "name": "Agoudal",
+    "lat": 31.98333,
+    "lon": -5.5,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_031.75_-05.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0003",
+    "name": "Amelia Creek",
+    "lat": -20.9167,
+    "lon": 134.8333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-20.75_134.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0004",
+    "name": "Ames",
+    "lat": 36.25,
+    "lon": -98.2,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_036.25_-98.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0005",
+    "name": "Amguid",
+    "lat": 26.08333,
+    "lon": 4.383333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_026.25_004.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0006",
+    "name": "Aorounga",
+    "lat": 19.1,
+    "lon": 19.25,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_019.25_019.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0007",
+    "name": "Aouelloul",
+    "lat": 20.25,
+    "lon": -12.6833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_020.25_-12.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0008",
+    "name": "Araguainha",
+    "lat": -16.7833,
+    "lon": -52.9833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-16.75_-52.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0009",
+    "name": "Avak",
+    "lat": 71.25,
+    "lon": -156.633,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_071.25_-156.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0010",
+    "name": "B.P. Structure",
+    "lat": 25.31667,
+    "lon": 24.33333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_025.25_024.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0011",
+    "name": "Barringer (= Meteor)",
+    "lat": 35.03333,
+    "lon": -111.017,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_035.25_-111.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0012",
+    "name": "Grand Falls",
+    "lat": 35.48927204050017,
+    "lon": -111.1642499251528,
+    "analog_for": [
+      "mars"
+    ],
+    "theme": [
+      "dunes"
+    ],
+    "cell_id": "g_035.25_-111.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0013",
+    "name": "Amboy",
+    "lat": 34.54487980481875,
+    "lon": -115.79067992848374,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_034.75_-115.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0014",
+    "name": "Beaverhead",
+    "lat": 44.6,
+    "lon": -113.0,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_044.75_-112.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0015",
+    "name": "Beyenchime-Salaaty",
+    "lat": 71.0,
+    "lon": 121.6667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_071.25_121.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0016",
+    "name": "Bigach",
+    "lat": 48.56667,
+    "lon": 82.01667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.75_082.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0017",
+    "name": "Boltysh",
+    "lat": 48.75,
+    "lon": 32.16667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.75_032.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0018",
+    "name": "Bosumtwi (= Ashanti)",
+    "lat": 6.5,
+    "lon": -1.41667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_006.75_-01.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0019",
+    "name": "Boxhole",
+    "lat": -22.6167,
+    "lon": 135.2,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-22.75_135.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0020",
+    "name": "Brent",
+    "lat": 46.08333,
+    "lon": -78.4833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_046.25_-78.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0021",
+    "name": "Calvin",
+    "lat": 41.83333,
+    "lon": -85.95,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_041.75_-85.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0022",
+    "name": "Campo Del Cielo",
+    "lat": -27.6333,
+    "lon": -61.7,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-27.75_-61.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0023",
+    "name": "Carancas",
+    "lat": -16.6667,
+    "lon": -69.05,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-16.75_-69.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0024",
+    "name": "Carswell",
+    "lat": 58.45,
+    "lon": -109.5,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_058.25_-109.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0025",
+    "name": "Charlevoix (=La Malbaie)",
+    "lat": 47.53333,
+    "lon": -70.3,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_047.75_-70.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0026",
+    "name": "Chesapeake Bay",
+    "lat": 37.28333,
+    "lon": -76.0167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_037.25_-76.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0027",
+    "name": "Chicxulub",
+    "lat": 21.33333,
+    "lon": -89.5,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_021.25_-89.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0028",
+    "name": "Chiyli",
+    "lat": 49.16667,
+    "lon": 57.85,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.25_057.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0029",
+    "name": "Chukcha",
+    "lat": 75.7,
+    "lon": 97.8,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_075.75_097.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0030",
+    "name": "Clearwater East",
+    "lat": 56.08333,
+    "lon": -74.1167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_056.25_-74.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0031",
+    "name": "Clearwater East",
+    "lat": 56.21667,
+    "lon": -74.5,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_056.25_-74.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0032",
+    "name": "Cloud Creek",
+    "lat": 43.11667,
+    "lon": -106.75,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_043.25_-106.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0033",
+    "name": "Colonia",
+    "lat": -23.8667,
+    "lon": -46.7167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-23.75_-46.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0034",
+    "name": "Connolly Basin",
+    "lat": -23.5333,
+    "lon": 124.75000000000013,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-23.75_124.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0035",
+    "name": "Couture (= Lac Couture)",
+    "lat": 60.13333,
+    "lon": -75.3333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_060.25_-75.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0036",
+    "name": "Flaxman",
+    "lat": -34.7167,
+    "lon": 139.0333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-34.75_139.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0037",
+    "name": "Crooked Creek",
+    "lat": 37.83333,
+    "lon": -91.3833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_037.75_-91.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0038",
+    "name": "Dalgaranga",
+    "lat": -27.6333,
+    "lon": 117.2833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-27.75_117.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0039",
+    "name": "Decaturville",
+    "lat": 37.9,
+    "lon": -92.7167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_037.75_-92.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0040",
+    "name": "Deep Bay",
+    "lat": 56.4,
+    "lon": -102.983,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_056.25_-102.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0041",
+    "name": "Dellen",
+    "lat": 61.8,
+    "lon": 16.8,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_061.75_016.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0042",
+    "name": "Des Plaines",
+    "lat": 42.05,
+    "lon": -87.8667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_042.25_-87.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0043",
+    "name": "Dhala",
+    "lat": 25.3,
+    "lon": 78.13333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_025.25_078.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0044",
+    "name": "Dobele",
+    "lat": 56.58333,
+    "lon": 23.25,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_056.75_023.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0045",
+    "name": "Eagle Butte",
+    "lat": 49.7,
+    "lon": -110.5,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.75_-110.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0046",
+    "name": "El'gygytgyn",
+    "lat": 67.5,
+    "lon": 172.08330000000012,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_067.75_172.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0047",
+    "name": "Elbow",
+    "lat": 50.98333,
+    "lon": -106.717,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_050.75_-106.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0048",
+    "name": "Flaxman",
+    "lat": -34.6167,
+    "lon": 139.0667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-34.75_139.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0049",
+    "name": "Flynn Creek",
+    "lat": 36.28333,
+    "lon": -85.6667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_036.25_-85.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0050",
+    "name": "Foelsche",
+    "lat": -16.6667,
+    "lon": 136.7833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-16.75_136.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0051",
+    "name": "Gardnos",
+    "lat": 60.65,
+    "lon": 9.0,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_060.75_009.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0052",
+    "name": "Glasford",
+    "lat": 40.6,
+    "lon": -89.7833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_040.75_-89.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0053",
+    "name": "Glikson",
+    "lat": -23.9833,
+    "lon": 121.5667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-23.75_121.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0054",
+    "name": "Glover Bluff",
+    "lat": 43.96667,
+    "lon": -89.5333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_043.75_-89.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0055",
+    "name": "Goat Paddock",
+    "lat": -18.3333,
+    "lon": 126.6667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-18.25_126.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0056",
+    "name": "Gosses Bluff",
+    "lat": -23.8167,
+    "lon": 132.3167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-23.75_132.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0057",
+    "name": "Gow",
+    "lat": 56.45,
+    "lon": -104.483,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_056.25_-104.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0058",
+    "name": "Goyder",
+    "lat": -13.4667,
+    "lon": 135.0333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-13.25_135.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0059",
+    "name": "Granby",
+    "lat": 58.41667,
+    "lon": 14.93333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_058.25_014.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0060",
+    "name": "Kamensk",
+    "lat": 48.43333,
+    "lon": 40.53333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.25_040.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0061",
+    "name": "Gweni-Fada",
+    "lat": 17.41667,
+    "lon": 21.75,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_017.25_021.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0062",
+    "name": "Haughton",
+    "lat": 75.36667,
+    "lon": -89.6833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_075.25_-89.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0063",
+    "name": "Haviland",
+    "lat": 37.58333,
+    "lon": -99.1667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_037.75_-99.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0064",
+    "name": "Henbury",
+    "lat": -24.5667,
+    "lon": 133.1333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-24.75_133.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0065",
+    "name": "Holleford",
+    "lat": 44.46667,
+    "lon": -76.6333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_044.25_-76.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0066",
+    "name": "Hummeln",
+    "lat": 57.36667,
+    "lon": 16.25,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_057.25_016.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0067",
+    "name": "Ile Rouleau",
+    "lat": 50.68333,
+    "lon": -73.8833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_050.75_-73.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0068",
+    "name": "Ilumetsa",
+    "lat": 57.96667,
+    "lon": 27.41667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_057.75_027.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0069",
+    "name": "Ilyinets",
+    "lat": 49.11667,
+    "lon": 29.1,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.25_029.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0070",
+    "name": "Iso-Naakkima",
+    "lat": 62.18333,
+    "lon": 27.15,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.25_027.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0071",
+    "name": "Janisjarvi",
+    "lat": 61.96667,
+    "lon": 30.91667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_061.75_030.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0072",
+    "name": "Jebel Waqf as Suwwan",
+    "lat": 31.05,
+    "lon": 36.8,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_031.25_036.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0073",
+    "name": "Kaalijarv",
+    "lat": 58.4,
+    "lon": 22.66667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_058.25_022.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0074",
+    "name": "Kalkkop",
+    "lat": -32.7167,
+    "lon": 24.43333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-32.75_024.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0075",
+    "name": "Kaluga",
+    "lat": 54.5,
+    "lon": 36.2,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_054.75_036.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0076",
+    "name": "Kamensk",
+    "lat": 48.35,
+    "lon": 40.5,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.25_040.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0077",
+    "name": "Kamil",
+    "lat": 22.01667,
+    "lon": 26.08333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_022.25_026.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0078",
+    "name": "Kara",
+    "lat": 69.1,
+    "lon": 64.15,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_069.25_064.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0079",
+    "name": "Kara-Kul",
+    "lat": 39.01667,
+    "lon": 73.45,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_039.25_073.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0080",
+    "name": "Kardla",
+    "lat": 59.01667,
+    "lon": 22.76667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_059.25_022.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0081",
+    "name": "Karikkoselka",
+    "lat": 62.21667,
+    "lon": 25.25,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.25_025.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0082",
+    "name": "Karla",
+    "lat": 54.91667,
+    "lon": 48.03333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_054.75_048.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0083",
+    "name": "Kelly West",
+    "lat": -19.9333,
+    "lon": 133.95,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-19.75_133.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0084",
+    "name": "Kentland",
+    "lat": 40.75,
+    "lon": -87.4,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_040.75_-87.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0085",
+    "name": "Keurusselka",
+    "lat": 62.13333,
+    "lon": 24.6,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.25_024.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0086",
+    "name": "Kgagodi",
+    "lat": -22.4833,
+    "lon": 27.58333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-22.25_027.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0087",
+    "name": "Kursk",
+    "lat": 51.7,
+    "lon": 36.0,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_051.75_036.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0088",
+    "name": "La Moinerie",
+    "lat": 57.43333,
+    "lon": -66.6167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_057.25_-66.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0089",
+    "name": "Lappajarvi",
+    "lat": 63.2,
+    "lon": 23.7,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_063.25_023.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0090",
+    "name": "Lawn Hill",
+    "lat": -18.6667,
+    "lon": 138.65,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-18.75_138.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0091",
+    "name": "Liverpool",
+    "lat": -12.4,
+    "lon": 134.05,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-12.25_134.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0092",
+    "name": "Lockne",
+    "lat": 63.0,
+    "lon": 14.81667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_063.25_014.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0093",
+    "name": "Logancha",
+    "lat": 65.51667,
+    "lon": 95.93333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_065.75_095.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0094",
+    "name": "Logoisk",
+    "lat": 54.2,
+    "lon": 27.8,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_054.25_027.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0095",
+    "name": "Lonar",
+    "lat": 19.96667,
+    "lon": 76.51667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_019.75_076.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0096",
+    "name": "Luizi",
+    "lat": -10.1667,
+    "lon": 28.0,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-10.25_028.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0097",
+    "name": "Lumparn",
+    "lat": 60.15,
+    "lon": 20.1,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_060.25_020.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0098",
+    "name": "Macha",
+    "lat": 60.1,
+    "lon": 117.5833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_060.25_117.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0099",
+    "name": "Lockne",
+    "lat": 62.91667,
+    "lon": 14.55,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.75_014.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0100",
+    "name": "Manicouagan",
+    "lat": 51.38333,
+    "lon": -68.7,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_051.25_-68.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0101",
+    "name": "Manson",
+    "lat": 42.58333,
+    "lon": -94.55,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_042.75_-94.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0102",
+    "name": "Maple Creek (= White Valley)",
+    "lat": 49.8,
+    "lon": -109.1,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.75_-109.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0103",
+    "name": "Marquez",
+    "lat": 31.28333,
+    "lon": -96.3,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_031.25_-96.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0104",
+    "name": "Matt Wilson",
+    "lat": -15.5,
+    "lon": 131.1833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-15.25_131.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0105",
+    "name": "Middlesboro",
+    "lat": 36.61667,
+    "lon": -83.7333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_036.75_-83.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0106",
+    "name": "Mien",
+    "lat": 56.41667,
+    "lon": 14.86667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_056.25_014.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0107",
+    "name": "Mishina Gora",
+    "lat": 58.71667,
+    "lon": 28.05,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_058.75_028.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0108",
+    "name": "Mistastin",
+    "lat": 55.88333,
+    "lon": -63.3,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_055.75_-63.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0109",
+    "name": "Mizarai",
+    "lat": 54.01667,
+    "lon": 23.9,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_054.25_023.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0110",
+    "name": "Mjolnir",
+    "lat": 73.8,
+    "lon": 29.66667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_073.75_029.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0111",
+    "name": "Montagnais",
+    "lat": 42.88333,
+    "lon": -64.2167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_042.75_-64.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0112",
+    "name": "Monturaqui",
+    "lat": -23.9333,
+    "lon": -68.2833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-23.75_-68.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0113",
+    "name": "Morasko",
+    "lat": 52.48333,
+    "lon": 16.9,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_052.25_016.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0114",
+    "name": "Morokweng",
+    "lat": -26.4667,
+    "lon": 23.53333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-26.25_023.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0115",
+    "name": "Mount Toondina",
+    "lat": -27.95,
+    "lon": 135.3667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-27.75_135.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0116",
+    "name": "Neugrund",
+    "lat": 59.33333,
+    "lon": 23.66667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_059.25_023.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0117",
+    "name": "New Quebec (Chubb, Ungava, Pingualuit)",
+    "lat": 61.28333,
+    "lon": -73.6667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_061.25_-73.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0118",
+    "name": "Newporte",
+    "lat": 48.96667,
+    "lon": -101.967,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.75_-101.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0119",
+    "name": "Nicholson",
+    "lat": 62.66667,
+    "lon": -102.683,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.75_-102.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0120",
+    "name": "Oasis",
+    "lat": 24.58333,
+    "lon": 24.4,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_024.75_024.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0121",
+    "name": "Obolon",
+    "lat": 49.58333,
+    "lon": 32.91667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.75_032.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0122",
+    "name": "Odessa",
+    "lat": 31.75,
+    "lon": -102.483,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_031.75_-102.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0123",
+    "name": "Ouarkziz",
+    "lat": 29.0,
+    "lon": -7.55,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_029.25_-07.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0124",
+    "name": "Paasselka",
+    "lat": 62.03333,
+    "lon": 29.08333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.25_029.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0125",
+    "name": "Piccaninny",
+    "lat": -17.5333,
+    "lon": 128.4167000000001,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-17.75_128.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0126",
+    "name": "Pilot",
+    "lat": 60.28333,
+    "lon": -111.017,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_060.25_-111.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0127",
+    "name": "Popigai",
+    "lat": 71.65,
+    "lon": 111.1833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_071.75_111.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0128",
+    "name": "Presqu'ile",
+    "lat": 49.71667,
+    "lon": -74.8,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.75_-74.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0129",
+    "name": "Puchezh-Katunki",
+    "lat": 56.96667,
+    "lon": 43.71667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_056.75_043.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0130",
+    "name": "Ragozinka",
+    "lat": 58.73333,
+    "lon": 61.8,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_058.75_061.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0131",
+    "name": "Red Wing",
+    "lat": 47.6,
+    "lon": -103.55,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_047.75_-103.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0132",
+    "name": "Riachao Ring",
+    "lat": -7.71667,
+    "lon": -46.65,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-07.75_-46.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0133",
+    "name": "Ries",
+    "lat": 48.88333,
+    "lon": 10.61667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.75_010.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0134",
+    "name": "Rio Cuarto",
+    "lat": -32.8667,
+    "lon": -64.2333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-32.75_-64.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0135",
+    "name": "Ritland",
+    "lat": 59.23333,
+    "lon": 6.433333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_059.25_006.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0136",
+    "name": "Ritland",
+    "lat": 64.92813695180274,
+    "lon": -16.4958615463001,
+    "analog_for": [],
+    "theme": [
+      "volcanic_eruption"
+    ],
+    "cell_id": "g_064.75_-16.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0137",
+    "name": "Rochechouart",
+    "lat": 45.83333,
+    "lon": 0.933333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_045.75_000.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0138",
+    "name": "Rock Elm",
+    "lat": 44.71667,
+    "lon": -92.2333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_044.75_-92.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0139",
+    "name": "Roter Kamm",
+    "lat": -27.7667,
+    "lon": 16.3,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-27.75_016.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0140",
+    "name": "Boltysh",
+    "lat": 49.0,
+    "lon": 32.0,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.25_032.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0141",
+    "name": "Saaksjarvi",
+    "lat": 61.4,
+    "lon": 22.4,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_061.25_022.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0142",
+    "name": "Saarijarvi",
+    "lat": 65.28333,
+    "lon": 28.38333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_065.25_028.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0143",
+    "name": "Saint Martin",
+    "lat": 51.78333,
+    "lon": -98.5333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_051.75_-98.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0144",
+    "name": "Santa Fe",
+    "lat": 35.75,
+    "lon": -105.933,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_035.75_-105.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0145",
+    "name": "Santa Marta",
+    "lat": -10.1667,
+    "lon": -45.25,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-10.25_-45.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0146",
+    "name": "Saqqar",
+    "lat": 29.58333,
+    "lon": 38.7,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_029.75_038.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0147",
+    "name": "Serpent Mound",
+    "lat": 39.03333,
+    "lon": -83.4,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_039.25_-83.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0148",
+    "name": "Serra da Cangalha",
+    "lat": -8.08333,
+    "lon": -46.8667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-08.25_-46.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0149",
+    "name": "Shoemaker (formerly Teague)",
+    "lat": -25.8667,
+    "lon": 120.8833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-25.75_120.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0150",
+    "name": "Shunak",
+    "lat": 47.2,
+    "lon": 72.7,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_047.25_072.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0151",
+    "name": "Sierra Madera",
+    "lat": 30.6,
+    "lon": -102.917,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_030.75_-102.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0152",
+    "name": "Sikhote Alin",
+    "lat": 46.11667,
+    "lon": 134.6667000000001,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_046.25_134.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0153",
+    "name": "Siljan",
+    "lat": 61.03333,
+    "lon": 14.86667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_061.25_014.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0154",
+    "name": "Slate Islands",
+    "lat": 48.66667,
+    "lon": -87.0,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.75_-86.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0155",
+    "name": "Sobolev",
+    "lat": 46.3,
+    "lon": 137.8667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_046.25_137.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0156",
+    "name": "Soderfjarden",
+    "lat": 63.03333,
+    "lon": 21.58333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_063.25_021.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0157",
+    "name": "Spider",
+    "lat": -16.7333,
+    "lon": 126.0833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-16.75_126.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0158",
+    "name": "Steen River",
+    "lat": 59.5,
+    "lon": -117.633,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_059.75_-117.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0159",
+    "name": "Steinheim",
+    "lat": 48.68333,
+    "lon": 10.06667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.75_010.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0160",
+    "name": "Strangways",
+    "lat": -15.2,
+    "lon": 133.5833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-15.25_133.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0161",
+    "name": "Suavjarvi",
+    "lat": 63.11667,
+    "lon": 33.38333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_063.25_033.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0162",
+    "name": "Sudbury",
+    "lat": 46.6,
+    "lon": -81.1833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_046.75_-81.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0163",
+    "name": "Suvasvesi N",
+    "lat": 62.7,
+    "lon": 28.16667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.75_028.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0164",
+    "name": "Suvasvesi S",
+    "lat": 62.6,
+    "lon": 28.21667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_062.75_028.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0165",
+    "name": "Tabun-Khara-Obo",
+    "lat": 44.11667,
+    "lon": 109.65,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_044.25_109.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0166",
+    "name": "Talemzane (= Maadna)",
+    "lat": 33.31667,
+    "lon": 4.033333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_033.25_004.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0167",
+    "name": "Tenoumer",
+    "lat": 22.91667,
+    "lon": -10.4,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_022.75_-10.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0168",
+    "name": "Ternovka",
+    "lat": 48.13333,
+    "lon": 33.51667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.25_033.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0169",
+    "name": "Tin Bider",
+    "lat": 27.6,
+    "lon": 5.116667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_027.75_005.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0170",
+    "name": "Tookoonooka",
+    "lat": -27.1167,
+    "lon": 142.8333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-27.25_142.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0171",
+    "name": "Tswaing (formerly Pretoria Saltpan)",
+    "lat": -25.4,
+    "lon": 28.08333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-25.25_028.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0172",
+    "name": "Tvaren",
+    "lat": 58.76667,
+    "lon": 17.41667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_058.75_017.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0173",
+    "name": "Upheaval Dome",
+    "lat": 38.43333,
+    "lon": -109.9,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_038.25_-109.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0174",
+    "name": "Vargeao Dome",
+    "lat": -26.8333,
+    "lon": -52.1167,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-26.75_-52.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0175",
+    "name": "Veevers",
+    "lat": -22.9667,
+    "lon": 125.3667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-22.75_125.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0176",
+    "name": "Vepriai",
+    "lat": 55.08333,
+    "lon": 24.58333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_055.25_024.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0177",
+    "name": "Viewfield",
+    "lat": 49.58333,
+    "lon": -103.067,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.75_-103.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0178",
+    "name": "Vista Alegre",
+    "lat": -25.95,
+    "lon": -52.6833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-25.75_-52.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0179",
+    "name": "Vredefort",
+    "lat": -27.0,
+    "lon": 27.5,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-26.75_027.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0180",
+    "name": "Wabar",
+    "lat": 21.5,
+    "lon": 50.46667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_021.75_050.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0181",
+    "name": "Wanapitei",
+    "lat": 46.75,
+    "lon": -80.75,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_046.75_-80.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0182",
+    "name": "Wells Creek",
+    "lat": 36.38333,
+    "lon": -87.6667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_036.25_-87.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0183",
+    "name": "West Hawk",
+    "lat": 49.76667,
+    "lon": -95.1833,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.75_-95.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0184",
+    "name": "Wetumpka",
+    "lat": 32.51667,
+    "lon": -86.1667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_032.75_-86.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0185",
+    "name": "Whitecourt",
+    "lat": 54.0,
+    "lon": -115.6,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_054.25_-115.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0186",
+    "name": "Wolfe Creek",
+    "lat": -19.1667,
+    "lon": 127.8,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-19.25_127.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0187",
+    "name": "Woodleigh",
+    "lat": -26.05,
+    "lon": 114.65,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-26.25_114.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0188",
+    "name": "Xiuyan",
+    "lat": 40.35,
+    "lon": 123.45,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_040.25_123.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0189",
+    "name": "Yarrabubba",
+    "lat": -27.1667,
+    "lon": 118.8333,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_-27.25_118.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0190",
+    "name": "Zapadnaya",
+    "lat": 49.73333,
+    "lon": 29.0,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_049.75_029.25",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0191",
+    "name": "Zeleny Gai",
+    "lat": 48.06667,
+    "lon": 32.75,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.25_032.75",
+    "source": "USGS P9J72921"
+  },
+  {
+    "analog_id": "usgs_0192",
+    "name": "Zhamanshin",
+    "lat": 48.4,
+    "lon": 60.96667,
+    "analog_for": [],
+    "theme": [
+      "impact_crater"
+    ],
+    "cell_id": "g_048.25_060.75",
+    "source": "USGS P9J72921"
+  }
+]
