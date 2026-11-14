@@ -64,6 +64,7 @@ def main(argv=None):
     gen=sub.add_parser('generate-mock');gen.add_argument('--out',default='engine/mock_data/')
     check=sub.add_parser('check');check.add_argument('--features');check.add_argument('--grid')
     demo=sub.add_parser('export-demo');demo.add_argument('--out',default='engine/demo_results/');demo.add_argument('--timestamp')
+    scores=sub.add_parser('export-scores');scores.add_argument('--mock',action='store_true');scores.add_argument('--features');scores.add_argument('--grid');scores.add_argument('--preset',default='balanced');scores.add_argument('--sigma',choices=('recompute','frozen'),default='recompute');scores.add_argument('--criteria',action='store_true');scores.add_argument('--out',default='engine/out/scores/')
     for command in ('run','validate'):
         s=sub.add_parser(command);s.add_argument('--mock',action='store_true');s.add_argument('--features');s.add_argument('--grid');s.add_argument('--known');s.add_argument('--out',default='engine/out/')
         if command=='run':
@@ -71,6 +72,11 @@ def main(argv=None):
         else:s.add_argument('--negatives')
     args=p.parse_args(argv)
     if args.command=='generate-mock':write_mock(args.out);return
+    if args.command=='export-scores':
+        from .export_scores import export_scores
+        manifest=export_scores(mock=args.mock,features=args.features,grid=args.grid,preset=args.preset,sigma=None if args.sigma=='recompute' else args.sigma,criteria=args.criteria,out=args.out)
+        sys.stdout.write(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+        return
     if args.command=='check':
         report=check_real_data(DataPaths(features=args.features,grid=args.grid))
         sys.stdout.write(report_json(report))
