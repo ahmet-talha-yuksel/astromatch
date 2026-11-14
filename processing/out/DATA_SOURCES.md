@@ -1,4 +1,4 @@
-# Veri kaynakları — ilk gerçek Salda/Jezero teslimi
+# Veri kaynakları — v2.3 işleme ve QA teslimleri
 
 Belge ve veri erişim tarihi: **2026-11-14**. Salda GLO-30 karosu ve Jezero MOLA
 altkümesi indirildi, local/regional pencereler işlendi. LOLA güney kutbu verisi de alındı; ayrıntıları aşağıdadır.
@@ -132,9 +132,11 @@ SRTMGL30/GLO-90 ızgarası henüz üretilmedi. Kaynak farkı global pilottan ön
 karşılaştırılmalı ve uyarılara yazılmalıdır.
 
 `out/real/` artık 12 gerçek kayıt, 4 regional Dünya Parquet satırı, 4 Dünya
-kapsama geometrisi ve 12 PNG+metadata çifti içerir. Gerekli MOLA/LOLA kalite
-kontrolü tamamlanmadığı için kayıtların comparable bayrakları false kalır.
-Hazır dosyalar modül entegrasyonunda okunabilir; skor üretmek için kullanılamaz.
+kapsama geometrisi ve 12 PNG+metadata çifti içerir. Kalite incelemesi öncesindeki
+ilk teslimde tüm comparable bayrakları false tutulmuştu. Güncel out/real
+paketinde aşağıdaki LOLA işlem QA incelemesine göre Dünya–Shackleton açıldı;
+Jezero kapalı kalır. Önceki kararlar quality_review/preliminary_features.json
+anlık görüntüsünde saklanır.
 
 ## Gerçek bölgesel 0,5° ön pilot (2026-11-14)
 
@@ -165,3 +167,32 @@ Hazır dosyalar modül entegrasyonunda okunabilir; skor üretmek için kullanıl
   `pilot/pilot_timing.json` ve `pilot_timing.json` içindedir.
 - Tüm sayısal özellikler gerçek GLO-90'dan derived, comparable=false'dur.
   Bu ön pilot benzerlik skoru veya doğrulanmış bilimsel keşif değildir.
+
+
+## Shackleton işlem QA incelemesi — 2026-11-14
+
+- [PDS LDEC_75S_240M etiketi](https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldec_75s_240m.lbl):
+  V2.1; counts, int16 little endian; aynı 2017-02-02 gözlem bitişi ve 2017-06-15
+  oluşturma tarihi. Etiket, karşılık gelen LDEM ile kullanılan gözlem sayısını
+  verdiğini açıkça belirtir. Scale=1, offset=0, 0 değeri ölçümsüz bin demektir.
+- [PDS LDEM_75S_120M etiketi](https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_120m.lbl):
+  V2.0; 120 m doğal grid; aynı gözlem dönemi, oluşturma tarihi ve DE421 çerçevesi.
+  Yükseklik DN×0.5 m; gezegensel yarıçap offset'i yükseklik hesabına eklenmedi.
+- Yeni katmanlar sadece ilgili satır byte-range'leriyle edinildi. URL, SHA-256,
+  ETag, Last-Modified ve aralıklar `quality_review/lola_report.json` içindeki
+  acquisition bölümünde, orijinal kopya Git dışında raw/lola_qa/retrieval.json'da.
+- Her iki Shackleton penceresinde tüm analiz hücrelerinin ölçümlü kaynak-bin
+  desteği %100; counts kapsam boşluğu ve DEM NoData sıfırdır.
+- Aynı analiz gridinde 240 m/120 m ürün farkları: local eğim medyanı yaklaşık
+  0.765°, p90 0.353°, TRI 2.747 m, rölyef 13.820 m; regional karşılıkları
+  0.038°, 0.056°, 2.055 m, 0.579 m. Tüm P0 özellikler politikada kayıtlı
+  mühendislik tutarlılık bütçesini geçti.
+- Politika `configs/lola_qa_policy.json`; bu proje işlem QA parametresidir,
+  NASA'nın bağımsız doğruluk standardı veya bilimsel güven aralığı değildir.
+  İki ürün aynı altimetri gözlemlerine dayandığı için bağımsız gerçek referans
+  doğrulaması olarak sunulmaz. Kontrol onayı yalnızca kayıttaki grid/yönteme aittir.
+- Güncel `out/real/` paketi: 8 Dünya + 2 Shackleton kaydında valid topoğrafik
+  özellikler comparable=true; 2 Jezero kaydı false. Dosya/ölçek/politika değişince
+  kanıt geçersiz sayılır. Rapor paketin quality/ dizininde hash adıyla taşınır.
+- Bu inceleme MOLA'nın örnekleme boşluklarını, pilotun kara maskesini veya
+  SRTMGL30 erişim sorununu çözmüş sayılmaz. Diğer paketler kendi bayraklarını korur.

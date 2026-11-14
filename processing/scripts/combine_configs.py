@@ -18,7 +18,7 @@ def combine(inputs, output):
             if item['region_id'] in seen:
                 raise ValueError(f'Duplicate region_id: {item["region_id"]}')
             seen.add(item['region_id'])
-            for key in ('path', 'counts_path'):
+            for key in ('path', 'counts_path', 'qa_report_path'):
                 if item.get(key):
                     absolute = (source.parent / item[key]).resolve()
                     item[key] = os.path.relpath(absolute, output.parent)

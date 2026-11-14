@@ -57,11 +57,11 @@ def test_config_merge_preserves_relative_paths_and_rejects_duplicates(tmp_path):
     source = tmp_path / 'source'
     source.mkdir()
     config = source / 'config.json'
-    record = {'region_id': 'earth_example', 'path': 'example.tif', 'counts_path': 'counts.tif'}
+    record = {'region_id': 'earth_example', 'path': 'example.tif', 'counts_path': 'counts.tif', 'qa_report_path': 'qa.json'}
     config.write_text(json.dumps({'records': [record], 'retrieval_manifest': 'retrieval.json'}))
     destination = tmp_path / 'nested' / 'combined.json'
     result = combine([config], destination)
-    for key in ('path', 'counts_path'):
+    for key in ('path', 'counts_path', 'qa_report_path'):
         assert (destination.parent / result['records'][0][key]).resolve() == (source / record[key]).resolve()
     assert (destination.parent / result['retrieval_manifests'][0]).resolve() == source / 'retrieval.json'
     before = destination.read_bytes()
@@ -84,8 +84,8 @@ def test_real_four_site_deliverable_is_readable_and_cautious():
     for r in earth:
         assert r['quality']['nodata_ratio'] == 0 and r['quality']['coverage'] == 'full'
         assert r['data_status'] == 'derived' and not r['synthetic']
-        assert not r['resolution_validated']
-        assert all(not f['comparable'] and f['value'] is not None for f in r['features'].values())
+        assert r['resolution_validated']
+        assert all(f['comparable'] and f['value'] is not None for f in r['features'].values())
         meta = r['heightmap']
         with Image.open(root / 'real' / meta['path']) as image:
             pixels = np.asarray(image)

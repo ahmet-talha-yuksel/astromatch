@@ -1,7 +1,12 @@
-# NASA Data Processing — v2.3 mock teslimi
+# NASA Data Processing — v2.3
 
-Mock paket tamamen sentetiktir. Ayrı `out/salda_jezero/` paketi gerçek
-Copernicus/MOLA verilerinden hesaplanmış, kalite incelemesi süren ilk teslimdir.
+Güncel ortak teslim `out/real/` altındadır. Bu pakette dört Dünya sahası ile
+Shackleton'ın local/regional topoğrafik karşılaştırması işlem QA kontrolünden
+geçmiştir (10 kayıt comparable=true). Jezero'nun iki kaydı ve ön pilot hâlâ
+comparable=false'dur. Bu onay bağımsız doğruluk veya görev uygunluğu doğrulaması
+değildir. Mock paket tamamen sentetiktir. `out/salda_jezero/` ve
+`out/lola_shackleton/` ilk teslim anlık görüntüleridir; güncel onay durumunu
+`out/real/` dosyalarından okuyun.
 Sözleşme `AstroMatch_AI_Veri_Plani_v2_3.md` §3, §5 ve §7 temelinde uygulanmıştır.
 Planın gerçek veri, pilot zamanlama ve doğrulama teslimleri bu aşamaya dahil değildir.
 
@@ -235,12 +240,13 @@ Gerçek Shackleton merkez seçimi [IAU/USGS kaydındaki](https://planetarynames.
 -89.67°, 129.78° noktasını kullanır; eski mock koordinatı gerçek konum olarak
 kullanılmadı. Yükseltiler referans küreye göredir, Ay equipotansiyel yüzeyine göre
 topoğrafya veya Dünya ile mutlak rakım eşitliği değildir. LOLA etiketinin tarif
-ettiği interpolasyon nedeniyle örnekleme/etkin çözünürlük incelemesi bekler;
-`source_quality_verified=false` ve `comparable=false` korunur.
+ettiği interpolasyon için yeni ölçüm desteği/tutarlılık kontrolü aşağıdaki QA
+bölümünde yer alır. İlk `out/lola_shackleton/` paketi eski kapalı durumuyla
+korunur; güncel `out/real/` paketi onaylı Ay karşılaştırmasını içerir.
 
 İlk ortak paket altı kayıt içeriyordu; aşağıdaki Dünya sahası genişlemesiyle
 **12 gerçek kayda** ulaşan ortak paket:
-`out/real/`. JSON, Parquet, GeoJSON, 12 PNG+metadata çifti ve üç edinim
+`out/real/`. JSON, Parquet, GeoJSON, 12 PNG+metadata çifti ve dört edinim
 manifestini bir arada taşıyan `retrieval.json` içerir. Yeniden üretme:
 
 ```sh
@@ -248,10 +254,11 @@ processing/.venv/bin/python -m processing.scripts.process_dem \
   processing/configs/real_batch.json --output processing/out/real
 ```
 
-İlk iki edinim komutunun ham dosyaları yerelde mevcut olmalıdır. Tüketiciler
+Birincil edinimler ve aşağıdaki LOLA QA adımlarının ham dosyaları yerelde mevcut olmalıdır. Tüketiciler
 hazır küçük çıktıları doğrudan okuyabilir. Paket derived ve gerçek veridir;
-**henüz benzerlik skoruna hazır değildir**. Uyumsuz/gerekli kontrolü eksik
-kayıtlara skor verilmemelidir. İlk global tarama ön pilotu aşağıdaki bölümde sunulur. Marius Hills global
+**karşılaştırma uygunluğu kayıt bazındadır**: Dünya–Shackleton topoğrafyası
+QA kapsamında kullanılabilir; Jezero kapalıdır. İki tarafta da uygun değer ve
+comparable=true bulunmayan ölçüte skor verilmemelidir. İlk global tarama ön pilotu aşağıdaki bölümde sunulur. Marius Hills global
 LOLA ürünü henüz eklenmedi.
 
 ## Minimum dört Dünya sahası
@@ -262,7 +269,8 @@ güncel ortak paket `out/real/` artık **12 kayıt** içerir: dört Dünya sahas
 ölçek, Jezero × iki ölçek, Shackleton × iki ölçek. Regional Dünya Parquet ve
 GeoJSON dosyalarında dört saha vardır. Bunlar global 0,5° tarama hücreleri
 değil, detay saha merkezleridir; Kişi 3 bunları global tarama tamamlandı diye
-sunmamalıdır. MOLA/LOLA kalite incelemesi beklediğinden karşılaştırma false kalır.
+sunmamalıdır. Güncel out/real paketinde Dünya–Shackleton QA onayı vardır;
+MOLA ve global pilotun karşılaştırılabilirliği henüz açılmadı.
 
 Kaynak karo seçimi 52×52 km fiziksel LAEA çerçevesinden WGS84'e dönüştürülmüş
 sınırlarla yapılır. 50 km analiz penceresine tampon bırakılır; tüm kesişen 1°
@@ -279,7 +287,7 @@ processing/.venv/bin/python -m processing.scripts.acquire_earth_sites --accessed
 processing/.venv/bin/python -m processing.scripts.process_dem \
   processing/configs/earth_sites.real.json --output processing/out/earth_sites
 processing/.venv/bin/python -m processing.scripts.combine_configs \
-  processing/configs/salda_jezero.real.json processing/configs/lola.real.json \
+  processing/configs/salda_jezero.real.json processing/configs/lola.reviewed.json \
   processing/configs/earth_sites.real.json --output processing/configs/real_batch.json
 processing/.venv/bin/python -m processing.scripts.process_dem \
   processing/configs/real_batch.json --output processing/out/real
@@ -353,3 +361,55 @@ kapısı fonksiyon ve sınır testleriyle hazırdır; bu örneğin süresi düny
 sayısıyla çarpılıp kesin tamamlanma tahmini olarak sunulmaz. Tüm pilot özellikler
 `derived` ama `comparable=false` kalır. Kod skor/sıralama veya USGS doğrulaması
 üretmez; bunlar ilgili ekiplerin sorumluluğundadır.
+
+
+## Dosyaya ve ölçeğe bağlı LOLA işlem QA kontrolü
+
+`configs/lola_qa_policy.json` v2.3 şemasını değiştirmeden, LOLA için sayısal
+kontrol parametrelerini tanımlar. Bu, NASA'nın onayladığı evrensel bir doğruluk
+standardı değildir. Eşikler mühendislik amaçlı tutarlılık/regresyon bütçeleridir;
+bağımsız gerçek referans veya istatistiksel güven aralığı olarak yorumlanmaz.
+MOLA'ya veya sıcaklık protokolüne otomatik uygulanmaz.
+
+Kaynaklar: aynı gözlem dönemi, oluşturma tarihi ve DE421 çerçevesine ait PDS
+LDEM_75S_240M V2.0, LDEC_75S_240M V2.1 ve LDEM_75S_120M V2.0. Counts/reference
+ürünlerinden sadece Shackleton çevresini kapsayan satır aralıkları alındı.
+İki LDEM aynı LOLA gözlemlerini paylaşır; bu **bağımsız doğruluk testi değildir**.
+Aynı 10 km/500 m ve 50 km/1000 m analizlerde 240 m/120 m kaynak gridine
+hassasiyet, doğrudan ölçümlü bin desteği, NoData ve geometri/yöntem kontrolüdür.
+
+- Her analiz hücresinde ölçümlü kaynak bin payı en az %90, boş counts kapsamı yok.
+- NoData en fazla %5; gerçek Shackleton pencerelerinde her iki koşul %100 destek
+  ve %0 NoData ile sağlandı.
+- Her P0 özellik için `|primary-reference| <= absolute + relative*|reference|`.
+  Derece, metre ve oran için eşikler ayrı olup JSON politikada açıkça saklanır.
+- Eşit fiziksel pencere, çözünürlük, CRS, yöntem ve düşey referans zorunludur.
+- Kaynak GeoTIFF, counts dosyası ve politika SHA-256 özetleri ile analiz
+  parametreleri kanıta bağlanır. Kaynak, merkez, çözünürlük, düşey referans,
+  metrik, counts veya politika değişirse eski rapor geçersiz olur.
+- Kaydedilmiş `passed=true` bayrağına tek başına güvenilmez: kayıtlı sayısal
+  kontroller yeniden hesaplanır. Gerçek LOLA için yalnızca boolean ile onay
+  verilemez. Aynı ölçekte uygun Dünya karşılığı yoksa comparable yine false olur.
+
+Tekrar üretme (birincil LOLA ve Dünya edinimleri yerelde bulunmalı):
+
+```sh
+processing/.venv/bin/python -m processing.scripts.acquire_lola_qa --accessed-on YYYY-MM-DD
+processing/.venv/bin/python -m processing.scripts.review_lola_quality
+processing/.venv/bin/python -m processing.scripts.combine_configs \
+  processing/configs/salda_jezero.real.json processing/configs/lola.reviewed.json \
+  processing/configs/earth_sites.real.json --output processing/configs/real_batch.json
+processing/.venv/bin/python -m processing.scripts.process_dem \
+  processing/configs/real_batch.json --output processing/out/real
+```
+
+Rapor `out/quality_review/lola_report.json`; önceki kapalı karşılaştırma
+kararlarının JSON anlık görüntüsü `out/quality_review/preliminary_features.json`.
+Güncel pakette denetim raporu `out/real/quality/<sha256>.json` içine kopyalanır;
+Ay kayıtlarının `quality.qa_validation.report_file` alanı pakete göre doğrudan
+okunabilir yolu gösterir. Ham QA rasterleri Git dışında `raw/lola_qa/` içindedir.
+
+Kişi 2 her ölçütte **hedef ve adayın ikisinde de** value dolu ve comparable=true
+olmasını kontrol etmelidir. Dünya kayıtları artık Ay ile karşılaştırılabilir
+olsa da hedef Jezero seçilince Mars tarafının false bayrağı kullanılmalıdır.
+Bu modül sıralama motorunu veya görev güvenliği değerlendirmesini uygulamaz.

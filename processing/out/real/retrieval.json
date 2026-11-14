@@ -113,6 +113,75 @@
       "accessed_on": "2026-11-14",
       "inputs": [
         {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldec_75s_240m.lbl",
+          "bytes": 3821,
+          "sha256": "62d8cabb31c2f75a1ccdf302c002e30af24a57f71c0eafe66c4ddda9a126bc3b",
+          "etag": "\"a7af4e87b9dbd21:0\"",
+          "last_modified": "Fri, 02 Jun 2017 16:01:43 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldec_75s_240m.img",
+          "bytes": 2424432,
+          "sha256": "a67c694ec4059a9cf33658df8c422263bca0b8b58bf3657a7f875f8ae1680953",
+          "etag": "\"a8be3b57b9dbd21:0\"",
+          "last_modified": "Fri, 02 Jun 2017 16:00:22 GMT",
+          "content_range": "bytes 13524976-15949407/29062688"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_120m.lbl",
+          "bytes": 4991,
+          "sha256": "5c59b16ec8a610792b1776fa082e409c8cc9f6743757710d14876ef366acd99a",
+          "etag": "\"196ab1db9dbd21:0\"",
+          "last_modified": "Fri, 02 Jun 2017 15:58:46 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_120m.img",
+          "bytes": 9682480,
+          "sha256": "e16c1344869382329ec95b22a08493f1c6a324e3b068ba0b12aef59b479a5c03",
+          "etag": "\"807a65e65cf6d21:0\"",
+          "last_modified": "Thu, 06 Jul 2017 13:36:41 GMT",
+          "content_range": "bytes 54099904-63782383/116250752"
+        }
+      ],
+      "crops": {
+        "counts": {
+          "path": "raw/lola_qa/ldec_75s_240m.tif",
+          "source_rows": [
+            1774,
+            2092
+          ],
+          "source_columns": [
+            1779,
+            2097
+          ],
+          "spacing_m": 240,
+          "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldec_75s_240m.img",
+          "range_sha256": "a67c694ec4059a9cf33658df8c422263bca0b8b58bf3657a7f875f8ae1680953"
+        },
+        "height": {
+          "path": "raw/lola_qa/ldem_75s_120m.tif",
+          "source_rows": [
+            3548,
+            4183
+          ],
+          "source_columns": [
+            3559,
+            4193
+          ],
+          "spacing_m": 120,
+          "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_120m.img",
+          "range_sha256": "e16c1344869382329ec95b22a08493f1c6a324e3b068ba0b12aef59b479a5c03"
+        }
+      },
+      "primary_height_label": "raw/lola_shackleton/ldem_75s_240m.lbl",
+      "matching": "Same dataset, observing period, creation date, DE421 frame and polar footprint."
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
           "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N38_00_E028_00_DEM/Copernicus_DSM_COG_10_N38_00_E028_00_DEM.tif",
           "bytes": 43707610,
           "sha256": "f64b92a865dfdf0222254edc5f5a9e0781ca68b2d368b9a4cc7670290750e522",

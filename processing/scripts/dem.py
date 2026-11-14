@@ -42,6 +42,7 @@ class DemRequest:
     source_quality_verified: bool = False
     counts_path: str | None = None
     quality_notes: tuple[str, ...] = ()
+    qa_report_path: str | None = None
 
 
 def process_dem(request: DemRequest, timings=None):
@@ -186,6 +187,21 @@ def process_dem(request: DemRequest, timings=None):
             record['quality']['validation_eligible'] = False
             record['quality']['warnings'].append(
                 'Some analysis cells have no directly observed source bins or no counts coverage.')
+    if r.qa_report_path is not None:
+        if r.product != 'lola':
+            raise ValueError('Current bound QA policy only applies to LOLA')
+        from .qa_evidence import check_evidence
+        evidence = check_evidence(record, r.qa_report_path, r.counts_path)
+        record['quality']['qa_validation'] = evidence
+        approved = evidence['status'] == 'passed'
+        record['quality']['validation_eligible'] = record['quality']['validation_eligible'] and approved
+        record['provenance']['source_quality_verified'] = r.source_quality_verified and approved
+        if not approved:
+            record['quality']['warnings'].append('Bound LOLA QA evidence failed: ' + evidence['reason'])
+    elif r.product == 'lola' and not r.synthetic and r.source_quality_verified:
+        record['quality']['validation_eligible'] = False
+        record['provenance']['source_quality_verified'] = False
+        record['quality']['warnings'].append('Real LOLA quality approval requires bound QA evidence.')
     if timings is not None:
         elapsed = perf_counter()-started
         timings.update(reprojection_s=warp_seconds, feature_extraction_s=feature_seconds,

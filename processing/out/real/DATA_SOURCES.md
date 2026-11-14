@@ -59,6 +59,10 @@ Parameters and CRS are also stored in features.json.
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
 - Vertical reference: Height above 1737400 m sphere; not an equipotential surface
 
+- Operational QA policy: lola-grid-qa-1
+- Audit report: quality/54aa9ccc836d40d6a83408c540537eeebc244efd539137fd4d50b6136971643d.json
+- QA scope: Operational grid/method consistency for terrain comparison; not independent accuracy or mission suitability validation.
+
 ## moon_shackleton_regional
 
 - Status: derived; synthetic: False
@@ -69,6 +73,10 @@ Parameters and CRS are also stored in features.json.
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
 - Vertical reference: Height above 1737400 m sphere; not an equipotential surface
+
+- Operational QA policy: lola-grid-qa-1
+- Audit report: quality/54aa9ccc836d40d6a83408c540537eeebc244efd539137fd4d50b6136971643d.json
+- QA scope: Operational grid/method consistency for terrain comparison; not independent accuracy or mission suitability validation.
 
 ## earth_kula_local
 

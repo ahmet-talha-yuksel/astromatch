@@ -52,8 +52,9 @@ def run(config_path, output):
     for item in config['records']:
         item = dict(item)
         item['path'] = str((config_path.parent / item['path']).resolve())
-        if item.get('counts_path'):
-            item['counts_path'] = str((config_path.parent / item['counts_path']).resolve())
+        for key in ('counts_path', 'qa_report_path'):
+            if item.get(key):
+                item[key] = str((config_path.parent / item[key]).resolve())
         requests.append(DemRequest(**item))
     if not requests or len({r.region_id for r in requests}) != len(requests):
         raise ValueError('Batch requires nonempty records with unique region_id values')
@@ -64,8 +65,14 @@ def run(config_path, output):
     output.mkdir(parents=True, exist_ok=True)
     if retrieval is not None:
         write_json(output / 'retrieval.json', retrieval)
-    for record, array in results:
+    for request, (record, array) in zip(requests, results):
         export_heightmap(output, record, array)
+        evidence = record['quality'].get('qa_validation', {})
+        if evidence.get('status') == 'passed':
+            relative = 'quality/' + evidence['report_sha256'] + '.json'
+            (output / 'quality').mkdir(exist_ok=True)
+            (output / relative).write_bytes(Path(request.qa_report_path).read_bytes())
+            evidence['report_file'] = relative
     write_json(output / 'features.json', {'schema_version': '2.3', 'records': records})
     earth = [flatten(r) for r in records if r['body'] == 'earth' and r['scale'] == 'regional']
     if earth:
@@ -104,6 +111,11 @@ def run(config_path, output):
                       f"- Window: {record['window_km']} km; analysis: {record['analysis_resolution_m']} m",
                       f"- Method: {record['method']}; resampling: average",
                       f"- Vertical reference: {record['provenance']['vertical_reference']}", ''])
+        if record['quality'].get('qa_validation', {}).get('status') == 'passed':
+            evidence = record['quality']['qa_validation']
+            lines.extend([f"- Operational QA policy: {evidence['policy_version']}",
+                          f"- Audit report: {evidence['report_file']}",
+                          f"- QA scope: {evidence['scope']}", ''])
     (output / 'DATA_SOURCES.md').write_text('\n'.join(lines), encoding='utf-8')
     return records
 

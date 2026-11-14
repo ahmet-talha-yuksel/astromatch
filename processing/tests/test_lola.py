@@ -56,8 +56,8 @@ def test_real_lola_and_combined_outputs():
     assert len({r['region_id'] for r in records}) == 12
     assert {r['body'] for r in records} == {'earth', 'mars', 'moon'}
     for r in records:
-        assert not r['synthetic'] and not r['resolution_validated']
-        assert all(f['data_status'] == 'derived' and not f['comparable'] for f in r['features'].values())
+        assert not r['synthetic'] and r['resolution_validated'] is (r['body'] != 'mars')
+        assert all(f['data_status'] == 'derived' and f['comparable'] is (r['body'] != 'mars') for f in r['features'].values())
     moons = [r for r in records if r['body'] == 'moon']
     assert len(moons) == 2
     for r in moons:
@@ -65,7 +65,8 @@ def test_real_lola_and_combined_outputs():
         assert r['provenance']['band_scale'] == .5
         assert r['provenance']['band_offset'] == 0
         assert r['quality']['nodata_ratio'] == 0
-        assert not r['provenance']['source_quality_verified']
+        assert r['provenance']['source_quality_verified']
+        assert r['quality']['qa_validation']['status'] == 'passed'
         meta = r['heightmap']
         assert json.loads((root / 'real' / meta['metadata_path']).read_text()) == meta
         with Image.open(root / 'real' / meta['path']) as image:
@@ -77,6 +78,6 @@ def test_real_lola_and_combined_outputs():
         assert pixels.shape == ((20, 20) if r['scale'] == 'local' else (50, 50))
     assert pq.read_table(root / 'real/earth_grid.parquet').num_rows == 4
     manifests = json.loads((root / 'real/retrieval.json').read_text())['datasets']
-    assert len(manifests) == 3
-    assert sum(len(m['inputs']) for m in manifests) == 16
+    assert len(manifests) == 4
+    assert sum(len(m['inputs']) for m in manifests) == 20
     assert manifests[1]['conversion']['stored_band_offset_m'] == 0

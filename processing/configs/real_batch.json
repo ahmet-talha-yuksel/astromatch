@@ -110,11 +110,13 @@
       "synthetic": false,
       "quantity": "elevation",
       "georeferencing_verified": true,
-      "source_quality_verified": false,
+      "source_quality_verified": true,
       "quality_notes": [
-        "LOLA gridded product includes interpolated ground tracks; effective sampling review is pending.",
-        "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed."
-      ]
+        "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed.",
+        "Operational native-grid consistency and direct-bin support checked; not independent absolute accuracy validation."
+      ],
+      "counts_path": "../raw/lola_qa/ldec_75s_240m.tif",
+      "qa_report_path": "../out/quality_review/lola_report.json"
     },
     {
       "path": "../raw/lola_shackleton/lola_polar_height.tif",
@@ -134,11 +136,13 @@
       "synthetic": false,
       "quantity": "elevation",
       "georeferencing_verified": true,
-      "source_quality_verified": false,
+      "source_quality_verified": true,
       "quality_notes": [
-        "LOLA gridded product includes interpolated ground tracks; effective sampling review is pending.",
-        "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed."
-      ]
+        "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed.",
+        "Operational native-grid consistency and direct-bin support checked; not independent absolute accuracy validation."
+      ],
+      "counts_path": "../raw/lola_qa/ldec_75s_240m.tif",
+      "qa_report_path": "../out/quality_review/lola_report.json"
     },
     {
       "path": "../raw/earth_sites/kula_glo30.tif",
@@ -288,6 +292,7 @@
   "retrieval_manifests": [
     "../raw/salda_jezero/retrieval.json",
     "../raw/lola_shackleton/retrieval.json",
+    "../raw/lola_qa/retrieval.json",
     "../raw/earth_sites/retrieval.json"
   ]
 }
