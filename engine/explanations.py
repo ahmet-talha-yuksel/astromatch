@@ -3,6 +3,7 @@ from .models import Explanation
 from .io import config
 from .measurement import target_confidence, support_summary
 from .discrimination import NO_CLOSE_ANALOG
+from .place_names import place_phrase
 
 def build(target,candidate,criteria,score,flags,not_compared,match_level=None,discrimination_label=None,commonality=None,uncertainty=None):
     ordered=sorted(criteria.items(),key=lambda kv:(-kv[1]['s_i'],kv[0]))
@@ -26,6 +27,8 @@ def build(target,candidate,criteria,score,flags,not_compared,match_level=None,di
         low=uncertainty['score_ci_low'];high=uncertainty['score_ci_high']
         stability=uncertainty['top10_stability']
         summary=f'Score {score:.0f} (90% interval {low:.0f}–{high:.0f}); in top 10 in {stability:.0%} of perturbations. {summary}'
+    phrase=place_phrase(candidate.place)
+    if phrase: summary=f'{summary} {phrase}.'
     support=support_summary(target)
     note='Interpolated MOLA values were not used.' if target.body=='mars' else None
-    return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=not_compared,analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label)
+    return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=not_compared,analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label,place=candidate.place)
