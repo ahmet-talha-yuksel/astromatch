@@ -1,0 +1,239 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "earth_salda_regional",
+      "properties": {
+        "region_id": "earth_salda_regional",
+        "body": "earth",
+        "data_status": "mock",
+        "status": "scanned",
+        "coverage": "partial",
+        "dem_source": "synthetic analytic surface"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.5,
+              37.5
+            ],
+            [
+              30.0,
+              37.5
+            ],
+            [
+              30.0,
+              38.0
+            ],
+            [
+              29.5,
+              38.0
+            ],
+            [
+              29.5,
+              37.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_kula_regional",
+      "properties": {
+        "region_id": "earth_kula_regional",
+        "body": "earth",
+        "data_status": "mock",
+        "status": "scanned",
+        "coverage": "partial",
+        "dem_source": "synthetic analytic surface"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.5,
+              38.5
+            ],
+            [
+              29.0,
+              38.5
+            ],
+            [
+              29.0,
+              39.0
+            ],
+            [
+              28.5,
+              39.0
+            ],
+            [
+              28.5,
+              38.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_hassa_regional",
+      "properties": {
+        "region_id": "earth_hassa_regional",
+        "body": "earth",
+        "data_status": "mock",
+        "status": "scanned",
+        "coverage": "partial",
+        "dem_source": "synthetic analytic surface"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.5,
+              36.5
+            ],
+            [
+              37.0,
+              36.5
+            ],
+            [
+              37.0,
+              37.0
+            ],
+            [
+              36.5,
+              37.0
+            ],
+            [
+              36.5,
+              36.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_atacama_regional",
+      "properties": {
+        "region_id": "earth_atacama_regional",
+        "body": "earth",
+        "data_status": "mock",
+        "status": "scanned",
+        "coverage": "partial",
+        "dem_source": "synthetic analytic surface"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.0,
+              -25.0
+            ],
+            [
+              -69.5,
+              -25.0
+            ],
+            [
+              -69.5,
+              -24.5
+            ],
+            [
+              -70.0,
+              -24.5
+            ],
+            [
+              -70.0,
+              -25.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_not_scanned",
+      "properties": {
+        "region_id": "earth_not_scanned",
+        "body": "earth",
+        "data_status": "mock",
+        "status": "not_scanned",
+        "coverage": null,
+        "dem_source": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.0,
+              39.0
+            ],
+            [
+              30.5,
+              39.0
+            ],
+            [
+              30.5,
+              39.5
+            ],
+            [
+              30.0,
+              39.5
+            ],
+            [
+              30.0,
+              39.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_no_data",
+      "properties": {
+        "region_id": "earth_no_data",
+        "body": "earth",
+        "data_status": "mock",
+        "status": "no_data",
+        "coverage": "none",
+        "dem_source": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.5,
+              39.0
+            ],
+            [
+              31.0,
+              39.0
+            ],
+            [
+              31.0,
+              39.5
+            ],
+            [
+              30.5,
+              39.5
+            ],
+            [
+              30.5,
+              39.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "path": "heightmaps/earth_hassa_local.png",
+  "metadata_path": "heightmaps/earth_hassa_local.json",
+  "width": 20,
+  "height": 20,
+  "bit_depth": 16,
+  "offset": -1000.0,
+  "scale": 0.1,
+  "NoData": 0,
+  "nodata_mask": "pixel == 0",
+  "pixel_size_x_m": 500,
+  "pixel_size_y_m": 500,
+  "origin_x_m": -5000,
+  "origin_y_m": 5000,
+  "elevation_unit": "m",
+  "vertical_exaggeration": 1,
+  "decode": "elevation_m = pixel * scale + offset",
+  "row_direction": "south",
+  "crs": "+proj=laea +lat_0=36.75 +lon_0=36.75 +R=6371008.8 +units=m +no_defs",
+  "dem_source": "synthetic analytic surface",
+  "synthetic": true
+}

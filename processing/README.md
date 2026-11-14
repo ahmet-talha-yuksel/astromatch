@@ -1,4 +1,157 @@
-# Data processing (Person 1)
-Implement SRTM/Copernicus, MOLA, LOLA ingestion, projected metric windows,
-NoData checks, common analysis resolution and terrain features here.
-Real NASA DEMs are NOT included in this starter.
+# NASA Data Processing — v2.3 mock teslimi
+
+Yalnızca sentetik test verisi; NASA/ESA gözlemsel verisi indirilmez.
+Sözleşme `AstroMatch_AI_Veri_Plani_v2_3.md` §3, §5 ve §7 temelinde uygulanmıştır.
+Planın gerçek veri, pilot zamanlama ve doğrulama teslimleri bu aşamaya dahil değildir.
+
+## Üretim ve test
+
+Repo kökünden (bu ortamda Python 3.14 ile doğrulandı):
+
+```sh
+python3 -m venv processing/.venv
+processing/.venv/bin/pip install -r processing/requirements.txt
+processing/.venv/bin/python processing/scripts/generate_mock.py
+processing/.venv/bin/python -m pytest processing/tests -q
+```
+
+Varsayılan çıktı çalışma dizininden bağımsız olarak `processing/out/mock/` olur.
+Alternatif: `--output processing/out/another_mock`. Üretim sırasında ağ kullanılmaz.
+Bağımlılıklar tekrarlanabilirlik için sabitlenmiştir.
+
+## Ekiplerin doğrudan okuyacağı dosyalar
+
+`out/mock/` altındaki üretilmiş dosyalar paylaşılabilir teslimdir; tüketicilerin
+üretim scriptini çalıştırması gerekmez. Depoya commit/merge edildiğinde diğer
+branch'lerde de aynı dosyalar kullanılabilir.
+
+- `features.json`: `{schema_version, synthetic, data_plan_verified, records}` zarfı.
+  Her kayıtta §7 ortak alanları ve `schema_version: "2.3"` bulunur.
+- `earth_grid.parquet`: yalnızca regional Dünya kayıtları; düz kolonlar.
+  Örnek: `slope_median_deg`, `slope_median_deg__status`,
+  `slope_median_deg__comparable`. Dünya filtreleri de aynı kolon kuralını izler.
+  Eksik sıcaklık/yağış değerleri nullable double'dır, sıfırla doldurulmaz.
+  Uyarılar `quality_warnings_json` metin kolonunda taşınır.
+- `coverage.geojson`: yalnızca Dünya; 0,5° hücrelerde `status` değerleri
+  `scanned`, `not_scanned`, `no_data`. `coverage` ayrı bir kalite alanıdır.
+  Taranmayan hücrenin kapsamı bilinmediğinden null'dır; `no_data` için `none`.
+- `heightmaps/<region_id>.png` ve yanında `.json`: 16-bit gri tonlamalı raster
+  ve ayrı metadata. JSON'daki yollar `out/mock/` dizinine göredir.
+
+```python
+import json
+from pathlib import Path
+import pyarrow.parquet as pq
+import numpy as np
+from PIL import Image
+
+root = Path('processing/out/mock')
+records = json.loads((root / 'features.json').read_text())['records']
+grid = pq.read_table(root / 'earth_grid.parquet').to_pylist()
+record = records[0]
+meta = json.loads((root / record['heightmap']['metadata_path']).read_text())
+with Image.open(root / meta['path']) as image:
+    pixels = np.asarray(image)
+valid = pixels != meta['NoData']
+elevations_m = np.where(valid, pixels.astype(float) * meta['scale'] + meta['offset'], np.nan)
+```
+
+## Veri sözleşmesi ve yöntem
+
+Kayıtların `region_id` alanları benzersizdir; `body` küçük harfle
+`earth`, `mars`, `moon` olur. Salda, Kula, Hassa, Atacama, Jezero ve Shackleton
+etiketli test kayıtları local ve regional ölçeklerde sunulur. Koordinatlar
+bölge bağlamı içindir; yüzeyler bu sahaların gerçek arazisini temsil etmez.
+Her kaydın ve özelliğin `data_status` değeri `mock` olur.
+
+Local: 10×10 km / 500 m; regional: 50×50 km / 1000 m.
+Analitik yüzey, kayıt merkezindeki gövde yarıçapına uygun küresel LAEA metrik
+koordinat sistemi üzerinde tanımlanır; gerçek raster reprojeksiyonu yapılmaz.
+0,5° hücreler yalnızca regional örnek merkezlerini gösterir; özellikler hücre
+alanından hesaplanmaz. Tam global ızgara üretildiği iddia edilmez.
+
+`features`: `slope_median_deg`, `slope_p90_deg`, `flat_fraction`,
+`tri_median_m`, `relief_m`, `elevation_std_m` ve boş sıcaklık örneği.
+Eğim metre aralıklı gradyandan, Riley TRI sekiz komşunun kare farkları
+toplamının karekökünden (iç piksellerde medyan), rölyef p95-p5'ten hesaplanır.
+Yükseklik standart sapması popülasyon standart sapmasıdır. NoData hesaplamadan
+önce NaN ile maskelenir; eğim/komşuluk hesaplamasında geçersiz komşuluğa sahip
+pikseller ilgili ölçütten dışlanır. Kenarlarda eğim tek taraflı fark kullanır.
+
+Geçerli topoğrafik değerde `resolution_validated=true` otomatik
+`comparable=true` üretir. Kula test kayıtları doğrulama başarısızlığı örneğidir:
+false bayrağı ve `quality.warnings` gerekçesi taşır. Doğrulama yalnızca sentetik
+ortak ölçek/yöntem testini ifade eder; gerçek DEM doğrulaması değildir.
+Eksik değer null ve karşılaştırılamazdır. Sıcaklık protokolü geçilmediği için
+sıcaklık null ve false kalır; `comparability_note` gerekçesi vardır.
+`ndvi_mean`, `precip_mm_yr`, `land_fraction` sadece Dünya `earth_filters`
+alanındadır, her zaman skor dışıdır. Diğer gövdelerde `earth_filters=null`.
+
+Heightmap metadata `offset`, `scale`, `NoData`, maske kuralı, `width`, `height`,
+piksel boyutları, CRS, sol üst köşe, DEM kaynağı, metre birimi ve dikey abartma
+alanlarını taşır. NoData pikseli **önce** maskelenir. Sonra
+`elevation_m = pixel * scale + offset` uygulanır. 0,1 m kuantizasyonun azami
+hatası 0,05 m'dir. Özellikler kuantize edilmemiş, maskelenmiş float yüzeyden
+hesaplanır. PNG kendi başına coğrafi referans taşımaz.
+
+Kaynak `synthetic analytic surface` olarak yazılır; gerçek MOLA/LOLA/Copernicus
+kaynağı kullanılmış gibi gösterilmez. `data_plan_verified=true` yalnızca bu
+mock teslimin sağlanan v2.3 planıyla karşılaştırıldığını ifade eder.
+
+## Gerçek DEM okuma altyapısı (0.3.0)
+
+Önce mock denetimi tamamlandı. `scripts/metrics.py` mock ve DEM için ortak
+metrik tanımlarını sağlar. `scripts/dem.py` yerel GDAL-okunabilir tek bantlı,
+north-up rasteri merkezli LAEA penceresine `WarpedVRT` ile getirir; tüm global
+rasteri NumPy dizisine yüklemez. `scripts/process_dem.py` konfigürasyonlu batch,
+karşılaştırma kontrolü, JSON/Parquet/GeoJSON ve PNG+metadata çıktısını sağlar.
+Çalıştırma repo kökünden modül biçimindedir:
+
+```sh
+processing/.venv/bin/python -m processing.scripts.process_dem \
+  processing/configs/salda_jezero.example.json --output processing/out/salda_jezero
+```
+
+Örnek config **hazır gerçek veri içermez**. Önce `processing/raw/` içine yerel
+raster/etiket dosyaları sağlanmalı; gerçek sürüm, erişim tarihi, birim, düşey
+referans ve kaynak çözünürlüğü ürün etiketinden doğrulanarak config doldurulmalıdır.
+Gösterilen Salda merkezi operatör tarafından analiz alanı olarak kontrol
+edilmelidir. PDS3'te `.img` yerine yanındaki `.lbl` açılır; ilişkili dosyalar
+birlikte tutulur. PDS4 `.xml` ancak yerel GDAL sürücüsü ürünü destekliyorsa açılır;
+PDS4 ve gerçek NASA ürünleri henüz doğrulanmadı. GeoTIFF ve sentetik PDS3 etiket+
+binary testleri mevcuttur. LOLA için `configs/lola.example.json` başlangıç
+örneğidir; karşılaştırma doğrulaması için aynı batch'e Dünya kaydı eklenmelidir.
+
+MOLA topoğrafya ürünü seçilmelidir: radius, areoid ve counts görüntüleri yükselti
+olarak kullanılamaz. LOLA shape/radius ürünlerinde de gerçek etiketin scale/offset
+ve referans tanımı doğrulanmalıdır. Bu sürüm radius→yükseklik dönüşümünü otomatik
+varsaymaz; gerekirse doğrulanmış metre yükselti rasteri hazırlanmalıdır.
+`quantity` alanı `elevation` olmalıdır. MOLA'nın eski GDAL dönüşümlerindeki
+olası kayma/ölçek farkı için [kaynak notuna](out/DATA_SOURCES.md) bakın.
+
+Gerçek ürünlerde `georeferencing_verified` ve `source_quality_verified`
+varsayılan false'tur. Ürün etiketi/örnekleme kalite kontrolü yapıldıktan sonra
+true olarak beyan edilir; bu iki bayrak veri indirme veya kontrol işlemi yapmaz.
+Tek başına bu bayraklar yeterli değildir: kaynak çözünürlüğü, gövde yarıçapı,
+NoData (en fazla %5), metrik mevcudiyeti ve batch içinde aynı pencere/çözünürlük/
+yöntemli Dünya–hedef eşleşmesi de kontrol edilir. Sadece başarılı eşleşmelerin
+geçerli topoğrafik özellikleri comparable olur. Ölçek farklıysa false kalır.
+
+İşlem kimliği: `metric-gradient-riley8-p95p5-v1`. Kaynak CRS, band scale/offset,
+ürün URL/sürüm/erişim tarihi, düşey referans ve işlem parametreleri provenance
+alanında tutulur. Yapay örnekler `synthetic=true` ile mock olarak kalır; gerçek
+rasterden hesaplanan değerler derived olur. NDVI veya sıcaklık indirme eklenmedi.
+Ham rasterler `raw/`, `cache/` ve raster uzantılarıyla Git dışında tutulur.
+
+İlk gerçek batch'i mock çıktı dizinine yazmayın. `earth_grid.parquet` yalnızca
+regional Dünya kayıtlarını içerir; sadece local çalışmada boş kimlik şemalı
+Parquet üretilir. `coverage.geojson` bu batch'teki regional Dünya pencerelerinin
+merkezlerini gösterir; henüz tam 0,5° tarama pilotu değildir. Merkezler global
+ızgaraya snap edilmez. İşlenmeyen global alanlar hakkında sınıf atanmaz.
+Batch'ler aynı çıktı dosyalarını yeniden yazar; ayrı denemeler için ayrı
+`--output` dizinleri kullanın. CLI çalışma yolları örnek config dosyasına göredir.
+
+Henüz gerçek Salda/Jezero/LOLA sonucu, global pilot süre ölçümü veya
+`pilot_timing.json` üretilmedi. Sıradaki adım resmi Salda ve Jezero ürünlerini
+sağlayıp etiket/yerleşim doğrulamasını yaparak aynı local ve regional batch'te
+çalıştırmak; ardından aynı akışa Ay ürününü eklemektir.
