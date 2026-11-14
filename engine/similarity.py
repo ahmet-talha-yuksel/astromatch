@@ -26,3 +26,22 @@ def rank_candidates(target: dict, candidates: list[dict], weights: dict[str, flo
         result.append({**candidate, "score": score, "metric_similarity": similarities,
                        "evaluated": score is not None})
     return sorted(result, key=lambda x: (x["score"] is not None, x["score"] or -1), reverse=True)
+
+# New engine criteria. The legacy rank_candidates/SIGMA API above is retained.
+def criterion_similarity(x, target, cfg, sigma=None):
+    if x is None or target is None: return None
+    method = cfg['method']
+    if method == 'gaussian':
+        if sigma is None or sigma <= 0: raise ValueError('sigma must be positive')
+        return math.exp(-.5*((x-target)/sigma)**2)
+    if method == 'trapezoid':
+        a,b,c,d = (float(cfg[k]) for k in ('a','b','c','d'))
+        if not a < b < c < d: raise ValueError('trapezoid requires a<b<c<d')
+        return 0.0 if x <= a or x >= d else (x-a)/(b-a) if x < b else 1.0 if x <= c else (d-x)/(d-c)
+    if method in ('one_sided_below','one_sided_above'):
+        limit = float(cfg.get('limit', target))
+        width = float(cfg.get('width',sigma or 1))
+        if width <= 0: raise ValueError('width must be positive')
+        delta = max(0, x-limit) if method == 'one_sided_below' else max(0,limit-x)
+        return max(0.0,1-delta/width)
+    raise ValueError(f'Unknown method: {method}')
