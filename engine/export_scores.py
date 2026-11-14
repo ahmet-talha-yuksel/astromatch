@@ -12,6 +12,17 @@ from .io import ROOT, feature_paths, merged_features
 from .validation_api import _score_grid, list_target_ids
 
 
+def _grid_extent(frame):
+    if not {'lat','lon'} <= set(frame.columns): return None
+    cells=frame
+    if 'kind' in frame:
+        cells=frame.loc[frame['kind'].eq('earth_grid')]
+    coords=cells[['lat','lon']].apply(pd.to_numeric,errors='coerce').dropna()
+    if coords.empty: return None
+    return {'lat_min':float(coords.lat.min()),'lat_max':float(coords.lat.max()),
+            'lon_min':float(coords.lon.min()),'lon_max':float(coords.lon.max())}
+
+
 def _digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -92,6 +103,7 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
                 "preset": preset, "sigma_mode": sigma or "recompute",
                 "sigma_table": sigma_tables, "alias_table": aliases,
                 "grid_status": grid_status, "grid_rows": len(grid_df),
+                "grid_extent": _grid_extent(grid_df), "grid_label": "regional subset",
                 "counts_per_target": counts, "unscorable_targets": unscorable}
     (output / "scores_manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     return manifest

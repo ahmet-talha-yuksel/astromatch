@@ -9,7 +9,7 @@ from .io import config
 from .mock import write_mock
 from .readiness import check_real_data, report_json
 from .validation_metrics import validate
-from .grid_status import grid_inventory, not_scanned_points
+from .grid_status import grid_inventory, grid_extent, not_scanned_points
 from .method_sensitivity import compare
 from .ranking import list_targets
 from .measurement import target_status
@@ -33,6 +33,8 @@ def write_results(ds,out,presets,k,stamp):
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
     index={'targets':sorted({t.region_id for t in ds.targets}),'scales':sorted({t.scale for t in ds.targets}),'presets':presets,'generated_at':stamp,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'sigma':{},'score_spread':{},'engine_version':ENGINE_VERSION,'data_status':ds.mode,'defaults_applied':ds.defaults_applied,'invalid_records':ds.invalid_records,'warnings':list(ds.warnings)}
     index['grid_status'],index['grid_counts']=grid_inventory(ds.candidates) if ds.mode=='real' else ('synthetic_global',{'scanned':sum(c.kind=='earth_grid' for c in ds.candidates),'eligible':sum(c.kind=='earth_grid' and c.resolution_validated for c in ds.candidates)})
+    index['grid_extent']=grid_extent(ds.candidates)
+    index['grid_label']='regional subset'
     if ds.mode=='real' and not any('grid' in Path(path).name for path in ds.input_hashes): index['grid_status']='absent'
     index['target_statuses']={entry.alias:entry.model_dump() for entry in list_targets(ds)}
     index['method_sensitivity']={}
@@ -64,7 +66,7 @@ def write_results(ds,out,presets,k,stamp):
                 heat.extend(not_scanned_points(scanned_ids=by_id))
             write(out/f'{stem}__heat.json',heat)
             if t.scale=='local':
-                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'sigma':result.sigma,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation}
+                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'sigma':result.sigma,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'comparison_scope':result.comparison_scope}
                 if ds.mode=='mock': sites['disclaimer']=DISCLAIMER
                 write(out/f'sites__{stem}.json',sites)
             index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma
@@ -128,7 +130,7 @@ def main(argv=None):
         validate(ds,out=out)
         for path in out.glob('*.json'):
             path.write_text(json.dumps(json.loads(path.read_text()),sort_keys=True,separators=(',',':'),ensure_ascii=False)+'\n')
-        write(out/'MANIFEST.json',{'input_sha256':ds.input_hashes,'input_source':ds.input_source,'engine_version':ENGINE_VERSION,'generated_at':stamp,'data_status':ds.mode,'disclaimer':DISCLAIMER if ds.mode=='mock' else None})
+        write(out/'MANIFEST.json',{'input_sha256':ds.input_hashes,'input_source':ds.input_source,'engine_version':ENGINE_VERSION,'generated_at':stamp,'data_status':ds.mode,'disclaimer':DISCLAIMER if ds.mode=='mock' else None,'grid_extent':grid_extent(ds.candidates),'grid_label':'regional subset'})
         return
     paths=DataPaths(features=args.features,grid=args.grid,known=args.known)
     if not args.mock:

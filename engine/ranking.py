@@ -10,6 +10,7 @@ from .similarity import criterion_similarity
 from .measurement import target_status, target_confidence, support_summary
 from .grid_status import not_scanned_points
 from .distance import standardized_distance
+from .discrimination import classify
 
 DISCLAIMER='MOCK DATA — NOT A SCIENTIFIC RESULT'
 
@@ -149,8 +150,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         full.append(row)
     full.sort(key=lambda r:(r['distance_z'],r['id']))
     best=full[0]['distance_z'] if full else 0.0
-    discrimination='uniformly_dissimilar' if full and float(np.median([r['score_geo'] for r in full]))<40 else 'discriminated' if full else 'unscorable'
-    discrimination_explanation='No close Earth analog at this scale; ranking shows the closest available by standardized distance.' if discrimination=='uniformly_dissimilar' else None
+    discrimination,discrimination_explanation=classify([r['score_geo'] for r in full],target_id=target_id)
     top_five=max(1,math.ceil(len(full)*.05))
     for position,row in enumerate(full):
         row['score_relative']=100/(1+max(0.0,row['distance_z']-best))

@@ -2,6 +2,7 @@ from __future__ import annotations
 from .models import Explanation
 from .io import config
 from .measurement import target_confidence, support_summary
+from .discrimination import NO_CLOSE_ANALOG, PHOENIX_LIMIT
 
 def build(target,candidate,criteria,score,flags,not_compared,match_level=None,discrimination_label=None):
     ordered=sorted(criteria.items(),key=lambda kv:(-kv[1]['s_i'],kv[0]))
@@ -18,7 +19,9 @@ def build(target,candidate,criteria,score,flags,not_compared,match_level=None,di
     breaks.extend(f'{k}: {v.comparability_note}' for k,v in target.features.items() if not v.comparable and v.comparability_note)
     summary=('No close absolute analog on Earth for this target; this is among the closest available on Earth.' if match_level=='relative_only' else f'{band.capitalize()} topographic analogy ({score:.1f}/100).')
     if discrimination_label=='uniformly_dissimilar':
-        summary='No close Earth analog at this scale; ranking shows the closest available by standardized distance.'
+        summary=NO_CLOSE_ANALOG
+    elif discrimination_label=='poorly_discriminated' and target.region_id=='mars_phoenix_regional':
+        summary=f'{summary} {PHOENIX_LIMIT}'
     support=support_summary(target)
     note='Interpolated MOLA values were not used.' if target.body=='mars' else None
     return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=not_compared,analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label)
