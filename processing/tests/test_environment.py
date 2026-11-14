@@ -164,13 +164,15 @@ def test_bad_environmental_input_preserves_existing_release(tmp_path):
 
 def test_root_release_and_handoff_bundle_match_current_outputs():
     root = ROOT/'out'
-    for name in ('features.json', 'earth_grid.parquet', 'coverage.geojson', 'environment.json', 'retrieval.json'):
+    for name in ('features.json', 'environment.json', 'retrieval.json', 'target_quality.json'):
         assert (root/name).read_bytes() == (root/'real'/name).read_bytes()
+    for name in ('earth_grid.parquet','coverage.geojson','pilot_timing.json'):
+        assert (root/name).read_bytes()==(root/'pilot_expanded'/name).read_bytes()
     records = json.loads((root/'features.json').read_text())['records']
     with zipfile.ZipFile(root/'handoff/kisi2_v2_3.zip') as archive:
         assert archive.testzip() is None
         for name in ('features.json','earth_grid.parquet','coverage.geojson','environment.json'):
-            assert archive.read(name)==(root/name).read_bytes()
+            assert archive.read(name)==(root/'real'/name).read_bytes()
         for record in records:
             for key in ('path','metadata_path'):
                 path=record['heightmap'][key]

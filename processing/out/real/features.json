@@ -278,6 +278,7 @@
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Some analysis cells have no directly observed source bins or no counts coverage.",
+          "Measured-support rule failed: 106/400 analysis cells have zero observed bins; 0 cells lack counts coverage. Required: neither count may exceed zero. Raster NoData=0 does not prove direct observations.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
         "validation_eligible": false,
@@ -393,6 +394,7 @@
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Some analysis cells have no directly observed source bins or no counts coverage.",
+          "Measured-support rule failed: 583/2500 analysis cells have zero observed bins; 0 cells lack counts coverage. Required: neither count may exceed zero. Raster NoData=0 does not prove direct observations.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
         "validation_eligible": false,
@@ -4085,6 +4087,7 @@
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Some analysis cells have no directly observed source bins or no counts coverage.",
+          "Measured-support rule failed: 248/2500 analysis cells have zero observed bins; 0 cells lack counts coverage. Required: neither count may exceed zero. Raster NoData=0 does not prove direct observations.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
         "validation_eligible": false,

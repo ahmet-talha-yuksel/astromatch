@@ -1,0 +1,42 @@
+{
+  "status": "provisional",
+  "estimated_hours_range": [
+    1.8170445540167566,
+    69.70419002265669
+  ],
+  "scope": "turkey_surroundings_usgs_and_sample_arid_belts",
+  "final_source_validation_complete": false,
+  "scenarios": [
+    {
+      "name": "high_reuse_sparse_land_selection",
+      "cells": 23859,
+      "per_cell_seconds": 0.27416741667548195,
+      "assumption": "25% of WorldCover-tile-covered grid centers selected; observed lower-quartile mask+processing cost; existing DEM cache."
+    },
+    {
+      "name": "all_candidate_centers_conservative_latency",
+      "cells": 95436,
+      "per_cell_seconds": 2.629354584030807,
+      "assumption": "All WorldCover-supported centers; twice slowest observed mask+processing cost for unmeasured latency/source variance."
+    }
+  ],
+  "candidate_domain": {
+    "worldcover_tiles": 2651,
+    "candidate_cells_upper": 95436,
+    "compressed_worldcover_bytes": 124027923380,
+    "latitude_edges": [
+      -84,
+      84
+    ],
+    "exact_land_cell_count": null
+  },
+  "limitations": [
+    "Scenario endpoints are conditional workloads, not guaranteed global duration bounds.",
+    "Tile coverage includes water cells; true land-only cell count is not established.",
+    "DEM cold download costs are reported separately and are NOT extrapolated from this small sample.",
+    "Source overlap differences are sensitivity measurements, not independent accuracy bounds.",
+    "SRTM download time is unmeasured; imported tiles are shared by multiple windows.",
+    "Polar/dateline support and supplied USGS cells require separate operational checks."
+  ],
+  "operational_action": "Keep a regional pilot delivery until broader land-cell counts and resource measurements are available."
+}

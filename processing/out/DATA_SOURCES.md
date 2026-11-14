@@ -498,3 +498,10 @@ NDVI remains only in earth_filters, with comparable=false. Missing input/data yi
   File MOD13C2.A2021152.061.2021194035425.hdf; SHA-256 9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01; accessed 2026-11-14.
   Period 2021-06-01 through 2021-06-30.
   Product-specific QA/calibration specification: https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2
+
+## Discovery grid publication
+
+Canonical earth_grid.parquet and coverage.geojson come from pilot_expanded/, with 408 processed grid centers.
+features.json and the engine ZIP retain the curated Earth/planetary target release.
+Grid acquisition evidence and mask QA: pilot_expanded/retrieval.json and pilot_expanded/landmask.json.
+The larger declared regional domain includes explicit not_scanned cells; it is not fully processed.

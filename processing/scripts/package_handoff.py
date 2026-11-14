@@ -9,7 +9,8 @@ def package(source,output):
     source,output=Path(source),Path(output)
     records=json.loads((source/'features.json').read_text())['records']
     allowed=[source/name for name in ('features.json','earth_grid.parquet','coverage.geojson','DATA_SOURCES.md')]
-    if (source/'environment.json').exists():allowed.append(source/'environment.json')
+    for name in ('environment.json','target_quality.json'):
+        if (source/name).exists():allowed.append(source/name)
     for directory in ('heightmaps','quality'):
         if (source/directory).exists():allowed.extend(p for p in (source/directory).rglob('*') if p.is_file())
     readme=('AstroMatch AI v2.3 — Similarity Engine input\n\n'
@@ -21,7 +22,7 @@ def package(source,output):
             'Monthly MODIS overpass temperatures are contextual; their day/night difference is not daily Tmax-minus-Tmin and is not score-ready.\n'
             'Current approved target: Shackleton. Jezero and Marius Hills remain unapproved until their stated quality gaps are resolved.\n'
             'Operational QA is not independent absolute accuracy or mission suitability validation.\n'
-            'Global discovery grid is a separate processing/out/pilot delivery. This bundle includes curated Earth sites.\n'
+            'Discovery uses processing/out/earth_grid.parquet and coverage.geojson. This bundle includes curated Earth sites; its Parquet is not the discovery scan.\n'
             'No raw rasters, account credentials, ranking implementation or frontend changes are included.\n')
     output.parent.mkdir(parents=True,exist_ok=True)
     with zipfile.ZipFile(output,'w',compression=zipfile.ZIP_DEFLATED) as archive:

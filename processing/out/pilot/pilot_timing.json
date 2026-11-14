@@ -18,11 +18,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0028959589544683695,
-        "feature_extraction_s": 0.0002568748313933611,
-        "validation_provenance_s": 0.010155457304790616,
-        "processing_wall_s": 0.013308291090652347,
-        "heightmap_export_s": 0.0006950001697987318
+        "reprojection_s": 0.0029202918522059917,
+        "feature_extraction_s": 0.00025174999609589577,
+        "validation_provenance_s": 0.01036087516695261,
+        "processing_wall_s": 0.013532917015254498,
+        "heightmap_export_s": 0.00040374998934566975
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 1.6603714579250664
@@ -34,11 +34,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0028264999855309725,
-        "feature_extraction_s": 0.00023362482897937298,
-        "validation_provenance_s": 0.01034779124893248,
-        "processing_wall_s": 0.013407916063442826,
-        "heightmap_export_s": 0.00047320802696049213
+        "reprojection_s": 0.0029718750156462193,
+        "feature_extraction_s": 0.00042683305218815804,
+        "validation_provenance_s": 0.012051666853949428,
+        "processing_wall_s": 0.015450374921783805,
+        "heightmap_export_s": 0.0009746248833835125
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.6949476250447333
@@ -50,11 +50,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0029328749515116215,
-        "feature_extraction_s": 0.00025533302687108517,
-        "validation_provenance_s": 0.010310916928574443,
-        "processing_wall_s": 0.01349912490695715,
-        "heightmap_export_s": 0.00041891587898135185
+        "reprojection_s": 0.0037862921599298716,
+        "feature_extraction_s": 0.00028304196894168854,
+        "validation_provenance_s": 0.01129066594876349,
+        "processing_wall_s": 0.01536000007763505,
+        "heightmap_export_s": 0.0005800419021397829
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.649348207982257
@@ -66,11 +66,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0028765827883034945,
-        "feature_extraction_s": 0.00023441598750650883,
-        "validation_provenance_s": 0.010951085248962045,
-        "processing_wall_s": 0.014062084024772048,
-        "heightmap_export_s": 0.0005391251761466265
+        "reprojection_s": 0.003078791778534651,
+        "feature_extraction_s": 0.00024916697293519974,
+        "validation_provenance_s": 0.011754457140341401,
+        "processing_wall_s": 0.015082415891811252,
+        "heightmap_export_s": 0.0007296248804777861
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.49768541706725955
@@ -82,11 +82,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0020840840879827738,
-        "feature_extraction_s": 0.0002561660949140787,
-        "validation_provenance_s": 0.004371874732896686,
-        "processing_wall_s": 0.006712124915793538,
-        "heightmap_export_s": 0.0004497081972658634
+        "reprojection_s": 0.0032929580193012953,
+        "feature_extraction_s": 0.0002971249632537365,
+        "validation_provenance_s": 0.006497958907857537,
+        "processing_wall_s": 0.010088041890412569,
+        "heightmap_export_s": 0.0005166670307517052
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.8845184158999473
@@ -98,11 +98,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0018989169038832188,
-        "feature_extraction_s": 0.0002298750914633274,
-        "validation_provenance_s": 0.0040159160271286964,
-        "processing_wall_s": 0.006144708022475243,
-        "heightmap_export_s": 0.00029020803049206734
+        "reprojection_s": 0.0020092499908059835,
+        "feature_extraction_s": 0.00025933398865163326,
+        "validation_provenance_s": 0.004525332944467664,
+        "processing_wall_s": 0.006793916923925281,
+        "heightmap_export_s": 0.00039083301089704037
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.2069470421411097
@@ -119,11 +119,11 @@
         "acquisition_wall_s": 2.047284625004977
       },
       "processing": {
-        "reprojection_s": 0.008257749956101179,
-        "feature_extraction_s": 0.00022616703063249588,
-        "validation_provenance_s": 0.0012575830332934856,
-        "processing_wall_s": 0.00974150002002716,
-        "heightmap_export_s": 0.000558583065867424
+        "reprojection_s": 0.008766083046793938,
+        "feature_extraction_s": 0.0002511250786483288,
+        "validation_provenance_s": 0.0013416248839348555,
+        "processing_wall_s": 0.010358833009377122,
+        "heightmap_export_s": 0.0005410839803516865
       },
       "acquisition_timing_status": "measured_fallback_acquisition",
       "landmask_s": 0.5507700839079916
@@ -140,11 +140,11 @@
         "acquisition_wall_s": 0.9473400840070099
       },
       "processing": {
-        "reprojection_s": 0.008176457835361362,
-        "feature_extraction_s": 0.00021737487986683846,
-        "validation_provenance_s": 0.001216917298734188,
-        "processing_wall_s": 0.009610750013962388,
-        "heightmap_export_s": 0.00027733296155929565
+        "reprojection_s": 0.008423166116699576,
+        "feature_extraction_s": 0.0002470000181347132,
+        "validation_provenance_s": 0.0013479997869580984,
+        "processing_wall_s": 0.010018165921792388,
+        "heightmap_export_s": 0.0004635830409824848
       },
       "acquisition_timing_status": "measured_fallback_acquisition",
       "landmask_s": 0.3202987078111619
@@ -187,14 +187,15 @@
   "source_transition_comparison": {
     "status": "overlap_measured",
     "windows": 7,
-    "report": "../source_transition.json",
+    "report": "source_transition.json",
+    "report_root": "processing/out",
     "independent_accuracy_validated": false
   },
   "global_decision": {
     "status": "provisional",
     "estimated_hours_range": [
-      3.0903236555495823,
-      88.7385002928134
+      3.09607037986847,
+      88.75040995933581
     ],
     "scope": "turkey_surroundings_usgs_and_sample_arid_belts",
     "final_source_validation_complete": false,
@@ -202,13 +203,13 @@
       {
         "name": "high_reuse_sparse_land_selection",
         "cells": 23859,
-        "per_cell_seconds": 0.46628799027530476,
+        "per_cell_seconds": 0.46715509315254167,
         "assumption": "25% of WorldCover-tile-covered grid centers selected; observed lower-quartile mask+processing cost; existing DEM cache."
       },
       {
         "name": "all_candidate_centers_conservative_latency",
         "cells": 95436,
-        "per_cell_seconds": 3.3473594980314374,
+        "per_cell_seconds": 3.3478087498806417,
         "assumption": "All WorldCover-supported centers; twice slowest observed mask+processing cost for unmeasured latency/source variance."
       }
     ],

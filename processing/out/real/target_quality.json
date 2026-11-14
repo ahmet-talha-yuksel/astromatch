@@ -1,0 +1,139 @@
+{
+  "schema_version": "2.3",
+  "kind": "target_quality_decisions",
+  "features_file_sha256": "e05ae01a49f53ea4f3bc0c7626a33b2722d4e55cd988037aaf1d19fd0eddf821",
+  "decisions": [
+    {
+      "region_id": "mars_jezero_local",
+      "body": "mars",
+      "decision": "not_validated_for_scoring",
+      "resolution_validated": false,
+      "analysis_resolution_m": 500,
+      "window_km": 10,
+      "dem_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92",
+      "counts_file_sha256": "28dacc66945d54947ab10152949d851f0df89645e3e7c2ee81299da49f35e320",
+      "sampling": {
+        "counts_file": "jezero_mola_counts.tif",
+        "mean_observed_bin_fraction": 0.375141978263855,
+        "min_observed_bin_fraction": 0.0,
+        "analysis_cells_without_counts_coverage": 0,
+        "analysis_cells_without_observed_bins": 106,
+        "analysis_cells_total": 400,
+        "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+      },
+      "tested_coarsening_with_all_cells_supported_m": [
+        2000,
+        2500
+      ],
+      "qa_report_sha256": null,
+      "reason": "Current analysis grid has cells with no measured source bins. Coarsening support alone does not validate terrain metrics; no automatic promotion.",
+      "limitation": "Coarse local grids contain too few interior cells for fine morphology."
+    },
+    {
+      "region_id": "mars_jezero_regional",
+      "body": "mars",
+      "decision": "not_validated_for_scoring",
+      "resolution_validated": false,
+      "analysis_resolution_m": 1000,
+      "window_km": 50,
+      "dem_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92",
+      "counts_file_sha256": "28dacc66945d54947ab10152949d851f0df89645e3e7c2ee81299da49f35e320",
+      "sampling": {
+        "counts_file": "jezero_mola_counts.tif",
+        "mean_observed_bin_fraction": 0.34594687819480896,
+        "min_observed_bin_fraction": 0.0,
+        "analysis_cells_without_counts_coverage": 0,
+        "analysis_cells_without_observed_bins": 583,
+        "analysis_cells_total": 2500,
+        "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+      },
+      "tested_coarsening_with_all_cells_supported_m": [
+        5000
+      ],
+      "qa_report_sha256": null,
+      "reason": "Current analysis grid has cells with no measured source bins. Coarsening support alone does not validate terrain metrics; no automatic promotion.",
+      "limitation": null
+    },
+    {
+      "region_id": "moon_shackleton_local",
+      "body": "moon",
+      "decision": "passed_operational_qa",
+      "resolution_validated": true,
+      "analysis_resolution_m": 500,
+      "window_km": 10,
+      "dem_file_sha256": "7a3bb9c8e718c2c4ec68b1072a82664c86f19a803011807e7ca84b8395e8376a",
+      "counts_file_sha256": "7cdbe8870ebc0b0764cab59337a06659b84a2bc92d3e3f3aacac91bb514bd909",
+      "sampling": {
+        "counts_file": "ldec_75s_240m.tif",
+        "mean_observed_bin_fraction": 1.0,
+        "min_observed_bin_fraction": 1.0,
+        "analysis_cells_without_counts_coverage": 0,
+        "analysis_cells_without_observed_bins": 0,
+        "analysis_cells_total": 400,
+        "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+      },
+      "tested_coarsening_with_all_cells_supported_m": [],
+      "qa_report_sha256": "54aa9ccc836d40d6a83408c540537eeebc244efd539137fd4d50b6136971643d",
+      "reason": "Matched polar 240/120 m operational policy passed; not independent absolute accuracy.",
+      "limitation": null
+    },
+    {
+      "region_id": "moon_shackleton_regional",
+      "body": "moon",
+      "decision": "passed_operational_qa",
+      "resolution_validated": true,
+      "analysis_resolution_m": 1000,
+      "window_km": 50,
+      "dem_file_sha256": "7a3bb9c8e718c2c4ec68b1072a82664c86f19a803011807e7ca84b8395e8376a",
+      "counts_file_sha256": "7cdbe8870ebc0b0764cab59337a06659b84a2bc92d3e3f3aacac91bb514bd909",
+      "sampling": {
+        "counts_file": "ldec_75s_240m.tif",
+        "mean_observed_bin_fraction": 1.0,
+        "min_observed_bin_fraction": 1.0,
+        "analysis_cells_without_counts_coverage": 0,
+        "analysis_cells_without_observed_bins": 0,
+        "analysis_cells_total": 2500,
+        "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+      },
+      "tested_coarsening_with_all_cells_supported_m": [],
+      "qa_report_sha256": "54aa9ccc836d40d6a83408c540537eeebc244efd539137fd4d50b6136971643d",
+      "reason": "Matched polar 240/120 m operational policy passed; not independent absolute accuracy.",
+      "limitation": null
+    },
+    {
+      "region_id": "moon_marius_hills_regional",
+      "body": "moon",
+      "decision": "not_validated_for_scoring",
+      "resolution_validated": false,
+      "analysis_resolution_m": 1000,
+      "window_km": 50,
+      "dem_file_sha256": "51c7e8c2ce1b410a98ef078fa5f2bc643c5a15b0ca01e275e1c89addcd3a3a4f",
+      "counts_file_sha256": "b21a4a692fe2d350f86813fff0857ce44b402bfc02a9a3902ca232f8069565e7",
+      "sampling": {
+        "counts_file": "ldec_128.tif",
+        "mean_observed_bin_fraction": 0.3429884612560272,
+        "min_observed_bin_fraction": 0.0,
+        "analysis_cells_without_counts_coverage": 0,
+        "analysis_cells_without_observed_bins": 248,
+        "analysis_cells_total": 2500,
+        "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+      },
+      "tested_coarsening_with_all_cells_supported_m": [
+        2500,
+        5000
+      ],
+      "qa_report_sha256": null,
+      "reason": "Current analysis grid has cells with no measured source bins. Coarsening support alone does not validate terrain metrics; no automatic promotion.",
+      "limitation": "Regional LOLA terrain cannot resolve the approximately 50 m Marius pit."
+    }
+  ],
+  "automatic_promotion_performed": false,
+  "review_status": "complete_for_current_sources",
+  "independent_accuracy_claimed": false,
+  "source_references": [
+    "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+    "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/document/egdrsis.pdf",
+    "https://ode.rsl.wustl.edu/moon/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20%28LRO%29/LOLA/GDR/GDRDEC.htm"
+  ],
+  "note": "A completed negative quality review is not permission to score. Future approval requires additional defensible evidence and reprocessing of matching Earth windows."
+}

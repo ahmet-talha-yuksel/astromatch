@@ -1,6 +1,6 @@
 {
   "schema_version": "2.3",
-  "kind": "mola_measured_support_diagnostic",
+  "kind": "measured_support_diagnostic",
   "records": [
     {
       "region_id": "mars_jezero_local",
@@ -232,6 +232,8 @@
           }
         }
       ],
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "counts_file_sha256": "28dacc66945d54947ab10152949d851f0df89645e3e7c2ee81299da49f35e320",
       "source_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92"
     },
     {
@@ -419,12 +421,14 @@
           }
         }
       ],
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "counts_file_sha256": "28dacc66945d54947ab10152949d851f0df89645e3e7c2ee81299da49f35e320",
       "source_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92"
     }
   ],
   "decision": {
     "resolution_validated": false,
-    "reason": "Measured-bin-only and interpolated surfaces have scale-dependent differences; no independent accuracy bound or approved MOLA acceptance policy is available."
+    "reason": "Measured-bin-only and interpolated surfaces have scale-dependent differences; this diagnostic supplies neither an independent accuracy bound nor an approved acceptance policy."
   },
   "limitations": [
     "Observed-only aggregation is another estimator from the same MOLA observations, not independent ground truth.",

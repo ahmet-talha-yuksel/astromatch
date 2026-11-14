@@ -8,7 +8,7 @@ from time import perf_counter
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from .dem import DemRequest, process_dem
+from .dem import DemRequest, process_dem, validate_comparison
 from .generate_mock import coverage_cell, flatten, write_json
 from .metrics import feature, TOPOGRAPHIC
 from .pilot_grid import cells
@@ -60,11 +60,11 @@ def write_pilot(records, coverage, manifest, timing, output):
              'Local SRTM imports and historical authenticated-access failures are separate evidence.',
              'SRTM local-import download time is unmeasured. Historical GLO-90 timings are not assigned to SRTM.',
              'Land-mask sampling QA and source differences are attached by finish_pilot.',
-             'The windows are real derived data. Features remain incomparable pending cross-body quality review.', '']
+             'The windows are real derived data. Per-feature comparable flags record operational cross-body QA; false remains excluded.', '']
     (output / 'DATA_SOURCES.md').write_text('\n'.join(lines), encoding='utf-8')
 
 
-def run(acquisition_path, root, output):
+def run(acquisition_path, root, output, comparison_records=None):
     root, output = Path(root).resolve(), Path(output).resolve()
     manifest = json.loads(Path(acquisition_path).read_text(encoding='utf-8'))
     grid = cells(manifest['config'])
@@ -91,9 +91,10 @@ def run(acquisition_path, root, output):
                 source_url=attempt.get('source_url', 'https://dataspace.copernicus.eu/'),
                 dem_version=attempt.get('dem_version', 'GLO-90 Public 2021 release'),
                 accessed_on=manifest['accessed_on'], georeferencing_verified=True,
-                source_quality_verified=False,
+                source_quality_verified=attempt.get('source_quality_verified',False),
                 quality_notes=(f"Source selection: {attempt['source_selection']}.",
-                               'Cross-body pilot comparability requires a separate matching target batch.'))
+                               'Terrain comparison requires a validated target with the same physical window, resolution and method.',
+                               *attempt.get('quality_notes',[])))
             record, array = process_dem(request, timings=timer)
             status = 'no_data' if record['quality']['coverage'] == 'none' else 'scanned'
             if status == 'scanned' and record['quality']['coverage'] == 'full' and attempt['source_selection'] == 'srtm_access_unavailable':
@@ -122,6 +123,15 @@ def run(acquisition_path, root, output):
                             'dem_source': record['dem_source'] if record else None,
                             'acquisition': attempt['timing'], 'processing': timer,
                             'acquisition_timing_status': attempt.get('acquisition_timing_status', 'measured_fallback_acquisition')})
+    if comparison_records:
+        targets=[r for r in comparison_records if r['body']!='earth' and r['resolution_validated']]
+        validate_comparison(records+targets)
+        by_id={r['region_id']:r for r in records}
+        for geometry in coverage:
+            record=by_id.get(geometry['properties']['region_id'])
+            if record:geometry['properties']['comparable']=record['resolution_validated']
+        for record in records:
+            if record['resolution_validated']:record['tags']=['pilot','operational_qa_passed']
     timing = {'schema_version': '2.3', 'kind': 'measured_pilot',
               'acquired_on': manifest['accessed_on'], 'cells_in_reference_areas': len(grid),
               'selected_cells': len(selected), 'records_written': len(records),
@@ -144,7 +154,8 @@ def run(acquisition_path, root, output):
         report = json.loads((root / manifest['source_transition_report']).read_text())
         timing['source_transition_comparison'] = {
             'status': report['status'], 'windows': len(report['comparisons']),
-            'report': '../source_transition.json',
+            'report': str(Path(manifest['source_transition_report']).relative_to('out')),
+            'report_root': 'processing/out',
             'independent_accuracy_validated': report['independent_accuracy_validated']}
     write_pilot(records, coverage, manifest, timing, output)
     return timing

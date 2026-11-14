@@ -19,11 +19,31 @@ tamamen sentetiktir. `out/salda_jezero/` ve `out/lola_shackleton/` ilk teslim
 anlık görüntüleridir; güncel onay durumunu `out/real/` dosyalarından okuyun.
 Sözleşme `AstroMatch_AI_Veri_Plani_v2_3.md` §3, §5 ve §7 temelinde uygulanmıştır.
 
-Pilot `out/pilot/` içindedir: 8 işlenmiş hücre (Türkiye/Atacama/İzlanda),
-400 işlenmemiş referans hücresi, ESA WorldCover kara filtresi ve aşama süreleri.
-Türkiye/Atacama SRTMGL30, İzlanda GLO-90 kullanır. Yerel SRTM indirme süresi
-ölçülmedi; önceki GLO-90 indirme süreleri tarihsel kanıt olarak ayrı tutulur.
-Global süre senaryoları kesin tahmin değildir; daha geniş tarama henüz yapılmadı.
+Güncel tarama `out/pilot_expanded/` içindedir: Türkiye'deki başlangıç
+10°×10° pilotunun 400 hücresi, Atacama ve İzlanda'da 4'er kontrol hücresi.
+408 hücre işlendi; 216 hücre kara maskesi ve ortak topoğrafik karşılaştırma
+kontrollerinden geçti. Daha geniş 20–50°D / 25–45°K alanın kalan 2000 hücresi
+`not_scanned` olarak açıkça ayrılır. Taranan hücre, otomatik olarak skora uygun
+hücre demek değildir; `comparable` ve `quality` ayrıca kontrol edilir.
+
+Türkiye/Atacama SRTMGL30, İzlanda GLO-90 kullanır. Altı aynı pilot penceresinde
+kaynak farkı ölçülmüştür (`out/pilot_expanded/source_transition.json`). Yerel
+SRTM indirme süresi ölçülmedi; eski GLO-90 süreleri SRTM'ye atanmaz.
+`pilot_timing.json` ayrı aşamaları ve üç alanın ölçümlerini içerir.
+Global senaryolar koşullu iş yükleridir, kesin süre sınırları değildir.
+`operational_decision` muhafazakâr üst senaryodan v2.3 bölgesel kapsamını seçer;
+geniş bölgenin veya dünyanın tamamen tarandığı iddia edilmez.
+`out/pilot/` önceki 8 hücrelik temel karşılaştırmayı saklar.
+
+Jezero/Marius incelemesi `out/quality_review/target_decisions.json` ve
+`out/real/target_quality.json` içindedir. Jezero local'de 106/400, regional'da
+583/2500, Marius regional'da 248/2500 analiz hücresinde ölçülmüş kaynak bini
+yoktur. Kabalaştırma bu sayıları sıfırlayabilir; kaynak çözünürlüğü ve metrik
+kalitesi bu nedenle otomatik doğrulanmaz. Bu üç kayıt kapalı kalır. Kutuptaki
+iki Shackleton kaydı dosya/hash bağlı operasyonel QA politikasını geçmiştir.
+Shackleton merkezi IAU/USGS katalog merkezidir (−89.67, 129.78); kenar konumu
+olarak etiketlenmez. Kaynak polar stereografik, analiz merkezli LAEA ve
+1737400 m Ay küresidir. MOLA kaynak küresi 3396000 m korunur.
 
 SRTM dosyaları `raw/` içinde mevcutken yalnızca topoğrafyayı yeniden üretmek
 (MODIS katmanını ve tam ortak teslimi yenilemek için aşağıdaki `build_release`
@@ -60,9 +80,14 @@ processing/.venv/bin/python -m processing.scripts.build_release \
 Bu komut indirme yapmaz. JSON/Parquet/GeoJSON, heightmap'ler, QA raporları ve
 `environment.json` hem `out/real/` altında hem planın doğrudan `out/` yollarında
 yayımlanır; `out/mock/` sentetik örnekleri ve `out/pilot/` tarama örneklerini korur.
-`out/earth_grid.parquet` 8 seçilmiş Dünya sahasını içerir; global tarama değildir.
-Kişi 3, 0,5° grid için `out/pilot/earth_grid.parquet` ve onun coverage dosyasını
-kullanır. Kişi 2 `out/features.json` veya küçük teslim ZIP'ini okuyabilir.
+Kişi 3 için `out/earth_grid.parquet` gerçek 408 ızgara kaydını, `out/coverage.geojson`
+2408 hücrenin durumunu taşır. Kişi 2 için `out/real/features.json` veya küçük
+ZIP, seçilmiş 21 saha/hedef kaydını sunar. ZIP ve `out/real/earth_grid.parquet`
+8 seçilmiş regional Dünya sahasını içerir; bunlar keşif ızgarası değildir.
+Kök `features.json` seçilmiş kayıtları, kök Parquet ise tarama kayıtlarını içerir.
+Mevcut `earth_grid_rRRR_cCCC` kimlikleri sabittir; yeni koordinat-ID biçimine
+geçirilmez. Yerel σ için istenen 300 rastgele GLO-30 `earth_reference` penceresi
+bu teslimde yoktur; regional kayıtlar onun yerine sunulmaz.
 
 MOD13C2.061 HDF içindeki gerçek SDS `Legend` üç land/water biti (11–13) ve
 iki geospatial biti (14–15) tanımlar. Eski LAADS dosya-spec tablosundaki farklı
@@ -75,6 +100,11 @@ Diviner P1 için henüz yerel ürün ve eş sıcaklık protokolü yoktur; sıcak
 skorlaması açılmaz. MEDA GTS, EMIT, Sentinel-2 ve yağış katmanları P2'dir,
 edinilmedi ve veri varmış gibi işaretlenmez. USGS doğrulama listesi ve sıralama
 raporu Kişi 3'ün sorumluluğundadır; bu modül skor veya kesin negatif üretmez.
+
+## İlk teslimlerden kalan teknik notlar
+
+Aşağıdaki kronolojik uygulama notları eski teslimlerin durumlarını da içerir.
+Güncel sayı, karar ve dosya yolları yukarıdaki teslim açıklamasıdır.
 
 ## Üretim ve test
 

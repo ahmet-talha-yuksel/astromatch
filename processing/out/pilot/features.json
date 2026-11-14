@@ -61,7 +61,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -192,7 +192,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -323,7 +323,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -454,7 +454,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation.",
@@ -586,7 +586,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -717,7 +717,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -848,7 +848,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: outside_nominal_srtm_latitudes.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -979,7 +979,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: outside_nominal_srtm_latitudes.",
-          "Cross-body pilot comparability requires a separate matching target batch.",
+          "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."

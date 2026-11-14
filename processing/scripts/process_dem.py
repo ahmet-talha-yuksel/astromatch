@@ -85,7 +85,8 @@ def run(config_path, output):
     validate_comparison(records)
     output.mkdir(parents=True, exist_ok=True)
     # A terrain-only rebuild must not leave an older environmental report beside it.
-    (output / 'environment.json').unlink(missing_ok=True)
+    for name in ('environment.json','target_quality.json'):
+        (output/name).unlink(missing_ok=True)
     if retrieval is not None:
         write_json(output / 'retrieval.json', retrieval)
     for request, (record, array) in zip(requests, results):
