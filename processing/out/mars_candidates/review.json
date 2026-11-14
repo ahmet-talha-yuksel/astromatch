@@ -1,0 +1,45 @@
+{
+  "schema_version": "2.3",
+  "analysis": "regional 50x50 km, 1000 m, same MOLA measured-bin support rule as Jezero",
+  "decisions": [
+    {
+      "region_id": "mars_phoenix_regional",
+      "lat": 68.2,
+      "lon_east": 234.3,
+      "sampling": {
+        "counts_file": "phoenix_counts.tif",
+        "mean_observed_bin_fraction": 0.34159019589424133,
+        "min_observed_bin_fraction": 0.0,
+        "analysis_cells_without_counts_coverage": 0,
+        "analysis_cells_without_observed_bins": 198,
+        "analysis_cells_total": 2500,
+        "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+      },
+      "nodata_ratio": 0.0,
+      "measured_support_rule_passed": false,
+      "resolution_validated": false,
+      "promoted_to_T04": false,
+      "reason": "Measured-bin coverage insufficient at the same 50 km / 1000 m regional analysis; keep unscorable."
+    },
+    {
+      "region_id": "mars_arcadia_regional",
+      "lat": 40.0,
+      "lon_east": 190.0,
+      "sampling": {
+        "counts_file": "arcadia_counts.tif",
+        "mean_observed_bin_fraction": 0.32269132137298584,
+        "min_observed_bin_fraction": 0.0,
+        "analysis_cells_without_counts_coverage": 0,
+        "analysis_cells_without_observed_bins": 514,
+        "analysis_cells_total": 2500,
+        "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+      },
+      "nodata_ratio": 0.0,
+      "measured_support_rule_passed": false,
+      "resolution_validated": false,
+      "promoted_to_T04": false,
+      "reason": "Measured-bin coverage insufficient at the same 50 km / 1000 m regional analysis; keep unscorable."
+    }
+  ],
+  "automatic_promotion_performed": false
+}

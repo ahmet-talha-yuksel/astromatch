@@ -4,7 +4,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 25.25)",
       "lat": 30.25,
@@ -112,6 +112,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -145,7 +146,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 25.75)",
       "lat": 30.25,
@@ -253,6 +254,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -286,7 +288,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 26.25)",
       "lat": 30.25,
@@ -394,6 +396,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -427,7 +430,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 26.75)",
       "lat": 30.25,
@@ -535,6 +538,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -568,7 +572,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 27.25)",
       "lat": 30.25,
@@ -676,6 +680,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -709,7 +714,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 27.75)",
       "lat": 30.25,
@@ -817,6 +822,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -850,7 +856,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 28.25)",
       "lat": 30.25,
@@ -958,6 +964,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -991,7 +998,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 28.75)",
       "lat": 30.25,
@@ -1099,6 +1106,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -1132,7 +1140,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 29.25)",
       "lat": 30.25,
@@ -1240,6 +1248,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -1273,7 +1282,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 29.75)",
       "lat": 30.25,
@@ -1381,6 +1390,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -1414,7 +1424,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 30.25)",
       "lat": 30.25,
@@ -1522,6 +1532,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -1555,7 +1566,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 30.75)",
       "lat": 30.25,
@@ -1663,6 +1674,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -1696,7 +1708,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 31.25)",
       "lat": 30.25,
@@ -1804,6 +1816,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -1837,7 +1850,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 31.75)",
       "lat": 30.25,
@@ -1945,6 +1958,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -1978,7 +1992,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 32.25)",
       "lat": 30.25,
@@ -2087,6 +2101,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -2120,7 +2135,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 32.75)",
       "lat": 30.25,
@@ -2228,6 +2243,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -2261,7 +2277,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 33.25)",
       "lat": 30.25,
@@ -2369,6 +2385,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -2402,7 +2419,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 33.75)",
       "lat": 30.25,
@@ -2510,6 +2527,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -2543,7 +2561,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 34.25)",
       "lat": 30.25,
@@ -2651,6 +2669,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -2684,7 +2703,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r240_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.25, 34.75)",
       "lat": 30.25,
@@ -2792,6 +2811,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r240_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -2825,7 +2845,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 25.25)",
       "lat": 30.75,
@@ -2933,6 +2953,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -2966,7 +2987,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 25.75)",
       "lat": 30.75,
@@ -3074,6 +3095,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -3107,7 +3129,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 26.25)",
       "lat": 30.75,
@@ -3215,6 +3237,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -3248,7 +3271,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 26.75)",
       "lat": 30.75,
@@ -3356,6 +3379,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -3389,7 +3413,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 27.25)",
       "lat": 30.75,
@@ -3497,6 +3521,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -3530,7 +3555,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 27.75)",
       "lat": 30.75,
@@ -3638,6 +3663,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -3671,7 +3697,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 28.25)",
       "lat": 30.75,
@@ -3779,6 +3805,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -3812,7 +3839,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 28.75)",
       "lat": 30.75,
@@ -3921,6 +3948,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -3954,7 +3982,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 29.25)",
       "lat": 30.75,
@@ -4063,6 +4091,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -4096,7 +4125,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 29.75)",
       "lat": 30.75,
@@ -4204,6 +4233,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -4237,7 +4267,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 30.25)",
       "lat": 30.75,
@@ -4345,6 +4375,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -4378,7 +4409,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 30.75)",
       "lat": 30.75,
@@ -4486,6 +4517,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -4519,7 +4551,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 31.25)",
       "lat": 30.75,
@@ -4627,6 +4659,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -4660,7 +4693,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 31.75)",
       "lat": 30.75,
@@ -4768,6 +4801,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -4801,7 +4835,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 32.25)",
       "lat": 30.75,
@@ -4910,6 +4944,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -4943,7 +4978,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 32.75)",
       "lat": 30.75,
@@ -5051,6 +5086,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -5084,7 +5120,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 33.25)",
       "lat": 30.75,
@@ -5192,6 +5228,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -5225,7 +5262,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 33.75)",
       "lat": 30.75,
@@ -5333,6 +5370,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -5366,7 +5404,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 34.25)",
       "lat": 30.75,
@@ -5474,6 +5512,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -5507,7 +5546,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r241_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (30.75, 34.75)",
       "lat": 30.75,
@@ -5615,6 +5654,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r241_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -5648,7 +5688,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 25.25)",
       "lat": 31.25,
@@ -5756,6 +5796,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -5789,7 +5830,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 25.75)",
       "lat": 31.25,
@@ -5897,6 +5938,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -5930,7 +5972,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 26.25)",
       "lat": 31.25,
@@ -6038,6 +6080,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -6071,7 +6114,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 26.75)",
       "lat": 31.25,
@@ -6179,6 +6222,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -6212,7 +6256,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 27.25)",
       "lat": 31.25,
@@ -6321,6 +6365,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -6354,7 +6399,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 27.75)",
       "lat": 31.25,
@@ -6463,6 +6508,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -6496,7 +6542,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 28.25)",
       "lat": 31.25,
@@ -6606,6 +6652,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -6639,7 +6686,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 28.75)",
       "lat": 31.25,
@@ -6749,6 +6796,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -6782,7 +6830,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 29.25)",
       "lat": 31.25,
@@ -6892,6 +6940,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -6925,7 +6974,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 29.75)",
       "lat": 31.25,
@@ -7035,6 +7084,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -7068,7 +7118,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 30.25)",
       "lat": 31.25,
@@ -7177,6 +7227,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -7210,7 +7261,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 30.75)",
       "lat": 31.25,
@@ -7319,6 +7370,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -7352,7 +7404,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 31.25)",
       "lat": 31.25,
@@ -7460,6 +7512,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -7493,7 +7546,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 31.75)",
       "lat": 31.25,
@@ -7602,6 +7655,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -7635,7 +7689,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 32.25)",
       "lat": 31.25,
@@ -7744,6 +7798,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -7777,7 +7832,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 32.75)",
       "lat": 31.25,
@@ -7887,6 +7942,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -7920,7 +7976,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 33.25)",
       "lat": 31.25,
@@ -8029,6 +8085,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -8062,7 +8119,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 33.75)",
       "lat": 31.25,
@@ -8171,6 +8228,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -8204,7 +8262,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 34.25)",
       "lat": 31.25,
@@ -8313,6 +8371,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -8346,7 +8405,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r242_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.25, 34.75)",
       "lat": 31.25,
@@ -8454,6 +8513,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r242_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -8487,7 +8547,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 25.25)",
       "lat": 31.75,
@@ -8597,6 +8657,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -8630,7 +8691,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 25.75)",
       "lat": 31.75,
@@ -8740,6 +8801,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -8773,7 +8835,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 26.25)",
       "lat": 31.75,
@@ -8883,6 +8945,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -8916,7 +8979,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 26.75)",
       "lat": 31.75,
@@ -9026,6 +9089,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -9059,7 +9123,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 27.25)",
       "lat": 31.75,
@@ -9169,6 +9233,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -9202,7 +9267,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 27.75)",
       "lat": 31.75,
@@ -9312,6 +9377,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -9345,7 +9411,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 28.25)",
       "lat": 31.75,
@@ -9455,6 +9521,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -9488,7 +9555,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 28.75)",
       "lat": 31.75,
@@ -9598,6 +9665,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -9631,7 +9699,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 29.25)",
       "lat": 31.75,
@@ -9741,6 +9809,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -9774,7 +9843,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 29.75)",
       "lat": 31.75,
@@ -9884,6 +9953,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -9917,7 +9987,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 30.25)",
       "lat": 31.75,
@@ -10027,6 +10097,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -10060,7 +10131,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 30.75)",
       "lat": 31.75,
@@ -10170,6 +10241,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -10203,7 +10275,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 31.25)",
       "lat": 31.75,
@@ -10313,6 +10385,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -10346,7 +10419,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 31.75)",
       "lat": 31.75,
@@ -10456,6 +10529,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -10489,7 +10563,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 32.25)",
       "lat": 31.75,
@@ -10599,6 +10673,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -10632,7 +10707,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 32.75)",
       "lat": 31.75,
@@ -10742,6 +10817,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -10775,7 +10851,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 33.25)",
       "lat": 31.75,
@@ -10885,6 +10961,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -10918,7 +10995,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 33.75)",
       "lat": 31.75,
@@ -11028,6 +11105,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -11061,7 +11139,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 34.25)",
       "lat": 31.75,
@@ -11171,6 +11249,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -11204,7 +11283,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r243_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (31.75, 34.75)",
       "lat": 31.75,
@@ -11313,6 +11392,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r243_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -11346,7 +11426,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 25.25)",
       "lat": 32.25,
@@ -11456,6 +11536,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -11489,7 +11570,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 25.75)",
       "lat": 32.25,
@@ -11599,6 +11680,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -11632,7 +11714,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 26.25)",
       "lat": 32.25,
@@ -11742,6 +11824,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -11775,7 +11858,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 26.75)",
       "lat": 32.25,
@@ -11885,6 +11968,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -11918,7 +12002,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 27.25)",
       "lat": 32.25,
@@ -12028,6 +12112,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -12061,7 +12146,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 27.75)",
       "lat": 32.25,
@@ -12171,6 +12256,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -12204,7 +12290,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 28.25)",
       "lat": 32.25,
@@ -12314,6 +12400,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -12347,7 +12434,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 28.75)",
       "lat": 32.25,
@@ -12457,6 +12544,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -12490,7 +12578,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 29.25)",
       "lat": 32.25,
@@ -12600,6 +12688,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -12633,7 +12722,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 29.75)",
       "lat": 32.25,
@@ -12743,6 +12832,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -12776,7 +12866,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 30.25)",
       "lat": 32.25,
@@ -12886,6 +12976,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -12919,7 +13010,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 30.75)",
       "lat": 32.25,
@@ -13029,6 +13120,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -13062,7 +13154,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 31.25)",
       "lat": 32.25,
@@ -13172,6 +13264,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -13205,7 +13298,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 31.75)",
       "lat": 32.25,
@@ -13315,6 +13408,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -13348,7 +13442,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 32.25)",
       "lat": 32.25,
@@ -13458,6 +13552,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -13491,7 +13586,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 32.75)",
       "lat": 32.25,
@@ -13601,6 +13696,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -13634,7 +13730,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 33.25)",
       "lat": 32.25,
@@ -13744,6 +13840,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -13777,7 +13874,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 33.75)",
       "lat": 32.25,
@@ -13887,6 +13984,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -13920,7 +14018,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 34.25)",
       "lat": 32.25,
@@ -14030,6 +14128,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -14063,7 +14162,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r244_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.25, 34.75)",
       "lat": 32.25,
@@ -14173,6 +14272,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r244_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -14206,7 +14306,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 25.25)",
       "lat": 32.75,
@@ -14316,6 +14416,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -14349,7 +14450,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 25.75)",
       "lat": 32.75,
@@ -14459,6 +14560,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -14492,7 +14594,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 26.25)",
       "lat": 32.75,
@@ -14602,6 +14704,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -14635,7 +14738,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 26.75)",
       "lat": 32.75,
@@ -14745,6 +14848,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -14778,7 +14882,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 27.25)",
       "lat": 32.75,
@@ -14888,6 +14992,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -14921,7 +15026,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 27.75)",
       "lat": 32.75,
@@ -15031,6 +15136,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -15064,7 +15170,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 28.25)",
       "lat": 32.75,
@@ -15174,6 +15280,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -15207,7 +15314,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 28.75)",
       "lat": 32.75,
@@ -15317,6 +15424,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -15350,7 +15458,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 29.25)",
       "lat": 32.75,
@@ -15460,6 +15568,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -15493,7 +15602,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 29.75)",
       "lat": 32.75,
@@ -15603,6 +15712,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -15636,7 +15746,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 30.25)",
       "lat": 32.75,
@@ -15746,6 +15856,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -15779,7 +15890,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 30.75)",
       "lat": 32.75,
@@ -15889,6 +16000,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -15922,7 +16034,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 31.25)",
       "lat": 32.75,
@@ -16032,6 +16144,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -16065,7 +16178,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 31.75)",
       "lat": 32.75,
@@ -16175,6 +16288,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -16208,7 +16322,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 32.25)",
       "lat": 32.75,
@@ -16318,6 +16432,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -16351,7 +16466,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 32.75)",
       "lat": 32.75,
@@ -16461,6 +16576,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -16494,7 +16610,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 33.25)",
       "lat": 32.75,
@@ -16604,6 +16720,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -16637,7 +16754,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 33.75)",
       "lat": 32.75,
@@ -16747,6 +16864,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -16780,7 +16898,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 34.25)",
       "lat": 32.75,
@@ -16890,6 +17008,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -16923,7 +17042,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r245_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (32.75, 34.75)",
       "lat": 32.75,
@@ -17033,6 +17152,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r245_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -17066,7 +17186,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 25.25)",
       "lat": 33.25,
@@ -17176,6 +17296,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -17209,7 +17330,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 25.75)",
       "lat": 33.25,
@@ -17319,6 +17440,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -17352,7 +17474,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 26.25)",
       "lat": 33.25,
@@ -17462,6 +17584,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -17495,7 +17618,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 26.75)",
       "lat": 33.25,
@@ -17605,6 +17728,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -17638,7 +17762,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 27.25)",
       "lat": 33.25,
@@ -17748,6 +17872,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -17781,7 +17906,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 27.75)",
       "lat": 33.25,
@@ -17891,6 +18016,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -17924,7 +18050,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 28.25)",
       "lat": 33.25,
@@ -18034,6 +18160,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -18067,7 +18194,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 28.75)",
       "lat": 33.25,
@@ -18177,6 +18304,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -18210,7 +18338,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 29.25)",
       "lat": 33.25,
@@ -18320,6 +18448,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -18353,7 +18482,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 29.75)",
       "lat": 33.25,
@@ -18463,6 +18592,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -18496,7 +18626,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 30.25)",
       "lat": 33.25,
@@ -18606,6 +18736,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -18639,7 +18770,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 30.75)",
       "lat": 33.25,
@@ -18749,6 +18880,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -18782,7 +18914,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 31.25)",
       "lat": 33.25,
@@ -18892,6 +19024,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -18925,7 +19058,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 31.75)",
       "lat": 33.25,
@@ -19035,6 +19168,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -19068,7 +19202,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 32.25)",
       "lat": 33.25,
@@ -19178,6 +19312,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -19211,7 +19346,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 32.75)",
       "lat": 33.25,
@@ -19321,6 +19456,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -19354,7 +19490,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 33.25)",
       "lat": 33.25,
@@ -19464,6 +19600,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -19497,7 +19634,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 33.75)",
       "lat": 33.25,
@@ -19607,6 +19744,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -19640,7 +19778,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 34.25)",
       "lat": 33.25,
@@ -19750,6 +19888,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -19783,7 +19922,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r246_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.25, 34.75)",
       "lat": 33.25,
@@ -19893,6 +20032,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r246_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -19926,7 +20066,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 25.25)",
       "lat": 33.75,
@@ -20036,6 +20176,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -20069,7 +20210,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 25.75)",
       "lat": 33.75,
@@ -20179,6 +20320,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -20212,7 +20354,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 26.25)",
       "lat": 33.75,
@@ -20322,6 +20464,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -20355,7 +20498,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 26.75)",
       "lat": 33.75,
@@ -20465,6 +20608,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -20498,7 +20642,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 27.25)",
       "lat": 33.75,
@@ -20608,6 +20752,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -20641,7 +20786,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 27.75)",
       "lat": 33.75,
@@ -20751,6 +20896,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -20784,7 +20930,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 28.25)",
       "lat": 33.75,
@@ -20894,6 +21040,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -20927,7 +21074,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 28.75)",
       "lat": 33.75,
@@ -21037,6 +21184,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -21070,7 +21218,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 29.25)",
       "lat": 33.75,
@@ -21180,6 +21328,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -21213,7 +21362,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 29.75)",
       "lat": 33.75,
@@ -21323,6 +21472,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -21356,7 +21506,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 30.25)",
       "lat": 33.75,
@@ -21466,6 +21616,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -21499,7 +21650,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 30.75)",
       "lat": 33.75,
@@ -21609,6 +21760,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -21642,7 +21794,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 31.25)",
       "lat": 33.75,
@@ -21752,6 +21904,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -21785,7 +21938,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 31.75)",
       "lat": 33.75,
@@ -21895,6 +22048,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -21928,7 +22082,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 32.25)",
       "lat": 33.75,
@@ -22038,6 +22192,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -22071,7 +22226,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 32.75)",
       "lat": 33.75,
@@ -22181,6 +22336,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -22214,7 +22370,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 33.25)",
       "lat": 33.75,
@@ -22324,6 +22480,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -22357,7 +22514,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 33.75)",
       "lat": 33.75,
@@ -22467,6 +22624,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -22500,7 +22658,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 34.25)",
       "lat": 33.75,
@@ -22610,6 +22768,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -22643,7 +22802,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r247_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (33.75, 34.75)",
       "lat": 33.75,
@@ -22753,6 +22912,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r247_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -22786,7 +22946,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 25.25)",
       "lat": 34.25,
@@ -22896,6 +23056,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -22929,7 +23090,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 25.75)",
       "lat": 34.25,
@@ -23039,6 +23200,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -23072,7 +23234,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 26.25)",
       "lat": 34.25,
@@ -23182,6 +23344,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -23215,7 +23378,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 26.75)",
       "lat": 34.25,
@@ -23325,6 +23488,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -23358,7 +23522,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 27.25)",
       "lat": 34.25,
@@ -23468,6 +23632,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -23501,7 +23666,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 27.75)",
       "lat": 34.25,
@@ -23611,6 +23776,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -23644,7 +23810,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 28.25)",
       "lat": 34.25,
@@ -23754,6 +23920,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -23787,7 +23954,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 28.75)",
       "lat": 34.25,
@@ -23897,6 +24064,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -23930,7 +24098,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 29.25)",
       "lat": 34.25,
@@ -24040,6 +24208,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -24073,7 +24242,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 29.75)",
       "lat": 34.25,
@@ -24183,6 +24352,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -24216,7 +24386,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 30.25)",
       "lat": 34.25,
@@ -24326,6 +24496,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -24359,7 +24530,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 30.75)",
       "lat": 34.25,
@@ -24469,6 +24640,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -24502,7 +24674,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 31.25)",
       "lat": 34.25,
@@ -24612,6 +24784,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -24645,7 +24818,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 31.75)",
       "lat": 34.25,
@@ -24755,6 +24928,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -24788,7 +24962,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 32.25)",
       "lat": 34.25,
@@ -24898,6 +25072,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -24931,7 +25106,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 32.75)",
       "lat": 34.25,
@@ -25041,6 +25216,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -25074,7 +25250,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 33.25)",
       "lat": 34.25,
@@ -25184,6 +25360,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -25217,7 +25394,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 33.75)",
       "lat": 34.25,
@@ -25327,6 +25504,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -25360,7 +25538,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 34.25)",
       "lat": 34.25,
@@ -25470,6 +25648,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -25503,7 +25682,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r248_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.25, 34.75)",
       "lat": 34.25,
@@ -25613,6 +25792,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r248_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -25646,7 +25826,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 25.25)",
       "lat": 34.75,
@@ -25756,6 +25936,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -25789,7 +25970,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 25.75)",
       "lat": 34.75,
@@ -25899,6 +26080,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -25932,7 +26114,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 26.25)",
       "lat": 34.75,
@@ -26042,6 +26224,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -26075,7 +26258,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 26.75)",
       "lat": 34.75,
@@ -26185,6 +26368,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -26218,7 +26402,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 27.25)",
       "lat": 34.75,
@@ -26328,6 +26512,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -26361,7 +26546,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 27.75)",
       "lat": 34.75,
@@ -26471,6 +26656,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -26504,7 +26690,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 28.25)",
       "lat": 34.75,
@@ -26614,6 +26800,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -26647,7 +26834,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 28.75)",
       "lat": 34.75,
@@ -26757,6 +26944,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -26790,7 +26978,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 29.25)",
       "lat": 34.75,
@@ -26900,6 +27088,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -26933,7 +27122,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 29.75)",
       "lat": 34.75,
@@ -27043,6 +27232,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -27076,7 +27266,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 30.25)",
       "lat": 34.75,
@@ -27186,6 +27376,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -27219,7 +27410,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 30.75)",
       "lat": 34.75,
@@ -27329,6 +27520,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -27362,7 +27554,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 31.25)",
       "lat": 34.75,
@@ -27472,6 +27664,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -27505,7 +27698,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 31.75)",
       "lat": 34.75,
@@ -27615,6 +27808,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -27648,7 +27842,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 32.25)",
       "lat": 34.75,
@@ -27758,6 +27952,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -27791,7 +27986,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 32.75)",
       "lat": 34.75,
@@ -27900,6 +28095,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -27933,7 +28129,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 33.25)",
       "lat": 34.75,
@@ -28042,6 +28238,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -28075,7 +28272,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 33.75)",
       "lat": 34.75,
@@ -28185,6 +28382,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -28218,7 +28416,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 34.25)",
       "lat": 34.75,
@@ -28328,6 +28526,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -28361,7 +28560,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r249_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (34.75, 34.75)",
       "lat": 34.75,
@@ -28471,6 +28670,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r249_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -28504,7 +28704,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 25.25)",
       "lat": 35.25,
@@ -28613,6 +28813,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -28646,7 +28847,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 25.75)",
       "lat": 35.25,
@@ -28755,6 +28956,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -28788,7 +28990,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 26.25)",
       "lat": 35.25,
@@ -28897,6 +29099,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -28930,7 +29133,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 26.75)",
       "lat": 35.25,
@@ -29040,6 +29243,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -29073,7 +29277,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 27.25)",
       "lat": 35.25,
@@ -29183,6 +29387,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -29216,7 +29421,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 27.75)",
       "lat": 35.25,
@@ -29326,6 +29531,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -29359,7 +29565,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 28.25)",
       "lat": 35.25,
@@ -29469,6 +29675,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -29502,7 +29709,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 28.75)",
       "lat": 35.25,
@@ -29612,6 +29819,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -29645,7 +29853,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 29.25)",
       "lat": 35.25,
@@ -29755,6 +29963,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -29788,7 +29997,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 29.75)",
       "lat": 35.25,
@@ -29898,6 +30107,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -29931,7 +30141,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 30.25)",
       "lat": 35.25,
@@ -30041,6 +30251,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -30074,7 +30285,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 30.75)",
       "lat": 35.25,
@@ -30184,6 +30395,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -30217,7 +30429,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 31.25)",
       "lat": 35.25,
@@ -30327,6 +30539,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -30360,7 +30573,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 31.75)",
       "lat": 35.25,
@@ -30470,6 +30683,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -30503,7 +30717,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 32.25)",
       "lat": 35.25,
@@ -30613,6 +30827,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -30646,7 +30861,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 32.75)",
       "lat": 35.25,
@@ -30755,6 +30970,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -30788,7 +31004,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 33.25)",
       "lat": 35.25,
@@ -30897,6 +31113,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -30930,7 +31147,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 33.75)",
       "lat": 35.25,
@@ -31039,6 +31256,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -31072,7 +31290,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 34.25)",
       "lat": 35.25,
@@ -31182,6 +31400,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -31215,7 +31434,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r250_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.25, 34.75)",
       "lat": 35.25,
@@ -31325,6 +31544,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r250_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -31358,7 +31578,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 25.25)",
       "lat": 35.75,
@@ -31468,6 +31688,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -31501,7 +31722,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 25.75)",
       "lat": 35.75,
@@ -31611,6 +31832,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -31644,7 +31866,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 26.25)",
       "lat": 35.75,
@@ -31753,6 +31975,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -31786,7 +32009,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 26.75)",
       "lat": 35.75,
@@ -31895,6 +32118,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -31928,7 +32152,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 27.25)",
       "lat": 35.75,
@@ -32037,6 +32261,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -32070,7 +32295,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 27.75)",
       "lat": 35.75,
@@ -32180,6 +32405,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -32213,7 +32439,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 28.25)",
       "lat": 35.75,
@@ -32323,6 +32549,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -32356,7 +32583,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 28.75)",
       "lat": 35.75,
@@ -32466,6 +32693,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -32499,7 +32727,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 29.25)",
       "lat": 35.75,
@@ -32609,6 +32837,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -32642,7 +32871,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 29.75)",
       "lat": 35.75,
@@ -32752,6 +32981,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -32785,7 +33015,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 30.25)",
       "lat": 35.75,
@@ -32895,6 +33125,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -32928,7 +33159,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 30.75)",
       "lat": 35.75,
@@ -33038,6 +33269,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -33071,7 +33303,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 31.25)",
       "lat": 35.75,
@@ -33181,6 +33413,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -33214,7 +33447,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 31.75)",
       "lat": 35.75,
@@ -33324,6 +33557,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -33357,7 +33591,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 32.25)",
       "lat": 35.75,
@@ -33467,6 +33701,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -33500,7 +33735,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 32.75)",
       "lat": 35.75,
@@ -33610,6 +33845,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -33643,7 +33879,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 33.25)",
       "lat": 35.75,
@@ -33753,6 +33989,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -33786,7 +34023,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 33.75)",
       "lat": 35.75,
@@ -33896,6 +34133,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -33929,7 +34167,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 34.25)",
       "lat": 35.75,
@@ -34039,6 +34277,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -34072,7 +34311,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r251_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (35.75, 34.75)",
       "lat": 35.75,
@@ -34182,6 +34421,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r251_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -34215,7 +34455,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 25.25)",
       "lat": 36.25,
@@ -34325,6 +34565,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -34358,7 +34599,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 25.75)",
       "lat": 36.25,
@@ -34468,6 +34709,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -34501,7 +34743,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 26.25)",
       "lat": 36.25,
@@ -34610,6 +34852,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -34643,7 +34886,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 26.75)",
       "lat": 36.25,
@@ -34752,6 +34995,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -34785,7 +35029,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 27.25)",
       "lat": 36.25,
@@ -34895,6 +35139,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -34928,7 +35173,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 27.75)",
       "lat": 36.25,
@@ -35037,6 +35282,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -35070,7 +35316,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 28.25)",
       "lat": 36.25,
@@ -35180,6 +35426,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -35213,7 +35460,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 28.75)",
       "lat": 36.25,
@@ -35323,6 +35570,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -35356,7 +35604,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 29.25)",
       "lat": 36.25,
@@ -35465,6 +35713,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -35498,7 +35747,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 29.75)",
       "lat": 36.25,
@@ -35607,6 +35856,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -35640,7 +35890,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 30.25)",
       "lat": 36.25,
@@ -35749,6 +35999,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -35782,7 +36033,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 30.75)",
       "lat": 36.25,
@@ -35892,6 +36143,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -35925,7 +36177,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 31.25)",
       "lat": 36.25,
@@ -36035,6 +36287,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -36068,7 +36321,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 31.75)",
       "lat": 36.25,
@@ -36178,6 +36431,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -36211,7 +36465,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 32.25)",
       "lat": 36.25,
@@ -36320,6 +36574,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -36353,7 +36608,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 32.75)",
       "lat": 36.25,
@@ -36462,6 +36717,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -36495,7 +36751,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 33.25)",
       "lat": 36.25,
@@ -36604,6 +36860,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -36637,7 +36894,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 33.75)",
       "lat": 36.25,
@@ -36746,6 +37003,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -36779,7 +37037,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 34.25)",
       "lat": 36.25,
@@ -36889,6 +37147,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -36922,7 +37181,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r252_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.25, 34.75)",
       "lat": 36.25,
@@ -37032,6 +37291,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r252_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -37065,7 +37325,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 25.25)",
       "lat": 36.75,
@@ -37174,6 +37434,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -37207,7 +37468,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 25.75)",
       "lat": 36.75,
@@ -37316,6 +37577,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -37349,7 +37611,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 26.25)",
       "lat": 36.75,
@@ -37458,6 +37720,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -37491,7 +37754,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 26.75)",
       "lat": 36.75,
@@ -37600,6 +37863,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -37633,7 +37897,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 27.25)",
       "lat": 36.75,
@@ -37742,6 +38006,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -37775,7 +38040,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 27.75)",
       "lat": 36.75,
@@ -37884,6 +38149,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -37917,7 +38183,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 28.25)",
       "lat": 36.75,
@@ -38026,6 +38292,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -38059,7 +38326,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 28.75)",
       "lat": 36.75,
@@ -38168,6 +38435,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -38201,7 +38469,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 29.25)",
       "lat": 36.75,
@@ -38310,6 +38578,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -38343,7 +38612,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 29.75)",
       "lat": 36.75,
@@ -38451,6 +38720,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -38484,7 +38754,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 30.25)",
       "lat": 36.75,
@@ -38592,6 +38862,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -38625,7 +38896,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 30.75)",
       "lat": 36.75,
@@ -38734,6 +39005,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -38767,7 +39039,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 31.25)",
       "lat": 36.75,
@@ -38876,6 +39148,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -38909,7 +39182,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 31.75)",
       "lat": 36.75,
@@ -39018,6 +39291,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -39051,7 +39325,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 32.25)",
       "lat": 36.75,
@@ -39159,6 +39433,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -39192,7 +39467,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 32.75)",
       "lat": 36.75,
@@ -39300,6 +39575,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -39333,7 +39609,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 33.25)",
       "lat": 36.75,
@@ -39441,6 +39717,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -39474,7 +39751,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 33.75)",
       "lat": 36.75,
@@ -39582,6 +39859,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -39615,7 +39893,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 34.25)",
       "lat": 36.75,
@@ -39724,6 +40002,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -39757,7 +40036,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r253_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (36.75, 34.75)",
       "lat": 36.75,
@@ -39866,6 +40145,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r253_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -39899,7 +40179,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 25.25)",
       "lat": 37.25,
@@ -40008,6 +40288,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -40041,7 +40322,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 25.75)",
       "lat": 37.25,
@@ -40150,6 +40431,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -40183,7 +40465,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 26.25)",
       "lat": 37.25,
@@ -40292,6 +40574,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -40325,7 +40608,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 26.75)",
       "lat": 37.25,
@@ -40434,6 +40717,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -40467,7 +40751,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 27.25)",
       "lat": 37.25,
@@ -40576,6 +40860,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -40609,7 +40894,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 27.75)",
       "lat": 37.25,
@@ -40718,6 +41003,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -40751,7 +41037,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 28.25)",
       "lat": 37.25,
@@ -40859,6 +41145,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -40892,7 +41179,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 28.75)",
       "lat": 37.25,
@@ -41000,6 +41287,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -41033,7 +41321,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 29.25)",
       "lat": 37.25,
@@ -41142,6 +41430,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -41175,7 +41464,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 29.75)",
       "lat": 37.25,
@@ -41284,6 +41573,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -41317,7 +41607,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 30.25)",
       "lat": 37.25,
@@ -41425,6 +41715,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -41458,7 +41749,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 30.75)",
       "lat": 37.25,
@@ -41566,6 +41857,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -41599,7 +41891,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 31.25)",
       "lat": 37.25,
@@ -41707,6 +41999,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -41740,7 +42033,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 31.75)",
       "lat": 37.25,
@@ -41848,6 +42141,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -41881,7 +42175,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 32.25)",
       "lat": 37.25,
@@ -41989,6 +42283,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -42022,7 +42317,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 32.75)",
       "lat": 37.25,
@@ -42130,6 +42425,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -42163,7 +42459,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 33.25)",
       "lat": 37.25,
@@ -42271,6 +42567,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -42304,7 +42601,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 33.75)",
       "lat": 37.25,
@@ -42412,6 +42709,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -42445,7 +42743,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 34.25)",
       "lat": 37.25,
@@ -42553,6 +42851,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -42586,7 +42885,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r254_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.25, 34.75)",
       "lat": 37.25,
@@ -42694,6 +42993,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r254_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -42727,7 +43027,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 25.25)",
       "lat": 37.75,
@@ -42837,6 +43137,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -42870,7 +43171,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 25.75)",
       "lat": 37.75,
@@ -42980,6 +43281,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -43013,7 +43315,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 26.25)",
       "lat": 37.75,
@@ -43122,6 +43424,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -43155,7 +43458,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 26.75)",
       "lat": 37.75,
@@ -43264,6 +43567,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -43297,7 +43601,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 27.25)",
       "lat": 37.75,
@@ -43406,6 +43710,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -43439,7 +43744,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 27.75)",
       "lat": 37.75,
@@ -43547,6 +43852,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -43580,7 +43886,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 28.25)",
       "lat": 37.75,
@@ -43688,6 +43994,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -43721,7 +44028,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 28.75)",
       "lat": 37.75,
@@ -43829,6 +44136,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -43862,7 +44170,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 29.25)",
       "lat": 37.75,
@@ -43971,6 +44279,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44004,7 +44313,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 29.75)",
       "lat": 37.75,
@@ -44114,6 +44423,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44147,7 +44457,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 30.25)",
       "lat": 37.75,
@@ -44256,6 +44566,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44289,7 +44600,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 30.75)",
       "lat": 37.75,
@@ -44398,6 +44709,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44431,7 +44743,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 31.25)",
       "lat": 37.75,
@@ -44540,6 +44852,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44573,7 +44886,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 31.75)",
       "lat": 37.75,
@@ -44682,6 +44995,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44715,7 +45029,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 32.25)",
       "lat": 37.75,
@@ -44823,6 +45137,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44856,7 +45171,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 32.75)",
       "lat": 37.75,
@@ -44964,6 +45279,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -44997,7 +45313,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 33.25)",
       "lat": 37.75,
@@ -45105,6 +45421,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -45138,7 +45455,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 33.75)",
       "lat": 37.75,
@@ -45246,6 +45563,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -45279,7 +45597,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 34.25)",
       "lat": 37.75,
@@ -45387,6 +45705,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -45420,7 +45739,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r255_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (37.75, 34.75)",
       "lat": 37.75,
@@ -45528,6 +45847,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r255_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -45561,7 +45881,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 25.25)",
       "lat": 38.25,
@@ -45671,6 +45991,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -45704,7 +46025,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 25.75)",
       "lat": 38.25,
@@ -45814,6 +46135,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -45847,7 +46169,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 26.25)",
       "lat": 38.25,
@@ -45956,6 +46278,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -45989,7 +46312,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 26.75)",
       "lat": 38.25,
@@ -46098,6 +46421,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -46131,7 +46455,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 27.25)",
       "lat": 38.25,
@@ -46240,6 +46564,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -46273,7 +46598,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 27.75)",
       "lat": 38.25,
@@ -46381,6 +46706,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -46414,7 +46740,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 28.25)",
       "lat": 38.25,
@@ -46522,6 +46848,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -46555,7 +46882,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 28.75)",
       "lat": 38.25,
@@ -46663,6 +46990,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -46696,7 +47024,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 29.25)",
       "lat": 38.25,
@@ -46804,6 +47132,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -46837,7 +47166,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 29.75)",
       "lat": 38.25,
@@ -46945,6 +47274,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -46978,7 +47308,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 30.25)",
       "lat": 38.25,
@@ -47086,6 +47416,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -47119,7 +47450,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 30.75)",
       "lat": 38.25,
@@ -47228,6 +47559,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -47261,7 +47593,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 31.25)",
       "lat": 38.25,
@@ -47369,6 +47701,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -47402,7 +47735,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 31.75)",
       "lat": 38.25,
@@ -47510,6 +47843,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -47543,7 +47877,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 32.25)",
       "lat": 38.25,
@@ -47651,6 +47985,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -47684,7 +48019,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 32.75)",
       "lat": 38.25,
@@ -47792,6 +48127,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -47825,7 +48161,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 33.25)",
       "lat": 38.25,
@@ -47933,6 +48269,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -47966,7 +48303,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 33.75)",
       "lat": 38.25,
@@ -48074,6 +48411,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -48107,7 +48445,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 34.25)",
       "lat": 38.25,
@@ -48215,6 +48553,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -48248,7 +48587,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r256_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.25, 34.75)",
       "lat": 38.25,
@@ -48356,6 +48695,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r256_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -48389,7 +48729,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 25.25)",
       "lat": 38.75,
@@ -48499,6 +48839,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -48532,7 +48873,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 25.75)",
       "lat": 38.75,
@@ -48642,6 +48983,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -48675,7 +49017,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 26.25)",
       "lat": 38.75,
@@ -48784,6 +49126,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -48817,7 +49160,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 26.75)",
       "lat": 38.75,
@@ -48926,6 +49269,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -48959,7 +49303,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 27.25)",
       "lat": 38.75,
@@ -49067,6 +49411,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -49100,7 +49445,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 27.75)",
       "lat": 38.75,
@@ -49208,6 +49553,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -49241,7 +49587,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 28.25)",
       "lat": 38.75,
@@ -49349,6 +49695,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -49382,7 +49729,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 28.75)",
       "lat": 38.75,
@@ -49490,6 +49837,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -49523,7 +49871,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 29.25)",
       "lat": 38.75,
@@ -49631,6 +49979,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -49664,7 +50013,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 29.75)",
       "lat": 38.75,
@@ -49772,6 +50121,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -49805,7 +50155,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 30.25)",
       "lat": 38.75,
@@ -49913,6 +50263,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -49946,7 +50297,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 30.75)",
       "lat": 38.75,
@@ -50054,6 +50405,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -50087,7 +50439,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 31.25)",
       "lat": 38.75,
@@ -50195,6 +50547,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -50228,7 +50581,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 31.75)",
       "lat": 38.75,
@@ -50336,6 +50689,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -50369,7 +50723,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 32.25)",
       "lat": 38.75,
@@ -50477,6 +50831,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -50510,7 +50865,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 32.75)",
       "lat": 38.75,
@@ -50618,6 +50973,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -50651,7 +51007,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 33.25)",
       "lat": 38.75,
@@ -50760,6 +51116,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -50793,7 +51150,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 33.75)",
       "lat": 38.75,
@@ -50902,6 +51259,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -50935,7 +51293,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 34.25)",
       "lat": 38.75,
@@ -51043,6 +51401,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -51076,7 +51435,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r257_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (38.75, 34.75)",
       "lat": 38.75,
@@ -51184,6 +51543,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r257_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -51217,7 +51577,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 25.25)",
       "lat": 39.25,
@@ -51327,6 +51687,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -51360,7 +51721,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 25.75)",
       "lat": 39.25,
@@ -51470,6 +51831,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -51503,7 +51865,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 26.25)",
       "lat": 39.25,
@@ -51612,6 +51974,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -51645,7 +52008,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 26.75)",
       "lat": 39.25,
@@ -51754,6 +52117,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -51787,7 +52151,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 27.25)",
       "lat": 39.25,
@@ -51895,6 +52259,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -51928,7 +52293,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 27.75)",
       "lat": 39.25,
@@ -52036,6 +52401,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -52069,7 +52435,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 28.25)",
       "lat": 39.25,
@@ -52177,6 +52543,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -52210,7 +52577,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 28.75)",
       "lat": 39.25,
@@ -52318,6 +52685,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -52351,7 +52719,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 29.25)",
       "lat": 39.25,
@@ -52459,6 +52827,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -52492,7 +52861,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 29.75)",
       "lat": 39.25,
@@ -52600,6 +52969,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -52633,7 +53003,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 30.25)",
       "lat": 39.25,
@@ -52741,6 +53111,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -52774,7 +53145,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 30.75)",
       "lat": 39.25,
@@ -52882,6 +53253,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -52915,7 +53287,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 31.25)",
       "lat": 39.25,
@@ -53023,6 +53395,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -53056,7 +53429,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 31.75)",
       "lat": 39.25,
@@ -53164,6 +53537,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -53197,7 +53571,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 32.25)",
       "lat": 39.25,
@@ -53305,6 +53679,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -53338,7 +53713,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 32.75)",
       "lat": 39.25,
@@ -53446,6 +53821,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -53479,7 +53855,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 33.25)",
       "lat": 39.25,
@@ -53588,6 +53964,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -53621,7 +53998,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 33.75)",
       "lat": 39.25,
@@ -53730,6 +54107,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -53763,7 +54141,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 34.25)",
       "lat": 39.25,
@@ -53871,6 +54249,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -53904,7 +54283,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r258_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.25, 34.75)",
       "lat": 39.25,
@@ -54012,6 +54391,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r258_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -54045,7 +54425,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c410",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 25.25)",
       "lat": 39.75,
@@ -54154,6 +54534,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c410",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -54187,7 +54568,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c411",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 25.75)",
       "lat": 39.75,
@@ -54297,6 +54678,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c411",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -54330,7 +54712,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c412",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 26.25)",
       "lat": 39.75,
@@ -54439,6 +54821,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c412",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -54472,7 +54855,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c413",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 26.75)",
       "lat": 39.75,
@@ -54581,6 +54964,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c413",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -54614,7 +54998,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c414",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 27.25)",
       "lat": 39.75,
@@ -54722,6 +55106,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c414",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -54755,7 +55140,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c415",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 27.75)",
       "lat": 39.75,
@@ -54863,6 +55248,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c415",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -54896,7 +55282,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c416",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 28.25)",
       "lat": 39.75,
@@ -55004,6 +55390,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c416",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -55037,7 +55424,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c417",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 28.75)",
       "lat": 39.75,
@@ -55145,6 +55532,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c417",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -55178,7 +55566,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c418",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 29.25)",
       "lat": 39.75,
@@ -55286,6 +55674,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c418",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -55319,7 +55708,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c419",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 29.75)",
       "lat": 39.75,
@@ -55427,6 +55816,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c419",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -55460,7 +55850,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c420",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 30.25)",
       "lat": 39.75,
@@ -55568,6 +55958,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c420",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -55601,7 +55992,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c421",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 30.75)",
       "lat": 39.75,
@@ -55709,6 +56100,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c421",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -55742,7 +56134,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c422",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 31.25)",
       "lat": 39.75,
@@ -55850,6 +56242,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c422",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -55883,7 +56276,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c423",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 31.75)",
       "lat": 39.75,
@@ -55991,6 +56384,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c423",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -56024,7 +56418,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c424",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 32.25)",
       "lat": 39.75,
@@ -56132,6 +56526,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c424",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -56165,7 +56560,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c425",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 32.75)",
       "lat": 39.75,
@@ -56273,6 +56668,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c425",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -56306,7 +56702,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c426",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 33.25)",
       "lat": 39.75,
@@ -56414,6 +56810,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c426",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -56447,7 +56844,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c427",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 33.75)",
       "lat": 39.75,
@@ -56555,6 +56952,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c427",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -56588,7 +56986,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c428",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 34.25)",
       "lat": 39.75,
@@ -56696,6 +57094,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c428",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -56729,7 +57128,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r259_c429",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "turkey pilot (39.75, 34.75)",
       "lat": 39.75,
@@ -56837,6 +57236,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r259_c429",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "turkey",
@@ -56870,7 +57270,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r130_c220",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "atacama pilot (-24.75, -69.75)",
       "lat": -24.75,
@@ -56978,6 +57378,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r130_c220",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "atacama",
@@ -57011,7 +57412,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r130_c221",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "atacama pilot (-24.75, -69.25)",
       "lat": -24.75,
@@ -57120,6 +57521,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r130_c221",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "atacama",
@@ -57153,7 +57555,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r131_c220",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "atacama pilot (-24.25, -69.75)",
       "lat": -24.25,
@@ -57262,6 +57664,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r131_c220",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "atacama",
@@ -57295,7 +57698,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r131_c221",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "atacama pilot (-24.25, -69.25)",
       "lat": -24.25,
@@ -57403,6 +57806,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r131_c221",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "atacama",
@@ -57436,7 +57840,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r308_c320",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "iceland pilot (64.25, -19.75)",
       "lat": 64.25,
@@ -57544,6 +57948,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r308_c320",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "iceland",
@@ -57577,7 +57982,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r308_c321",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "iceland pilot (64.25, -19.25)",
       "lat": 64.25,
@@ -57686,6 +58091,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r308_c321",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "iceland",
@@ -57719,7 +58125,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r309_c320",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "iceland pilot (64.75, -19.75)",
       "lat": 64.75,
@@ -57827,6 +58233,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r309_c320",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "iceland",
@@ -57860,7 +58267,7 @@
     {
       "schema_version": "2.3",
       "region_id": "earth_grid_r309_c321",
-      "kind": "candidate",
+      "kind": "earth_grid",
       "body": "earth",
       "name": "iceland pilot (64.75, -19.25)",
       "lat": 64.75,
@@ -57968,6 +58375,7 @@
         "source_quality_verified": true,
         "max_nodata_ratio": 0.05
       },
+      "cell_id": "earth_grid_r309_c321",
       "grid": {
         "step_deg": 0.5,
         "pilot_area": "iceland",

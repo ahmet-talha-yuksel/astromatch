@@ -101,6 +101,29 @@ skorlaması açılmaz. MEDA GTS, EMIT, Sentinel-2 ve yağış katmanları P2'dir
 edinilmedi ve veri varmış gibi işaretlenmez. USGS doğrulama listesi ve sıralama
 raporu Kişi 3'ün sorumluluğundadır; bu modül skor veya kesin negatif üretmez.
 
+## Yeni Mars hedefi denemesi (regional)
+
+`out/mars_candidates/review.json` Phoenix (68.2°K, 234.3°D) ve operatörün
+seçtiği güney Arcadia çevresi (40°K, 190°D) merkezlerini kapsar. Aynı MOLA
+128 ppd / 50×50 km / 1000 m yönteminde Phoenix 198/2500 (%7.92), Arcadia
+514/2500 (%20.56) hücrede ölçülmüş bin içermedi. Her iki aday kapalı kaldı;
+T-04 eklenmedi. Bunlar yeraltı buzu veya iniş güvenliği değerlendirmesi değildir.
+100–150 local referans penceresi de henüz üretilmedi. Havuz olmadan local σ
+motor tarafında açıkça `fixed_default` olarak belgelenmelidir; veriyle
+hesaplanmış dağılım parametresi gibi sunulmamalıdır.
+Kaynak etiketleri, byte-range ve hash kanıtları bu dizinin retrieval.json
+manifestindedir. PNG/metadata ve altı özellik de inceleme için paylaşılır.
+Yeniden edinim yalnızca küçük resmî PDS altkümelerini indirir:
+
+```sh
+processing/.venv/bin/python -m processing.scripts.probe_mars_candidates --accessed-on YYYY-MM-DD
+```
+
+Keşif Parquet'inde `kind="earth_grid"`, `cell_id=region_id` bulunur. Kimlik
+biçimi değiştirilmedi. Kişi 2'nin güncel girdileri `out/real/features.json`
+ve **`out/earth_grid.parquet`** dosyalarıdır; `out/real/earth_grid.parquet`
+8 seçilmiş saha içerir ve 408 hücrelik keşif dosyasıyla karıştırılmamalıdır.
+
 ## İlk teslimlerden kalan teknik notlar
 
 Aşağıdaki kronolojik uygulama notları eski teslimlerin durumlarını da içerir.

@@ -71,6 +71,7 @@ def test_expanded_grid_is_readable_with_honest_flags_and_root_publication():
     assert table.num_rows==408
     for r in records:
         assert r['region_id']==cell_id(r['lon'],r['lat'])
+        assert r['kind']=='earth_grid' and r['cell_id']==r['region_id']
         assert r['scale']=='regional' and r['window_km']==50 and r['analysis_resolution_m']==1000
         assert all(r['features'][k]['comparable'] is r['resolution_validated'] for k in TOPOGRAPHIC)
         mask=r['quality']['landmask']

@@ -1,8 +1,8 @@
 {
   "status": "provisional",
   "estimated_hours_range": [
-    3.09607037986847,
-    88.75040995933581
+    3.086085642558028,
+    88.76784245084505
   ],
   "scope": "turkey_surroundings_usgs_and_sample_arid_belts",
   "final_source_validation_complete": false,
@@ -10,13 +10,13 @@
     {
       "name": "high_reuse_sparse_land_selection",
       "cells": 23859,
-      "per_cell_seconds": 0.46715509315254167,
+      "per_cell_seconds": 0.4656485315063037,
       "assumption": "25% of WorldCover-tile-covered grid centers selected; observed lower-quartile mask+processing cost; existing DEM cache."
     },
     {
       "name": "all_candidate_centers_conservative_latency",
       "cells": 95436,
-      "per_cell_seconds": 3.3478087498806417,
+      "per_cell_seconds": 3.348466331604868,
       "assumption": "All WorldCover-supported centers; twice slowest observed mask+processing cost for unmeasured latency/source variance."
     }
   ],

@@ -505,3 +505,12 @@ Canonical earth_grid.parquet and coverage.geojson come from pilot_expanded/, wit
 features.json and the engine ZIP retain the curated Earth/planetary target release.
 Grid acquisition evidence and mask QA: pilot_expanded/retrieval.json and pilot_expanded/landmask.json.
 The larger declared regional domain includes explicit not_scanned cells; it is not fully processed.
+
+## Additional regional Mars feasibility probes
+
+Phoenix (68.2 N, 234.3 E) and operator-selected Arcadia vicinity (40 N, 190 E)
+were read from final MOLA MEGDR v2.0 128-ppd topography/count products on 2026-11-14.
+Exact requests, hashes, coordinates and processing outputs are in mars_candidates/.
+Both fail the current zero-unsupported-analysis-cells rule: 198/2500 and 514/2500.
+Neither is promoted to T-04; no ice, shelter or landing-safety inference is made.
+Source archive: https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/

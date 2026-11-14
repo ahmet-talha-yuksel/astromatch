@@ -96,6 +96,8 @@ def run(acquisition_path, root, output, comparison_records=None):
                                'Terrain comparison requires a validated target with the same physical window, resolution and method.',
                                *attempt.get('quality_notes',[])))
             record, array = process_dem(request, timings=timer)
+            record['kind']='earth_grid'
+            record['cell_id']=record['region_id']
             status = 'no_data' if record['quality']['coverage'] == 'none' else 'scanned'
             if status == 'scanned' and record['quality']['coverage'] == 'full' and attempt['source_selection'] == 'srtm_access_unavailable':
                 record['quality']['coverage'] = 'fallback_dem'
@@ -112,6 +114,8 @@ def run(acquisition_path, root, output, comparison_records=None):
         geometry = coverage_cell(cell['region_id'], cell['lon'], cell['lat'], status,
                                  record['quality']['coverage'] if record else ('none' if status == 'no_data' else None))
         geometry['properties'].update(data_status='derived' if record else None,
+                                      cell_id=cell['region_id'],
+                                      kind='earth_grid',
                                       dem_source=record['dem_source'] if record else None,
                                       pilot_area=cell['area'], comparable=False,
                                       window_km=50 if record else None,
