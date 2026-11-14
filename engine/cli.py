@@ -1,0 +1,101 @@
+"""Deterministic CLI for checks, ranking, validation and frozen demo exports."""
+from __future__ import annotations
+import argparse, hashlib, json, logging, re, sys
+from datetime import datetime,timezone
+from pathlib import Path
+import numpy as np
+from . import load_dataset,rank,DataPaths
+from .io import config
+from .mock import write_mock
+from .readiness import check_real_data, report_json
+from .validation_metrics import validate
+
+log=logging.getLogger(__name__)
+ENGINE_VERSION='1.0.0'
+DISCLAIMER='MOCK DATA — NOT A SCIENTIFIC RESULT'
+
+def write(path,data):
+    Path(path).write_text(json.dumps(data,indent=2,sort_keys=True,ensure_ascii=False,allow_nan=False)+'\n')
+
+def _stem(*parts):
+    return '__'.join(re.sub(r'[^A-Za-z0-9_-]','_',part) for part in parts)
+
+def _spread(result,site_ids):
+    scores=np.asarray([r['score_geo'] for r in result.full_scores if r['id'] in site_ids],dtype=float)
+    if not len(scores): return {'count':0,'min':None,'median':None,'max':None,'std':None}
+    return {'count':int(len(scores)),'min':float(scores.min()),'median':float(np.median(scores)),'max':float(scores.max()),'std':float(scores.std())}
+
+def write_results(ds,out,presets,k,stamp):
+    out=Path(out);out.mkdir(parents=True,exist_ok=True)
+    index={'targets':sorted({t.region_id for t in ds.targets}),'scales':sorted({t.scale for t in ds.targets}),'presets':presets,'generated_at':stamp,'input_sha256':ds.input_hashes,'sigma':{},'score_spread':{},'engine_version':ENGINE_VERSION,'data_status':ds.mode,'defaults_applied':ds.defaults_applied,'invalid_records':ds.invalid_records,'warnings':list(ds.warnings)}
+    if ds.mode=='mock': index['disclaimer']=DISCLAIMER
+    for t in ds.targets:
+        site_ids={c.region_id for c in ds.candidates if c.scale==t.scale and c.kind=='earth_site'}
+        for preset in presets:
+            result=rank(ds,t.region_id,t.scale,preset,k=k,detailed=(t.scale=='local'))
+            stem=_stem(t.region_id,t.scale,preset)
+            write(out/f'{stem}.json',result.model_dump())
+            heat=[{'id':r['id'],'lat':r['lat'],'lon':r['lon'],'score':round(r['score_geo'],1),**({'data_status':'mock','disclaimer':DISCLAIMER} if ds.mode=='mock' else {})} for r in result.full_scores if r['lat'] is not None and r['lon'] is not None]
+            write(out/f'{stem}__heat.json',heat)
+            if t.scale=='local':
+                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode}
+                if ds.mode=='mock': sites['disclaimer']=DISCLAIMER
+                write(out/f'sites__{stem}.json',sites)
+            index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma
+            spread=_spread(result,site_ids)
+            index['score_spread'][stem]=spread
+            if spread['std'] is not None and spread['std']<5:
+                warning=f'{stem}: sites poorly discriminated — check sigma (std={spread["std"]:.2f})'
+                index['warnings'].append(warning)
+                log.warning(warning)
+    write(out/'index.json',index)
+    from .ml import pca_export
+    write(out/'pca.json',pca_export(ds))
+    return index
+
+def _mock_hashes(ds):
+    payload=json.dumps({'targets':[r.model_dump() for r in ds.targets],'candidates':[r.model_dump() for r in ds.candidates],'known_analogs':[r.model_dump() for r in ds.known_analogs]},sort_keys=True,ensure_ascii=False).encode()
+    paths={name:Path(__file__).parent/'config'/name for name in ('features.yaml','presets.yaml','body_limits.yaml')}
+    return {'mock_dataset':hashlib.sha256(payload).hexdigest(),**{name:hashlib.sha256(path.read_bytes()).hexdigest() for name,path in paths.items()}}
+
+def main(argv=None):
+    logging.basicConfig(level=logging.WARNING)
+    p=argparse.ArgumentParser(prog='python -m engine.cli');sub=p.add_subparsers(dest='command',required=True)
+    gen=sub.add_parser('generate-mock');gen.add_argument('--out',default='engine/mock_data/')
+    check=sub.add_parser('check');check.add_argument('--features');check.add_argument('--grid')
+    demo=sub.add_parser('export-demo');demo.add_argument('--out',default='engine/demo_results/');demo.add_argument('--timestamp')
+    for command in ('run','validate'):
+        s=sub.add_parser(command);s.add_argument('--mock',action='store_true');s.add_argument('--features');s.add_argument('--grid');s.add_argument('--known');s.add_argument('--out',default='engine/out/')
+        if command=='run':
+            s.add_argument('--preset',default='balanced');s.add_argument('--k',type=int,default=20);s.add_argument('--timestamp')
+        else:s.add_argument('--negatives')
+    args=p.parse_args(argv)
+    if args.command=='generate-mock':write_mock(args.out);return
+    if args.command=='check':
+        report=check_real_data(DataPaths(features=args.features,grid=args.grid))
+        sys.stdout.write(report_json(report))
+        if not report['ready']:raise SystemExit(2)
+        return
+    stamp=getattr(args,'timestamp',None) or datetime.now(timezone.utc).isoformat()
+    if args.command=='export-demo':
+        ds=load_dataset(mock=True,mock_n_grid=240)
+        ds.input_hashes=_mock_hashes(ds)
+        out=Path(args.out)
+        write_results(ds,out,list(config('presets.yaml')),20,stamp)
+        validate(ds,out=out)
+        for path in out.glob('*.json'):
+            path.write_text(json.dumps(json.loads(path.read_text()),sort_keys=True,separators=(',',':'),ensure_ascii=False)+'\n')
+        write(out/'MANIFEST.json',{'input_sha256':ds.input_hashes,'engine_version':ENGINE_VERSION,'generated_at':stamp,'data_status':'mock','disclaimer':DISCLAIMER})
+        return
+    paths=DataPaths(features=args.features,grid=args.grid,known=args.known)
+    if not args.mock:
+        report=check_real_data(paths)
+        if not report['ready']:
+            sys.stderr.write(report_json(report))
+            raise SystemExit(2)
+    ds=load_dataset(paths,mock=args.mock)
+    if args.command=='validate':validate(ds,args.negatives,args.out);return
+    presets=list(config('presets.yaml')) if args.preset=='all' else [args.preset]
+    write_results(ds,args.out,presets,args.k,stamp)
+
+if __name__=='__main__':main()

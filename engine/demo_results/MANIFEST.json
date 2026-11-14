@@ -1,0 +1,12 @@
+{
+  "data_status": "mock",
+  "disclaimer": "MOCK DATA — NOT A SCIENTIFIC RESULT",
+  "engine_version": "1.0.0",
+  "generated_at": "2026-11-14T00:00:00Z",
+  "input_sha256": {
+    "body_limits.yaml": "43aa8140d2c6fef1c14b8484cc5c3d5c2737c437d1fda8209f38bdf10bf87142",
+    "features.yaml": "03f3b72ac4bc850639379d577f3a3cac38353f56256f02c15f07526e6cccdc09",
+    "mock_dataset": "a1f404435177aa4471d15eb5e37238e4edfc798cf0dc5153a919403f49f33a56",
+    "presets.yaml": "aa4ad7a608479bfe5fc0a49bab34ac380f1cdcf55eb704839329e2da48543050"
+  }
+}

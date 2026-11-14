@@ -1,0 +1,4 @@
+balanced: {}
+landing_ops: {flat_fraction: 3, slope_p90_deg: 3, slope_median_deg: 2}
+rover_mobility: {tri_median_m: 3, slope_p90_deg: 2, relief_m: 2}
+geomorphology: {relief_m: 3, elevation_std_m: 2, tri_median_m: 2}

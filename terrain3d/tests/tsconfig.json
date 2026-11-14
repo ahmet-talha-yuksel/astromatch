@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", "module": "CommonJS", "moduleResolution": "Node",
+    "outDir": "../.test-build", "rootDir": "../src", "strict": true,
+    "skipLibCheck": true, "lib": ["ES2020", "DOM"]
+  },
+    "include": ["../src/validation/**/*.ts", "../src/loading/**/*.ts", "../src/geometry/**/*.ts", "../src/integration/**/*.ts"]
+}
