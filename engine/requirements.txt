@@ -6,4 +6,5 @@ pyyaml
 pytest
 scikit-learn>=1.3
 reverse_geocoder==1.5.1
+matplotlib>=3.8,<4
 # HDBSCAN remains optional at runtime.

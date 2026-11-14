@@ -9,8 +9,9 @@ from engine import RankResult, explain as engine_explain, heat as engine_heat, l
 from engine.io import config
 from engine.ranking import DISCLAIMER
 from engine.validation_api import list_target_ids
+from engine.radar import feature_z_offsets
 from backend.app.core.config import settings
-from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResponse, PresetsResponse, SitesResponse, HeatResponse, RegionResponse, ExplainResponse, ValidationResponse
+from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResponse, PresetsResponse, SitesResponse, HeatResponse, RegionResponse, ExplainResponse, ValidationResponse, CompareResponse
 from backend.app.services.data import active_mode, get_dataset
 
 router=APIRouter(prefix='/api/v1',tags=['engine'])
@@ -137,6 +138,30 @@ def explain_v1(target_id:str,candidate_id:str,scale:Literal['local','regional']=
     try: explanation=engine_explain(ds,target_id,candidate_id,scale,preset)
     except ValueError as exc: raise HTTPException(422,str(exc)) from exc
     return {**meta(),'target_id':target_id,'candidate_id':candidate_id,'scale':scale,'preset':preset,'explanation':explanation.model_dump()}
+
+@router.get('/compare',response_model=CompareResponse)
+def compare_v1(target_id:str,candidate_id:str,scale:Literal['local','regional'],preset:str='balanced'):
+    ds=checked(target_id,scale,preset)
+    target_id=resolved_target(target_id,scale)
+    target=next(t for t in ds.targets if t.region_id==target_id and t.scale==scale)
+    candidate=next((c for c in ds.candidates if c.region_id==candidate_id and c.scale==scale and c.body=='earth' and c.kind in ('earth_site','earth_grid')),None)
+    if candidate is None:raise HTTPException(404,f'Unknown Earth candidate at {scale}: {candidate_id}')
+    result=engine_rank(ds,target_id,scale,preset,k=20,detailed=True,include_uncertainty=True)
+    if result.target_status!='scorable':raise HTTPException(422,result.target_reason or 'Target is unscorable')
+    row=next((r for r in result.full_scores if r['id']==candidate_id),None)
+    if row is None:raise HTTPException(422,f'Candidate is not eligible: {candidate_id}')
+    explanation=row.get('explanation')
+    if explanation is None:
+        explanation=engine_explain(ds,target_id,candidate_id,scale,preset).model_dump()
+    z_by_feature=feature_z_offsets(ds,target,candidate)
+    criteria={key:{**value,'z':z_by_feature.get(key)} for key,value in row.get('per_criterion',{}).items()}
+    return {**meta(),'target_id':target_id,'candidate_id':candidate_id,'scale':scale,'preset':preset,
+            'target':target.model_dump(),'candidate':candidate.model_dump(),
+            'per_criterion':criteria,'z_by_feature':z_by_feature,'distance_z':row['distance_z'],
+            'score_geo':row['score_geo'],'score_ci_low':row.get('score_ci_low'),'score_ci_high':row.get('score_ci_high'),
+            'score_relative':row['score_relative'],'match_level':row['match_level'],
+            'place':row.get('place'),'explanation':explanation,'analogy_breaks':explanation.get('analogy_breaks',[]),
+            'not_compared':explanation.get('not_compared',[])}
 
 @router.get('/validation',response_model=ValidationResponse)
 def validation_v1():
