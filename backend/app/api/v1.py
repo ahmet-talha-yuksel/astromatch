@@ -9,7 +9,7 @@ from engine import explain as engine_explain, heat as engine_heat, list_targets,
 from engine.io import config
 from engine.ranking import DISCLAIMER
 from backend.app.core.config import settings
-from backend.app.schemas.engine import RankResponse, Envelope
+from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResponse, PresetsResponse, SitesResponse, HeatResponse, RegionResponse, ExplainResponse, ValidationResponse
 from backend.app.services.data import active_mode, get_dataset
 
 router=APIRouter(prefix='/api/v1',tags=['engine'])
@@ -39,16 +39,16 @@ def ranked(target_id,scale,preset,k,filter_mode,weights=None,detailed=False):
     try: return engine_rank(ds,target_id,scale,preset,weights=weights,k=k,filter_mode=filter_mode,detailed=detailed)
     except ValueError as exc: raise HTTPException(422,str(exc)) from exc
 
-@router.get('/health',response_model=Envelope)
+@router.get('/health',response_model=HealthResponse)
 def health_v1():
     ds=get_dataset()
     return {**meta(),'status':'ok','data_mode':active_mode(),'engine_version':'1.0.0','dataset_counts':{'targets':len(ds.targets),'candidates':len(ds.candidates),'known_analogs':len(ds.known_analogs)},'sklearn_available':importlib.util.find_spec('sklearn') is not None,'hdbscan_available':importlib.util.find_spec('hdbscan') is not None}
 
-@router.get('/targets',response_model=Envelope)
+@router.get('/targets',response_model=TargetsResponse)
 def targets_v1():
     return {**meta(),'targets':[t.model_dump() for t in list_targets(get_dataset())]}
 
-@router.get('/presets',response_model=Envelope)
+@router.get('/presets',response_model=PresetsResponse)
 def presets_v1():
     features=config('features.yaml')['features']
     return {**meta(),'presets':config('presets.yaml'),'features':{key:{'label':cfg.get('label',key),'unit':cfg.get('unit','')} for key,cfg in features.items()}}
@@ -69,14 +69,14 @@ class RankBody(BaseModel):
 def rank_post(body:RankBody):
     return ranked(body.target_id,body.scale,body.preset,body.k,body.filter_mode,body.weights)
 
-@router.get('/sites',response_model=Envelope)
+@router.get('/sites',response_model=SitesResponse)
 def sites_v1(target_id:str,scale:Literal['local']='local',preset:str='balanced'):
     ds=checked(target_id,scale,preset)
     result=ranked(target_id,scale,preset,k=20,filter_mode='flag',detailed=True)
     ids={r.region_id for r in ds.candidates if r.scale==scale and r.kind=='earth_site'}
     return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'sites':[r for r in result.full_scores if r['id'] in ids],'excluded':[r for r in result.excluded if r['id'] in ids]}
 
-@router.get('/heat',response_model=Envelope)
+@router.get('/heat',response_model=HeatResponse)
 def heat_v1(target_id:str,scale:Literal['local','regional']='local',preset:str='balanced'):
     ds=checked(target_id,scale,preset)
     stem='__'.join(re.sub(r'[^A-Za-z0-9_-]','_',v) for v in (target_id,scale,preset))
@@ -89,7 +89,7 @@ def heat_v1(target_id:str,scale:Literal['local','regional']='local',preset:str='
         except (ValueError,TypeError,KeyError): pass
     return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'source':'computed','points':[p.model_dump() for p in engine_heat(ds,target_id,scale,preset)]}
 
-@router.get('/regions/{region_id}',response_model=Envelope)
+@router.get('/regions/{region_id}',response_model=RegionResponse)
 def region_v1(region_id:str):
     ds=get_dataset(); records=[r for r in ds.candidates+ds.targets if r.region_id==region_id]
     if not records: raise HTTPException(404,f'Unknown region: {region_id}')
@@ -103,7 +103,7 @@ def region_v1(region_id:str):
             if row: scores.append({'target_id':target.region_id,'scale':target.scale,'score_geo':row['score_geo'],'score_relative':row['score_relative'],'match_level':row['match_level']})
     return {**meta(),'region':records[0].model_dump(),'records':[r.model_dump() for r in records],'scores':scores}
 
-@router.get('/explain',response_model=Envelope)
+@router.get('/explain',response_model=ExplainResponse)
 def explain_v1(target_id:str,candidate_id:str,scale:Literal['local','regional']='local',preset:str='balanced'):
     ds=checked(target_id,scale,preset)
     if not any(c.region_id==candidate_id and c.scale==scale for c in ds.candidates): raise HTTPException(404,f'Unknown candidate: {candidate_id}')
@@ -111,7 +111,7 @@ def explain_v1(target_id:str,candidate_id:str,scale:Literal['local','regional']=
     except ValueError as exc: raise HTTPException(422,str(exc)) from exc
     return {**meta(),'target_id':target_id,'candidate_id':candidate_id,'scale':scale,'preset':preset,'explanation':explanation.model_dump()}
 
-@router.get('/validation',response_model=Envelope)
+@router.get('/validation',response_model=ValidationResponse)
 def validation_v1():
     path=Path(settings.results_dir)/'validation_report.json'
     if not path.exists(): raise HTTPException(404,'Validation report not found; run python -m engine.cli validate --mock or with real data')
