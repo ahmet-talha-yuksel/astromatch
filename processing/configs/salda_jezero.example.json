@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "scale": "local",
+      "vertical_unit": "m",
+      "quantity": "elevation",
+      "accessed_on": "REPLACE_WITH_DOWNLOAD_DATE",
+      "dem_version": "REPLACE_WITH_PRODUCT_VERSION",
+      "georeferencing_verified": false,
+      "source_quality_verified": false,
+      "synthetic": false,
+      "region_id": "earth_salda_local",
+      "name": "Salda",
+      "body": "earth",
+      "product": "copernicus",
+      "lat": 37.55,
+      "lon": 29.67,
+      "source_resolution_m": 30,
+      "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "path": "../raw/salda_dem.tif",
+      "vertical_reference": "EGM2008; verify product handbook"
+    },
+    {
+      "scale": "local",
+      "vertical_unit": "m",
+      "quantity": "elevation",
+      "accessed_on": "REPLACE_WITH_DOWNLOAD_DATE",
+      "dem_version": "REPLACE_WITH_PRODUCT_VERSION",
+      "georeferencing_verified": false,
+      "source_quality_verified": false,
+      "synthetic": false,
+      "region_id": "mars_jezero_local",
+      "name": "Jezero",
+      "body": "mars",
+      "product": "mola",
+      "lat": 18.38,
+      "lon": 77.58,
+      "source_resolution_m": 463,
+      "source_url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+      "path": "../raw/jezero_topography.lbl",
+      "vertical_reference": "MOLA areoid; topography product only"
+    }
+  ]
+}

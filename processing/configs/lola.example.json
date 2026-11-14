@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "scale": "local",
+      "vertical_unit": "m",
+      "quantity": "elevation",
+      "accessed_on": "REPLACE_WITH_DOWNLOAD_DATE",
+      "dem_version": "REPLACE_WITH_PRODUCT_VERSION",
+      "georeferencing_verified": false,
+      "source_quality_verified": false,
+      "synthetic": false,
+      "region_id": "moon_shackleton_local",
+      "name": "Shackleton",
+      "body": "moon",
+      "product": "lola",
+      "lat": -89.5,
+      "lon": 0,
+      "source_resolution_m": 100,
+      "source_url": "https://ode.rsl.wustl.edu/moon/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20%28LRO%29/LOLA/GDR/GDRDEM.htm",
+      "path": "../raw/shackleton_elevation.tif",
+      "vertical_reference": "REPLACE_WITH_VERIFIED_ELEVATION_DATUM"
+    }
+  ]
+}

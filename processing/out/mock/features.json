@@ -1,0 +1,1207 @@
+{
+  "schema_version": "2.3",
+  "synthetic": true,
+  "data_plan_verified": true,
+  "records": [
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_salda_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Salda (synthetic)",
+      "lat": 37.75,
+      "lon": 29.75,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 500,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=37.75 +lon_0=29.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.5132288007725411,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.770687161192673,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.031906538877845,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 48.60093739562157,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 14.828611490062206,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.15,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.0024999999999999467,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_salda_local.png",
+        "metadata_path": "heightmaps/earth_salda_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=37.75 +lon_0=29.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_salda_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Salda (synthetic)",
+      "lat": 37.75,
+      "lon": 29.75,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 1000,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=37.75 +lon_0=29.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.27257980687098843,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.39770116135629646,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.461503703758764,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 111.2917742580127,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 32.77132177488801,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.15,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.00039999999999995595,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_salda_regional.png",
+        "metadata_path": "heightmaps/earth_salda_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=37.75 +lon_0=29.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_kula_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Kula (synthetic)",
+      "lat": 38.75,
+      "lon": 28.75,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 500,
+      "resolution_validated": false,
+      "crs": "+proj=laea +lat_0=38.75 +lon_0=28.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.5132288007725415,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "slope_p90_deg": {
+          "value": 0.770687161192674,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "tri_median_m": {
+          "value": 11.031906538877811,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "relief_m": {
+          "value": 48.60093739562157,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "elevation_std_m": {
+          "value": 14.828611490062206,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.25,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.0024999999999999467,
+        "coverage": "partial",
+        "warnings": [
+          "Synthetic negative fixture: resolution/quality validation deliberately withheld."
+        ]
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_kula_local.png",
+        "metadata_path": "heightmaps/earth_kula_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=38.75 +lon_0=28.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_kula_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Kula (synthetic)",
+      "lat": 38.75,
+      "lon": 28.75,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 1000,
+      "resolution_validated": false,
+      "crs": "+proj=laea +lat_0=38.75 +lon_0=28.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.2725798068709884,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "slope_p90_deg": {
+          "value": 0.39770116135629624,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "tri_median_m": {
+          "value": 11.461503703758769,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "relief_m": {
+          "value": 111.2917742580127,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "elevation_std_m": {
+          "value": 32.77132177488801,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.25,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.00039999999999995595,
+        "coverage": "partial",
+        "warnings": [
+          "Synthetic negative fixture: resolution/quality validation deliberately withheld."
+        ]
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_kula_regional.png",
+        "metadata_path": "heightmaps/earth_kula_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=38.75 +lon_0=28.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_hassa_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Hassa (synthetic)",
+      "lat": 36.75,
+      "lon": 36.75,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 500,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=36.75 +lon_0=36.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.5132288007725403,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.770687161192673,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.031906538877827,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 48.60093739562157,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 14.828611490062206,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.35,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.0024999999999999467,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_hassa_local.png",
+        "metadata_path": "heightmaps/earth_hassa_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=36.75 +lon_0=36.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_hassa_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Hassa (synthetic)",
+      "lat": 36.75,
+      "lon": 36.75,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 1000,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=36.75 +lon_0=36.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.2725798068709884,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.39770116135629624,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.46150370375878,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 111.29177425801271,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 32.77132177488801,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.35,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.00039999999999995595,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_hassa_regional.png",
+        "metadata_path": "heightmaps/earth_hassa_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=36.75 +lon_0=36.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_atacama_local",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Atacama (synthetic)",
+      "lat": -24.75,
+      "lon": -69.75,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 500,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=-24.75 +lon_0=-69.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.5132288007725373,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.7706871611926733,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.031906538877886,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 48.60093739562154,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 14.828611490062206,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.45000000000000007,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.0024999999999999467,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_atacama_local.png",
+        "metadata_path": "heightmaps/earth_atacama_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=-24.75 +lon_0=-69.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "earth_atacama_regional",
+      "kind": "candidate",
+      "body": "earth",
+      "name": "Atacama (synthetic)",
+      "lat": -24.75,
+      "lon": -69.75,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 1000,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=-24.75 +lon_0=-69.75 +R=6371008.8 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.27257980687098854,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.3977011613562965,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.461503703758762,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 111.29177425801277,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 32.77132177488801,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.45000000000000007,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false
+        },
+        "land_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": false
+        }
+      },
+      "quality": {
+        "nodata_ratio": 0.00039999999999995595,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/earth_atacama_regional.png",
+        "metadata_path": "heightmaps/earth_atacama_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=-24.75 +lon_0=-69.75 +R=6371008.8 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "mars_jezero_local",
+      "kind": "target",
+      "body": "mars",
+      "name": "Jezero (synthetic)",
+      "lat": 18.38,
+      "lon": 77.58,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 500,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=18.38 +lon_0=77.58 +R=3396190 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.5132288007725373,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.7706871611926733,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.031906538877886,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 48.60093739562154,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 14.828611490062206,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0024999999999999467,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/mars_jezero_local.png",
+        "metadata_path": "heightmaps/mars_jezero_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=18.38 +lon_0=77.58 +R=3396190 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "mars_jezero_regional",
+      "kind": "target",
+      "body": "mars",
+      "name": "Jezero (synthetic)",
+      "lat": 18.38,
+      "lon": 77.58,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 1000,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=18.38 +lon_0=77.58 +R=3396190 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.27257980687098854,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.3977011613562965,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.461503703758762,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 111.29177425801282,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 32.77132177488801,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.00039999999999995595,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/mars_jezero_regional.png",
+        "metadata_path": "heightmaps/mars_jezero_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=18.38 +lon_0=77.58 +R=3396190 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "moon_shackleton_local",
+      "kind": "target",
+      "body": "moon",
+      "name": "Shackleton (synthetic)",
+      "lat": -89.5,
+      "lon": 0.0,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 500,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=-89.5 +lon_0=0.0 +R=1737400 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.5132288007725327,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.7706871611926692,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.031906538877793,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 48.6009373956216,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 14.82861149006221,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0024999999999999467,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/moon_shackleton_local.png",
+        "metadata_path": "heightmaps/moon_shackleton_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=-89.5 +lon_0=0.0 +R=1737400 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "moon_shackleton_regional",
+      "kind": "target",
+      "body": "moon",
+      "name": "Shackleton (synthetic)",
+      "lat": -89.5,
+      "lon": 0.0,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 1000,
+      "resolution_validated": true,
+      "crs": "+proj=laea +lat_0=-89.5 +lon_0=0.0 +R=1737400 +units=m +no_defs",
+      "dem_source": "synthetic analytic surface",
+      "dem_version": "mock-2.3",
+      "features": {
+        "slope_median_deg": {
+          "value": 0.27257980687098854,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "slope_p90_deg": {
+          "value": 0.3977011613562965,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "flat_fraction": {
+          "value": 1.0,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "tri_median_m": {
+          "value": 11.461503703758831,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "relief_m": {
+          "value": 111.29177425801271,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "elevation_std_m": {
+          "value": 32.771321774888,
+          "data_status": "mock",
+          "comparable": true
+        },
+        "surface_temp_diurnal_range_c": {
+          "value": null,
+          "data_status": "mock",
+          "comparable": false,
+          "comparability_note": "Measurement and time definition not validated."
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.00039999999999995595,
+        "coverage": "partial",
+        "warnings": []
+      },
+      "processing_version": "0.2.0",
+      "tags": [
+        "synthetic"
+      ],
+      "data_status": "mock",
+      "synthetic": true,
+      "heightmap": {
+        "path": "heightmaps/moon_shackleton_regional.png",
+        "metadata_path": "heightmaps/moon_shackleton_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -1000.0,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "decode": "elevation_m = pixel * scale + offset",
+        "row_direction": "south",
+        "crs": "+proj=laea +lat_0=-89.5 +lon_0=0.0 +R=1737400 +units=m +no_defs",
+        "dem_source": "synthetic analytic surface",
+        "synthetic": true
+      }
+    }
+  ]
+}
