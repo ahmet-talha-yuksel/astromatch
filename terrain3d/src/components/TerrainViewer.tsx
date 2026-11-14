@@ -45,19 +45,19 @@ function TerrainScene({ terrain, display }: { terrain: ValidatedTerrainData; dis
   const valid = terrain.heights.filter((h): h is number => h !== null);
   const min = Math.min(...valid), max = Math.max(...valid);
   return <section style={{ minWidth: 0 }}>
-    <div style={{ position: "relative", height: 350, background: "#101827", borderRadius: 12, overflow: "hidden" }}>
+    <div className="terrain-canvas">
       <Canvas camera={{ position: [9, 9, 13], fov: 45 }} style={{ touchAction: "none" }}>
         <ambientLight intensity={1.3} /><directionalLight position={[5, 12, 8]} intensity={2} />
-        <CameraControls terrain={terrain} action={cameraAction} syncKey={display?.syncKey} syncEnabled={display?.syncEnabled} />
+        <CameraControls terrain={terrain} action={cameraAction} syncKey={display?.syncKey} syncEnabled={display?.syncEnabled} displayWorldSpanMeters={display?.worldSpanMeters} />
         <Bounds key={terrain.id} fit observe margin={1.6}><TerrainMesh terrain={terrain} verticalExaggeration={exaggeration} colorMode={colorMode} elevationOffset={display?.elevationOffset} colorRange={display?.colorRange} worldSpanMeters={display?.worldSpanMeters} onInspect={point => { const next = pointToInspection(point, terrain, display?.worldSpanMeters); setInspection(previous => sameInspection(previous, next) ? previous : next); }} /></Bounds>
         <gridHelper args={[14, 14, "#586778", "#263446"]} position={[0, -0.1, 0]} />
       </Canvas>
     </div>
-    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
-      <button onClick={() => setCameraAction("reset")}>Reset Camera</button>
-      <button onClick={() => setCameraAction("top")}>Top View</button>
-      <button onClick={() => setCameraAction("perspective")}>Perspective View</button>
-      <button onClick={() => setCameraAction("fit")}>Fit Terrain</button>
+    <div className="viewer-tools" aria-label={`${terrain.name} camera controls`}>
+      <button title="Restore the default camera position" aria-label="Reset Camera" onClick={() => setCameraAction("reset")}><span aria-hidden="true">↺</span> Reset</button>
+      <button title="View terrain from directly above" aria-label="Top View" onClick={() => setCameraAction("top")}><span aria-hidden="true">⊙</span> Top</button>
+      <button title="Return to an angled perspective" aria-label="Perspective View" onClick={() => setCameraAction("perspective")}><span aria-hidden="true">◈</span> Perspective</button>
+      <button title="Fit the complete terrain in view" aria-label="Fit Terrain" onClick={() => setCameraAction("fit")}><span aria-hidden="true">⌗</span> Fit</button>
       {!display && <label>Color mode <select value={colorMode} onChange={e => setColorMode(e.target.value as ColorMode)}><option value="elevation">Elevation gradient</option><option value="neutral">Neutral shaded</option></select></label>}
     </div>
     <label style={{ display: "block", marginTop: 7 }}>Vertical exaggeration: <output>{exaggeration.toFixed(1)}×</output>
@@ -65,7 +65,8 @@ function TerrainScene({ terrain, display }: { terrain: ValidatedTerrainData; dis
     </label>
     <small>Visualization setting only; measured elevations are unchanged. Left-drag rotates · Right-drag pans · Scroll zooms</small>
     <div aria-label="Elevation legend" style={{ marginTop: 6 }}><small>Elevation (m): {min.toFixed(2)} <span style={{ color: "#d98845" }}>━━━━</span> {max.toFixed(2)}</small></div>
-    <h3>{terrain.name} {terrain.dataType === "synthetic" ? "(SYNTHETIC DEMO — NOT NASA DATA)" : "(REAL DATA)"}</h3>
+    <div className="terrain-summary"><div><strong>{terrain.name}</strong><span>{terrain.body} · {terrain.dataType === "synthetic" ? "Synthetic dataset" : "Real dataset"}</span></div><div className="synthetic-chip">{terrain.dataType === "synthetic" ? "SYNTHETIC" : "REAL"}</div></div><h3 className="sr-only">{terrain.name} {terrain.dataType === "synthetic" ? "(SYNTHETIC DEMO — NOT NASA DATA)" : "(REAL DATA)"}</h3>
+    <div className="terrain-stats"><div><small>Elevation range</small><strong>{min.toFixed(2)} to {max.toFixed(2)} m</strong></div><div><small>Relief</small><strong>{(max - min).toFixed(2)} m</strong></div><div><small>Valid data</small><strong>{(100 * valid.length / (terrain.width * terrain.height)).toFixed(2)}%</strong></div></div>
     {inspection && <div role="status"><strong>Elevation inspection</strong>: {inspection.elevation.toFixed(2)} m · local coordinates X {inspection.x.toFixed(2)} m, Y {inspection.y.toFixed(2)} m · {terrain.name} · {terrain.body}</div>}
     <Metadata terrain={terrain} spacing={spacing} exaggeration={exaggeration} valid={valid.length} />
   </section>;
@@ -73,9 +74,9 @@ function TerrainScene({ terrain, display }: { terrain: ValidatedTerrainData; dis
 
 function Metadata({ terrain, spacing, exaggeration, valid }: { terrain: ValidatedTerrainData; spacing: { x: number; y: number }; exaggeration: number; valid: number }) {
   const provenance = terrain.processingMetadata?.provenance;
-  return <details open><summary>Scientific metadata</summary><small style={{ display: "block" }}>
+  return <details className="terrain-metadata"><summary>Scientific details</summary><div className="metadata-grid"><small>
     Terrain: {terrain.name}<br />Body: {terrain.body}<br />Data type: {terrain.dataType === "synthetic" ? "SYNTHETIC DEMO — NOT NASA DATA" : "Real dataset"}<br />Source: {terrain.source || "Not provided"}<br />Source resolution: {formatSpacing(terrain.resolutionMeters)} m<br />Display spacing: {spacing.x} × {spacing.y} m<br />Window: {terrain.horizontalWindowMeters.width} × {terrain.horizontalWindowMeters.height} m<br />Vertical datum: {terrain.verticalDatum || "Not provided"}<br />CRS: {terrain.coordinateReferenceSystem || "Not provided"}<br />Valid data: {(100 * valid / (terrain.width * terrain.height)).toFixed(2)}%<br />Vertical exaggeration: {exaggeration.toFixed(1)}×<br />{provenance ? <>Dataset: {provenance.dataset}<br />Product: {provenance.productId} · Version: {provenance.version}<br />Provenance: {provenance.url}</> : terrain.dataType === "real" ? "Provenance: Not provided" : null}
-  </small></details>;
+  </small></div></details>;
 }
 function formatSpacing(value: number | { x: number; y: number }): string { return typeof value === "number" ? `${value}` : `${value.x} × ${value.y}`; }
 type Inspection = { elevation: number; x: number; y: number };
@@ -89,9 +90,9 @@ function pointToInspection(point: THREE.Vector3, terrain: ValidatedTerrainData, 
   return { elevation, x: (col - (terrain.width - 1) / 2) * s.x, y: (row - (terrain.height - 1) / 2) * s.y };
 }
 
-function CameraControls({ terrain, action, syncKey, syncEnabled }: { terrain: ValidatedTerrainData; action: string; syncKey?: string; syncEnabled?: boolean }) {
+function CameraControls({ terrain, action, syncKey, syncEnabled, displayWorldSpanMeters }: { terrain: ValidatedTerrainData; action: string; syncKey?: string; syncEnabled?: boolean; displayWorldSpanMeters?: number }) {
   const controls = useRef<any>(null); const syncApplying = useRef(false); const { camera, gl } = useThree();
-  const spacing = spacingAxes(terrain.cellSizeMeters); const span = Math.max((terrain.width - 1) * spacing.x, (terrain.height - 1) * spacing.y); const distance = Math.max(12, Math.min(1000, span / 7));
+  const spacing = spacingAxes(terrain.cellSizeMeters); const span = Math.max((terrain.width - 1) * spacing.x, (terrain.height - 1) * spacing.y); const normalizedSpan = span * (10 / (displayWorldSpanMeters ?? span)); const distance = Math.max(8, Math.min(40, normalizedSpan * 1.65));
   const publishInspectionState = () => {
     if (!window.location.pathname.startsWith("/tests/") || !controls.current) return;
     const states = ((window as Window & { __terrain3dCameraStates?: Record<string, { position: number[]; target: number[] }> }).__terrain3dCameraStates ??= {});

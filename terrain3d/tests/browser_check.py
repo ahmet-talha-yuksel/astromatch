@@ -50,9 +50,15 @@ with sync_playwright() as p:
         page.locator("input[aria-label='Vertical exaggeration']").fill("2.0")
         assert page.locator("output").filter(has_text="2.0").count() == 1
         page.locator("input").first.fill("/terrain/moon_demo.json")
-        page.get_by_role("heading", name="Synthetic Moon surface", exact=False).wait_for()
-        assert page.get_by_text("Valid data: 93.75%", exact=False).count() == 1
-        assert page.get_by_text("SYNTHETIC DEMO", exact=False).count() > 0
+        page.get_by_text("Synthetic Moon surface with NoData", exact=True).wait_for()
+        assert page.get_by_text("93.75%", exact=True).count() == 1
+        assert page.get_by_text("SYNTHETIC", exact=True).count() == 1
+        details = page.locator("details.terrain-metadata").first
+        assert details.evaluate("e => !e.open")
+        details.locator("summary").click()
+        assert details.evaluate("e => e.open")
+        for label in ["Reset Camera", "Top View", "Perspective View", "Fit Terrain"]:
+            assert page.get_by_role("button", name=label).count() == 1
         print("PASS isolated viewer geometry, rotation, pan, zoom, metadata, NoData, warning, exaggeration", flush=True)
     finally:
         assert not errors, errors
@@ -81,6 +87,17 @@ with sync_playwright() as p:
         assert page.locator("input[aria-label='Shared exaggeration']").input_value() == "2.5"
         assert page.get_by_text("synthetic", exact=False).count() > 0
         print("PASS isolated comparison bidirectional sync, independence, elevation modes, shared exaggeration, warnings", flush=True)
+    finally:
+        assert not errors, errors
+        browser.close()
+
+    browser, page, errors = launch(p)
+    try:
+        ready(page, "", 2)
+        assert page.get_by_text("Awaiting similarity engine data", exact=True).count() == 1
+        assert page.get_by_text("Demonstration dataset", exact=True).count() == 1
+        assert page.get_by_text("One or both datasets are synthetic", exact=False).count() == 1
+        print("PASS compact summaries, collapsed scientific details, camera toolbar, similarity empty state, synthetic warning", flush=True)
     finally:
         assert not errors, errors
         browser.close()
