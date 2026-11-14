@@ -1,0 +1,3 @@
+earth: {gravity_ms2: 9.81, surface_pressure_kpa: 101.3}
+mars: {gravity_ms2: 3.71, surface_pressure_kpa: 0.6, notes: ["Thin CO2 atmosphere", "No global magnetic field — higher surface radiation"]}
+moon: {gravity_ms2: 1.62, surface_pressure_kpa: 0.0, notes: ["Near-vacuum", "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure", "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"]}
