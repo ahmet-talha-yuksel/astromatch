@@ -73,6 +73,7 @@ class Explanation(BaseModel):
     method_sensitive: bool = False
     methodology_note: str | None = None
     discrimination_label: str | None = None
+    comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'
 
 class HeatPoint(BaseModel):
     id: str
@@ -101,3 +102,4 @@ class RankResult(BaseModel):
     target_reason: str | None = None
     discrimination_label: str | None = None
     discrimination_explanation: str | None = None
+    comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'

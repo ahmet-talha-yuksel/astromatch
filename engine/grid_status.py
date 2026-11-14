@@ -8,6 +8,14 @@ from pathlib import Path
 from .io import ROOT, config
 
 
+def grid_extent(records):
+    """Bounding box of delivered, scanned Earth grid cell centers."""
+    coords=[(r.lat,r.lon) for r in records if r.kind=='earth_grid' and r.lat is not None and r.lon is not None]
+    if not coords: return None
+    return {'lat_min':min(lat for lat,_ in coords),'lat_max':max(lat for lat,_ in coords),
+            'lon_min':min(lon for _,lon in coords),'lon_max':max(lon for _,lon in coords)}
+
+
 def grid_inventory(records, coverage_path=None):
     rows=[r for r in records if r.kind=='earth_grid']
     scanned=len(rows)
