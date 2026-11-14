@@ -21,7 +21,7 @@ class RankResponse(BaseModel):
     full_scores: list[CandidateScore]
     excluded: list[dict[str, Any]]
     novel_candidates: list[CandidateScore]
-    sigma: dict[str, dict[str, float | str]]
+    sigma: dict[str, dict[str, int | float | str]]
     data_status: str
     disclaimer: str | None = None
 

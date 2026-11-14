@@ -43,7 +43,7 @@ def test_get_post_rank_and_sites(client):
     c,_=client
     get=check_mock(c.get('/api/v1/rank',params={'target_id':'T-01','scale':'local'}))
     assert get['top_k'][0]['score_geo']<=100 and get['top_k'][0]['score_relative']==100
-    assert get['sigma']['relief_m']['sigma_source']=='pooled_from_regional'
+    assert get['sigma']['relief_m']['sigma_source']=='earth_robust_std' and get['sigma']['relief_m']['n_samples']>=200
     post=check_mock(c.post('/api/v1/rank',json={'target_id':'T-01','scale':'local','weights':{'relief_m':2}}))
     assert post['top_k'] and post['preset']=='balanced'
     sites=check_mock(c.get('/api/v1/sites',params={'target_id':'T-01'}))
@@ -82,3 +82,18 @@ def test_errors(client):
     assert c.post('/api/v1/rank',json={'target_id':'T-01','weights':{'relief_m':0}}).status_code==422
     assert c.get('/api/v1/regions/nope').status_code==404
     assert c.get('/api/v1/explain',params={'target_id':'T-01','candidate_id':'nope'}).status_code==404
+
+
+def test_committed_demo_precomputed_without_ranking(client,monkeypatch):
+    from pathlib import Path
+    import backend.app.api.v1 as v1
+    c,_=client
+    demo=Path(__file__).resolve().parents[2]/'engine/demo_results'
+    monkeypatch.setattr(settings,'results_dir',str(demo))
+    monkeypatch.setattr(v1,'engine_rank',lambda *args,**kwargs: (_ for _ in ()).throw(AssertionError('rank recomputed')))
+    ranked=check_mock(c.get('/api/v1/rank',params={'target_id':'T-01','scale':'local'}))
+    assert ranked['top_k']
+    sites=check_mock(c.get('/api/v1/sites',params={'target_id':'T-01'}))
+    assert len(sites['sites'])==8
+    heat=check_mock(c.get('/api/v1/heat',params={'target_id':'T-01','scale':'local'}))
+    assert heat['source']=='precomputed'
