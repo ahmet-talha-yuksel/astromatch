@@ -1,0 +1,14 @@
+{
+  "analog_requested": 187,
+  "processed_analog": 185,
+  "processed_background": 220,
+  "background_land_attempts": 220,
+  "background_last_order": 753,
+  "records": 405,
+  "eligible": 396,
+  "elapsed_s": 531.5768062500283,
+  "base_grid_sha256": "eaf434a1fe1b9de3ae81f3762826c8b63154fce53696a7c37c5c1552bf20297e",
+  "base_grid_unchanged": true,
+  "quota_basis": "first N mask-qualified land cells in order, regardless of DEM success; never replace by quality",
+  "background_land_quota": 220
+}
