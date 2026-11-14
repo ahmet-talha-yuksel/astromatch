@@ -1,4 +1,4 @@
-"""Assemble the v2.3 canonical release: GLO-30 local, GLO-90 regional, PDS targets."""
+"""Assemble v2.3: GLO-30 local, SRTMGL30/GLO-90 regional, PDS targets."""
 import argparse
 import json
 import os
@@ -7,7 +7,7 @@ from pathlib import Path
 from .generate_mock import write_json
 
 SOURCES=('salda_jezero.real.json','earth_sites.real.json','earth_extra.real.json',
-         'regional_earth.real.json','lola.reviewed.json','marius.real.json')
+         'regional_srtm.real.json','lola.reviewed.json','marius.real.json')
 
 
 def assemble(root):
@@ -18,7 +18,7 @@ def assemble(root):
         path=root/'configs'/name
         config=json.loads(path.read_text())
         for item in config['records']:
-            if item['body']=='earth' and item['scale']=='regional' and name!='regional_earth.real.json':continue
+            if item['body']=='earth' and item['scale']=='regional' and name!='regional_srtm.real.json':continue
             if item['region_id'] in seen:raise ValueError('Duplicate release region_id')
             seen.add(item['region_id'])
             item=dict(item)

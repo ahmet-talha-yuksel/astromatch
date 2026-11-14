@@ -48,16 +48,18 @@ def scenario_report(timing,landmask,acquisition,index):
             'limitations':['Scenario endpoints are conditional workloads, not guaranteed global duration bounds.',
                            'Tile coverage includes water cells; true land-only cell count is not established.',
                            'DEM cold download costs are reported separately and are NOT extrapolated from this small sample.',
-                           'SRTMGL30 overlap/throughput validation awaits authenticated input.',
+                           'Source overlap differences are sensitivity measurements, not independent accuracy bounds.',
+                           'SRTM download time is unmeasured; imported tiles are shared by multiple windows.',
                            'Polar/dateline support and supplied USGS cells require separate operational checks.'],
-            'operational_action':'Keep a regional pilot delivery until source access and broader resource measurements are available.'}
+            'operational_action':'Keep a regional pilot delivery until broader land-cell counts and resource measurements are available.'}
 
 
 def finish(root):
     root=Path(root).resolve()
     landmask=json.loads((root/'raw/worldcover/landmask.json').read_text())
-    acquisition=json.loads((root/'raw/pilot/acquisition.json').read_text())
-    timing=run(root/'raw/pilot/acquisition.json',root,root/'out/pilot')
+    acquisition_path=root/'raw/pilot/acquisition_srtm.json'
+    acquisition=json.loads(acquisition_path.read_text())
+    timing=run(acquisition_path,root,root/'out/pilot')
     index=json.loads((root/'raw/worldcover/tile_index.json').read_text())
     fractions={r['region_id']:r for r in landmask['records']}
     features=json.loads((root/'out/pilot/features.json').read_text())
@@ -65,9 +67,6 @@ def finish(root):
         mask=fractions[record['region_id']]
         record['earth_filters']['land_fraction']['value']=mask['land_fraction']
         record['quality']['landmask']={k:v for k,v in mask.items() if k!='sources'}
-        record['quality']['warnings']=[w.replace('Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.',
-                                                'SRTMGL30/GLO-90 source-transition comparison is not validated.')
-                                         for w in record['quality']['warnings']]
         if mask['land_fraction'] is not None and mask['land_fraction']<.95:
             record['quality']['warnings'].append('Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.')
     write_json(root/'out/pilot/features.json',features)

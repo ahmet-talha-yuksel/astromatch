@@ -3,7 +3,10 @@
 Güncel ekip teslimi: `out/real/features.json` **21 kayıt** içerir (8 Dünya
 sahası × 2 ölçek, Jezero × 2, Shackleton × 2, Marius Hills regional).
 18 kaydın topoğrafik işlem QA bayrakları açıktır; Jezero ve Marius Hills
-skorlamaya kapalıdır. Local Dünya girdileri GLO-30, regional girdiler GLO-90'dır.
+skorlamaya kapalıdır. Local Dünya girdileri GLO-30'dur. Regional girdilerde
+7 saha SRTMGL30.002, SRTM enlem kapsamı dışındaki Haughton GLO-90 kullanır.
+`out/source_transition.json`, 7 eş pencerede SRTM−GLO-90 özellik farklarını
+saklar; bu farklar bağımsız doğruluk ölçümü değildir (EGM96/EGM2008 farkı dahil).
 Kişi 2 için ham veri gerektirmeyen paket: `out/handoff/kisi2_v2_3.zip`.
 ZIP içindeki HANDOFF.md v2.3 okuyucu sözleşmesini açıklar. Motor aynı pencere,
 çözünürlük ve yöntemi kontrol etmeli; iki tarafta comparable=true olmayan
@@ -11,15 +14,26 @@ ZIP içindeki HANDOFF.md v2.3 okuyucu sözleşmesini açıklar. Motor aynı penc
 Aşağıdaki ilk teslim açıklamaları ve QA anlık görüntüleri denetim bağlamıdır.
 
 
-Güncel ortak teslim `out/real/` altındadır. Bu pakette dört Dünya sahası ile
-Shackleton'ın local/regional topoğrafik karşılaştırması işlem QA kontrolünden
-geçmiştir (10 kayıt comparable=true). Jezero'nun iki kaydı ve ön pilot hâlâ
-comparable=false'dur. Bu onay bağımsız doğruluk veya görev uygunluğu doğrulaması
-değildir. Mock paket tamamen sentetiktir. `out/salda_jezero/` ve
-`out/lola_shackleton/` ilk teslim anlık görüntüleridir; güncel onay durumunu
-`out/real/` dosyalarından okuyun.
+Bu onay bağımsız doğruluk veya görev uygunluğu doğrulaması değildir. Mock paket
+tamamen sentetiktir. `out/salda_jezero/` ve `out/lola_shackleton/` ilk teslim
+anlık görüntüleridir; güncel onay durumunu `out/real/` dosyalarından okuyun.
 Sözleşme `AstroMatch_AI_Veri_Plani_v2_3.md` §3, §5 ve §7 temelinde uygulanmıştır.
-Planın gerçek veri, pilot zamanlama ve doğrulama teslimleri bu aşamaya dahil değildir.
+
+Pilot `out/pilot/` içindedir: 8 işlenmiş hücre (Türkiye/Atacama/İzlanda),
+400 işlenmemiş referans hücresi, ESA WorldCover kara filtresi ve aşama süreleri.
+Türkiye/Atacama SRTMGL30, İzlanda GLO-90 kullanır. Yerel SRTM indirme süresi
+ölçülmedi; önceki GLO-90 indirme süreleri tarihsel kanıt olarak ayrı tutulur.
+Global süre senaryoları kesin tahmin değildir; daha geniş tarama henüz yapılmadı.
+
+SRTM dosyaları `raw/` içinde mevcutken gerçek teslimi yeniden üretmek:
+
+```sh
+processing/.venv/bin/python -m processing.scripts.apply_srtm_sources
+processing/.venv/bin/python -m processing.scripts.assemble_release
+processing/.venv/bin/python -m processing.scripts.process_dem processing/configs/real_batch.json --output processing/out/real
+processing/.venv/bin/python -m processing.scripts.finish_pilot
+processing/.venv/bin/python -m processing.scripts.package_handoff
+```
 
 ## Üretim ve test
 

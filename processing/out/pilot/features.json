@@ -12,39 +12,39 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": false,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 4.778025335313442,
+          "value": 4.544227169369888,
           "data_status": "derived",
           "comparable": false
         },
         "slope_p90_deg": {
-          "value": 10.5077853107456,
+          "value": 9.945019928297617,
           "data_status": "derived",
           "comparable": false
         },
         "flat_fraction": {
-          "value": 0.5224,
+          "value": 0.5504,
           "data_status": "derived",
           "comparable": false
         },
         "tri_median_m": {
-          "value": 256.7597481003348,
+          "value": 234.8502751131856,
           "data_status": "derived",
           "comparable": false
         },
         "relief_m": {
-          "value": 957.1098090211457,
+          "value": 945.7855337357659,
           "data_status": "derived",
           "comparable": false
         },
         "elevation_std_m": {
-          "value": 300.550302366906,
+          "value": 297.24379920582066,
           "data_status": "derived",
           "comparable": false
         }
@@ -58,10 +58,10 @@
       },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Source selection: srtm_access_unavailable.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Source selection: preferred_srtm_from_local_earthdata_download.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -87,13 +87,13 @@
         "preliminary"
       ],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_grid_r254_c418.tif",
-        "source_file_sha256": "9726ecd7ac439e092d0d85cbc4a849d0a73a525e07e962189e359f6f2126ae18",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
@@ -114,7 +114,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 422.4479877699266,
+        "offset": 435.76921192767026,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -124,8 +124,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -143,39 +143,39 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": false,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 3.6962740504607585,
+          "value": 3.5504715543107164,
           "data_status": "derived",
           "comparable": false
         },
         "slope_p90_deg": {
-          "value": 8.936413612167945,
+          "value": 8.480618231959607,
           "data_status": "derived",
           "comparable": false
         },
         "flat_fraction": {
-          "value": 0.6388,
+          "value": 0.6628,
           "data_status": "derived",
           "comparable": false
         },
         "tri_median_m": {
-          "value": 194.65432635315742,
+          "value": 178.57647079524105,
           "data_status": "derived",
           "comparable": false
         },
         "relief_m": {
-          "value": 892.0154935440704,
+          "value": 882.7723575668546,
           "data_status": "derived",
           "comparable": false
         },
         "elevation_std_m": {
-          "value": 278.69944390099846,
+          "value": 276.0809869322255,
           "data_status": "derived",
           "comparable": false
         }
@@ -189,10 +189,10 @@
       },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Source selection: srtm_access_unavailable.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Source selection: preferred_srtm_from_local_earthdata_download.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -218,13 +218,13 @@
         "preliminary"
       ],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_grid_r254_c419.tif",
-        "source_file_sha256": "def1f26d6fc315a0480543a976edf224c9f5b681e8ef39ae1509b0e839ae5378",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
@@ -245,7 +245,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 853.3944546014425,
+        "offset": 857.4535663473729,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -255,8 +255,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -274,39 +274,39 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": false,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 3.787044062286631,
+          "value": 3.648150014519902,
           "data_status": "derived",
           "comparable": false
         },
         "slope_p90_deg": {
-          "value": 10.686322286299042,
+          "value": 10.153212182185694,
           "data_status": "derived",
           "comparable": false
         },
         "flat_fraction": {
-          "value": 0.608,
+          "value": 0.6212,
           "data_status": "derived",
           "comparable": false
         },
         "tri_median_m": {
-          "value": 200.55614248693402,
+          "value": 186.4755853436894,
           "data_status": "derived",
           "comparable": false
         },
         "relief_m": {
-          "value": 1418.145219445788,
+          "value": 1407.2562397844222,
           "data_status": "derived",
           "comparable": false
         },
         "elevation_std_m": {
-          "value": 436.0743414750751,
+          "value": 435.0008378579697,
           "data_status": "derived",
           "comparable": false
         }
@@ -320,10 +320,10 @@
       },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Source selection: srtm_access_unavailable.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Source selection: preferred_srtm_from_local_earthdata_download.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -349,13 +349,13 @@
         "preliminary"
       ],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_grid_r255_c418.tif",
-        "source_file_sha256": "f42f5ca323c4f0dd2902f2a7759fb3241d6423c5a102b52e0e91397ad11454cd",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
@@ -376,7 +376,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 143.4877157244598,
+        "offset": 144.11103621417678,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -386,8 +386,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -405,39 +405,39 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": false,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 2.8750456698627893,
+          "value": 2.754446312202389,
           "data_status": "derived",
           "comparable": false
         },
         "slope_p90_deg": {
-          "value": 8.869483592612914,
+          "value": 8.349607193193606,
           "data_status": "derived",
           "comparable": false
         },
         "flat_fraction": {
-          "value": 0.7052,
+          "value": 0.7284,
           "data_status": "derived",
           "comparable": false
         },
         "tri_median_m": {
-          "value": 158.62872744036704,
+          "value": 145.47230558959103,
           "data_status": "derived",
           "comparable": false
         },
         "relief_m": {
-          "value": 727.7465616782822,
+          "value": 721.3165012986622,
           "data_status": "derived",
           "comparable": false
         },
         "elevation_std_m": {
-          "value": 250.86613964258612,
+          "value": 248.39335287882002,
           "data_status": "derived",
           "comparable": false
         }
@@ -451,10 +451,10 @@
       },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Source selection: srtm_access_unavailable.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Source selection: preferred_srtm_from_local_earthdata_download.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation.",
@@ -481,13 +481,13 @@
         "preliminary"
       ],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_grid_r255_c419.tif",
-        "source_file_sha256": "7fd945dd27df761cebc967d9c9fbe0d6c741cb7583d3127f3b3a74708ad3e4a5",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
@@ -508,7 +508,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 632.3204994475421,
+        "offset": 642.2315487524436,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -518,8 +518,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -537,39 +537,39 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": false,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 3.244422914648305,
+          "value": 3.1836740838779374,
           "data_status": "derived",
           "comparable": false
         },
         "slope_p90_deg": {
-          "value": 7.687137006845445,
+          "value": 7.493671504936724,
           "data_status": "derived",
           "comparable": false
         },
         "flat_fraction": {
-          "value": 0.7164,
+          "value": 0.7216,
           "data_status": "derived",
           "comparable": false
         },
         "tri_median_m": {
-          "value": 158.4650078945926,
+          "value": 154.2137967609225,
           "data_status": "derived",
           "comparable": false
         },
         "relief_m": {
-          "value": 1853.4347264021917,
+          "value": 1855.7971424791506,
           "data_status": "derived",
           "comparable": false
         },
         "elevation_std_m": {
-          "value": 553.5508547521085,
+          "value": 552.3726598285466,
           "data_status": "derived",
           "comparable": false
         }
@@ -583,10 +583,10 @@
       },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Source selection: srtm_access_unavailable.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Source selection: preferred_srtm_from_local_earthdata_download.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -612,13 +612,13 @@
         "preliminary"
       ],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_grid_r130_c221.tif",
-        "source_file_sha256": "82a1dfc3021f646a0acda93850165f2cbd7eb2dbf82e76d6b8ce22b6de73f8e8",
+        "source_file": "w100s10.tif",
+        "source_file_sha256": "68e4b8ab0fcf1221811ea0c16096ccc9114138099887f68a1883a9a244133354",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
@@ -639,7 +639,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 1784.6066958177157,
+        "offset": 1786.473980669937,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -649,8 +649,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -668,39 +668,39 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": false,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 1.408219076211208,
+          "value": 1.3765930607620016,
           "data_status": "derived",
           "comparable": false
         },
         "slope_p90_deg": {
-          "value": 4.704759434713339,
+          "value": 4.4529652098426835,
           "data_status": "derived",
           "comparable": false
         },
         "flat_fraction": {
-          "value": 0.9104,
+          "value": 0.9248,
           "data_status": "derived",
           "comparable": false
         },
         "tri_median_m": {
-          "value": 66.59118491559053,
+          "value": 63.09709952053969,
           "data_status": "derived",
           "comparable": false
         },
         "relief_m": {
-          "value": 800.6833398170545,
+          "value": 798.1459427280461,
           "data_status": "derived",
           "comparable": false
         },
         "elevation_std_m": {
-          "value": 244.61395095035823,
+          "value": 243.60101764335332,
           "data_status": "derived",
           "comparable": false
         }
@@ -714,10 +714,10 @@
       },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Source selection: srtm_access_unavailable.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Source selection: preferred_srtm_from_local_earthdata_download.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -743,13 +743,13 @@
         "preliminary"
       ],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_grid_r131_c220.tif",
-        "source_file_sha256": "48bb8da2df19a2a7607cd92278842a6f4344fa2ce4c8fca66ab9e1bebbfb2a57",
+        "source_file": "w100s10.tif",
+        "source_file_sha256": "68e4b8ab0fcf1221811ea0c16096ccc9114138099887f68a1883a9a244133354",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
@@ -770,7 +770,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 946.4088655446773,
+        "offset": 951.7509533102424,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -780,8 +780,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -848,7 +848,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: outside_nominal_srtm_latitudes.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."
@@ -979,7 +979,7 @@
         "coverage": "full",
         "warnings": [
           "Source selection: outside_nominal_srtm_latitudes.",
-          "SRTMGL30/GLO-90 source-transition comparison is not validated.",
+          "Cross-body pilot comparability requires a separate matching target batch.",
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Awaiting matching target/Earth window, resolution and method validation."

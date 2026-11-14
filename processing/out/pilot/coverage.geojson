@@ -12681,13 +12681,13 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90",
+        "coverage": "full",
+        "dem_source": "srtmgl30",
         "pilot_area": "turkey",
         "comparable": false,
         "window_km": 50,
         "analysis_resolution_m": 1000,
-        "reason": "srtm_access_unavailable"
+        "reason": "preferred_srtm_from_local_earthdata_download"
       },
       "geometry": {
         "type": "Polygon",
@@ -12725,13 +12725,13 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90",
+        "coverage": "full",
+        "dem_source": "srtmgl30",
         "pilot_area": "turkey",
         "comparable": false,
         "window_km": 50,
         "analysis_resolution_m": 1000,
-        "reason": "srtm_access_unavailable"
+        "reason": "preferred_srtm_from_local_earthdata_download"
       },
       "geometry": {
         "type": "Polygon",
@@ -13561,13 +13561,13 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90",
+        "coverage": "full",
+        "dem_source": "srtmgl30",
         "pilot_area": "turkey",
         "comparable": false,
         "window_km": 50,
         "analysis_resolution_m": 1000,
-        "reason": "srtm_access_unavailable"
+        "reason": "preferred_srtm_from_local_earthdata_download"
       },
       "geometry": {
         "type": "Polygon",
@@ -13605,13 +13605,13 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90",
+        "coverage": "full",
+        "dem_source": "srtmgl30",
         "pilot_area": "turkey",
         "comparable": false,
         "window_km": 50,
         "analysis_resolution_m": 1000,
-        "reason": "srtm_access_unavailable"
+        "reason": "preferred_srtm_from_local_earthdata_download"
       },
       "geometry": {
         "type": "Polygon",
@@ -17653,13 +17653,13 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90",
+        "coverage": "full",
+        "dem_source": "srtmgl30",
         "pilot_area": "atacama",
         "comparable": false,
         "window_km": 50,
         "analysis_resolution_m": 1000,
-        "reason": "srtm_access_unavailable"
+        "reason": "preferred_srtm_from_local_earthdata_download"
       },
       "geometry": {
         "type": "Polygon",
@@ -17697,13 +17697,13 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90",
+        "coverage": "full",
+        "dem_source": "srtmgl30",
         "pilot_area": "atacama",
         "comparable": false,
         "window_km": 50,
         "analysis_resolution_m": 1000,
-        "reason": "srtm_access_unavailable"
+        "reason": "preferred_srtm_from_local_earthdata_download"
       },
       "geometry": {
         "type": "Polygon",

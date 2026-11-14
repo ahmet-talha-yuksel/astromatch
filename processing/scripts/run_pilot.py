@@ -51,13 +51,15 @@ def write_pilot(records, coverage, manifest, timing, output):
     write_json(output / 'pilot_timing.json', timing)
     write_json(output.parent / 'pilot_timing.json', timing)
     lines = ['# Regional pilot sources', '',
-             'Copernicus GLO-90 Public, 2021 release, EGM2008 meters.',
+             'SRTMGL30.002 (EGM96 meters) within native SRTM coverage; Copernicus GLO-90 Public 2021 (EGM2008 meters) elsewhere.',
+             'SRTM catalog: https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl30-002',
              'Official source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM',
              'Distribution: https://registry.opendata.aws/copernicus-dem/',
              f"Access date: {manifest['accessed_on']}", '',
              'All input URLs, HTTP metadata and SHA-256 snapshots are in retrieval.json.',
-             'Preferred SRTMGL30 access attempts are documented; fallback is not labeled as SRTM.',
-             'No validated land mask; no source-transition validation or global-duration claim.',
+             'Local SRTM imports and historical authenticated-access failures are separate evidence.',
+             'SRTM local-import download time is unmeasured. Historical GLO-90 timings are not assigned to SRTM.',
+             'Land-mask sampling QA and source differences are attached by finish_pilot.',
              'The windows are real derived data. Features remain incomparable pending cross-body quality review.', '']
     (output / 'DATA_SOURCES.md').write_text('\n'.join(lines), encoding='utf-8')
 
@@ -77,16 +79,21 @@ def run(acquisition_path, root, output):
         record, timer = None, None
         if status == 'ready':
             timer = {}
+            product = attempt.get('product', 'copernicus_glo90')
+            if product not in ('srtmgl30', 'copernicus_glo90'):
+                raise ValueError(f'Unsupported pilot source: {product}')
             request = DemRequest(
                 path=str(root / attempt['path']), region_id=cell['region_id'],
                 name=f"{cell['area']} pilot ({cell['lat']}, {cell['lon']})", body='earth',
-                product='copernicus_glo90', lat=cell['lat'], lon=cell['lon'], scale='regional',
-                source_resolution_m=90, vertical_unit='m', vertical_reference='EGM2008 orthometric height',
-                source_url='https://dataspace.copernicus.eu/', dem_version='GLO-90 Public 2021 release',
+                product=product, lat=cell['lat'], lon=cell['lon'], scale='regional',
+                source_resolution_m=attempt.get('source_resolution_m', 90), vertical_unit='m',
+                vertical_reference=attempt.get('vertical_reference', 'EGM2008 orthometric height'),
+                source_url=attempt.get('source_url', 'https://dataspace.copernicus.eu/'),
+                dem_version=attempt.get('dem_version', 'GLO-90 Public 2021 release'),
                 accessed_on=manifest['accessed_on'], georeferencing_verified=True,
                 source_quality_verified=False,
                 quality_notes=(f"Source selection: {attempt['source_selection']}.",
-                               'Land mask and SRTMGL30/GLO-90 source-transition comparison are not validated.'))
+                               'Cross-body pilot comparability requires a separate matching target batch.'))
             record, array = process_dem(request, timings=timer)
             status = 'no_data' if record['quality']['coverage'] == 'none' else 'scanned'
             if status == 'scanned' and record['quality']['coverage'] == 'full' and attempt['source_selection'] == 'srtm_access_unavailable':
@@ -112,7 +119,9 @@ def run(acquisition_path, root, output):
         coverage.append(geometry)
         if attempt:
             timings.append({'region_id': cell['region_id'], 'area': cell['area'], 'status': status,
-                            'acquisition': attempt['timing'], 'processing': timer})
+                            'dem_source': record['dem_source'] if record else None,
+                            'acquisition': attempt['timing'], 'processing': timer,
+                            'acquisition_timing_status': attempt.get('acquisition_timing_status', 'measured_fallback_acquisition')})
     timing = {'schema_version': '2.3', 'kind': 'measured_pilot',
               'acquired_on': manifest['accessed_on'], 'cells_in_reference_areas': len(grid),
               'selected_cells': len(selected), 'records_written': len(records),
@@ -131,6 +140,12 @@ def run(acquisition_path, root, output):
                               'not_scanned means unknown, not dissimilar.',
                               'A missing ocean tile is not inferred to be zero-meter terrain.',
                               'Timing values are observations, not deterministic artifacts.']}
+    if manifest.get('source_transition_report'):
+        report = json.loads((root / manifest['source_transition_report']).read_text())
+        timing['source_transition_comparison'] = {
+            'status': report['status'], 'windows': len(report['comparisons']),
+            'report': '../source_transition.json',
+            'independent_accuracy_validated': report['independent_accuracy_validated']}
     write_pilot(records, coverage, manifest, timing, output)
     return timing
 

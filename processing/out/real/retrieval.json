@@ -553,6 +553,85 @@
     },
     {
       "accessed_on": "2026-11-14",
+      "product": "SRTMGL30.002 (SRTM30 v2.1)",
+      "source_portal": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl30-002",
+      "vertical_reference": "EGM96 orthometric height",
+      "registration": "30 arc-second cells with integer-degree outer tile bounds",
+      "native_srtm_latitude_domain": [
+        -56,
+        60
+      ],
+      "warning": "Outside native SRTM latitudes these global tiles include GTOPO30; pipeline must use GLO-90 there.",
+      "downloaded_archive_count": 27,
+      "imported": [
+        {
+          "tile_id": "e020n40",
+          "source_file": "e020n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "28df7d5b5bbb204020169f9ff47009581244bc6f9dd2f805e2da5bb2ac1ac3a0",
+          "bytes": 25187479,
+          "bounds": [
+            20,
+            -10.0,
+            60,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip"
+        },
+        {
+          "tile_id": "e020n90",
+          "source_file": "e020n90.SRTMGL30.dem.zip",
+          "source_zip_sha256": "edfd23b41f7375d158ba6b7221d7d9b93e78dc3422ca180e8e97d24b3f1c0324",
+          "bytes": 15842187,
+          "bounds": [
+            20,
+            40.0,
+            60,
+            90
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n90.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n90.SRTMGL30.dem/e020n90.SRTMGL30.dem.zip"
+        },
+        {
+          "tile_id": "w100s10",
+          "source_file": "w100s10.SRTMGL30.dem.zip",
+          "source_zip_sha256": "e395c163ab5a1bff295c15d9dd13e3e9b2ede53005f917b18024f7eb769929dc",
+          "bytes": 10476425,
+          "bounds": [
+            -100,
+            -60.0,
+            -60,
+            -10
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/w100s10.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip"
+        },
+        {
+          "tile_id": "w140n40",
+          "source_file": "w140n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "6bca395f394ecd97c264d16bf0549d1729491f28001e9cef2f006306681fa6fe",
+          "bytes": 7396493,
+          "bounds": [
+            -140,
+            -10.0,
+            -100,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/w140n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w140n40.SRTMGL30.dem/w140n40.SRTMGL30.dem.zip"
+        }
+      ]
+    },
+    {
+      "accessed_on": "2026-11-14",
       "inputs": [
         {
           "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.lbl",

@@ -1,5 +1,14 @@
 # Veri kaynakları — v2.3 işleme ve QA teslimleri
 
+Güncel durum: 21 gerçek kayıt, 18 topoğrafik işlem QA onayı. Local Dünya
+GLO-30; regional Dünya yedi sahada SRTMGL30.002, Haughton GLO-90.
+Pilot Türkiye/Atacama SRTMGL30, İzlanda GLO-90 kullanır; 8 hücre işlendi.
+Kara maskesi ESA WorldCover 2021 v200 ile örnekleme QA kontrolünden geçti.
+`source_transition.json` yedi eş pencerenin kaynak duyarlılığını saklar.
+Global süreler koşullu senaryolardır; daha geniş tarama yapılmadı.
+Aşağıdaki ilk edinim ve ön inceleme notları tarihsel bağlamdır; güncel
+bayraklar `real/features.json` ve `pilot/pilot_timing.json` içindedir.
+
 Belge ve veri erişim tarihi: **2026-11-14**. Salda GLO-30 karosu ve Jezero MOLA
 altkümesi indirildi, local/regional pencereler işlendi. LOLA güney kutbu verisi de alındı; ayrıntıları aşağıdadır.
 Aşağıdaki bağlantılar ürün ve teknik belge kaynaklarıdır. Gerçek teslimin
@@ -8,11 +17,12 @@ analitik sentetik yüzeylerdir, NASA/ESA ölçümü değildir.
 
 | Kaynak | Resmi bağlantı | Ürün/sürüm durumu |
 |---|---|---|
-| Copernicus GLO-30 / GLO-90 | [Copernicus Data Space](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM) | GLO-30 Public, 2021 sürümü; N37 E029 karosu alındı; GLO-90 alınmadı |
+| Copernicus GLO-30 / GLO-90 | [Copernicus Data Space](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM) | Public 2021; GLO-30 local sahalar, GLO-90 kapsam dışı Haughton ve İzlanda pilotu; diğer regional sahalar için kaynak karşılaştırması |
+| SRTMGL30.002 | [NASA Earthdata](https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl30-002) | Kullanıcının Earthdata ZIP'lerinden 4 karo CRC/SHA-256 ile içe alındı; 7 regional sahada ve 6 pilot hücresinde etkin; EGM96, 30 arc-second |
 | Copernicus teknik belge | [Product Handbook i5.0](https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf) | WGS84 yatay; EGM2008 düşey; metre (Handbook §1.2.1) |
 | MOLA MEGDR | [PDS Geosciences](https://pds-geosciences.wustl.edu/missions/mgs/megdr.html) | MEGT44N000HB, product version 2.0; 128 ppd topoğrafya ve counts etiketi incelendi |
 | MOLA coğrafi referans uyarısı | [PDS MEGDR/ENVI notu](https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/extras/mola_envi.htm) | GDAL ile çevrilen eski MEGDR ürünlerinin referansında kayma/ölçek farkı bildiriliyor; gerçek ürün kontrolü zorunlu |
-| LOLA gridded/polar | [PDS LOLA GDRDEM](https://ode.rsl.wustl.edu/moon/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20%28LRO%29/LOLA/GDR/GDRDEM.htm) | LDEM_75S_240M V2.0, 2017 polar ürünü alındı; global ürün alınmadı |
+| LOLA gridded/polar | [PDS LOLA GDRDEM](https://ode.rsl.wustl.edu/moon/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20%28LRO%29/LOLA/GDR/GDRDEM.htm) | LDEM_75S_240M V2.0, polar 120 m QA referansı ve LDEM_128 V3.0 Marius Hills altkümesi/counts alındı |
 | Raster okuma/warp | [Rasterio WarpedVRT](https://rasterio.readthedocs.io/en/stable/api/rasterio.vrt.html) | Kurulu sürüm processing/requirements.txt içinde sabit |
 
 ## Mevcut işlem parametreleri
@@ -128,7 +138,7 @@ Copernicus DSM verisinden kimyasal/mineral veya biyolojik eşdeğerlik çıkarı
 Üç yeni sahanın iki ölçeğinde NoData=0: 10 km/500 m, 50 km/1000 m. Aynı metrik
 fonksiyonları, average reprojeksiyon ve EGM2008/metre yükselti birimi kullanıldı.
 GLO-30 regional sonuçlar detay saha karşılaştırma örnekleridir; global P0-lite
-SRTMGL30/GLO-90 ızgarası henüz üretilmedi. Kaynak farkı global pilottan önce
+Bu ilk teslimde SRTMGL30/GLO-90 ızgarası henüz üretilmemişti. Kaynak farkı global pilottan önce
 karşılaştırılmalı ve uyarılara yazılmalıdır.
 
 `out/real/` artık 12 gerçek kayıt, 4 regional Dünya Parquet satırı, 4 Dünya

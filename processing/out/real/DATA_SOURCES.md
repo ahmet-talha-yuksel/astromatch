@@ -117,68 +117,68 @@ Parameters and CRS are also stored in features.json.
 ## earth_salda_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_salda_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_kula_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_kula_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_hassa_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_hassa_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_atacama_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_atacama_regional.tif
+- Input: w100s10.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_meke_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_meke_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_tuz_golu_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_tuz_golu_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_haughton_regional
 
@@ -194,13 +194,13 @@ Parameters and CRS are also stored in features.json.
 ## earth_meteor_crater_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w140n40.SRTMGL30.dem/w140n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_meteor_crater_regional.tif
+- Input: w140n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## moon_shackleton_local
 
