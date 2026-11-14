@@ -1,0 +1,803 @@
+{
+  "datasets": [
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N37_00_E029_00_DEM/Copernicus_DSM_COG_10_N37_00_E029_00_DEM.tif",
+          "bytes": 40114960,
+          "sha256": "2d87a3e2509d1a43ddce8c6aeee9e2e0c0f9f3fe1fe2645ba4110d2f0582c3f5",
+          "etag": "\"8475a82027a3dfed75ac21562f660050\"",
+          "last_modified": "Mon, 09 May 2022 14:19:08 GMT",
+          "content_range": null,
+          "local_path": "raw/salda_jezero/salda_glo30.tif"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.lbl",
+          "bytes": 4820,
+          "sha256": "bc624a238ba6d71a770a09f959ead96f1c144970fae435b8ca5e26208b42eec5",
+          "etag": "\"8087ba6daeec61:0\"",
+          "last_modified": "Fri, 13 Oct 2006 15:17:09 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n000hb.lbl",
+          "bytes": 3088,
+          "sha256": "e7bde6960c05e9fc48ff6417ee3e2b12ed271af16ea85294a775a6948d890a1e",
+          "etag": "\"091ec9fdaeec61:0\"",
+          "last_modified": "Fri, 13 Oct 2006 15:16:58 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/extras/meg128/megt44n000hb.hdr",
+          "bytes": 1029,
+          "sha256": "4871add22f0e8096281ea6c3b79fc0555a541cf72785e4abe87055e38970d20a",
+          "etag": "\"bbeb753216d31:0\"",
+          "last_modified": "Tue, 15 Aug 2017 20:08:57 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img",
+          "bytes": 5921280,
+          "sha256": "d3236e68a9d11df2f9d90e118141eac3636b5b02961b0eb4cafa8e4f4fe5dc7b",
+          "etag": "\"004a8ddff7c21:0\"",
+          "last_modified": "Mon, 31 Mar 2003 23:45:04 GMT",
+          "content_range": "bytes 72599040-78520319/129761280"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n000hb.img",
+          "bytes": 2960640,
+          "sha256": "261fc86cf89beece079a00b6dc5a3ad441d8c46b0c65e2b9d7fdc6dc4dd68f13",
+          "etag": "\"04d1843e6f7c21:0\"",
+          "last_modified": "Tue, 01 Apr 2003 00:33:06 GMT",
+          "content_range": "bytes 36299520-39260159/64880640"
+        }
+      ],
+      "mola_source_rows": [
+        3151,
+        3408
+      ],
+      "mola_source_columns": [
+        9802,
+        10059
+      ],
+      "mola_geometry": "Label extents and exact 1/128 degree grid; PDS precise ENVI map-scale cross-check.",
+      "mola_zero_elevation_is_valid": true,
+      "mola_measured_bin_fraction_in_crop": 0.3147057487622825,
+      "counts_path": "raw/salda_jezero/jezero_mola_counts.tif",
+      "mola_sampling_review": "Not validated at analysis scale; measured/interpolated bins require QA."
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N38_00_E028_00_DEM/Copernicus_DSM_COG_10_N38_00_E028_00_DEM.tif",
+          "bytes": 43707610,
+          "sha256": "f64b92a865dfdf0222254edc5f5a9e0781ca68b2d368b9a4cc7670290750e522",
+          "etag": "\"1066c6be4a6d7af2ea03713ccb2298d1\"",
+          "last_modified": "Mon, 09 May 2022 14:19:47 GMT",
+          "content_range": null,
+          "site_id": "kula",
+          "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_N38_00_E028_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N36_00_E036_00_DEM/Copernicus_DSM_COG_10_N36_00_E036_00_DEM.tif",
+          "bytes": 40945681,
+          "sha256": "aff24ddd0d20aa6006368a7ae70155b032c5c9a7bb6e997de757eeb61a28e35e",
+          "etag": "\"b4592bed5722f68add24c042721b1a31\"",
+          "last_modified": "Mon, 09 May 2022 14:18:29 GMT",
+          "content_range": null,
+          "site_id": "hassa",
+          "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_N36_00_E036_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N37_00_E036_00_DEM/Copernicus_DSM_COG_10_N37_00_E036_00_DEM.tif",
+          "bytes": 43275254,
+          "sha256": "7a13957c5648a187e4f7e0a16c2a873f98bd53e97768be4303e851e27594915f",
+          "etag": "\"eb0a010d1a8705b6b20fe88d383b3d13\"",
+          "last_modified": "Mon, 09 May 2022 14:19:09 GMT",
+          "content_range": null,
+          "site_id": "hassa",
+          "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_N37_00_E036_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S25_00_W071_00_DEM/Copernicus_DSM_COG_10_S25_00_W071_00_DEM.tif",
+          "bytes": 21928523,
+          "sha256": "fbe8f6d1b2c68aeb8ce7032dc0b003e6f3fc0717136cb1d426f7d86465086a0f",
+          "etag": "\"0f302533128fe601f874bc6468074b8a\"",
+          "last_modified": "Mon, 09 May 2022 15:01:54 GMT",
+          "content_range": null,
+          "site_id": "atacama",
+          "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S25_00_W071_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S25_00_W070_00_DEM/Copernicus_DSM_COG_10_S25_00_W070_00_DEM.tif",
+          "bytes": 37362492,
+          "sha256": "ac7b8fce2e8598c5d522fd0f6ff0b4a1ae6f6c5aecda55671fc6e2bd82ec7710",
+          "etag": "\"1901ccfc093641e4190924b9b1b4ce6f\"",
+          "last_modified": "Mon, 09 May 2022 15:01:53 GMT",
+          "content_range": null,
+          "site_id": "atacama",
+          "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S25_00_W070_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S24_00_W071_00_DEM/Copernicus_DSM_COG_10_S24_00_W071_00_DEM.tif",
+          "bytes": 22161009,
+          "sha256": "2562c4e6fac92922caa80941505eabf6998be1a32d139a8fe07c78632bc4ea9b",
+          "etag": "\"86f8ec666e319ebb8cbd9345ea108a67\"",
+          "last_modified": "Mon, 09 May 2022 15:01:25 GMT",
+          "content_range": null,
+          "site_id": "atacama",
+          "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S24_00_W071_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S24_00_W070_00_DEM/Copernicus_DSM_COG_10_S24_00_W070_00_DEM.tif",
+          "bytes": 38143032,
+          "sha256": "4d8745aed594bac867a2fe434fbf7ea7d092580b077de396e67874febb2730f3",
+          "etag": "\"cbb285c20a4d3b8599b673569ccc9b86\"",
+          "last_modified": "Mon, 09 May 2022 15:01:24 GMT",
+          "content_range": null,
+          "site_id": "atacama",
+          "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S24_00_W070_00_DEM.tif"
+        }
+      ],
+      "windows": [
+        {
+          "site_id": "kula",
+          "bounds_wgs84": [
+            28.220644654493015,
+            38.34540014154137,
+            28.819355345506988,
+            38.81421443338975
+          ],
+          "crop_shape": [
+            1688,
+            2155
+          ],
+          "source_file_sha256": "df51fb59a785bfea17cf0ef7ea155c17a3203edb7cda1d8bd33e9dde8fb0d8fa",
+          "coordinate_source": "https://volcano.si.edu/volcano.cfm?vn=213000",
+          "coordinate_note": "Smithsonian GVP volcanic-field reference coordinate; not a specific vent."
+        },
+        {
+          "site_id": "hassa",
+          "bounds_wgs84": [
+            36.25777481168613,
+            36.565352673694285,
+            36.84222518831386,
+            37.034285375910656
+          ],
+          "crop_shape": [
+            1688,
+            2104
+          ],
+          "source_file_sha256": "aae672d5aeeb98fbcd590cef36c312b20fdc05ab77cfafb672c1f45c6a6719bb",
+          "coordinate_source": "https://dergipark.org.tr/tr/download/article-file/4045946",
+          "coordinate_note": "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance."
+        },
+        {
+          "site_id": "atacama",
+          "bounds_wgs84": [
+            -70.13661654287189,
+            -24.298518337118626,
+            -69.6243834571281,
+            -23.828819332723437
+          ],
+          "crop_shape": [
+            1691,
+            1844
+          ],
+          "source_file_sha256": "957997bd705aece1f98e4def2f59f44b0ca7949712ac5ff6766936181bb880af",
+          "coordinate_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8859261/",
+          "coordinate_note": "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert."
+        }
+      ],
+      "physical_crop_width_m": 52000,
+      "source_portal": "https://dataspace.copernicus.eu/"
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N37_00_E033_00_DEM/Copernicus_DSM_COG_10_N37_00_E033_00_DEM.tif",
+          "bytes": 37261162,
+          "sha256": "05d0348d0cdeb3ec722c67f5a8554d7e9e52bbd774d0e4fde8feb30597015706",
+          "etag": "\"e3354e7c28915960369794990866aa26\"",
+          "last_modified": "Mon, 09 May 2022 14:19:09 GMT",
+          "content_range": null,
+          "site_id": "meke",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N37_00_E033_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N38_00_E033_00_DEM/Copernicus_DSM_COG_10_N38_00_E033_00_DEM.tif",
+          "bytes": 34076359,
+          "sha256": "28d3f8ef8a5b50f4d185404a394cf6643be4c721cd66b42e0b071292b98f12a5",
+          "etag": "\"83c8ef569e9984e09bc8f69062fd1043\"",
+          "last_modified": "Mon, 09 May 2022 14:19:48 GMT",
+          "content_range": null,
+          "site_id": "tuz_golu",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N38_00_E033_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N75_00_W091_00_DEM/Copernicus_DSM_COG_10_N75_00_W091_00_DEM.tif",
+          "bytes": 13783428,
+          "sha256": "b09c78190c5733accdb1c21b0bcf87bc064da03f508da49426ef740eb5563d30",
+          "etag": "\"a9c2fd5b6ff3adee9cd1d76eb8db9b35\"",
+          "last_modified": "Mon, 09 May 2022 14:49:34 GMT",
+          "content_range": null,
+          "site_id": "haughton",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N75_00_W091_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N75_00_W090_00_DEM/Copernicus_DSM_COG_10_N75_00_W090_00_DEM.tif",
+          "bytes": 11558351,
+          "sha256": "6731d23cff09f4cb7d2c72ec1d41c7ae9b6389565434e820692e08c2a4bcefa7",
+          "etag": "\"bac4a6ed088806914d514f375cffccd7\"",
+          "last_modified": "Mon, 09 May 2022 14:49:34 GMT",
+          "content_range": null,
+          "site_id": "haughton",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N75_00_W090_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N75_00_W089_00_DEM/Copernicus_DSM_COG_10_N75_00_W089_00_DEM.tif",
+          "bytes": 8365486,
+          "sha256": "ce3d9e10c520be5057e49fd773e81d411b41daff415e420b15cad02f3998defb",
+          "etag": "\"d659673c13268dbcc646fe61ffc22695\"",
+          "last_modified": "Mon, 09 May 2022 14:49:33 GMT",
+          "content_range": null,
+          "site_id": "haughton",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N75_00_W089_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N34_00_W112_00_DEM/Copernicus_DSM_COG_10_N34_00_W112_00_DEM.tif",
+          "bytes": 40413820,
+          "sha256": "7c54ad7c25c3ec7c30e2ba35183ac6a44dcef5c56daa185be094317abd7a2199",
+          "etag": "\"579c03bb16127dda3d3142377bdb9806\"",
+          "last_modified": "Mon, 09 May 2022 14:17:33 GMT",
+          "content_range": null,
+          "site_id": "meteor_crater",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N34_00_W112_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N34_00_W111_00_DEM/Copernicus_DSM_COG_10_N34_00_W111_00_DEM.tif",
+          "bytes": 38286179,
+          "sha256": "c3299d7552aceba61c749d621392e84457ccd2ae216dc95b810f8b3ef9e6e176",
+          "etag": "\"1c2c76cda58cda391bd589718ef4b293\"",
+          "last_modified": "Mon, 09 May 2022 14:17:33 GMT",
+          "content_range": null,
+          "site_id": "meteor_crater",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N34_00_W111_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N35_00_W112_00_DEM/Copernicus_DSM_COG_10_N35_00_W112_00_DEM.tif",
+          "bytes": 37529476,
+          "sha256": "105a2ff831e660c878bb72ac88147c79659444167ef8931b5b4d4eeefc54b4b1",
+          "etag": "\"54c07be302c7bcbf3611af8a57ab23b5\"",
+          "last_modified": "Mon, 09 May 2022 14:18:19 GMT",
+          "content_range": null,
+          "site_id": "meteor_crater",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N35_00_W112_00_DEM.tif"
+        },
+        {
+          "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N35_00_W111_00_DEM/Copernicus_DSM_COG_10_N35_00_W111_00_DEM.tif",
+          "bytes": 37073269,
+          "sha256": "1a3ed08c48de2cbe6f2219f62edb3973685e18710d048921fd62aee8976b6684",
+          "etag": "\"75072e7204f9578f283b032aca8c1c64\"",
+          "last_modified": "Mon, 09 May 2022 14:18:19 GMT",
+          "content_range": null,
+          "site_id": "meteor_crater",
+          "local_path": "raw/earth_extra/tiles/Copernicus_DSM_COG_10_N35_00_W111_00_DEM.tif"
+        }
+      ],
+      "windows": [
+        {
+          "site_id": "meke",
+          "bounds_wgs84": [
+            33.347356288897345,
+            37.452320763843396,
+            33.93875482221385,
+            37.92119461159444
+          ],
+          "crop_shape": [
+            1688,
+            2129
+          ],
+          "source_file_sha256": "5117b90b20fc385eded5165390b26f55f8495f27528138cfdf8fa84f65938b87",
+          "coordinate_source": "https://rsis.ramsar.org/RISapp/files/RISrep/TR1618RIS.pdf",
+          "coordinate_note": "Ramsar site reference coordinate."
+        },
+        {
+          "site_id": "tuz_golu",
+          "bounds_wgs84": [
+            33.02993008800783,
+            38.515404673629845,
+            33.63006991199217,
+            38.98420760194994
+          ],
+          "crop_shape": [
+            1688,
+            2161
+          ],
+          "source_file_sha256": "ae9bff6b8d9199933b873244822745305bcd3d6365f747f8104df90a03199e2d",
+          "coordinate_source": "https://whc.unesco.org/en/tentativelists/5824",
+          "coordinate_note": "Operator-selected center within the UNESCO-listed protected-area coordinate range, not a monitoring station."
+        },
+        {
+          "site_id": "haughton",
+          "bounds_wgs84": [
+            -90.59040908976984,
+            75.1427840119329,
+            -88.71681313245236,
+            75.6104269673628
+          ],
+          "crop_shape": [
+            1684,
+            2248
+          ],
+          "source_file_sha256": "efd8b7f0c20bb79c0560ddbd5a4752adcf83a040e080bc909b0c186bbd0d9239",
+          "coordinate_source": "https://impact.uwo.ca/impact-craters/map/?crater_id=59",
+          "coordinate_note": "Impact Earth crater reference coordinate."
+        },
+        {
+          "site_id": "meteor_crater",
+          "bounds_wgs84": [
+            -111.30241033238701,
+            34.798639139878404,
+            -110.73092300094702,
+            35.26768787329754
+          ],
+          "crop_shape": [
+            1689,
+            2057
+          ],
+          "source_file_sha256": "b742d693b070e0a288444cb4a5e1cb93d18af13e6ab14f0ad350f0e9ad790b07",
+          "coordinate_source": "https://ntrs.nasa.gov/api/citations/19860002234/downloads/19860002234.pdf",
+          "coordinate_note": "NASA crater catalog reference coordinate (arc-minute precision)."
+        }
+      ],
+      "physical_crop_width_m": 52000,
+      "source_portal": "https://dataspace.copernicus.eu/"
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+          "bytes": 4916335,
+          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+          "etag": "\"4a3c5295bc0b1cde5ec0aa4077001040\"",
+          "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_salda_regional",
+          "cache_hit": true
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N38_00_E028_00_DEM/Copernicus_DSM_COG_30_N38_00_E028_00_DEM.tif",
+          "bytes": 5373722,
+          "sha256": "1e0f8df3a3a2667144b367ea159266173bbb5b4630b94ae6dc89ffcf93d2a4fd",
+          "etag": "\"ad91d05d25e6f4167a4d0b48897915c4\"",
+          "last_modified": "Mon, 09 May 2022 12:58:12 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_kula_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N36_00_E036_00_DEM/Copernicus_DSM_COG_30_N36_00_E036_00_DEM.tif",
+          "bytes": 5022503,
+          "sha256": "9e25d4b48fd6305c2b0b868522ee3f9e1fa30e25fd990d8043eef52d1ae94e26",
+          "etag": "\"7bec3439967152b38e359dbbb61cb271\"",
+          "last_modified": "Mon, 09 May 2022 12:57:15 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_hassa_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E036_00_DEM/Copernicus_DSM_COG_30_N37_00_E036_00_DEM.tif",
+          "bytes": 5323110,
+          "sha256": "f69abc11818995400b843a95c799bae08b24c56b78d9a09ac2c27b6f0a56f96b",
+          "etag": "\"80cdd9a9dadabc2289f92d32a1c4920c\"",
+          "last_modified": "Mon, 09 May 2022 12:57:43 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_hassa_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W071_00_DEM/Copernicus_DSM_COG_30_S25_00_W071_00_DEM.tif",
+          "bytes": 2744021,
+          "sha256": "7ddb0070f677d98025b12cde9889ab409ec684a424259da9653c27dbad943f1f",
+          "etag": "\"e7eb8c355a38d0a3fc0e9d96fc45b7b8\"",
+          "last_modified": "Mon, 09 May 2022 13:34:10 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_atacama_regional",
+          "cache_hit": true
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
+          "bytes": 4538658,
+          "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
+          "etag": "\"711d83fd33b3ad1ccaf73b81e53f9dfe\"",
+          "last_modified": "Mon, 09 May 2022 13:34:10 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_atacama_regional",
+          "cache_hit": true
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S24_00_W071_00_DEM/Copernicus_DSM_COG_30_S24_00_W071_00_DEM.tif",
+          "bytes": 2733006,
+          "sha256": "1c38397499c4ccb29ba5ee144cb483248a09cd3fc4b77d99adef45c25990cbca",
+          "etag": "\"9b49f2a951dab1cfb44651a5001d6274\"",
+          "last_modified": "Mon, 09 May 2022 13:33:52 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_atacama_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S24_00_W070_00_DEM/Copernicus_DSM_COG_30_S24_00_W070_00_DEM.tif",
+          "bytes": 4605449,
+          "sha256": "0c22b5d6fe7c16efc1f24d082eab42454d1721ebcd286d68c7b4491ab0872fe9",
+          "etag": "\"41a0b8c6567d5acd1e230b5e8eed697c\"",
+          "last_modified": "Mon, 09 May 2022 13:33:52 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_atacama_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E033_00_DEM/Copernicus_DSM_COG_30_N37_00_E033_00_DEM.tif",
+          "bytes": 4473888,
+          "sha256": "3e02a4a3c0091b2aef581b497c819aedea3030cab44b36fb0ed2072500532a75",
+          "etag": "\"7ba996d08bdc535933e84ca5ea073211\"",
+          "last_modified": "Mon, 09 May 2022 12:57:43 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_meke_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N38_00_E033_00_DEM/Copernicus_DSM_COG_30_N38_00_E033_00_DEM.tif",
+          "bytes": 4063182,
+          "sha256": "d15bab580c5c0cb45a0f05f5e7fb35ba817c56eb5bfd660c5e26250a42280407",
+          "etag": "\"bea70a7b82e4d35dad7f28bd0ffc8dd1\"",
+          "last_modified": "Mon, 09 May 2022 12:58:13 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_tuz_golu_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N75_00_W091_00_DEM/Copernicus_DSM_COG_30_N75_00_W091_00_DEM.tif",
+          "bytes": 1764942,
+          "sha256": "8f3b16be46e6f4c1eab86185b98f852f34da91996ae5892d0c387e83224c9c4f",
+          "etag": "\"a0878bbf9b9dd26d30856965c1b72f99\"",
+          "last_modified": "Mon, 09 May 2022 13:22:48 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_haughton_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N75_00_W090_00_DEM/Copernicus_DSM_COG_30_N75_00_W090_00_DEM.tif",
+          "bytes": 1502538,
+          "sha256": "9fc7d841b37c48a821abbd64910275325da48076747d6edc096b30991e2ac060",
+          "etag": "\"332e597e2e9cdb1b954a005d42b3aea6\"",
+          "last_modified": "Mon, 09 May 2022 13:22:47 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_haughton_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N75_00_W089_00_DEM/Copernicus_DSM_COG_30_N75_00_W089_00_DEM.tif",
+          "bytes": 1095702,
+          "sha256": "ce8dc44c63cbee3b76b312d2b3789fe8f02e04d1600c07fdbf7d6ad1e8c576f0",
+          "etag": "\"9a27efaa6a7f6c17eb9891a0eb9496db\"",
+          "last_modified": "Mon, 09 May 2022 13:22:47 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_haughton_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N34_00_W112_00_DEM/Copernicus_DSM_COG_30_N34_00_W112_00_DEM.tif",
+          "bytes": 4967178,
+          "sha256": "e17894130671fb626446dd8fa5893631ce71a386b578a7dc9f95a840b56d243e",
+          "etag": "\"19360a88005d6212ea1fcce7ceab789f\"",
+          "last_modified": "Mon, 09 May 2022 12:56:40 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_meteor_crater_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N34_00_W111_00_DEM/Copernicus_DSM_COG_30_N34_00_W111_00_DEM.tif",
+          "bytes": 4660669,
+          "sha256": "4f0e78fc2a659562c0db6ab97f94ec7f981dd4abb02830a7be6ab09633072690",
+          "etag": "\"157acdb22fa7601102280d5f03b1ce17\"",
+          "last_modified": "Mon, 09 May 2022 12:56:40 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_meteor_crater_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N35_00_W112_00_DEM/Copernicus_DSM_COG_30_N35_00_W112_00_DEM.tif",
+          "bytes": 4559339,
+          "sha256": "9ce107b20be7204e0467a446bfcc99994603638e3e4a84830cca13d2bdef539d",
+          "etag": "\"d8788d75d3dbfc7dbf07b1853f97e354\"",
+          "last_modified": "Mon, 09 May 2022 12:57:09 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_meteor_crater_regional",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N35_00_W111_00_DEM/Copernicus_DSM_COG_30_N35_00_W111_00_DEM.tif",
+          "bytes": 4470703,
+          "sha256": "c444cf8615be45f5679f2b261b0b3a6c7bc28e15ac3307d43aeea4dee0ddfb15",
+          "etag": "\"7f338793b88ef97ceb6b345706fdd44a\"",
+          "last_modified": "Mon, 09 May 2022 12:57:09 GMT",
+          "content_range": null,
+          "retrieved_on": "2026-11-14",
+          "region_id": "earth_meteor_crater_regional",
+          "cache_hit": false
+        }
+      ],
+      "source_portal": "https://dataspace.copernicus.eu/",
+      "source_selection": "GLO-90 fallback in SRTM domain until authenticated input is available."
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "product": "SRTMGL30.002 (SRTM30 v2.1)",
+      "source_portal": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl30-002",
+      "vertical_reference": "EGM96 orthometric height",
+      "registration": "30 arc-second cells with integer-degree outer tile bounds",
+      "native_srtm_latitude_domain": [
+        -56,
+        60
+      ],
+      "warning": "Outside native SRTM latitudes these global tiles include GTOPO30; pipeline must use GLO-90 there.",
+      "downloaded_archive_count": 27,
+      "imported": [
+        {
+          "tile_id": "e020n40",
+          "source_file": "e020n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "28df7d5b5bbb204020169f9ff47009581244bc6f9dd2f805e2da5bb2ac1ac3a0",
+          "bytes": 25187479,
+          "bounds": [
+            20,
+            -10.0,
+            60,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip"
+        },
+        {
+          "tile_id": "e020n90",
+          "source_file": "e020n90.SRTMGL30.dem.zip",
+          "source_zip_sha256": "edfd23b41f7375d158ba6b7221d7d9b93e78dc3422ca180e8e97d24b3f1c0324",
+          "bytes": 15842187,
+          "bounds": [
+            20,
+            40.0,
+            60,
+            90
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n90.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n90.SRTMGL30.dem/e020n90.SRTMGL30.dem.zip"
+        },
+        {
+          "tile_id": "w100s10",
+          "source_file": "w100s10.SRTMGL30.dem.zip",
+          "source_zip_sha256": "e395c163ab5a1bff295c15d9dd13e3e9b2ede53005f917b18024f7eb769929dc",
+          "bytes": 10476425,
+          "bounds": [
+            -100,
+            -60.0,
+            -60,
+            -10
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/w100s10.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip"
+        },
+        {
+          "tile_id": "w140n40",
+          "source_file": "w140n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "6bca395f394ecd97c264d16bf0549d1729491f28001e9cef2f006306681fa6fe",
+          "bytes": 7396493,
+          "bounds": [
+            -140,
+            -10.0,
+            -100,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/w140n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w140n40.SRTMGL30.dem/w140n40.SRTMGL30.dem.zip"
+        }
+      ]
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.lbl",
+          "bytes": 4990,
+          "sha256": "ec07239f41d8abc1a3681495b5799b770c7206b5268b76721d69180df0422e02",
+          "etag": "\"8074cf87b9dbd21:0\"",
+          "last_modified": "Fri, 02 Jun 2017 16:01:44 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/catalog/dsmap_polar.cat",
+          "bytes": 4312,
+          "sha256": "e5f345f60f75f8fef00f7b59b806306616bf195079c537195e6413b8a6501ca9",
+          "etag": "\"8297920bd23da1:0\"",
+          "last_modified": "Thu, 30 Nov 2023 18:43:35 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img",
+          "bytes": 29062688,
+          "sha256": "d031efe2611b17dfbf3c158f5e15dc04cd5719349dcbf6384bb21fd97697c490",
+          "etag": "\"80d4c7e85cf6d21:0\"",
+          "last_modified": "Thu, 06 Jul 2017 13:36:45 GMT",
+          "content_range": null
+        }
+      ],
+      "target_center": {
+        "lat": -89.67,
+        "lon": 129.78,
+        "source": "https://planetarynames.wr.usgs.gov/Feature/5450"
+      },
+      "conversion": {
+        "height_m": "DN * 0.5",
+        "radius_m": "DN * 0.5 + 1737400",
+        "stored_quantity": "height",
+        "stored_band_offset_m": 0
+      },
+      "geometry": "3812 square pixels, 240 m; exact centered polar stereographic from PDS dsmap_polar.cat",
+      "sampling_review": "Pending; no automatic comparable flag."
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldec_75s_240m.lbl",
+          "bytes": 3821,
+          "sha256": "62d8cabb31c2f75a1ccdf302c002e30af24a57f71c0eafe66c4ddda9a126bc3b",
+          "etag": "\"a7af4e87b9dbd21:0\"",
+          "last_modified": "Fri, 02 Jun 2017 16:01:43 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldec_75s_240m.img",
+          "bytes": 2424432,
+          "sha256": "a67c694ec4059a9cf33658df8c422263bca0b8b58bf3657a7f875f8ae1680953",
+          "etag": "\"a8be3b57b9dbd21:0\"",
+          "last_modified": "Fri, 02 Jun 2017 16:00:22 GMT",
+          "content_range": "bytes 13524976-15949407/29062688"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_120m.lbl",
+          "bytes": 4991,
+          "sha256": "5c59b16ec8a610792b1776fa082e409c8cc9f6743757710d14876ef366acd99a",
+          "etag": "\"196ab1db9dbd21:0\"",
+          "last_modified": "Fri, 02 Jun 2017 15:58:46 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_120m.img",
+          "bytes": 9682480,
+          "sha256": "e16c1344869382329ec95b22a08493f1c6a324e3b068ba0b12aef59b479a5c03",
+          "etag": "\"807a65e65cf6d21:0\"",
+          "last_modified": "Thu, 06 Jul 2017 13:36:41 GMT",
+          "content_range": "bytes 54099904-63782383/116250752"
+        }
+      ],
+      "crops": {
+        "counts": {
+          "path": "raw/lola_qa/ldec_75s_240m.tif",
+          "source_rows": [
+            1774,
+            2092
+          ],
+          "source_columns": [
+            1779,
+            2097
+          ],
+          "spacing_m": 240,
+          "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldec_75s_240m.img",
+          "range_sha256": "a67c694ec4059a9cf33658df8c422263bca0b8b58bf3657a7f875f8ae1680953"
+        },
+        "height": {
+          "path": "raw/lola_qa/ldem_75s_120m.tif",
+          "source_rows": [
+            3548,
+            4183
+          ],
+          "source_columns": [
+            3559,
+            4193
+          ],
+          "spacing_m": 120,
+          "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_120m.img",
+          "range_sha256": "e16c1344869382329ec95b22a08493f1c6a324e3b068ba0b12aef59b479a5c03"
+        }
+      },
+      "primary_height_label": "raw/lola_shackleton/ldem_75s_240m.lbl",
+      "matching": "Same dataset, observing period, creation date, DE421 frame and polar footprint."
+    },
+    {
+      "accessed_on": "2026-11-14",
+      "inputs": [
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_128.lbl",
+          "bytes": 5133,
+          "sha256": "85b1901def6901ee8a50415384f17a71e773af2d979beb7245fd6ac4d5e1671b",
+          "etag": "\"7f8efe6c2727d31:0\"",
+          "last_modified": "Wed, 06 Sep 2017 15:47:20 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_128.img",
+          "bytes": 26081280,
+          "sha256": "c6d105a9edd47fe9b64393edb0c91216b0edbef77da9b2364b200781371fb886",
+          "etag": "\"fd324c812827d31:0\"",
+          "last_modified": "Wed, 06 Sep 2017 15:55:04 GMT",
+          "content_range": "bytes 882432000-908513279/2123366400"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldec_128.lbl",
+          "bytes": 3969,
+          "sha256": "f9a6a2f1dbc5e7a43fe0a15fb636f603a102de3fb03b86bd46047b87efbded61",
+          "etag": "\"809063ef4f6dd31:0\"",
+          "last_modified": "Mon, 04 Dec 2017 22:33:41 GMT",
+          "content_range": null
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldec_128.img",
+          "bytes": 26081280,
+          "sha256": "da7b3f534ba928726ebc9f59f67829a524eec704aa6e95d3602f41c4e9e7e29a",
+          "etag": "\"03030b34f6dd31:0\"",
+          "last_modified": "Mon, 04 Dec 2017 22:32:00 GMT",
+          "content_range": "bytes 882432000-908513279/2123366400"
+        }
+      ],
+      "source_rows": [
+        9575,
+        9858
+      ],
+      "source_columns": [
+        38672,
+        38955
+      ],
+      "source_period": [
+        "2009-07-13T17:33:17",
+        "2016-11-29T05:48:19",
+        "2017-09-15"
+      ],
+      "coordinate_source": "https://lroc.im-ldi.com/atlases/pits/1",
+      "source_longitude_east_0_360": 303.2299,
+      "output_longitude_east": -56.77010000000001,
+      "conversion": "Height = signed DN * 0.5 m; no radius offset.",
+      "paths": {
+        "height": "raw/marius_hills/ldem_128.tif",
+        "counts": "raw/marius_hills/ldec_128.tif"
+      }
+    }
+  ]
+}

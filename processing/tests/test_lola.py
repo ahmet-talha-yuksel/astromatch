@@ -3,6 +3,7 @@ import pytest
 from pyproj import CRS, Transformer
 
 from processing.scripts.acquire_lola import decode_lola, verify_label
+from processing.scripts.metrics import TOPOGRAPHIC
 
 
 def test_lola_height_is_half_dn_without_radius_offset():
@@ -57,7 +58,7 @@ def test_real_lola_and_combined_outputs():
     assert {r['body'] for r in records} == {'earth', 'mars', 'moon'}
     for r in records:
         assert not r['synthetic'] and r['resolution_validated'] is (r['body'] == 'earth' or 'shackleton' in r['region_id'])
-        assert all(f['data_status'] == 'derived' and f['comparable'] is (r['body'] == 'earth' or 'shackleton' in r['region_id']) for f in r['features'].values())
+        assert all(r['features'][key]['data_status'] == 'derived' and r['features'][key]['comparable'] is r['resolution_validated'] for key in TOPOGRAPHIC)
     moons = [r for r in records if 'shackleton' in r['region_id']]
     assert len(moons) == 2
     for r in moons:

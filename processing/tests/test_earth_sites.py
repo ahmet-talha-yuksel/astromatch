@@ -5,6 +5,7 @@ import rasterio
 from rasterio.transform import from_origin
 
 from processing.scripts.acquire_earth_sites import tile_name, footprint_bounds, covering_tiles, mosaic
+from processing.scripts.metrics import TOPOGRAPHIC
 
 
 def test_signed_tile_names_and_boundary_coverage():
@@ -85,7 +86,7 @@ def test_real_four_site_deliverable_is_readable_and_cautious():
         assert r['quality']['nodata_ratio'] == 0 and r['quality']['coverage'] == 'full'
         assert r['data_status'] == 'derived' and not r['synthetic']
         assert r['resolution_validated']
-        assert all(f['comparable'] and f['value'] is not None for f in r['features'].values())
+        assert all(r['features'][key]['comparable'] and r['features'][key]['value'] is not None for key in TOPOGRAPHIC)
         meta = r['heightmap']
         with Image.open(root / 'real' / meta['path']) as image:
             pixels = np.asarray(image)

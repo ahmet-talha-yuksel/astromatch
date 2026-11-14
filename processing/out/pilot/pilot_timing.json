@@ -18,11 +18,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.009551834082230926,
-        "feature_extraction_s": 0.0003578341566026211,
-        "validation_provenance_s": 0.017399997683241963,
-        "processing_wall_s": 0.02730966592207551,
-        "heightmap_export_s": 0.0028068330138921738
+        "reprojection_s": 0.0028959589544683695,
+        "feature_extraction_s": 0.0002568748313933611,
+        "validation_provenance_s": 0.010155457304790616,
+        "processing_wall_s": 0.013308291090652347,
+        "heightmap_export_s": 0.0006950001697987318
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 1.6603714579250664
@@ -34,11 +34,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.002772333100438118,
-        "feature_extraction_s": 0.00025583291426301,
-        "validation_provenance_s": 0.010175792966037989,
-        "processing_wall_s": 0.013203958980739117,
-        "heightmap_export_s": 0.00040254206396639347
+        "reprojection_s": 0.0028264999855309725,
+        "feature_extraction_s": 0.00023362482897937298,
+        "validation_provenance_s": 0.01034779124893248,
+        "processing_wall_s": 0.013407916063442826,
+        "heightmap_export_s": 0.00047320802696049213
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.6949476250447333
@@ -50,11 +50,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0027395409997552633,
-        "feature_extraction_s": 0.0002584999892860651,
-        "validation_provenance_s": 0.010076375911012292,
-        "processing_wall_s": 0.01307441690005362,
-        "heightmap_export_s": 0.00039624981582164764
+        "reprojection_s": 0.0029328749515116215,
+        "feature_extraction_s": 0.00025533302687108517,
+        "validation_provenance_s": 0.010310916928574443,
+        "processing_wall_s": 0.01349912490695715,
+        "heightmap_export_s": 0.00041891587898135185
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.649348207982257
@@ -66,11 +66,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.002679042052477598,
-        "feature_extraction_s": 0.00024433410726487637,
-        "validation_provenance_s": 0.009869206929579377,
-        "processing_wall_s": 0.012792583089321852,
-        "heightmap_export_s": 0.00035775010474026203
+        "reprojection_s": 0.0028765827883034945,
+        "feature_extraction_s": 0.00023441598750650883,
+        "validation_provenance_s": 0.010951085248962045,
+        "processing_wall_s": 0.014062084024772048,
+        "heightmap_export_s": 0.0005391251761466265
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.49768541706725955
@@ -82,11 +82,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.001774708041921258,
-        "feature_extraction_s": 0.00021845800802111626,
-        "validation_provenance_s": 0.004133583977818489,
-        "processing_wall_s": 0.006126750027760863,
-        "heightmap_export_s": 0.0002821250818669796
+        "reprojection_s": 0.0020840840879827738,
+        "feature_extraction_s": 0.0002561660949140787,
+        "validation_provenance_s": 0.004371874732896686,
+        "processing_wall_s": 0.006712124915793538,
+        "heightmap_export_s": 0.0004497081972658634
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.8845184158999473
@@ -98,11 +98,11 @@
       "dem_source": "srtmgl30",
       "acquisition": {},
       "processing": {
-        "reprojection_s": 0.0016937500331550837,
-        "feature_extraction_s": 0.00021595903672277927,
-        "validation_provenance_s": 0.004007790936157107,
-        "processing_wall_s": 0.00591750000603497,
-        "heightmap_export_s": 0.00030804192647337914
+        "reprojection_s": 0.0018989169038832188,
+        "feature_extraction_s": 0.0002298750914633274,
+        "validation_provenance_s": 0.0040159160271286964,
+        "processing_wall_s": 0.006144708022475243,
+        "heightmap_export_s": 0.00029020803049206734
       },
       "acquisition_timing_status": "unmeasured_local_import_shared_by_windows",
       "landmask_s": 0.2069470421411097
@@ -119,11 +119,11 @@
         "acquisition_wall_s": 2.047284625004977
       },
       "processing": {
-        "reprojection_s": 0.007776958169415593,
-        "feature_extraction_s": 0.000226916978135705,
-        "validation_provenance_s": 0.0012102087493985891,
-        "processing_wall_s": 0.009214083896949887,
-        "heightmap_export_s": 0.0004130841698497534
+        "reprojection_s": 0.008257749956101179,
+        "feature_extraction_s": 0.00022616703063249588,
+        "validation_provenance_s": 0.0012575830332934856,
+        "processing_wall_s": 0.00974150002002716,
+        "heightmap_export_s": 0.000558583065867424
       },
       "acquisition_timing_status": "measured_fallback_acquisition",
       "landmask_s": 0.5507700839079916
@@ -140,11 +140,11 @@
         "acquisition_wall_s": 0.9473400840070099
       },
       "processing": {
-        "reprojection_s": 0.0079434581566602,
-        "feature_extraction_s": 0.00020925002172589302,
-        "validation_provenance_s": 0.0010783339384943247,
-        "processing_wall_s": 0.009231042116880417,
-        "heightmap_export_s": 0.00026266719214618206
+        "reprojection_s": 0.008176457835361362,
+        "feature_extraction_s": 0.00021737487986683846,
+        "validation_provenance_s": 0.001216917298734188,
+        "processing_wall_s": 0.009610750013962388,
+        "heightmap_export_s": 0.00027733296155929565
       },
       "acquisition_timing_status": "measured_fallback_acquisition",
       "landmask_s": 0.3202987078111619
@@ -193,8 +193,8 @@
   "global_decision": {
     "status": "provisional",
     "estimated_hours_range": [
-      3.0833843139403325,
-      89.48085318637546
+      3.0903236555495823,
+      88.7385002928134
     ],
     "scope": "turkey_surroundings_usgs_and_sample_arid_belts",
     "final_source_validation_complete": false,
@@ -202,13 +202,13 @@
       {
         "name": "high_reuse_sparse_land_selection",
         "cells": 23859,
-        "per_cell_seconds": 0.4652409375994466,
+        "per_cell_seconds": 0.46628799027530476,
         "assumption": "25% of WorldCover-tile-covered grid centers selected; observed lower-quartile mask+processing cost; existing DEM cache."
       },
       {
         "name": "all_candidate_centers_conservative_latency",
         "cells": 95436,
-        "per_cell_seconds": 3.3753622476942837,
+        "per_cell_seconds": 3.3473594980314374,
         "assumption": "All WorldCover-supported centers; twice slowest observed mask+processing cost for unmeasured latency/source variance."
       }
     ],
@@ -230,7 +230,7 @@
       "SRTM download time is unmeasured; imported tiles are shared by multiple windows.",
       "Polar/dateline support and supplied USGS cells require separate operational checks."
     ],
-    "operational_action": "Keep a regional pilot delivery until source access and broader resource measurements are available."
+    "operational_action": "Keep a regional pilot delivery until broader land-cell counts and resource measurements are available."
   },
   "assumptions": {
     "grid_step_deg": 0.5,

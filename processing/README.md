@@ -25,7 +25,9 @@ Türkiye/Atacama SRTMGL30, İzlanda GLO-90 kullanır. Yerel SRTM indirme süresi
 ölçülmedi; önceki GLO-90 indirme süreleri tarihsel kanıt olarak ayrı tutulur.
 Global süre senaryoları kesin tahmin değildir; daha geniş tarama henüz yapılmadı.
 
-SRTM dosyaları `raw/` içinde mevcutken gerçek teslimi yeniden üretmek:
+SRTM dosyaları `raw/` içinde mevcutken yalnızca topoğrafyayı yeniden üretmek
+(MODIS katmanını ve tam ortak teslimi yenilemek için aşağıdaki `build_release`
+komutunu kullanın):
 
 ```sh
 processing/.venv/bin/python -m processing.scripts.apply_srtm_sources
@@ -34,6 +36,45 @@ processing/.venv/bin/python -m processing.scripts.process_dem processing/configs
 processing/.venv/bin/python -m processing.scripts.finish_pilot
 processing/.venv/bin/python -m processing.scripts.package_handoff
 ```
+
+Güncel P1 katmanı Haziran 2021 MOD11C3.061 ve MOD13C2.061 dosyalarından
+üretilir. 16 Dünya kaydının 14'ünde kalite filtresini geçen NDVI vardır;
+diğer ikisi null'dır. NDVI yalnızca `earth_filters.ndvi_mean` içindedir.
+Sıcaklıkta 6 gündüz ve 1 gece aylık değer bulunur; aynı piksellerde kaliteyi
+geçen gündüz–gece çifti yoktur. `surface_temp_monthly_overpass_difference_c`
+null kalır ve günlük Tmax−Tmin olarak sunulmaz. Tüm sıcaklıkların comparable
+bayrağı false'tur; topoğrafik onaydan devralınmaz. MODIS ortalamaları yalnızca
+kabul edilen CMG piksellerine aittir; örnek alanın yarısından azı geçiyorsa
+`quality.environment` bunu açıklar. Yerel 500 m sıcaklık/NDVI ayrıntısı üretilmez.
+
+Ham DEM, counts, QA ve pilot önbellekleri mevcutken, aynı teslimi MODIS ile
+birlikte yeniden üretmek için tek komut:
+
+```sh
+processing/.venv/bin/python -m processing.scripts.build_release \
+  --lst /path/to/MOD11C3.A2021152.061.2021190161921.hdf \
+  --ndvi /path/to/MOD13C2.A2021152.061.2021194035425.hdf \
+  --accessed-on YYYY-MM-DD
+```
+
+Bu komut indirme yapmaz. JSON/Parquet/GeoJSON, heightmap'ler, QA raporları ve
+`environment.json` hem `out/real/` altında hem planın doğrudan `out/` yollarında
+yayımlanır; `out/mock/` sentetik örnekleri ve `out/pilot/` tarama örneklerini korur.
+`out/earth_grid.parquet` 8 seçilmiş Dünya sahasını içerir; global tarama değildir.
+Kişi 3, 0,5° grid için `out/pilot/earth_grid.parquet` ve onun coverage dosyasını
+kullanır. Kişi 2 `out/features.json` veya küçük teslim ZIP'ini okuyabilir.
+
+MOD13C2.061 HDF içindeki gerçek SDS `Legend` üç land/water biti (11–13) ve
+iki geospatial biti (14–15) tanımlar. Eski LAADS dosya-spec tablosundaki farklı
+yerleşim bu dosyaya uygulanmaz. Kalibrasyon NDVI için DN/10000; MOD11C3 için
+DN×0.02−273.15'tir. NoData ve valid_range kalibrasyondan önce uygulanır.
+HDF-EOS'ta eksik GridOrigin ve PixelRegistration alanlarının varsayılanları
+üst-sol ve piksel merkezidir ([HDF Group tanımı](https://docs.hdfgroup.org/archive/support/products/hdf4_tools/hcr-definition.pdf)).
+
+Diviner P1 için henüz yerel ürün ve eş sıcaklık protokolü yoktur; sıcaklık
+skorlaması açılmaz. MEDA GTS, EMIT, Sentinel-2 ve yağış katmanları P2'dir,
+edinilmedi ve veri varmış gibi işaretlenmez. USGS doğrulama listesi ve sıralama
+raporu Kişi 3'ün sorumluluğundadır; bu modül skor veya kesin negatif üretmez.
 
 ## Üretim ve test
 

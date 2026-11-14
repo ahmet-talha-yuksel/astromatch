@@ -9,6 +9,7 @@ def package(source,output):
     source,output=Path(source),Path(output)
     records=json.loads((source/'features.json').read_text())['records']
     allowed=[source/name for name in ('features.json','earth_grid.parquet','coverage.geojson','DATA_SOURCES.md')]
+    if (source/'environment.json').exists():allowed.append(source/'environment.json')
     for directory in ('heightmaps','quality'):
         if (source/directory).exists():allowed.extend(p for p in (source/directory).rglob('*') if p.is_file())
     readme=('AstroMatch AI v2.3 — Similarity Engine input\n\n'
@@ -17,6 +18,7 @@ def package(source,output):
             'A pair must match scale, window_km, analysis_resolution_m and method; both values must be non-null and comparable=true.\n'
             'Use slope_median_deg, slope_p90_deg, flat_fraction, tri_median_m, relief_m, elevation_std_m.\n'
             'earth_filters (including NDVI/land fraction) are not scoring features. Missing values are null, not zero.\n'
+            'Monthly MODIS overpass temperatures are contextual; their day/night difference is not daily Tmax-minus-Tmin and is not score-ready.\n'
             'Current approved target: Shackleton. Jezero and Marius Hills remain unapproved until their stated quality gaps are resolved.\n'
             'Operational QA is not independent absolute accuracy or mission suitability validation.\n'
             'Global discovery grid is a separate processing/out/pilot delivery. This bundle includes curated Earth sites.\n'

@@ -1,0 +1,975 @@
+{
+  "schema_version": "2.3",
+  "inputs": [
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+      "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+      "bytes": 73594208,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-14",
+      "period": {
+        "start": "2021-06-01",
+        "end": "2021-06-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+      "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+      "bytes": 105577710,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-14",
+      "period": {
+        "start": "2021-06-01",
+        "end": "2021-06-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    }
+  ],
+  "records_processed": 16,
+  "missing_products": [],
+  "records": [
+    {
+      "region_id": "earth_salda_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 6,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 6,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 2,
+            "accepted_area_fraction": 0.33333333333333337,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_kula_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 6,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 5,
+            "accepted_area_fraction": 0.8332752800780985,
+            "coverage_note": null,
+            "missing_reason": null,
+            "mean_view_hour_utc": 9.119998812999956
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 6,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 6,
+            "accepted_area_fraction": 1.0,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_hassa_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 4,
+            "accepted_area_fraction": 1.0,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_atacama_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 4,
+            "accepted_area_fraction": 1.0,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meke_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 2,
+            "accepted_area_fraction": 0.5001686179781826,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_tuz_golu_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 6,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 6,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_haughton_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 7,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 7,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meteor_crater_local",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 2,
+            "accepted_area_fraction": 0.4998469544990763,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null,
+            "mean_view_hour_utc": 18.400000000000002
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 4,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 4,
+            "accepted_area_fraction": 1.0,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_salda_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 108,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 17,
+            "accepted_area_fraction": 0.15743897404890395,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null,
+            "mean_view_hour_utc": 9.0
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 108,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 100,
+            "accepted_area_fraction": 0.9259859299742247,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_kula_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 99,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 44,
+            "accepted_area_fraction": 0.4440928799426546,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null,
+            "mean_view_hour_utc": 9.07723406914787
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 99,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 93,
+            "accepted_area_fraction": 0.9394782589424855,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_hassa_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 118,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 118,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 95,
+            "accepted_area_fraction": 0.8051081931257639,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_atacama_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 90,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 90,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 87,
+            "accepted_area_fraction": 0.9666969799625668,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meke_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 108,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 108,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 69,
+            "accepted_area_fraction": 0.6386077557585407,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_tuz_golu_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 108,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 13,
+            "accepted_area_fraction": 0.12045081507872903,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null,
+            "mean_view_hour_utc": 8.784594393031226
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 108,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 8,
+            "accepted_area_fraction": 0.0741215869454321,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_haughton_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 322,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "night": {
+            "accepted_pixels": 108,
+            "accepted_area_fraction": 0.334119354883954,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null,
+            "mean_view_hour_utc": 2.0372636421779706
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 322,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 2,
+            "accepted_area_fraction": 0.0062116473965030975,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meteor_crater_regional",
+      "environment": {
+        "MOD11C3": {
+          "selected_cmg_pixels": 99,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "day": {
+            "accepted_pixels": 36,
+            "accepted_area_fraction": 0.3635497573028669,
+            "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+            "missing_reason": null,
+            "mean_view_hour_utc": 18.349986394745446
+          },
+          "night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window.",
+            "mean_view_hour_utc": null
+          },
+          "paired_day_night": {
+            "accepted_pixels": 0,
+            "accepted_area_fraction": 0.0,
+            "coverage_note": null,
+            "missing_reason": "No quality-accepted CMG centers in the physical window."
+          },
+          "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+          "uncertainty": {
+            "kind": "source_QC_category",
+            "average_lst_error_category_upper_k": 1,
+            "note": "Product QA category, not an independent error bound or confidence interval for this window."
+          },
+          "temperature_protocol": {
+            "status": "unmatched",
+            "comparable": false,
+            "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+          }
+        },
+        "MOD13C2": {
+          "selected_cmg_pixels": 99,
+          "period": {
+            "start": "2021-06-01",
+            "end": "2021-06-30"
+          },
+          "ndvi": {
+            "accepted_pixels": 96,
+            "accepted_area_fraction": 0.969629093306611,
+            "coverage_note": null,
+            "missing_reason": null
+          },
+          "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+          "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+        }
+      }
+    }
+  ],
+  "scoring_temperature_pairs": 0,
+  "note": "Absolute monthly LST and monthly overpass differences are contextual data; no validated diurnal-range comparison."
+}
