@@ -31,4 +31,5 @@ def build(target,candidate,criteria,score,flags,not_compared,match_level=None,di
     if phrase: summary=f'{summary} {phrase}.'
     support=support_summary(target)
     note='Interpolated MOLA values were not used.' if target.body=='mars' else None
-    return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=not_compared,analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label,place=candidate.place)
+    physical=[{'feature':name,'reason':'not in the topographic comparison'} for name in ('temperature','ice/volatiles','mineralogy','atmosphere')]
+    return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=[*not_compared,*physical],analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label,place=candidate.place)

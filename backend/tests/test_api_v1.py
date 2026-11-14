@@ -84,6 +84,21 @@ def test_errors(client):
     assert c.get('/api/v1/explain',params={'target_id':'T-01','candidate_id':'nope'}).status_code==404
 
 
+def test_compare_card_and_errors(client):
+    c,_=client
+    params={'target_id':'T-01','candidate_id':'S-01','scale':'local','preset':'balanced'}
+    card=check_mock(c.get('/api/v1/compare',params=params))
+    assert card['target']['region_id']=='T-01' and card['candidate']['region_id']=='S-01'
+    assert card['place']['country_code']=='TR'
+    assert card['score_ci_low'] <= card['score_geo'] <= card['score_ci_high']
+    assert 's_i' in card['per_criterion']['relief_m'] and 'z' in card['per_criterion']['relief_m']
+    assert card['explanation']['analogy_breaks']==card['analogy_breaks']
+    assert c.get('/api/v1/compare',params={**params,'candidate_id':'missing'}).status_code==404
+    assert c.get('/api/v1/compare',params={**params,'target_id':'missing'}).status_code==404
+    assert c.get('/api/v1/compare',params={**params,'preset':'missing'}).status_code==422
+    assert c.get('/api/v1/compare',params={**params,'scale':'invalid'}).status_code==422
+
+
 def test_mock_demo_precomputed_without_ranking(client,monkeypatch,tmp_path):
     from pathlib import Path
     import backend.app.api.v1 as v1
