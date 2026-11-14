@@ -1,0 +1,47 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./engine:/app/engine:ro
+      - ./discovery:/app/discovery:ro
+      - ./data:/app/data:ro
+      - ./shared:/app/shared:ro
+    environment:
+      ASTROMATCH_DATA_DIR: /app/data
+    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+    command: npm run dev -- --host 0.0.0.0
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:5173/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  terrain3d:
+    build: ./terrain3d
+    profiles: ["terrain3d"]
+    ports:
+      - "5174:5173"
+    volumes:
+      - ./terrain3d:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "salda",
+    "name": "Salda",
+    "lat": 37.55,
+    "lon": 29.68,
+    "features": {
+      "slope_deg": 9,
+      "tri_m": 28,
+      "relief_m": 190
+    },
+    "isSynthetic": true
+  },
+  {
+    "id": "kula",
+    "name": "Kula",
+    "lat": 38.58,
+    "lon": 28.65,
+    "features": {
+      "slope_deg": 16,
+      "tri_m": 49,
+      "relief_m": 280
+    },
+    "isSynthetic": true
+  },
+  {
+    "id": "meke_acıgol",
+    "name": "Meke/Acıgöl",
+    "lat": 37.68,
+    "lon": 33.63,
+    "features": {
+      "slope_deg": 12,
+      "tri_m": 32,
+      "relief_m": 230
+    },
+    "isSynthetic": true
+  },
+  {
+    "id": "hassa",
+    "name": "Hassa",
+    "lat": 36.8,
+    "lon": 36.5,
+    "features": {
+      "slope_deg": 20,
+      "tri_m": 61,
+      "relief_m": 320
+    },
+    "isSynthetic": true
+  },
+  {
+    "id": "tuz_golu",
+    "name": "Tuz Gölü",
+    "lat": 38.75,
+    "lon": 33.4,
+    "features": {
+      "slope_deg": 2,
+      "tri_m": 8,
+      "relief_m": 50
+    },
+    "isSynthetic": true
+  }
+]

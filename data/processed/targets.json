@@ -1,0 +1,6 @@
+[
+  {"id":"mars_jezero","name":"Jezero — DEMO","planet":"Mars","features":{"slope_deg":11,"tri_m":35,"relief_m":210},"isSynthetic":true},
+  {"id":"mars_pit","name":"Mars Pit — DEMO","planet":"Mars","features":{"slope_deg":18,"tri_m":50,"relief_m":300},"isSynthetic":true},
+  {"id":"moon_south_pole","name":"Moon South Pole — DEMO","planet":"Moon","features":{"slope_deg":18,"tri_m":50,"relief_m":300},"isSynthetic":true},
+  {"id":"moon_marius_hills","name":"Moon Marius Hills — DEMO","planet":"Moon","features":{"slope_deg":14,"tri_m":40,"relief_m":240},"isSynthetic":true}
+]

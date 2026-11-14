@@ -1,0 +1,1 @@
+{"synthetic":true,"target_id":"mars_jezero","candidate_id":"salda","criterion_similarity":{"slope_deg":0.98,"tri_m":0.99},"normalized_weights":{"slope_deg":0.5,"tri_m":0.5},"total_similarity":0.985,"missing_data":[],"source":{"label":"synthetic test fixture"}}

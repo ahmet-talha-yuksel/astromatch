@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "body",
+    "width",
+    "height",
+    "cellSizeMeters",
+    "elevationsMeters",
+    "source"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "body": {
+      "enum": [
+        "Earth",
+        "Mars",
+        "Moon"
+      ]
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "cellSizeMeters": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "elevationsMeters": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "source": {
+      "type": "string"
+    },
+    "isSynthetic": {
+      "type": "boolean"
+    }
+  }
+}
