@@ -211,3 +211,18 @@ def test_real_products_require_explicit_quality_review(tmp_path):
     assert not record['quality']['validation_eligible']
     assert not record['resolution_validated']
     assert any('review' in w for w in record['quality']['warnings'])
+
+
+def test_counts_diagnostic_does_not_validate_interpolated_dem(tmp_path):
+    request = fixture_dem(tmp_path, 'mars')
+    counts_path = tmp_path / 'counts.tif'
+    with rasterio.open(request.path) as src:
+        profile = src.profile
+    profile.update(dtype='uint8', nodata=None)
+    with rasterio.open(counts_path, 'w', **profile) as dst:
+        dst.write(np.zeros((40, 40), dtype='uint8'), 1)
+    record, _ = process_dem(replace(request, counts_path=str(counts_path)))
+    sampling = record['quality']['sampling']
+    assert sampling['mean_observed_bin_fraction'] == 0
+    assert sampling['analysis_cells_without_observed_bins'] == 400
+    assert not record['resolution_validated']

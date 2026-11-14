@@ -1,5 +1,6 @@
 """Local GDAL-readable DEM -> centered LAEA analysis window. No downloads."""
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 import math
 
@@ -37,6 +38,8 @@ class DemRequest:
     quantity: str = 'elevation'
     georeferencing_verified: bool = False
     source_quality_verified: bool = False
+    counts_path: str | None = None
+    quality_notes: tuple[str, ...] = ()
 
 
 def process_dem(request: DemRequest):
@@ -112,7 +115,7 @@ def process_dem(request: DemRequest):
         source_crs = src.crs.to_wkt()
     ratio = float(1 - np.isfinite(array).mean())
     features = terrain_features(array, spacing, False, 'mock' if r.synthetic else 'derived')
-    warnings = []
+    warnings = list(r.quality_notes)
     if ratio > 0:
         warnings.append('Analysis window contains NoData; affected metric neighborhoods are excluded.')
     product_verified = r.synthetic or (r.georeferencing_verified and r.source_quality_verified)
@@ -122,6 +125,8 @@ def process_dem(request: DemRequest):
     if not eligible:
         warnings.append('Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.')
     warnings.append('Awaiting matching target/Earth window, resolution and method validation.')
+    with path.open('rb') as source_file:
+        source_sha256 = hashlib.file_digest(source_file, 'sha256').hexdigest()
     record = {'schema_version': '2.3', 'region_id': r.region_id,
               'kind': 'candidate' if r.body == 'earth' else 'target',
               'body': r.body, 'name': r.name, 'lat': r.lat, 'lon': r.lon,
@@ -136,13 +141,38 @@ def process_dem(request: DemRequest):
               'data_status': 'mock' if r.synthetic else 'derived', 'synthetic': r.synthetic,
               'tags': [], 'provenance': {
                   'source_url': r.source_url, 'accessed_on': r.accessed_on,
-                  'source_file': path.name, 'source_crs': source_crs,
+                  'source_file': path.name, 'source_file_sha256': source_sha256, 'source_crs': source_crs,
                   'source_radius_m': a, 'vertical_reference': r.vertical_reference,
                   'vertical_unit': r.vertical_unit, 'band_scale': band_scale,
                   'band_offset': band_offset, 'resampling': 'average',
                   'georeferencing_verified': r.georeferencing_verified,
                   'source_quality_verified': r.source_quality_verified,
                   'max_nodata_ratio': 0.05}}
+    if r.counts_path is not None:
+        with rasterio.open(r.counts_path) as counts:
+            if counts.crs is None or counts.crs.to_wkt() != source_crs:
+                raise ValueError('Counts CRS does not match elevation source')
+            # Counts zero means no direct observation, not missing raster coverage.
+            # Materialize only the already-cropped counts raster; never a global map.
+            if counts.width * counts.height > 1_000_000:
+                raise ValueError('Provide a cropped counts raster (<=1 million pixels)')
+            observed = (counts.read(1) > 0).astype('float32')
+            from rasterio.warp import reproject
+            support = np.full(array.shape, np.nan, dtype='float32')
+            reproject(observed, support, src_transform=counts.transform, src_crs=counts.crs,
+                      dst_transform=transform, dst_crs=dst_crs.to_wkt(), dst_nodata=np.nan,
+                      resampling=Resampling.average)
+        record['quality']['sampling'] = {
+            'counts_file': Path(r.counts_path).name,
+            'mean_observed_bin_fraction': float(np.nanmean(support)) if np.isfinite(support).any() else None,
+            'analysis_cells_without_observed_bins': int(np.sum(support == 0)),
+            'analysis_cells_total': int(support.size),
+            'note': 'Counts > 0 indicate measured source bins; other DEM bins are interpolated. '
+                    'This diagnostic does not automatically validate effective resolution.'}
+        if not np.isfinite(support).all() or np.any(support == 0):
+            record['quality']['validation_eligible'] = False
+            record['quality']['warnings'].append(
+                'Some analysis cells have no directly observed source bins or no counts coverage.')
     return record, array
 
 

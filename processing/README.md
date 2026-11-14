@@ -1,6 +1,7 @@
 # NASA Data Processing — v2.3 mock teslimi
 
-Yalnızca sentetik test verisi; NASA/ESA gözlemsel verisi indirilmez.
+Mock paket tamamen sentetiktir. Ayrı `out/salda_jezero/` paketi gerçek
+Copernicus/MOLA verilerinden hesaplanmış, kalite incelemesi süren ilk teslimdir.
 Sözleşme `AstroMatch_AI_Veri_Plani_v2_3.md` §3, §5 ve §7 temelinde uygulanmıştır.
 Planın gerçek veri, pilot zamanlama ve doğrulama teslimleri bu aşamaya dahil değildir.
 
@@ -151,7 +152,46 @@ merkezlerini gösterir; henüz tam 0,5° tarama pilotu değildir. Merkezler glob
 Batch'ler aynı çıktı dosyalarını yeniden yazar; ayrı denemeler için ayrı
 `--output` dizinleri kullanın. CLI çalışma yolları örnek config dosyasına göredir.
 
-Henüz gerçek Salda/Jezero/LOLA sonucu, global pilot süre ölçümü veya
-`pilot_timing.json` üretilmedi. Sıradaki adım resmi Salda ve Jezero ürünlerini
-sağlayıp etiket/yerleşim doğrulamasını yaparak aynı local ve regional batch'te
-çalıştırmak; ardından aynı akışa Ay ürününü eklemektir.
+Gerçek Salda/Jezero local/regional çıktıları artık `out/salda_jezero/` içinde.
+LOLA sonucu, global pilot süre ölçümü ve `pilot_timing.json` henüz üretilmedi.
+
+
+## Gerçek Salda–Jezero teslimi (2026-11-14)
+
+`out/salda_jezero/` doğrudan okunabilir: dört kayıt, bir regional Dünya Parquet
+kaydı, GeoJSON, dört 16-bit PNG+metadata çifti ve `retrieval.json` erişim manifesti.
+Mock dosyalar değiştirilmeden ayrı tutulur. `data_status=derived`, `synthetic=false`.
+Ancak bu teslim henüz **skorlamaya hazır değildir**: MOLA doğrudan ölçüm destek
+kontrolü local/regional ölçekte boş destekli hücreler bulduğu için dört kayıtta da
+`resolution_validated=false` ve `comparable=false` korunur. Raster NoData oranı
+sıfırdır; bu, kaynakta her hücrenin doğrudan ölçüldüğü anlamına gelmez.
+Counts > 0 gözlemli kaynak hücrelerini belirtir; kalan MOLA yüzeyi interpolasyon içerir.
+Counts diagnostikleri `quality.sampling` alanındadır; karşılaştırma doğrulamasını
+otomatik açmaz. Kaynak dosyanın SHA-256 özeti provenance alanında tutulur.
+
+Ham veriyi yeniden edinmek (ağ erişimi gerekir, yaklaşık 50 MB altında):
+
+```sh
+processing/.venv/bin/python -m processing.scripts.acquire_salda_jezero --accessed-on YYYY-MM-DD
+processing/.venv/bin/python -m processing.scripts.process_dem \
+  processing/configs/salda_jezero.real.json --output processing/out/salda_jezero
+```
+
+`YYYY-MM-DD` yerine gerçek erişim tarihini yazın. İlk komut gerçek config'i ve
+Git dışında `raw/salda_jezero/retrieval.json` erişim manifestini üretir. İkinci komut manifesti config bağlantısıyla okuyup
+çıktı dizinine otomatik kopyalar. Yeniden indirme ham dosyaları ve config'i
+günceller; mevcut türetilmiş sonuçları ikinci komut yeniden üretir. Mock üretim
+komutu ağ kullanmaz; edinim komutu internet kullanır. TLS doğrulaması açıktır.
+Sunucu tam byte-range yanıtı vermezse veya yanıt eksik/büyükse edinim durur.
+
+MOLA coğrafi referans düzeltmesi: yuvarlatılmış MAP_SCALE ile GDAL dönüşümü
+yerine, etiket sınırları ve tam 128 ppd açısal grid kullanıldı; PDS'nin resmi
+ENVI header piksel aralığı ile çapraz kontrol edildi. Rasterin orijinal değerleri
+ve 3396000 m kaynak küresi korunur. Etiket ve header ham klasörde saklanır.
+Topografyada 0 m geçerlidir; kaynak header'daki sıfır NoData önerisi uygulanmaz.
+Copernicus kaynak portalı ve ürün sürümü [DATA_SOURCES.md](out/DATA_SOURCES.md)
+içindedir. Ham büyük rasterler Git'e dahil edilmez.
+
+Sıradaki iş MOLA örnekleme boşluklarına uygun daha kaba ortak ölçeği counts
+katmanı ve özellik kararlılığıyla değerlendirmek; ardından aynı altyapıyla
+LOLA Ay hedefini eklemektir. Pilot/global taramaya henüz başlanmadı.

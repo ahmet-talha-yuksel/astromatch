@@ -42,10 +42,15 @@ def export_heightmap(output, record, array):
 def run(config_path, output):
     config_path, output = Path(config_path).resolve(), Path(output).resolve()
     config = json.loads(config_path.read_text(encoding='utf-8'))
+    retrieval = None
+    if config.get('retrieval_manifest'):
+        retrieval = json.loads((config_path.parent / config['retrieval_manifest']).read_text(encoding='utf-8'))
     requests = []
     for item in config['records']:
         item = dict(item)
         item['path'] = str((config_path.parent / item['path']).resolve())
+        if item.get('counts_path'):
+            item['counts_path'] = str((config_path.parent / item['counts_path']).resolve())
         requests.append(DemRequest(**item))
     if not requests or len({r.region_id for r in requests}) != len(requests):
         raise ValueError('Batch requires nonempty records with unique region_id values')
@@ -54,6 +59,8 @@ def run(config_path, output):
     records = [r for r, _ in results]
     validate_comparison(records)
     output.mkdir(parents=True, exist_ok=True)
+    if retrieval is not None:
+        write_json(output / 'retrieval.json', retrieval)
     for record, array in results:
         export_heightmap(output, record, array)
     write_json(output / 'features.json', {'schema_version': '2.3', 'records': records})
