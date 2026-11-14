@@ -2,7 +2,14 @@
   "data_status": "real",
   "disclaimer": null,
   "engine_version": "1.0.0",
-  "generated_at": "2026-11-14T20:06:24.614281+00:00",
+  "generated_at": "2026-11-14T20:49:08.986721+00:00",
+  "grid_extent": {
+    "lat_max": 64.75,
+    "lat_min": -24.75,
+    "lon_max": 34.75,
+    "lon_min": -69.75
+  },
+  "grid_label": "regional subset",
   "input_sha256": {
     "/Users/x/Desktop/astromatch/data/processed/candidates.json": "01545d8e9037d19e4e4a29147b17a4984140329e21ded307a95f8f462f2237a1",
     "/Users/x/Desktop/astromatch/data/processed/targets.json": "a6246231f66aaff2aab8cd5bd1cc2baf23a6ae29f6b0a6f07683d6c24a31ede3",
