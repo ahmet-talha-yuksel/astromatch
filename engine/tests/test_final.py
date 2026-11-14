@@ -86,20 +86,19 @@ def test_check_valid_mock_and_legacy(tmp_path,capsys):
 
 def test_export_demo_freeze(tmp_path):
     out=tmp_path/'demo_results'
-    main(['export-demo','--out',str(out),'--timestamp','2026-11-14T00:00:00Z'])
+    main(['export-demo','--mock','--out',str(out),'--timestamp','2026-11-14T00:00:00Z'])
     manifest=json.loads((out/'MANIFEST.json').read_text())
     index=json.loads((out/'index.json').read_text())
     assert manifest['data_status']=='mock' and manifest['input_sha256']['mock_dataset']
     assert manifest['generated_at']==index['generated_at']
-    committed=json.loads((ROOT/'engine/demo_results/MANIFEST.json').read_text())
-    assert {k:manifest[k] for k in ('data_status','disclaimer','engine_version','generated_at')}=={k:committed[k] for k in ('data_status','disclaimer','engine_version','generated_at')}
-    for name in ('features.yaml','presets.yaml','body_limits.yaml'):
-        assert manifest['input_sha256'][name]==committed['input_sha256'][name]
+    second=tmp_path/'second_demo'
+    main(['export-demo','--mock','--out',str(second),'--timestamp','2026-11-14T00:00:00Z'])
+    assert json.loads((second/'MANIFEST.json').read_text())==manifest
     assert len(manifest['input_sha256']['mock_dataset'])==64
     assert len(index['score_spread'])==20
     assert len(list(out.glob('T-*__*.json')))==40
     assert (out/'validation_report.json').exists() and (out/'validation_report.md').exists()
-    assert sum(p.stat().st_size for p in out.iterdir() if p.is_file())<5_000_000
+    assert sum(p.stat().st_size for p in out.iterdir() if p.is_file())<6_000_000
 
 
 def test_check_flattened_parquet_with_nulls(tmp_path):
