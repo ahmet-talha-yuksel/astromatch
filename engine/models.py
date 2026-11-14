@@ -32,6 +32,7 @@ class Region(BaseModel):
     features_interpolated: dict[str, float | None] = Field(default_factory=dict)
     measurement_support: dict = Field(default_factory=dict)
     method_sensitive: bool = False
+    place: dict | None = None
 
 class Dataset(BaseModel):
     targets: list[Region] = Field(default_factory=list)
@@ -75,6 +76,7 @@ class Explanation(BaseModel):
     methodology_note: str | None = None
     discrimination_label: str | None = None
     comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'
+    place: dict | None = None
 
 class HeatPoint(BaseModel):
     id: str
