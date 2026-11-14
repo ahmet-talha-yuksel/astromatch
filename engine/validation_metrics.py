@@ -28,12 +28,17 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
             # Weight perturbations can be recomputed from cached per-criterion scores.
             keys=list(config('features.yaml')['features']); base=np.array([r['score_geo'] for r in rows]); base_top={r['id'] for r in rows[:10]}
             all_scores=np.array([[r['per_criterion'].get(k,{}).get('s_i',np.nan) for k in keys] for r in rows]); mask=np.isfinite(all_scores)
+            candidate_values=np.array([[r['per_criterion'].get(k,{}).get('candidate_value',np.nan) for k in keys] for r in rows])
+            target_values=np.array([t.features[k].value if k in t.features and t.features[k].value is not None else np.nan for k in keys])
+            sigmas=np.array([result.sigma[k] for k in keys])
+            robust=np.array([1.4826*np.median(abs(v-np.median(v))) if len(v:=candidate_values[np.isfinite(candidate_values[:,j]),j]) else 0 for j in range(len(keys))])
             weights=np.array([config('features.yaml')['features'][k].get('weight',1)*config('presets.yaml')[preset].get(k,1) for k in keys],float)
             correlations=[]; jaccards=[]
             for _ in range(n):
                 w=rng.dirichlet(np.maximum(weights,1e-6)*50); ww=mask*w; ww=ww/np.maximum(ww.sum(axis=1,keepdims=True),1e-12)
-                noise=rng.normal(0,.05,size=all_scores.shape)
-                pert=np.clip(np.nan_to_num(all_scores,nan=1)+noise,0,1)
+                noise=rng.normal(0,.05*robust,size=all_scores.shape)
+                pert=np.exp(-.5*((candidate_values+noise-target_values)/sigmas)**2)
+                pert=np.where(mask,pert,1)
                 scores=100*np.exp(np.sum(ww*np.log(np.maximum(pert,.01)),axis=1))
                 correlations.append(_spearman(base,scores))
                 new_top={rows[i]['id'] for i in np.argsort(-scores)[:10]}

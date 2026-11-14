@@ -30,7 +30,7 @@ def generate(n_grid=5000, seed=42):
         if i%83==0: rec['features']['relief_m']['comparable']=False
         rec['earth_filters']={'ndvi_mean':float(rng.uniform(0,.7)),'precip_mm_yr':float(rng.uniform(0,1000)),'land_fraction':float(rng.uniform(.5,1))}
         grid.append(rec)
-    known=[sites[i%len(sites)] for i in range(15)]
+    known=sites[:8]+grid[:7]
     return targets,sites+grid,known
 
 def write_mock(out):
