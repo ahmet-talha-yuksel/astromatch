@@ -30,3 +30,22 @@ def test_sensitivity_absolute_or_relative_and_zero_baseline():
     baseline=dict.fromkeys(TOPOGRAPHIC,0.)
     assert all(c['pass'] for c in sensitivity(baseline,baseline).values())
     assert sensitivity(dict(baseline,slope_median_deg=.2),baseline)['slope_median_deg']['pass']
+
+
+def test_delivered_records_match_engineering_gate():
+    import json
+    from pathlib import Path
+    path=Path(__file__).resolve().parents[1]/'out/mars_measured/features.json'
+    records=json.loads(path.read_text())['records']
+    assert {r['region_id'] for r in records}=={'mars_phoenix_regional','mars_jezero_regional','mars_arcadia_regional'}
+    for record in records:
+        support=record['measurement_support']
+        primary={k:record['features'][k]['value'] for k in TOPOGRAPHIC}
+        assert support['sensitivity']==sensitivity(primary,record['features_interpolated'])
+        expected=all(c['pass'] for c in support['sensitivity'].values()) and support['effective_nodata_ratio']<=.30
+        assert record['resolution_validated']==expected
+        assert record['quality']['nodata_ratio']==support['effective_nodata_ratio']
+        assert all(f['comparable']==expected for f in record['features'].values())
+        assert record['provenance']['source_radius_m']==3396000
+        assert record['analysis_resolution_m']==1000 and record['window_km']==50
+        if not expected: assert support['unscorable_reasons']
