@@ -1,5 +1,7 @@
 # Explainable similarity engine
 
+Offline Earth place labels and required attribution are described in [DATA_SOURCES.md](DATA_SOURCES.md).
+
 Python 3.11+; install `pip install -r engine/requirements.txt`. scikit-learn is installed by the requirements file; `hdbscan` remains optional for cluster agreement. From the repository root:
 
 ```bash

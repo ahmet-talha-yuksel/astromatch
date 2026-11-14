@@ -82,6 +82,7 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     from .models import DataPaths
     from .ranking import rank
     dataset=load_dataset(mock=True,mock_n_grid=5000) if mock else load_dataset(DataPaths(features=[str(p) for p in feature_files],grid=str(grid_path)))
+    places={c.region_id:c.place for c in dataset.candidates if c.body=='earth'}
     frames = []
     sigma_tables = {}
     counts = {}
@@ -89,6 +90,10 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     for alias in active:
         scored = _score_grid(grid_df, alias, preset, sigma=sigma, scale="regional",
                              return_criteria=criteria, target_records=targets)
+        place_values=scored['cell_id'].map(places)
+        scored['place']=place_values.map(lambda place:json.dumps(place,ensure_ascii=False) if place else None)
+        for column,key in (('place_name','name'),('place_admin1','admin1'),('place_country_code','country_code'),('place_distance_km','distance_km')):
+            scored[column]=place_values.map(lambda place:place.get(key) if place else None)
         base=aliases.get(alias)
         target_id=alias if mock else f'{base}_regional' if base else None
         matching=next((t for t in dataset.targets if t.region_id==target_id and t.scale=='regional'),None)
