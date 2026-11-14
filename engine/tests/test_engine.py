@@ -110,3 +110,23 @@ def test_cli_deterministic_bytes(tmp_path,monkeypatch):
     cli.main(['run','--mock','--out',str(a),'--timestamp','2026-01-01T00:00:00Z'])
     cli.main(['run','--mock','--out',str(b),'--timestamp','2026-01-01T00:00:00Z'])
     assert {p.name:p.read_bytes() for p in a.iterdir()}=={p.name:p.read_bytes() for p in b.iterdir()}
+
+def test_external_features_and_flat_grid_replace_legacy(tmp_path):
+    from engine.mock import generate
+    from engine.io import load_dataset
+    from engine.models import DataPaths
+    targets,sites,_=generate(n_grid=0)
+    target=targets[0];target['data_status']='derived'
+    for feature in target['features'].values(): feature['data_status']='derived'
+    site=sites[0];site['data_status']='derived'
+    for feature in site['features'].values(): feature['data_status']='derived'
+    path=tmp_path/'features.json';path.write_text(json.dumps([target,site]))
+    grid=tmp_path/'grid.parquet'
+    row={'region_id':'G-real','kind':'earth_grid','body':'earth','name':'Real grid','scale':'local','resolution_validated':True,'data_status':'derived'}
+    for key,feature in site['features'].items():
+        row[key]=feature['value'];row[key+'__status']='derived';row[key+'__comparable']=feature['comparable']
+    pd.DataFrame([row]).to_parquet(grid)
+    ds=load_dataset(DataPaths(features=str(path),grid=str(grid)))
+    assert [t.region_id for t in ds.targets]==[target['region_id']]
+    assert {c.region_id for c in ds.candidates}=={site['region_id'],'G-real'}
+    assert all(c.data_status=='derived' for c in ds.candidates)

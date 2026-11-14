@@ -31,6 +31,8 @@ def load_dataset(paths: DataPaths | None = None, mock: bool = False) -> Dataset:
         sources = {}
         ds = Dataset(mode='real')
         raw_t, raw_c, raw_k = [], [], []
+        legacy_t_count=legacy_c_count=0
+        external_targets=external_candidates=False
         for path, destination in [(defaults[0], 'targets'), (defaults[1], 'candidates'), (feature_path, 'features'), (grid_path, 'grid'), (known_path, 'known')]:
             if not path.is_absolute(): path = ROOT/path
             if not path.exists():
@@ -40,16 +42,16 @@ def load_dataset(paths: DataPaths | None = None, mock: bool = False) -> Dataset:
                 continue
             records = _read(path)
             sources[str(path)] = hashlib.sha256(path.read_bytes()).hexdigest()
-            if destination == 'targets': raw_t.extend(records)
-            elif destination in ('candidates','grid'): raw_c.extend(records)
+            if destination == 'targets': raw_t.extend(records); legacy_t_count=len(raw_t)
+            elif destination == 'candidates': raw_c.extend(records); legacy_c_count=len(raw_c)
+            elif destination == 'grid': raw_c.extend(records); external_candidates=external_candidates or bool(records)
             elif destination == 'known': raw_k.extend(records)
             else:
                 for row in records:
-                    (raw_t if row.get('kind') == 'target' else raw_c).append(row)
-        if any(row.get('schema_version') == '2.3' for row in raw_t):
-            raw_t = [row for row in raw_t if row.get('schema_version') == '2.3']
-        if any(row.get('schema_version') == '2.3' for row in raw_c):
-            raw_c = [row for row in raw_c if row.get('schema_version') == '2.3']
+                    if row.get('kind') == 'target': raw_t.append(row); external_targets=True
+                    else: raw_c.append(row); external_candidates=True
+        if external_targets: raw_t=raw_t[legacy_t_count:]
+        if external_candidates: raw_c=raw_c[legacy_c_count:]
     if mock: ds = Dataset(mode='mock')
     ds.input_hashes = sources
     configured = set(config('features.yaml')['features'])
