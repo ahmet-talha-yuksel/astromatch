@@ -13,7 +13,7 @@ def _spearman(a,b):
 
 def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
     out=Path(out); out.mkdir(parents=True,exist_ok=True)
-    rng=np.random.default_rng(seed); report={'data_status':ds.mode,'disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT' if ds.mode=='mock' else None,'targets':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{},'method_sensitivity':{}}
+    rng=np.random.default_rng(seed); report={'data_status':ds.mode,'disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT' if ds.mode=='mock' else None,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'targets':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{},'method_sensitivity':{}}
     presets=list(config('presets.yaml'))
     for t in ds.targets:
         key=f'{t.region_id}__{t.scale}'

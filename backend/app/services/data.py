@@ -14,7 +14,11 @@ def load_json(name: str):
     return json.loads((Path(settings.data_dir)/'processed'/name).read_text(encoding='utf-8'))
 
 def _feature_path() -> Path:
-    return feature_paths()[0]
+    return feature_paths(os.getenv('ASTROMATCH_FEATURES',settings.features))[0]
+
+def _data_paths() -> DataPaths:
+    return DataPaths(features=os.getenv('ASTROMATCH_FEATURES',settings.features),
+                     grid=os.getenv('ASTROMATCH_GRID',settings.grid))
 
 def _real_valid(ds: Dataset) -> bool:
     return bool(ds.targets and ds.candidates and not ds.invalid_records and not any(r.data_status=='mock' or any(f.data_status=='mock' for f in r.features.values()) for r in ds.targets+ds.candidates))
@@ -26,10 +30,10 @@ def initialize_dataset() -> Dataset:
     if requested=='mock':
         ds=load_dataset(mock=True); mode='mock'
     elif requested=='real':
-        ds=load_dataset(); mode='real'
+        ds=load_dataset(_data_paths()); mode='real'
         if not _real_valid(ds): raise ValueError('Real mode requires valid, non-mock target and Earth records. Set ASTROMATCH_FEATURES to a v2.3 features file or use ASTROMATCH_DATA_MODE=mock.')
     elif _feature_path().exists():
-        candidate=load_dataset()
+        candidate=load_dataset(_data_paths())
         if _real_valid(candidate): ds=candidate; mode='real'
         else:
             log.warning('Real features found but validation failed: %s; switching to mock',candidate.invalid_records)

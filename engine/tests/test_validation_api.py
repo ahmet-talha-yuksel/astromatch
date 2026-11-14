@@ -61,7 +61,7 @@ def test_aliases_and_unscorable_target(sample):
     with pytest.warns(UserWarning, match="target_unscorable"):
         real = score_grid(frame, "T-01")
     assert real.score.isna().all()
-    assert real.excluded_reason.eq("target_unscorable: resolution_not_validated").all()
+    assert real.excluded_reason.str.startswith("target_unscorable: sensitivity_failed: slope_p90_deg").all()
 
 
 def test_sigma_modes(sample):

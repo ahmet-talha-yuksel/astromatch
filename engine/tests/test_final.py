@@ -90,6 +90,7 @@ def test_export_demo_freeze(tmp_path):
     manifest=json.loads((out/'MANIFEST.json').read_text())
     index=json.loads((out/'index.json').read_text())
     assert manifest['data_status']=='mock' and manifest['input_sha256']['mock_dataset']
+    assert json.loads((out/'validation_report.json').read_text())['input_sha256']==manifest['input_sha256']
     assert manifest['generated_at']==index['generated_at']
     second=tmp_path/'second_demo'
     main(['export-demo','--mock','--out',str(second),'--timestamp','2026-11-14T00:00:00Z'])
