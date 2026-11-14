@@ -24,7 +24,7 @@ def test_relative_score_and_explanation():
     result=rank(ds,'T-02','local',detailed=True)
     assert max(r['score_relative'] for r in result.full_scores)==pytest.approx(100)
     assert result.top_k[0]['match_level']=='relative_only'
-    assert result.top_k[0]['explanation']['summary']=='No close absolute analog on Earth for this target; this is among the closest available on Earth.'
+    assert result.top_k[0]['explanation']['summary']=='No close Earth analog at this scale; ranking shows the closest available by standardized distance.'
     assert 'floored_criteria' in result.top_k[0]
 
 

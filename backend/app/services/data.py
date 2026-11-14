@@ -3,7 +3,7 @@ from __future__ import annotations
 import json, logging, os
 from pathlib import Path
 from engine import DataPaths, Dataset, load_dataset
-from engine.io import ROOT
+from engine.io import ROOT, feature_paths
 from backend.app.core.config import settings
 
 log=logging.getLogger(__name__)
@@ -14,8 +14,7 @@ def load_json(name: str):
     return json.loads((Path(settings.data_dir)/'processed'/name).read_text(encoding='utf-8'))
 
 def _feature_path() -> Path:
-    path=Path(os.getenv('ASTROMATCH_FEATURES',str(ROOT/'processing/out/features.json')))
-    return path if path.is_absolute() else ROOT/path
+    return feature_paths()[0]
 
 def _real_valid(ds: Dataset) -> bool:
     return bool(ds.targets and ds.candidates and not ds.invalid_records and not any(r.data_status=='mock' or any(f.data_status=='mock' for f in r.features.values()) for r in ds.targets+ds.candidates))

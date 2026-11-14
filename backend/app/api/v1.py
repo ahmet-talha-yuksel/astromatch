@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 from engine import RankResult, explain as engine_explain, heat as engine_heat, list_targets, rank as engine_rank
 from engine.io import config
 from engine.ranking import DISCLAIMER
+from engine.validation_api import list_target_ids
 from backend.app.core.config import settings
 from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResponse, PresetsResponse, SitesResponse, HeatResponse, RegionResponse, ExplainResponse, ValidationResponse
 from backend.app.services.data import active_mode, get_dataset
@@ -18,9 +19,20 @@ def meta():
     mock=get_dataset().mode=='mock'
     return {'data_status':'mock' if mock else 'real','disclaimer':DISCLAIMER if mock else None}
 
+def resolved_target(target_id,scale):
+    ds=get_dataset()
+    if ds.mode=='mock': return target_id
+    base=list_target_ids().get(target_id)
+    if base is None: return target_id
+    return f'{base}_{scale}'
+
 def checked(target_id,scale,preset):
     ds=get_dataset()
+    original=target_id
+    target_id=resolved_target(target_id,scale)
     matches=[t for t in ds.targets if t.region_id==target_id]
+    if not matches and ds.mode=='real' and original in list_target_ids():
+        raise HTTPException(404,f'{original}: not_delivered')
     if not matches: raise HTTPException(404,f'Unknown target: {target_id}')
     if scale not in {t.scale for t in matches}: raise HTTPException(404,f'Target {target_id} has no scale {scale}')
     if preset not in config('presets.yaml'): raise HTTPException(422,f'Unknown preset: {preset}')
@@ -36,6 +48,7 @@ def validate_weights(weights):
 
 def ranked(target_id,scale,preset,k,filter_mode,weights=None,detailed=False):
     ds=checked(target_id,scale,preset); validate_weights(weights)
+    target_id=resolved_target(target_id,scale)
     if Path(settings.results_dir).name=='demo_results' and weights is None and filter_mode=='flag':
         stem='__'.join(re.sub(r'[^A-Za-z0-9_-]','_',v) for v in (target_id,scale,preset))
         path=Path(settings.results_dir)/(stem+'.json')
@@ -86,11 +99,12 @@ def sites_v1(target_id:str,scale:Literal['local']='local',preset:str='balanced')
     ds=checked(target_id,scale,preset)
     result=ranked(target_id,scale,preset,k=20,filter_mode='flag',detailed=True)
     ids={r.region_id for r in ds.candidates if r.scale==scale and r.kind=='earth_site'}
-    return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'sites':[r for r in result.full_scores if r['id'] in ids],'excluded':[r for r in result.excluded if r['id'] in ids]}
+    return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'sites':[r for r in result.full_scores if r['id'] in ids],'excluded':[r for r in result.excluded if r['id'] in ids],'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation}
 
 @router.get('/heat',response_model=HeatResponse)
 def heat_v1(target_id:str,scale:Literal['local','regional']='local',preset:str='balanced'):
     ds=checked(target_id,scale,preset)
+    target_id=resolved_target(target_id,scale)
     stem='__'.join(re.sub(r'[^A-Za-z0-9_-]','_',v) for v in (target_id,scale,preset))
     path=Path(settings.results_dir)/(stem+'__heat.json')
     if path.exists():
@@ -118,6 +132,7 @@ def region_v1(region_id:str):
 @router.get('/explain',response_model=ExplainResponse)
 def explain_v1(target_id:str,candidate_id:str,scale:Literal['local','regional']='local',preset:str='balanced'):
     ds=checked(target_id,scale,preset)
+    target_id=resolved_target(target_id,scale)
     if not any(c.region_id==candidate_id and c.scale==scale for c in ds.candidates): raise HTTPException(404,f'Unknown candidate: {candidate_id}')
     try: explanation=engine_explain(ds,target_id,candidate_id,scale,preset)
     except ValueError as exc: raise HTTPException(422,str(exc)) from exc

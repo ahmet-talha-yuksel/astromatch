@@ -84,11 +84,13 @@ def test_errors(client):
     assert c.get('/api/v1/explain',params={'target_id':'T-01','candidate_id':'nope'}).status_code==404
 
 
-def test_committed_demo_precomputed_without_ranking(client,monkeypatch):
+def test_mock_demo_precomputed_without_ranking(client,monkeypatch,tmp_path):
     from pathlib import Path
     import backend.app.api.v1 as v1
+    from engine.cli import main
     c,_=client
-    demo=Path(__file__).resolve().parents[2]/'engine/demo_results'
+    demo=tmp_path/'demo_results'
+    main(['export-demo','--mock','--out',str(demo),'--timestamp','2026-11-14T00:00:00Z'])
     monkeypatch.setattr(settings,'results_dir',str(demo))
     monkeypatch.setattr(v1,'engine_rank',lambda *args,**kwargs: (_ for _ in ()).throw(AssertionError('rank recomputed')))
     ranked=check_mock(c.get('/api/v1/rank',params={'target_id':'T-01','scale':'local'}))

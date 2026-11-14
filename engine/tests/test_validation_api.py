@@ -39,7 +39,7 @@ def test_order_nan_criteria_determinism_and_purity(sample):
     pd.testing.assert_frame_equal(frame, original, check_exact=True)
     assert first.cell_id.tolist() == frame.cell_id.tolist()
     assert len(first) == len(frame)
-    assert list(first.columns[:4]) == ["cell_id", "score", "n_features", "excluded_reason"]
+    assert list(first.columns[:5]) == ["cell_id", "score", "distance_z", "n_features", "excluded_reason"]
     assert "s_slope_median_deg" in first
     assert first.score.isna().sum() == 2
     assert not (first.score.dropna() == 0).any()
@@ -53,7 +53,7 @@ def test_aliases_and_unscorable_target(sample):
     assert list_target_ids()["T-01"] == "mars_jezero"
     for alias in ("T-01", "T-02", "T-03"):
         assert run_mock(frame, targets, alias).score.notna().any()
-    assert list_target_ids()["T-04"] is None
+    assert list_target_ids()["T-04"] == "mars_phoenix"
     with pytest.warns(UserWarning, match="target_unscorable"):
         result = run_mock(frame, targets, "T-04")
     assert result.score.isna().all()
@@ -61,7 +61,7 @@ def test_aliases_and_unscorable_target(sample):
     with pytest.warns(UserWarning, match="target_unscorable"):
         real = score_grid(frame, "T-01")
     assert real.score.isna().all()
-    assert real.excluded_reason.eq("target_unscorable: resolution not validated").all()
+    assert real.excluded_reason.eq("target_unscorable: resolution_not_validated").all()
 
 
 def test_sigma_modes(sample):
@@ -99,8 +99,8 @@ def test_export_long_format(tmp_path):
     frame = pd.read_parquet(tmp_path / "scores_all.parquet")
     csv = pd.read_csv(tmp_path / "scores_all.csv")
     assert manifest["grid_rows"] == 5000
-    assert len(frame) == len(csv) == 5000 * 3
-    assert frame.groupby("target_id").size().to_dict() == {"T-01": 5000, "T-02": 5000, "T-03": 5000}
-    assert frame.score.isna().sum() == csv.score.isna().sum() == 32 * 3
+    assert len(frame) == len(csv) == 5000 * 5
+    assert frame.groupby("target_id").size().to_dict() == {alias: 5000 for alias in ("T-01","T-02","T-03","T-04","T-05")}
+    assert frame.score.isna().sum() == csv.score.isna().sum() == 32 * 3 + 5000 * 2
     assert "s_slope_median_deg" in frame
     assert json.loads((tmp_path / "scores_manifest.json").read_text())["data_status"] == "mock"

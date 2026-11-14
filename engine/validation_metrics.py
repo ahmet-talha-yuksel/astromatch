@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 from .ranking import rank
 from .io import config
+from .method_sensitivity import compare
 
 def _spearman(a,b):
     if len(a)<2: return 1.0
@@ -12,11 +13,15 @@ def _spearman(a,b):
 
 def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
     out=Path(out); out.mkdir(parents=True,exist_ok=True)
-    rng=np.random.default_rng(seed); report={'data_status':ds.mode,'disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT' if ds.mode=='mock' else None,'targets':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{}}
+    rng=np.random.default_rng(seed); report={'data_status':ds.mode,'disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT' if ds.mode=='mock' else None,'targets':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{},'method_sensitivity':{}}
     presets=list(config('presets.yaml'))
     for t in ds.targets:
         key=f'{t.region_id}__{t.scale}'
         for preset in presets:
+            sensitivity=compare(ds,t,preset)
+            if sensitivity is not None:
+                report['method_sensitivity'][f'{key}__{preset}']=sensitivity
+                t.method_sensitive=bool(sensitivity.get('method_sensitive'))
             result=rank(ds,t.region_id,t.scale,preset,detailed=True)
             rows=result.full_scores
             ranks={r['id']:i+1 for i,r in enumerate(rows)}
@@ -61,5 +66,9 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
     if ds.mode=='mock': lines.extend(['MOCK DATA — NOT A SCIENTIFIC RESULT',''])
     lines.extend([f"ROC/AUC: {report['roc_auc'] if report['roc_auc'] is not None else 'skipped — '+str(report['roc_auc_reason'])}",''])
     for key,entry in report['targets'].items(): lines.append(f"- {key}: {len(entry['known_analogs'])} known analogs; recall 1/5/10%: {entry['recall_at']}")
+    if report['method_sensitivity']:
+        lines.extend(['','## Method sensitivity',''])
+        for key,value in report['method_sensitivity'].items():
+            lines.append(f"- {key}: Spearman={value.get('spearman')}; top-10 Jaccard={value.get('top_10_jaccard')}; method_sensitive={value.get('method_sensitive')}")
     (out/'validation_report.md').write_text('\n'.join(lines)+'\n')
     return report
