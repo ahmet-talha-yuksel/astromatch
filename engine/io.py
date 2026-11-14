@@ -1,5 +1,6 @@
 from __future__ import annotations
 import hashlib, json, os, warnings
+from functools import lru_cache
 from pathlib import Path
 import pandas as pd
 import yaml
@@ -7,6 +8,7 @@ from .adapters import adapt
 from .models import DataPaths, Dataset
 ROOT = Path(__file__).resolve().parent.parent
 
+@lru_cache(maxsize=8)
 def config(name):
     return yaml.safe_load((Path(__file__).parent / 'config' / name).read_text())
 

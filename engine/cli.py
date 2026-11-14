@@ -22,6 +22,8 @@ def main(argv=None):
     if args.command=='generate-mock': write_mock(args.out); return
     ds=load_dataset(DataPaths(features=args.features,grid=args.grid,known=args.known),mock=args.mock)
     if args.command=='validate': validate(ds,args.negatives,args.out); return
+    if not args.mock and (any(r.data_status=='mock' for r in ds.targets+ds.candidates) or any(f.data_status=='mock' for r in ds.targets+ds.candidates for f in r.features.values())):
+        p.exit(2, 'error: Current data/processed fixtures are synthetic. Supply validated v2.3 records via processing/out/features.json or --features PATH, or run --mock for demos.\n')
     out=Path(args.out); out.mkdir(parents=True,exist_ok=True)
     presets=list(config('presets.yaml')) if args.preset=='all' else [args.preset]
     stamp=args.timestamp or datetime.now(timezone.utc).isoformat()
@@ -29,11 +31,18 @@ def main(argv=None):
     if args.mock: index['disclaimer']='MOCK DATA — NOT A SCIENTIFIC RESULT'
     for t in ds.targets:
         for preset in presets:
-            result=rank(ds,t.region_id,t.scale,preset,k=args.k)
+            result=rank(ds,t.region_id,t.scale,preset,k=args.k,detailed=(t.scale=='local'))
             stem='__'.join(re.sub(r'[^A-Za-z0-9_-]','_',v) for v in (t.region_id,t.scale,preset))
             data=result.model_dump()
             write(out/f'{stem}.json',data)
             write(out/f'{stem}__heat.json',[{'id':h['id'],'lat':h['lat'],'lon':h['lon'],'score':round(h['score_geo'],1),'data_status':'mock','disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT'} if args.mock else {'id':h['id'],'lat':h['lat'],'lon':h['lon'],'score':round(h['score_geo'],1)} for h in result.full_scores if h['lat'] is not None and h['lon'] is not None])
+            if t.scale=='local':
+                site_ids={c.region_id for c in ds.candidates if c.scale=='local' and c.kind=='earth_site'}
+                site_rows=[r for r in result.full_scores if r['id'] in site_ids]
+                excluded_sites=[r for r in result.excluded if r['id'] in site_ids]
+                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':site_rows,'excluded':excluded_sites,'data_status':'mock' if args.mock else 'real'}
+                if args.mock: sites['disclaimer']='MOCK DATA — NOT A SCIENTIFIC RESULT'
+                write(out/f'sites__{stem}.json',sites)
             index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma
     write(out/'index.json',index)
     from .ml import pca_export

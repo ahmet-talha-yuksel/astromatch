@@ -12,7 +12,8 @@ def aggregate_matrix(scores, eligible, weights, min_features=3):
     normalized = np.divide(active * weights, total[:,None], out=np.zeros_like(scores), where=total[:,None]>0)
     safe = np.where(active, np.maximum(np.nan_to_num(scores, nan=0), .01), 1)
     geo = 100*np.exp(np.sum(normalized*np.log(safe),axis=1))
-    arith = 100*np.sum(normalized*np.where(active,np.nan_to_num(scores,nan=0),0),axis=1)
+    # Use the same 0.01 floor as the geometric score so AM-GM holds.
+    arith = 100*np.sum(normalized*np.where(active,safe,0),axis=1)
     coverage = np.divide(total,weights.sum(),out=np.zeros_like(total),where=weights.sum()>0)
     geo[~valid] = np.nan; arith[~valid] = np.nan
     return geo, arith, coverage, valid, normalized

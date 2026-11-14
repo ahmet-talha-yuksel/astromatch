@@ -12,12 +12,12 @@ def _spearman(a,b):
 
 def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
     out=Path(out); out.mkdir(parents=True,exist_ok=True)
-    rng=np.random.default_rng(seed); report={'targets':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{}}
+    rng=np.random.default_rng(seed); report={'data_status':ds.mode,'disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT' if ds.mode=='mock' else None,'targets':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{}}
     presets=list(config('presets.yaml'))
     for t in ds.targets:
         key=f'{t.region_id}__{t.scale}'
         for preset in presets:
-            result=rank(ds,t.region_id,t.scale,preset)
+            result=rank(ds,t.region_id,t.scale,preset,detailed=True)
             rows=result.full_scores
             ranks={r['id']:i+1 for i,r in enumerate(rows)}
             known=[a.region_id for a in ds.known_analogs if a.scale==t.scale and a.region_id in ranks]
@@ -57,7 +57,9 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
             else: report['roc_auc_reason']='Both labeled positives and negatives required for same target/scale'
         except ImportError: report['roc_auc_reason']='scikit-learn unavailable'
     (out/'validation_report.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
-    lines=['# Validation report','',f"ROC/AUC: {report['roc_auc'] if report['roc_auc'] is not None else 'skipped — '+str(report['roc_auc_reason'])}",'']
+    lines=['# Validation report','']
+    if ds.mode=='mock': lines.extend(['MOCK DATA — NOT A SCIENTIFIC RESULT',''])
+    lines.extend([f"ROC/AUC: {report['roc_auc'] if report['roc_auc'] is not None else 'skipped — '+str(report['roc_auc_reason'])}",''])
     for key,entry in report['targets'].items(): lines.append(f"- {key}: {len(entry['known_analogs'])} known analogs; recall 1/5/10%: {entry['recall_at']}")
     (out/'validation_report.md').write_text('\n'.join(lines)+'\n')
     return report

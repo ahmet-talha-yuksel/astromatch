@@ -7,7 +7,7 @@ CENTERS = np.array([8,18,.3,30,250,80])
 SPREADS = np.array([6,12,.2,20,140,50])
 
 def _region(rid,name,kind,body,scale,lat,lon,vals,valid=True):
-    return {'schema_version':'2.3','region_id':rid,'kind':kind,'body':body,'name':name,'lat':lat,'lon':lon,'scale':scale,'window_km':10 if scale=='local' else 50,'analysis_resolution_m':500,'source_resolution_m':463,'resolution_validated':valid,'dem_source':'MOCK','features':{k:{'value':None if v is None else float(v),'data_status':'mock','comparable':bool(valid)} for k,v in zip(KEYS,vals)} | {'surface_temp_diurnal_range_c':{'value':80,'data_status':'mock','comparable':False,'comparability_note':'Temperature is not compared across bodies'}},'earth_filters':{'ndvi_mean':.08,'precip_mm_yr':45,'land_fraction':.97},'quality':{'coverage':'full','nodata_ratio':.01,'warnings':[]},'processing_version':'0.1.0','tags':[],'data_status':'mock'}
+    return {'schema_version':'2.3','region_id':rid,'kind':kind,'body':body,'name':name,'lat':lat,'lon':lon,'scale':scale,'window_km':10 if scale=='local' else 50,'analysis_resolution_m':500,'source_resolution_m':463,'resolution_validated':valid,'dem_source':'MOCK','features':{k:{'value':None if v is None else float(v),'data_status':'mock','comparable':bool(valid)} for k,v in zip(KEYS,vals)} | {'surface_temp_diurnal_range_c':{'value':80,'data_status':'mock','comparable':False,'comparability_note':'Temperature is not compared across bodies'}},'earth_filters':{'ndvi_mean':.08,'precip_mm_yr':45,'land_fraction':.97},'quality':{'coverage':'full','nodata_ratio':.01,'warnings':[]},'processing_version':'0.1.0','tags':[],'data_status':'mock','disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT'}
 
 def generate(n_grid=5000, seed=42):
     rng=np.random.default_rng(seed)
