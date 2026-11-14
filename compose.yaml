@@ -15,7 +15,8 @@ services:
       ASTROMATCH_PRECOMPUTE: ${ASTROMATCH_PRECOMPUTE:-0}
       ASTROMATCH_WORKERS: ${ASTROMATCH_WORKERS:-1}
       ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/features.json}
-      ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/earth_grid.parquet}
+      ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/global_expansion/earth_grid_combined.parquet}
+      ASTROMATCH_COVERAGE: ${ASTROMATCH_COVERAGE:-/app/processing/out/global_expansion/coverage_combined.geojson}
       ASTROMATCH_KNOWN: ${ASTROMATCH_KNOWN:-/app/discovery/out/known_analogs.json}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:5174}
     volumes:
@@ -67,7 +68,8 @@ services:
       ASTROMATCH_DATA_MODE: ${ASTROMATCH_DATA_MODE:-auto}
       ASTROMATCH_RESULTS_DIR: ${ASTROMATCH_RESULTS_DIR:-/app/engine/out}
       ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/features.json}
-      ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/earth_grid.parquet}
+      ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/global_expansion/earth_grid_combined.parquet}
+      ASTROMATCH_COVERAGE: ${ASTROMATCH_COVERAGE:-/app/processing/out/global_expansion/coverage_combined.geojson}
       ASTROMATCH_KNOWN: ${ASTROMATCH_KNOWN:-/app/discovery/out/known_analogs.json}
     volumes:
       - ./processing/out:/app/processing/out:ro

@@ -1,0 +1,20 @@
+{
+  "new_records": 604,
+  "new_eligible": 604,
+  "combined_records": 1012,
+  "original_records": 408,
+  "original_grid_sha256": "eaf434a1fe1b9de3ae81f3762826c8b63154fce53696a7c37c5c1552bf20297e",
+  "original_grid_unchanged": true,
+  "areas": {
+    "southwest_us": 100,
+    "andes": 96,
+    "sahara": 100,
+    "east_africa": 100,
+    "arabia": 100,
+    "iran": 100,
+    "australia": 4,
+    "east_asia": 4
+  },
+  "mask_failures": 0,
+  "scope": "bounded_multi_continent_sample_not_full_global_scan"
+}
