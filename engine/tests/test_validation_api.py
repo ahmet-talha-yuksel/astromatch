@@ -103,4 +103,8 @@ def test_export_long_format(tmp_path):
     assert frame.groupby("target_id").size().to_dict() == {alias: 5000 for alias in ("T-01","T-02","T-03","T-04","T-05")}
     assert frame.score.isna().sum() == csv.score.isna().sum() == 32 * 3 + 5000 * 2
     assert "s_slope_median_deg" in frame
+    assert {'score_ci_low','score_ci_high','rank_p5','rank_p95','top10_stability'} <= set(frame.columns)
+    scored=frame.loc[frame.score.notna()]
+    assert (scored.score_ci_low <= scored.score).all()
+    assert (scored.score <= scored.score_ci_high).all()
     assert json.loads((tmp_path / "scores_manifest.json").read_text())["data_status"] == "mock"

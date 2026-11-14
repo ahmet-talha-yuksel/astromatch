@@ -64,7 +64,7 @@ def nearest_known_distances(candidates, known):
         result[valid[chunk_start:chunk_start+4096]]=6371*2*np.arcsin(np.sqrt(np.clip(a,0,1))).min(axis=1)
     return result
 
-def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|None=None,k:int=20,filter_mode:str='flag',detailed:bool=False,sigma_override:dict|None=None,_sensitivity_probe:bool=False) -> RankResult:
+def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|None=None,k:int=20,filter_mode:str='flag',detailed:bool=False,sigma_override:dict|None=None,_sensitivity_probe:bool=False,include_uncertainty:bool=False) -> RankResult:
     if filter_mode not in ('flag','exclude'): raise ValueError('filter_mode must be flag or exclude')
     if k<1: raise ValueError('k must be positive')
     target=next((t for t in ds.targets if t.region_id==target_id and t.scale==scale),None)
@@ -151,6 +151,10 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         full.append(row)
     full.sort(key=lambda r:(r['distance_z'],r['id']))
     commonality=terrain_commonality(full,{c.region_id for c in candidates if c.kind=='earth_grid'})
+    if include_uncertainty and full:
+        from .uncertainty import simulate
+        intervals=simulate(target,candidates,keys,values,eligible,w,sig,feats,full,preset=preset)
+        for row in full: row.update(intervals[row['id']])
     best=full[0]['distance_z'] if full else 0.0
     discrimination,discrimination_explanation=classify([r['score_geo'] for r in full],target_id=target_id)
     top_five=max(1,math.ceil(len(full)*.05))
@@ -179,13 +183,13 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
             row['floored_criteria']=[key for j,key in enumerate(keys) if eligible[i,j] and scores[i,j]<=.01]
             row['per_criterion']={key:{'target_value':target.features[key].value,'candidate_value':c.features[key].value,'sigma':sig[key]['value'],'sigma_source':sig[key]['sigma_source'],'n_samples':sig[key]['n_samples'],'s_i':float(scores[i,j]),'weight':float(norm[i,j])} for j,key in enumerate(keys) if eligible[i,j] and w[j]>0}
             row['not_compared']=missing_reasons(i)
-        row['explanation']=build(target,c,row['per_criterion'],row['score_geo'],row['flags'],row['not_compared'],row['match_level'],discrimination,commonality).model_dump()
+        row['explanation']=build(target,c,row['per_criterion'],row['score_geo'],row['flags'],row['not_compared'],row['match_level'],discrimination,commonality,row).model_dump()
     if ds.mode=='mock':
         for row in excluded: row.update(data_status='mock',disclaimer=DISCLAIMER)
     return RankResult(target_id=target_id,scale=scale,preset=preset,top_k=top,full_scores=full,excluded=excluded,novel_candidates=[r for r in top if not r['is_known']],sigma=sig,data_status='mock' if ds.mode=='mock' else 'real',disclaimer=DISCLAIMER if ds.mode=='mock' else None,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,target_status=state,target_reason=reason,discrimination_label=discrimination,discrimination_explanation=discrimination_explanation,terrain_commonality=commonality)
 
 def explain(ds,target_id,candidate_id,scale,preset='balanced'):
-    result=rank(ds,target_id,scale,preset,detailed=True)
+    result=rank(ds,target_id,scale,preset,detailed=True,include_uncertainty=True)
     row=next((r for r in result.full_scores if r['id']==candidate_id),None)
     if row is None:
         if result.target_status=='unscorable':
@@ -195,7 +199,7 @@ def explain(ds,target_id,candidate_id,scale,preset='balanced'):
         raise ValueError(f'Candidate {candidate_id} not ranked')
     target=next(t for t in ds.targets if t.region_id==target_id and t.scale==scale)
     candidate=next(c for c in ds.candidates if c.region_id==candidate_id and c.scale==scale)
-    return build(target,candidate,row['per_criterion'],row['score_geo'],row['flags'],row['not_compared'],row['match_level'],result.discrimination_label,result.terrain_commonality)
+    return build(target,candidate,row['per_criterion'],row['score_geo'],row['flags'],row['not_compared'],row['match_level'],result.discrimination_label,result.terrain_commonality,row)
 
 def heat(ds,target_id,scale,preset='balanced'):
     result=rank(ds,target_id,scale,preset)

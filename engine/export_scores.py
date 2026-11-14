@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 
 import pandas as pd
+import numpy as np
 
 from .io import ROOT, feature_paths, merged_features
 from .validation_api import _score_grid, list_target_ids
@@ -77,6 +78,10 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
         grid_df = grid_df.assign(cell_id=grid_df["region_id"])
     aliases = list_target_ids()
     active = aliases
+    from .io import load_dataset
+    from .models import DataPaths
+    from .ranking import rank
+    dataset=load_dataset(mock=True,mock_n_grid=5000) if mock else load_dataset(DataPaths(features=[str(p) for p in feature_files],grid=str(grid_path)))
     frames = []
     sigma_tables = {}
     counts = {}
@@ -84,6 +89,19 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     for alias in active:
         scored = _score_grid(grid_df, alias, preset, sigma=sigma, scale="regional",
                              return_criteria=criteria, target_records=targets)
+        base=aliases.get(alias)
+        target_id=alias if mock else f'{base}_regional' if base else None
+        matching=next((t for t in dataset.targets if t.region_id==target_id and t.scale=='regional'),None)
+        intervals={}
+        if matching is not None:
+            ranked=rank(dataset,target_id,'regional',preset,include_uncertainty=True)
+            intervals={row['id']:row for row in ranked.full_scores}
+        for column in ('score_ci_low','score_ci_high','rank_p5','rank_p95','top10_stability'):
+            scored[column]=scored['cell_id'].map({rid:row.get(column) for rid,row in intervals.items()})
+        for column in ('score_ci_low','score_ci_high'):
+            scored[column]=scored[column]/100
+        scored['score_ci_low']=np.minimum(scored['score_ci_low'],scored['score'])
+        scored['score_ci_high']=np.maximum(scored['score_ci_high'],scored['score'])
         sigma_tables[alias] = scored.attrs["sigma_table"]
         counts[alias] = {"scored": int(scored.score.notna().sum()),
                          "nan": int(scored.score.isna().sum())}
