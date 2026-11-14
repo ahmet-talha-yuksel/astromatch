@@ -1,0 +1,15 @@
+# Mars measured-only regional handoff (v2.3)
+
+Use `features.json` records to replace matching regional Mars targets in the consumer adapter. T-04 Phoenix, T-01 Jezero regional, T-05 Arcadia. No Jezero local processing is performed. Failed records remain present with `resolution_validated: false` and `measurement_support.unscorable_reasons`.
+
+Reproduce each target with `processing/.venv/bin/python -m processing.scripts.measured_mars phoenix` (or `jezero`, `arcadia`). Inputs are the existing locally cached official MOLA MEGDR topography and observation-count crops. Source URLs, original raster hash, count raster hash, radius and retrieval date are recorded per target; original retrieval manifests remain in `out/mars_candidates/retrieval.json` and `out/salda_jezero/retrieval.json`.
+
+`measured_only_planefit_v1`: 50×50 km LAEA, 1000 m cells, sphere radius 3396000 m. Source bins with observation count zero are masked **before** area-average reprojection. An analysis cell with no measured contribution remains NoData. Raw unmeasured ratio is the fraction of those analysis cells, not the fraction of source pixels. Both estimators use identical area-average reprojection and terrain definitions.
+
+Slope uses a least-squares plane on at least six finite samples in a 3×3 neighborhood (including center when available). Outside-window samples are missing; no reflected or interpolated boundary values. Slope may be evaluated at a missing center from six measured neighbors. TRI uses the same six-sample minimum, additionally requires a measured center, and is the Riley square root of the sum of squared measured-neighbor differences. Relief is p95−p5, elevation standard deviation uses ddof=0; both use finite measured cells only. Flat fraction uses slope <5 degrees. Median, p90 and flat fraction use only computed slopes.
+
+`quality.nodata_ratio` is the fraction of all 2500 cells without computed slope. All six sensitivity comparisons must pass relative difference <=0.15 **or** their absolute tolerance, and effective NoData must be <=0.30. Relative difference denominator is absolute interpolated value; when zero, unequal values use only the absolute check (`rel_diff: null`). Missing metrics fail. This is a user-approved **engineering sensitivity threshold**, not independent accuracy validation. `method` names the estimator; `measurement_support.validation_basis` states the engineering basis explicitly.
+
+`features_interpolated` contains the six plain numeric control values computed with the same plane-fit and TRI estimator on the original interpolated DEM. The engine can rerank with those values and report rank changes. Existing Earth methods remain versioned separately; consumers must explicitly support this new method rather than silently treating method strings as equal.
+
+The discovery `processing/out/earth_grid.parquet` and its cell IDs are untouched. Local Earth reference expansion was deferred; local sigma remains `fixed_default` until a local reference population is supplied. Existing Moon support reviews and legacy Mars probe outputs are historical diagnostics and are not overwritten by this handoff.
