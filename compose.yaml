@@ -1,21 +1,29 @@
 services:
   backend:
+    image: astromatch-backend:local
     build:
       context: .
       dockerfile: backend/Dockerfile
     ports:
       - "8000:8000"
-    volumes:
-      - ./backend:/app/backend
-      - ./engine:/app/engine:ro
-      - ./discovery:/app/discovery:ro
-      - ./data:/app/data:ro
-      - ./shared:/app/shared:ro
+    env_file:
+      - path: .env
+        required: false
     environment:
-      ASTROMATCH_DATA_DIR: /app/data
-    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
+      ASTROMATCH_DATA_MODE: ${ASTROMATCH_DATA_MODE:-auto}
+      ASTROMATCH_RESULTS_DIR: ${ASTROMATCH_RESULTS_DIR:-/app/engine/out}
+      ASTROMATCH_PRECOMPUTE: ${ASTROMATCH_PRECOMPUTE:-0}
+      ASTROMATCH_WORKERS: ${ASTROMATCH_WORKERS:-1}
+      ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/features.json}
+      ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/earth_grid.parquet}
+      ASTROMATCH_KNOWN: ${ASTROMATCH_KNOWN:-/app/discovery/out/known_analogs.json}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:5174}
+    volumes:
+      - ./processing/out:/app/processing/out:ro
+      - ./discovery/out:/app/discovery/out:ro
+      - engine_results:/app/engine/out
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3)"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -30,7 +38,8 @@ services:
       VITE_API_BASE_URL: http://localhost:8000
     command: npm run dev -- --host 0.0.0.0
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:5173/"]
       interval: 10s
@@ -45,3 +54,25 @@ services:
       - ./terrain3d:/app
       - /app/node_modules
     command: npm run dev -- --host 0.0.0.0
+  precompute:
+    profiles: ["precompute"]
+    image: astromatch-backend:local
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      ASTROMATCH_DATA_MODE: ${ASTROMATCH_DATA_MODE:-auto}
+      ASTROMATCH_RESULTS_DIR: ${ASTROMATCH_RESULTS_DIR:-/app/engine/out}
+      ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/features.json}
+      ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/earth_grid.parquet}
+      ASTROMATCH_KNOWN: ${ASTROMATCH_KNOWN:-/app/discovery/out/known_analogs.json}
+    volumes:
+      - ./processing/out:/app/processing/out:ro
+      - ./discovery/out:/app/discovery/out:ro
+      - engine_results:/app/engine/out
+    command: ["precompute"]
+volumes:
+  engine_results:
