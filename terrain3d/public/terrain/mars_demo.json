@@ -1,0 +1,10 @@
+{
+  "id": "mars-synthetic-json", "name": "Synthetic Mars ridge", "body": "Mars",
+  "width": 4, "height": 4,
+  "heights": [100, 110, 120, 105, 110, 150, 170, 115, 105, 140, 160, 110, 100, 105, 110, 100],
+  "cellSizeMeters": 100, "resolutionMeters": 100, "verticalExaggeration": 1,
+  "source": "Procedurally generated fixture; NOT NASA measurements", "dataType": "synthetic",
+  "horizontalWindowMeters": { "width": 300, "height": 300 },
+  "verticalDatum": "Synthetic local elevation reference",
+  "coordinateReferenceSystem": "Synthetic local metric grid"
+}

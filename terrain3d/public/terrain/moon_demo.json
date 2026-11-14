@@ -1,0 +1,11 @@
+{
+  "id": "moon-synthetic-json", "name": "Synthetic Moon surface with NoData", "body": "Moon",
+  "width": 4, "height": 4,
+  "heights": [50, 60, 70, 55, 60, null, 95, 65, 55, 80, 90, 60, 50, 55, 60, 50],
+  "validMask": [true, true, true, true, true, false, true, true, true, true, true, true, true, true, true, true],
+  "cellSizeMeters": 100, "resolutionMeters": 100, "verticalExaggeration": 1,
+  "source": "Procedurally generated fixture; NOT NASA measurements", "dataType": "synthetic",
+  "horizontalWindowMeters": { "width": 300, "height": 300 },
+  "verticalDatum": "Synthetic local elevation reference",
+  "coordinateReferenceSystem": "Synthetic local metric grid"
+}

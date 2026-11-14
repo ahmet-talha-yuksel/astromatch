@@ -4,3 +4,5 @@ dist/
 *.tif
 *.tiff
 __pycache__/
+.test-build/
+*.tsbuildinfo
