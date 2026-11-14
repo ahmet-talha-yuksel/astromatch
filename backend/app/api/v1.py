@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Literal
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
-from engine import explain as engine_explain, heat as engine_heat, list_targets, rank as engine_rank
+from engine import RankResult, explain as engine_explain, heat as engine_heat, list_targets, rank as engine_rank
 from engine.io import config
 from engine.ranking import DISCLAIMER
 from backend.app.core.config import settings
@@ -36,13 +36,25 @@ def validate_weights(weights):
 
 def ranked(target_id,scale,preset,k,filter_mode,weights=None,detailed=False):
     ds=checked(target_id,scale,preset); validate_weights(weights)
+    if Path(settings.results_dir).name=='demo_results' and weights is None and filter_mode=='flag':
+        stem='__'.join(re.sub(r'[^A-Za-z0-9_-]','_',v) for v in (target_id,scale,preset))
+        path=Path(settings.results_dir)/(stem+'.json')
+        if path.exists():
+            try:
+                saved=RankResult.model_validate_json(path.read_text())
+                if saved.data_status==ds.mode and k<=20 and (not detailed or all('per_criterion' in row for row in saved.full_scores)):
+                    saved.top_k=saved.top_k[:k]
+                    selected={row['id'] for row in saved.top_k}
+                    saved.novel_candidates=[row for row in saved.novel_candidates if row['id'] in selected]
+                    return saved
+            except (ValueError,TypeError): pass
     try: return engine_rank(ds,target_id,scale,preset,weights=weights,k=k,filter_mode=filter_mode,detailed=detailed)
     except ValueError as exc: raise HTTPException(422,str(exc)) from exc
 
 @router.get('/health',response_model=HealthResponse)
 def health_v1():
     ds=get_dataset()
-    return {**meta(),'status':'ok','data_mode':active_mode(),'engine_version':'1.0.0','dataset_counts':{'targets':len(ds.targets),'candidates':len(ds.candidates),'known_analogs':len(ds.known_analogs)},'sklearn_available':importlib.util.find_spec('sklearn') is not None,'hdbscan_available':importlib.util.find_spec('hdbscan') is not None}
+    return {**meta(),'status':'ok','data_mode':active_mode(),'engine_version':'1.0.0','dataset_counts':{'targets':len(ds.targets),'candidates':len(ds.candidates),'known_analogs':len(ds.known_analogs),'earth_references':sum(r.kind=='earth_reference' for r in ds.candidates)},'sklearn_available':importlib.util.find_spec('sklearn') is not None,'hdbscan_available':importlib.util.find_spec('hdbscan') is not None}
 
 @router.get('/targets',response_model=TargetsResponse)
 def targets_v1():
@@ -91,7 +103,7 @@ def heat_v1(target_id:str,scale:Literal['local','regional']='local',preset:str='
 
 @router.get('/regions/{region_id}',response_model=RegionResponse)
 def region_v1(region_id:str):
-    ds=get_dataset(); records=[r for r in ds.candidates+ds.targets if r.region_id==region_id]
+    ds=get_dataset(); records=[r for r in ds.candidates+ds.targets if r.region_id==region_id and r.kind!='earth_reference']
     if not records: raise HTTPException(404,f'Unknown region: {region_id}')
     scores=[]
     for record in records:

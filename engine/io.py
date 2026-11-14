@@ -17,10 +17,10 @@ def _read(path):
     data = json.loads(path.read_text())
     return data if isinstance(data, list) else data['regions'] if 'regions' in data else [data]
 
-def load_dataset(paths: DataPaths | None = None, mock: bool = False) -> Dataset:
+def load_dataset(paths: DataPaths | None = None, mock: bool = False, mock_n_grid: int = 5000) -> Dataset:
     if mock:
         from .mock import generate
-        raw_t, raw_c, raw_k = generate()
+        raw_t, raw_c, raw_k = generate(n_grid=mock_n_grid)
         sources = {}
     else:
         paths = paths or DataPaths()
@@ -57,6 +57,8 @@ def load_dataset(paths: DataPaths | None = None, mock: bool = False) -> Dataset:
     configured = set(config('features.yaml')['features'])
     for records, dest, kind in [(raw_t,ds.targets,'target'),(raw_c,ds.candidates,'earth_site'),(raw_k,ds.known_analogs,'earth_site')]:
         for row in records:
-            try: dest.append(adapt(row,kind,ds.defaults_applied,configured,ds.warnings))
+            try:
+                region=adapt(row,kind,ds.defaults_applied,configured,ds.warnings)
+                (ds.candidates if dest is ds.known_analogs and region.kind=='earth_reference' else dest).append(region)
             except Exception as exc: ds.invalid_records.append(f"{row.get('region_id',row.get('id','<unknown>'))}: {exc}")
     return ds

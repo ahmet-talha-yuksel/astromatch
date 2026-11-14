@@ -16,6 +16,8 @@ def test_rank_100k_full_path(monkeypatch):
     ds=Dataset(targets=[adapt(targets[1])],candidates=[adapt(c) for c in candidates if c['scale']=='regional'],known_analogs=[adapt(c) for c in known],mode='mock')
     original=ml.analyze
     monkeypatch.setattr(ml,'analyze',lambda *args,**kwargs:None)
+    # Warm configuration and array machinery before the timed full public call.
+    rank(ds,'T-01','regional','balanced',k=1)
     start=time.perf_counter(); without=rank(ds,'T-01','regional','balanced',k=20); no_ml=time.perf_counter()-start
     monkeypatch.setattr(ml,'analyze',original)
     start=time.perf_counter(); with_ml=rank(ds,'T-01','regional','balanced',k=20); with_ml_s=time.perf_counter()-start

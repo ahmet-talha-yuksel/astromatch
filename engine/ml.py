@@ -52,6 +52,7 @@ def pca_export(ds):
     points=[]; values=[]
     for role,records in [('earth',ds.candidates),('target',ds.targets),('known_analog',ds.known_analogs)]:
         for r in records:
+            if r.kind=='earth_reference': continue
             vals=[r.features[key].value if key in r.features else None for key in keys]
             if any(v is None for v in vals): continue
             values.append(vals); points.append({'id':r.region_id,'role':role,'scale':r.scale})

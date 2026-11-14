@@ -73,6 +73,6 @@ class RankResult(BaseModel):
     full_scores: list[dict]
     excluded: list[dict]
     novel_candidates: list[dict]
-    sigma: dict[str, dict[str, float | str]]
+    sigma: dict[str, dict[str, int | float | str]]
     data_status: str
     disclaimer: str | None = None
