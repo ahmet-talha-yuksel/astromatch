@@ -1,0 +1,204 @@
+{
+  "schema_version": "2.3",
+  "report_kind": "resolution_sensitivity",
+  "method": "metric-gradient-riley8-p95p5-v1",
+  "results": [
+    {
+      "region_id": "moon_marius_hills_regional",
+      "body": "moon",
+      "scale": "regional",
+      "window_km": 50,
+      "source_file_sha256": "51c7e8c2ce1b410a98ef078fa5f2bc643c5a15b0ca01e275e1c89addcd3a3a4f",
+      "first_tested_resolution_with_all_cells_supported_m": 2500,
+      "candidates": [
+        {
+          "analysis_resolution_m": 1000,
+          "grid_shape": [
+            50,
+            50
+          ],
+          "interior_tri_cells_max": 2304,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.3429884612560272,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 248,
+            "analysis_cells_total": 2500,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.1002738201094764,
+            "slope_p90_deg": 3.2037712521020785,
+            "flat_fraction": 0.9788,
+            "tri_median_m": 55.73932097759034,
+            "relief_m": 670.7349112903605,
+            "elevation_std_m": 204.81175667463864
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": null,
+            "slope_p90_deg": null,
+            "flat_fraction": null,
+            "tri_median_m": null,
+            "relief_m": null,
+            "elevation_std_m": null
+          }
+        },
+        {
+          "analysis_resolution_m": 1250,
+          "grid_shape": [
+            40,
+            40
+          ],
+          "interior_tri_cells_max": 1444,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.343099981546402,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 73,
+            "analysis_cells_total": 1600,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.0591050520839767,
+            "slope_p90_deg": 2.916187817643171,
+            "flat_fraction": 0.983125,
+            "tri_median_m": 69.96811252526354,
+            "relief_m": 664.7522528117981,
+            "elevation_std_m": 204.53456745027262
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.041168768025499736,
+            "slope_p90_deg": -0.28758343445890766,
+            "flat_fraction": 0.004325000000000023,
+            "tri_median_m": 14.228791547673197,
+            "relief_m": -5.982658478562371,
+            "elevation_std_m": -0.2771892243660261
+          }
+        },
+        {
+          "analysis_resolution_m": 2000,
+          "grid_shape": [
+            25,
+            25
+          ],
+          "interior_tri_cells_max": 529,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.3429824113845825,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 16,
+            "analysis_cells_total": 625,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.0444036138432151,
+            "slope_p90_deg": 2.5465435175046,
+            "flat_fraction": 0.9952,
+            "tri_median_m": 109.7431340648366,
+            "relief_m": 666.9654206089549,
+            "elevation_std_m": 203.67918922586358
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.014701438240761533,
+            "slope_p90_deg": -0.36964430013857097,
+            "flat_fraction": 0.012074999999999947,
+            "tri_median_m": 39.77502153957306,
+            "relief_m": 2.213167797156757,
+            "elevation_std_m": -0.8553782244090371
+          }
+        },
+        {
+          "analysis_resolution_m": 2500,
+          "grid_shape": [
+            20,
+            20
+          ],
+          "interior_tri_cells_max": 324,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.34314078092575073,
+            "min_observed_bin_fraction": 0.09177552908658981,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 0,
+            "analysis_cells_total": 400,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": true,
+          "features": {
+            "slope_median_deg": 1.016584597330921,
+            "slope_p90_deg": 2.2186561218714327,
+            "flat_fraction": 0.9975,
+            "tri_median_m": 132.76062771313914,
+            "relief_m": 657.6227465739212,
+            "elevation_std_m": 203.07446424595204
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.027819016512294015,
+            "slope_p90_deg": -0.32788739563316716,
+            "flat_fraction": 0.0023000000000000798,
+            "tri_median_m": 23.017493648302548,
+            "relief_m": -9.342674035033724,
+            "elevation_std_m": -0.6047249799115377
+          }
+        },
+        {
+          "analysis_resolution_m": 5000,
+          "grid_shape": [
+            10,
+            10
+          ],
+          "interior_tri_cells_max": 64,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.3431876003742218,
+            "min_observed_bin_fraction": 0.21808494627475739,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 0,
+            "analysis_cells_total": 100,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": true,
+          "features": {
+            "slope_median_deg": 0.9185855606457493,
+            "slope_p90_deg": 1.6773448049308217,
+            "flat_fraction": 1.0,
+            "tri_median_m": 224.00942978367434,
+            "relief_m": 644.9079535645376,
+            "elevation_std_m": 200.25375051307768
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.09799903668517185,
+            "slope_p90_deg": -0.541311316940611,
+            "flat_fraction": 0.0024999999999999467,
+            "tri_median_m": 91.24880207053519,
+            "relief_m": -12.714793009383584,
+            "elevation_std_m": -2.820713732874367
+          }
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "source_quality_verified": false,
+    "promote_to_comparable": false,
+    "reason": "Observed support in every analysis cell is necessary, not sufficient to establish effective terrain resolution or metric accuracy."
+  },
+  "limitations": [
+    "This is a sensitivity report, not proof that terrain metrics converge.",
+    "Riley TRI in meters varies with pixel spacing; raw TRI changes are not an accuracy test.",
+    "Local 2000 m analysis has only 5x5 cells and at most 9 interior TRI cells.",
+    "No automatic thresholds for feature stability or interpolation error are asserted.",
+    "Original real-data config and comparable flags are not modified."
+  ]
+}

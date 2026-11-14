@@ -3,7 +3,10 @@
 Güncel ekip teslimi: `out/real/features.json` **21 kayıt** içerir (8 Dünya
 sahası × 2 ölçek, Jezero × 2, Shackleton × 2, Marius Hills regional).
 18 kaydın topoğrafik işlem QA bayrakları açıktır; Jezero ve Marius Hills
-skorlamaya kapalıdır. Local Dünya girdileri GLO-30, regional girdiler GLO-90'dır.
+skorlamaya kapalıdır. Local Dünya girdileri GLO-30'dur. Regional girdilerde
+7 saha SRTMGL30.002, SRTM enlem kapsamı dışındaki Haughton GLO-90 kullanır.
+`out/source_transition.json`, 7 eş pencerede SRTM−GLO-90 özellik farklarını
+saklar; bu farklar bağımsız doğruluk ölçümü değildir (EGM96/EGM2008 farkı dahil).
 Kişi 2 için ham veri gerektirmeyen paket: `out/handoff/kisi2_v2_3.zip`.
 ZIP içindeki HANDOFF.md v2.3 okuyucu sözleşmesini açıklar. Motor aynı pencere,
 çözünürlük ve yöntemi kontrol etmeli; iki tarafta comparable=true olmayan
@@ -11,15 +14,120 @@ ZIP içindeki HANDOFF.md v2.3 okuyucu sözleşmesini açıklar. Motor aynı penc
 Aşağıdaki ilk teslim açıklamaları ve QA anlık görüntüleri denetim bağlamıdır.
 
 
-Güncel ortak teslim `out/real/` altındadır. Bu pakette dört Dünya sahası ile
-Shackleton'ın local/regional topoğrafik karşılaştırması işlem QA kontrolünden
-geçmiştir (10 kayıt comparable=true). Jezero'nun iki kaydı ve ön pilot hâlâ
-comparable=false'dur. Bu onay bağımsız doğruluk veya görev uygunluğu doğrulaması
-değildir. Mock paket tamamen sentetiktir. `out/salda_jezero/` ve
-`out/lola_shackleton/` ilk teslim anlık görüntüleridir; güncel onay durumunu
-`out/real/` dosyalarından okuyun.
+Bu onay bağımsız doğruluk veya görev uygunluğu doğrulaması değildir. Mock paket
+tamamen sentetiktir. `out/salda_jezero/` ve `out/lola_shackleton/` ilk teslim
+anlık görüntüleridir; güncel onay durumunu `out/real/` dosyalarından okuyun.
 Sözleşme `AstroMatch_AI_Veri_Plani_v2_3.md` §3, §5 ve §7 temelinde uygulanmıştır.
-Planın gerçek veri, pilot zamanlama ve doğrulama teslimleri bu aşamaya dahil değildir.
+
+Güncel tarama `out/pilot_expanded/` içindedir: Türkiye'deki başlangıç
+10°×10° pilotunun 400 hücresi, Atacama ve İzlanda'da 4'er kontrol hücresi.
+408 hücre işlendi; 216 hücre kara maskesi ve ortak topoğrafik karşılaştırma
+kontrollerinden geçti. Daha geniş 20–50°D / 25–45°K alanın kalan 2000 hücresi
+`not_scanned` olarak açıkça ayrılır. Taranan hücre, otomatik olarak skora uygun
+hücre demek değildir; `comparable` ve `quality` ayrıca kontrol edilir.
+
+Türkiye/Atacama SRTMGL30, İzlanda GLO-90 kullanır. Altı aynı pilot penceresinde
+kaynak farkı ölçülmüştür (`out/pilot_expanded/source_transition.json`). Yerel
+SRTM indirme süresi ölçülmedi; eski GLO-90 süreleri SRTM'ye atanmaz.
+`pilot_timing.json` ayrı aşamaları ve üç alanın ölçümlerini içerir.
+Global senaryolar koşullu iş yükleridir, kesin süre sınırları değildir.
+`operational_decision` muhafazakâr üst senaryodan v2.3 bölgesel kapsamını seçer;
+geniş bölgenin veya dünyanın tamamen tarandığı iddia edilmez.
+`out/pilot/` önceki 8 hücrelik temel karşılaştırmayı saklar.
+
+Jezero/Marius incelemesi `out/quality_review/target_decisions.json` ve
+`out/real/target_quality.json` içindedir. Jezero local'de 106/400, regional'da
+583/2500, Marius regional'da 248/2500 analiz hücresinde ölçülmüş kaynak bini
+yoktur. Kabalaştırma bu sayıları sıfırlayabilir; kaynak çözünürlüğü ve metrik
+kalitesi bu nedenle otomatik doğrulanmaz. Bu üç kayıt kapalı kalır. Kutuptaki
+iki Shackleton kaydı dosya/hash bağlı operasyonel QA politikasını geçmiştir.
+Shackleton merkezi IAU/USGS katalog merkezidir (−89.67, 129.78); kenar konumu
+olarak etiketlenmez. Kaynak polar stereografik, analiz merkezli LAEA ve
+1737400 m Ay küresidir. MOLA kaynak küresi 3396000 m korunur.
+
+SRTM dosyaları `raw/` içinde mevcutken yalnızca topoğrafyayı yeniden üretmek
+(MODIS katmanını ve tam ortak teslimi yenilemek için aşağıdaki `build_release`
+komutunu kullanın):
+
+```sh
+processing/.venv/bin/python -m processing.scripts.apply_srtm_sources
+processing/.venv/bin/python -m processing.scripts.assemble_release
+processing/.venv/bin/python -m processing.scripts.process_dem processing/configs/real_batch.json --output processing/out/real
+processing/.venv/bin/python -m processing.scripts.finish_pilot
+processing/.venv/bin/python -m processing.scripts.package_handoff
+```
+
+Güncel P1 katmanı Haziran 2021 MOD11C3.061 ve MOD13C2.061 dosyalarından
+üretilir. 16 Dünya kaydının 14'ünde kalite filtresini geçen NDVI vardır;
+diğer ikisi null'dır. NDVI yalnızca `earth_filters.ndvi_mean` içindedir.
+Sıcaklıkta 6 gündüz ve 1 gece aylık değer bulunur; aynı piksellerde kaliteyi
+geçen gündüz–gece çifti yoktur. `surface_temp_monthly_overpass_difference_c`
+null kalır ve günlük Tmax−Tmin olarak sunulmaz. Tüm sıcaklıkların comparable
+bayrağı false'tur; topoğrafik onaydan devralınmaz. MODIS ortalamaları yalnızca
+kabul edilen CMG piksellerine aittir; örnek alanın yarısından azı geçiyorsa
+`quality.environment` bunu açıklar. Yerel 500 m sıcaklık/NDVI ayrıntısı üretilmez.
+
+Ham DEM, counts, QA ve pilot önbellekleri mevcutken, aynı teslimi MODIS ile
+birlikte yeniden üretmek için tek komut:
+
+```sh
+processing/.venv/bin/python -m processing.scripts.build_release \
+  --lst /path/to/MOD11C3.A2021152.061.2021190161921.hdf \
+  --ndvi /path/to/MOD13C2.A2021152.061.2021194035425.hdf \
+  --accessed-on YYYY-MM-DD
+```
+
+Bu komut indirme yapmaz. JSON/Parquet/GeoJSON, heightmap'ler, QA raporları ve
+`environment.json` hem `out/real/` altında hem planın doğrudan `out/` yollarında
+yayımlanır; `out/mock/` sentetik örnekleri ve `out/pilot/` tarama örneklerini korur.
+Kişi 3 için `out/earth_grid.parquet` gerçek 408 ızgara kaydını, `out/coverage.geojson`
+2408 hücrenin durumunu taşır. Kişi 2 için `out/real/features.json` veya küçük
+ZIP, seçilmiş 21 saha/hedef kaydını sunar. ZIP ve `out/real/earth_grid.parquet`
+8 seçilmiş regional Dünya sahasını içerir; bunlar keşif ızgarası değildir.
+Kök `features.json` seçilmiş kayıtları, kök Parquet ise tarama kayıtlarını içerir.
+Mevcut `earth_grid_rRRR_cCCC` kimlikleri sabittir; yeni koordinat-ID biçimine
+geçirilmez. Yerel σ için istenen 300 rastgele GLO-30 `earth_reference` penceresi
+bu teslimde yoktur; regional kayıtlar onun yerine sunulmaz.
+
+MOD13C2.061 HDF içindeki gerçek SDS `Legend` üç land/water biti (11–13) ve
+iki geospatial biti (14–15) tanımlar. Eski LAADS dosya-spec tablosundaki farklı
+yerleşim bu dosyaya uygulanmaz. Kalibrasyon NDVI için DN/10000; MOD11C3 için
+DN×0.02−273.15'tir. NoData ve valid_range kalibrasyondan önce uygulanır.
+HDF-EOS'ta eksik GridOrigin ve PixelRegistration alanlarının varsayılanları
+üst-sol ve piksel merkezidir ([HDF Group tanımı](https://docs.hdfgroup.org/archive/support/products/hdf4_tools/hcr-definition.pdf)).
+
+Diviner P1 için henüz yerel ürün ve eş sıcaklık protokolü yoktur; sıcaklık
+skorlaması açılmaz. MEDA GTS, EMIT, Sentinel-2 ve yağış katmanları P2'dir,
+edinilmedi ve veri varmış gibi işaretlenmez. USGS doğrulama listesi ve sıralama
+raporu Kişi 3'ün sorumluluğundadır; bu modül skor veya kesin negatif üretmez.
+
+## Yeni Mars hedefi denemesi (regional)
+
+`out/mars_candidates/review.json` Phoenix (68.2°K, 234.3°D) ve operatörün
+seçtiği güney Arcadia çevresi (40°K, 190°D) merkezlerini kapsar. Aynı MOLA
+128 ppd / 50×50 km / 1000 m yönteminde Phoenix 198/2500 (%7.92), Arcadia
+514/2500 (%20.56) hücrede ölçülmüş bin içermedi. Her iki aday kapalı kaldı;
+T-04 eklenmedi. Bunlar yeraltı buzu veya iniş güvenliği değerlendirmesi değildir.
+100–150 local referans penceresi de henüz üretilmedi. Havuz olmadan local σ
+motor tarafında açıkça `fixed_default` olarak belgelenmelidir; veriyle
+hesaplanmış dağılım parametresi gibi sunulmamalıdır.
+Kaynak etiketleri, byte-range ve hash kanıtları bu dizinin retrieval.json
+manifestindedir. PNG/metadata ve altı özellik de inceleme için paylaşılır.
+Yeniden edinim yalnızca küçük resmî PDS altkümelerini indirir:
+
+```sh
+processing/.venv/bin/python -m processing.scripts.probe_mars_candidates --accessed-on YYYY-MM-DD
+```
+
+Keşif Parquet'inde `kind="earth_grid"`, `cell_id=region_id` bulunur. Kimlik
+biçimi değiştirilmedi. Kişi 2'nin güncel girdileri `out/real/features.json`
+ve **`out/earth_grid.parquet`** dosyalarıdır; `out/real/earth_grid.parquet`
+8 seçilmiş saha içerir ve 408 hücrelik keşif dosyasıyla karıştırılmamalıdır.
+
+## İlk teslimlerden kalan teknik notlar
+
+Aşağıdaki kronolojik uygulama notları eski teslimlerin durumlarını da içerir.
+Güncel sayı, karar ve dosya yolları yukarıdaki teslim açıklamasıdır.
 
 ## Üretim ve test
 

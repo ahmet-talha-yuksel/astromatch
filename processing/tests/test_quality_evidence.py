@@ -10,6 +10,7 @@ from rasterio.transform import from_origin
 
 from processing.scripts.dem import process_dem, validate_comparison
 from processing.scripts.qa_evidence import POLICY_PATH, evaluate, file_hash
+from processing.scripts.metrics import TOPOGRAPHIC
 from processing.tests.test_dem import fixture_dem
 
 
@@ -127,7 +128,7 @@ def test_real_reviewed_package_unlocks_only_qualified_pairs():
     for r in records:
         expected = r['body'] == 'earth' or 'shackleton' in r['region_id']
         assert r['resolution_validated'] is expected
-        assert all(f['comparable'] is expected for f in r['features'].values())
+        assert all(r['features'][key]['comparable'] is expected for key in TOPOGRAPHIC)
         if 'shackleton' in r['region_id']:
             assert r['quality']['qa_validation']['status'] == 'passed'
             evidence = r['quality']['qa_validation']

@@ -42,16 +42,20 @@ def tile_url(lat,lon):
             f'{"N" if lat>=0 else "S"}{abs(lat):02d}{"E" if lon>=0 else "W"}{abs(lon):03d}_Map.tif')
 
 
-def fraction_for_window(lon,lat,raw,region_id,factor=10):
+def fraction_for_window(lon,lat,raw,region_id,factor=10,available_keys=None):
     bounds=window_bounds(lon,lat)
     west,south,east,north=bounds
     target=CRS.from_proj4(f'+proj=laea +lat_0={lat} +lon_0={lon} +datum=WGS84 +units=m')
     target_transform=from_origin(-25000,25000,1000,1000)
     fractions=np.full((50,50),np.nan,dtype='float32')
+    weighted=np.zeros((50,50),dtype='float64');total_weight=np.zeros((50,50),dtype='float64')
     entries=[]
     for tlat in range(math.floor(south/3)*3,math.ceil(north/3)*3,3):
         for tlon in range(math.floor(west/3)*3,math.ceil(east/3)*3,3):
             url=tile_url(tlat,tlon)
+            if available_keys is not None and url.removeprefix(BASE) not in available_keys:
+                entries.append({'url':url,'status':'absent_from_official_tile_index','sample_factor':factor})
+                continue
             intersection=[max(west,tlon),max(south,tlat),min(east,tlon+3),min(north,tlat+3)]
             if intersection[0]>=intersection[2] or intersection[1]>=intersection[3]:continue
             with rasterio.Env(CURL_CA_BUNDLE=certifi.where(),GDAL_DISABLE_READDIR_ON_OPEN='EMPTY_DIR',
@@ -76,8 +80,6 @@ def fraction_for_window(lon,lat,raw,region_id,factor=10):
                       dst_transform=from_origin(-25000,25000,100,100),dst_crs=target.to_wkt(),
                       dst_nodata=0,resampling=Resampling.nearest)
             weights=coverage.reshape(50,10,50,10).mean(axis=(1,3))
-            if not entries:
-                weighted=np.zeros((50,50),dtype='float64');total_weight=np.zeros((50,50),dtype='float64')
             known_fraction=np.zeros((50,50),dtype='float32')
             reproject(np.isfinite(binary).astype('float32'),known_fraction,
                       src_transform=transform,src_crs='EPSG:4326',dst_transform=target_transform,
@@ -89,7 +91,7 @@ def fraction_for_window(lon,lat,raw,region_id,factor=10):
             entries.append({'url':url,'sample_factor':factor,'sample_shape':[rows,cols],
                             'sample_sha256':hashlib.sha256(classes.tobytes()).hexdigest(),
                             'geographic_crop_bounds':intersection})
-    if not entries:raise ValueError('No WorldCover source samples')
+    if not entries:raise ValueError('No WorldCover source samples or index evidence')
     known=total_weight>0
     fractions[known]=(weighted[known]/total_weight[known]).astype('float32')
     raw.mkdir(parents=True,exist_ok=True)
@@ -100,17 +102,32 @@ def fraction_for_window(lon,lat,raw,region_id,factor=10):
     return fractions,np.clip(total_weight,0,1),entries
 
 
-def acquire(config_path,root,accessed_on):
+def acquire(config_path,root,accessed_on,output_path=None):
     date.fromisoformat(accessed_on)
     root=Path(root).resolve();raw=root/'raw/worldcover'
     acquisition=json.loads(Path(config_path).read_text())
+    output_path=Path(output_path) if output_path else raw/'landmask.json'
+    index_path=raw/'tile_index.json'
+    available_keys={e['key'] for e in json.loads(index_path.read_text())['entries']} if index_path.exists() else None
+    policy={'max_unknown_fraction':.05,'max_absolute_sampling_difference':.01}
+    cached={r['region_id']:r for r in json.loads(output_path.read_text())['records']} if output_path.exists() else {}
     output=[]
+    manifest={'accessed_on':accessed_on,'product':'ESA WorldCover 2021 v200',
+              'source_portal':'https://esa-worldcover.org/en/data-access','records':output,
+              'attribution':'© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium',
+              'doi':'https://doi.org/10.5281/zenodo.7254221','policy':policy}
+    output_path.parent.mkdir(parents=True,exist_ok=True)
     for attempt in acquisition['attempts']:
         if attempt['status']!='ready':continue
         rid=attempt['region_id'];print('WorldCover',rid,flush=True)
+        request={'lon':attempt['lon'],'lat':attempt['lat'],'factors':[10,5],'policy':policy,'window_km':50}
+        previous=cached.get(rid)
+        if previous and previous.get('request')==request:
+            output.append(previous)
+            continue
         started=perf_counter()
-        coarse,coarse_coverage,entries=fraction_for_window(attempt['lon'],attempt['lat'],raw,rid,factor=10)
-        finer,fine_coverage,reference_entries=fraction_for_window(attempt['lon'],attempt['lat'],raw,rid,factor=5)
+        coarse,coarse_coverage,entries=fraction_for_window(attempt['lon'],attempt['lat'],raw,rid,factor=10,available_keys=available_keys)
+        finer,fine_coverage,reference_entries=fraction_for_window(attempt['lon'],attempt['lat'],raw,rid,factor=5,available_keys=available_keys)
         valid=np.isfinite(coarse)&np.isfinite(finer)
         fraction=weighted_fraction(finer,fine_coverage)
         coarse_fraction=weighted_fraction(coarse,coarse_coverage)
@@ -120,15 +137,12 @@ def acquire(config_path,root,accessed_on):
         output.append({'region_id':rid,'land_fraction':fraction if approved else None,
                        'unknown_fraction':unknown,'source_sampling_difference':delta,'qa_passed':approved,
                        'duration_s':perf_counter()-started,'sources':entries+reference_entries,
+                       'request':request,
                        'method':'WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.',
                        'limitations':'Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry.'})
-    manifest={'accessed_on':accessed_on,'product':'ESA WorldCover 2021 v200',
-              'source_portal':'https://esa-worldcover.org/en/data-access','records':output,
-              'attribution':'© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium',
-              'doi':'https://doi.org/10.5281/zenodo.7254221',
-              'policy':{'max_unknown_fraction':.05,'max_absolute_sampling_difference':.01}}
-    write_json(raw/'landmask.json',manifest)
-    return raw/'landmask.json'
+        write_json(output_path,manifest)  # Per-cell checkpoint survives a later network failure.
+    write_json(output_path,manifest)
+    return output_path
 
 
 if __name__=='__main__':
@@ -136,5 +150,6 @@ if __name__=='__main__':
     parser.add_argument('acquisition',type=Path)
     parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
     parser.add_argument('--accessed-on',required=True)
+    parser.add_argument('--output',type=Path)
     args=parser.parse_args()
-    print(acquire(args.acquisition,args.root,args.accessed_on))
+    print(acquire(args.acquisition,args.root,args.accessed_on,args.output))

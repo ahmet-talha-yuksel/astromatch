@@ -142,7 +142,7 @@ def test_shared_real_pilot_outputs_are_offline_readable():
         assert r['region_id'] == cell_id(r['lon'], r['lat'])
         assert r['window_km'] == 50 and r['analysis_resolution_m'] == 1000
         assert not r['synthetic'] and r['data_status'] == 'derived'
-        assert r['dem_source'] == 'copernicus_glo90'
+        assert r['dem_source'] == ('copernicus_glo90' if r['grid']['pilot_area']=='iceland' else 'srtmgl30')
         assert not r['resolution_validated']
         assert all(f['value'] is not None and not f['comparable'] for f in r['features'].values())
         assert 0 <= r['earth_filters']['land_fraction']['value'] <= 1
@@ -170,8 +170,14 @@ def test_shared_real_pilot_outputs_are_offline_readable():
     assert timing['global_decision']['status'] == 'provisional'
     assert len(timing['global_decision']['estimated_hours_range']) == 2
     assert timing['landmask']['duration_s'] > 0
-    assert timing['dem_sources_measured'] == ['copernicus_glo90']
+    assert timing['dem_sources_measured'] == ['copernicus_glo90', 'srtmgl30']
+    assert timing['source_transition_comparison']['status'] == 'overlap_measured'
+    assert timing['source_transition_comparison']['windows'] == 7
+    assert not timing['source_transition_comparison']['independent_accuracy_validated']
     for item in timing['measurements']:
         assert all(v >= 0 for v in item['processing'].values())
         assert item['processing']['processing_wall_s'] >= item['processing']['feature_extraction_s']
         assert all(v >= 0 for v in item['acquisition'].values())
+        if item['dem_source']=='srtmgl30':
+            assert item['acquisition']=={}
+            assert item['acquisition_timing_status']=='unmeasured_local_import_shared_by_windows'

@@ -1,0 +1,103 @@
+{
+  "accessed_on": "2026-11-14",
+  "inputs": [
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt88n180hb.lbl",
+      "bytes": 4821,
+      "sha256": "8be9ec20f29bca7a98e2b1497bcc437b5e3beb78b5bfa2b66a9b1ee07ef2f44c",
+      "etag": "\"8087ba6daeec61:0\"",
+      "last_modified": "Fri, 13 Oct 2006 15:17:09 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt88n180hb.img",
+      "bytes": 2718720,
+      "sha256": "81d74bedcf9a2ed1cca28e7ff6a53e96fd1de0d595bee480857c675475f5f7c0",
+      "etag": "\"04f9bd6e1f7c21:0\"",
+      "last_modified": "Tue, 01 Apr 2003 00:01:26 GMT",
+      "content_range": "bytes 57047040-59765759/129761280"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc88n180hb.lbl",
+      "bytes": 3089,
+      "sha256": "84597018ee1f6e99b232be81d23d8314cf98f8b2261cb624ed428b38972dcf6d",
+      "etag": "\"8087ba6daeec61:0\"",
+      "last_modified": "Fri, 13 Oct 2006 15:17:09 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc88n180hb.img",
+      "bytes": 1359360,
+      "sha256": "67d8b9a82083fe7ed11c1f11b11184145d18fd6229a59f7fd7a1d832378510dc",
+      "etag": "\"8040fc62e7f7c21:0\"",
+      "last_modified": "Tue, 01 Apr 2003 00:41:09 GMT",
+      "content_range": "bytes 28523520-29882879/64880640"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n180hb.lbl",
+      "bytes": 4819,
+      "sha256": "7baf5c98a89bd903b81f654c4f7b79274b32d24d64e3eb98694cd44865afdbdf",
+      "etag": "\"8087ba6daeec61:0\"",
+      "last_modified": "Fri, 13 Oct 2006 15:17:09 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n180hb.img",
+      "bytes": 2718720,
+      "sha256": "08ed44718a27abd0b97d125ffc57dd1d9a39e17d41ef99a48d2e55a8ad2ac0b0",
+      "etag": "\"802a185e0f7c21:0\"",
+      "last_modified": "Mon, 31 Mar 2003 23:48:25 GMT",
+      "content_range": "bytes 10437120-13155839/129761280"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n180hb.lbl",
+      "bytes": 3087,
+      "sha256": "60ab1d39d2faabe5027c70107fd3d1332177be6e77a0d3b392b454dd96672bc8",
+      "etag": "\"091ec9fdaeec61:0\"",
+      "last_modified": "Fri, 13 Oct 2006 15:16:58 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n180hb.img",
+      "bytes": 1359360,
+      "sha256": "1a63ad514ce65216880337d590fbd8f2ff84ea9e335aeb43931ae8ab81f275e0",
+      "etag": "\"0bd507ce6f7c21:0\"",
+      "last_modified": "Tue, 01 Apr 2003 00:34:42 GMT",
+      "content_range": "bytes 5218560-6577919/64880640"
+    }
+  ],
+  "windows": [
+    {
+      "source_rows": [
+        2476,
+        2594
+      ],
+      "source_columns": [
+        6790,
+        7111
+      ],
+      "id": "phoenix",
+      "lat": 68.2,
+      "lon_east": 234.3,
+      "coordinate_note": "User-provided Phoenix landing vicinity center, rounded to 0.1 degree.",
+      "coordinate_source": "https://www.uahirise.org/results.php?ke=&page=124"
+    },
+    {
+      "source_rows": [
+        453,
+        571
+      ],
+      "source_columns": [
+        1203,
+        1357
+      ],
+      "id": "arcadia",
+      "lat": 40.0,
+      "lon_east": 190.0,
+      "coordinate_note": "Operator-selected test center in the southern Arcadia vicinity; not a surveyed or approved human landing site.",
+      "coordinate_source": "https://ntrs.nasa.gov/api/citations/19900018291/downloads/19900018291.pdf"
+    }
+  ],
+  "geometry": "Exact 128 ppd label extents; source sphere 3396000 m; east-positive longitude normalized to [-180,180].",
+  "note": "Small byte-range crops only. Zero elevation is valid; no artificial NoData gap filling."
+}

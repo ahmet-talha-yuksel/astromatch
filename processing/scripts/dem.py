@@ -188,6 +188,10 @@ def process_dem(request: DemRequest, timings=None):
             record['quality']['validation_eligible'] = False
             record['quality']['warnings'].append(
                 'Some analysis cells have no directly observed source bins or no counts coverage.')
+            sampling=record['quality']['sampling']
+            record['quality']['warnings'].append(
+                f"Measured-support rule failed: {sampling['analysis_cells_without_observed_bins']}/{sampling['analysis_cells_total']} analysis cells have zero observed bins; "
+                f"{sampling['analysis_cells_without_counts_coverage']} cells lack counts coverage. Required: neither count may exceed zero. Raster NoData=0 does not prove direct observations.")
     if r.qa_report_path is not None:
         if r.product != 'lola':
             raise ValueError('Current bound QA policy only applies to LOLA')

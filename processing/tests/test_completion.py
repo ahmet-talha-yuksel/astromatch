@@ -24,7 +24,8 @@ def test_missing_sites_and_regional_sources_follow_plan():
     for name in ('meke','tuz_golu','haughton','meteor_crater'):
         local=next(r for r in records if r['region_id']==f'earth_{name}_local')
         regional=next(r for r in records if r['region_id']==f'earth_{name}_regional')
-        assert local['dem_source']=='copernicus' and regional['dem_source']=='copernicus_glo90'
+        assert local['dem_source']=='copernicus'
+        assert regional['dem_source']==('copernicus_glo90' if name=='haughton' else 'srtmgl30')
         assert local['window_km']==10 and regional['window_km']==50
     marius=next(r for r in records if r['region_id']=='moon_marius_hills_regional')
     assert marius['lon']==pytest.approx(-56.7701)

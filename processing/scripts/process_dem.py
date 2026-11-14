@@ -39,6 +39,27 @@ def export_heightmap(output, record, array):
     record['heightmap'] = metadata
 
 
+def write_earth_grid(records, path):
+    """Write the same scalar v2.3 contract for terrain and enriched releases."""
+    earth = [flatten(r) for r in records if r['body'] == 'earth' and r['scale'] == 'regional']
+    if earth:
+        regional = [r for r in records if r['body'] == 'earth' and r['scale'] == 'regional']
+        for record, row in zip(regional, earth):
+            row['provenance_json'] = json.dumps(row.pop('provenance'), sort_keys=True)
+            if record['quality'].get('environment'):
+                row['environment_quality_json'] = json.dumps(record['quality']['environment'], sort_keys=True)
+        table = pa.Table.from_pylist(earth)
+        numeric = {key for r in regional for group in ('features', 'earth_filters') for key in (r.get(group) or {})}
+        for name in numeric:
+            index = table.schema.get_field_index(name)
+            if index >= 0:
+                table = table.set_column(index, name, pa.array([row.get(name) for row in earth], type=pa.float64()))
+    else:
+        table = pa.table({'region_id': pa.array([], type=pa.string()), 'body': pa.array([], type=pa.string())})
+    table = table.replace_schema_metadata({b'schema_version': b'2.3'})
+    pq.write_table(table, path)
+
+
 def run(config_path, output):
     config_path, output = Path(config_path).resolve(), Path(output).resolve()
     config = json.loads(config_path.read_text(encoding='utf-8'))
@@ -63,6 +84,9 @@ def run(config_path, output):
     records = [r for r, _ in results]
     validate_comparison(records)
     output.mkdir(parents=True, exist_ok=True)
+    # A terrain-only rebuild must not leave an older environmental report beside it.
+    for name in ('environment.json','target_quality.json'):
+        (output/name).unlink(missing_ok=True)
     if retrieval is not None:
         write_json(output / 'retrieval.json', retrieval)
     for request, (record, array) in zip(requests, results):
@@ -74,21 +98,7 @@ def run(config_path, output):
             (output / relative).write_bytes(Path(request.qa_report_path).read_bytes())
             evidence['report_file'] = relative
     write_json(output / 'features.json', {'schema_version': '2.3', 'records': records})
-    earth = [flatten(r) for r in records if r['body'] == 'earth' and r['scale'] == 'regional']
-    if earth:
-        # Flatten provenance explicitly; keep all Parquet columns scalar.
-        for row in earth:
-            row['provenance_json'] = json.dumps(row.pop('provenance'), sort_keys=True)
-        table = pa.Table.from_pylist(earth)
-        for name in records[0]['features']:
-            if name in table.column_names:
-                pos = table.schema.get_field_index(name)
-                table = table.set_column(pos, name, pa.array([row[name] for row in earth], type=pa.float64()))
-    else:
-        table = pa.table({'region_id': pa.array([], type=pa.string()),
-                          'body': pa.array([], type=pa.string())})
-    table = table.replace_schema_metadata({b'schema_version': b'2.3'})
-    pq.write_table(table, output / 'earth_grid.parquet')
+    write_earth_grid(records, output / 'earth_grid.parquet')
     cells = []
     for r in records:
         if r['body'] == 'earth' and r['scale'] == 'regional':

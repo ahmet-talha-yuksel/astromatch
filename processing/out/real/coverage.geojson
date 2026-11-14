@@ -9,8 +9,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90"
+        "coverage": "full",
+        "dem_source": "srtmgl30"
       },
       "geometry": {
         "type": "Polygon",
@@ -48,8 +48,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90"
+        "coverage": "full",
+        "dem_source": "srtmgl30"
       },
       "geometry": {
         "type": "Polygon",
@@ -87,8 +87,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90"
+        "coverage": "full",
+        "dem_source": "srtmgl30"
       },
       "geometry": {
         "type": "Polygon",
@@ -126,8 +126,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90"
+        "coverage": "full",
+        "dem_source": "srtmgl30"
       },
       "geometry": {
         "type": "Polygon",
@@ -165,8 +165,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90"
+        "coverage": "full",
+        "dem_source": "srtmgl30"
       },
       "geometry": {
         "type": "Polygon",
@@ -204,8 +204,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90"
+        "coverage": "full",
+        "dem_source": "srtmgl30"
       },
       "geometry": {
         "type": "Polygon",
@@ -282,8 +282,8 @@
         "body": "earth",
         "data_status": "derived",
         "status": "scanned",
-        "coverage": "fallback_dem",
-        "dem_source": "copernicus_glo90"
+        "coverage": "full",
+        "dem_source": "srtmgl30"
       },
       "geometry": {
         "type": "Polygon",

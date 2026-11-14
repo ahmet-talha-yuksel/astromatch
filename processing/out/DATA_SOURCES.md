@@ -1,5 +1,14 @@
 # Veri kaynakları — v2.3 işleme ve QA teslimleri
 
+Güncel durum: 21 gerçek kayıt, 18 topoğrafik işlem QA onayı. Local Dünya
+GLO-30; regional Dünya yedi sahada SRTMGL30.002, Haughton GLO-90.
+Pilot Türkiye/Atacama SRTMGL30, İzlanda GLO-90 kullanır; 8 hücre işlendi.
+Kara maskesi ESA WorldCover 2021 v200 ile örnekleme QA kontrolünden geçti.
+`source_transition.json` yedi eş pencerenin kaynak duyarlılığını saklar.
+Global süreler koşullu senaryolardır; daha geniş tarama yapılmadı.
+Aşağıdaki ilk edinim ve ön inceleme notları tarihsel bağlamdır; güncel
+bayraklar `real/features.json` ve `pilot/pilot_timing.json` içindedir.
+
 Belge ve veri erişim tarihi: **2026-11-14**. Salda GLO-30 karosu ve Jezero MOLA
 altkümesi indirildi, local/regional pencereler işlendi. LOLA güney kutbu verisi de alındı; ayrıntıları aşağıdadır.
 Aşağıdaki bağlantılar ürün ve teknik belge kaynaklarıdır. Gerçek teslimin
@@ -8,11 +17,12 @@ analitik sentetik yüzeylerdir, NASA/ESA ölçümü değildir.
 
 | Kaynak | Resmi bağlantı | Ürün/sürüm durumu |
 |---|---|---|
-| Copernicus GLO-30 / GLO-90 | [Copernicus Data Space](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM) | GLO-30 Public, 2021 sürümü; N37 E029 karosu alındı; GLO-90 alınmadı |
+| Copernicus GLO-30 / GLO-90 | [Copernicus Data Space](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM) | Public 2021; GLO-30 local sahalar, GLO-90 kapsam dışı Haughton ve İzlanda pilotu; diğer regional sahalar için kaynak karşılaştırması |
+| SRTMGL30.002 | [NASA Earthdata](https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl30-002) | Kullanıcının Earthdata ZIP'lerinden 4 karo CRC/SHA-256 ile içe alındı; 7 regional sahada ve 6 pilot hücresinde etkin; EGM96, 30 arc-second |
 | Copernicus teknik belge | [Product Handbook i5.0](https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf) | WGS84 yatay; EGM2008 düşey; metre (Handbook §1.2.1) |
 | MOLA MEGDR | [PDS Geosciences](https://pds-geosciences.wustl.edu/missions/mgs/megdr.html) | MEGT44N000HB, product version 2.0; 128 ppd topoğrafya ve counts etiketi incelendi |
 | MOLA coğrafi referans uyarısı | [PDS MEGDR/ENVI notu](https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/extras/mola_envi.htm) | GDAL ile çevrilen eski MEGDR ürünlerinin referansında kayma/ölçek farkı bildiriliyor; gerçek ürün kontrolü zorunlu |
-| LOLA gridded/polar | [PDS LOLA GDRDEM](https://ode.rsl.wustl.edu/moon/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20%28LRO%29/LOLA/GDR/GDRDEM.htm) | LDEM_75S_240M V2.0, 2017 polar ürünü alındı; global ürün alınmadı |
+| LOLA gridded/polar | [PDS LOLA GDRDEM](https://ode.rsl.wustl.edu/moon/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20%28LRO%29/LOLA/GDR/GDRDEM.htm) | LDEM_75S_240M V2.0, polar 120 m QA referansı ve LDEM_128 V3.0 Marius Hills altkümesi/counts alındı |
 | Raster okuma/warp | [Rasterio WarpedVRT](https://rasterio.readthedocs.io/en/stable/api/rasterio.vrt.html) | Kurulu sürüm processing/requirements.txt içinde sabit |
 
 ## Mevcut işlem parametreleri
@@ -128,7 +138,7 @@ Copernicus DSM verisinden kimyasal/mineral veya biyolojik eşdeğerlik çıkarı
 Üç yeni sahanın iki ölçeğinde NoData=0: 10 km/500 m, 50 km/1000 m. Aynı metrik
 fonksiyonları, average reprojeksiyon ve EGM2008/metre yükselti birimi kullanıldı.
 GLO-30 regional sonuçlar detay saha karşılaştırma örnekleridir; global P0-lite
-SRTMGL30/GLO-90 ızgarası henüz üretilmedi. Kaynak farkı global pilottan önce
+Bu ilk teslimde SRTMGL30/GLO-90 ızgarası henüz üretilmemişti. Kaynak farkı global pilottan önce
 karşılaştırılmalı ve uyarılara yazılmalıdır.
 
 `out/real/` artık 12 gerçek kayıt, 4 regional Dünya Parquet satırı, 4 Dünya
@@ -223,3 +233,284 @@ Kullanıcıdan alınan gerçek SRTMGL30 ZIP'leriyle yedi Dünya sahasında GLO-9
 örtüşme karşılaştırması yapılmıştır; sayısal farklar source_transition.json'dadır.
 Bu sonraki kaynak katmanı henüz bu teslimin GLO-90 regional kayıtlarının yerine
 yayınlanmamıştır; geçiş ayrı kontrol aşamasıdır.
+
+## Canonical published release
+
+# DEM batch provenance
+
+Synthetic fixtures are not NASA/ESA observations. No downloads were performed by this pipeline.
+
+Parameters and CRS are also stored in features.json.
+
+## earth_salda_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile last-modified 2022-05-09
+- Source: https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N37_00_E029_00_DEM/Copernicus_DSM_COG_10_N37_00_E029_00_DEM.tif
+- Accessed on (declared): 2026-11-14
+- Input: salda_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## mars_jezero_local
+
+- Status: derived; synthetic: False
+- Product/version: mola / MGS-M-MOLA-5-MEGDR-L3-V1.0; product version 2.0
+- Source: https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img
+- Accessed on (declared): 2026-11-14
+- Input: jezero_mola_topography.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: GMM3 (mgm1025) degree/order 50 areoid
+
+## mars_jezero_regional
+
+- Status: derived; synthetic: False
+- Product/version: mola / MGS-M-MOLA-5-MEGDR-L3-V1.0; product version 2.0
+- Source: https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img
+- Accessed on (declared): 2026-11-14
+- Input: jezero_mola_topography.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: GMM3 (mgm1025) degree/order 50 areoid
+
+## earth_kula_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest
+- Source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+- Accessed on (declared): 2026-11-14
+- Input: kula_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_hassa_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest
+- Source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+- Accessed on (declared): 2026-11-14
+- Input: hassa_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_atacama_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest
+- Source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+- Accessed on (declared): 2026-11-14
+- Input: atacama_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_meke_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest
+- Source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+- Accessed on (declared): 2026-11-14
+- Input: meke_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_tuz_golu_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest
+- Source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+- Accessed on (declared): 2026-11-14
+- Input: tuz_golu_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_haughton_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest
+- Source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+- Accessed on (declared): 2026-11-14
+- Input: haughton_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_meteor_crater_local
+
+- Status: derived; synthetic: False
+- Product/version: copernicus / GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest
+- Source: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+- Accessed on (declared): 2026-11-14
+- Input: meteor_crater_glo30.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_salda_regional
+
+- Status: derived; synthetic: False
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
+- Accessed on (declared): 2026-11-14
+- Input: e020n40.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM96 orthometric height
+
+## earth_kula_regional
+
+- Status: derived; synthetic: False
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
+- Accessed on (declared): 2026-11-14
+- Input: e020n40.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM96 orthometric height
+
+## earth_hassa_regional
+
+- Status: derived; synthetic: False
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
+- Accessed on (declared): 2026-11-14
+- Input: e020n40.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM96 orthometric height
+
+## earth_atacama_regional
+
+- Status: derived; synthetic: False
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip
+- Accessed on (declared): 2026-11-14
+- Input: w100s10.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM96 orthometric height
+
+## earth_meke_regional
+
+- Status: derived; synthetic: False
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
+- Accessed on (declared): 2026-11-14
+- Input: e020n40.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM96 orthometric height
+
+## earth_tuz_golu_regional
+
+- Status: derived; synthetic: False
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
+- Accessed on (declared): 2026-11-14
+- Input: e020n40.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM96 orthometric height
+
+## earth_haughton_regional
+
+- Status: derived; synthetic: False
+- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
+- Source: https://dataspace.copernicus.eu/
+- Accessed on (declared): 2026-11-14
+- Input: earth_haughton_regional.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM2008 orthometric height
+
+## earth_meteor_crater_regional
+
+- Status: derived; synthetic: False
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w140n40.SRTMGL30.dem/w140n40.SRTMGL30.dem.zip
+- Accessed on (declared): 2026-11-14
+- Input: w140n40.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: EGM96 orthometric height
+
+## moon_shackleton_local
+
+- Status: derived; synthetic: False
+- Product/version: lola / LRO-L-LOLA-4-GDR-V1.0; LDEM_75S_240M V2.0 (2017)
+- Source: https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img
+- Accessed on (declared): 2026-11-14
+- Input: lola_polar_height.tif
+- Window: 10 km; analysis: 500 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: Height above 1737400 m sphere; not an equipotential surface
+
+- Operational QA policy: lola-grid-qa-1
+- Audit report: quality/54aa9ccc836d40d6a83408c540537eeebc244efd539137fd4d50b6136971643d.json
+- QA scope: Operational grid/method consistency for terrain comparison; not independent accuracy or mission suitability validation.
+
+## moon_shackleton_regional
+
+- Status: derived; synthetic: False
+- Product/version: lola / LRO-L-LOLA-4-GDR-V1.0; LDEM_75S_240M V2.0 (2017)
+- Source: https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img
+- Accessed on (declared): 2026-11-14
+- Input: lola_polar_height.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: Height above 1737400 m sphere; not an equipotential surface
+
+- Operational QA policy: lola-grid-qa-1
+- Audit report: quality/54aa9ccc836d40d6a83408c540537eeebc244efd539137fd4d50b6136971643d.json
+- QA scope: Operational grid/method consistency for terrain comparison; not independent accuracy or mission suitability validation.
+
+## moon_marius_hills_regional
+
+- Status: derived; synthetic: False
+- Product/version: lola / LRO-L-LOLA-4-GDR-V1.0; LDEM_128/LDEC_128 V3.0 (2017)
+- Source: https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_128.img
+- Accessed on (declared): 2026-11-14
+- Input: ldem_128.tif
+- Window: 50 km; analysis: 1000 m
+- Method: metric-gradient-riley8-p95p5-v1; resampling: average
+- Vertical reference: Height above 1737400 m sphere; not an equipotential surface
+
+## MODIS environmental layers
+
+Native global 0.05-degree CMG cells are center-sampled inside each physical LAEA window.
+Cosine-latitude weights approximate CMG area; no 500/1000 m temperature or vegetation detail is invented.
+Means cover quality-accepted pixels, not an all-weather or whole-month daily-extrema reconstruction.
+Per-window acceptance fractions, source QA categories and UTC view hours are in environment.json.
+MOD11C3 monthly day/night differences are NOT daily Tmax-minus-Tmin amplitude; temperature comparable=false.
+NDVI remains only in earth_filters, with comparable=false. Missing input/data yields null.
+
+- MOD11C3.061: https://doi.org/10.5067/MODIS/MOD11C3.061
+  File MOD11C3.A2021152.061.2021190161921.hdf; SHA-256 003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20; accessed 2026-11-14.
+  Period 2021-06-01 through 2021-06-30.
+  Product-specific QA/calibration specification: https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3
+- MOD13C2.061: https://doi.org/10.5067/MODIS/MOD13C2.061
+  File MOD13C2.A2021152.061.2021194035425.hdf; SHA-256 9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01; accessed 2026-11-14.
+  Period 2021-06-01 through 2021-06-30.
+  Product-specific QA/calibration specification: https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2
+
+## Discovery grid publication
+
+Canonical earth_grid.parquet and coverage.geojson come from pilot_expanded/, with 408 processed grid centers.
+features.json and the engine ZIP retain the curated Earth/planetary target release.
+Grid acquisition evidence and mask QA: pilot_expanded/retrieval.json and pilot_expanded/landmask.json.
+The larger declared regional domain includes explicit not_scanned cells; it is not fully processed.
+
+## Additional regional Mars feasibility probes
+
+Phoenix (68.2 N, 234.3 E) and operator-selected Arcadia vicinity (40 N, 190 E)
+were read from final MOLA MEGDR v2.0 128-ppd topography/count products on 2026-11-14.
+Exact requests, hashes, coordinates and processing outputs are in mars_candidates/.
+Both fail the current zero-unsupported-analysis-cells rule: 198/2500 and 514/2500.
+Neither is promoted to T-04; no ice, shelter or landing-safety inference is made.
+Source archive: https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/

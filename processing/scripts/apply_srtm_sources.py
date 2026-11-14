@@ -41,7 +41,13 @@ def apply(root):
         request=dict(item,path='../'+candidate['path'],product='srtmgl30',source_resolution_m=1000,
                      vertical_reference='EGM96 orthometric height',source_url=candidate['source_url'],
                      dem_version='NASA SRTMGL30.002 / SRTM30 v2.1',is_fallback_dem=False)
-        request['quality_notes']=[n for n in item['quality_notes'] if 'SRTMGL30 authentication' not in n and 'Regional terrain derived from GLO-90' not in n]
+        request['quality_notes']=[n for n in item['quality_notes']
+                                  if 'SRTMGL30 authentication' not in n
+                                  and 'Regional terrain derived from GLO-90' not in n
+                                  and not n.startswith('Copernicus DSM')]
+        if 'salda' in item['region_id']:
+            request['quality_notes']=[n for n in request['quality_notes'] if not n.startswith('Copernicus is a DSM')]
+            request['quality_notes'].append('Salda lake surface is not lake-bed topography.')
         request['quality_notes'].append('SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.')
         resolved=dict(request,path=str(root/candidate['path']))
         primary,_=process_dem(DemRequest(**resolved));other,_=process_dem(DemRequest(**reference))
@@ -64,9 +70,12 @@ def apply(root):
     for attempt in pilot['attempts']:
         tile=choose_tile(attempt['lon'],attempt['lat'],manifest['imported'])
         if tile:
+            attempt['historical_fallback']={k:attempt[k] for k in ('path','tiles','timing','source_selection')}
             attempt.update(path=tile['path'],product='srtmgl30',source_resolution_m=1000,
                            vertical_reference='EGM96 orthometric height',source_url=tile['source_url'],
-                           dem_version='NASA SRTMGL30.002 / SRTM30 v2.1',source_selection='preferred_srtm_from_local_earthdata_download')
+                           dem_version='NASA SRTMGL30.002 / SRTM30 v2.1',source_selection='preferred_srtm_from_local_earthdata_download',
+                           tiles=[tile],timing={},acquisition_timing_status='unmeasured_local_import_shared_by_windows')
+    pilot['source_transition_report']='out/source_transition.json'
     write_json(root/'raw/pilot/acquisition_srtm.json',pilot)
     return report
 

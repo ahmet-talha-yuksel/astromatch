@@ -1,0 +1,204 @@
+{
+  "schema_version": "2.3",
+  "kind": "measured_support_diagnostic",
+  "records": [
+    {
+      "region_id": "moon_marius_hills_regional",
+      "scale": "regional",
+      "candidates": [
+        {
+          "analysis_resolution_m": 1000,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.3429884612560272,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 248,
+            "analysis_cells_total": 2500,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "measured_only_nodata_ratio": 0.09919999999999995,
+          "features": {
+            "slope_median_deg": {
+              "interpolated_dem": 1.1002738201094764,
+              "measured_bins_only": 1.2372964720095092,
+              "absolute_difference": 0.13702265190003282
+            },
+            "slope_p90_deg": {
+              "interpolated_dem": 3.2037712521020785,
+              "measured_bins_only": 3.4794152633885127,
+              "absolute_difference": 0.27564401128643423
+            },
+            "flat_fraction": {
+              "interpolated_dem": 0.9788,
+              "measured_bins_only": 0.9661674986134221,
+              "absolute_difference": 0.012632501386577899
+            },
+            "tri_median_m": {
+              "interpolated_dem": 55.73932097759034,
+              "measured_bins_only": 66.76080261715445,
+              "absolute_difference": 11.021481639564115
+            },
+            "relief_m": {
+              "interpolated_dem": 670.7349112903605,
+              "measured_bins_only": 683.6166267559865,
+              "absolute_difference": 12.88171546562603
+            },
+            "elevation_std_m": {
+              "interpolated_dem": 204.81175667463864,
+              "measured_bins_only": 209.23666662463688,
+              "absolute_difference": 4.424909949998238
+            }
+          }
+        },
+        {
+          "analysis_resolution_m": 2000,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.3429824113845825,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 16,
+            "analysis_cells_total": 625,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "measured_only_nodata_ratio": 0.025599999999999956,
+          "features": {
+            "slope_median_deg": {
+              "interpolated_dem": 1.0444036138432151,
+              "measured_bins_only": 1.0986044289720556,
+              "absolute_difference": 0.05420081512884045
+            },
+            "slope_p90_deg": {
+              "interpolated_dem": 2.5465435175046,
+              "measured_bins_only": 2.5985243280663064,
+              "absolute_difference": 0.05198081056170656
+            },
+            "flat_fraction": {
+              "interpolated_dem": 0.9952,
+              "measured_bins_only": 0.9930191972076788,
+              "absolute_difference": 0.002180802792321135
+            },
+            "tri_median_m": {
+              "interpolated_dem": 109.7431340648366,
+              "measured_bins_only": 115.16908674911272,
+              "absolute_difference": 5.425952684276126
+            },
+            "relief_m": {
+              "interpolated_dem": 666.9654206089549,
+              "measured_bins_only": 665.3450164221033,
+              "absolute_difference": 1.6204041868516015
+            },
+            "elevation_std_m": {
+              "interpolated_dem": 203.67918922586358,
+              "measured_bins_only": 206.3105336058828,
+              "absolute_difference": 2.6313443800192147
+            }
+          }
+        },
+        {
+          "analysis_resolution_m": 2500,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.34314078092575073,
+            "min_observed_bin_fraction": 0.09177552908658981,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 0,
+            "analysis_cells_total": 400,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "measured_only_nodata_ratio": 0.0,
+          "features": {
+            "slope_median_deg": {
+              "interpolated_dem": 1.016584597330921,
+              "measured_bins_only": 0.9939333944704867,
+              "absolute_difference": 0.022651202860434427
+            },
+            "slope_p90_deg": {
+              "interpolated_dem": 2.2186561218714327,
+              "measured_bins_only": 2.2522880331718977,
+              "absolute_difference": 0.033631911300465056
+            },
+            "flat_fraction": {
+              "interpolated_dem": 0.9975,
+              "measured_bins_only": 0.9975,
+              "absolute_difference": 0.0
+            },
+            "tri_median_m": {
+              "interpolated_dem": 132.76062771313914,
+              "measured_bins_only": 132.6299108766259,
+              "absolute_difference": 0.13071683651324406
+            },
+            "relief_m": {
+              "interpolated_dem": 657.6227465739212,
+              "measured_bins_only": 650.8954702094236,
+              "absolute_difference": 6.727276364497584
+            },
+            "elevation_std_m": {
+              "interpolated_dem": 203.07446424595204,
+              "measured_bins_only": 203.98903581103275,
+              "absolute_difference": 0.9145715650807063
+            }
+          }
+        },
+        {
+          "analysis_resolution_m": 5000,
+          "sampling": {
+            "counts_file": "ldec_128.tif",
+            "mean_observed_bin_fraction": 0.3431876003742218,
+            "min_observed_bin_fraction": 0.21808494627475739,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 0,
+            "analysis_cells_total": 100,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "measured_only_nodata_ratio": 0.0,
+          "features": {
+            "slope_median_deg": {
+              "interpolated_dem": 0.9185855606457493,
+              "measured_bins_only": 0.924789168436063,
+              "absolute_difference": 0.006203607790313703
+            },
+            "slope_p90_deg": {
+              "interpolated_dem": 1.6773448049308217,
+              "measured_bins_only": 1.627438772824828,
+              "absolute_difference": 0.04990603210599365
+            },
+            "flat_fraction": {
+              "interpolated_dem": 1.0,
+              "measured_bins_only": 1.0,
+              "absolute_difference": 0.0
+            },
+            "tri_median_m": {
+              "interpolated_dem": 224.00942978367434,
+              "measured_bins_only": 219.5926466020088,
+              "absolute_difference": 4.416783181665522
+            },
+            "relief_m": {
+              "interpolated_dem": 644.9079535645376,
+              "measured_bins_only": 636.7780082168724,
+              "absolute_difference": 8.12994534766517
+            },
+            "elevation_std_m": {
+              "interpolated_dem": 200.25375051307768,
+              "measured_bins_only": 199.61816638039963,
+              "absolute_difference": 0.6355841326780478
+            }
+          }
+        }
+      ],
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "counts_file_sha256": "b21a4a692fe2d350f86813fff0857ce44b402bfc02a9a3902ca232f8069565e7",
+      "source_file_sha256": "51c7e8c2ce1b410a98ef078fa5f2bc643c5a15b0ca01e275e1c89addcd3a3a4f"
+    }
+  ],
+  "decision": {
+    "resolution_validated": false,
+    "reason": "Measured-bin-only and interpolated surfaces have scale-dependent differences; this diagnostic supplies neither an independent accuracy bound nor an approved acceptance policy."
+  },
+  "limitations": [
+    "Observed-only aggregation is another estimator from the same MOLA observations, not independent ground truth.",
+    "No automatic selection of coarsening or comparable=true is made.",
+    "Local coarse grids have too few interior cells for detailed morphology."
+  ]
+}

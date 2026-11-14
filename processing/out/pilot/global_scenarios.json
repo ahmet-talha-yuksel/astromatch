@@ -1,8 +1,8 @@
 {
   "status": "provisional",
   "estimated_hours_range": [
-    3.0734500389843014,
-    92.62399145248811
+    3.086085642558028,
+    88.76784245084505
   ],
   "scope": "turkey_surroundings_usgs_and_sample_arid_belts",
   "final_source_validation_complete": false,
@@ -10,13 +10,13 @@
     {
       "name": "high_reuse_sparse_land_selection",
       "cells": 23859,
-      "per_cell_seconds": 0.4637419900391251,
+      "per_cell_seconds": 0.4656485315063037,
       "assumption": "25% of WorldCover-tile-covered grid centers selected; observed lower-quartile mask+processing cost; existing DEM cache."
     },
     {
       "name": "all_candidate_centers_conservative_latency",
       "cells": 95436,
-      "per_cell_seconds": 3.493926497641951,
+      "per_cell_seconds": 3.348466331604868,
       "assumption": "All WorldCover-supported centers; twice slowest observed mask+processing cost for unmeasured latency/source variance."
     }
   ],
@@ -34,8 +34,9 @@
     "Scenario endpoints are conditional workloads, not guaranteed global duration bounds.",
     "Tile coverage includes water cells; true land-only cell count is not established.",
     "DEM cold download costs are reported separately and are NOT extrapolated from this small sample.",
-    "SRTMGL30 overlap/throughput validation awaits authenticated input.",
+    "Source overlap differences are sensitivity measurements, not independent accuracy bounds.",
+    "SRTM download time is unmeasured; imported tiles are shared by multiple windows.",
     "Polar/dateline support and supplied USGS cells require separate operational checks."
   ],
-  "operational_action": "Keep a regional pilot delivery until source access and broader resource measurements are available."
+  "operational_action": "Keep a regional pilot delivery until broader land-cell counts and resource measurements are available."
 }

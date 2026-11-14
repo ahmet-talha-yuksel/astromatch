@@ -13,6 +13,9 @@ def test_auto_selects_valid_real_features(tmp_path,monkeypatch):
     path=tmp_path/'features.json';path.write_text(json.dumps(rows))
     monkeypatch.setenv('ASTROMATCH_DATA_MODE','auto')
     monkeypatch.setenv('ASTROMATCH_FEATURES',str(path))
+    optional=tmp_path/'optional_inputs.json';optional.write_text('[]')
+    monkeypatch.setenv('ASTROMATCH_GRID',str(optional))
+    monkeypatch.setenv('ASTROMATCH_KNOWN',str(optional))
     old_ds,old_mode=service._dataset,service._active_mode
     try:
         ds=service.initialize_dataset()

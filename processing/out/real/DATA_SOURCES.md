@@ -117,68 +117,68 @@ Parameters and CRS are also stored in features.json.
 ## earth_salda_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_salda_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_kula_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_kula_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_hassa_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_hassa_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_atacama_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_atacama_regional.tif
+- Input: w100s10.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_meke_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_meke_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_tuz_golu_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_tuz_golu_regional.tif
+- Input: e020n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## earth_haughton_regional
 
@@ -194,13 +194,13 @@ Parameters and CRS are also stored in features.json.
 ## earth_meteor_crater_regional
 
 - Status: derived; synthetic: False
-- Product/version: copernicus_glo90 / GLO-90 Public 2021 release
-- Source: https://dataspace.copernicus.eu/
+- Product/version: srtmgl30 / NASA SRTMGL30.002 / SRTM30 v2.1
+- Source: https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w140n40.SRTMGL30.dem/w140n40.SRTMGL30.dem.zip
 - Accessed on (declared): 2026-11-14
-- Input: earth_meteor_crater_regional.tif
+- Input: w140n40.tif
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
-- Vertical reference: EGM2008 orthometric height
+- Vertical reference: EGM96 orthometric height
 
 ## moon_shackleton_local
 
@@ -242,3 +242,21 @@ Parameters and CRS are also stored in features.json.
 - Window: 50 km; analysis: 1000 m
 - Method: metric-gradient-riley8-p95p5-v1; resampling: average
 - Vertical reference: Height above 1737400 m sphere; not an equipotential surface
+
+## MODIS environmental layers
+
+Native global 0.05-degree CMG cells are center-sampled inside each physical LAEA window.
+Cosine-latitude weights approximate CMG area; no 500/1000 m temperature or vegetation detail is invented.
+Means cover quality-accepted pixels, not an all-weather or whole-month daily-extrema reconstruction.
+Per-window acceptance fractions, source QA categories and UTC view hours are in environment.json.
+MOD11C3 monthly day/night differences are NOT daily Tmax-minus-Tmin amplitude; temperature comparable=false.
+NDVI remains only in earth_filters, with comparable=false. Missing input/data yields null.
+
+- MOD11C3.061: https://doi.org/10.5067/MODIS/MOD11C3.061
+  File MOD11C3.A2021152.061.2021190161921.hdf; SHA-256 003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20; accessed 2026-11-14.
+  Period 2021-06-01 through 2021-06-30.
+  Product-specific QA/calibration specification: https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3
+- MOD13C2.061: https://doi.org/10.5067/MODIS/MOD13C2.061
+  File MOD13C2.A2021152.061.2021194035425.hdf; SHA-256 9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01; accessed 2026-11-14.
+  Period 2021-06-01 through 2021-06-30.
+  Product-specific QA/calibration specification: https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2

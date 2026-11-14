@@ -47,16 +47,96 @@
           "value": 89.65957073462293,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.44369436502879034,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
         "warnings": [
           "Copernicus is a DSM; Salda lake surface is not lake-bed topography."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 6,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 6,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 2,
+              "accepted_area_fraction": 0.33333333333333337,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -77,7 +157,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_salda_local.png",
@@ -160,6 +278,7 @@
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Some analysis cells have no directly observed source bins or no counts coverage.",
+          "Measured-support rule failed: 106/400 analysis cells have zero observed bins; 0 cells lack counts coverage. Required: neither count may exceed zero. Raster NoData=0 does not prove direct observations.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
         "validation_eligible": false,
@@ -275,6 +394,7 @@
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Some analysis cells have no directly observed source bins or no counts coverage.",
+          "Measured-support rule failed: 583/2500 analysis cells have zero observed bins; 0 cells lack counts coverage. Required: neither count may exceed zero. Raster NoData=0 does not prove direct observations.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
         "validation_eligible": false,
@@ -379,9 +499,34 @@
           "value": 66.43348673836047,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": 37.15800891760126,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.35184920467040326,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -390,7 +535,62 @@
           "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
           "Surface terrain context only; 500 m analysis does not resolve individual lava tubes."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 6,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 5,
+              "accepted_area_fraction": 0.8332752800780985,
+              "coverage_note": null,
+              "missing_reason": null,
+              "mean_view_hour_utc": 9.119998812999956
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 6,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 6,
+              "accepted_area_fraction": 1.0,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -411,7 +611,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_kula_local.png",
@@ -483,9 +721,34 @@
           "value": 123.9176016366889,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.3621883795086975,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -494,7 +757,62 @@
           "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
           "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 4,
+              "accepted_area_fraction": 1.0,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -515,7 +833,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_hassa_local.png",
@@ -587,9 +943,34 @@
           "value": 91.89634787716,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.09037386573209705,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -598,7 +979,62 @@
           "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
           "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 4,
+              "accepted_area_fraction": 1.0,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -619,7 +1055,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_atacama_local.png",
@@ -691,9 +1165,34 @@
           "value": 56.04678566118805,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.17005,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -702,7 +1201,62 @@
           "Ramsar site reference coordinate.",
           "Volcanic lake surface/terrain only; no mineral detection claim."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 2,
+              "accepted_area_fraction": 0.5001686179781826,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -723,7 +1277,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_meke_local.png",
@@ -795,9 +1387,34 @@
           "value": 0.6597674621700778,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -806,7 +1423,62 @@
           "Operator-selected center within the UNESCO-listed protected-area coordinate range, not a monitoring station.",
           "Seasonally shallow salt-lake surface is not bathymetry or a dry-land-only sample."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 6,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 6,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -827,7 +1499,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_tuz_golu_local.png",
@@ -899,9 +1609,34 @@
           "value": 31.354062564650977,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -910,7 +1645,62 @@
           "Impact Earth crater reference coordinate.",
           "Polar control locality, not a confirmed negative analog class."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 7,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 7,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -931,7 +1721,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_haughton_local.png",
@@ -1003,9 +1831,34 @@
           "value": 26.80596502719889,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": 50.73000000000002,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.12960039791830238,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -1014,7 +1867,62 @@
           "NASA crater catalog reference coordinate (arc-minute precision).",
           "Crater structure is small relative to 500 m/1000 m analysis; control locality is not a negative class."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 2,
+              "accepted_area_fraction": 0.4998469544990763,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null,
+              "mean_view_hour_utc": 18.400000000000002
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 4,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 4,
+              "accepted_area_fraction": 1.0,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1035,7 +1943,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_meteor_crater_local.png",
@@ -1072,53 +2018,133 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": true,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 3.5991836793873127,
+          "value": 3.46690269209878,
           "data_status": "derived",
           "comparable": true
         },
         "slope_p90_deg": {
-          "value": 9.04200253743063,
+          "value": 8.518962498483072,
           "data_status": "derived",
           "comparable": true
         },
         "flat_fraction": {
-          "value": 0.6432,
+          "value": 0.6636,
           "data_status": "derived",
           "comparable": true
         },
         "tri_median_m": {
-          "value": 201.44976164565287,
+          "value": 183.84030389073237,
           "data_status": "derived",
           "comparable": true
         },
         "relief_m": {
-          "value": 845.2529411956114,
+          "value": 838.445366876186,
           "data_status": "derived",
           "comparable": true
         },
         "elevation_std_m": {
-          "value": 253.378047896941,
+          "value": 250.66163414643395,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": 34.267342493710096,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.374986187753301,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Copernicus is a DSM; Salda lake surface is not lake-bed topography.",
-          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
-          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+          "Salda lake surface is not lake-bed topography.",
+          "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
+          "Measured SRTMGL30 minus GLO-90: slope median -0.132281 deg; Riley TRI median -17.609458 m. See source_transition.json."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 108,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 17,
+              "accepted_area_fraction": 0.15743897404890395,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null,
+              "mean_view_hour_utc": 9.0
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 108,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 100,
+              "accepted_area_fraction": 0.9259859299742247,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1126,20 +2152,58 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_salda_regional.tif",
-        "source_file_sha256": "ef300bc9de48e3a4947e5afb6b4ad178b86655c04f50105b9bf51a1bfc92418b",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_salda_regional.png",
@@ -1147,7 +2211,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 747.4358403033373,
+        "offset": 752.1696303330029,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -1157,8 +2221,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",29.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -1176,55 +2240,134 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": true,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 3.035499428514818,
+          "value": 2.887984318493228,
           "data_status": "derived",
           "comparable": true
         },
         "slope_p90_deg": {
-          "value": 6.563148210400196,
+          "value": 6.145265553986165,
           "data_status": "derived",
           "comparable": true
         },
         "flat_fraction": {
-          "value": 0.7872,
+          "value": 0.82,
           "data_status": "derived",
           "comparable": true
         },
         "tri_median_m": {
-          "value": 153.91835913554144,
+          "value": 141.23515610606773,
           "data_status": "derived",
           "comparable": true
         },
         "relief_m": {
-          "value": 742.6302687136666,
+          "value": 740.5698507006596,
           "data_status": "derived",
           "comparable": true
         },
         "elevation_std_m": {
-          "value": 235.60582406347586,
+          "value": 234.17371935806634,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": 37.31678575361471,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.37655155850021543,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
           "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
           "Surface terrain context only; 500 m analysis does not resolve individual lava tubes.",
-          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
-          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+          "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
+          "Measured SRTMGL30 minus GLO-90: slope median -0.147515 deg; Riley TRI median -12.683203 m. See source_transition.json."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 99,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 44,
+              "accepted_area_fraction": 0.4440928799426546,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null,
+              "mean_view_hour_utc": 9.07723406914787
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 99,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 93,
+              "accepted_area_fraction": 0.9394782589424855,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1232,20 +2375,58 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_kula_regional.tif",
-        "source_file_sha256": "47497db0c1ff8bfac52005126c7628aefd34a9fe948a1c612b74a9fd9e1d99c4",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_kula_regional.png",
@@ -1253,7 +2434,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 96.69315083209271,
+        "offset": 95.23457396159367,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -1263,8 +2444,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.58,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",28.52,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -1282,55 +2463,134 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": true,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 5.07252512967624,
+          "value": 4.88660713620016,
           "data_status": "derived",
           "comparable": true
         },
         "slope_p90_deg": {
-          "value": 12.478932966058373,
+          "value": 11.708562566630013,
           "data_status": "derived",
           "comparable": true
         },
         "flat_fraction": {
-          "value": 0.492,
+          "value": 0.5088,
           "data_status": "derived",
           "comparable": true
         },
         "tri_median_m": {
-          "value": 291.1785716878187,
+          "value": 260.62632449590944,
           "data_status": "derived",
           "comparable": true
         },
         "relief_m": {
-          "value": 1377.8540309821262,
+          "value": 1357.6007423050578,
           "data_status": "derived",
           "comparable": true
         },
         "elevation_std_m": {
-          "value": 421.13173088217115,
+          "value": 417.567680507842,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.46123782137631175,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
           "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
           "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim.",
-          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
-          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+          "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
+          "Measured SRTMGL30 minus GLO-90: slope median -0.185918 deg; Riley TRI median -30.552247 m. See source_transition.json."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 118,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 118,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 95,
+              "accepted_area_fraction": 0.8051081931257639,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1338,20 +2598,58 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_hassa_regional.tif",
-        "source_file_sha256": "8998754f80e6c3d915bf2ab1ae0f95da7d5457c2ee413cfd2dd1270af9fb3349",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_hassa_regional.png",
@@ -1359,7 +2657,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 92.12759402557099,
+        "offset": 92.27811403950878,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -1369,8 +2667,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",36.8,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",36.55,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -1388,55 +2686,134 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": true,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 1.7426624323401199,
+          "value": 1.694935265880893,
           "data_status": "derived",
           "comparable": true
         },
         "slope_p90_deg": {
-          "value": 5.192648064025161,
+          "value": 4.838499593220509,
           "data_status": "derived",
           "comparable": true
         },
         "flat_fraction": {
-          "value": 0.8884,
+          "value": 0.9088,
           "data_status": "derived",
           "comparable": true
         },
         "tri_median_m": {
-          "value": 87.74787351442608,
+          "value": 82.54491980097549,
           "data_status": "derived",
           "comparable": true
         },
         "relief_m": {
-          "value": 641.6400604765485,
+          "value": 640.6701144322292,
           "data_status": "derived",
           "comparable": true
         },
         "elevation_std_m": {
-          "value": 195.63979887211437,
+          "value": 193.87691874182926,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.09179650485453213,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
           "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
           "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain.",
-          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
-          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+          "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
+          "Measured SRTMGL30 minus GLO-90: slope median -0.047727 deg; Riley TRI median -5.202954 m. See source_transition.json."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 90,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 90,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 87,
+              "accepted_area_fraction": 0.9666969799625668,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1444,20 +2821,58 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_atacama_regional.tif",
-        "source_file_sha256": "7c2acf2bd722ca7abd019d34a627ebd3a52688498c7bfae8f08c0d48cb2baa0b",
+        "source_file": "w100s10.tif",
+        "source_file_sha256": "68e4b8ab0fcf1221811ea0c16096ccc9114138099887f68a1883a9a244133354",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_atacama_regional.png",
@@ -1465,7 +2880,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 724.892927110768,
+        "offset": 732.595169673006,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -1475,8 +2890,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",-24.0637777777778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-69.8805,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -1494,55 +2909,134 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": true,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.6869444444444,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.6430555555556,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 0.3862473998316527,
+          "value": 0.3930524065028336,
           "data_status": "derived",
           "comparable": true
         },
         "slope_p90_deg": {
-          "value": 4.227053591714217,
+          "value": 4.033616083463023,
           "data_status": "derived",
           "comparable": true
         },
         "flat_fraction": {
-          "value": 0.9236,
+          "value": 0.928,
           "data_status": "derived",
           "comparable": true
         },
         "tri_median_m": {
-          "value": 21.88717245559544,
+          "value": 20.773461226851673,
           "data_status": "derived",
           "comparable": true
         },
         "relief_m": {
-          "value": 397.0078466432908,
+          "value": 396.8755952339869,
           "data_status": "derived",
           "comparable": true
         },
         "elevation_std_m": {
-          "value": 141.73661346391023,
+          "value": 140.56719982921683,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.27175407210675795,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
           "Ramsar site reference coordinate.",
           "Volcanic lake surface/terrain only; no mineral detection claim.",
-          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
-          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+          "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
+          "Measured SRTMGL30 minus GLO-90: slope median 0.006805 deg; Riley TRI median -1.113711 m. See source_transition.json."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 108,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 108,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 69,
+              "accepted_area_fraction": 0.6386077557585407,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1550,20 +3044,58 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_meke_regional.tif",
-        "source_file_sha256": "ec695a4c79536db9758d634010cd6ee9e273485237ddd65eb2942d5f89203d6a",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_meke_regional.png",
@@ -1571,7 +3103,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 984.4524048783413,
+        "offset": 985.9,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -1581,8 +3113,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",37.6869444444444,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.6430555555556,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -1600,55 +3132,134 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": true,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.33,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 0.05233467452563617,
+          "value": 0.033467191251471906,
           "data_status": "derived",
           "comparable": true
         },
         "slope_p90_deg": {
-          "value": 0.9210565040749858,
+          "value": 0.9238807685917386,
           "data_status": "derived",
           "comparable": true
         },
         "flat_fraction": {
-          "value": 0.9936,
+          "value": 0.9956,
           "data_status": "derived",
           "comparable": true
         },
         "tri_median_m": {
-          "value": 2.6447404415560944,
+          "value": 1.774637584095554,
           "data_status": "derived",
           "comparable": true
         },
         "relief_m": {
-          "value": 70.85079799757045,
+          "value": 70.42573691067844,
           "data_status": "derived",
           "comparable": true
         },
         "elevation_std_m": {
-          "value": 30.020158381096227,
+          "value": 29.707313953046437,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": 39.32943033432264,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.14567465045699493,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
           "Operator-selected center within the UNESCO-listed protected-area coordinate range, not a monitoring station.",
           "Seasonally shallow salt-lake surface is not bathymetry or a dry-land-only sample.",
-          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
-          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+          "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
+          "Measured SRTMGL30 minus GLO-90: slope median -0.018867 deg; Riley TRI median -0.870103 m. See source_transition.json."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 108,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 13,
+              "accepted_area_fraction": 0.12045081507872903,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null,
+              "mean_view_hour_utc": 8.784594393031226
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 108,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 8,
+              "accepted_area_fraction": 0.0741215869454321,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1656,20 +3267,58 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_tuz_golu_regional.tif",
-        "source_file_sha256": "40ebb2c4dc044894cd8c30470e4d8c41887be9716dba41566a23f909f1a14008",
+        "source_file": "e020n40.tif",
+        "source_file_sha256": "c8bea27c9687cd0038b579ecd0f629ce233cb3efdfcbc5c6c86da08657440915",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_tuz_golu_regional.png",
@@ -1677,7 +3326,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 902.1590090850202,
+        "offset": 904.9,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -1687,8 +3336,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",38.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",33.33,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -1741,9 +3390,34 @@
           "value": 106.6298432143245,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": -3.8095435778631703,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.10665,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
         "coverage": "full",
@@ -1754,7 +3428,62 @@
           "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
           "Outside nominal SRTM acquisition latitudes; GLO-90 selected."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 322,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "night": {
+              "accepted_pixels": 108,
+              "accepted_area_fraction": 0.334119354883954,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null,
+              "mean_view_hour_utc": 2.0372636421779706
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 322,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 2,
+              "accepted_area_fraction": 0.0062116473965030975,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1775,7 +3504,45 @@
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_haughton_regional.png",
@@ -1812,55 +3579,134 @@
       "scale": "regional",
       "window_km": 50,
       "analysis_resolution_m": 1000,
-      "source_resolution_m": 92.76624232772798,
+      "source_resolution_m": 1000,
       "resolution_validated": true,
       "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",35.0333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-111.016666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-      "dem_source": "copernicus_glo90",
-      "dem_version": "GLO-90 Public 2021 release",
+      "dem_source": "srtmgl30",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
       "features": {
         "slope_median_deg": {
-          "value": 0.7170573087281693,
+          "value": 0.7010534507351476,
           "data_status": "derived",
           "comparable": true
         },
         "slope_p90_deg": {
-          "value": 1.550464100257526,
+          "value": 1.4980035833009737,
           "data_status": "derived",
           "comparable": true
         },
         "flat_fraction": {
-          "value": 0.9848,
+          "value": 0.99,
           "data_status": "derived",
           "comparable": true
         },
         "tri_median_m": {
-          "value": 32.493398641970344,
+          "value": 31.353453524852462,
           "data_status": "derived",
           "comparable": true
         },
         "relief_m": {
-          "value": 516.6365892730514,
+          "value": 514.766469044042,
           "data_status": "derived",
           "comparable": true
         },
         "elevation_std_m": {
-          "value": 161.59984577391143,
+          "value": 161.18171127728107,
           "data_status": "derived",
           "comparable": true
+        },
+        "surface_temp_monthly_day_c": {
+          "value": 50.02742927763226,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_night_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Monthly Terra clear-sky overpass LST; no matched cross-body temperature protocol."
+        },
+        "surface_temp_monthly_overpass_difference_c": {
+          "value": null,
+          "data_status": "derived",
+          "comparable": false,
+          "comparability_note": "Difference of monthly day/night overpass LST on paired valid CMG pixels. Not daily Tmax-minus-Tmin amplitude."
         }
       },
-      "earth_filters": null,
+      "earth_filters": {
+        "ndvi_mean": {
+          "value": 0.1514505268146237,
+          "data_status": "derived",
+          "comparable": false,
+          "filter_note": "Monthly quality-filtered land NDVI; auxiliary filter only, never a similarity score."
+        }
+      },
       "quality": {
         "nodata_ratio": 0.0,
-        "coverage": "fallback_dem",
+        "coverage": "full",
         "warnings": [
-          "Copernicus DSM includes surface cover; not bare-earth geology.",
           "NASA crater catalog reference coordinate (arc-minute precision).",
           "Crater structure is small relative to 500 m/1000 m analysis; control locality is not a negative class.",
-          "Regional terrain derived from GLO-90; local detail is provided separately from GLO-30.",
-          "SRTMGL30 authentication is unavailable; source-transition comparison awaits input."
+          "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
+          "Measured SRTMGL30 minus GLO-90: slope median -0.016004 deg; Riley TRI median -1.139945 m. See source_transition.json."
         ],
-        "validation_eligible": true
+        "validation_eligible": true,
+        "environment": {
+          "MOD11C3": {
+            "selected_cmg_pixels": 99,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "day": {
+              "accepted_pixels": 36,
+              "accepted_area_fraction": 0.3635497573028669,
+              "coverage_note": "Mean represents accepted CMG pixels only; less than half of sampled window area passes QA.",
+              "missing_reason": null,
+              "mean_view_hour_utc": 18.349986394745446
+            },
+            "night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window.",
+              "mean_view_hour_utc": null
+            },
+            "paired_day_night": {
+              "accepted_pixels": 0,
+              "accepted_area_fraction": 0.0,
+              "coverage_note": null,
+              "missing_reason": "No quality-accepted CMG centers in the physical window."
+            },
+            "qa_policy": "MOD11C3-CMG: mandatory bits0:1=0, L1B-quality bit2=0, average LST error bits6:7=0; combined-use bit3 is not a quality failure.",
+            "uncertainty": {
+              "kind": "source_QC_category",
+              "average_lst_error_category_upper_k": 1,
+              "note": "Product QA category, not an independent error bound or confidence interval for this window."
+            },
+            "temperature_protocol": {
+              "status": "unmatched",
+              "comparable": false,
+              "note": "No Diviner/MEDA pair with the same statistic and comparable local-time/season coverage."
+            }
+          },
+          "MOD13C2": {
+            "selected_cmg_pixels": 99,
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "ndvi": {
+              "accepted_pixels": 96,
+              "accepted_area_fraction": 0.969629093306611,
+              "coverage_note": null,
+              "missing_reason": null
+            },
+            "qa_policy": "MOD13C2.061 file Legend: mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, geospatial bits14:15>=2, reliability=0; historical fills excluded.",
+            "qa_legend_source": "Actual HDF SDS Legend attribute. Older LAADS file-spec land/water bit layout is not applied to this collection 061 file."
+          }
+        }
       },
       "processing_version": "0.3.0",
       "method": "metric-gradient-riley8-p95p5-v1",
@@ -1868,20 +3714,58 @@
       "synthetic": false,
       "tags": [],
       "provenance": {
-        "source_url": "https://dataspace.copernicus.eu/",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w140n40.SRTMGL30.dem/w140n40.SRTMGL30.dem.zip",
         "accessed_on": "2026-11-14",
-        "source_file": "earth_meteor_crater_regional.tif",
-        "source_file_sha256": "df1836e3bf658d04eaeab0f828ca50fdea3a54428aaf13579cf45026a84c3525",
+        "source_file": "w140n40.tif",
+        "source_file_sha256": "ed2b80738dea625104422dee9b8e1f52c0b561810c9483b99e26743230bb547f",
         "source_crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
         "source_radius_m": 6378137.0,
-        "vertical_reference": "EGM2008 orthometric height",
+        "vertical_reference": "EGM96 orthometric height",
         "vertical_unit": "m",
         "band_scale": 1.0,
         "band_offset": 0.0,
         "resampling": "average",
         "georeferencing_verified": true,
         "source_quality_verified": true,
-        "max_nodata_ratio": 0.05
+        "max_nodata_ratio": 0.05,
+        "environment_sources": {
+          "MOD11C3": {
+            "product": "MOD11C3.061",
+            "file": "MOD11C3.A2021152.061.2021190161921.hdf",
+            "file_sha256": "003e1eaebeb112b7555cdbb86cf5689d82ae99c5738ac284479644634ea82d20",
+            "bytes": 73594208,
+            "doi": "10.5067/MODIS/MOD11C3.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          },
+          "MOD13C2": {
+            "product": "MOD13C2.061",
+            "file": "MOD13C2.A2021152.061.2021194035425.hdf",
+            "file_sha256": "9c238e9a600924794f7c69f520c1c3186e11c81b6782310ac37466c9f544eb01",
+            "bytes": 105577710,
+            "doi": "10.5067/MODIS/MOD13C2.061",
+            "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+            "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+            "accessed_on": "2026-11-14",
+            "period": {
+              "start": "2021-06-01",
+              "end": "2021-06-30"
+            },
+            "native_grid_step_deg": 0.05,
+            "crs": "EPSG:4326",
+            "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+            "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+          }
+        }
       },
       "heightmap": {
         "path": "heightmaps/earth_meteor_crater_regional.png",
@@ -1889,7 +3773,7 @@
         "width": 50,
         "height": 50,
         "bit_depth": 16,
-        "offset": 1436.2797856279126,
+        "offset": 1436.3817339022974,
         "scale": 0.1,
         "NoData": 0,
         "nodata_mask": "pixel == 0",
@@ -1899,8 +3783,8 @@
         "origin_y_m": 25000,
         "row_direction": "south",
         "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"Unknown based on WGS 84 ellipsoid\",ELLIPSOID[\"WGS 84\",6378137,298.257223562997,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area\",ID[\"EPSG\",9820]],PARAMETER[\"Latitude of natural origin\",35.0333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-111.016666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
-        "dem_source": "copernicus_glo90",
-        "vertical_reference": "EGM2008 orthometric height",
+        "dem_source": "srtmgl30",
+        "vertical_reference": "EGM96 orthometric height",
         "elevation_unit": "m",
         "vertical_exaggeration": 1,
         "synthetic": false,
@@ -2203,6 +4087,7 @@
           "Product georeferencing and sampling/quality review is not yet verified.",
           "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
           "Some analysis cells have no directly observed source bins or no counts coverage.",
+          "Measured-support rule failed: 248/2500 analysis cells have zero observed bins; 0 cells lack counts coverage. Required: neither count may exceed zero. Raster NoData=0 does not prove direct observations.",
           "Awaiting matching target/Earth window, resolution and method validation."
         ],
         "validation_eligible": false,

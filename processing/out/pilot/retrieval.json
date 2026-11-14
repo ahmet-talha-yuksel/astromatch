@@ -249,27 +249,56 @@
       "lon": 29.25,
       "lat": 37.25,
       "selected": true,
-      "source_selection": "srtm_access_unavailable",
+      "source_selection": "preferred_srtm_from_local_earthdata_download",
       "status": "ready",
       "tiles": [
         {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
-          "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
-          "cache_hit": false
-        },
-        {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
-          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
-          "cache_hit": false
+          "tile_id": "e020n40",
+          "source_file": "e020n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "28df7d5b5bbb204020169f9ff47009581244bc6f9dd2f805e2da5bb2ac1ac3a0",
+          "bytes": 25187479,
+          "bounds": [
+            20,
+            -10.0,
+            60,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip"
         }
       ],
-      "timing": {
-        "download_s": 6.034596083918586,
-        "caching_s": 0.012471667025238276,
-        "cropping_mosaic_s": 0.13217670796439052,
-        "acquisition_wall_s": 7.643844624981284
+      "timing": {},
+      "path": "raw/srtmgl30/e020n40.tif",
+      "historical_fallback": {
+        "path": "raw/pilot/earth_grid_r254_c418.tif",
+        "tiles": [
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
+            "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
+            "cache_hit": false
+          },
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+            "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+            "cache_hit": false
+          }
+        ],
+        "timing": {
+          "download_s": 6.034596083918586,
+          "caching_s": 0.012471667025238276,
+          "cropping_mosaic_s": 0.13217670796439052,
+          "acquisition_wall_s": 7.643844624981284
+        },
+        "source_selection": "srtm_access_unavailable"
       },
-      "path": "raw/pilot/earth_grid_r254_c418.tif"
+      "product": "srtmgl30",
+      "source_resolution_m": 1000,
+      "vertical_reference": "EGM96 orthometric height",
+      "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
+      "acquisition_timing_status": "unmeasured_local_import_shared_by_windows"
     },
     {
       "region_id": "earth_grid_r254_c419",
@@ -277,27 +306,56 @@
       "lon": 29.75,
       "lat": 37.25,
       "selected": true,
-      "source_selection": "srtm_access_unavailable",
+      "source_selection": "preferred_srtm_from_local_earthdata_download",
       "status": "ready",
       "tiles": [
         {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
-          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
-          "cache_hit": true
-        },
-        {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
-          "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
-          "cache_hit": false
+          "tile_id": "e020n40",
+          "source_file": "e020n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "28df7d5b5bbb204020169f9ff47009581244bc6f9dd2f805e2da5bb2ac1ac3a0",
+          "bytes": 25187479,
+          "bounds": [
+            20,
+            -10.0,
+            60,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip"
         }
       ],
-      "timing": {
-        "download_s": 3.048871041974053,
-        "caching_s": 0.0042611658573150635,
-        "cropping_mosaic_s": 0.0946509160567075,
-        "acquisition_wall_s": 3.148288916097954
+      "timing": {},
+      "path": "raw/srtmgl30/e020n40.tif",
+      "historical_fallback": {
+        "path": "raw/pilot/earth_grid_r254_c419.tif",
+        "tiles": [
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+            "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+            "cache_hit": true
+          },
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
+            "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
+            "cache_hit": false
+          }
+        ],
+        "timing": {
+          "download_s": 3.048871041974053,
+          "caching_s": 0.0042611658573150635,
+          "cropping_mosaic_s": 0.0946509160567075,
+          "acquisition_wall_s": 3.148288916097954
+        },
+        "source_selection": "srtm_access_unavailable"
       },
-      "path": "raw/pilot/earth_grid_r254_c419.tif"
+      "product": "srtmgl30",
+      "source_resolution_m": 1000,
+      "vertical_reference": "EGM96 orthometric height",
+      "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
+      "acquisition_timing_status": "unmeasured_local_import_shared_by_windows"
     },
     {
       "region_id": "earth_grid_r255_c418",
@@ -305,27 +363,56 @@
       "lon": 29.25,
       "lat": 37.75,
       "selected": true,
-      "source_selection": "srtm_access_unavailable",
+      "source_selection": "preferred_srtm_from_local_earthdata_download",
       "status": "ready",
       "tiles": [
         {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
-          "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
-          "cache_hit": true
-        },
-        {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
-          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
-          "cache_hit": true
+          "tile_id": "e020n40",
+          "source_file": "e020n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "28df7d5b5bbb204020169f9ff47009581244bc6f9dd2f805e2da5bb2ac1ac3a0",
+          "bytes": 25187479,
+          "bounds": [
+            20,
+            -10.0,
+            60,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip"
         }
       ],
-      "timing": {
-        "download_s": 0.0,
-        "caching_s": 0.0037901250179857016,
-        "cropping_mosaic_s": 0.06780208391137421,
-        "acquisition_wall_s": 0.07203654199838638
+      "timing": {},
+      "path": "raw/srtmgl30/e020n40.tif",
+      "historical_fallback": {
+        "path": "raw/pilot/earth_grid_r255_c418.tif",
+        "tiles": [
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
+            "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
+            "cache_hit": true
+          },
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+            "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+            "cache_hit": true
+          }
+        ],
+        "timing": {
+          "download_s": 0.0,
+          "caching_s": 0.0037901250179857016,
+          "cropping_mosaic_s": 0.06780208391137421,
+          "acquisition_wall_s": 0.07203654199838638
+        },
+        "source_selection": "srtm_access_unavailable"
       },
-      "path": "raw/pilot/earth_grid_r255_c418.tif"
+      "product": "srtmgl30",
+      "source_resolution_m": 1000,
+      "vertical_reference": "EGM96 orthometric height",
+      "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
+      "acquisition_timing_status": "unmeasured_local_import_shared_by_windows"
     },
     {
       "region_id": "earth_grid_r255_c419",
@@ -333,27 +420,56 @@
       "lon": 29.75,
       "lat": 37.75,
       "selected": true,
-      "source_selection": "srtm_access_unavailable",
+      "source_selection": "preferred_srtm_from_local_earthdata_download",
       "status": "ready",
       "tiles": [
         {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
-          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
-          "cache_hit": true
-        },
-        {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
-          "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
-          "cache_hit": true
+          "tile_id": "e020n40",
+          "source_file": "e020n40.SRTMGL30.dem.zip",
+          "source_zip_sha256": "28df7d5b5bbb204020169f9ff47009581244bc6f9dd2f805e2da5bb2ac1ac3a0",
+          "bytes": 25187479,
+          "bounds": [
+            20,
+            -10.0,
+            60,
+            40
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/e020n40.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip"
         }
       ],
-      "timing": {
-        "download_s": 0.0,
-        "caching_s": 0.0035862077493220568,
-        "cropping_mosaic_s": 0.06424120790325105,
-        "acquisition_wall_s": 0.06824508286081254
+      "timing": {},
+      "path": "raw/srtmgl30/e020n40.tif",
+      "historical_fallback": {
+        "path": "raw/pilot/earth_grid_r255_c419.tif",
+        "tiles": [
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+            "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+            "cache_hit": true
+          },
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
+            "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
+            "cache_hit": true
+          }
+        ],
+        "timing": {
+          "download_s": 0.0,
+          "caching_s": 0.0035862077493220568,
+          "cropping_mosaic_s": 0.06424120790325105,
+          "acquisition_wall_s": 0.06824508286081254
+        },
+        "source_selection": "srtm_access_unavailable"
       },
-      "path": "raw/pilot/earth_grid_r255_c419.tif"
+      "product": "srtmgl30",
+      "source_resolution_m": 1000,
+      "vertical_reference": "EGM96 orthometric height",
+      "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
+      "acquisition_timing_status": "unmeasured_local_import_shared_by_windows"
     },
     {
       "region_id": "earth_grid_r130_c221",
@@ -361,27 +477,56 @@
       "lon": -69.25,
       "lat": -24.75,
       "selected": true,
-      "source_selection": "srtm_access_unavailable",
+      "source_selection": "preferred_srtm_from_local_earthdata_download",
       "status": "ready",
       "tiles": [
         {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
-          "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
-          "cache_hit": false
-        },
-        {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W069_00_DEM/Copernicus_DSM_COG_30_S25_00_W069_00_DEM.tif",
-          "sha256": "5a7dcf224c73a120a12cb15491cdeeed994d7be7443ce27a9fcd96b286a8cf92",
-          "cache_hit": false
+          "tile_id": "w100s10",
+          "source_file": "w100s10.SRTMGL30.dem.zip",
+          "source_zip_sha256": "e395c163ab5a1bff295c15d9dd13e3e9b2ede53005f917b18024f7eb769929dc",
+          "bytes": 10476425,
+          "bounds": [
+            -100,
+            -60.0,
+            -60,
+            -10
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/w100s10.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip"
         }
       ],
-      "timing": {
-        "download_s": 2.2641312079504132,
-        "caching_s": 0.007379667134955525,
-        "cropping_mosaic_s": 0.08993824990466237,
-        "acquisition_wall_s": 4.028820958221331
+      "timing": {},
+      "path": "raw/srtmgl30/w100s10.tif",
+      "historical_fallback": {
+        "path": "raw/pilot/earth_grid_r130_c221.tif",
+        "tiles": [
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
+            "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
+            "cache_hit": false
+          },
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W069_00_DEM/Copernicus_DSM_COG_30_S25_00_W069_00_DEM.tif",
+            "sha256": "5a7dcf224c73a120a12cb15491cdeeed994d7be7443ce27a9fcd96b286a8cf92",
+            "cache_hit": false
+          }
+        ],
+        "timing": {
+          "download_s": 2.2641312079504132,
+          "caching_s": 0.007379667134955525,
+          "cropping_mosaic_s": 0.08993824990466237,
+          "acquisition_wall_s": 4.028820958221331
+        },
+        "source_selection": "srtm_access_unavailable"
       },
-      "path": "raw/pilot/earth_grid_r130_c221.tif"
+      "product": "srtmgl30",
+      "source_resolution_m": 1000,
+      "vertical_reference": "EGM96 orthometric height",
+      "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
+      "acquisition_timing_status": "unmeasured_local_import_shared_by_windows"
     },
     {
       "region_id": "earth_grid_r131_c220",
@@ -389,27 +534,56 @@
       "lon": -69.75,
       "lat": -24.25,
       "selected": true,
-      "source_selection": "srtm_access_unavailable",
+      "source_selection": "preferred_srtm_from_local_earthdata_download",
       "status": "ready",
       "tiles": [
         {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W071_00_DEM/Copernicus_DSM_COG_30_S25_00_W071_00_DEM.tif",
-          "sha256": "7ddb0070f677d98025b12cde9889ab409ec684a424259da9653c27dbad943f1f",
-          "cache_hit": false
-        },
-        {
-          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
-          "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
-          "cache_hit": true
+          "tile_id": "w100s10",
+          "source_file": "w100s10.SRTMGL30.dem.zip",
+          "source_zip_sha256": "e395c163ab5a1bff295c15d9dd13e3e9b2ede53005f917b18024f7eb769929dc",
+          "bytes": 10476425,
+          "bounds": [
+            -100,
+            -60.0,
+            -60,
+            -10
+          ],
+          "rows": 6000,
+          "columns": 4800,
+          "path": "raw/srtmgl30/w100s10.tif",
+          "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip"
         }
       ],
-      "timing": {
-        "download_s": 0.9419549161102623,
-        "caching_s": 0.006196124944835901,
-        "cropping_mosaic_s": 0.0887521249242127,
-        "acquisition_wall_s": 1.0375227502081543
+      "timing": {},
+      "path": "raw/srtmgl30/w100s10.tif",
+      "historical_fallback": {
+        "path": "raw/pilot/earth_grid_r131_c220.tif",
+        "tiles": [
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W071_00_DEM/Copernicus_DSM_COG_30_S25_00_W071_00_DEM.tif",
+            "sha256": "7ddb0070f677d98025b12cde9889ab409ec684a424259da9653c27dbad943f1f",
+            "cache_hit": false
+          },
+          {
+            "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
+            "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
+            "cache_hit": true
+          }
+        ],
+        "timing": {
+          "download_s": 0.9419549161102623,
+          "caching_s": 0.006196124944835901,
+          "cropping_mosaic_s": 0.0887521249242127,
+          "acquisition_wall_s": 1.0375227502081543
+        },
+        "source_selection": "srtm_access_unavailable"
       },
-      "path": "raw/pilot/earth_grid_r131_c220.tif"
+      "product": "srtmgl30",
+      "source_resolution_m": 1000,
+      "vertical_reference": "EGM96 orthometric height",
+      "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
+      "dem_version": "NASA SRTMGL30.002 / SRTM30 v2.1",
+      "acquisition_timing_status": "unmeasured_local_import_shared_by_windows"
     },
     {
       "region_id": "earth_grid_r308_c320",
@@ -473,5 +647,85 @@
     "status": "not_run",
     "duration_s": null,
     "reason": "No validated land/water mask supplied; zero elevation is not treated as ocean."
-  }
+  },
+  "srtm_local_import": {
+    "accessed_on": "2026-11-14",
+    "product": "SRTMGL30.002 (SRTM30 v2.1)",
+    "source_portal": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl30-002",
+    "vertical_reference": "EGM96 orthometric height",
+    "registration": "30 arc-second cells with integer-degree outer tile bounds",
+    "native_srtm_latitude_domain": [
+      -56,
+      60
+    ],
+    "warning": "Outside native SRTM latitudes these global tiles include GTOPO30; pipeline must use GLO-90 there.",
+    "downloaded_archive_count": 27,
+    "imported": [
+      {
+        "tile_id": "e020n40",
+        "source_file": "e020n40.SRTMGL30.dem.zip",
+        "source_zip_sha256": "28df7d5b5bbb204020169f9ff47009581244bc6f9dd2f805e2da5bb2ac1ac3a0",
+        "bytes": 25187479,
+        "bounds": [
+          20,
+          -10.0,
+          60,
+          40
+        ],
+        "rows": 6000,
+        "columns": 4800,
+        "path": "raw/srtmgl30/e020n40.tif",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip"
+      },
+      {
+        "tile_id": "e020n90",
+        "source_file": "e020n90.SRTMGL30.dem.zip",
+        "source_zip_sha256": "edfd23b41f7375d158ba6b7221d7d9b93e78dc3422ca180e8e97d24b3f1c0324",
+        "bytes": 15842187,
+        "bounds": [
+          20,
+          40.0,
+          60,
+          90
+        ],
+        "rows": 6000,
+        "columns": 4800,
+        "path": "raw/srtmgl30/e020n90.tif",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n90.SRTMGL30.dem/e020n90.SRTMGL30.dem.zip"
+      },
+      {
+        "tile_id": "w100s10",
+        "source_file": "w100s10.SRTMGL30.dem.zip",
+        "source_zip_sha256": "e395c163ab5a1bff295c15d9dd13e3e9b2ede53005f917b18024f7eb769929dc",
+        "bytes": 10476425,
+        "bounds": [
+          -100,
+          -60.0,
+          -60,
+          -10
+        ],
+        "rows": 6000,
+        "columns": 4800,
+        "path": "raw/srtmgl30/w100s10.tif",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip"
+      },
+      {
+        "tile_id": "w140n40",
+        "source_file": "w140n40.SRTMGL30.dem.zip",
+        "source_zip_sha256": "6bca395f394ecd97c264d16bf0549d1729491f28001e9cef2f006306681fa6fe",
+        "bytes": 7396493,
+        "bounds": [
+          -140,
+          -10.0,
+          -100,
+          40
+        ],
+        "rows": 6000,
+        "columns": 4800,
+        "path": "raw/srtmgl30/w140n40.tif",
+        "source_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w140n40.SRTMGL30.dem/w140n40.SRTMGL30.dem.zip"
+      }
+    ]
+  },
+  "source_transition_report": "out/source_transition.json"
 }
