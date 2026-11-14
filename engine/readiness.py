@@ -7,8 +7,10 @@ import pandas as pd
 from collections import Counter
 from pathlib import Path
 from .adapters import adapt
-from .io import ROOT, _read, config
+from .io import ROOT, _read, config, feature_paths, merged_features
 from .models import DataPaths
+from .measurement import target_status, target_confidence, support_summary
+from .grid_status import grid_inventory
 
 KINDS={'target','earth_site','earth_grid','earth_reference'}
 STATUSES={'mock','observed','derived'}
@@ -26,12 +28,25 @@ def _feature_items(row, configured):
 
 def check_real_data(paths:DataPaths|None=None):
     paths=paths or DataPaths()
-    feature_path=_path(paths.features or os.getenv('ASTROMATCH_FEATURES'),ROOT/'processing/out/features.json')
+    feature_files=feature_paths(paths.features)
+    feature_path=feature_files[0]
     grid_path=_path(paths.grid or os.getenv('ASTROMATCH_GRID'),ROOT/'processing/out/earth_grid.parquet')
     errors=[]; records=[]; configured=set(config('features.yaml')['features'])
-    for path,required in ((feature_path,True),(grid_path,bool(paths.grid))):
+    for path in feature_files:
         if not path.exists():
-            if required: errors.append(f'Missing input: {path}. Provide --features PATH with v2.3 target and earth_site records' if path==feature_path else f'Missing grid input: {path}')
+            errors.append(f'Missing input: {path}. Provide --features PATH with v2.3 target and earth_site records')
+    overrides=[]
+    if not errors:
+        try: merged,overrides=merged_features(feature_files)
+        except Exception as exc: errors.append(f'Cannot read feature inputs: {exc}');merged=[]
+        for index,row in enumerate(merged):
+            if not isinstance(row,dict): errors.append(f'features[{index}]: expected an object');continue
+            row=dict(row)
+            if row.get('kind')=='candidate':row['kind']='earth_site'
+            records.append((row,feature_path,index))
+    for path,required in ((grid_path,bool(paths.grid)),):
+        if not path.exists():
+            if required: errors.append(f'Missing grid input: {path}')
             continue
         try: rows=_read(path)
         except Exception as exc:
@@ -39,6 +54,8 @@ def check_real_data(paths:DataPaths|None=None):
         if not isinstance(rows,list): errors.append(f'{path}: expected a list of records'); continue
         for index,row in enumerate(rows):
             if not isinstance(row,dict): errors.append(f'{path}[{index}]: expected an object'); continue
+            row=dict(row)
+            if row.get('kind')=='candidate': row['kind']='earth_site'
             records.append((row,path,index))
     counts=Counter(); features_by_record={}; null_counts=Counter(); comparable_total=comparable_true=resolution_true=0
     mock_records=[]; adapted=[]
@@ -96,15 +113,27 @@ def check_real_data(paths:DataPaths|None=None):
     if not targets: errors.append('No valid target records; supply v2.3 targets in --features')
     if not sites: errors.append('No valid earth_site records; supply comparable Earth sites in --features or --grid')
     min_features=config('features.yaml').get('min_features',3)
+    target_statuses={};warnings=list(overrides)
     for target in targets:
+        status,reason=target_status(target,configured)
         found=False
-        for site in sites:
+        for site in sites if status=='scorable' else []:
             if target.scale!=site.scale or not target.resolution_validated or not site.resolution_validated: continue
             eligible=sum(key in site.features and tf.value is not None and site.features[key].value is not None and tf.comparable and site.features[key].comparable for key,tf in target.features.items() if key in configured)
             if eligible>=min_features: found=True; break
-        if not found: errors.append(f'{target.region_id}@{target.scale}: no earth_site has at least {min_features} eligible features at the same scale')
+        if not found:
+            reason=reason or f'no earth_site has at least {min_features} eligible features at the same scale'
+            status='unscorable'
+            warnings.append(f'{target.region_id}@{target.scale}: {reason}')
+        target_statuses[f'{target.region_id}@{target.scale}']={'status':status,'reason':reason,'target_confidence':target_confidence(target),'measurement_support':support_summary(target)}
+    if targets and not any(value['status']=='scorable' for value in target_statuses.values()):
+        errors.append('No scorable target; validate resolution, comparability and Earth-site feature overlap')
+    grid_status,grid_counts=grid_inventory(adapted)
+    if not grid_path.exists(): grid_status='absent'
+    methods={t.method for t in targets if t.body=='mars' and target_statuses[f'{t.region_id}@{t.scale}']['status']=='scorable'}
+    if len(methods)>1: warnings.append('mixed Mars methods')
     total=len(records)
-    return {'ready':not errors,'errors':errors,'counts_by_kind_body_scale':dict(sorted(counts.items())),'features_by_record':features_by_record,'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':str(feature_path),'grid':str(grid_path) if grid_path.exists() else None}}
+    return {'ready':not errors,'errors':errors,'warnings':warnings,'overrides':overrides,'input_source':os.getenv('ASTROMATCH_INPUT_SOURCE'),'target_statuses':target_statuses,'grid_status':grid_status,'grid_counts':grid_counts,'counts_by_kind_body_scale':dict(sorted(counts.items())),'features_by_record':features_by_record,'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':[str(path) for path in feature_files],'grid':str(grid_path) if grid_path.exists() else None,'coverage':os.getenv('ASTROMATCH_COVERAGE') or str(ROOT/'processing/out/coverage.geojson')}}
 
 def report_json(report):
     return json.dumps(report,indent=2,sort_keys=True,ensure_ascii=False)+'\n'

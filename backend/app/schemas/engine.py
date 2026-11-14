@@ -24,6 +24,13 @@ class RankResponse(BaseModel):
     sigma: dict[str, dict[str, int | float | str]]
     data_status: str
     disclaimer: str | None = None
+    target_confidence: str | None = None
+    target_status: str = 'scorable'
+    target_reason: str | None = None
+    method_sensitive: bool = False
+    discrimination_label: str | None = None
+    discrimination_explanation: str | None = None
+    terrain_commonality: dict[str, Any] | None = None
 
 class Envelope(BaseModel):
     data_status: str
@@ -51,6 +58,12 @@ class SitesResponse(Envelope):
     preset: str
     sites: list[CandidateScore]
     excluded: list[dict[str,Any]]
+    target_confidence: str | None = None
+    target_status: str = 'scorable'
+    target_reason: str | None = None
+    discrimination_label: str | None = None
+    discrimination_explanation: str | None = None
+    terrain_commonality: dict[str, Any] | None = None
 
 class HeatResponse(Envelope):
     target_id: str

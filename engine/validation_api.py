@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import warnings
 from functools import lru_cache
 from pathlib import Path
@@ -12,9 +13,11 @@ import pandas as pd
 
 from .adapters import adapt
 from .aggregate import aggregate_matrix
-from .io import ROOT, config
+from .io import ROOT, config, feature_paths, merged_features
 from .sigma import sigma_metadata
 from .similarity import criterion_similarity
+from .measurement import target_status
+from .distance import standardized_distance
 
 
 def list_target_ids() -> dict[str, str | None]:
@@ -34,16 +37,32 @@ def _records(path: Path) -> list[dict]:
 
 @lru_cache(maxsize=1)
 def _default_targets() -> tuple[list[dict], str]:
-    path = ROOT / "processing/out/real/features.json"
-    if path.exists():
-        return [r for r in _records(path) if r.get("kind") == "target"], "real"
+    paths=feature_paths()
+    if paths and all(path.exists() for path in paths):
+        rows,_=merged_features(paths)
+        return [r for r in rows if r.get('kind')=='target'], 'real'
     from .mock import generate
     return generate(n_grid=0)[0], "mock"
 
 
 @lru_cache(maxsize=2)
 def _default_reference(scale: str) -> pd.DataFrame:
-    path = ROOT / "processing/out/earth_grid.parquet"
+    if scale=='local':
+        directory=ROOT/'processing/out/real'
+        rows=[]
+        for path in sorted(directory.glob('earth_reference*.json'))+sorted(directory.glob('earth_reference*.parquet')):
+            source=pd.read_parquet(path).to_dict('records') if path.suffix=='.parquet' else _records(path)
+            for raw in source:
+                if raw.get('kind')!='earth_reference': continue
+                row={k:v for k,v in raw.items() if k!='features'}
+                for key,item in (raw.get('features') or {}).items():
+                    if isinstance(item,dict):
+                        row[key]=item.get('value')
+                        row[key+'__comparable']=item.get('comparable',False)
+                rows.append(row)
+        if rows: return pd.DataFrame(rows)
+    path = Path(os.getenv('ASTROMATCH_GRID') or ROOT / "processing/out/earth_grid.parquet")
+    if not path.is_absolute(): path=ROOT/path
     if not path.exists():
         path = ROOT / "processing/out/real/earth_grid.parquet"
     if path.exists():
@@ -105,13 +124,20 @@ def _sigma_table(grid: pd.DataFrame, scale: str, sigma, features):
         return {key: dict(value) for key, value in _frozen_sigma(scale).items()}
     source = grid
     same_mask = source["scale"].eq(scale).to_numpy() if "scale" in source else np.ones(len(source), bool)
-    regional_mask = source["scale"].eq("regional").to_numpy() if "scale" in source else same_mask
+    validated=source["resolution_validated"].fillna(False).astype(bool).to_numpy() if "resolution_validated" in source else np.ones(len(source),bool)
     table = {}
     for key, cfg in features.items():
         column = pd.to_numeric(source[key], errors="coerce").to_numpy(dtype=float) if key in source else np.full(len(source), np.nan)
-        table[key] = sigma_metadata(column[same_mask], key, scale, cfg,
-                                    column[regional_mask],
-                                    config("features.yaml").get("min_sigma_samples", 200))
+        cmp_key=key+"__comparable"
+        comparable=source[cmp_key].fillna(False).astype(bool).to_numpy() if cmp_key in source else validated
+        if scale=='regional':
+            eligible=same_mask & validated & comparable
+            threshold=config("features.yaml").get("min_sigma_samples_regional",150)
+        else:
+            kinds=source["kind"].eq("earth_reference").to_numpy() if "kind" in source else np.zeros(len(source),bool)
+            eligible=same_mask & validated & comparable & kinds
+            threshold=config("features.yaml").get("min_sigma_samples_local",100)
+        table[key] = sigma_metadata(column[eligible], key, scale, cfg,[],threshold)
     return table
 
 
@@ -133,17 +159,16 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
     target = _target(target_records if target_records is not None else _default_targets()[0], target_id, scale)
     table = _sigma_table(grid_df, scale, sigma, features)
     scores = np.full((n, len(keys)), np.nan)
+    values=np.full((n,len(keys)),np.nan)
     eligible = np.zeros((n, len(keys)), dtype=bool)
     resolution = grid_df["resolution_validated"].fillna(False).astype(bool).to_numpy() if "resolution_validated" in grid_df else np.zeros(n, bool)
     matching = grid_df["scale"].eq(scale).to_numpy() if "scale" in grid_df else np.ones(n, bool)
     reason = None
     if target is None:
-        reason = "target_unscorable: target or scale not found"
-    elif not target.resolution_validated:
-        reason = "target_unscorable: resolution not validated"
-    elif sum(f.value is not None and f.comparable and weights_array[j] > 0
-             for j, key in enumerate(keys) if (f := target.features.get(key)) is not None) < config("features.yaml").get("min_features", 3):
-        reason = "target_unscorable: fewer than min_features eligible"
+        reason = "target_unscorable: not_delivered"
+    else:
+        state,why=target_status(target,keys)
+        if state!='scorable': reason="target_unscorable: "+why
     if reason:
         warnings.warn(f"{target_id}: {reason}", stacklevel=2)
     if reason is None:
@@ -152,6 +177,7 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
             if tf is None or tf.value is None or not tf.comparable or key not in grid_df:
                 continue
             value = pd.to_numeric(grid_df[key], errors="coerce").to_numpy(dtype=float)
+            values[:,j]=value
             comparable_col = key + "__comparable"
             comparable = grid_df[comparable_col].fillna(False).astype(bool).to_numpy() if comparable_col in grid_df else resolution
             mask = np.isfinite(value) & comparable & resolution & matching
@@ -162,12 +188,16 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
                 scores[mask, j] = [criterion_similarity(v, tf.value, features[key], table[key]["value"]) for v in value[mask]]
     geo, _, _, valid, _ = aggregate_matrix(scores, eligible, weights_array,
                                             config("features.yaml").get("min_features", 3))
+    target_values=np.array([target.features[key].value if target is not None and key in target.features and target.features[key].value is not None else np.nan for key in keys])
+    floors=np.array([float(features[key]['sigma'].get('floor',1)) for key in keys])
+    distance=standardized_distance(values,target_values,eligible,weights_array,floors)
+    distance[~valid]=np.nan
     count = (eligible & (weights_array > 0)).sum(axis=1)
     excluded = np.where(valid, None, "fewer than min_features eligible").astype(object)
     excluded[~matching] = "scale mismatch"
     if reason:
         excluded[:] = reason
-    out = pd.DataFrame({"cell_id": ids, "score": geo / 100,
+    out = pd.DataFrame({"cell_id": ids, "score": geo / 100,"distance_z":distance,
                         "n_features": count, "excluded_reason": excluded})
     if return_criteria:
         for j, key in enumerate(keys):

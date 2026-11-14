@@ -1,0 +1,941 @@
+group,order,cell_key,region_id,status,reason
+analog,,g_-07.75_-46.75,earth_grid_r164_c266,processed,
+analog,,g_-08.25_-46.75,earth_grid_r163_c266,processed,
+analog,,g_-10.25_-45.25,earth_grid_r159_c269,processed,
+analog,,g_-10.25_028.25,earth_grid_r159_c416,processed,
+analog,,g_-12.25_134.25,earth_grid_r155_c628,processed,
+analog,,g_-13.25_135.25,earth_grid_r153_c630,processed,
+analog,,g_-15.25_131.25,earth_grid_r149_c622,processed,
+analog,,g_-15.25_133.75,earth_grid_r149_c627,processed,
+analog,,g_-16.75_-52.75,earth_grid_r146_c254,processed,
+analog,,g_-16.75_-69.25,earth_grid_r146_c221,processed,
+analog,,g_-16.75_126.25,earth_grid_r146_c612,processed,
+analog,,g_-16.75_136.75,earth_grid_r146_c633,processed,
+analog,,g_-17.75_128.25,earth_grid_r144_c616,processed,
+analog,,g_-18.25_126.75,earth_grid_r143_c613,processed,
+analog,,g_-18.75_138.75,earth_grid_r142_c637,processed,
+analog,,g_-19.25_127.75,earth_grid_r141_c615,processed,
+analog,,g_-19.75_133.75,earth_grid_r140_c627,processed,
+analog,,g_-20.75_134.75,earth_grid_r138_c629,processed,
+analog,,g_-22.25_027.75,earth_grid_r135_c415,processed,
+analog,,g_-22.75_125.25,earth_grid_r134_c610,processed,
+analog,,g_-22.75_135.25,earth_grid_r134_c630,processed,
+analog,,g_-23.75_-46.75,earth_grid_r132_c266,processed,
+analog,,g_-23.75_-68.25,earth_grid_r132_c223,processed,
+analog,,g_-23.75_121.75,earth_grid_r132_c603,processed,
+analog,,g_-23.75_124.75,earth_grid_r132_c609,processed,
+analog,,g_-23.75_132.25,earth_grid_r132_c624,processed,
+analog,,g_-24.75_133.25,earth_grid_r130_c626,processed,
+analog,,g_-25.25_028.25,earth_grid_r129_c416,processed,
+analog,,g_-25.75_-52.75,earth_grid_r128_c254,processed,
+analog,,g_-25.75_120.75,earth_grid_r128_c601,processed,
+analog,,g_-26.25_023.75,earth_grid_r127_c407,processed,
+analog,,g_-26.25_114.75,earth_grid_r127_c589,processed,
+analog,,g_-26.75_-52.25,earth_grid_r126_c255,processed,
+analog,,g_-26.75_027.75,earth_grid_r126_c415,processed,
+analog,,g_-27.25_118.75,earth_grid_r125_c597,processed,
+analog,,g_-27.25_142.75,earth_grid_r125_c645,processed,
+analog,,g_-27.75_-61.75,earth_grid_r124_c236,processed,
+analog,,g_-27.75_016.25,earth_grid_r124_c392,processed,
+analog,,g_-27.75_117.25,earth_grid_r124_c594,processed,
+analog,,g_-27.75_135.25,earth_grid_r124_c630,processed,
+analog,,g_-32.25_135.25,earth_grid_r115_c630,processed,
+analog,,g_-32.75_-64.25,earth_grid_r114_c231,processed,
+analog,,g_-32.75_024.25,earth_grid_r114_c408,processed,
+analog,,g_-34.75_139.25,earth_grid_r110_c638,processed,
+analog,,g_006.75_-01.25,earth_grid_r193_c357,processed,
+analog,,g_017.25_021.75,earth_grid_r214_c403,processed,
+analog,,g_019.25_019.25,earth_grid_r218_c398,processed,
+analog,,g_019.75_076.75,earth_grid_r219_c513,processed,
+analog,,g_020.25_-12.75,earth_grid_r220_c334,processed,
+analog,,g_021.25_-89.25,earth_grid_r222_c181,processed,
+analog,,g_021.75_050.25,earth_grid_r223_c460,processed,
+analog,,g_022.25_026.25,earth_grid_r224_c412,processed,
+analog,,g_022.75_-10.25,earth_grid_r225_c339,processed,
+analog,,g_024.75_024.25,earth_grid_r229_c408,processed,
+analog,,g_025.25_024.25,earth_grid_r230_c408,processed,
+analog,,g_025.25_078.25,earth_grid_r230_c516,processed,
+analog,,g_026.25_004.25,earth_grid_r232_c368,processed,
+analog,,g_027.75_005.25,earth_grid_r235_c370,processed,
+analog,,g_029.25_-07.75,earth_grid_r238_c344,processed,
+analog,,g_029.75_038.75,earth_grid_r239_c437,processed,
+analog,,g_030.75_-102.75,earth_grid_r241_c154,processed,
+analog,,g_031.25_-96.25,earth_grid_r242_c167,processed,
+analog,,g_031.25_036.75,earth_grid_r242_c433,processed,
+analog,,g_031.75_-05.25,earth_grid_r243_c349,processed,
+analog,,g_031.75_-102.25,earth_grid_r243_c155,processed,
+analog,,g_032.75_-86.25,earth_grid_r245_c187,processed,
+analog,,g_033.25_004.25,earth_grid_r246_c368,processed,
+analog,,g_034.75_-115.75,earth_grid_r249_c128,processed,
+analog,,g_035.25_-111.25,earth_grid_r250_c137,processed,
+analog,,g_035.75_-105.75,earth_grid_r251_c148,processed,
+analog,,g_036.25_-85.75,earth_grid_r252_c188,processed,
+analog,,g_036.25_-87.75,earth_grid_r252_c184,processed,
+analog,,g_036.25_-98.25,earth_grid_r252_c163,processed,
+analog,,g_036.75_-83.75,earth_grid_r253_c192,processed,
+analog,,g_037.25_-76.25,earth_grid_r254_c207,processed,
+analog,,g_037.75_-91.25,earth_grid_r255_c177,processed,
+analog,,g_037.75_-92.75,earth_grid_r255_c174,processed,
+analog,,g_037.75_-99.25,earth_grid_r255_c161,processed,
+analog,,g_038.25_-109.75,earth_grid_r256_c140,processed,
+analog,,g_039.25_-83.25,earth_grid_r258_c193,processed,
+analog,,g_039.25_073.25,earth_grid_r258_c506,processed,
+analog,,g_040.25_123.25,earth_grid_r260_c606,processed,
+analog,,g_040.75_-87.25,earth_grid_r261_c185,processed,
+analog,,g_040.75_-89.75,earth_grid_r261_c180,processed,
+analog,,g_041.75_-85.75,earth_grid_r263_c188,processed,
+analog,,g_042.25_-87.75,earth_grid_r264_c184,processed,
+analog,,g_042.75_-64.25,earth_grid_r265_c231,processing_failed,No Copernicus DEM tiles available
+analog,,g_042.75_-94.75,earth_grid_r265_c170,processed,
+analog,,g_043.25_-106.75,earth_grid_r266_c146,processed,
+analog,,g_043.75_-89.75,earth_grid_r267_c180,processed,
+analog,,g_044.25_-76.75,earth_grid_r268_c206,processed,
+analog,,g_044.25_109.75,earth_grid_r268_c579,processed,
+analog,,g_044.75_-112.75,earth_grid_r269_c134,processed,
+analog,,g_044.75_-92.25,earth_grid_r269_c175,processed,
+analog,,g_045.75_000.75,earth_grid_r271_c361,processed,
+analog,,g_046.25_-78.25,earth_grid_r272_c203,processed,
+analog,,g_046.25_134.75,earth_grid_r272_c629,processed,
+analog,,g_046.25_137.75,earth_grid_r272_c635,processed,
+analog,,g_046.75_-80.75,earth_grid_r273_c198,processed,
+analog,,g_046.75_-81.25,earth_grid_r273_c197,processed,
+analog,,g_047.25_072.75,earth_grid_r274_c505,processed,
+analog,,g_047.75_-103.75,earth_grid_r275_c152,processed,
+analog,,g_047.75_-70.25,earth_grid_r275_c219,processed,
+analog,,g_048.25_032.75,earth_grid_r276_c425,processed,
+analog,,g_048.25_033.75,earth_grid_r276_c427,processed,
+analog,,g_048.25_040.75,earth_grid_r276_c441,processed,
+analog,,g_048.25_060.75,earth_grid_r276_c481,processed,
+analog,,g_048.75_-101.75,earth_grid_r277_c156,processed,
+analog,,g_048.75_-86.75,earth_grid_r277_c186,processed,
+analog,,g_048.75_010.25,earth_grid_r277_c380,processed,
+analog,,g_048.75_010.75,earth_grid_r277_c381,processed,
+analog,,g_048.75_032.25,earth_grid_r277_c424,processed,
+analog,,g_048.75_082.25,earth_grid_r277_c524,processed,
+analog,,g_049.25_029.25,earth_grid_r278_c418,processed,
+analog,,g_049.25_032.25,earth_grid_r278_c424,processed,
+analog,,g_049.25_057.75,earth_grid_r278_c475,processed,
+analog,,g_049.75_-103.25,earth_grid_r279_c153,processed,
+analog,,g_049.75_-109.25,earth_grid_r279_c141,processed,
+analog,,g_049.75_-110.25,earth_grid_r279_c139,processed,
+analog,,g_049.75_-74.75,earth_grid_r279_c210,processed,
+analog,,g_049.75_-95.25,earth_grid_r279_c169,processed,
+analog,,g_049.75_029.25,earth_grid_r279_c418,processed,
+analog,,g_049.75_032.75,earth_grid_r279_c425,processed,
+analog,,g_050.75_-106.75,earth_grid_r281_c146,processed,
+analog,,g_050.75_-73.75,earth_grid_r281_c212,processed,
+analog,,g_051.25_-68.75,earth_grid_r282_c222,processed,
+analog,,g_051.75_-98.75,earth_grid_r283_c162,processed,
+analog,,g_051.75_036.25,earth_grid_r283_c432,processed,
+analog,,g_052.25_016.75,earth_grid_r284_c393,processed,
+analog,,g_054.25_-115.75,earth_grid_r288_c128,processed,
+analog,,g_054.25_023.75,earth_grid_r288_c407,processed,
+analog,,g_054.25_027.75,earth_grid_r288_c415,processed,
+analog,,g_054.75_036.25,earth_grid_r289_c432,processed,
+analog,,g_054.75_048.25,earth_grid_r289_c456,processed,
+analog,,g_055.25_024.75,earth_grid_r290_c409,processed,
+analog,,g_055.75_-63.25,earth_grid_r291_c233,processed,
+analog,,g_056.25_-102.75,earth_grid_r292_c154,processed,
+analog,,g_056.25_-104.25,earth_grid_r292_c151,processed,
+analog,,g_056.25_-74.25,earth_grid_r292_c211,processed,
+analog,,g_056.25_014.75,earth_grid_r292_c389,processed,
+analog,,g_056.75_023.25,earth_grid_r293_c406,processed,
+analog,,g_056.75_043.75,earth_grid_r293_c447,processed,
+analog,,g_057.25_-66.75,earth_grid_r294_c226,processed,
+analog,,g_057.25_016.25,earth_grid_r294_c392,processed,
+analog,,g_057.75_027.25,earth_grid_r295_c414,processed,
+analog,,g_058.25_-109.25,earth_grid_r296_c141,processed,
+analog,,g_058.25_014.75,earth_grid_r296_c389,processed,
+analog,,g_058.25_022.75,earth_grid_r296_c405,processed,
+analog,,g_058.75_017.25,earth_grid_r297_c394,processed,
+analog,,g_058.75_028.25,earth_grid_r297_c416,processed,
+analog,,g_058.75_061.75,earth_grid_r297_c483,processed,
+analog,,g_059.25_006.25,earth_grid_r298_c372,processed,
+analog,,g_059.25_022.75,earth_grid_r298_c405,processed,
+analog,,g_059.25_023.75,earth_grid_r298_c407,processed,
+analog,,g_059.75_-117.75,earth_grid_r299_c124,processed,
+analog,,g_060.25_-111.25,earth_grid_r300_c137,processed,
+analog,,g_060.25_-75.25,earth_grid_r300_c209,processed,
+analog,,g_060.25_020.25,earth_grid_r300_c400,processed,
+analog,,g_060.25_117.75,earth_grid_r300_c595,processed,
+analog,,g_060.75_009.25,earth_grid_r301_c378,processed,
+analog,,g_061.25_-73.75,earth_grid_r302_c212,processed,
+analog,,g_061.25_014.75,earth_grid_r302_c389,processed,
+analog,,g_061.25_022.25,earth_grid_r302_c404,processed,
+analog,,g_061.75_016.75,earth_grid_r303_c393,processed,
+analog,,g_061.75_030.75,earth_grid_r303_c421,processed,
+analog,,g_062.25_024.75,earth_grid_r304_c409,processed,
+analog,,g_062.25_025.25,earth_grid_r304_c410,processed,
+analog,,g_062.25_027.25,earth_grid_r304_c414,processed,
+analog,,g_062.25_029.25,earth_grid_r304_c418,processed,
+analog,,g_062.75_-102.75,earth_grid_r305_c154,processed,
+analog,,g_062.75_014.75,earth_grid_r305_c389,processed,
+analog,,g_062.75_028.25,earth_grid_r305_c416,processed,
+analog,,g_063.25_014.75,earth_grid_r306_c389,processed,
+analog,,g_063.25_021.75,earth_grid_r306_c403,processed,
+analog,,g_063.25_023.75,earth_grid_r306_c407,processed,
+analog,,g_063.25_033.25,earth_grid_r306_c426,processed,
+analog,,g_064.75_-16.25,earth_grid_r309_c327,processed,
+analog,,g_065.25_028.25,earth_grid_r310_c416,processed,
+analog,,g_065.75_095.75,earth_grid_r311_c551,processed,
+analog,,g_067.75_172.25,earth_grid_r315_c704,processed,
+analog,,g_069.25_064.25,earth_grid_r318_c488,processed,
+analog,,g_071.25_-156.75,earth_grid_r322_c046,processed,
+analog,,g_071.25_121.75,earth_grid_r322_c603,processed,
+analog,,g_071.75_111.25,earth_grid_r323_c582,processed,
+analog,,g_073.75_029.75,earth_grid_r327_c419,processing_failed,No Copernicus DEM tiles available
+analog,,g_075.25_-89.75,earth_grid_r330_c180,processed,
+analog,,g_075.75_097.75,earth_grid_r331_c555,processed,
+background,1,g_058.25_-55.75,earth_grid_r296_c248,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,2,g_-39.75_012.25,earth_grid_r100_c384,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,3,g_-55.25_-141.75,earth_grid_r069_c076,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,4,g_-09.75_-108.25,earth_grid_r160_c143,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,5,g_-15.25_-101.75,earth_grid_r149_c156,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,6,g_-19.25_-67.25,earth_grid_r141_c225,processed,
+background,7,g_-34.75_109.75,earth_grid_r110_c579,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,8,g_-41.25_-65.75,earth_grid_r097_c228,processed,
+background,9,g_064.75_167.25,earth_grid_r309_c694,processed,
+background,10,g_040.75_-85.25,earth_grid_r261_c189,processed,
+background,11,g_-44.25_055.25,earth_grid_r091_c470,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,12,g_049.25_-05.75,earth_grid_r278_c348,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,13,g_016.75_066.75,earth_grid_r213_c493,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,14,g_-54.25_025.75,earth_grid_r071_c411,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,15,g_-54.75_125.75,earth_grid_r070_c611,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,16,g_-42.75_-139.25,earth_grid_r094_c081,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,17,g_-20.25_052.75,earth_grid_r139_c465,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,18,g_-17.75_092.75,earth_grid_r144_c545,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,19,g_032.75_-58.75,earth_grid_r245_c242,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,20,g_051.25_071.25,earth_grid_r282_c502,processed,
+background,21,g_-55.25_058.25,earth_grid_r069_c476,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,22,g_043.75_019.25,earth_grid_r267_c398,processed,
+background,23,g_-23.75_-25.75,earth_grid_r132_c308,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,24,g_060.25_-120.25,earth_grid_r300_c119,processed,
+background,25,g_069.25_157.25,earth_grid_r318_c674,processed,
+background,26,g_040.75_-141.75,earth_grid_r261_c076,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,27,g_016.25_111.75,earth_grid_r212_c583,mask_failed,"WorldCover QA failed: unknown_fraction=0.09418008062392469, sampling_difference=4.576812701534346e-05; limits 0.05 and 0.01"
+background,28,g_-19.75_-70.75,earth_grid_r140_c218,mask_failed,"WorldCover QA failed: unknown_fraction=0.9797890532929974, sampling_difference=0.0; limits 0.05 and 0.01"
+background,29,g_021.75_045.75,earth_grid_r223_c451,processed,
+background,30,g_049.25_-166.75,earth_grid_r278_c026,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,31,g_-09.25_-53.75,earth_grid_r161_c252,processed,
+background,32,g_-58.75_-48.25,earth_grid_r062_c263,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,33,g_-30.75_-131.25,earth_grid_r118_c097,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,34,g_068.75_099.25,earth_grid_r317_c558,processed,
+background,35,g_016.75_157.25,earth_grid_r213_c674,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,36,g_001.75_161.25,earth_grid_r183_c682,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,37,g_-09.25_-95.75,earth_grid_r161_c168,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,38,g_-31.75_041.25,earth_grid_r116_c442,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,39,g_-20.75_-23.25,earth_grid_r138_c313,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,40,g_001.25_042.25,earth_grid_r182_c444,processed,
+background,41,g_-41.25_-103.25,earth_grid_r097_c153,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,42,g_-43.25_096.25,earth_grid_r093_c552,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,43,g_009.25_-37.75,earth_grid_r198_c284,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,44,g_-42.25_-103.25,earth_grid_r095_c153,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,45,g_005.25_096.25,earth_grid_r190_c552,processed,
+background,46,g_002.75_-73.25,earth_grid_r185_c213,processed,
+background,47,g_051.75_-64.25,earth_grid_r283_c231,processed,
+background,48,g_-11.75_-46.75,earth_grid_r156_c266,processed,
+background,49,g_-52.25_115.25,earth_grid_r075_c590,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,50,g_023.75_-53.75,earth_grid_r227_c252,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,51,g_038.75_064.25,earth_grid_r257_c488,processed,
+background,52,g_-37.25_-18.75,earth_grid_r105_c322,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,53,g_008.75_139.75,earth_grid_r197_c639,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,54,g_-45.75_068.25,earth_grid_r088_c496,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,55,g_041.75_160.25,earth_grid_r263_c680,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,56,g_-06.75_111.25,earth_grid_r166_c582,processed,
+background,57,g_056.25_-32.75,earth_grid_r292_c294,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,58,g_054.25_077.25,earth_grid_r288_c514,processed,
+background,59,g_005.75_084.25,earth_grid_r191_c528,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,60,g_046.75_065.25,earth_grid_r273_c490,processed,
+background,61,g_-24.75_-167.75,earth_grid_r130_c024,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,62,g_-47.25_-63.25,earth_grid_r085_c233,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,63,g_-51.75_066.25,earth_grid_r076_c492,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,64,g_062.25_-63.75,earth_grid_r304_c232,mask_failed,"WorldCover QA failed: unknown_fraction=0.7687325958793699, sampling_difference=1.080843546508891e-05; limits 0.05 and 0.01"
+background,65,g_-18.25_-171.75,earth_grid_r143_c016,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,66,g_-07.25_-25.25,earth_grid_r165_c309,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,67,g_-45.25_-161.75,earth_grid_r089_c036,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,68,g_-17.75_109.75,earth_grid_r144_c579,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,69,g_-41.75_098.25,earth_grid_r096_c556,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,70,g_009.25_-11.75,earth_grid_r198_c336,processed,
+background,71,g_-09.25_-82.25,earth_grid_r161_c195,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,72,g_022.75_-122.75,earth_grid_r225_c114,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,73,g_057.25_172.75,earth_grid_r294_c705,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,74,g_006.25_143.25,earth_grid_r192_c646,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,75,g_-30.25_-98.75,earth_grid_r119_c162,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,76,g_007.25_124.75,earth_grid_r194_c609,processed,
+background,77,g_004.75_-29.75,earth_grid_r189_c300,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,78,g_-21.75_-64.25,earth_grid_r136_c231,processed,
+background,79,g_063.75_029.75,earth_grid_r307_c419,processed,
+background,80,g_-11.25_-84.75,earth_grid_r157_c190,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,81,g_069.75_-138.25,earth_grid_r319_c083,mask_failed,"WorldCover QA failed: unknown_fraction=0.7804885189993467, sampling_difference=8.235563622781012e-05; limits 0.05 and 0.01"
+background,82,g_066.25_-14.25,earth_grid_r312_c331,mask_failed,"WorldCover QA failed: unknown_fraction=0.5345058958300855, sampling_difference=4.971963803972884e-05; limits 0.05 and 0.01"
+background,83,g_059.75_-02.75,earth_grid_r299_c354,mask_failed,"WorldCover QA failed: unknown_fraction=0.7894940377538825, sampling_difference=0.0; limits 0.05 and 0.01"
+background,84,g_-47.25_178.75,earth_grid_r085_c717,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,85,g_052.75_-74.75,earth_grid_r285_c210,processed,
+background,86,g_057.25_080.25,earth_grid_r294_c520,processed,
+background,87,g_-28.75_-66.75,earth_grid_r122_c226,processed,
+background,88,g_038.25_120.75,earth_grid_r256_c601,skipped_nonland,land_fraction < 0.5 or unknown
+background,89,g_-15.25_-112.25,earth_grid_r149_c135,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,90,g_-30.25_-00.75,earth_grid_r119_c358,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,91,g_024.25_-42.25,earth_grid_r228_c275,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,92,g_009.25_-99.75,earth_grid_r198_c160,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,93,g_-10.75_-55.25,earth_grid_r158_c249,processed,
+background,94,g_058.25_020.25,earth_grid_r296_c400,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,95,g_067.25_-129.25,earth_grid_r314_c101,processed,
+background,96,g_042.75_145.25,earth_grid_r265_c650,mask_failed,"WorldCover QA failed: unknown_fraction=0.5723464852847159, sampling_difference=0.0; limits 0.05 and 0.01"
+background,97,g_-19.75_-179.25,earth_grid_r140_c001,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,98,g_066.25_125.75,earth_grid_r312_c611,processed,
+background,99,g_-00.75_-131.75,earth_grid_r178_c096,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,100,g_-49.75_-48.25,earth_grid_r080_c263,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,101,g_-18.25_-21.25,earth_grid_r143_c317,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,102,g_-54.25_067.25,earth_grid_r071_c494,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,103,g_-02.75_151.25,earth_grid_r174_c662,skipped_nonland,land_fraction < 0.5 or unknown
+background,104,g_013.25_-134.25,earth_grid_r206_c091,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,105,g_-11.25_015.25,earth_grid_r157_c390,processed,
+background,106,g_-47.75_-144.75,earth_grid_r084_c070,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,107,g_-21.75_128.75,earth_grid_r136_c617,processed,
+background,108,g_044.75_168.75,earth_grid_r269_c697,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,109,g_-02.75_049.25,earth_grid_r174_c458,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,110,g_-21.25_-15.75,earth_grid_r137_c328,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,111,g_061.25_-109.75,earth_grid_r302_c140,processed,
+background,112,g_031.25_157.25,earth_grid_r242_c674,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,113,g_012.25_-139.25,earth_grid_r204_c081,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,114,g_058.75_035.25,earth_grid_r297_c430,processed,
+background,115,g_023.75_-128.75,earth_grid_r227_c102,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,116,g_-33.75_-173.25,earth_grid_r112_c013,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,117,g_-11.75_000.25,earth_grid_r156_c360,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,118,g_-34.75_121.75,earth_grid_r110_c603,mask_failed,"WorldCover QA failed: unknown_fraction=0.71538800084861, sampling_difference=0.0; limits 0.05 and 0.01"
+background,119,g_-15.25_125.75,earth_grid_r149_c611,processed,
+background,120,g_043.75_065.25,earth_grid_r267_c490,processed,
+background,121,g_039.25_095.75,earth_grid_r258_c551,processed,
+background,122,g_-12.25_079.75,earth_grid_r155_c519,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,123,g_048.25_-65.25,earth_grid_r276_c229,processed,
+background,124,g_018.25_-159.25,earth_grid_r216_c041,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,125,g_047.75_156.75,earth_grid_r275_c673,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,126,g_012.75_-05.25,earth_grid_r205_c349,processed,
+background,127,g_005.75_131.75,earth_grid_r191_c623,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,128,g_-20.25_142.25,earth_grid_r139_c644,processed,
+background,129,g_-34.75_-48.75,earth_grid_r110_c262,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,130,g_033.75_-171.25,earth_grid_r247_c017,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,131,g_030.25_067.25,earth_grid_r240_c494,processed,
+background,132,g_-43.25_-144.25,earth_grid_r093_c071,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,133,g_-51.25_-124.25,earth_grid_r077_c111,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,134,g_-40.25_151.75,earth_grid_r099_c663,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,135,g_-32.25_054.75,earth_grid_r115_c469,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,136,g_055.75_169.25,earth_grid_r291_c698,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,137,g_-30.75_-88.75,earth_grid_r118_c182,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,138,g_065.75_-56.25,earth_grid_r311_c247,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,139,g_016.75_097.75,earth_grid_r213_c555,processed,
+background,140,g_050.25_054.75,earth_grid_r280_c469,processed,
+background,141,g_-48.25_-133.25,earth_grid_r083_c093,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,142,g_010.25_-123.25,earth_grid_r200_c113,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,143,g_009.75_-175.75,earth_grid_r199_c008,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,144,g_050.25_-13.75,earth_grid_r280_c332,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,145,g_025.25_-02.75,earth_grid_r230_c354,processed,
+background,146,g_037.25_120.25,earth_grid_r254_c600,processed,
+background,147,g_-14.25_034.25,earth_grid_r151_c428,processed,
+background,148,g_042.25_-44.25,earth_grid_r264_c271,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,149,g_-57.75_-115.25,earth_grid_r064_c129,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,150,g_065.75_-82.25,earth_grid_r311_c195,mask_failed,"WorldCover QA failed: unknown_fraction=0.9896199982149294, sampling_difference=0.0; limits 0.05 and 0.01"
+background,151,g_-39.25_074.75,earth_grid_r101_c509,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,152,g_065.75_105.25,earth_grid_r311_c570,processed,
+background,153,g_038.75_161.75,earth_grid_r257_c683,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,154,g_-11.25_-104.75,earth_grid_r157_c150,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,155,g_058.25_146.75,earth_grid_r296_c653,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,156,g_001.75_151.25,earth_grid_r183_c662,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,157,g_-39.75_041.25,earth_grid_r100_c442,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,158,g_-06.75_153.75,earth_grid_r166_c667,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,159,g_019.25_-49.25,earth_grid_r218_c261,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,160,g_-31.25_032.25,earth_grid_r117_c424,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,161,g_022.75_-81.75,earth_grid_r225_c196,processed,
+background,162,g_-59.25_-114.75,earth_grid_r061_c130,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,163,g_-12.25_164.75,earth_grid_r155_c689,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,164,g_031.75_-24.75,earth_grid_r243_c310,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,165,g_-27.25_-159.75,earth_grid_r125_c040,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,166,g_033.25_-83.75,earth_grid_r246_c192,processed,
+background,167,g_-40.75_087.25,earth_grid_r098_c534,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,168,g_055.75_-112.75,earth_grid_r291_c134,processed,
+background,169,g_-05.75_081.75,earth_grid_r168_c523,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,170,g_058.25_-118.75,earth_grid_r296_c122,processed,
+background,171,g_033.25_-86.25,earth_grid_r246_c187,processed,
+background,172,g_052.75_-96.25,earth_grid_r285_c167,processed,
+background,173,g_-23.75_-16.25,earth_grid_r132_c327,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,174,g_-32.25_054.25,earth_grid_r115_c468,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,175,g_008.25_-105.75,earth_grid_r196_c148,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,176,g_-30.75_116.75,earth_grid_r118_c593,processed,
+background,177,g_039.25_148.25,earth_grid_r258_c656,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,178,g_037.75_-75.75,earth_grid_r255_c208,skipped_nonland,land_fraction < 0.5 or unknown
+background,179,g_-59.75_-105.25,earth_grid_r060_c149,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,180,g_050.75_027.75,earth_grid_r281_c415,processed,
+background,181,g_-00.75_-148.25,earth_grid_r178_c063,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,182,g_029.25_083.75,earth_grid_r238_c527,processed,
+background,183,g_-56.25_-147.25,earth_grid_r067_c065,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,184,g_-39.75_082.75,earth_grid_r100_c525,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,185,g_006.25_-99.25,earth_grid_r192_c161,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,186,g_-03.75_-169.75,earth_grid_r172_c020,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,187,g_-16.25_-94.75,earth_grid_r147_c170,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,188,g_-49.25_-147.75,earth_grid_r081_c064,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,189,g_-16.25_091.75,earth_grid_r147_c543,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,190,g_045.25_-167.75,earth_grid_r270_c024,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,191,g_-45.75_062.75,earth_grid_r088_c485,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,192,g_-44.25_-113.25,earth_grid_r091_c133,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,193,g_028.75_070.25,earth_grid_r237_c500,processed,
+background,194,g_-47.25_-108.25,earth_grid_r085_c143,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,195,g_038.25_-97.25,earth_grid_r256_c165,processed,
+background,196,g_-37.25_103.75,earth_grid_r105_c567,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,197,g_-36.75_088.75,earth_grid_r106_c537,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,198,g_061.75_097.75,earth_grid_r303_c555,processed,
+background,199,g_026.75_-43.75,earth_grid_r233_c272,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,200,g_041.75_-163.75,earth_grid_r263_c032,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,201,g_-29.75_-134.25,earth_grid_r120_c091,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,202,g_-11.75_023.75,earth_grid_r156_c407,processed,
+background,203,g_037.25_-99.25,earth_grid_r254_c161,processed,
+background,204,g_052.25_-48.25,earth_grid_r284_c263,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,205,g_017.25_-133.75,earth_grid_r214_c092,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,206,g_-21.25_-124.25,earth_grid_r137_c111,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,207,g_039.25_137.75,earth_grid_r258_c635,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,208,g_067.25_094.25,earth_grid_r314_c548,processed,
+background,209,g_-23.25_-81.25,earth_grid_r133_c197,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,210,g_-03.25_021.25,earth_grid_r173_c402,processed,
+background,211,g_012.75_-58.75,earth_grid_r205_c242,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,212,g_064.25_-132.25,earth_grid_r308_c095,processed,
+background,213,g_060.25_-121.25,earth_grid_r300_c117,processed,
+background,214,g_008.25_-170.75,earth_grid_r196_c018,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,215,g_019.75_028.25,earth_grid_r219_c416,processed,
+background,216,g_035.25_-105.25,earth_grid_r250_c149,processed,
+background,217,g_022.25_-15.25,earth_grid_r224_c329,processed,
+background,218,g_-37.75_-159.75,earth_grid_r104_c040,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,219,g_-14.75_-65.75,earth_grid_r150_c228,processed,
+background,220,g_-19.25_128.25,earth_grid_r141_c616,processed,
+background,221,g_-48.25_-67.75,earth_grid_r083_c224,processed,
+background,222,g_001.75_-122.25,earth_grid_r183_c115,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,223,g_-56.25_057.25,earth_grid_r067_c474,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,224,g_048.75_067.25,earth_grid_r277_c494,processed,
+background,225,g_042.25_077.25,earth_grid_r264_c514,skipped_nonland,land_fraction < 0.5 or unknown
+background,226,g_-18.25_118.75,earth_grid_r143_c597,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,227,g_048.75_085.25,earth_grid_r277_c530,processed,
+background,228,g_-19.75_-100.25,earth_grid_r140_c159,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,229,g_-58.75_042.75,earth_grid_r062_c445,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,230,g_-47.25_125.25,earth_grid_r085_c610,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,231,g_056.75_-69.75,earth_grid_r293_c220,processed,
+background,232,g_-49.25_-23.25,earth_grid_r081_c313,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,233,g_-18.25_-35.25,earth_grid_r143_c289,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,234,g_-47.75_014.25,earth_grid_r084_c388,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,235,g_-54.25_-22.75,earth_grid_r071_c314,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,236,g_000.25_-46.25,earth_grid_r180_c267,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,237,g_-47.25_107.25,earth_grid_r085_c574,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,238,g_034.25_135.25,earth_grid_r248_c630,processed,
+background,239,g_-16.75_074.75,earth_grid_r146_c509,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,240,g_-09.25_-16.25,earth_grid_r161_c327,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,241,g_063.75_-127.25,earth_grid_r307_c105,processed,
+background,242,g_028.75_-35.25,earth_grid_r237_c289,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,243,g_-20.75_-164.75,earth_grid_r138_c030,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,244,g_039.25_129.25,earth_grid_r258_c618,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,245,g_-35.75_-117.75,earth_grid_r108_c124,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,246,g_045.75_-44.75,earth_grid_r271_c270,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,247,g_046.75_-85.25,earth_grid_r273_c189,skipped_nonland,land_fraction < 0.5 or unknown
+background,248,g_026.25_-56.75,earth_grid_r232_c246,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,249,g_-15.75_010.25,earth_grid_r148_c380,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,250,g_026.25_-16.75,earth_grid_r232_c326,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,251,g_014.25_-81.25,earth_grid_r208_c197,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,252,g_-25.25_-54.75,earth_grid_r129_c250,processed,
+background,253,g_-42.75_-56.75,earth_grid_r094_c246,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,254,g_-42.25_-75.25,earth_grid_r095_c209,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,255,g_061.75_-03.75,earth_grid_r303_c352,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,256,g_018.75_-176.25,earth_grid_r217_c007,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,257,g_004.75_-157.75,earth_grid_r189_c044,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,258,g_017.25_-76.25,earth_grid_r214_c207,mask_failed,"WorldCover QA failed: unknown_fraction=0.6375252975314389, sampling_difference=0.0; limits 0.05 and 0.01"
+background,259,g_014.75_088.25,earth_grid_r209_c536,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,260,g_025.25_-137.25,earth_grid_r230_c085,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,261,g_-50.25_080.25,earth_grid_r079_c520,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,262,g_064.25_088.75,earth_grid_r308_c537,processed,
+background,263,g_060.75_-10.25,earth_grid_r301_c339,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,264,g_059.25_113.75,earth_grid_r298_c587,processed,
+background,265,g_-42.25_119.75,earth_grid_r095_c599,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,266,g_-48.75_-155.25,earth_grid_r082_c049,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,267,g_013.25_056.75,earth_grid_r206_c473,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,268,g_001.75_037.25,earth_grid_r183_c434,processed,
+background,269,g_-40.25_102.25,earth_grid_r099_c564,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,270,g_-14.75_032.75,earth_grid_r150_c425,processed,
+background,271,g_-25.25_100.75,earth_grid_r129_c561,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,272,g_-25.25_-80.75,earth_grid_r129_c198,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,273,g_038.75_072.25,earth_grid_r257_c504,processed,
+background,274,g_021.75_-32.25,earth_grid_r223_c295,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,275,g_-34.25_-165.75,earth_grid_r111_c028,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,276,g_016.75_061.25,earth_grid_r213_c482,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,277,g_-26.75_116.25,earth_grid_r126_c592,processed,
+background,278,g_-09.25_-07.75,earth_grid_r161_c344,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,279,g_024.25_006.25,earth_grid_r228_c372,processed,
+background,280,g_-14.25_-176.25,earth_grid_r151_c007,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,281,g_-46.25_-19.25,earth_grid_r087_c321,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,282,g_020.75_-31.25,earth_grid_r221_c297,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,283,g_041.75_-95.25,earth_grid_r263_c169,processed,
+background,284,g_-42.25_053.25,earth_grid_r095_c466,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,285,g_-50.75_-29.25,earth_grid_r078_c301,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,286,g_060.25_177.75,earth_grid_r300_c715,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,287,g_039.75_-53.25,earth_grid_r259_c253,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,288,g_-57.25_-45.75,earth_grid_r065_c268,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,289,g_-43.25_164.25,earth_grid_r093_c688,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,290,g_-16.75_-139.25,earth_grid_r146_c081,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,291,g_-29.75_020.75,earth_grid_r120_c401,processed,
+background,292,g_014.25_-165.75,earth_grid_r208_c028,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,293,g_028.75_-05.75,earth_grid_r237_c348,processed,
+background,294,g_027.75_123.25,earth_grid_r235_c606,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,295,g_-21.25_131.25,earth_grid_r137_c622,processed,
+background,296,g_013.25_-150.25,earth_grid_r206_c059,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,297,g_-49.25_-54.75,earth_grid_r081_c250,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,298,g_-30.25_161.25,earth_grid_r119_c682,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,299,g_009.25_-162.75,earth_grid_r198_c034,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,300,g_-59.75_102.75,earth_grid_r060_c565,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,301,g_011.25_-102.25,earth_grid_r202_c155,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,302,g_-11.75_042.75,earth_grid_r156_c445,mask_failed,"WorldCover QA failed: unknown_fraction=0.9139195870906027, sampling_difference=0.0; limits 0.05 and 0.01"
+background,303,g_022.75_087.25,earth_grid_r225_c534,processed,
+background,304,g_-08.25_151.75,earth_grid_r163_c663,mask_failed,"WorldCover QA failed: unknown_fraction=0.8027691037114709, sampling_difference=0.0; limits 0.05 and 0.01"
+background,305,g_017.25_-151.25,earth_grid_r214_c057,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,306,g_068.75_-103.75,earth_grid_r317_c152,skipped_nonland,land_fraction < 0.5 or unknown
+background,307,g_042.75_-39.75,earth_grid_r265_c280,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,308,g_062.25_015.75,earth_grid_r304_c391,processed,
+background,309,g_028.75_159.25,earth_grid_r237_c678,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,310,g_-31.75_-48.25,earth_grid_r116_c263,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,311,g_-25.25_-121.75,earth_grid_r129_c116,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,312,g_-05.75_-145.75,earth_grid_r168_c068,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,313,g_-20.25_-70.25,earth_grid_r139_c219,skipped_nonland,land_fraction < 0.5 or unknown
+background,314,g_-49.25_-74.25,earth_grid_r081_c211,processed,
+background,315,g_047.25_-55.25,earth_grid_r274_c249,processed,
+background,316,g_040.25_-172.25,earth_grid_r260_c015,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,317,g_-48.75_-110.25,earth_grid_r082_c139,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,318,g_-02.75_-91.25,earth_grid_r174_c177,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,319,g_-49.75_112.75,earth_grid_r080_c585,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,320,g_-50.75_-87.75,earth_grid_r078_c184,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,321,g_048.25_-118.75,earth_grid_r276_c122,processed,
+background,322,g_027.25_-176.25,earth_grid_r234_c007,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,323,g_032.25_-57.25,earth_grid_r244_c245,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,324,g_037.75_055.25,earth_grid_r255_c470,processed,
+background,325,g_-31.25_-62.75,earth_grid_r117_c234,processed,
+background,326,g_-49.75_075.25,earth_grid_r080_c510,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,327,g_033.25_-64.25,earth_grid_r246_c231,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,328,g_-45.25_-119.75,earth_grid_r089_c120,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,329,g_-26.25_062.75,earth_grid_r127_c485,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,330,g_-47.75_161.25,earth_grid_r084_c682,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,331,g_050.25_-125.75,earth_grid_r280_c108,processed,
+background,332,g_-47.75_087.75,earth_grid_r084_c535,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,333,g_064.75_-29.25,earth_grid_r309_c301,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,334,g_-17.25_066.75,earth_grid_r145_c493,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,335,g_013.75_-151.75,earth_grid_r207_c056,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,336,g_-38.25_053.75,earth_grid_r103_c467,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,337,g_045.25_135.75,earth_grid_r270_c631,processed,
+background,338,g_-15.25_071.75,earth_grid_r149_c503,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,339,g_047.25_-89.25,earth_grid_r274_c181,skipped_nonland,land_fraction < 0.5 or unknown
+background,340,g_049.75_166.75,earth_grid_r279_c693,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,341,g_-52.75_-10.75,earth_grid_r074_c338,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,342,g_054.75_-169.75,earth_grid_r289_c020,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,343,g_-45.25_125.75,earth_grid_r089_c611,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,344,g_016.25_073.25,earth_grid_r212_c506,mask_failed,"WorldCover QA failed: unknown_fraction=0.15145148589620372, sampling_difference=0.0002065242849629001; limits 0.05 and 0.01"
+background,345,g_061.25_145.25,earth_grid_r302_c650,processed,
+background,346,g_047.75_175.25,earth_grid_r275_c710,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,347,g_044.75_-118.25,earth_grid_r269_c123,processed,
+background,348,g_036.25_-80.75,earth_grid_r252_c198,processed,
+background,349,g_-02.25_-88.75,earth_grid_r175_c182,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,350,g_-12.25_-179.25,earth_grid_r155_c001,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,351,g_-22.75_-33.75,earth_grid_r134_c292,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,352,g_063.75_-29.25,earth_grid_r307_c301,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,353,g_-02.75_-15.25,earth_grid_r174_c329,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,354,g_-16.75_165.25,earth_grid_r146_c690,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,355,g_-11.75_096.75,earth_grid_r156_c553,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,356,g_012.25_-119.25,earth_grid_r204_c121,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,357,g_-36.25_054.25,earth_grid_r107_c468,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,358,g_064.25_-131.75,earth_grid_r308_c096,processed,
+background,359,g_059.25_024.75,earth_grid_r298_c409,processed,
+background,360,g_-05.25_-74.75,earth_grid_r169_c210,processed,
+background,361,g_023.25_017.75,earth_grid_r226_c395,processed,
+background,362,g_-02.25_-114.25,earth_grid_r175_c131,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,363,g_-46.75_-31.75,earth_grid_r086_c296,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,364,g_-58.25_-39.25,earth_grid_r063_c281,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,365,g_023.25_156.75,earth_grid_r226_c673,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,366,g_054.75_064.25,earth_grid_r289_c488,processed,
+background,367,g_044.25_-81.75,earth_grid_r268_c196,skipped_nonland,land_fraction < 0.5 or unknown
+background,368,g_-41.75_-35.25,earth_grid_r096_c289,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,369,g_-46.75_062.25,earth_grid_r086_c484,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,370,g_039.25_-111.25,earth_grid_r258_c137,processed,
+background,371,g_-21.25_053.75,earth_grid_r137_c467,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,372,g_032.75_010.75,earth_grid_r245_c381,processed,
+background,373,g_-11.75_042.25,earth_grid_r156_c444,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,374,g_-35.75_-98.75,earth_grid_r108_c162,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,375,g_003.75_-130.75,earth_grid_r187_c098,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,376,g_-47.25_-163.25,earth_grid_r085_c033,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,377,g_-15.75_178.75,earth_grid_r148_c717,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,378,g_007.25_039.25,earth_grid_r194_c438,processed,
+background,379,g_-08.25_117.25,earth_grid_r163_c594,skipped_nonland,land_fraction < 0.5 or unknown
+background,380,g_-31.25_-21.75,earth_grid_r117_c316,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,381,g_019.75_039.25,earth_grid_r219_c438,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,382,g_040.25_-38.25,earth_grid_r260_c283,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,383,g_069.75_087.25,earth_grid_r319_c534,processed,
+background,384,g_-04.75_-104.25,earth_grid_r170_c151,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,385,g_053.25_-101.25,earth_grid_r286_c157,processed,
+background,386,g_060.75_058.25,earth_grid_r301_c476,processed,
+background,387,g_037.25_097.25,earth_grid_r254_c554,processed,
+background,388,g_-58.75_125.25,earth_grid_r062_c610,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,389,g_063.25_086.75,earth_grid_r306_c533,processed,
+background,390,g_042.25_166.25,earth_grid_r264_c692,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,391,g_-05.25_-155.75,earth_grid_r169_c048,mask_failed,"WorldCover QA failed: unknown_fraction=0.7639470623052679, sampling_difference=0.0; limits 0.05 and 0.01"
+background,392,g_062.75_-143.25,earth_grid_r305_c073,processed,
+background,393,g_-41.25_077.25,earth_grid_r097_c514,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,394,g_-35.75_141.75,earth_grid_r108_c643,processed,
+background,395,g_-11.75_-53.75,earth_grid_r156_c252,processed,
+background,396,g_-38.75_-170.75,earth_grid_r102_c018,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,397,g_-40.75_169.25,earth_grid_r098_c698,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,398,g_-31.75_036.75,earth_grid_r116_c433,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,399,g_-10.25_-100.75,earth_grid_r159_c158,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,400,g_-08.75_053.25,earth_grid_r162_c466,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,401,g_051.75_080.75,earth_grid_r283_c521,processed,
+background,402,g_-21.75_082.75,earth_grid_r136_c525,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,403,g_002.25_146.25,earth_grid_r184_c652,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,404,g_-22.75_-120.75,earth_grid_r134_c118,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,405,g_066.75_143.75,earth_grid_r313_c647,processed,
+background,406,g_057.25_-17.25,earth_grid_r294_c325,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,407,g_-11.75_-117.25,earth_grid_r156_c125,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,408,g_032.75_-51.75,earth_grid_r245_c256,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,409,g_029.25_073.75,earth_grid_r238_c507,processed,
+background,410,g_-14.25_-04.25,earth_grid_r151_c351,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,411,g_-50.75_-01.75,earth_grid_r078_c356,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,412,g_-43.25_037.75,earth_grid_r093_c435,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,413,g_057.25_-11.25,earth_grid_r294_c337,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,414,g_017.25_-76.75,earth_grid_r214_c206,mask_failed,"WorldCover QA failed: unknown_fraction=0.9977492144748569, sampling_difference=0.0; limits 0.05 and 0.01"
+background,415,g_-09.75_108.25,earth_grid_r160_c576,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,416,g_-51.75_-161.25,earth_grid_r076_c037,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,417,g_-59.25_-75.25,earth_grid_r061_c209,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,418,g_000.75_003.75,earth_grid_r181_c367,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,419,g_-36.25_046.75,earth_grid_r107_c453,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,420,g_057.75_000.25,earth_grid_r295_c360,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,421,g_-12.25_-23.25,earth_grid_r155_c313,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,422,g_-30.75_120.75,earth_grid_r118_c601,processed,
+background,423,g_020.25_158.75,earth_grid_r220_c677,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,424,g_041.75_112.75,earth_grid_r263_c585,processed,
+background,425,g_017.75_102.75,earth_grid_r215_c565,processed,
+background,426,g_043.75_-25.25,earth_grid_r267_c309,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,427,g_-58.25_007.25,earth_grid_r063_c374,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,428,g_-39.75_083.75,earth_grid_r100_c527,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,429,g_-46.25_-37.75,earth_grid_r087_c284,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,430,g_067.75_-114.75,earth_grid_r315_c130,processed,
+background,431,g_-32.75_-82.75,earth_grid_r114_c194,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,432,g_040.75_-55.75,earth_grid_r261_c248,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,433,g_-53.25_-137.75,earth_grid_r073_c084,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,434,g_007.25_-01.75,earth_grid_r194_c356,processed,
+background,435,g_047.75_022.75,earth_grid_r275_c405,processed,
+background,436,g_042.25_-136.25,earth_grid_r264_c087,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,437,g_-33.25_151.25,earth_grid_r113_c662,processed,
+background,438,g_018.25_018.25,earth_grid_r216_c396,processed,
+background,439,g_-36.75_-35.25,earth_grid_r106_c289,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,440,g_-52.25_-97.25,earth_grid_r075_c165,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,441,g_-03.75_-71.75,earth_grid_r172_c216,processed,
+background,442,g_006.25_119.75,earth_grid_r192_c599,mask_failed,"WorldCover QA failed: unknown_fraction=0.7141228324785829, sampling_difference=0.0; limits 0.05 and 0.01"
+background,443,g_-52.75_009.25,earth_grid_r074_c378,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,444,g_005.25_-57.25,earth_grid_r190_c245,processed,
+background,445,g_-21.75_010.25,earth_grid_r136_c380,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,446,g_065.75_151.75,earth_grid_r311_c663,processed,
+background,447,g_-14.75_147.25,earth_grid_r150_c654,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,448,g_063.25_-37.25,earth_grid_r306_c285,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,449,g_-41.25_-26.75,earth_grid_r097_c306,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,450,g_004.25_121.25,earth_grid_r188_c602,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,451,g_043.75_-159.75,earth_grid_r267_c040,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,452,g_014.25_-170.75,earth_grid_r208_c018,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,453,g_054.75_-02.25,earth_grid_r289_c355,processed,
+background,454,g_-31.75_-80.25,earth_grid_r116_c199,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,455,g_-16.75_-92.25,earth_grid_r146_c175,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,456,g_-30.25_-118.75,earth_grid_r119_c122,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,457,g_-27.75_-10.75,earth_grid_r124_c338,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,458,g_015.25_-115.25,earth_grid_r210_c129,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,459,g_-55.25_-171.25,earth_grid_r069_c017,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,460,g_-27.25_-66.75,earth_grid_r125_c226,processed,
+background,461,g_000.75_-175.75,earth_grid_r181_c008,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,462,g_014.75_168.75,earth_grid_r209_c697,mask_failed,"WorldCover QA failed: unknown_fraction=0.5759847634639591, sampling_difference=5.631832599016181e-05; limits 0.05 and 0.01"
+background,463,g_063.75_-05.25,earth_grid_r307_c349,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,464,g_-14.75_-31.25,earth_grid_r150_c297,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,465,g_-11.25_-107.25,earth_grid_r157_c145,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,466,g_-31.25_168.25,earth_grid_r117_c696,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,467,g_069.25_150.75,earth_grid_r318_c661,processed,
+background,468,g_-40.25_-51.75,earth_grid_r099_c256,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,469,g_009.75_-54.75,earth_grid_r199_c250,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,470,g_-52.75_-144.25,earth_grid_r074_c071,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,471,g_025.75_013.75,earth_grid_r231_c387,processed,
+background,472,g_-19.25_-169.25,earth_grid_r141_c021,mask_failed,"WorldCover QA failed: unknown_fraction=0.9997383408039808, sampling_difference=0.0; limits 0.05 and 0.01"
+background,473,g_-23.75_070.25,earth_grid_r132_c500,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,474,g_023.75_061.25,earth_grid_r227_c482,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,475,g_003.75_-45.75,earth_grid_r187_c268,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,476,g_-04.25_-114.25,earth_grid_r171_c131,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,477,g_-18.75_148.25,earth_grid_r142_c656,mask_failed,"WorldCover QA failed: unknown_fraction=0.8517294059999521, sampling_difference=0.0; limits 0.05 and 0.01"
+background,478,g_-19.25_-104.75,earth_grid_r141_c150,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,479,g_-55.75_041.75,earth_grid_r068_c443,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,480,g_061.75_134.75,earth_grid_r303_c629,processed,
+background,481,g_-24.75_-56.75,earth_grid_r130_c246,processed,
+background,482,g_012.75_-127.75,earth_grid_r205_c104,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,483,g_-00.25_029.75,earth_grid_r179_c419,skipped_nonland,land_fraction < 0.5 or unknown
+background,484,g_-09.25_000.25,earth_grid_r161_c360,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,485,g_-47.25_-80.75,earth_grid_r085_c198,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,486,g_-09.25_068.25,earth_grid_r161_c496,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,487,g_003.75_149.25,earth_grid_r187_c658,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,488,g_058.75_-145.25,earth_grid_r297_c069,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,489,g_033.25_172.75,earth_grid_r246_c705,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,490,g_012.75_031.25,earth_grid_r205_c422,processed,
+background,491,g_065.25_177.25,earth_grid_r310_c714,processed,
+background,492,g_038.75_062.75,earth_grid_r257_c485,processed,
+background,493,g_000.25_048.25,earth_grid_r180_c456,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,494,g_-54.75_-162.25,earth_grid_r070_c035,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,495,g_-39.25_178.25,earth_grid_r101_c716,mask_failed,"WorldCover QA failed: unknown_fraction=0.5128261304520594, sampling_difference=1.1797133195011467e-05; limits 0.05 and 0.01"
+background,496,g_-12.25_-120.75,earth_grid_r155_c118,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,497,g_-27.25_-170.75,earth_grid_r125_c018,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,498,g_047.25_130.25,earth_grid_r274_c620,processed,
+background,499,g_-11.75_077.25,earth_grid_r156_c514,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,500,g_-53.25_154.25,earth_grid_r073_c668,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,501,g_-40.25_-11.25,earth_grid_r099_c337,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,502,g_050.25_075.75,earth_grid_r280_c511,processed,
+background,503,g_019.25_-75.75,earth_grid_r218_c208,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,504,g_002.75_153.75,earth_grid_r185_c667,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,505,g_-02.75_-81.75,earth_grid_r174_c196,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,506,g_019.25_164.75,earth_grid_r218_c689,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,507,g_052.25_-98.25,earth_grid_r284_c163,processed,
+background,508,g_033.75_107.25,earth_grid_r247_c574,processed,
+background,509,g_-38.75_-142.25,earth_grid_r102_c075,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,510,g_010.25_-67.25,earth_grid_r200_c225,processed,
+background,511,g_046.75_-34.75,earth_grid_r273_c290,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,512,g_-25.25_-97.75,earth_grid_r129_c164,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,513,g_-13.75_107.75,earth_grid_r152_c575,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,514,g_-51.75_-122.25,earth_grid_r076_c115,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,515,g_019.25_120.25,earth_grid_r218_c600,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,516,g_-59.75_041.75,earth_grid_r060_c443,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,517,g_035.75_-128.25,earth_grid_r251_c103,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,518,g_039.25_-03.75,earth_grid_r258_c352,processed,
+background,519,g_066.75_059.75,earth_grid_r313_c479,processed,
+background,520,g_063.75_089.25,earth_grid_r307_c538,processed,
+background,521,g_-24.25_096.75,earth_grid_r131_c553,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,522,g_006.25_063.25,earth_grid_r192_c486,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,523,g_018.75_-143.75,earth_grid_r217_c072,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,524,g_-47.25_-08.25,earth_grid_r085_c343,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,525,g_062.75_-31.75,earth_grid_r305_c296,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,526,g_000.25_-76.25,earth_grid_r180_c207,processed,
+background,527,g_055.25_-34.25,earth_grid_r290_c291,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,528,g_-02.75_-50.25,earth_grid_r174_c259,processed,
+background,529,g_-37.25_-45.25,earth_grid_r105_c269,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,530,g_-05.25_-32.25,earth_grid_r169_c295,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,531,g_033.25_-156.75,earth_grid_r246_c046,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,532,g_-03.75_062.75,earth_grid_r172_c485,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,533,g_063.25_-42.75,earth_grid_r306_c274,processed,
+background,534,g_014.25_093.25,earth_grid_r208_c546,mask_failed,"WorldCover QA failed: unknown_fraction=0.2866857464987784, sampling_difference=8.662155976963369e-05; limits 0.05 and 0.01"
+background,535,g_-00.75_117.25,earth_grid_r178_c594,processed,
+background,536,g_013.25_027.75,earth_grid_r206_c415,processed,
+background,537,g_068.75_-22.75,earth_grid_r317_c314,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,538,g_-06.25_076.25,earth_grid_r167_c512,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,539,g_042.25_141.25,earth_grid_r264_c642,mask_failed,"WorldCover QA failed: unknown_fraction=0.17804730625195953, sampling_difference=0.0001118595612468326; limits 0.05 and 0.01"
+background,540,g_-36.75_-56.25,earth_grid_r106_c247,mask_failed,"WorldCover QA failed: unknown_fraction=0.7152220366999507, sampling_difference=0.0; limits 0.05 and 0.01"
+background,541,g_-25.25_133.25,earth_grid_r129_c626,processed,
+background,542,g_016.75_-126.75,earth_grid_r213_c106,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,543,g_062.75_060.25,earth_grid_r305_c480,processed,
+background,544,g_009.25_-140.25,earth_grid_r198_c079,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,545,g_065.25_-111.75,earth_grid_r310_c136,processed,
+background,546,g_-28.25_-47.75,earth_grid_r123_c264,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,547,g_053.75_041.75,earth_grid_r287_c443,processed,
+background,548,g_045.25_061.25,earth_grid_r270_c482,processed,
+background,549,g_-05.25_050.25,earth_grid_r169_c460,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,550,g_013.75_149.75,earth_grid_r207_c659,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,551,g_041.25_-78.25,earth_grid_r262_c203,processed,
+background,552,g_-59.75_-126.75,earth_grid_r060_c106,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,553,g_-04.75_073.25,earth_grid_r170_c506,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,554,g_-07.75_010.25,earth_grid_r164_c380,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,555,g_-21.75_024.25,earth_grid_r136_c408,processed,
+background,556,g_018.25_031.25,earth_grid_r216_c422,processed,
+background,557,g_047.25_050.25,earth_grid_r274_c460,processed,
+background,558,g_052.25_-39.25,earth_grid_r284_c281,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,559,g_060.75_154.25,earth_grid_r301_c668,processed,
+background,560,g_-01.25_-38.25,earth_grid_r177_c283,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,561,g_024.75_-44.75,earth_grid_r229_c270,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,562,g_020.25_152.25,earth_grid_r220_c664,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,563,g_020.75_-158.75,earth_grid_r221_c042,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,564,g_064.75_026.75,earth_grid_r309_c413,processed,
+background,565,g_-21.25_125.25,earth_grid_r137_c610,processed,
+background,566,g_033.75_074.75,earth_grid_r247_c509,processed,
+background,567,g_026.25_011.25,earth_grid_r232_c382,processed,
+background,568,g_-29.25_103.75,earth_grid_r121_c567,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,569,g_061.75_-21.25,earth_grid_r303_c317,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,570,g_-44.75_134.25,earth_grid_r090_c628,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,571,g_-08.25_-40.25,earth_grid_r163_c279,processed,
+background,572,g_034.75_-54.25,earth_grid_r249_c251,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,573,g_062.75_-81.75,earth_grid_r305_c196,mask_failed,"WorldCover QA failed: unknown_fraction=0.362764471720485, sampling_difference=0.00011186638505289448; limits 0.05 and 0.01"
+background,574,g_056.75_172.25,earth_grid_r293_c704,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,575,g_054.25_174.25,earth_grid_r288_c708,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,576,g_001.25_-142.25,earth_grid_r182_c075,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,577,g_-42.75_-179.75,earth_grid_r094_c000,mask_failed,Window crosses unsupported dateline/pole boundary
+background,578,g_-17.25_022.75,earth_grid_r145_c405,processed,
+background,579,g_064.25_014.25,earth_grid_r308_c388,processed,
+background,580,g_-03.25_-148.75,earth_grid_r173_c062,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,581,g_-19.25_120.25,earth_grid_r141_c600,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,582,g_-23.75_012.25,earth_grid_r132_c384,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,583,g_-33.25_054.25,earth_grid_r113_c468,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,584,g_-55.75_141.25,earth_grid_r068_c642,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,585,g_-51.75_117.25,earth_grid_r076_c594,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,586,g_-15.25_-107.75,earth_grid_r149_c144,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,587,g_026.75_-62.75,earth_grid_r233_c234,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,588,g_053.25_-154.25,earth_grid_r286_c051,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,589,g_-46.75_005.75,earth_grid_r086_c371,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,590,g_022.75_140.75,earth_grid_r225_c641,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,591,g_015.25_166.25,earth_grid_r210_c692,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,592,g_056.25_115.25,earth_grid_r292_c590,processed,
+background,593,g_046.75_-156.25,earth_grid_r273_c047,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,594,g_-24.75_114.75,earth_grid_r130_c589,processed,
+background,595,g_068.75_-134.75,earth_grid_r317_c090,processed,
+background,596,g_009.75_133.25,earth_grid_r199_c626,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,597,g_030.75_-179.75,earth_grid_r241_c000,mask_failed,Window crosses unsupported dateline/pole boundary
+background,598,g_012.75_027.75,earth_grid_r205_c415,processed,
+background,599,g_-15.75_139.75,earth_grid_r148_c639,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,600,g_-33.25_082.75,earth_grid_r113_c525,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,601,g_061.25_-28.25,earth_grid_r302_c303,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,602,g_066.75_160.25,earth_grid_r313_c680,processed,
+background,603,g_-58.75_-173.25,earth_grid_r062_c013,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,604,g_-40.75_110.75,earth_grid_r098_c581,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,605,g_017.25_129.75,earth_grid_r214_c619,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,606,g_-20.25_079.25,earth_grid_r139_c518,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,607,g_-27.75_-164.25,earth_grid_r124_c031,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,608,g_068.25_167.25,earth_grid_r316_c694,processed,
+background,609,g_035.25_-55.25,earth_grid_r250_c249,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,610,g_024.75_-102.25,earth_grid_r229_c155,processed,
+background,611,g_-50.75_-77.75,earth_grid_r078_c204,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,612,g_043.25_-155.25,earth_grid_r266_c049,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,613,g_-14.75_103.75,earth_grid_r150_c567,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,614,g_-37.75_-113.25,earth_grid_r104_c133,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,615,g_023.25_-82.25,earth_grid_r226_c195,skipped_nonland,land_fraction < 0.5 or unknown
+background,616,g_-35.75_017.25,earth_grid_r108_c394,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,617,g_024.75_-89.75,earth_grid_r229_c180,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,618,g_063.25_049.25,earth_grid_r306_c458,processed,
+background,619,g_037.75_056.25,earth_grid_r255_c472,processed,
+background,620,g_043.25_074.25,earth_grid_r266_c508,processed,
+background,621,g_050.25_-70.75,earth_grid_r280_c218,processed,
+background,622,g_-02.25_032.75,earth_grid_r175_c425,skipped_nonland,land_fraction < 0.5 or unknown
+background,623,g_020.75_-104.75,earth_grid_r221_c150,processed,
+background,624,g_053.25_026.75,earth_grid_r286_c413,processed,
+background,625,g_032.75_-134.75,earth_grid_r245_c090,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,626,g_017.75_-21.25,earth_grid_r215_c317,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,627,g_041.25_-86.75,earth_grid_r262_c186,processed,
+background,628,g_021.25_-26.25,earth_grid_r222_c307,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,629,g_-31.25_163.25,earth_grid_r117_c686,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,630,g_026.75_-123.25,earth_grid_r233_c113,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,631,g_021.75_159.25,earth_grid_r223_c678,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,632,g_-12.75_-25.75,earth_grid_r154_c308,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,633,g_-14.75_-152.75,earth_grid_r150_c054,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,634,g_057.75_072.75,earth_grid_r295_c505,processed,
+background,635,g_-09.25_-169.25,earth_grid_r161_c021,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,636,g_035.75_083.25,earth_grid_r251_c526,processed,
+background,637,g_028.75_-142.25,earth_grid_r237_c075,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,638,g_055.75_077.75,earth_grid_r291_c515,processed,
+background,639,g_-16.25_-121.75,earth_grid_r147_c116,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,640,g_-09.75_-164.75,earth_grid_r160_c030,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,641,g_020.25_-99.25,earth_grid_r220_c161,processed,
+background,642,g_-45.75_-104.25,earth_grid_r088_c151,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,643,g_-07.75_-145.75,earth_grid_r164_c068,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,644,g_-17.25_-26.25,earth_grid_r145_c307,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,645,g_-10.75_176.25,earth_grid_r158_c712,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,646,g_001.25_-55.75,earth_grid_r182_c248,processed,
+background,647,g_-01.75_-11.25,earth_grid_r176_c337,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,648,g_039.75_-110.25,earth_grid_r259_c139,processed,
+background,649,g_-45.25_-58.75,earth_grid_r089_c242,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,650,g_-34.75_-43.25,earth_grid_r110_c273,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,651,g_-32.75_151.25,earth_grid_r114_c662,processed,
+background,652,g_-17.75_-90.75,earth_grid_r144_c178,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,653,g_009.75_009.75,earth_grid_r199_c379,processed,
+background,654,g_068.25_-90.25,earth_grid_r316_c179,processed,
+background,655,g_-32.25_049.75,earth_grid_r115_c459,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,656,g_-21.25_158.25,earth_grid_r137_c676,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,657,g_-48.25_-41.25,earth_grid_r083_c277,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,658,g_015.75_-137.75,earth_grid_r211_c084,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,659,g_014.25_-10.75,earth_grid_r208_c338,processed,
+background,660,g_000.25_013.25,earth_grid_r180_c386,processed,
+background,661,g_040.25_-117.75,earth_grid_r260_c124,processed,
+background,662,g_024.75_078.75,earth_grid_r229_c517,processed,
+background,663,g_015.75_-19.25,earth_grid_r211_c321,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,664,g_-48.75_061.25,earth_grid_r082_c482,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,665,g_-22.25_-55.25,earth_grid_r135_c249,processed,
+background,666,g_016.75_-166.25,earth_grid_r213_c027,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,667,g_010.75_134.25,earth_grid_r201_c628,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,668,g_048.25_-131.75,earth_grid_r276_c096,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,669,g_068.25_116.25,earth_grid_r316_c592,processed,
+background,670,g_-56.25_-139.75,earth_grid_r067_c080,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,671,g_046.75_-153.75,earth_grid_r273_c052,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,672,g_009.25_021.75,earth_grid_r198_c403,processed,
+background,673,g_027.25_-151.25,earth_grid_r234_c057,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,674,g_-58.75_-127.25,earth_grid_r062_c105,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,675,g_004.25_-130.25,earth_grid_r188_c099,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,676,g_-05.75_103.75,earth_grid_r168_c567,mask_failed,"WorldCover QA failed: unknown_fraction=0.8986889388922602, sampling_difference=0.0; limits 0.05 and 0.01"
+background,677,g_011.25_-159.25,earth_grid_r202_c041,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,678,g_016.25_046.25,earth_grid_r212_c452,processed,
+background,679,g_039.25_-33.75,earth_grid_r258_c292,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,680,g_040.75_015.25,earth_grid_r261_c390,processed,
+background,681,g_051.75_-126.75,earth_grid_r283_c106,processed,
+background,682,g_-19.75_-58.25,earth_grid_r140_c243,processed,
+background,683,g_029.25_004.25,earth_grid_r238_c368,processed,
+background,684,g_-20.25_155.75,earth_grid_r139_c671,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,685,g_-10.25_-23.25,earth_grid_r159_c313,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,686,g_019.25_091.25,earth_grid_r218_c542,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,687,g_028.75_-05.25,earth_grid_r237_c349,processed,
+background,688,g_-54.75_024.25,earth_grid_r070_c408,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,689,g_010.75_052.75,earth_grid_r201_c465,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,690,g_001.25_-18.75,earth_grid_r182_c322,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,691,g_063.75_-140.75,earth_grid_r307_c078,processed,
+background,692,g_065.25_127.75,earth_grid_r310_c615,processed,
+background,693,g_013.75_-80.75,earth_grid_r207_c198,mask_failed,"WorldCover QA failed: unknown_fraction=0.9999588395953178, sampling_difference=0.0; limits 0.05 and 0.01"
+background,694,g_-29.75_-145.25,earth_grid_r120_c069,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,695,g_025.25_-89.25,earth_grid_r230_c181,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,696,g_-36.75_-11.75,earth_grid_r106_c336,mask_failed,"WorldCover QA failed: unknown_fraction=0.9888572642207145, sampling_difference=0.0; limits 0.05 and 0.01"
+background,697,g_055.25_-152.25,earth_grid_r290_c055,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,698,g_038.25_118.75,earth_grid_r256_c597,mask_failed,"WorldCover QA failed: unknown_fraction=0.08854530748063294, sampling_difference=0.0014979093439135144; limits 0.05 and 0.01"
+background,699,g_-55.25_114.75,earth_grid_r069_c589,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,700,g_011.75_009.75,earth_grid_r203_c379,processed,
+background,701,g_049.25_179.25,earth_grid_r278_c718,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,702,g_044.25_132.25,earth_grid_r268_c624,processed,
+background,703,g_062.25_165.75,earth_grid_r304_c691,processed,
+background,704,g_-55.25_132.25,earth_grid_r069_c624,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,705,g_-44.75_023.25,earth_grid_r090_c406,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,706,g_058.75_021.25,earth_grid_r297_c402,mask_failed,"WorldCover QA failed: unknown_fraction=0.9367842020014883, sampling_difference=0.0; limits 0.05 and 0.01"
+background,707,g_018.25_-135.75,earth_grid_r216_c088,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,708,g_-35.25_-33.75,earth_grid_r109_c292,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,709,g_024.25_-115.75,earth_grid_r228_c128,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,710,g_-26.75_-115.25,earth_grid_r126_c129,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,711,g_-50.75_-69.25,earth_grid_r078_c221,processed,
+background,712,g_-12.75_100.75,earth_grid_r154_c561,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,713,g_009.25_-145.75,earth_grid_r198_c068,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,714,g_-00.25_-89.25,earth_grid_r179_c181,mask_failed,"WorldCover QA failed: unknown_fraction=0.8421944800719037, sampling_difference=0.0; limits 0.05 and 0.01"
+background,715,g_-21.25_-142.25,earth_grid_r137_c075,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,716,g_022.75_046.75,earth_grid_r225_c453,processed,
+background,717,g_-00.25_-155.75,earth_grid_r179_c048,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,718,g_001.25_160.75,earth_grid_r182_c681,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,719,g_009.25_-142.75,earth_grid_r198_c074,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,720,g_-09.25_-45.25,earth_grid_r161_c269,processed,
+background,721,g_016.75_019.75,earth_grid_r213_c399,processed,
+background,722,g_-14.25_146.75,earth_grid_r151_c653,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,723,g_-45.25_115.75,earth_grid_r089_c591,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,724,g_025.75_-36.25,earth_grid_r231_c287,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,725,g_-56.25_-159.25,earth_grid_r067_c041,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,726,g_039.25_153.75,earth_grid_r258_c667,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,727,g_-50.75_166.75,earth_grid_r078_c693,mask_failed,"WorldCover QA failed: unknown_fraction=0.7634753571629525, sampling_difference=0.0; limits 0.05 and 0.01"
+background,728,g_003.75_-05.75,earth_grid_r187_c348,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,729,g_-19.25_065.25,earth_grid_r141_c490,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,730,g_060.25_-85.75,earth_grid_r300_c188,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,731,g_-47.75_173.75,earth_grid_r084_c707,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,732,g_060.25_126.75,earth_grid_r300_c613,processed,
+background,733,g_-52.75_056.75,earth_grid_r074_c473,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,734,g_-54.25_-72.75,earth_grid_r071_c214,skipped_nonland,land_fraction < 0.5 or unknown
+background,735,g_-14.75_-147.25,earth_grid_r150_c065,mask_failed,"WorldCover QA failed: unknown_fraction=0.7880255914766457, sampling_difference=0.0; limits 0.05 and 0.01"
+background,736,g_-23.75_042.75,earth_grid_r132_c445,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,737,g_-56.25_-28.75,earth_grid_r067_c302,mask_failed,"WorldCover QA failed: unknown_fraction=0.9982839954744908, sampling_difference=0.0; limits 0.05 and 0.01"
+background,738,g_054.75_087.25,earth_grid_r289_c534,processed,
+background,739,g_-32.25_-05.25,earth_grid_r115_c349,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,740,g_-16.75_146.75,earth_grid_r146_c653,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,741,g_-37.25_164.25,earth_grid_r105_c688,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,742,g_026.25_090.75,earth_grid_r232_c541,processed,
+background,743,g_063.75_-64.25,earth_grid_r307_c231,skipped_nonland,land_fraction < 0.5 or unknown
+background,744,g_-39.25_053.25,earth_grid_r101_c466,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,745,g_044.25_076.75,earth_grid_r268_c513,processed,
+background,746,g_-20.25_-35.25,earth_grid_r139_c289,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,747,g_024.75_-38.75,earth_grid_r229_c282,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,748,g_069.25_-87.25,earth_grid_r318_c185,mask_failed,"WorldCover QA failed: unknown_fraction=0.9973980168798007, sampling_difference=0.0; limits 0.05 and 0.01"
+background,749,g_-13.25_-52.75,earth_grid_r153_c254,processed,
+background,750,g_007.25_-43.75,earth_grid_r194_c272,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,751,g_-29.25_-145.75,earth_grid_r121_c068,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,752,g_052.25_-139.75,earth_grid_r284_c080,mask_failed,"WorldCover QA failed: unknown_fraction=1.0, sampling_difference=None; limits 0.05 and 0.01"
+background,753,g_052.25_038.25,earth_grid_r284_c436,processed,

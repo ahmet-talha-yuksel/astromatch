@@ -1,5 +1,7 @@
 min_features: 3
 min_sigma_samples: 200
+min_sigma_samples_regional: 150
+min_sigma_samples_local: 100
 # fixed_fallback values are engineering defaults, not measured/calibrated sigmas.
 features:
   slope_median_deg: {label: Median slope, unit: deg, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 1.0, fixed_fallback: 8.0}}

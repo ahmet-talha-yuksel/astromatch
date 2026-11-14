@@ -27,6 +27,10 @@ class Region(BaseModel):
     tags: list[str] = Field(default_factory=list)
     processing_version: str | None = None
     data_status: str = 'mock'
+    method: str | None = None
+    features_interpolated: dict[str, float | None] = Field(default_factory=dict)
+    measurement_support: dict = Field(default_factory=dict)
+    method_sensitive: bool = False
 
 class Dataset(BaseModel):
     targets: list[Region] = Field(default_factory=list)
@@ -37,9 +41,10 @@ class Dataset(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     input_hashes: dict[str, str] = Field(default_factory=dict)
     mode: str = 'real'
+    input_source: str | None = None
 
 class DataPaths(BaseModel):
-    features: str | None = None
+    features: str | list[str] | None = None
     grid: str | None = None
     known: str | None = None
 
@@ -48,6 +53,12 @@ class TargetSummary(BaseModel):
     name: str
     body: str
     scales: list[str]
+    alias: str | None = None
+    status: str = 'scorable'
+    reason: str | None = None
+    target_confidence: str | None = None
+    measurement_support: dict | None = None
+    method_sensitive: bool | None = None
 
 class Explanation(BaseModel):
     strongest: list[dict] = Field(default_factory=list)
@@ -56,12 +67,21 @@ class Explanation(BaseModel):
     not_compared: list[dict] = Field(default_factory=list)
     analogy_breaks: list[str] = Field(default_factory=list)
     flags: list[str] = Field(default_factory=list)
+    target_method: str | None = None
+    measurement_support: dict | None = None
+    target_confidence: str | None = None
+    method_sensitive: bool = False
+    methodology_note: str | None = None
+    discrimination_label: str | None = None
+    comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'
 
 class HeatPoint(BaseModel):
     id: str
     lat: float
     lon: float
-    score: float
+    score: float | None
+    status: str | None = None
+    distance_z: float | None = None
     data_status: str | None = None
     disclaimer: str | None = None
 
@@ -76,3 +96,11 @@ class RankResult(BaseModel):
     sigma: dict[str, dict[str, int | float | str]]
     data_status: str
     disclaimer: str | None = None
+    target_confidence: str | None = None
+    method_sensitive: bool = False
+    target_status: str = 'scorable'
+    target_reason: str | None = None
+    discrimination_label: str | None = None
+    discrimination_explanation: str | None = None
+    comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'
+    terrain_commonality: dict | None = None
