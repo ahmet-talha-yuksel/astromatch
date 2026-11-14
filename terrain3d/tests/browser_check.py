@@ -80,9 +80,9 @@ with sync_playwright() as p:
         drag(page, canvases.nth(1), "left", 60, 10); independent_after = state(page, left_key)
         assert max(abs(a - b) for a, b in zip(independent_after["position"] + independent_after["target"], independent_before["position"] + independent_before["target"])) < 1e-3
         mode = page.locator("select").nth(0); mode.select_option("relative")
-        assert page.get_by_text("Shared relative elevation legend", exact=False).count() == 1
+        assert page.get_by_text("Relative mode is display-only", exact=False).count() == 1
         mode.select_option("absolute")
-        assert page.get_by_text("Shared relative elevation legend", exact=False).count() == 0
+        assert page.get_by_text("Relative mode is display-only", exact=False).count() == 0
         page.locator("input[aria-label='Shared exaggeration']").fill("2.5")
         assert page.locator("input[aria-label='Shared exaggeration']").input_value() == "2.5"
         assert page.get_by_text("synthetic", exact=False).count() > 0
@@ -95,9 +95,9 @@ with sync_playwright() as p:
     try:
         ready(page, "", 2)
         assert page.get_by_text("Awaiting similarity engine data", exact=True).count() == 1
-        assert page.get_by_text("Demonstration dataset", exact=True).count() == 1
-        assert page.get_by_text("One or both datasets are synthetic", exact=False).count() == 1
-        print("PASS compact summaries, collapsed scientific details, camera toolbar, similarity empty state, synthetic warning", flush=True)
+        page.get_by_text("REAL SOURCE-DERIVED", exact=True).wait_for()
+        assert page.get_by_text("Mars Jezero", exact=False).count() >= 1
+        print("PASS compact summaries, collapsed scientific details, camera toolbar, similarity empty state, real DEM status", flush=True)
     finally:
         assert not errors, errors
         browser.close()

@@ -1,0 +1,3609 @@
+{
+  "schema_version": "terrain3d.engine-result.v1",
+  "engine_result": {
+    "target_id": "moon_shackleton_local",
+    "scale": "local",
+    "preset": "balanced",
+    "top_k": [
+      {
+        "id": "earth_salda_local",
+        "name": "Salda",
+        "lat": 37.55,
+        "lon": 29.67,
+        "score_geo": 2.90300015503117,
+        "score_arith": 8.072034476541514,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Medium",
+        "floored_criteria": [
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.6143234914124394,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0332934255671025,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 10.1567631437393,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.3728072792852366,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.635,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.048221363740151825,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 57.088695130103304,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 2.1094422137760256e-56,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 262.6195508526812,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.364118437090093e-17,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 89.65957073462293,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.4705297349533694e-12,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 100.0,
+        "score_percentile": 100.0,
+        "match_level": "relative_only",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 10.1567631437393,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.3728072792852366,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.635,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.048221363740151825,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.6143234914124394,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0332934255671025,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 57.088695130103304,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 2.1094422137760256e-56,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 262.6195508526812,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.364118437090093e-17,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "No close absolute analog on Earth for this target; this is among the closest available on Earth.",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_atacama_local",
+        "name": "Atacama (Yungay)",
+        "lat": -24.063777777777776,
+        "lon": -69.8805,
+        "score_geo": 2.5464807856508433,
+        "score_arith": 6.936511960542549,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Medium",
+        "floored_criteria": [
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.796185520455148,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.03531833396152585,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 8.809199949276291,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.32728287290928326,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.69,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.023589510761743922,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 89.4947804944178,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 9.408150840212778e-48,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 264.1341402644043,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.673190602309141e-17,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 91.89634787716,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 4.546834837314146e-12,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 87.7189338497814,
+        "score_percentile": 87.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 8.809199949276291,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.32728287290928326,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.796185520455148,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.03531833396152585,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.69,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.023589510761743922,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 89.4947804944178,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 9.408150840212778e-48,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 264.1341402644043,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.673190602309141e-17,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.5/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_kula_local",
+        "name": "Kula",
+        "lat": 38.58,
+        "lon": 28.52,
+        "score_geo": 2.066226794184127,
+        "score_arith": 5.136155486664061,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.5968231364802827,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.033103900904857445,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 5.70285952000872,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.23506542829498628,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.83,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0027170647293235837,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 70.69418064547287,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.1076606319038195e-52,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 227.341872201024,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 4.219312625191091e-18,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 66.43348673836047,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.9345176410777378e-13,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 71.17556609851236,
+        "score_percentile": 75.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 5.70285952000872,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.23506542829498628,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.5968231364802827,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.033103900904857445,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.83,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0027170647293235837,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 70.69418064547287,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.1076606319038195e-52,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 227.341872201024,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 4.219312625191091e-18,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.1/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_hassa_local",
+        "name": "Hassa",
+        "lat": 36.8,
+        "lon": 36.55,
+        "score_geo": 1.9725828026256096,
+        "score_arith": 6.198164085188205,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.9323226614334967,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.01881772239192641,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 8.368027392329946,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.313072122719366,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.7825,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.005976022895005948,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 18.529889092995887,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.2076621191027349e-67,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 353.11613640457995,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 5.369587462715404e-15,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 123.9176016366889,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.8662755486973293e-10,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 67.9498001130637,
+        "score_percentile": 62.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 8.368027392329946,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.313072122719366,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.9323226614334967,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.01881772239192641,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.7825,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.005976022895005948,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 18.529889092995887,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.2076621191027349e-67,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 353.11613640457995,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 5.369587462715404e-15,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.0/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_meke_local",
+        "name": "Meke Maar",
+        "lat": 37.68694444444444,
+        "lon": 33.643055555555556,
+        "score_geo": 1.9181407739541128,
+        "score_arith": 4.7110646307659,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 1.4629104526208179,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.022636317692034613,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 5.1266136466442696,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.2200275601539195,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.8925,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.00088382630693505,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 45.04939422545952,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 8.412242730491763e-60,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 167.31659130293826,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.086179819593892e-19,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 56.04678566118805,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 5.0676241641986604e-14,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 66.07442891898562,
+        "score_percentile": 50.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 5.1266136466442696,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.2200275601539195,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 1.4629104526208179,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.022636317692034613,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.8925,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.00088382630693505,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 45.04939422545952,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 8.412242730491763e-60,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 167.31659130293826,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.086179819593892e-19,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.9/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_haughton_local",
+        "name": "Haughton",
+        "lat": 75.3775,
+        "lon": -89.65361111111112,
+        "score_geo": 1.8859686030156328,
+        "score_arith": 4.247740697838543,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 1.574140141337685,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.02351713404194373,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 3.9492587254474207,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.1913473078283689,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.9475,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0003034442969179199,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 43.90457486256983,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.948498057552387e-60,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 102.3654190541063,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.7289966771994672e-21,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 31.354062564650977,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.8599220748357624e-15,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 64.96619022727482,
+        "score_percentile": 37.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 3.9492587254474207,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.1913473078283689,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 1.574140141337685,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.02351713404194373,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.9475,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0003034442969179199,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 43.90457486256983,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.948498057552387e-60,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 102.3654190541063,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.7289966771994672e-21,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.9/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_meteor_crater_local",
+        "name": "Meteor Crater",
+        "lat": 35.03333333333333,
+        "lon": -111.01666666666667,
+        "score_geo": 1.686940135833401,
+        "score_arith": 3.2066698228296198,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.6497488250716643,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.017023736846540367,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 1.2306402499293438,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.13537645252323682,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.985,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0001401807179886731,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 14.535385832004414,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 7.215218277309627e-69,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 87.6836962787379,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 6.607878738704327e-22,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 26.80596502719889,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 9.93359574009477e-16,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 58.11023237149252,
+        "score_percentile": 25.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 1.2306402499293438,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.13537645252323682,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.6497488250716643,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.017023736846540367,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.985,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0001401807179886731,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 14.535385832004414,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 7.215218277309627e-69,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 87.6836962787379,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 6.607878738704327e-22,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.7/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_tuz_golu_local",
+        "name": "Tuz Golu",
+        "lat": 38.75,
+        "lon": 33.33,
+        "score_geo": 1.5849588853916095,
+        "score_arith": 2.830787235843578,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.037273787221964845,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.013642151970936817,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 0.10635046991863822,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.11620508217967786,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 1.0,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.00010191941305872192,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 1.649887200283404,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 6.843402191217732e-73,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 1.884188644146434,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.9753583072182913e-24,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 0.6597674621700778,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 2.4142767832014697e-17,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 54.597271813600415,
+        "score_percentile": 12.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 0.10635046991863822,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.11620508217967786,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.037273787221964845,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.013642151970936817,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 1.0,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.00010191941305872192,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 1.649887200283404,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 6.843402191217732e-73,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 1.884188644146434,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.9753583072182913e-24,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.6/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      }
+    ],
+    "full_scores": [
+      {
+        "id": "earth_salda_local",
+        "name": "Salda",
+        "lat": 37.55,
+        "lon": 29.67,
+        "score_geo": 2.90300015503117,
+        "score_arith": 8.072034476541514,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Medium",
+        "floored_criteria": [
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.6143234914124394,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0332934255671025,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 10.1567631437393,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.3728072792852366,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.635,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.048221363740151825,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 57.088695130103304,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 2.1094422137760256e-56,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 262.6195508526812,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.364118437090093e-17,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 89.65957073462293,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.4705297349533694e-12,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 100.0,
+        "score_percentile": 100.0,
+        "match_level": "relative_only",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 10.1567631437393,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.3728072792852366,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.635,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.048221363740151825,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.6143234914124394,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0332934255671025,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 57.088695130103304,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 2.1094422137760256e-56,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 262.6195508526812,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.364118437090093e-17,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "No close absolute analog on Earth for this target; this is among the closest available on Earth.",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_atacama_local",
+        "name": "Atacama (Yungay)",
+        "lat": -24.063777777777776,
+        "lon": -69.8805,
+        "score_geo": 2.5464807856508433,
+        "score_arith": 6.936511960542549,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Medium",
+        "floored_criteria": [
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.796185520455148,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.03531833396152585,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 8.809199949276291,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.32728287290928326,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.69,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.023589510761743922,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 89.4947804944178,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 9.408150840212778e-48,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 264.1341402644043,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.673190602309141e-17,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 91.89634787716,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 4.546834837314146e-12,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 87.7189338497814,
+        "score_percentile": 87.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 8.809199949276291,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.32728287290928326,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.796185520455148,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.03531833396152585,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.69,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.023589510761743922,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 89.4947804944178,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 9.408150840212778e-48,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 264.1341402644043,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.673190602309141e-17,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.5/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_kula_local",
+        "name": "Kula",
+        "lat": 38.58,
+        "lon": 28.52,
+        "score_geo": 2.066226794184127,
+        "score_arith": 5.136155486664061,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.5968231364802827,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.033103900904857445,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 5.70285952000872,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.23506542829498628,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.83,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0027170647293235837,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 70.69418064547287,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.1076606319038195e-52,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 227.341872201024,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 4.219312625191091e-18,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 66.43348673836047,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.9345176410777378e-13,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 71.17556609851236,
+        "score_percentile": 75.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 5.70285952000872,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.23506542829498628,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.5968231364802827,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.033103900904857445,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.83,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0027170647293235837,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 70.69418064547287,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.1076606319038195e-52,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 227.341872201024,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 4.219312625191091e-18,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.1/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_hassa_local",
+        "name": "Hassa",
+        "lat": 36.8,
+        "lon": 36.55,
+        "score_geo": 1.9725828026256096,
+        "score_arith": 6.198164085188205,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.9323226614334967,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.01881772239192641,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 8.368027392329946,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.313072122719366,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.7825,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.005976022895005948,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 18.529889092995887,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.2076621191027349e-67,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 353.11613640457995,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 5.369587462715404e-15,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 123.9176016366889,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.8662755486973293e-10,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 67.9498001130637,
+        "score_percentile": 62.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 8.368027392329946,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.313072122719366,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.9323226614334967,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.01881772239192641,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.7825,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.005976022895005948,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 18.529889092995887,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.2076621191027349e-67,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 353.11613640457995,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 5.369587462715404e-15,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.0/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_meke_local",
+        "name": "Meke Maar",
+        "lat": 37.68694444444444,
+        "lon": 33.643055555555556,
+        "score_geo": 1.9181407739541128,
+        "score_arith": 4.7110646307659,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 1.4629104526208179,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.022636317692034613,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 5.1266136466442696,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.2200275601539195,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.8925,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.00088382630693505,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 45.04939422545952,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 8.412242730491763e-60,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 167.31659130293826,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.086179819593892e-19,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 56.04678566118805,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 5.0676241641986604e-14,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 66.07442891898562,
+        "score_percentile": 50.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 5.1266136466442696,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.2200275601539195,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 1.4629104526208179,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.022636317692034613,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.8925,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.00088382630693505,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 45.04939422545952,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 8.412242730491763e-60,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 167.31659130293826,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.086179819593892e-19,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.9/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_haughton_local",
+        "name": "Haughton",
+        "lat": 75.3775,
+        "lon": -89.65361111111112,
+        "score_geo": 1.8859686030156328,
+        "score_arith": 4.247740697838543,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 1.574140141337685,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.02351713404194373,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 3.9492587254474207,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.1913473078283689,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.9475,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0003034442969179199,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 43.90457486256983,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.948498057552387e-60,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 102.3654190541063,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.7289966771994672e-21,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 31.354062564650977,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.8599220748357624e-15,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 64.96619022727482,
+        "score_percentile": 37.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 3.9492587254474207,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.1913473078283689,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 1.574140141337685,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.02351713404194373,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.9475,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0003034442969179199,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 43.90457486256983,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.948498057552387e-60,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 102.3654190541063,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.7289966771994672e-21,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.9/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_meteor_crater_local",
+        "name": "Meteor Crater",
+        "lat": 35.03333333333333,
+        "lon": -111.01666666666667,
+        "score_geo": 1.686940135833401,
+        "score_arith": 3.2066698228296198,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.6497488250716643,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.017023736846540367,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 1.2306402499293438,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.13537645252323682,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.985,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0001401807179886731,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 14.535385832004414,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 7.215218277309627e-69,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 87.6836962787379,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 6.607878738704327e-22,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 26.80596502719889,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 9.93359574009477e-16,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 58.11023237149252,
+        "score_percentile": 25.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 1.2306402499293438,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.13537645252323682,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.6497488250716643,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.017023736846540367,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.985,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0001401807179886731,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 14.535385832004414,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 7.215218277309627e-69,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 87.6836962787379,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 6.607878738704327e-22,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.7/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_tuz_golu_local",
+        "name": "Tuz Golu",
+        "lat": 38.75,
+        "lon": 33.33,
+        "score_geo": 1.5849588853916095,
+        "score_arith": 2.830787235843578,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.037273787221964845,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.013642151970936817,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 0.10635046991863822,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.11620508217967786,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 1.0,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.00010191941305872192,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 1.649887200283404,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 6.843402191217732e-73,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 1.884188644146434,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.9753583072182913e-24,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 0.6597674621700778,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 2.4142767832014697e-17,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 54.597271813600415,
+        "score_percentile": 12.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 0.10635046991863822,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.11620508217967786,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.037273787221964845,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.013642151970936817,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 1.0,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.00010191941305872192,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 1.649887200283404,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 6.843402191217732e-73,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 1.884188644146434,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.9753583072182913e-24,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.6/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      }
+    ],
+    "excluded": [],
+    "novel_candidates": [
+      {
+        "id": "earth_salda_local",
+        "name": "Salda",
+        "lat": 37.55,
+        "lon": 29.67,
+        "score_geo": 2.90300015503117,
+        "score_arith": 8.072034476541514,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Medium",
+        "floored_criteria": [
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.6143234914124394,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0332934255671025,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 10.1567631437393,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.3728072792852366,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.635,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.048221363740151825,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 57.088695130103304,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 2.1094422137760256e-56,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 262.6195508526812,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.364118437090093e-17,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 89.65957073462293,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.4705297349533694e-12,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 100.0,
+        "score_percentile": 100.0,
+        "match_level": "relative_only",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 10.1567631437393,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.3728072792852366,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.635,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.048221363740151825,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.6143234914124394,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0332934255671025,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 57.088695130103304,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 2.1094422137760256e-56,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 262.6195508526812,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.364118437090093e-17,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "No close absolute analog on Earth for this target; this is among the closest available on Earth.",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_atacama_local",
+        "name": "Atacama (Yungay)",
+        "lat": -24.063777777777776,
+        "lon": -69.8805,
+        "score_geo": 2.5464807856508433,
+        "score_arith": 6.936511960542549,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Medium",
+        "floored_criteria": [
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.796185520455148,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.03531833396152585,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 8.809199949276291,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.32728287290928326,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.69,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.023589510761743922,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 89.4947804944178,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 9.408150840212778e-48,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 264.1341402644043,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.673190602309141e-17,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 91.89634787716,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 4.546834837314146e-12,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 87.7189338497814,
+        "score_percentile": 87.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 8.809199949276291,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.32728287290928326,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.796185520455148,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.03531833396152585,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.69,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.023589510761743922,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 89.4947804944178,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 9.408150840212778e-48,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 264.1341402644043,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.673190602309141e-17,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.5/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_kula_local",
+        "name": "Kula",
+        "lat": 38.58,
+        "lon": 28.52,
+        "score_geo": 2.066226794184127,
+        "score_arith": 5.136155486664061,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 2.5968231364802827,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.033103900904857445,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 5.70285952000872,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.23506542829498628,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.83,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0027170647293235837,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 70.69418064547287,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.1076606319038195e-52,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 227.341872201024,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 4.219312625191091e-18,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 66.43348673836047,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.9345176410777378e-13,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 71.17556609851236,
+        "score_percentile": 75.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 5.70285952000872,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.23506542829498628,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 2.5968231364802827,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.033103900904857445,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.83,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0027170647293235837,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 70.69418064547287,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.1076606319038195e-52,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 227.341872201024,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 4.219312625191091e-18,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.1/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_hassa_local",
+        "name": "Hassa",
+        "lat": 36.8,
+        "lon": 36.55,
+        "score_geo": 1.9725828026256096,
+        "score_arith": 6.198164085188205,
+        "criteria_coverage": 1.0,
+        "flags": [
+          "vegetated"
+        ],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.9323226614334967,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.01881772239192641,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 8.368027392329946,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.313072122719366,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.7825,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.005976022895005948,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 18.529889092995887,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.2076621191027349e-67,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 353.11613640457995,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 5.369587462715404e-15,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 123.9176016366889,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.8662755486973293e-10,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 67.9498001130637,
+        "score_percentile": 62.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 8.368027392329946,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.313072122719366,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.9323226614334967,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.01881772239192641,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.7825,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.005976022895005948,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 18.529889092995887,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.2076621191027349e-67,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 353.11613640457995,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 5.369587462715404e-15,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (2.0/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": [
+            "vegetated"
+          ]
+        }
+      },
+      {
+        "id": "earth_meke_local",
+        "name": "Meke Maar",
+        "lat": 37.68694444444444,
+        "lon": 33.643055555555556,
+        "score_geo": 1.9181407739541128,
+        "score_arith": 4.7110646307659,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 1.4629104526208179,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.022636317692034613,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 5.1266136466442696,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.2200275601539195,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.8925,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.00088382630693505,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 45.04939422545952,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 8.412242730491763e-60,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 167.31659130293826,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.086179819593892e-19,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 56.04678566118805,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 5.0676241641986604e-14,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 66.07442891898562,
+        "score_percentile": 50.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 5.1266136466442696,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.2200275601539195,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 1.4629104526208179,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.022636317692034613,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.8925,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.00088382630693505,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 45.04939422545952,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 8.412242730491763e-60,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 167.31659130293826,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.086179819593892e-19,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.9/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_haughton_local",
+        "name": "Haughton",
+        "lat": 75.3775,
+        "lon": -89.65361111111112,
+        "score_geo": 1.8859686030156328,
+        "score_arith": 4.247740697838543,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 1.574140141337685,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.02351713404194373,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 3.9492587254474207,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.1913473078283689,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.9475,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0003034442969179199,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 43.90457486256983,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 3.948498057552387e-60,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 102.3654190541063,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.7289966771994672e-21,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 31.354062564650977,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.8599220748357624e-15,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 64.96619022727482,
+        "score_percentile": 37.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 3.9492587254474207,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.1913473078283689,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 1.574140141337685,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.02351713404194373,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.9475,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0003034442969179199,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 43.90457486256983,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 3.948498057552387e-60,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 102.3654190541063,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.7289966771994672e-21,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.9/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_meteor_crater_local",
+        "name": "Meteor Crater",
+        "lat": 35.03333333333333,
+        "lon": -111.01666666666667,
+        "score_geo": 1.686940135833401,
+        "score_arith": 3.2066698228296198,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.6497488250716643,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.017023736846540367,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 1.2306402499293438,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.13537645252323682,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 0.985,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.0001401807179886731,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 14.535385832004414,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 7.215218277309627e-69,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 87.6836962787379,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 6.607878738704327e-22,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 26.80596502719889,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 9.93359574009477e-16,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 58.11023237149252,
+        "score_percentile": 25.0,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 1.2306402499293438,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.13537645252323682,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.6497488250716643,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.017023736846540367,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 0.985,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.0001401807179886731,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 14.535385832004414,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 7.215218277309627e-69,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 87.6836962787379,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 6.607878738704327e-22,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.7/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      },
+      {
+        "id": "earth_tuz_golu_local",
+        "name": "Tuz Golu",
+        "lat": 38.75,
+        "lon": 33.33,
+        "score_geo": 1.5849588853916095,
+        "score_arith": 2.830787235843578,
+        "criteria_coverage": 1.0,
+        "flags": [],
+        "distance_to_known_km": null,
+        "is_known": false,
+        "agreement": "Low",
+        "floored_criteria": [
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "per_criterion": {
+          "slope_median_deg": {
+            "target_value": 23.483118437068597,
+            "candidate_value": 0.037273787221964845,
+            "sigma": 8.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.013642151970936817,
+            "weight": 0.16666666666666666
+          },
+          "slope_p90_deg": {
+            "target_value": 31.228358993881457,
+            "candidate_value": 0.10635046991863822,
+            "sigma": 15.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.11620508217967786,
+            "weight": 0.16666666666666666
+          },
+          "flat_fraction": {
+            "target_value": 0.1425,
+            "candidate_value": 1.0,
+            "sigma": 0.2,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 0.00010191941305872192,
+            "weight": 0.16666666666666666
+          },
+          "tri_median_m": {
+            "target_value": 457.39848399490677,
+            "candidate_value": 1.649887200283404,
+            "sigma": 25.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 6.843402191217732e-73,
+            "weight": 0.16666666666666666
+          },
+          "relief_m": {
+            "target_value": 1569.0976901448876,
+            "candidate_value": 1.884188644146434,
+            "sigma": 150.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 1.9753583072182913e-24,
+            "weight": 0.16666666666666666
+          },
+          "elevation_std_m": {
+            "target_value": 525.5315013291621,
+            "candidate_value": 0.6597674621700778,
+            "sigma": 60.0,
+            "sigma_source": "fixed_default",
+            "n_samples": 0,
+            "s_i": 2.4142767832014697e-17,
+            "weight": 0.16666666666666666
+          }
+        },
+        "not_compared": [],
+        "score_relative": 54.597271813600415,
+        "score_percentile": 12.5,
+        "match_level": "weak",
+        "agreement_basis": "geo+knn",
+        "explanation": {
+          "strongest": [
+            {
+              "feature": "slope_p90_deg",
+              "target_value": 31.228358993881457,
+              "candidate_value": 0.10635046991863822,
+              "sigma": 15.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.11620508217967786,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "slope_median_deg",
+              "target_value": 23.483118437068597,
+              "candidate_value": 0.037273787221964845,
+              "sigma": 8.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.013642151970936817,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "flat_fraction",
+              "target_value": 0.1425,
+              "candidate_value": 1.0,
+              "sigma": 0.2,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 0.00010191941305872192,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "weakest": [
+            {
+              "feature": "tri_median_m",
+              "target_value": 457.39848399490677,
+              "candidate_value": 1.649887200283404,
+              "sigma": 25.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 6.843402191217732e-73,
+              "weight": 0.16666666666666666
+            },
+            {
+              "feature": "relief_m",
+              "target_value": 1569.0976901448876,
+              "candidate_value": 1.884188644146434,
+              "sigma": 150.0,
+              "sigma_source": "fixed_default",
+              "n_samples": 0,
+              "s_i": 1.9753583072182913e-24,
+              "weight": 0.16666666666666666
+            }
+          ],
+          "summary": "Weak topographic analogy (1.6/100).",
+          "not_compared": [],
+          "analogy_breaks": [
+            "Earth gravity 9.81 m/s²; moon gravity 1.62 m/s²",
+            "Earth surface pressure 101.3 kPa; moon surface pressure 0.0 kPa",
+            "Near-vacuum",
+            "No atmosphere or magnetic field — direct radiation and micrometeoroid exposure",
+            "Extreme day/night temperature swings; permanently shadowed regions far colder than any Earth surface"
+          ],
+          "flags": []
+        }
+      }
+    ],
+    "sigma": {
+      "slope_median_deg": {
+        "value": 8.0,
+        "sigma_source": "fixed_default",
+        "n_samples": 0
+      },
+      "slope_p90_deg": {
+        "value": 15.0,
+        "sigma_source": "fixed_default",
+        "n_samples": 0
+      },
+      "flat_fraction": {
+        "value": 0.2,
+        "sigma_source": "fixed_default",
+        "n_samples": 0
+      },
+      "tri_median_m": {
+        "value": 25.0,
+        "sigma_source": "fixed_default",
+        "n_samples": 0
+      },
+      "relief_m": {
+        "value": 150.0,
+        "sigma_source": "fixed_default",
+        "n_samples": 0
+      },
+      "elevation_std_m": {
+        "value": 60.0,
+        "sigma_source": "fixed_default",
+        "n_samples": 0
+      }
+    },
+    "data_status": "real",
+    "disclaimer": null
+  },
+  "integration_metadata": {
+    "engine_version": "1.0.0",
+    "input_hashes": {
+      "/app/data/processed/targets.json": "a6246231f66aaff2aab8cd5bd1cc2baf23a6ae29f6b0a6f07683d6c24a31ede3",
+      "/app/data/processed/candidates.json": "01545d8e9037d19e4e4a29147b17a4984140329e21ded307a95f8f462f2237a1",
+      "/app/processing/out/real/features.json": "f8ba035dd2435f1e7a36c9a5753ff787ef66bc6f25af2952ed3b9de364ea2d1c"
+    },
+    "target": {
+      "id": "moon_shackleton_local",
+      "scale": "local",
+      "window_km": 10.0,
+      "analysis_resolution_m": 500.0,
+      "resolution_validated": true,
+      "dem_source": "lola",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_75S_240M V2.0 (2017)"
+    },
+    "candidate": {
+      "id": "earth_kula_local",
+      "scale": "local",
+      "window_km": 10.0,
+      "analysis_resolution_m": 500.0,
+      "resolution_validated": true,
+      "dem_source": "copernicus",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest"
+    }
+  }
+}

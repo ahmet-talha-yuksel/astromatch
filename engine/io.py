@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 import hashlib, json, os, warnings, re, logging
 from functools import lru_cache
@@ -5,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 import yaml
 from .adapters import adapt
+from .input_adapter import read_records
 from .models import DataPaths, Dataset
 ROOT = Path(__file__).resolve().parent.parent
 log=logging.getLogger(__name__)
@@ -18,7 +20,7 @@ def _read(path):
     data = json.loads(path.read_text())
     if isinstance(data,list): return data
     if isinstance(data,dict):
-        if 'records' in data: return data['records']
+        if 'records' in data: return read_records(data)
         if 'regions' in data: return data['regions']
         return [data]
     raise ValueError(f'{path}: expected a list or object')
