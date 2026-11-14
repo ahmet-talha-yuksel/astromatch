@@ -56,6 +56,7 @@ def write_results(ds,out,presets,k,stamp):
             stem=_stem(t.region_id,t.scale,preset)
             write(out/f'{stem}.json',result.model_dump())
             index.setdefault('discrimination',{})[stem]={'label':result.discrimination_label,'explanation':result.discrimination_explanation,'median_score_geo':float(np.median([r['score_geo'] for r in result.full_scores])) if result.full_scores else None}
+            index.setdefault('terrain_commonality',{})[stem]=result.terrain_commonality
             heat=[{'id':r['id'],'lat':r['lat'],'lon':r['lon'],'score':round(r['score_geo'],1),'distance_z':r['distance_z'],**({'data_status':'mock','disclaimer':DISCLAIMER} if ds.mode=='mock' else {})} for r in result.full_scores if r['lat'] is not None and r['lon'] is not None]
             if ds.mode=='real' and t.scale=='regional':
                 by_id={c.region_id:c for c in ds.candidates if c.scale==t.scale and c.kind=='earth_grid'}
@@ -66,7 +67,7 @@ def write_results(ds,out,presets,k,stamp):
                 heat.extend(not_scanned_points(scanned_ids=by_id))
             write(out/f'{stem}__heat.json',heat)
             if t.scale=='local':
-                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'sigma':result.sigma,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'comparison_scope':result.comparison_scope}
+                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'sigma':result.sigma,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'comparison_scope':result.comparison_scope,'terrain_commonality':result.terrain_commonality}
                 if ds.mode=='mock': sites['disclaimer']=DISCLAIMER
                 write(out/f'sites__{stem}.json',sites)
             index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma

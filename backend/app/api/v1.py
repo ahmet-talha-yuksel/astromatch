@@ -99,7 +99,7 @@ def sites_v1(target_id:str,scale:Literal['local']='local',preset:str='balanced')
     ds=checked(target_id,scale,preset)
     result=ranked(target_id,scale,preset,k=20,filter_mode='flag',detailed=True)
     ids={r.region_id for r in ds.candidates if r.scale==scale and r.kind=='earth_site'}
-    return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'sites':[r for r in result.full_scores if r['id'] in ids],'excluded':[r for r in result.excluded if r['id'] in ids],'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation}
+    return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'sites':[r for r in result.full_scores if r['id'] in ids],'excluded':[r for r in result.excluded if r['id'] in ids],'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'terrain_commonality':result.terrain_commonality}
 
 @router.get('/heat',response_model=HeatResponse)
 def heat_v1(target_id:str,scale:Literal['local','regional']='local',preset:str='balanced'):
