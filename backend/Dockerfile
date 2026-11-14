@@ -17,6 +17,7 @@ RUN python -m pip install --no-cache-dir --no-index --find-links=/wheels -r /tmp
     && useradd --system --uid 10001 --home-dir /app appuser
 COPY backend/app /app/backend/app
 COPY backend/entrypoint.sh /usr/local/bin/astromatch-entrypoint
+RUN sed -i 's/\r$//' /usr/local/bin/astromatch-entrypoint
 COPY engine /app/engine
 COPY data/processed /app/data/processed
 RUN mkdir -p /app/processing/out /app/discovery/out /app/engine/out \
