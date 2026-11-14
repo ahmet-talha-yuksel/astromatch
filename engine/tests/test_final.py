@@ -98,7 +98,8 @@ def test_export_demo_freeze(tmp_path):
     assert len(index['score_spread'])==20
     assert len(list(out.glob('T-*__*.json')))==40
     assert (out/'validation_report.json').exists() and (out/'validation_report.md').exists()
-    assert sum(p.stat().st_size for p in out.iterdir() if p.is_file())<6_000_000
+    # Seeded uncertainty summaries add five values to each scored candidate.
+    assert sum(p.stat().st_size for p in out.iterdir() if p.is_file())<7_000_000
 
 
 def test_check_flattened_parquet_with_nulls(tmp_path):

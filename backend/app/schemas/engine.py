@@ -84,5 +84,25 @@ class ExplainResponse(Envelope):
     preset: str
     explanation: dict[str,Any]
 
+class CompareResponse(Envelope):
+    target_id: str
+    candidate_id: str
+    scale: str
+    preset: str
+    target: dict[str,Any]
+    candidate: dict[str,Any]
+    per_criterion: dict[str,Any]
+    z_by_feature: dict[str,float]
+    distance_z: float
+    score_geo: float
+    score_ci_low: float | None = None
+    score_ci_high: float | None = None
+    score_relative: float
+    match_level: str
+    place: dict[str,Any] | None = None
+    explanation: dict[str,Any]
+    analogy_breaks: list[str]
+    not_compared: list[dict[str,Any]]
+
 class ValidationResponse(Envelope):
     report: dict[str,Any]

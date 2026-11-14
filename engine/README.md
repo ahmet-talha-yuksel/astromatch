@@ -1,5 +1,9 @@
 # Explainable similarity engine
 
+Offline Earth place labels and required attribution are described in [DATA_SOURCES.md](DATA_SOURCES.md).
+
+Generate compact real-data analog reports with `python -m engine.cli report --out engine/report/`. The report index links each scorable target's Markdown summary and headless per-feature chart; unscorable targets retain their validation reasons.
+
 Python 3.11+; install `pip install -r engine/requirements.txt`. scikit-learn is installed by the requirements file; `hdbscan` remains optional for cluster agreement. From the repository root:
 
 ```bash

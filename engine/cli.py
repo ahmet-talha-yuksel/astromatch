@@ -52,7 +52,7 @@ def write_results(ds,out,presets,k,stamp):
                 for alias,base in config('target_aliases.yaml').items():
                     if base and t.region_id in (base,f'{base}_{t.scale}') and alias in index['target_statuses']:
                         index['target_statuses'][alias]['method_sensitive']=t.method_sensitive
-            result=rank(ds,t.region_id,t.scale,preset,k=k,detailed=(t.scale=='local'))
+            result=rank(ds,t.region_id,t.scale,preset,k=k,detailed=(t.scale=='local'),include_uncertainty=True)
             stem=_stem(t.region_id,t.scale,preset)
             write(out/f'{stem}.json',result.model_dump())
             index.setdefault('discrimination',{})[stem]={'label':result.discrimination_label,'explanation':result.discrimination_explanation,'median_score_geo':float(np.median([r['score_geo'] for r in result.full_scores])) if result.full_scores else None}
@@ -94,6 +94,7 @@ def main(argv=None):
     check=sub.add_parser('check');check.add_argument('--features',action='append');check.add_argument('--grid');check.add_argument('--input-source')
     demo=sub.add_parser('export-demo');demo.add_argument('--out',default='engine/demo_results/');demo.add_argument('--timestamp');demo.add_argument('--mock',action='store_true');demo.add_argument('--features',action='append');demo.add_argument('--grid');demo.add_argument('--input-source')
     scores=sub.add_parser('export-scores');scores.add_argument('--mock',action='store_true');scores.add_argument('--features',action='append');scores.add_argument('--grid');scores.add_argument('--preset',default='balanced');scores.add_argument('--sigma',choices=('recompute','frozen'),default='recompute');scores.add_argument('--criteria',action='store_true');scores.add_argument('--out',default='engine/out/scores/');scores.add_argument('--input-source')
+    report=sub.add_parser('report');report.add_argument('--mock',action='store_true');report.add_argument('--features',action='append');report.add_argument('--grid');report.add_argument('--out',default='engine/report/');report.add_argument('--input-source')
     for command in ('run','validate'):
         s=sub.add_parser(command);s.add_argument('--mock',action='store_true');s.add_argument('--features',action='append');s.add_argument('--grid');s.add_argument('--known');s.add_argument('--out',default='engine/out/');s.add_argument('--input-source')
         if command=='run':
@@ -105,6 +106,23 @@ def main(argv=None):
     if args.command=='export-scores':
         from .export_scores import export_scores
         manifest=export_scores(mock=args.mock,features=args.features,grid=args.grid,preset=args.preset,sigma=None if args.sigma=='recompute' else args.sigma,criteria=args.criteria,out=args.out)
+        sys.stdout.write(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+        return
+    if args.command=='report':
+        from .report import build_reports
+        if args.mock: ds=load_dataset(mock=True,mock_n_grid=240)
+        else:
+            features=args.features
+            if features is None:
+                features=['processing/out/real/features.json']
+                if (Path(__file__).resolve().parent.parent/'processing/out/mars_measured/features.json').exists():
+                    features.append('processing/out/mars_measured/features.json')
+            paths=DataPaths(features=features,grid=args.grid)
+            readiness=check_real_data(paths)
+            if not readiness['ready']:
+                sys.stderr.write(report_json(readiness));raise SystemExit(2)
+            ds=load_dataset(paths)
+        manifest=build_reports(ds,args.out)
         sys.stdout.write(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
         return
     if args.command=='check':

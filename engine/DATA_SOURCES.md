@@ -1,0 +1,5 @@
+# Offline place-name source
+
+Earth place labels use the nearest populated place in the `reverse_geocoder` 1.5.1 package's bundled `rg_cities1000.csv`. The package is an offline reverse geocoder based on GeoNames places with population above 1,000. It supplies the place name, first administrative division, country code, and source coordinates; AstroMatch computes great-circle distance from the Earth record. A nearest-place label does not establish that a grid cell lies inside that city or administrative boundary. Failed lookups remain null. No network lookup occurs at runtime, and Moon or Mars coordinates are never geocoded.
+
+Source and attribution: [GeoNames](https://www.geonames.org/export/) data, Creative Commons Attribution license; credit GeoNames when displaying these labels. [`reverse_geocoder`](https://github.com/thampiman/reverse-geocoder) code is LGPL licensed. The package's included city snapshot is used as distributed, without changing place names. The engine adds a compatibility alias for NumPy 2 because package version 1.5.1 refers to `np.float`.

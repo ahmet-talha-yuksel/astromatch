@@ -135,4 +135,8 @@ def load_dataset(paths: DataPaths | None = None, mock: bool = False, mock_n_grid
             msg=f'Deduplicated {len(duplicates)} Earth records by region_id/scale; features.json wins: {sorted(set(duplicates))}'
             ds.defaults_applied.append(msg); warnings.warn(msg,stacklevel=2)
         ds.candidates=list(unique.values())
+    from .place_names import places_for
+    for records in (ds.candidates,ds.known_analogs):
+        for region,place in zip(records,places_for(records)):
+            if region.body=='earth': region.place=place
     return ds
