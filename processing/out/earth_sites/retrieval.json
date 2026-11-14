@@ -1,0 +1,127 @@
+{
+  "accessed_on": "2026-11-14",
+  "inputs": [
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N38_00_E028_00_DEM/Copernicus_DSM_COG_10_N38_00_E028_00_DEM.tif",
+      "bytes": 43707610,
+      "sha256": "f64b92a865dfdf0222254edc5f5a9e0781ca68b2d368b9a4cc7670290750e522",
+      "etag": "\"1066c6be4a6d7af2ea03713ccb2298d1\"",
+      "last_modified": "Mon, 09 May 2022 14:19:47 GMT",
+      "content_range": null,
+      "site_id": "kula",
+      "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_N38_00_E028_00_DEM.tif"
+    },
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N36_00_E036_00_DEM/Copernicus_DSM_COG_10_N36_00_E036_00_DEM.tif",
+      "bytes": 40945681,
+      "sha256": "aff24ddd0d20aa6006368a7ae70155b032c5c9a7bb6e997de757eeb61a28e35e",
+      "etag": "\"b4592bed5722f68add24c042721b1a31\"",
+      "last_modified": "Mon, 09 May 2022 14:18:29 GMT",
+      "content_range": null,
+      "site_id": "hassa",
+      "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_N36_00_E036_00_DEM.tif"
+    },
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N37_00_E036_00_DEM/Copernicus_DSM_COG_10_N37_00_E036_00_DEM.tif",
+      "bytes": 43275254,
+      "sha256": "7a13957c5648a187e4f7e0a16c2a873f98bd53e97768be4303e851e27594915f",
+      "etag": "\"eb0a010d1a8705b6b20fe88d383b3d13\"",
+      "last_modified": "Mon, 09 May 2022 14:19:09 GMT",
+      "content_range": null,
+      "site_id": "hassa",
+      "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_N37_00_E036_00_DEM.tif"
+    },
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S25_00_W071_00_DEM/Copernicus_DSM_COG_10_S25_00_W071_00_DEM.tif",
+      "bytes": 21928523,
+      "sha256": "fbe8f6d1b2c68aeb8ce7032dc0b003e6f3fc0717136cb1d426f7d86465086a0f",
+      "etag": "\"0f302533128fe601f874bc6468074b8a\"",
+      "last_modified": "Mon, 09 May 2022 15:01:54 GMT",
+      "content_range": null,
+      "site_id": "atacama",
+      "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S25_00_W071_00_DEM.tif"
+    },
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S25_00_W070_00_DEM/Copernicus_DSM_COG_10_S25_00_W070_00_DEM.tif",
+      "bytes": 37362492,
+      "sha256": "ac7b8fce2e8598c5d522fd0f6ff0b4a1ae6f6c5aecda55671fc6e2bd82ec7710",
+      "etag": "\"1901ccfc093641e4190924b9b1b4ce6f\"",
+      "last_modified": "Mon, 09 May 2022 15:01:53 GMT",
+      "content_range": null,
+      "site_id": "atacama",
+      "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S25_00_W070_00_DEM.tif"
+    },
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S24_00_W071_00_DEM/Copernicus_DSM_COG_10_S24_00_W071_00_DEM.tif",
+      "bytes": 22161009,
+      "sha256": "2562c4e6fac92922caa80941505eabf6998be1a32d139a8fe07c78632bc4ea9b",
+      "etag": "\"86f8ec666e319ebb8cbd9345ea108a67\"",
+      "last_modified": "Mon, 09 May 2022 15:01:25 GMT",
+      "content_range": null,
+      "site_id": "atacama",
+      "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S24_00_W071_00_DEM.tif"
+    },
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_S24_00_W070_00_DEM/Copernicus_DSM_COG_10_S24_00_W070_00_DEM.tif",
+      "bytes": 38143032,
+      "sha256": "4d8745aed594bac867a2fe434fbf7ea7d092580b077de396e67874febb2730f3",
+      "etag": "\"cbb285c20a4d3b8599b673569ccc9b86\"",
+      "last_modified": "Mon, 09 May 2022 15:01:24 GMT",
+      "content_range": null,
+      "site_id": "atacama",
+      "local_path": "raw/earth_sites/tiles/Copernicus_DSM_COG_10_S24_00_W070_00_DEM.tif"
+    }
+  ],
+  "windows": [
+    {
+      "site_id": "kula",
+      "bounds_wgs84": [
+        28.220644654493015,
+        38.34540014154137,
+        28.819355345506988,
+        38.81421443338975
+      ],
+      "crop_shape": [
+        1688,
+        2155
+      ],
+      "source_file_sha256": "df51fb59a785bfea17cf0ef7ea155c17a3203edb7cda1d8bd33e9dde8fb0d8fa",
+      "coordinate_source": "https://volcano.si.edu/volcano.cfm?vn=213000",
+      "coordinate_note": "Smithsonian GVP volcanic-field reference coordinate; not a specific vent."
+    },
+    {
+      "site_id": "hassa",
+      "bounds_wgs84": [
+        36.25777481168613,
+        36.565352673694285,
+        36.84222518831386,
+        37.034285375910656
+      ],
+      "crop_shape": [
+        1688,
+        2104
+      ],
+      "source_file_sha256": "aae672d5aeeb98fbcd590cef36c312b20fdc05ab77cfafb672c1f45c6a6719bb",
+      "coordinate_source": "https://dergipark.org.tr/tr/download/article-file/4045946",
+      "coordinate_note": "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance."
+    },
+    {
+      "site_id": "atacama",
+      "bounds_wgs84": [
+        -70.13661654287189,
+        -24.298518337118626,
+        -69.6243834571281,
+        -23.828819332723437
+      ],
+      "crop_shape": [
+        1691,
+        1844
+      ],
+      "source_file_sha256": "957997bd705aece1f98e4def2f59f44b0ca7949712ac5ff6766936181bb880af",
+      "coordinate_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8859261/",
+      "coordinate_note": "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert."
+    }
+  ],
+  "physical_crop_width_m": 52000,
+  "source_portal": "https://dataspace.copernicus.eu/"
+}

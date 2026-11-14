@@ -167,6 +167,8 @@
         "sampling": {
           "counts_file": "jezero_mola_counts.tif",
           "mean_observed_bin_fraction": 0.375141978263855,
+          "min_observed_bin_fraction": 0.0,
+          "analysis_cells_without_counts_coverage": 0,
           "analysis_cells_without_observed_bins": 106,
           "analysis_cells_total": 400,
           "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
@@ -383,6 +385,8 @@
         "sampling": {
           "counts_file": "jezero_mola_counts.tif",
           "mean_observed_bin_fraction": 0.34594687819480896,
+          "min_observed_bin_fraction": 0.0,
+          "analysis_cells_without_counts_coverage": 0,
           "analysis_cells_without_observed_bins": 583,
           "analysis_cells_total": 2500,
           "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."

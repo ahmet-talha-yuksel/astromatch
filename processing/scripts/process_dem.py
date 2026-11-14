@@ -42,9 +42,12 @@ def export_heightmap(output, record, array):
 def run(config_path, output):
     config_path, output = Path(config_path).resolve(), Path(output).resolve()
     config = json.loads(config_path.read_text(encoding='utf-8'))
-    retrieval = None
+    manifest_paths = list(config.get('retrieval_manifests', []))
     if config.get('retrieval_manifest'):
-        retrieval = json.loads((config_path.parent / config['retrieval_manifest']).read_text(encoding='utf-8'))
+        manifest_paths.append(config['retrieval_manifest'])
+    manifests = [json.loads((config_path.parent / path).read_text(encoding='utf-8'))
+                 for path in manifest_paths]
+    retrieval = (manifests[0] if len(manifests) == 1 else {'datasets': manifests}) if manifests else None
     requests = []
     for item in config['records']:
         item = dict(item)

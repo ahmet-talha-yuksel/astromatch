@@ -104,6 +104,8 @@ def process_dem(request: DemRequest):
                                         if r.vertical_unit == 'm' else {'km', 'kilometer', 'kilometre'}):
             raise ValueError('Declared vertical unit conflicts with raster metadata')
         band_scale, band_offset = src.scales[0], src.offsets[0]
+        if r.product == 'lola' and math.isclose(band_offset, a, rel_tol=1e-6):
+            raise ValueError('LOLA band offset encodes planetary radius; convert to sphere-relative height first')
         if not all(math.isfinite(v) for v in (band_scale, band_offset)) or band_scale <= 0:
             raise ValueError('Invalid band scale/offset')
         with WarpedVRT(src, crs=dst_crs.to_wkt(), transform=transform,
@@ -156,15 +158,19 @@ def process_dem(request: DemRequest):
             # Materialize only the already-cropped counts raster; never a global map.
             if counts.width * counts.height > 1_000_000:
                 raise ValueError('Provide a cropped counts raster (<=1 million pixels)')
-            observed = (counts.read(1) > 0).astype('float32')
+            counts_data = counts.read(1, masked=True)
+            observed = np.where(np.ma.getmaskarray(counts_data), np.nan,
+                                (counts_data.data > 0).astype('float32'))
             from rasterio.warp import reproject
             support = np.full(array.shape, np.nan, dtype='float32')
-            reproject(observed, support, src_transform=counts.transform, src_crs=counts.crs,
+            reproject(observed, support, src_transform=counts.transform, src_crs=counts.crs, src_nodata=np.nan,
                       dst_transform=transform, dst_crs=dst_crs.to_wkt(), dst_nodata=np.nan,
                       resampling=Resampling.average)
         record['quality']['sampling'] = {
             'counts_file': Path(r.counts_path).name,
             'mean_observed_bin_fraction': float(np.nanmean(support)) if np.isfinite(support).any() else None,
+            'min_observed_bin_fraction': float(np.nanmin(support)) if np.isfinite(support).any() else None,
+            'analysis_cells_without_counts_coverage': int(np.sum(~np.isfinite(support))),
             'analysis_cells_without_observed_bins': int(np.sum(support == 0)),
             'analysis_cells_total': int(support.size),
             'note': 'Counts > 0 indicate measured source bins; other DEM bins are interpolated. '
