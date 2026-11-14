@@ -6,6 +6,7 @@ const { validateTerrainData, TerrainValidationError } = require('../.test-build/
 const { createTerrainGeometry } = require('../.test-build/geometry/terrainGeometry.js');
 const { loadTerrain } = require('../.test-build/loading/loadTerrain.js');
 const { validateSimilarityResult, validateCandidateMetadata, requireCandidateTerrainLink } = require('../.test-build/integration/adapters.js');
+const { validateRealEngineSnapshot } = require('../.test-build/integration/realSimilarity.js');
 const fixture = name => JSON.parse(readFileSync(path.join(__dirname, '../public/terrain', `${name}_demo.json`), 'utf8'));
 const base = () => fixture('mars');
 function rejectsPatch(patch, field) {
@@ -183,4 +184,19 @@ test('integration adapters do not fabricate absent producer outputs', () => {
   assert.throws(() => validateCandidateMetadata(undefined), TerrainValidationError);
   assert.throws(() => requireCandidateTerrainLink({ id: 'david-result', terrainId: '' }, ['terrain-1']), /no terrain link/);
   assert.throws(() => requireCandidateTerrainLink({ id: 'yenge-candidate', terrain_id: 'unpublished' }, []), /unavailable terrain/);
+});
+
+test('real Shackleton engine snapshot is accepted and mock or mismatched results are rejected', () => {
+  const snapshot = JSON.parse(readFileSync(path.join(__dirname, '../public/similarity/shackleton_local_balanced.json'), 'utf8'));
+  const result = validateRealEngineSnapshot(snapshot);
+  assert.equal(result.targetId, 'moon_shackleton_local');
+  assert.equal(result.candidateId, 'earth_kula_local');
+  assert.equal(result.rank, 3);
+  assert.equal(result.candidateCount, 8);
+  assert.equal(result.sigmaSource, 'fixed_default');
+  assert.equal(Object.keys(result.contributions).length, 6);
+  assert.throws(() => validateRealEngineSnapshot({...snapshot, engine_result: {...snapshot.engine_result, data_status: 'mock'}}), /real result/);
+  assert.throws(() => validateRealEngineSnapshot(snapshot, 'mars_jezero_local'), /target mismatch/);
+  const incomplete = structuredClone(snapshot); delete incomplete.integration_metadata.target;
+  assert.throws(() => validateRealEngineSnapshot(incomplete), /target/);
 });

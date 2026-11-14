@@ -47,7 +47,7 @@ function TerrainScene({ terrain, display }: { terrain: ValidatedTerrainData; dis
   return <section style={{ minWidth: 0 }}>
     <div className="terrain-canvas">
       <Canvas camera={{ position: [9, 9, 13], fov: 45 }} style={{ touchAction: "none" }}>
-        <ambientLight intensity={1.3} /><directionalLight position={[5, 12, 8]} intensity={2} />
+        <ambientLight intensity={0.9} /><directionalLight position={[6, 14, 8]} intensity={2.5} /><directionalLight position={[-8, 5, -4]} intensity={0.7} color="#6da9c7" />
         <CameraControls terrain={terrain} action={cameraAction} syncKey={display?.syncKey} syncEnabled={display?.syncEnabled} displayWorldSpanMeters={display?.worldSpanMeters} />
         <Bounds key={terrain.id} fit observe margin={1.6}><TerrainMesh terrain={terrain} verticalExaggeration={exaggeration} colorMode={colorMode} elevationOffset={display?.elevationOffset} colorRange={display?.colorRange} worldSpanMeters={display?.worldSpanMeters} onInspect={point => { const next = pointToInspection(point, terrain, display?.worldSpanMeters); setInspection(previous => sameInspection(previous, next) ? previous : next); }} /></Bounds>
         <gridHelper args={[14, 14, "#586778", "#263446"]} position={[0, -0.1, 0]} />
@@ -64,7 +64,7 @@ function TerrainScene({ terrain, display }: { terrain: ValidatedTerrainData; dis
       {!display && <input aria-label="Vertical exaggeration" type="range" min="0.5" max="5" step="0.1" value={exaggeration} onChange={e => setExaggeration(Number(e.target.value))} />}
     </label>
     <small>Visualization setting only; measured elevations are unchanged. Left-drag rotates · Right-drag pans · Scroll zooms</small>
-    <div aria-label="Elevation legend" style={{ marginTop: 6 }}><small>Elevation (m): {min.toFixed(2)} <span style={{ color: "#d98845" }}>━━━━</span> {max.toFixed(2)}</small></div>
+    <div className="elevation-legend" aria-label="Elevation legend"><small>Elevation (m): {min.toFixed(2)}</small><span className="legend-bar" aria-hidden="true"/><small>{max.toFixed(2)}</small></div><div className="scale-bar" aria-label="Physical scale"><span className="scale-line"/><small>{(Math.max(terrain.horizontalWindowMeters.width, terrain.horizontalWindowMeters.height) / 1000 / 2).toFixed(1)} km physical half-window</small></div>
     <div className="terrain-summary"><div><strong>{terrain.name}</strong><span>{terrain.body} · {terrain.dataType === "synthetic" ? "Synthetic dataset" : "Real dataset"}</span></div><div className="synthetic-chip">{terrain.dataType === "synthetic" ? "SYNTHETIC" : "REAL"}</div></div><h3 className="sr-only">{terrain.name} {terrain.dataType === "synthetic" ? "(SYNTHETIC DEMO — NOT NASA DATA)" : "(REAL DATA)"}</h3>
     <div className="terrain-stats"><div><small>Elevation range</small><strong>{min.toFixed(2)} to {max.toFixed(2)} m</strong></div><div><small>Relief</small><strong>{(max - min).toFixed(2)} m</strong></div><div><small>Valid data</small><strong>{(100 * valid.length / (terrain.width * terrain.height)).toFixed(2)}%</strong></div></div>
     {inspection && <div role="status"><strong>Elevation inspection</strong>: {inspection.elevation.toFixed(2)} m · local coordinates X {inspection.x.toFixed(2)} m, Y {inspection.y.toFixed(2)} m · {terrain.name} · {terrain.body}</div>}
@@ -94,7 +94,7 @@ function CameraControls({ terrain, action, syncKey, syncEnabled, displayWorldSpa
   const controls = useRef<any>(null); const syncApplying = useRef(false); const { camera, gl } = useThree();
   const spacing = spacingAxes(terrain.cellSizeMeters); const span = Math.max((terrain.width - 1) * spacing.x, (terrain.height - 1) * spacing.y); const normalizedSpan = span * (10 / (displayWorldSpanMeters ?? span)); const distance = Math.max(8, Math.min(40, normalizedSpan * 1.65));
   const publishInspectionState = () => {
-    if (!window.location.pathname.startsWith("/tests/") || !controls.current) return;
+    if (!controls.current) return;
     const states = ((window as Window & { __terrain3dCameraStates?: Record<string, { position: number[]; target: number[] }> }).__terrain3dCameraStates ??= {});
     states[terrain.id] = { position: camera.position.toArray(), target: controls.current.target.toArray() };
   };

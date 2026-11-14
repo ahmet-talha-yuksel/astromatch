@@ -1,0 +1,23 @@
+import { TerrainValidationError } from "../validation/terrain";
+
+export const SHACKLETON_TARGET = "moon_shackleton_local";
+export const KULA_CANDIDATE = "earth_kula_local";
+const FEATURES = ["slope_median_deg", "slope_p90_deg", "flat_fraction", "tri_median_m", "relief_m", "elevation_std_m"] as const;
+type FeatureContribution = { target_value: number; candidate_value: number; sigma: number; sigma_source: string; n_samples: number; s_i: number; weight: number };
+export interface ValidatedEngineSnapshot { targetId:string; candidateId:string; rank:number; candidateCount:number; scoreGeo:number; scoreArithmetic:number|null; relativeScore:number|null; matchLevel:string; agreement:string; dataStatus:"real"; sigmaSource:"fixed_default"; sigmaSamples:0; contributions:Record<string,FeatureContribution>; engineVersion:string; inputHashes:Record<string,string>; targetWindowKm:number|null; targetResolutionM:number|null; candidateWindowKm:number|null; candidateResolutionM:number|null; }
+function object(value: unknown, field: string): Record<string, unknown> { if (!value || typeof value !== "object" || Array.isArray(value)) throw new TerrainValidationError(`Invalid engine snapshot: ${field}`); return value as Record<string, unknown>; }
+function finite(value: unknown, field: string): number { if (typeof value !== "number" || !Number.isFinite(value)) throw new TerrainValidationError(`Invalid engine snapshot: ${field}`); return value; }
+export function validateRealEngineSnapshot(input: unknown, targetId=SHACKLETON_TARGET, candidateId=KULA_CANDIDATE): ValidatedEngineSnapshot {
+  const root=object(input,"root"), result=object(root.engine_result,"engine_result"), meta=object(root.integration_metadata,"integration_metadata");
+  if (root.schema_version !== "terrain3d.engine-result.v1") throw new TerrainValidationError("Invalid engine snapshot: schema_version");
+  if (result.data_status !== "real" || result.disclaimer !== null && result.disclaimer !== undefined) throw new TerrainValidationError("Engine snapshot is not a verified real result");
+  if (result.target_id !== targetId) throw new TerrainValidationError(`Engine target mismatch: ${String(result.target_id)}`);
+  const scores=result.full_scores; if (!Array.isArray(scores) || !scores.length) throw new TerrainValidationError("Engine snapshot has no full_scores");
+  const rowIndex=scores.findIndex(row=>row && typeof row === "object" && (row as Record<string,unknown>).id===candidateId); if (rowIndex<0) throw new TerrainValidationError(`Engine candidate missing: ${candidateId}`);
+  const row=object(scores[rowIndex],"candidate result");
+  const sigma=object(result.sigma,"sigma"); for (const key of FEATURES) { const s=object(sigma[key],`sigma.${key}`); if (s.sigma_source!=="fixed_default" || s.n_samples!==0) throw new TerrainValidationError(`Unsupported calibration for ${key}`); }
+  const per=object(row.per_criterion,"per_criterion"); const contributions:Record<string,FeatureContribution>={}; for (const key of FEATURES) { const c=object(per[key],`per_criterion.${key}`); contributions[key]={target_value:finite(c.target_value,`${key}.target_value`),candidate_value:finite(c.candidate_value,`${key}.candidate_value`),sigma:finite(c.sigma,`${key}.sigma`),sigma_source:String(c.sigma_source),n_samples:finite(c.n_samples,`${key}.n_samples`),s_i:finite(c.s_i,`${key}.s_i`),weight:finite(c.weight,`${key}.weight`)}; }
+  const target=object(meta.target,"target"); const candidate=object(meta.candidate,"candidate"); if (target.id!==targetId || candidate.id!==candidateId) throw new TerrainValidationError("Engine provenance ID mismatch");
+  const hashes=object(meta.input_hashes,"input_hashes"); const inputHashes:Record<string,string>={}; for (const [key,value] of Object.entries(hashes)) { if(typeof value!=="string"||!value) throw new TerrainValidationError(`Invalid input hash: ${key}`); inputHashes[key]=value; }
+  return {targetId,candidateId,rank:rowIndex+1,candidateCount:scores.length,scoreGeo:finite(row.score_geo,"score_geo"),scoreArithmetic:row.score_arith===undefined?null:finite(row.score_arith,"score_arith"),relativeScore:row.score_relative===undefined?null:finite(row.score_relative,"score_relative"),matchLevel:String(row.match_level),agreement:String(row.agreement),dataStatus:"real",sigmaSource:"fixed_default",sigmaSamples:0,contributions,engineVersion:String(meta.engine_version),inputHashes,targetWindowKm:typeof target.window_km==='number'?target.window_km:null,targetResolutionM:typeof target.analysis_resolution_m==='number'?target.analysis_resolution_m:null,candidateWindowKm:typeof candidate.window_km==='number'?candidate.window_km:null,candidateResolutionM:typeof candidate.analysis_resolution_m==='number'?candidate.analysis_resolution_m:null};
+}

@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 import yaml
 from .adapters import adapt
+from .input_adapter import read_records
 from .models import DataPaths, Dataset
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -15,7 +16,9 @@ def config(name):
 def _read(path):
     if path.suffix == '.parquet': return pd.read_parquet(path).to_dict('records')
     data = json.loads(path.read_text())
-    return data if isinstance(data, list) else data['regions'] if 'regions' in data else [data]
+    # Legacy fixture lists retain their historical representation; published
+    # processing output is the explicit v2.3 records wrapper.
+    return read_records(data) if isinstance(data, dict) else data
 
 def load_dataset(paths: DataPaths | None = None, mock: bool = False, mock_n_grid: int = 5000) -> Dataset:
     if mock:
