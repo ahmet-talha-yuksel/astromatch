@@ -28,6 +28,18 @@ def check_mock(response):
     return body
 
 
+def test_measured_terrain_for_paired_viewer(client):
+    c, _ = client
+    response = c.get('/api/v1/terrain/mars_phoenix_regional')
+    assert response.status_code == 200, response.text
+    terrain = response.json()
+    assert terrain['id'] == 'mars_phoenix_regional'
+    assert terrain['data_status'] == 'real'
+    assert len(terrain['heights']) == terrain['width'] * terrain['height']
+    assert any(value is not None for value in terrain['heights'])
+    assert c.get('/api/v1/terrain/unknown_region').status_code == 404
+
+
 def test_health_targets_presets(client):
     c,_=client
     health=check_mock(c.get('/api/v1/health'))
