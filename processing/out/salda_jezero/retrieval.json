@@ -1,0 +1,67 @@
+{
+  "accessed_on": "2026-11-14",
+  "inputs": [
+    {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N37_00_E029_00_DEM/Copernicus_DSM_COG_10_N37_00_E029_00_DEM.tif",
+      "bytes": 40114960,
+      "sha256": "2d87a3e2509d1a43ddce8c6aeee9e2e0c0f9f3fe1fe2645ba4110d2f0582c3f5",
+      "etag": "\"8475a82027a3dfed75ac21562f660050\"",
+      "last_modified": "Mon, 09 May 2022 14:19:08 GMT",
+      "content_range": null,
+      "local_path": "raw/salda_jezero/salda_glo30.tif"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.lbl",
+      "bytes": 4820,
+      "sha256": "bc624a238ba6d71a770a09f959ead96f1c144970fae435b8ca5e26208b42eec5",
+      "etag": "\"8087ba6daeec61:0\"",
+      "last_modified": "Fri, 13 Oct 2006 15:17:09 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n000hb.lbl",
+      "bytes": 3088,
+      "sha256": "e7bde6960c05e9fc48ff6417ee3e2b12ed271af16ea85294a775a6948d890a1e",
+      "etag": "\"091ec9fdaeec61:0\"",
+      "last_modified": "Fri, 13 Oct 2006 15:16:58 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/extras/meg128/megt44n000hb.hdr",
+      "bytes": 1029,
+      "sha256": "4871add22f0e8096281ea6c3b79fc0555a541cf72785e4abe87055e38970d20a",
+      "etag": "\"bbeb753216d31:0\"",
+      "last_modified": "Tue, 15 Aug 2017 20:08:57 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img",
+      "bytes": 5921280,
+      "sha256": "d3236e68a9d11df2f9d90e118141eac3636b5b02961b0eb4cafa8e4f4fe5dc7b",
+      "etag": "\"004a8ddff7c21:0\"",
+      "last_modified": "Mon, 31 Mar 2003 23:45:04 GMT",
+      "content_range": "bytes 72599040-78520319/129761280"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megc44n000hb.img",
+      "bytes": 2960640,
+      "sha256": "261fc86cf89beece079a00b6dc5a3ad441d8c46b0c65e2b9d7fdc6dc4dd68f13",
+      "etag": "\"04d1843e6f7c21:0\"",
+      "last_modified": "Tue, 01 Apr 2003 00:33:06 GMT",
+      "content_range": "bytes 36299520-39260159/64880640"
+    }
+  ],
+  "mola_source_rows": [
+    3151,
+    3408
+  ],
+  "mola_source_columns": [
+    9802,
+    10059
+  ],
+  "mola_geometry": "Label extents and exact 1/128 degree grid; PDS precise ENVI map-scale cross-check.",
+  "mola_zero_elevation_is_valid": true,
+  "mola_measured_bin_fraction_in_crop": 0.3147057487622825,
+  "counts_path": "raw/salda_jezero/jezero_mola_counts.tif",
+  "mola_sampling_review": "Not validated at analysis scale; measured/interpolated bins require QA."
+}

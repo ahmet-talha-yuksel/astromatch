@@ -1,0 +1,679 @@
+{
+  "schema_version": "2.3",
+  "report_kind": "resolution_sensitivity",
+  "method": "metric-gradient-riley8-p95p5-v1",
+  "results": [
+    {
+      "region_id": "earth_salda_local",
+      "body": "earth",
+      "scale": "local",
+      "window_km": 10,
+      "source_file_sha256": "2d87a3e2509d1a43ddce8c6aeee9e2e0c0f9f3fe1fe2645ba4110d2f0582c3f5",
+      "first_tested_resolution_with_all_cells_supported_m": null,
+      "candidates": [
+        {
+          "analysis_resolution_m": 500,
+          "grid_shape": [
+            20,
+            20
+          ],
+          "interior_tri_cells_max": 324,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 2.6143234914124394,
+            "slope_p90_deg": 10.1567631437393,
+            "flat_fraction": 0.635,
+            "tri_median_m": 57.088695130103304,
+            "relief_m": 262.6195508526812,
+            "elevation_std_m": 89.65957073462293
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": null,
+            "slope_p90_deg": null,
+            "flat_fraction": null,
+            "tri_median_m": null,
+            "relief_m": null,
+            "elevation_std_m": null
+          }
+        },
+        {
+          "analysis_resolution_m": 1000,
+          "grid_shape": [
+            10,
+            10
+          ],
+          "interior_tri_cells_max": 64,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 2.924221211860055,
+            "slope_p90_deg": 6.303600134186089,
+            "flat_fraction": 0.74,
+            "tri_median_m": 126.44795546257427,
+            "relief_m": 243.93061289684897,
+            "elevation_std_m": 84.29781174641823
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": 0.30989772044761565,
+            "slope_p90_deg": -3.85316300955321,
+            "flat_fraction": 0.10499999999999998,
+            "tri_median_m": 69.35926033247097,
+            "relief_m": -18.688937955832216,
+            "elevation_std_m": -5.3617589882046985
+          }
+        },
+        {
+          "analysis_resolution_m": 1250,
+          "grid_shape": [
+            8,
+            8
+          ],
+          "interior_tri_cells_max": 36,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 2.7855165625072313,
+            "slope_p90_deg": 6.1925947256736755,
+            "flat_fraction": 0.8125,
+            "tri_median_m": 142.9928899578949,
+            "relief_m": 227.90394854554688,
+            "elevation_std_m": 81.86747107845777
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.13870464935282367,
+            "slope_p90_deg": -0.1110054085124137,
+            "flat_fraction": 0.07250000000000001,
+            "tri_median_m": 16.544934495320632,
+            "relief_m": -16.026664351302088,
+            "elevation_std_m": -2.430340667960465
+          }
+        },
+        {
+          "analysis_resolution_m": 2000,
+          "grid_shape": [
+            5,
+            5
+          ],
+          "interior_tri_cells_max": 9,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.7060222901977549,
+            "slope_p90_deg": 4.5597133272622905,
+            "flat_fraction": 0.92,
+            "tri_median_m": 164.00157953719366,
+            "relief_m": 223.66814665089032,
+            "elevation_std_m": 74.00820696265352
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -1.0794942723094765,
+            "slope_p90_deg": -1.632881398411385,
+            "flat_fraction": 0.10750000000000004,
+            "tri_median_m": 21.00868957929876,
+            "relief_m": -4.235801894656561,
+            "elevation_std_m": -7.859264115804251
+          }
+        },
+        {
+          "analysis_resolution_m": 2500,
+          "grid_shape": [
+            4,
+            4
+          ],
+          "interior_tri_cells_max": 4,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.829294393605526,
+            "slope_p90_deg": 4.192634502185712,
+            "flat_fraction": 0.9375,
+            "tri_median_m": 231.13020862091344,
+            "relief_m": 200.09163759451644,
+            "elevation_std_m": 69.93189474406279
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": 0.12327210340777106,
+            "slope_p90_deg": -0.36707882507657885,
+            "flat_fraction": 0.01749999999999996,
+            "tri_median_m": 67.12862908371977,
+            "relief_m": -23.57650905637388,
+            "elevation_std_m": -4.076312218590729
+          }
+        }
+      ]
+    },
+    {
+      "region_id": "mars_jezero_local",
+      "body": "mars",
+      "scale": "local",
+      "window_km": 10,
+      "source_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92",
+      "first_tested_resolution_with_all_cells_supported_m": 2000,
+      "candidates": [
+        {
+          "analysis_resolution_m": 500,
+          "grid_shape": [
+            20,
+            20
+          ],
+          "interior_tri_cells_max": 324,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.375141978263855,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 106,
+            "analysis_cells_total": 400,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 0.5201748874169361,
+            "slope_p90_deg": 1.1051132463421034,
+            "flat_fraction": 1.0,
+            "tri_median_m": 13.557602857996589,
+            "relief_m": 57.20562573999723,
+            "elevation_std_m": 19.60974650198897
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": null,
+            "slope_p90_deg": null,
+            "flat_fraction": null,
+            "tri_median_m": null,
+            "relief_m": null,
+            "elevation_std_m": null
+          }
+        },
+        {
+          "analysis_resolution_m": 1000,
+          "grid_shape": [
+            10,
+            10
+          ],
+          "interior_tri_cells_max": 64,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.37514302134513855,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 9,
+            "analysis_cells_total": 100,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 0.4513414900662042,
+            "slope_p90_deg": 0.9012032625151719,
+            "flat_fraction": 1.0,
+            "tri_median_m": 24.926093977878306,
+            "relief_m": 57.67950611814058,
+            "elevation_std_m": 19.276204553951587
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.06883339735073185,
+            "slope_p90_deg": -0.20390998382693148,
+            "flat_fraction": 0.0,
+            "tri_median_m": 11.368491119881718,
+            "relief_m": 0.47388037814334893,
+            "elevation_std_m": -0.33354194803738224
+          }
+        },
+        {
+          "analysis_resolution_m": 1250,
+          "grid_shape": [
+            8,
+            8
+          ],
+          "interior_tri_cells_max": 36,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.3751521110534668,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 1,
+            "analysis_cells_total": 64,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 0.40744823817886167,
+            "slope_p90_deg": 0.8201828219351455,
+            "flat_fraction": 1.0,
+            "tri_median_m": 29.123828517382172,
+            "relief_m": 55.831184824338834,
+            "elevation_std_m": 19.062587809795005
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.043893251887342555,
+            "slope_p90_deg": -0.08102044058002644,
+            "flat_fraction": 0.0,
+            "tri_median_m": 4.197734539503866,
+            "relief_m": -1.848321293801746,
+            "elevation_std_m": -0.21361674415658172
+          }
+        },
+        {
+          "analysis_resolution_m": 2000,
+          "grid_shape": [
+            5,
+            5
+          ],
+          "interior_tri_cells_max": 9,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.3751879632472992,
+            "min_observed_bin_fraction": 0.004134584683924913,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 0,
+            "analysis_cells_total": 25,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": true,
+          "features": {
+            "slope_median_deg": 0.3383110890081189,
+            "slope_p90_deg": 0.5773042697742036,
+            "flat_fraction": 1.0,
+            "tri_median_m": 38.246331980234785,
+            "relief_m": 51.278572899100254,
+            "elevation_std_m": 18.149990301703653
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.06913714917074276,
+            "slope_p90_deg": -0.2428785521609419,
+            "flat_fraction": 0.0,
+            "tri_median_m": 9.122503462852613,
+            "relief_m": -4.55261192523858,
+            "elevation_std_m": -0.912597508091352
+          }
+        },
+        {
+          "analysis_resolution_m": 2500,
+          "grid_shape": [
+            4,
+            4
+          ],
+          "interior_tri_cells_max": 4,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.3751833438873291,
+            "min_observed_bin_fraction": 0.25453558564186096,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 0,
+            "analysis_cells_total": 16,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": true,
+          "features": {
+            "slope_median_deg": 0.3549911123310546,
+            "slope_p90_deg": 0.5592824362177131,
+            "flat_fraction": 1.0,
+            "tri_median_m": 44.90821583586467,
+            "relief_m": 47.36236181115373,
+            "elevation_std_m": 17.747340399046696
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": 0.016680023322935722,
+            "slope_p90_deg": -0.018021833556490452,
+            "flat_fraction": 0.0,
+            "tri_median_m": 6.661883855629881,
+            "relief_m": -3.9162110879465217,
+            "elevation_std_m": -0.40264990265695744
+          }
+        }
+      ]
+    },
+    {
+      "region_id": "earth_salda_regional",
+      "body": "earth",
+      "scale": "regional",
+      "window_km": 50,
+      "source_file_sha256": "2d87a3e2509d1a43ddce8c6aeee9e2e0c0f9f3fe1fe2645ba4110d2f0582c3f5",
+      "first_tested_resolution_with_all_cells_supported_m": null,
+      "candidates": [
+        {
+          "analysis_resolution_m": 1000,
+          "grid_shape": [
+            50,
+            50
+          ],
+          "interior_tri_cells_max": 2304,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 3.6173788146135064,
+            "slope_p90_deg": 9.051425510043037,
+            "flat_fraction": 0.6424,
+            "tri_median_m": 202.2859305186336,
+            "relief_m": 843.8074480159298,
+            "elevation_std_m": 253.29882730021828
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": null,
+            "slope_p90_deg": null,
+            "flat_fraction": null,
+            "tri_median_m": null,
+            "relief_m": null,
+            "elevation_std_m": null
+          }
+        },
+        {
+          "analysis_resolution_m": 1250,
+          "grid_shape": [
+            40,
+            40
+          ],
+          "interior_tri_cells_max": 1444,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 3.367082594880255,
+            "slope_p90_deg": 8.287273195968892,
+            "flat_fraction": 0.68125,
+            "tri_median_m": 239.59803624903492,
+            "relief_m": 837.1370783773059,
+            "elevation_std_m": 251.80113494859248
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.2502962197332512,
+            "slope_p90_deg": -0.7641523140741455,
+            "flat_fraction": 0.03885000000000005,
+            "tri_median_m": 37.31210573040133,
+            "relief_m": -6.670369638623924,
+            "elevation_std_m": -1.4976923516258012
+          }
+        },
+        {
+          "analysis_resolution_m": 2000,
+          "grid_shape": [
+            25,
+            25
+          ],
+          "interior_tri_cells_max": 529,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 2.75087777444456,
+            "slope_p90_deg": 6.351810114729679,
+            "flat_fraction": 0.7824,
+            "tri_median_m": 320.93869768220475,
+            "relief_m": 838.4054586967086,
+            "elevation_std_m": 246.63303021394913
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.6162048204356951,
+            "slope_p90_deg": -1.935463081239213,
+            "flat_fraction": 0.10114999999999996,
+            "tri_median_m": 81.34066143316983,
+            "relief_m": 1.268380319402695,
+            "elevation_std_m": -5.16810473464335
+          }
+        },
+        {
+          "analysis_resolution_m": 2500,
+          "grid_shape": [
+            20,
+            20
+          ],
+          "interior_tri_cells_max": 324,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 2.494628211975294,
+            "slope_p90_deg": 5.698859332591108,
+            "flat_fraction": 0.8525,
+            "tri_median_m": 382.75526116372504,
+            "relief_m": 822.9219752514946,
+            "elevation_std_m": 243.23108072173963
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.2562495624692662,
+            "slope_p90_deg": -0.6529507821385705,
+            "flat_fraction": 0.07010000000000005,
+            "tri_median_m": 61.81656348152029,
+            "relief_m": -15.483483445214006,
+            "elevation_std_m": -3.4019494922094964
+          }
+        },
+        {
+          "analysis_resolution_m": 5000,
+          "grid_shape": [
+            10,
+            10
+          ],
+          "interior_tri_cells_max": 64,
+          "nodata_ratio": 0.0,
+          "sampling": null,
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.8335464362149292,
+            "slope_p90_deg": 3.6415027045705415,
+            "flat_fraction": 0.98,
+            "tri_median_m": 547.8923848374889,
+            "relief_m": 730.8283816120409,
+            "elevation_std_m": 227.49249714491742
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.6610817757603646,
+            "slope_p90_deg": -2.0573566280205666,
+            "flat_fraction": 0.12749999999999995,
+            "tri_median_m": 165.13712367376382,
+            "relief_m": -92.09359363945373,
+            "elevation_std_m": -15.738583576822208
+          }
+        }
+      ]
+    },
+    {
+      "region_id": "mars_jezero_regional",
+      "body": "mars",
+      "scale": "regional",
+      "window_km": 50,
+      "source_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92",
+      "first_tested_resolution_with_all_cells_supported_m": 5000,
+      "candidates": [
+        {
+          "analysis_resolution_m": 1000,
+          "grid_shape": [
+            50,
+            50
+          ],
+          "interior_tri_cells_max": 2304,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.34594687819480896,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 583,
+            "analysis_cells_total": 2500,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.581208814342472,
+            "slope_p90_deg": 6.410025606255609,
+            "flat_fraction": 0.8588,
+            "tri_median_m": 76.8119350398903,
+            "relief_m": 763.2187413981055,
+            "elevation_std_m": 267.39518006737205
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": null,
+            "slope_p90_deg": null,
+            "flat_fraction": null,
+            "tri_median_m": null,
+            "relief_m": null,
+            "elevation_std_m": null
+          }
+        },
+        {
+          "analysis_resolution_m": 1250,
+          "grid_shape": [
+            40,
+            40
+          ],
+          "interior_tri_cells_max": 1444,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.34593498706817627,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 277,
+            "analysis_cells_total": 1600,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.5308139300191121,
+            "slope_p90_deg": 5.953285703269296,
+            "flat_fraction": 0.869375,
+            "tri_median_m": 95.17367405661432,
+            "relief_m": 763.8068195039878,
+            "elevation_std_m": 266.8673356098519
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.05039488432335992,
+            "slope_p90_deg": -0.45673990298631306,
+            "flat_fraction": 0.010575000000000001,
+            "tri_median_m": 18.361739016724016,
+            "relief_m": 0.5880781058822322,
+            "elevation_std_m": -0.527844457520132
+          }
+        },
+        {
+          "analysis_resolution_m": 2000,
+          "grid_shape": [
+            25,
+            25
+          ],
+          "interior_tri_cells_max": 529,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.3459371328353882,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 55,
+            "analysis_cells_total": 625,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.392000561229546,
+            "slope_p90_deg": 4.976767061099313,
+            "flat_fraction": 0.8992,
+            "tri_median_m": 146.936345718946,
+            "relief_m": 756.9861307657131,
+            "elevation_std_m": 264.98448774987304
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.13881336878956607,
+            "slope_p90_deg": -0.9765186421699834,
+            "flat_fraction": 0.02982499999999999,
+            "tri_median_m": 51.762671662331684,
+            "relief_m": -6.820688738274612,
+            "elevation_std_m": -1.882847859978881
+          }
+        },
+        {
+          "analysis_resolution_m": 2500,
+          "grid_shape": [
+            20,
+            20
+          ],
+          "interior_tri_cells_max": 324,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.3459062874317169,
+            "min_observed_bin_fraction": 0.0,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 20,
+            "analysis_cells_total": 400,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": false,
+          "features": {
+            "slope_median_deg": 1.343712789982623,
+            "slope_p90_deg": 4.687488555702969,
+            "flat_fraction": 0.9175,
+            "tri_median_m": 176.71461244071645,
+            "relief_m": 757.4794294114274,
+            "elevation_std_m": 263.39096255188554
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.04828777124692318,
+            "slope_p90_deg": -0.2892785053963438,
+            "flat_fraction": 0.018299999999999983,
+            "tri_median_m": 29.77826672177045,
+            "relief_m": 0.49329864571427606,
+            "elevation_std_m": -1.5935251979875034
+          }
+        },
+        {
+          "analysis_resolution_m": 5000,
+          "grid_shape": [
+            10,
+            10
+          ],
+          "interior_tri_cells_max": 64,
+          "nodata_ratio": 0.0,
+          "sampling": {
+            "counts_file": "jezero_mola_counts.tif",
+            "mean_observed_bin_fraction": 0.34592095017433167,
+            "min_observed_bin_fraction": 0.08788887411355972,
+            "analysis_cells_without_counts_coverage": 0,
+            "analysis_cells_without_observed_bins": 0,
+            "analysis_cells_total": 100,
+            "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+          },
+          "all_cells_have_observed_support": true,
+          "features": {
+            "slope_median_deg": 1.3093482809783659,
+            "slope_p90_deg": 3.573581304378564,
+            "flat_fraction": 0.95,
+            "tri_median_m": 361.33516608272646,
+            "relief_m": 727.7230453043608,
+            "elevation_std_m": 255.41749811045938
+          },
+          "difference_from_previous_resolution": {
+            "slope_median_deg": -0.03436450900425703,
+            "slope_p90_deg": -1.113907251324405,
+            "flat_fraction": 0.03249999999999997,
+            "tri_median_m": 184.62055364201,
+            "relief_m": -29.75638410706665,
+            "elevation_std_m": -7.9734644414261595
+          }
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "source_quality_verified": false,
+    "promote_to_comparable": false,
+    "reason": "Observed support in every analysis cell is necessary, not sufficient to establish effective terrain resolution or metric accuracy."
+  },
+  "limitations": [
+    "This is a sensitivity report, not proof that terrain metrics converge.",
+    "Riley TRI in meters varies with pixel spacing; raw TRI changes are not an accuracy test.",
+    "Local 2000 m analysis has only 5x5 cells and at most 9 interior TRI cells.",
+    "No automatic thresholds for feature stability or interpolation error are asserted.",
+    "Original real-data config and comparable flags are not modified."
+  ]
+}

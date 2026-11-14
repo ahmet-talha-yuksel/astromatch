@@ -1,0 +1,477 @@
+{
+  "accessed_on": "2026-11-14",
+  "config": {
+    "schema_version": "2.3",
+    "grid_step_deg": 0.5,
+    "window_km": 50,
+    "analysis_resolution_m": 1000,
+    "areas": [
+      {
+        "id": "turkey",
+        "bbox": [
+          25,
+          30,
+          35,
+          40
+        ],
+        "description": "Initial 10x10 degree Turkey reference area; only explicitly selected cells are processed.",
+        "selected_centers": [
+          [
+            29.25,
+            37.25
+          ],
+          [
+            29.75,
+            37.25
+          ],
+          [
+            29.25,
+            37.75
+          ],
+          [
+            29.75,
+            37.75
+          ]
+        ]
+      },
+      {
+        "id": "atacama",
+        "bbox": [
+          -70,
+          -25,
+          -69,
+          -24
+        ],
+        "description": "Arid control context; not a labeled negative class.",
+        "selected_centers": [
+          [
+            -69.75,
+            -24.25
+          ],
+          [
+            -69.25,
+            -24.75
+          ]
+        ]
+      },
+      {
+        "id": "iceland",
+        "bbox": [
+          -20,
+          64,
+          -19,
+          65
+        ],
+        "description": "High-latitude sample outside nominal SRTM latitude coverage.",
+        "selected_centers": [
+          [
+            -19.75,
+            64.25
+          ],
+          [
+            -19.25,
+            64.75
+          ]
+        ]
+      }
+    ]
+  },
+  "inputs": [
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
+      "bytes": 5366538,
+      "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
+      "etag": "\"bd8b06998ae220bf8771e0f7d556e1d1\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+      "bytes": 4916335,
+      "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+      "etag": "\"4a3c5295bc0b1cde5ec0aa4077001040\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+      "bytes": 4916335,
+      "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+      "etag": "\"4a3c5295bc0b1cde5ec0aa4077001040\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
+      "bytes": 4994564,
+      "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
+      "etag": "\"8cf8d09fffc92914f36d76fe28246b00\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
+      "bytes": 5366538,
+      "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
+      "etag": "\"bd8b06998ae220bf8771e0f7d556e1d1\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+      "bytes": 4916335,
+      "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+      "etag": "\"4a3c5295bc0b1cde5ec0aa4077001040\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+      "bytes": 4916335,
+      "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+      "etag": "\"4a3c5295bc0b1cde5ec0aa4077001040\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
+      "bytes": 4994564,
+      "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
+      "etag": "\"8cf8d09fffc92914f36d76fe28246b00\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
+      "bytes": 4538658,
+      "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
+      "etag": "\"711d83fd33b3ad1ccaf73b81e53f9dfe\"",
+      "last_modified": "Mon, 09 May 2022 13:34:10 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W069_00_DEM/Copernicus_DSM_COG_30_S25_00_W069_00_DEM.tif",
+      "bytes": 4545851,
+      "sha256": "5a7dcf224c73a120a12cb15491cdeeed994d7be7443ce27a9fcd96b286a8cf92",
+      "etag": "\"95fc1b5686faf9fcbb0f0e88c904cf53\"",
+      "last_modified": "Mon, 09 May 2022 13:34:10 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W071_00_DEM/Copernicus_DSM_COG_30_S25_00_W071_00_DEM.tif",
+      "bytes": 2744021,
+      "sha256": "7ddb0070f677d98025b12cde9889ab409ec684a424259da9653c27dbad943f1f",
+      "etag": "\"e7eb8c355a38d0a3fc0e9d96fc45b7b8\"",
+      "last_modified": "Mon, 09 May 2022 13:34:10 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
+      "bytes": 4538658,
+      "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
+      "etag": "\"711d83fd33b3ad1ccaf73b81e53f9dfe\"",
+      "last_modified": "Mon, 09 May 2022 13:34:10 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W021_00_DEM/Copernicus_DSM_COG_30_N64_00_W021_00_DEM.tif",
+      "bytes": 2640430,
+      "sha256": "31758717bf8e569f67a088f840787565966ae83e4a72737338f565df45f62648",
+      "etag": "\"1a03456d1003081f49f2f56f1d27ec4b\"",
+      "last_modified": "Mon, 09 May 2022 13:15:19 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W020_00_DEM/Copernicus_DSM_COG_30_N64_00_W020_00_DEM.tif",
+      "bytes": 2590983,
+      "sha256": "67fe71bd8a59599217229990fafa3e06801c8298a92add0b33ac235125f9d982",
+      "etag": "\"e627bf0993eda086943fcf5a1ab6bf7d\"",
+      "last_modified": "Mon, 09 May 2022 13:15:19 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W020_00_DEM/Copernicus_DSM_COG_30_N64_00_W020_00_DEM.tif",
+      "bytes": 2590983,
+      "sha256": "67fe71bd8a59599217229990fafa3e06801c8298a92add0b33ac235125f9d982",
+      "etag": "\"e627bf0993eda086943fcf5a1ab6bf7d\"",
+      "last_modified": "Mon, 09 May 2022 13:15:19 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    },
+    {
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W019_00_DEM/Copernicus_DSM_COG_30_N64_00_W019_00_DEM.tif",
+      "bytes": 2483708,
+      "sha256": "47159e153ca007ec69aba019057837c62b25f78db9ab8863152972ec4dc8c1c7",
+      "etag": "\"4170c40df3b4c358b2468859245eeecd\"",
+      "last_modified": "Mon, 09 May 2022 13:15:19 GMT",
+      "content_range": null,
+      "retrieved_on": "2026-11-14"
+    }
+  ],
+  "srtm_probes": {
+    "turkey": {
+      "catalog_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SRTMGL30&version=002&page_size=1&bounding_box=29.249%2C37.249%2C29.251%2C37.251",
+      "catalog_sha256": "4ef0239c19afde49bc5609a3e44bc3f2d8525e7dab98115c85be55c129077fe2",
+      "product": "SRTMGL30.002",
+      "download_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
+      "status": "http_access_failed",
+      "http_status": 401,
+      "source_lookup_s": 1.4525665000546724
+    },
+    "atacama": {
+      "catalog_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SRTMGL30&version=002&page_size=1&bounding_box=-69.251%2C-24.751%2C-69.249%2C-24.749",
+      "catalog_sha256": "9b188765bb53795ee1c267bd3260adfbf869564ed9c991d5cec6a9b1a8efd4ef",
+      "product": "SRTMGL30.002",
+      "download_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
+      "status": "http_access_failed",
+      "http_status": 401,
+      "source_lookup_s": 1.66483970801346
+    }
+  },
+  "attempts": [
+    {
+      "region_id": "earth_grid_r254_c418",
+      "area": "turkey",
+      "lon": 29.25,
+      "lat": 37.25,
+      "selected": true,
+      "source_selection": "srtm_access_unavailable",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
+          "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+          "cache_hit": false
+        }
+      ],
+      "timing": {
+        "download_s": 6.034596083918586,
+        "caching_s": 0.012471667025238276,
+        "cropping_mosaic_s": 0.13217670796439052,
+        "acquisition_wall_s": 7.643844624981284
+      },
+      "path": "raw/pilot/earth_grid_r254_c418.tif"
+    },
+    {
+      "region_id": "earth_grid_r254_c419",
+      "area": "turkey",
+      "lon": 29.75,
+      "lat": 37.25,
+      "selected": true,
+      "source_selection": "srtm_access_unavailable",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+          "cache_hit": true
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
+          "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
+          "cache_hit": false
+        }
+      ],
+      "timing": {
+        "download_s": 3.048871041974053,
+        "caching_s": 0.0042611658573150635,
+        "cropping_mosaic_s": 0.0946509160567075,
+        "acquisition_wall_s": 3.148288916097954
+      },
+      "path": "raw/pilot/earth_grid_r254_c419.tif"
+    },
+    {
+      "region_id": "earth_grid_r255_c418",
+      "area": "turkey",
+      "lon": 29.25,
+      "lat": 37.75,
+      "selected": true,
+      "source_selection": "srtm_access_unavailable",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E028_00_DEM/Copernicus_DSM_COG_30_N37_00_E028_00_DEM.tif",
+          "sha256": "c08808202bf7f44ae65bfde7675786820207d534016e67cf2d6b8d2fdced6ec1",
+          "cache_hit": true
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+          "cache_hit": true
+        }
+      ],
+      "timing": {
+        "download_s": 0.0,
+        "caching_s": 0.0037901250179857016,
+        "cropping_mosaic_s": 0.06780208391137421,
+        "acquisition_wall_s": 0.07203654199838638
+      },
+      "path": "raw/pilot/earth_grid_r255_c418.tif"
+    },
+    {
+      "region_id": "earth_grid_r255_c419",
+      "area": "turkey",
+      "lon": 29.75,
+      "lat": 37.75,
+      "selected": true,
+      "source_selection": "srtm_access_unavailable",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+          "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+          "cache_hit": true
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E030_00_DEM/Copernicus_DSM_COG_30_N37_00_E030_00_DEM.tif",
+          "sha256": "6bfc4e7f0ff1de997487ab6994d2763876658cd1e317a9bfef5eade779b5b3f0",
+          "cache_hit": true
+        }
+      ],
+      "timing": {
+        "download_s": 0.0,
+        "caching_s": 0.0035862077493220568,
+        "cropping_mosaic_s": 0.06424120790325105,
+        "acquisition_wall_s": 0.06824508286081254
+      },
+      "path": "raw/pilot/earth_grid_r255_c419.tif"
+    },
+    {
+      "region_id": "earth_grid_r130_c221",
+      "area": "atacama",
+      "lon": -69.25,
+      "lat": -24.75,
+      "selected": true,
+      "source_selection": "srtm_access_unavailable",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
+          "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W069_00_DEM/Copernicus_DSM_COG_30_S25_00_W069_00_DEM.tif",
+          "sha256": "5a7dcf224c73a120a12cb15491cdeeed994d7be7443ce27a9fcd96b286a8cf92",
+          "cache_hit": false
+        }
+      ],
+      "timing": {
+        "download_s": 2.2641312079504132,
+        "caching_s": 0.007379667134955525,
+        "cropping_mosaic_s": 0.08993824990466237,
+        "acquisition_wall_s": 4.028820958221331
+      },
+      "path": "raw/pilot/earth_grid_r130_c221.tif"
+    },
+    {
+      "region_id": "earth_grid_r131_c220",
+      "area": "atacama",
+      "lon": -69.75,
+      "lat": -24.25,
+      "selected": true,
+      "source_selection": "srtm_access_unavailable",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W071_00_DEM/Copernicus_DSM_COG_30_S25_00_W071_00_DEM.tif",
+          "sha256": "7ddb0070f677d98025b12cde9889ab409ec684a424259da9653c27dbad943f1f",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_S25_00_W070_00_DEM/Copernicus_DSM_COG_30_S25_00_W070_00_DEM.tif",
+          "sha256": "f9b3934147a7e29497a6d70107c5dcecd1cda6bb346e1d807def7d854644dde5",
+          "cache_hit": true
+        }
+      ],
+      "timing": {
+        "download_s": 0.9419549161102623,
+        "caching_s": 0.006196124944835901,
+        "cropping_mosaic_s": 0.0887521249242127,
+        "acquisition_wall_s": 1.0375227502081543
+      },
+      "path": "raw/pilot/earth_grid_r131_c220.tif"
+    },
+    {
+      "region_id": "earth_grid_r308_c320",
+      "area": "iceland",
+      "lon": -19.75,
+      "lat": 64.25,
+      "selected": true,
+      "source_selection": "outside_nominal_srtm_latitudes",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W021_00_DEM/Copernicus_DSM_COG_30_N64_00_W021_00_DEM.tif",
+          "sha256": "31758717bf8e569f67a088f840787565966ae83e4a72737338f565df45f62648",
+          "cache_hit": false
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W020_00_DEM/Copernicus_DSM_COG_30_N64_00_W020_00_DEM.tif",
+          "sha256": "67fe71bd8a59599217229990fafa3e06801c8298a92add0b33ac235125f9d982",
+          "cache_hit": false
+        }
+      ],
+      "timing": {
+        "download_s": 1.9682874591089785,
+        "caching_s": 0.012371624819934368,
+        "cropping_mosaic_s": 0.06605483288876712,
+        "acquisition_wall_s": 2.047284625004977
+      },
+      "path": "raw/pilot/earth_grid_r308_c320.tif"
+    },
+    {
+      "region_id": "earth_grid_r309_c321",
+      "area": "iceland",
+      "lon": -19.25,
+      "lat": 64.75,
+      "selected": true,
+      "source_selection": "outside_nominal_srtm_latitudes",
+      "status": "ready",
+      "tiles": [
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W020_00_DEM/Copernicus_DSM_COG_30_N64_00_W020_00_DEM.tif",
+          "sha256": "67fe71bd8a59599217229990fafa3e06801c8298a92add0b33ac235125f9d982",
+          "cache_hit": true
+        },
+        {
+          "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N64_00_W019_00_DEM/Copernicus_DSM_COG_30_N64_00_W019_00_DEM.tif",
+          "sha256": "47159e153ca007ec69aba019057837c62b25f78db9ab8863152972ec4dc8c1c7",
+          "cache_hit": false
+        }
+      ],
+      "timing": {
+        "download_s": 0.8583130829501897,
+        "caching_s": 0.0033397499937564135,
+        "cropping_mosaic_s": 0.08520904206670821,
+        "acquisition_wall_s": 0.9473400840070099
+      },
+      "path": "raw/pilot/earth_grid_r309_c321.tif"
+    }
+  ],
+  "source_portal": "https://dataspace.copernicus.eu/",
+  "landmask": {
+    "status": "not_run",
+    "duration_s": null,
+    "reason": "No validated land/water mask supplied; zero elevation is not treated as ocean."
+  }
+}

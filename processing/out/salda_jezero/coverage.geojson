@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "earth_salda_regional",
+      "properties": {
+        "region_id": "earth_salda_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "full",
+        "dem_source": "copernicus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.42,
+              37.3
+            ],
+            [
+              29.92,
+              37.3
+            ],
+            [
+              29.92,
+              37.8
+            ],
+            [
+              29.42,
+              37.8
+            ],
+            [
+              29.42,
+              37.3
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

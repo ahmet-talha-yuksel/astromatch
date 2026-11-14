@@ -1,0 +1,439 @@
+{
+  "accessed_on": "2026-11-14",
+  "product": "ESA WorldCover 2021 v200",
+  "source_portal": "https://esa-worldcover.org/en/data-access",
+  "records": [
+    {
+      "region_id": "earth_grid_r254_c418",
+      "land_fraction": 0.9991386219978332,
+      "unknown_fraction": 0.0,
+      "source_sampling_difference": 0.00011027107238770206,
+      "qa_passed": true,
+      "duration_s": 1.6603714579250664,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            563,
+            706
+          ],
+          "sample_sha256": "4560032748fc8bd50253a91709410463e8a90aa86350f83b45bdc61aba87a8bd",
+          "geographic_crop_bounds": [
+            28.95603129840551,
+            37.01536466583793,
+            29.54396870159449,
+            37.48426754944808
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1126,
+            1411
+          ],
+          "sample_sha256": "36ef158ae352d6a7050c68224ffbba1f9c02e00a4a8697690bb1940ed628ec5d",
+          "geographic_crop_bounds": [
+            28.95603129840551,
+            37.01536466583793,
+            29.54396870159449,
+            37.48426754944808
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    },
+    {
+      "region_id": "earth_grid_r254_c419",
+      "land_fraction": 0.9939966353418419,
+      "unknown_fraction": 0.002880000105500269,
+      "source_sampling_difference": 0.00024891230377332985,
+      "qa_passed": true,
+      "duration_s": 0.6949476250447333,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            563,
+            653
+          ],
+          "sample_sha256": "6405ee904c1f3aa2d6961b39005eaa52b8b12057ae2bc49a989be6fb2deff64a",
+          "geographic_crop_bounds": [
+            29.45603129840551,
+            37.01536466583793,
+            30,
+            37.48426754944808
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E030_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            563,
+            53
+          ],
+          "sample_sha256": "7bb3208739025f9ed7c73a4b69d7c76d65cf902ffdb1079af890412c576df9dd",
+          "geographic_crop_bounds": [
+            30,
+            37.01536466583793,
+            30.04396870159449,
+            37.48426754944808
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1126,
+            1306
+          ],
+          "sample_sha256": "c96503e44f16bceec89b842477d5d96f37e89bac391d05caf8db2e0654525c6b",
+          "geographic_crop_bounds": [
+            29.45603129840551,
+            37.01536466583793,
+            30,
+            37.48426754944808
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E030_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1126,
+            106
+          ],
+          "sample_sha256": "278dcc43e243474f68ee9601ea24b0e00118536425dbeac4098d8e223d0029d4",
+          "geographic_crop_bounds": [
+            30,
+            37.01536466583793,
+            30.04396870159449,
+            37.48426754944808
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    },
+    {
+      "region_id": "earth_grid_r255_c418",
+      "land_fraction": 0.9989392262339591,
+      "unknown_fraction": 0.0,
+      "source_sampling_difference": 7.594233751306856e-05,
+      "qa_passed": true,
+      "duration_s": 0.649348207982257,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            563,
+            711
+          ],
+          "sample_sha256": "5d61142c10424da51bf8c7d9977643449c6fc1fc090cc1872cab2ac57a008f23",
+          "geographic_crop_bounds": [
+            28.95404788194939,
+            37.51537800153778,
+            29.54595211805061,
+            37.98424765300798
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1126,
+            1421
+          ],
+          "sample_sha256": "a69263ea480c8cd5b6f58335d9a745ed092f2501a51f5dc2632a158b19888907",
+          "geographic_crop_bounds": [
+            28.95404788194939,
+            37.51537800153778,
+            29.54595211805061,
+            37.98424765300798
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    },
+    {
+      "region_id": "earth_grid_r255_c419",
+      "land_fraction": 0.9477831617821653,
+      "unknown_fraction": 0.000108000171184508,
+      "source_sampling_difference": 0.0002117928498543975,
+      "qa_passed": true,
+      "duration_s": 0.49768541706725955,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            563,
+            656
+          ],
+          "sample_sha256": "bbe0a8a7d6e0a5783a135323ee108057253f9171aad172f883ca3888bcb486ed",
+          "geographic_crop_bounds": [
+            29.45404788194939,
+            37.51537800153778,
+            30,
+            37.98424765300798
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E030_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            563,
+            56
+          ],
+          "sample_sha256": "29c9d14278f40196a12e4c009b783389fc1f1c54d6e22d0138301eb54e5e4ffa",
+          "geographic_crop_bounds": [
+            30,
+            37.51537800153778,
+            30.04595211805061,
+            37.98424765300798
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E027_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1126,
+            1311
+          ],
+          "sample_sha256": "d39db9b2e96fdfc76d654ebf14514485797a4e5ef37335efb029bd393957476c",
+          "geographic_crop_bounds": [
+            29.45404788194939,
+            37.51537800153778,
+            30,
+            37.98424765300798
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N36E030_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1126,
+            111
+          ],
+          "sample_sha256": "dee404dda8bb9f21d2e24b714fa860d81e889f0ef59cc792179d74a43bb6a5cf",
+          "geographic_crop_bounds": [
+            30,
+            37.51537800153778,
+            30.04595211805061,
+            37.98424765300798
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    },
+    {
+      "region_id": "earth_grid_r130_c221",
+      "land_fraction": 1.0,
+      "unknown_fraction": 0.0,
+      "source_sampling_difference": 0.0,
+      "qa_passed": true,
+      "duration_s": 0.8845184158999473,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S27W072_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            564,
+            609
+          ],
+          "sample_sha256": "00d9bff6b0d94f2dda6b388c98da7473a84baca264c28449e21a9b9d119d9ffa",
+          "geographic_crop_bounds": [
+            -69.50751961272697,
+            -24.984719222857663,
+            -69,
+            -24.51505592673393
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S27W069_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            564,
+            9
+          ],
+          "sample_sha256": "d433f55623d3783ddcc64cb8e92b2dadd8f0d12c5f03919b791bede986778dbd",
+          "geographic_crop_bounds": [
+            -69,
+            -24.984719222857663,
+            -68.99248038727305,
+            -24.51505592673393
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S27W072_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1128,
+            1218
+          ],
+          "sample_sha256": "481070875a7a470552a674551d4644134e188cd1685b45ea1dff3ddc385a9160",
+          "geographic_crop_bounds": [
+            -69.50751961272697,
+            -24.984719222857663,
+            -69,
+            -24.51505592673393
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S27W069_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1128,
+            18
+          ],
+          "sample_sha256": "0967b20cef9441ac8230df4f9e2b7415b5082df1281a14dc6ab082a490fb94b0",
+          "geographic_crop_bounds": [
+            -69,
+            -24.984719222857663,
+            -68.99248038727305,
+            -24.51505592673393
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    },
+    {
+      "region_id": "earth_grid_r131_c220",
+      "land_fraction": 0.9999219193935395,
+      "unknown_fraction": 0.0,
+      "source_sampling_difference": 6.253623962337862e-06,
+      "qa_passed": true,
+      "duration_s": 0.2069470421411097,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S27W072_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            564,
+            616
+          ],
+          "sample_sha256": "38a131a4a8fb94956a45351c596f552962933f1a262e1d17e47bff5b0d347ae5",
+          "geographic_crop_bounds": [
+            -70.00649215780419,
+            -24.484734813110958,
+            -69.49350784219581,
+            -24.015045417915854
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_S27W072_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1128,
+            1232
+          ],
+          "sample_sha256": "6c13b4252db61b9b3793241751be566b4875306b0f7bb8c0828cabf6aec65553",
+          "geographic_crop_bounds": [
+            -70.00649215780419,
+            -24.484734813110958,
+            -69.49350784219581,
+            -24.015045417915854
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    },
+    {
+      "region_id": "earth_grid_r308_c320",
+      "land_fraction": 0.9712078479148447,
+      "unknown_fraction": 0.0,
+      "source_sampling_difference": 0.00024995485214740487,
+      "qa_passed": true,
+      "duration_s": 0.5507700839079916,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N63W021_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            561,
+            1298
+          ],
+          "sample_sha256": "5ed2e1ec733116a83d0ed3dd568f52f32487da4f33366f48e65a00ffc66d6a8f",
+          "geographic_crop_bounds": [
+            -20.290693894372808,
+            64.01580039019302,
+            -19.20930610562719,
+            64.4832200142136
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N63W021_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1122,
+            2596
+          ],
+          "sample_sha256": "b245a16308505002ef94cc80a259119c3533e419d4f2beeba7e0b5cd06291ac3",
+          "geographic_crop_bounds": [
+            -20.290693894372808,
+            64.01580039019302,
+            -19.20930610562719,
+            64.4832200142136
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    },
+    {
+      "region_id": "earth_grid_r309_c321",
+      "land_fraction": 0.9915206477224827,
+      "unknown_fraction": 0.0,
+      "source_sampling_difference": 3.9069187641183056e-05,
+      "qa_passed": true,
+      "duration_s": 0.3202987078111619,
+      "sources": [
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N63W021_Map.tif",
+          "sample_factor": 10,
+          "sample_shape": [
+            561,
+            1322
+          ],
+          "sample_sha256": "2f475bc45777a1dd1b87471b8b8cd05c26d9aafbff3b2fc2c0af8972efcb7cc3",
+          "geographic_crop_bounds": [
+            -19.80077078016563,
+            64.51579453244042,
+            -18.699229219834372,
+            64.98320409244786
+          ]
+        },
+        {
+          "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N63W021_Map.tif",
+          "sample_factor": 5,
+          "sample_shape": [
+            1122,
+            2644
+          ],
+          "sample_sha256": "abc0e458046ad8595131afbcdd072d8e715e851c60fe19af8e2a663bf3721741",
+          "geographic_crop_bounds": [
+            -19.80077078016563,
+            64.51579453244042,
+            -18.699229219834372,
+            64.98320409244786
+          ]
+        }
+      ],
+      "method": "WorldCover class 80 permanent water; systematic 50/100 m samples, area aggregation to 1000 m LAEA.",
+      "limitations": "Approximate 2021 permanent-water filter; not current water extent, seasonal lake level or bathymetry."
+    }
+  ],
+  "attribution": "\u00a9 ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "doi": "https://doi.org/10.5281/zenodo.7254221",
+  "policy": {
+    "max_unknown_fraction": 0.05,
+    "max_absolute_sampling_difference": 0.01
+  }
+}

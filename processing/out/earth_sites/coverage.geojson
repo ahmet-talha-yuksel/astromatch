@@ -1,0 +1,122 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "earth_kula_regional",
+      "properties": {
+        "region_id": "earth_kula_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "full",
+        "dem_source": "copernicus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.27,
+              38.33
+            ],
+            [
+              28.77,
+              38.33
+            ],
+            [
+              28.77,
+              38.83
+            ],
+            [
+              28.27,
+              38.83
+            ],
+            [
+              28.27,
+              38.33
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_hassa_regional",
+      "properties": {
+        "region_id": "earth_hassa_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "full",
+        "dem_source": "copernicus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.3,
+              36.55
+            ],
+            [
+              36.8,
+              36.55
+            ],
+            [
+              36.8,
+              37.05
+            ],
+            [
+              36.3,
+              37.05
+            ],
+            [
+              36.3,
+              36.55
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "earth_atacama_regional",
+      "properties": {
+        "region_id": "earth_atacama_regional",
+        "body": "earth",
+        "data_status": "derived",
+        "status": "scanned",
+        "coverage": "full",
+        "dem_source": "copernicus"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.1305,
+              -24.313777777777776
+            ],
+            [
+              -69.6305,
+              -24.313777777777776
+            ],
+            [
+              -69.6305,
+              -23.813777777777776
+            ],
+            [
+              -70.1305,
+              -23.813777777777776
+            ],
+            [
+              -70.1305,
+              -24.313777777777776
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

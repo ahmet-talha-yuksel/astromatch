@@ -1,0 +1,21 @@
+{
+  "version": "lola-grid-qa-1",
+  "scope": "Operational grid/method consistency for terrain comparison; not independent accuracy or mission suitability validation.",
+  "max_nodata_ratio": 0.05,
+  "min_observed_bin_fraction_per_analysis_cell": 0.9,
+  "feature_tolerances": {
+    "slope_median_deg": {"absolute": 0.5, "relative": 0.05},
+    "slope_p90_deg": {"absolute": 1.0, "relative": 0.05},
+    "flat_fraction": {"absolute": 0.05, "relative": 0.0},
+    "tri_median_m": {"absolute": 10.0, "relative": 0.1},
+    "relief_m": {"absolute": 20.0, "relative": 0.02},
+    "elevation_std_m": {"absolute": 10.0, "relative": 0.02}
+  },
+  "tolerance_rule": "absolute + relative * abs(reference_value)",
+  "rationale": "Engineering regression budgets to detect native-grid/encoding inconsistencies at the same analysis scale. These are project QA parameters, not calibrated scientific confidence bounds.",
+  "limitations": [
+    "The 120 m and 240 m products share LOLA observations; they are not independent ground truth.",
+    "Passing this policy does not establish mineral, thermal, shelter or mission equivalence.",
+    "Terrain comparison remains limited to the stored physical window and analysis resolution."
+  ]
+}

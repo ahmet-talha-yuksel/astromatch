@@ -1,7 +1,9 @@
 """Local GDAL-readable DEM -> centered LAEA analysis window. No downloads."""
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 import math
+from time import perf_counter
 
 import numpy as np
 from pyproj import CRS
@@ -13,7 +15,8 @@ from rasterio.vrt import WarpedVRT
 from .metrics import METHOD, TOPOGRAPHIC, terrain_features
 
 RADII = {'earth': 6371008.8, 'mars': 3396190.0, 'moon': 1737400.0}
-PRODUCTS = {'copernicus': 'earth', 'mola': 'mars', 'lola': 'moon'}
+PRODUCTS = {'copernicus': 'earth', 'copernicus_glo90': 'earth', 'srtmgl30': 'earth',
+            'mola': 'mars', 'lola': 'moon'}
 
 
 @dataclass(frozen=True)
@@ -37,10 +40,15 @@ class DemRequest:
     quantity: str = 'elevation'
     georeferencing_verified: bool = False
     source_quality_verified: bool = False
+    counts_path: str | None = None
+    quality_notes: tuple[str, ...] = ()
+    qa_report_path: str | None = None
+    is_fallback_dem: bool = False
 
 
-def process_dem(request: DemRequest):
+def process_dem(request: DemRequest, timings=None):
     """Return (v2.3 record, meter array). Pair validation is a separate step."""
+    started = perf_counter()
     r = request
     if PRODUCTS.get(r.product) != r.body:
         raise ValueError('Product/body mismatch')
@@ -101,18 +109,24 @@ def process_dem(request: DemRequest):
                                         if r.vertical_unit == 'm' else {'km', 'kilometer', 'kilometre'}):
             raise ValueError('Declared vertical unit conflicts with raster metadata')
         band_scale, band_offset = src.scales[0], src.offsets[0]
+        if r.product == 'lola' and math.isclose(band_offset, a, rel_tol=1e-6):
+            raise ValueError('LOLA band offset encodes planetary radius; convert to sphere-relative height first')
         if not all(math.isfinite(v) for v in (band_scale, band_offset)) or band_scale <= 0:
             raise ValueError('Invalid band scale/offset')
+        warp_started = perf_counter()
         with WarpedVRT(src, crs=dst_crs.to_wkt(), transform=transform,
                        width=size, height=size, dtype='float64', nodata=np.nan,
                        resampling=Resampling.average) as vrt:
             array = vrt.read(1, masked=True).filled(np.nan)
         array = (array * band_scale + band_offset) * (1000 if r.vertical_unit == 'km' else 1)
         array[~np.isfinite(array)] = np.nan
+        warp_seconds = perf_counter() - warp_started
         source_crs = src.crs.to_wkt()
     ratio = float(1 - np.isfinite(array).mean())
+    feature_started = perf_counter()
     features = terrain_features(array, spacing, False, 'mock' if r.synthetic else 'derived')
-    warnings = []
+    feature_seconds = perf_counter() - feature_started
+    warnings = list(r.quality_notes)
     if ratio > 0:
         warnings.append('Analysis window contains NoData; affected metric neighborhoods are excluded.')
     product_verified = r.synthetic or (r.georeferencing_verified and r.source_quality_verified)
@@ -122,6 +136,8 @@ def process_dem(request: DemRequest):
     if not eligible:
         warnings.append('Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.')
     warnings.append('Awaiting matching target/Earth window, resolution and method validation.')
+    with path.open('rb') as source_file:
+        source_sha256 = hashlib.file_digest(source_file, 'sha256').hexdigest()
     record = {'schema_version': '2.3', 'region_id': r.region_id,
               'kind': 'candidate' if r.body == 'earth' else 'target',
               'body': r.body, 'name': r.name, 'lat': r.lat, 'lon': r.lon,
@@ -130,19 +146,68 @@ def process_dem(request: DemRequest):
               'crs': dst_crs.to_wkt(), 'dem_source': r.product, 'dem_version': r.dem_version,
               'features': features, 'earth_filters': None,
               'quality': {'nodata_ratio': ratio, 'coverage': 'none' if ratio == 1 else
-                          ('full' if ratio == 0 else 'partial'), 'warnings': warnings,
+                          (('fallback_dem' if r.is_fallback_dem else 'full') if ratio == 0 else 'partial'), 'warnings': warnings,
                           'validation_eligible': eligible},
               'processing_version': '0.3.0', 'method': METHOD,
               'data_status': 'mock' if r.synthetic else 'derived', 'synthetic': r.synthetic,
               'tags': [], 'provenance': {
                   'source_url': r.source_url, 'accessed_on': r.accessed_on,
-                  'source_file': path.name, 'source_crs': source_crs,
+                  'source_file': path.name, 'source_file_sha256': source_sha256, 'source_crs': source_crs,
                   'source_radius_m': a, 'vertical_reference': r.vertical_reference,
                   'vertical_unit': r.vertical_unit, 'band_scale': band_scale,
                   'band_offset': band_offset, 'resampling': 'average',
                   'georeferencing_verified': r.georeferencing_verified,
                   'source_quality_verified': r.source_quality_verified,
                   'max_nodata_ratio': 0.05}}
+    if r.counts_path is not None:
+        with rasterio.open(r.counts_path) as counts:
+            if counts.crs is None or counts.crs.to_wkt() != source_crs:
+                raise ValueError('Counts CRS does not match elevation source')
+            # Counts zero means no direct observation, not missing raster coverage.
+            # Materialize only the already-cropped counts raster; never a global map.
+            if counts.width * counts.height > 1_000_000:
+                raise ValueError('Provide a cropped counts raster (<=1 million pixels)')
+            counts_data = counts.read(1, masked=True)
+            observed = np.where(np.ma.getmaskarray(counts_data), np.nan,
+                                (counts_data.data > 0).astype('float32'))
+            from rasterio.warp import reproject
+            support = np.full(array.shape, np.nan, dtype='float32')
+            reproject(observed, support, src_transform=counts.transform, src_crs=counts.crs, src_nodata=np.nan,
+                      dst_transform=transform, dst_crs=dst_crs.to_wkt(), dst_nodata=np.nan,
+                      resampling=Resampling.average)
+        record['quality']['sampling'] = {
+            'counts_file': Path(r.counts_path).name,
+            'mean_observed_bin_fraction': float(np.nanmean(support)) if np.isfinite(support).any() else None,
+            'min_observed_bin_fraction': float(np.nanmin(support)) if np.isfinite(support).any() else None,
+            'analysis_cells_without_counts_coverage': int(np.sum(~np.isfinite(support))),
+            'analysis_cells_without_observed_bins': int(np.sum(support == 0)),
+            'analysis_cells_total': int(support.size),
+            'note': 'Counts > 0 indicate measured source bins; other DEM bins are interpolated. '
+                    'This diagnostic does not automatically validate effective resolution.'}
+        if not np.isfinite(support).all() or np.any(support == 0):
+            record['quality']['validation_eligible'] = False
+            record['quality']['warnings'].append(
+                'Some analysis cells have no directly observed source bins or no counts coverage.')
+    if r.qa_report_path is not None:
+        if r.product != 'lola':
+            raise ValueError('Current bound QA policy only applies to LOLA')
+        from .qa_evidence import check_evidence
+        evidence = check_evidence(record, r.qa_report_path, r.counts_path)
+        record['quality']['qa_validation'] = evidence
+        approved = evidence['status'] == 'passed'
+        record['quality']['validation_eligible'] = record['quality']['validation_eligible'] and approved
+        record['provenance']['source_quality_verified'] = r.source_quality_verified and approved
+        if not approved:
+            record['quality']['warnings'].append('Bound LOLA QA evidence failed: ' + evidence['reason'])
+    elif r.product == 'lola' and not r.synthetic and r.source_quality_verified:
+        record['quality']['validation_eligible'] = False
+        record['provenance']['source_quality_verified'] = False
+        record['quality']['warnings'].append('Real LOLA quality approval requires bound QA evidence.')
+    if timings is not None:
+        elapsed = perf_counter()-started
+        timings.update(reprojection_s=warp_seconds, feature_extraction_s=feature_seconds,
+                       validation_provenance_s=max(0.0, elapsed-warp_seconds-feature_seconds),
+                       processing_wall_s=elapsed)
     return record, array
 
 

@@ -1,0 +1,42 @@
+{
+  "accessed_on": "2026-11-14",
+  "inputs": [
+    {
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.lbl",
+      "bytes": 4990,
+      "sha256": "ec07239f41d8abc1a3681495b5799b770c7206b5268b76721d69180df0422e02",
+      "etag": "\"8074cf87b9dbd21:0\"",
+      "last_modified": "Fri, 02 Jun 2017 16:01:44 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/catalog/dsmap_polar.cat",
+      "bytes": 4312,
+      "sha256": "e5f345f60f75f8fef00f7b59b806306616bf195079c537195e6413b8a6501ca9",
+      "etag": "\"8297920bd23da1:0\"",
+      "last_modified": "Thu, 30 Nov 2023 18:43:35 GMT",
+      "content_range": null
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img",
+      "bytes": 29062688,
+      "sha256": "d031efe2611b17dfbf3c158f5e15dc04cd5719349dcbf6384bb21fd97697c490",
+      "etag": "\"80d4c7e85cf6d21:0\"",
+      "last_modified": "Thu, 06 Jul 2017 13:36:45 GMT",
+      "content_range": null
+    }
+  ],
+  "target_center": {
+    "lat": -89.67,
+    "lon": 129.78,
+    "source": "https://planetarynames.wr.usgs.gov/Feature/5450"
+  },
+  "conversion": {
+    "height_m": "DN * 0.5",
+    "radius_m": "DN * 0.5 + 1737400",
+    "stored_quantity": "height",
+    "stored_band_offset_m": 0
+  },
+  "geometry": "3812 square pixels, 240 m; exact centered polar stereographic from PDS dsmap_polar.cat",
+  "sampling_review": "Pending; no automatic comparable flag."
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": "2.3",
+  "records": [
+    {
+      "schema_version": "2.3",
+      "region_id": "moon_shackleton_local",
+      "kind": "target",
+      "body": "moon",
+      "name": "Shackleton",
+      "lat": -89.67,
+      "lon": 129.78,
+      "scale": "local",
+      "window_km": 10,
+      "analysis_resolution_m": 500,
+      "source_resolution_m": 240.0,
+      "resolution_validated": false,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",-89.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",129.78,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "lola",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_75S_240M V2.0 (2017)",
+      "features": {
+        "slope_median_deg": {
+          "value": 23.483118437068597,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "slope_p90_deg": {
+          "value": 31.228358993881457,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "flat_fraction": {
+          "value": 0.1425,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "tri_median_m": {
+          "value": 457.39848399490677,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "relief_m": {
+          "value": 1569.0976901448876,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "elevation_std_m": {
+          "value": 525.5315013291621,
+          "data_status": "derived",
+          "comparable": false
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "LOLA gridded product includes interpolated ground tracks; effective sampling review is pending.",
+          "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed.",
+          "Product georeferencing and sampling/quality review is not yet verified.",
+          "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
+          "Awaiting matching target/Earth window, resolution and method validation."
+        ],
+        "validation_eligible": false
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img",
+        "accessed_on": "2026-11-14",
+        "source_file": "lola_polar_height.tif",
+        "source_file_sha256": "7a3bb9c8e718c2c4ec68b1072a82664c86f19a803011807e7ca84b8395e8376a",
+        "source_crs": "PROJCS[\"unknown\",GEOGCS[\"unknown\",DATUM[\"unknown\",SPHEROID[\"unknown\",1737400,0]],PRIMEM[\"Reference meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+        "source_radius_m": 1737400.0,
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+        "vertical_unit": "m",
+        "band_scale": 0.5,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": false,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/moon_shackleton_local.png",
+        "metadata_path": "heightmaps/moon_shackleton_local.json",
+        "width": 20,
+        "height": 20,
+        "bit_depth": 16,
+        "offset": -2839.288711238826,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 500,
+        "pixel_size_y_m": 500,
+        "origin_x_m": -5000,
+        "origin_y_m": 5000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",-89.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",129.78,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "lola",
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    },
+    {
+      "schema_version": "2.3",
+      "region_id": "moon_shackleton_regional",
+      "kind": "target",
+      "body": "moon",
+      "name": "Shackleton",
+      "lat": -89.67,
+      "lon": 129.78,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 240.0,
+      "resolution_validated": false,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",-89.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",129.78,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "lola",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_75S_240M V2.0 (2017)",
+      "features": {
+        "slope_median_deg": {
+          "value": 8.393435393377196,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "slope_p90_deg": {
+          "value": 22.767591246461432,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "flat_fraction": {
+          "value": 0.2596,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "tri_median_m": {
+          "value": 413.36222022394975,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "relief_m": {
+          "value": 2783.0302878484067,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "elevation_std_m": {
+          "value": 918.2549684835935,
+          "data_status": "derived",
+          "comparable": false
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.0,
+        "coverage": "full",
+        "warnings": [
+          "LOLA gridded product includes interpolated ground tracks; effective sampling review is pending.",
+          "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed.",
+          "Product georeferencing and sampling/quality review is not yet verified.",
+          "Resolution/quality validation failed: product review incomplete, >5% NoData or missing terrain metric.",
+          "Awaiting matching target/Earth window, resolution and method validation."
+        ],
+        "validation_eligible": false
+      },
+      "processing_version": "0.3.0",
+      "method": "metric-gradient-riley8-p95p5-v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img",
+        "accessed_on": "2026-11-14",
+        "source_file": "lola_polar_height.tif",
+        "source_file_sha256": "7a3bb9c8e718c2c4ec68b1072a82664c86f19a803011807e7ca84b8395e8376a",
+        "source_crs": "PROJCS[\"unknown\",GEOGCS[\"unknown\",DATUM[\"unknown\",SPHEROID[\"unknown\",1737400,0]],PRIMEM[\"Reference meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+        "source_radius_m": 1737400.0,
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+        "vertical_unit": "m",
+        "band_scale": 0.5,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": false,
+        "max_nodata_ratio": 0.05
+      },
+      "heightmap": {
+        "path": "heightmaps/moon_shackleton_regional.png",
+        "metadata_path": "heightmaps/moon_shackleton_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -2814.022487364377,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",-89.67,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",129.78,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "lola",
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    }
+  ]
+}

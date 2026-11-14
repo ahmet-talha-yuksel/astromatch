@@ -1,0 +1,31 @@
+{
+  "sites": [
+    {
+      "id": "kula",
+      "name": "Kula",
+      "lat": 38.58,
+      "lon": 28.52,
+      "coordinate_source": "https://volcano.si.edu/volcano.cfm?vn=213000",
+      "coordinate_note": "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
+      "quality_note": "Surface terrain context only; 500 m analysis does not resolve individual lava tubes."
+    },
+    {
+      "id": "hassa",
+      "name": "Hassa",
+      "lat": 36.8,
+      "lon": 36.55,
+      "coordinate_source": "https://dergipark.org.tr/tr/download/article-file/4045946",
+      "coordinate_note": "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
+      "quality_note": "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim."
+    },
+    {
+      "id": "atacama",
+      "name": "Atacama (Yungay)",
+      "lat": -24.063777777777776,
+      "lon": -69.8805,
+      "coordinate_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8859261/",
+      "coordinate_note": "Study site 24°03′49.6″S, 69°52′49.8″W; one Yungay locality, not the whole Atacama Desert.",
+      "quality_note": "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
+    }
+  ]
+}

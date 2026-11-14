@@ -1,0 +1,259 @@
+{
+  "schema_version": "2.3",
+  "kind": "measured_pilot",
+  "acquired_on": "2026-11-14",
+  "cells_in_reference_areas": 408,
+  "selected_cells": 8,
+  "records_written": 8,
+  "areas": [
+    "turkey",
+    "atacama",
+    "iceland"
+  ],
+  "measurements": [
+    {
+      "region_id": "earth_grid_r254_c418",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 6.034596083918586,
+        "caching_s": 0.012471667025238276,
+        "cropping_mosaic_s": 0.13217670796439052,
+        "acquisition_wall_s": 7.643844624981284
+      },
+      "processing": {
+        "reprojection_s": 0.027713916962966323,
+        "feature_extraction_s": 0.0013481669593602419,
+        "validation_provenance_s": 0.057529706973582506,
+        "processing_wall_s": 0.08659179089590907,
+        "heightmap_export_s": 0.005730750039219856
+      },
+      "landmask_s": 1.6603714579250664
+    },
+    {
+      "region_id": "earth_grid_r254_c419",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 3.048871041974053,
+        "caching_s": 0.0042611658573150635,
+        "cropping_mosaic_s": 0.0946509160567075,
+        "acquisition_wall_s": 3.148288916097954
+      },
+      "processing": {
+        "reprojection_s": 0.00898745795711875,
+        "feature_extraction_s": 0.00027774996124207973,
+        "validation_provenance_s": 0.0015319169033318758,
+        "processing_wall_s": 0.010797124821692705,
+        "heightmap_export_s": 0.000599374994635582
+      },
+      "landmask_s": 0.6949476250447333
+    },
+    {
+      "region_id": "earth_grid_r255_c418",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.0,
+        "caching_s": 0.0037901250179857016,
+        "cropping_mosaic_s": 0.06780208391137421,
+        "acquisition_wall_s": 0.07203654199838638
+      },
+      "processing": {
+        "reprojection_s": 0.008656417019665241,
+        "feature_extraction_s": 0.00021962495520710945,
+        "validation_provenance_s": 0.0012272908352315426,
+        "processing_wall_s": 0.010103332810103893,
+        "heightmap_export_s": 0.0005343749653548002
+      },
+      "landmask_s": 0.649348207982257
+    },
+    {
+      "region_id": "earth_grid_r255_c419",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.0,
+        "caching_s": 0.0035862077493220568,
+        "cropping_mosaic_s": 0.06424120790325105,
+        "acquisition_wall_s": 0.06824508286081254
+      },
+      "processing": {
+        "reprojection_s": 0.009176083141937852,
+        "feature_extraction_s": 0.0002615419216454029,
+        "validation_provenance_s": 0.0012912920210510492,
+        "processing_wall_s": 0.010728917084634304,
+        "heightmap_export_s": 0.0005355838220566511
+      },
+      "landmask_s": 0.49768541706725955
+    },
+    {
+      "region_id": "earth_grid_r130_c221",
+      "area": "atacama",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 2.2641312079504132,
+        "caching_s": 0.007379667134955525,
+        "cropping_mosaic_s": 0.08993824990466237,
+        "acquisition_wall_s": 4.028820958221331
+      },
+      "processing": {
+        "reprojection_s": 0.00793175003491342,
+        "feature_extraction_s": 0.00024112500250339508,
+        "validation_provenance_s": 0.0014140838757157326,
+        "processing_wall_s": 0.009586958913132548,
+        "heightmap_export_s": 0.00035841716453433037
+      },
+      "landmask_s": 0.8845184158999473
+    },
+    {
+      "region_id": "earth_grid_r131_c220",
+      "area": "atacama",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.9419549161102623,
+        "caching_s": 0.006196124944835901,
+        "cropping_mosaic_s": 0.0887521249242127,
+        "acquisition_wall_s": 1.0375227502081543
+      },
+      "processing": {
+        "reprojection_s": 0.00782833294942975,
+        "feature_extraction_s": 0.00023016612976789474,
+        "validation_provenance_s": 0.001126000890508294,
+        "processing_wall_s": 0.00918449996970594,
+        "heightmap_export_s": 0.0002814170438796282
+      },
+      "landmask_s": 0.2069470421411097
+    },
+    {
+      "region_id": "earth_grid_r308_c320",
+      "area": "iceland",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 1.9682874591089785,
+        "caching_s": 0.012371624819934368,
+        "cropping_mosaic_s": 0.06605483288876712,
+        "acquisition_wall_s": 2.047284625004977
+      },
+      "processing": {
+        "reprojection_s": 0.007800125051289797,
+        "feature_extraction_s": 0.00021358300000429153,
+        "validation_provenance_s": 0.0011731667909771204,
+        "processing_wall_s": 0.009186874842271209,
+        "heightmap_export_s": 0.00048812502063810825
+      },
+      "landmask_s": 0.5507700839079916
+    },
+    {
+      "region_id": "earth_grid_r309_c321",
+      "area": "iceland",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.8583130829501897,
+        "caching_s": 0.0033397499937564135,
+        "cropping_mosaic_s": 0.08520904206670821,
+        "acquisition_wall_s": 0.9473400840070099
+      },
+      "processing": {
+        "reprojection_s": 0.008076000027358532,
+        "feature_extraction_s": 0.00024154107086360455,
+        "validation_provenance_s": 0.0011087087914347649,
+        "processing_wall_s": 0.009426249889656901,
+        "heightmap_export_s": 0.0002702500205487013
+      },
+      "landmask_s": 0.3202987078111619
+    }
+  ],
+  "landmask": {
+    "status": "operational_sampling_qa_passed",
+    "duration_s": 5.464886957779527,
+    "product": "ESA WorldCover 2021 v200",
+    "policy": {
+      "max_unknown_fraction": 0.05,
+      "max_absolute_sampling_difference": 0.01
+    },
+    "limitations": "Permanent-water classification and systematic sampling; not current water extent or independent map accuracy validation."
+  },
+  "srtm_probes": {
+    "turkey": {
+      "catalog_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SRTMGL30&version=002&page_size=1&bounding_box=29.249%2C37.249%2C29.251%2C37.251",
+      "catalog_sha256": "4ef0239c19afde49bc5609a3e44bc3f2d8525e7dab98115c85be55c129077fe2",
+      "product": "SRTMGL30.002",
+      "download_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
+      "status": "http_access_failed",
+      "http_status": 401,
+      "source_lookup_s": 1.4525665000546724
+    },
+    "atacama": {
+      "catalog_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SRTMGL30&version=002&page_size=1&bounding_box=-69.251%2C-24.751%2C-69.249%2C-24.749",
+      "catalog_sha256": "9b188765bb53795ee1c267bd3260adfbf869564ed9c991d5cec6a9b1a8efd4ef",
+      "product": "SRTMGL30.002",
+      "download_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
+      "status": "http_access_failed",
+      "http_status": 401,
+      "source_lookup_s": 1.66483970801346
+    }
+  },
+  "dem_sources_measured": [
+    "copernicus_glo90"
+  ],
+  "source_transition_comparison": {
+    "status": "not_run",
+    "reason": "No SRTMGL30 input raster available."
+  },
+  "global_decision": {
+    "status": "provisional",
+    "estimated_hours_range": [
+      3.0734500389843014,
+      92.62399145248811
+    ],
+    "scope": "turkey_surroundings_usgs_and_sample_arid_belts",
+    "final_source_validation_complete": false,
+    "scenarios": [
+      {
+        "name": "high_reuse_sparse_land_selection",
+        "cells": 23859,
+        "per_cell_seconds": 0.4637419900391251,
+        "assumption": "25% of WorldCover-tile-covered grid centers selected; observed lower-quartile mask+processing cost; existing DEM cache."
+      },
+      {
+        "name": "all_candidate_centers_conservative_latency",
+        "cells": 95436,
+        "per_cell_seconds": 3.493926497641951,
+        "assumption": "All WorldCover-supported centers; twice slowest observed mask+processing cost for unmeasured latency/source variance."
+      }
+    ],
+    "candidate_domain": {
+      "worldcover_tiles": 2651,
+      "candidate_cells_upper": 95436,
+      "compressed_worldcover_bytes": 124027923380,
+      "latitude_edges": [
+        -84,
+        84
+      ],
+      "exact_land_cell_count": null
+    },
+    "limitations": [
+      "Scenario endpoints are conditional workloads, not guaranteed global duration bounds.",
+      "Tile coverage includes water cells; true land-only cell count is not established.",
+      "DEM cold download costs are reported separately and are NOT extrapolated from this small sample.",
+      "SRTMGL30 overlap/throughput validation awaits authenticated input.",
+      "Polar/dateline support and supplied USGS cells require separate operational checks."
+    ],
+    "operational_action": "Keep a regional pilot delivery until source access and broader resource measurements are available."
+  },
+  "assumptions": {
+    "grid_step_deg": 0.5,
+    "window_km": 50,
+    "analysis_resolution_m": 1000,
+    "cache_state": "per-tile cache_hit recorded; mixed cold/warm conditions",
+    "land_fraction": "Per pilot cell; global exact land count unavailable.",
+    "global_land_cell_count": null
+  },
+  "limitations": [
+    "No score, rank or validated negative class is produced.",
+    "not_scanned means unknown, not dissimilar.",
+    "A missing ocean tile is not inferred to be zero-meter terrain.",
+    "Timing values are observations, not deterministic artifacts."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "2.3",
+  "grid_step_deg": 0.5,
+  "window_km": 50,
+  "analysis_resolution_m": 1000,
+  "areas": [
+    {
+      "id": "turkey",
+      "bbox": [25, 30, 35, 40],
+      "description": "Initial 10x10 degree Turkey reference area; only explicitly selected cells are processed.",
+      "selected_centers": [[29.25, 37.25], [29.75, 37.25], [29.25, 37.75], [29.75, 37.75]]
+    },
+    {
+      "id": "atacama",
+      "bbox": [-70, -25, -69, -24],
+      "description": "Arid control context; not a labeled negative class.",
+      "selected_centers": [[-69.75, -24.25], [-69.25, -24.75]]
+    },
+    {
+      "id": "iceland",
+      "bbox": [-20, 64, -19, 65],
+      "description": "High-latitude sample outside nominal SRTM latitude coverage.",
+      "selected_centers": [[-19.75, 64.25], [-19.25, 64.75]]
+    }
+  ]
+}

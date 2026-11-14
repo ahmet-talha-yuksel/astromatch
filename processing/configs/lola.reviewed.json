@@ -1,0 +1,60 @@
+{
+  "records": [
+    {
+      "path": "../raw/lola_shackleton/lola_polar_height.tif",
+      "region_id": "moon_shackleton_local",
+      "name": "Shackleton",
+      "body": "moon",
+      "product": "lola",
+      "lat": -89.67,
+      "lon": 129.78,
+      "scale": "local",
+      "source_resolution_m": 240,
+      "vertical_unit": "m",
+      "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+      "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_75S_240M V2.0 (2017)",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "quantity": "elevation",
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed.",
+        "Operational native-grid consistency and direct-bin support checked; not independent absolute accuracy validation."
+      ],
+      "counts_path": "../raw/lola_qa/ldec_75s_240m.tif",
+      "qa_report_path": "../out/quality_review/lola_report.json"
+    },
+    {
+      "path": "../raw/lola_shackleton/lola_polar_height.tif",
+      "region_id": "moon_shackleton_regional",
+      "name": "Shackleton",
+      "body": "moon",
+      "product": "lola",
+      "lat": -89.67,
+      "lon": 129.78,
+      "scale": "regional",
+      "source_resolution_m": 240,
+      "vertical_unit": "m",
+      "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+      "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_75S_240M V2.0 (2017)",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "quantity": "elevation",
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Sphere-relative height is not lunar geoid-relative topography; no absolute height equivalence is claimed.",
+        "Operational native-grid consistency and direct-bin support checked; not independent absolute accuracy validation."
+      ],
+      "counts_path": "../raw/lola_qa/ldec_75s_240m.tif",
+      "qa_report_path": "../out/quality_review/lola_report.json"
+    }
+  ],
+  "retrieval_manifests": [
+    "../raw/lola_shackleton/retrieval.json",
+    "../raw/lola_qa/retrieval.json"
+  ]
+}

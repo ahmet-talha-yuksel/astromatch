@@ -1,0 +1,149 @@
+{
+  "records": [
+    {
+      "path": "../raw/earth_sites/kula_glo30.tif",
+      "region_id": "earth_kula_local",
+      "name": "Kula",
+      "body": "earth",
+      "product": "copernicus",
+      "lat": 38.58,
+      "lon": 28.52,
+      "scale": "local",
+      "source_resolution_m": 30,
+      "vertical_unit": "m",
+      "vertical_reference": "EGM2008 orthometric height",
+      "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Copernicus DSM includes surface cover; not bare-earth geology.",
+        "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
+        "Surface terrain context only; 500 m analysis does not resolve individual lava tubes."
+      ]
+    },
+    {
+      "path": "../raw/earth_sites/kula_glo30.tif",
+      "region_id": "earth_kula_regional",
+      "name": "Kula",
+      "body": "earth",
+      "product": "copernicus",
+      "lat": 38.58,
+      "lon": 28.52,
+      "scale": "regional",
+      "source_resolution_m": 30,
+      "vertical_unit": "m",
+      "vertical_reference": "EGM2008 orthometric height",
+      "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Copernicus DSM includes surface cover; not bare-earth geology.",
+        "Smithsonian GVP volcanic-field reference coordinate; not a specific vent.",
+        "Surface terrain context only; 500 m analysis does not resolve individual lava tubes."
+      ]
+    },
+    {
+      "path": "../raw/earth_sites/hassa_glo30.tif",
+      "region_id": "earth_hassa_local",
+      "name": "Hassa",
+      "body": "earth",
+      "product": "copernicus",
+      "lat": 36.8,
+      "lon": 36.55,
+      "scale": "local",
+      "source_resolution_m": 30,
+      "vertical_unit": "m",
+      "vertical_reference": "EGM2008 orthometric height",
+      "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Copernicus DSM includes surface cover; not bare-earth geology.",
+        "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
+        "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim."
+      ]
+    },
+    {
+      "path": "../raw/earth_sites/hassa_glo30.tif",
+      "region_id": "earth_hassa_regional",
+      "name": "Hassa",
+      "body": "earth",
+      "product": "copernicus",
+      "lat": 36.8,
+      "lon": 36.55,
+      "scale": "regional",
+      "source_resolution_m": 30,
+      "vertical_unit": "m",
+      "vertical_reference": "EGM2008 orthometric height",
+      "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Copernicus DSM includes surface cover; not bare-earth geology.",
+        "Operator-selected regional analysis center east of Hassa; source establishes lava-tube context but does not provide this exact coordinate. Not a surveyed cave entrance.",
+        "Provisional analysis center, not a verified cave location. Use only for pit/skylight or lava-tube context; no Moon south-pole lava-tube claim."
+      ]
+    },
+    {
+      "path": "../raw/earth_sites/atacama_glo30.tif",
+      "region_id": "earth_atacama_local",
+      "name": "Atacama (Yungay)",
+      "body": "earth",
+      "product": "copernicus",
+      "lat": -24.063777777777776,
+      "lon": -69.8805,
+      "scale": "local",
+      "source_resolution_m": 30,
+      "vertical_unit": "m",
+      "vertical_reference": "EGM2008 orthometric height",
+      "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Copernicus DSM includes surface cover; not bare-earth geology.",
+        "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
+        "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
+      ]
+    },
+    {
+      "path": "../raw/earth_sites/atacama_glo30.tif",
+      "region_id": "earth_atacama_regional",
+      "name": "Atacama (Yungay)",
+      "body": "earth",
+      "product": "copernicus",
+      "lat": -24.063777777777776,
+      "lon": -69.8805,
+      "scale": "regional",
+      "source_resolution_m": 30,
+      "vertical_unit": "m",
+      "vertical_reference": "EGM2008 orthometric height",
+      "source_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+      "dem_version": "GLO-30 Public 2021 release; tile identities/ETags in retrieval manifest",
+      "accessed_on": "2026-11-14",
+      "synthetic": false,
+      "georeferencing_verified": true,
+      "source_quality_verified": true,
+      "quality_notes": [
+        "Copernicus DSM includes surface cover; not bare-earth geology.",
+        "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
+        "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
+      ]
+    }
+  ],
+  "retrieval_manifest": "../raw/earth_sites/retrieval.json"
+}
