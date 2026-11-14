@@ -8,6 +8,17 @@ from .adapters import adapt
 from .models import DataPaths, Dataset
 ROOT = Path(__file__).resolve().parent.parent
 log=logging.getLogger(__name__)
+DEFAULT_FEATURES=(ROOT/'processing/out/real/features.json',ROOT/'processing/out/mars_measured/features.json')
+
+def logical_input_hashes(hashes):
+    """Compare identical inputs across host and container mount roots."""
+    markers=('processing/out/','data/processed/','discovery/out/','engine/config/')
+    result={}
+    for path,digest in hashes.items():
+        value=str(path).replace('\\','/')
+        name=next((value[value.index(marker):] for marker in markers if marker in value),value)
+        result[name]=digest
+    return result
 
 @lru_cache(maxsize=8)
 def config(name):
@@ -25,7 +36,7 @@ def _read(path):
 
 def feature_paths(value=None):
     value=value if value is not None else os.getenv('ASTROMATCH_FEATURES')
-    if value is None: value=str(ROOT/'processing/out/real/features.json')
+    if value is None: value=[str(path) for path in DEFAULT_FEATURES]
     parts=[]
     for item in value if isinstance(value,list) else [value]:
         parts.extend(part.strip() for part in str(item).split(',') if part.strip())

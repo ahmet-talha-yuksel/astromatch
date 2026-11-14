@@ -13,7 +13,7 @@ python -m engine.cli validate --mock
 python -m pytest validation/test_similarity.py engine/tests
 ```
 
-The `data/processed` fixtures are synthetic. Real mode reads `processing/out/real/features.json` and `processing/out/earth_grid.parquet`; the current regional grid is a 408-cell subset with 216 comparison-eligible cells. Real mode rejects mock records. `--mock` uses generated mock records only and stamps outputs `MOCK DATA — NOT A SCIENTIFIC RESULT`.
+The `data/processed` fixtures are synthetic. Real mode defaults to both `processing/out/real/features.json` and `processing/out/mars_measured/features.json`, merging by `region_id` with the Mars measurements winning ties, plus `processing/out/earth_grid.parquet`. The current regional grid is a 408-cell subset with 216 comparison-eligible cells. Real mode rejects mock records. `--mock` uses generated mock records only and stamps outputs `MOCK DATA — NOT A SCIENTIFIC RESULT`.
 
 For row-preserving validation scores, use `from engine.validation_api import score_grid` or `python -m engine.cli export-scores --mock --criteria --out engine/out/scores/`. The DataFrame interface returns 0–1 scores, `NaN` for ineligible cells, and optional per-criterion similarities. Its default sigma is recomputed from the input grid; `sigma="frozen"` holds reference sigma fixed for noise tests. See [VALIDATION_INTERFACE.md](VALIDATION_INTERFACE.md).
 

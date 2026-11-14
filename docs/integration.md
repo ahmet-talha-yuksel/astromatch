@@ -1,6 +1,6 @@
 # Module boundaries
 
-Processing provides v2.3 target and Earth feature records. The engine adapts and scores them. The backend initializes one Dataset during FastAPI startup and exposes `/api/v1` endpoints. Validated real target and Earth feature records are available in `processing/out/real/` and `processing/out/mars_measured/`; set `ASTROMATCH_FEATURES` to both paths for the measured Mars targets. The terrain3d component remains separate.
+Processing provides v2.3 target and Earth feature records. The engine adapts and scores them. The backend initializes one Dataset during FastAPI startup and exposes `/api/v1` endpoints. Its default real inputs are `processing/out/real/features.json`, `processing/out/mars_measured/features.json`, and `processing/out/earth_grid.parquet`; `ASTROMATCH_FEATURES` can override the two feature files. The terrain3d component remains separate.
 
 ## API
 
@@ -18,7 +18,7 @@ New API `score_geo`, `score_arith`, and `score_relative` use **0–100**. `score
 
 ## Frontend changes required
 
-The frontend owner should call `/api/v1/targets` and read its `targets` array, use `region_id` (plus scale) as the target key, and call `/api/v1/rank` or `/api/v1/sites`. Display `score_geo` directly as a percentage without multiplying by 100; label `score_relative` as closest available Earth match rather than absolute similarity. Show `match_level`, `floored_criteria`, criterion values/similarities, and the mock disclaimer. Use `/api/v1/heat` for map points. The current placeholder frontend uses legacy `/api/rank` and 0–1 scores and can continue unchanged until its owner migrates it.
+The frontend calls `/api/v1/targets` and uses each target's alias and available scale for `/api/v1/rank`. It displays `score_geo` directly as a percentage without multiplying by 100, plus the score interval, nearest place, and `match_level`. Use `/api/v1/sites` for local cards and `/api/v1/heat` for map points. The placeholder UI now calls v1; the legacy `/api/rank` endpoint remains available for older clients.
 
 For a candidate card, call `GET /api/v1/compare?target_id=T-04&candidate_id=earth_grid_r258_c422&scale=regional&preset=balanced`. Use `per_criterion[*].s_i` and `per_criterion[*].z` to draw the criterion chart, and show `score_ci_low/high`, `place`, `analogy_breaks`, and `not_compared` beside the score. A condensed response looks like:
 

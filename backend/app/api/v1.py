@@ -6,7 +6,7 @@ from typing import Literal
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 from engine import RankResult, explain as engine_explain, heat as engine_heat, list_targets, rank as engine_rank
-from engine.io import config
+from engine.io import config, logical_input_hashes
 from engine.ranking import DISCLAIMER
 from engine.validation_api import list_target_ids
 from engine.radar import feature_z_offsets
@@ -169,5 +169,16 @@ def validation_v1():
     if not path.exists(): raise HTTPException(404,'Validation report not found; run python -m engine.cli validate --mock or with real data')
     try: report=json.loads(path.read_text())
     except ValueError as exc: raise HTTPException(500,'Validation report is invalid JSON') from exc
-    if report.get('data_status')!=get_dataset().mode: raise HTTPException(404,'Validation report does not match active data mode')
+    ds=get_dataset()
+    if report.get('data_status')!=ds.mode: raise HTTPException(404,'Validation report does not match active data mode')
+    if ds.mode=='real':
+        actual=logical_input_hashes(ds.input_hashes)
+        if not report.get('input_sha256') or logical_input_hashes(report['input_sha256'])!=actual:
+            raise HTTPException(404,'Validation report inputs do not match active data')
+        manifest=Path(settings.results_dir)/'MANIFEST.json'
+        if manifest.exists():
+            try: frozen=json.loads(manifest.read_text())
+            except ValueError as exc: raise HTTPException(500,'Demo manifest is invalid JSON') from exc
+            if frozen.get('data_status')!='real' or logical_input_hashes(frozen.get('input_sha256') or {})!=actual:
+                raise HTTPException(404,'Demo manifest inputs do not match active data')
     return {**meta(),'report':report}
