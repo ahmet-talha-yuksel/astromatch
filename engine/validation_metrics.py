@@ -30,7 +30,7 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
             all_scores=np.array([[r['per_criterion'].get(k,{}).get('s_i',np.nan) for k in keys] for r in rows]); mask=np.isfinite(all_scores)
             candidate_values=np.array([[r['per_criterion'].get(k,{}).get('candidate_value',np.nan) for k in keys] for r in rows])
             target_values=np.array([t.features[k].value if k in t.features and t.features[k].value is not None else np.nan for k in keys])
-            sigmas=np.array([result.sigma[k] for k in keys])
+            sigmas=np.array([result.sigma[k]['value'] for k in keys])
             robust=np.array([1.4826*np.median(abs(v-np.median(v))) if len(v:=candidate_values[np.isfinite(candidate_values[:,j]),j]) else 0 for j in range(len(keys))])
             weights=np.array([config('features.yaml')['features'][k].get('weight',1)*config('presets.yaml')[preset].get(k,1) for k in keys],float)
             correlations=[]; jaccards=[]

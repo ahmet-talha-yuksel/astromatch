@@ -1,9 +1,11 @@
 min_features: 3
+min_sigma_samples: 200
+# fixed_fallback values are engineering defaults, not measured/calibrated sigmas.
 features:
-  slope_median_deg: {weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 1.0}}
-  slope_p90_deg: {weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 2.0}}
-  flat_fraction: {weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 0.05}}
-  tri_median_m: {weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 5.0}}
-  relief_m: {weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 25.0}}
-  elevation_std_m: {weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 10.0}}
-# surface_temp_diurnal_range_c: {weight: 1, method: gaussian, sigma: {method: fixed, value: 10}}
+  slope_median_deg: {label: Median slope, unit: deg, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 1.0, fixed_fallback: 8.0}}
+  slope_p90_deg: {label: 90th percentile slope, unit: deg, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 2.0, fixed_fallback: 15.0}}
+  flat_fraction: {label: Flat terrain fraction, unit: fraction, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 0.05, fixed_fallback: 0.2}}
+  tri_median_m: {label: Median terrain ruggedness, unit: m, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 5.0, fixed_fallback: 25.0}}
+  relief_m: {label: Relief, unit: m, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 25.0, fixed_fallback: 150.0}}
+  elevation_std_m: {label: Elevation standard deviation, unit: m, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 10.0, fixed_fallback: 60.0}}
+# surface_temp_diurnal_range_c: {label: Diurnal temperature range, unit: C, weight: 1, method: gaussian, sigma: {method: fixed, value: 10}}

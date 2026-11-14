@@ -2,7 +2,7 @@ from __future__ import annotations
 from .models import Explanation
 from .io import config
 
-def build(target,candidate,criteria,score,flags,not_compared):
+def build(target,candidate,criteria,score,flags,not_compared,match_level=None):
     ordered=sorted(criteria.items(),key=lambda kv:(-kv[1]['s_i'],kv[0]))
     strongest=[{'feature':k,**v} for k,v in ordered[:3]]
     weakest=[{'feature':k,**v} for k,v in sorted(criteria.items(),key=lambda kv:(kv[1]['s_i'],kv[0]))[:2]]
@@ -15,4 +15,5 @@ def build(target,candidate,criteria,score,flags,not_compared):
         breaks.append(f"Earth surface pressure {earth['surface_pressure_kpa']} kPa; {target.body} surface pressure {other['surface_pressure_kpa']} kPa")
         breaks.extend(other.get('notes',[]))
     breaks.extend(f'{k}: {v.comparability_note}' for k,v in target.features.items() if not v.comparable and v.comparability_note)
-    return Explanation(strongest=strongest,weakest=weakest,summary=f'{band.capitalize()} topographic analogy ({score:.1f}/100).',not_compared=not_compared,analogy_breaks=breaks,flags=flags)
+    summary=('No close absolute analog on Earth for this target; this is among the closest available on Earth.' if match_level=='relative_only' else f'{band.capitalize()} topographic analogy ({score:.1f}/100).')
+    return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=not_compared,analogy_breaks=breaks,flags=flags)

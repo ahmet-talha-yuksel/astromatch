@@ -21,8 +21,10 @@ def analyze(target, candidates, keys, weights, top_ids, min_cluster_size=50):
     _,order=knn.kneighbors(tz.reshape(1,-1))
     ranks={ids[int(j)]:i for i,j in enumerate(order[0])}
     same={i:False for i in ids}
+    cluster_available=False
     try:
         import hdbscan
+        cluster_available=True
         cluster=hdbscan.HDBSCAN(min_cluster_size=min_cluster_size).fit(z)
         labels=cluster.labels_
         valid=sorted(set(labels)-{-1})
@@ -32,8 +34,13 @@ def analyze(target, candidates, keys, weights, top_ids, min_cluster_size=50):
             same={id_:bool(labels[j]==nearest) for j,id_ in enumerate(ids)}
     except ImportError:
         pass
-    agreement={id_:{'knn_rank':ranks[id_]+1 if id_ in ranks else None,'same_cluster_as_target':same[id_],'agreement':'High' if (id_ in top_ids and id_ in ranks and same[id_]) else 'Medium' if (int(id_ in top_ids)+int(id_ in ranks)+int(same[id_]))==2 else 'Low'} for id_ in ids}
-    return {'agreement':agreement}
+    basis='geo+knn+cluster' if cluster_available else 'geo+knn'
+    agreement={}
+    for id_ in ids:
+        count=int(id_ in top_ids)+int(id_ in ranks)+(int(same[id_]) if cluster_available else 0)
+        level='High' if count==(3 if cluster_available else 2) else 'Medium' if count>0 else 'Low'
+        agreement[id_]={'knn_rank':ranks[id_]+1 if id_ in ranks else None,'same_cluster_as_target':same[id_] if cluster_available else None,'agreement':level}
+    return {'agreement':agreement,'agreement_basis':basis}
 
 def pca_export(ds):
     try:
