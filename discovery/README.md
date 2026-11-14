@@ -128,3 +128,8 @@ For USGS validation, positives are cells containing listed analogs. The primary 
 T-01 and T-03 are unscorable and have null metrics with an `unscorable` reason. T-02 is the only target currently scored. If positive counts are below the configured minimum, metric tests are skipped and positive names, scores, and percentiles are reported descriptively. Caveats: 190/192 USGS records are impact craters; `analog_for` is blank for 191 records, so targets share the same positive cells; background is unlabeled; Atacama and Turkish sites are absent from the USGS list; this does not establish volcanic or carbonate analog evidence.
 
 Stability noise is Gaussian at 1%, 5%, and 10% of each scoring feature's standard deviation, clipped to physical bounds. `end_to_end` lets the ranker recompute sigma; `frozen` calls the ranker with `sigma="frozen"`. Run the two modes separately and compare their separate result files.
+
+
+### Feature and grid coverage links (schema 0.2-draft)
+
+Turkey records link to the actual local and regional `features.json` records when both scales exist. Each record's `feature_availability` contains only `resolution_validated`, the count of comparable scoring metrics (out of six), and `data_status`; numerical feature values remain in `features.json`. `grid_coverage` is derived from the coordinate cell key against the processed grid and coverage report. The source commit is copied from `data/inputs/SOURCE.txt`. Acigol has no separate feature record and shares Meke's 0.5-degree cell; Hassa's cell is marked `not_scanned` in the supplied grid coverage.

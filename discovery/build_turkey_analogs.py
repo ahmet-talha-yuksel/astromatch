@@ -4,15 +4,37 @@ from __future__ import annotations
 
 import argparse
 import json
+import warnings
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .analog_mapping import cell_id
+from .coverage_check import coverage_center
+
+import pyarrow.parquet as pq
 
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "out" / "turkey_analogs.json"
+FEATURES_PATH = ROOT / "data" / "inputs" / "features.json"
+GRID_PATH = ROOT / "data" / "inputs" / "earth_grid.parquet"
+COVERAGE_PATH = ROOT / "data" / "inputs" / "coverage.geojson"
+COVERAGE_REPORT_PATH = ROOT / "out" / "validation" / "coverage_report.json"
+SOURCE_PATH = ROOT / "data" / "inputs" / "SOURCE.txt"
+
+FEATURE_SITE_PREFIXES = {
+    "E-TR-01": "earth_salda",
+    "E-TR-02": "earth_kula",
+    "E-TR-03": "earth_meke",
+    "E-TR-04": None,
+    "E-TR-05": "earth_hassa",
+    "E-TR-06": "earth_tuz_golu",
+}
+SCORING_FEATURES = (
+    "slope_median_deg", "slope_p90_deg", "flat_fraction", "tri_median_m",
+    "relief_m", "elevation_std_m",
+)
 
 COMMON_LIMITATION = "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek."
 MEKE_ACIGOL_LIMITATION = "Global 0.5° ızgarada aynı hücreye düşer (shares_cell_with)."
@@ -101,8 +123,121 @@ def source_rows() -> list[dict]:
     return rows
 
 
-def build_records() -> list[dict]:
+def load_feature_records(features_path: Path = FEATURES_PATH) -> dict[str, dict]:
+    if not features_path.is_file():
+        raise FileNotFoundError(f"Kisi 1 features.json not found: {features_path}")
+    data = json.loads(features_path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or not isinstance(data.get("records"), list):
+        raise ValueError("features.json must have {schema_version, records} structure")
+    records = {}
+    for record in data["records"]:
+        region_id = record.get("region_id")
+        if region_id:
+            if region_id in records:
+                raise ValueError(f"Duplicate features.json region_id: {region_id}")
+            records[str(region_id)] = record
+    return records
+
+
+def feature_links(region_id: str, feature_records: dict[str, dict]) -> tuple[list[dict], dict[str, dict | None]]:
+    prefix = FEATURE_SITE_PREFIXES[region_id]
+    refs: list[dict] = []
+    availability: dict[str, dict | None] = {"local": None, "regional": None}
+    if prefix is None:
+        return refs, availability
+
+    expected = {scale: f"{prefix}_{scale}" for scale in ("local", "regional")}
+    missing = [key for key in expected.values() if key not in feature_records]
+    if missing:
+        warnings.warn(
+            f"{region_id}: expected features.json records missing: {', '.join(missing)}; leaving features_ref empty",
+            RuntimeWarning,
+            stacklevel=2,
+        )
+        return refs, availability
+
+    for scale, actual_id in expected.items():
+        source = feature_records[actual_id]
+        features = source.get("features") or {}
+        comparable_count = sum(
+            1 for name in SCORING_FEATURES
+            if isinstance(features.get(name), dict) and features[name].get("comparable") is True
+        )
+        refs.append({"file": "features.json", "region_id": actual_id, "scale": scale})
+        availability[scale] = {
+            "resolution_validated": source.get("resolution_validated"),
+            "comparable_metric_count": comparable_count,
+            "data_status": source.get("data_status"),
+        }
+    return refs, availability
+
+
+def load_grid_coverage(
+    grid_path: Path = GRID_PATH,
+    coverage_path: Path = COVERAGE_PATH,
+) -> tuple[set[str], dict[str, dict], dict[str, dict]]:
+    if not grid_path.is_file():
+        raise FileNotFoundError(f"Processed earth grid not found: {grid_path}")
+    if not coverage_path.is_file():
+        raise FileNotFoundError(f"Grid coverage file not found: {coverage_path}")
+    grid = pq.read_table(grid_path, columns=["lat", "lon"]).to_pylist()
+    processed_keys = {cell_id(float(row["lat"]), float(row["lon"])) for row in grid}
+    coverage_data = json.loads(coverage_path.read_text(encoding="utf-8"))
+    coverage_by_key = {}
+    for feature in coverage_data.get("features", []):
+        props = feature.get("properties") or {}
+        lat, lon = coverage_center(feature)
+        key = cell_id(lat, lon)
+        if key in coverage_by_key:
+            raise ValueError(f"Duplicate cell in coverage.geojson: {key}")
+        coverage_by_key[key] = props
+
+    if not COVERAGE_REPORT_PATH.is_file():
+        raise FileNotFoundError(f"Coverage validation report not found: {COVERAGE_REPORT_PATH}")
+    report = json.loads(COVERAGE_REPORT_PATH.read_text(encoding="utf-8"))
+    report_count = report.get("scope", {}).get("processed_cell_count")
+    if report_count is not None and report_count != len(processed_keys):
+        raise ValueError(
+            f"coverage_report processed count ({report_count}) does not match grid ({len(processed_keys)})"
+        )
+    report_sites = {row.get("region_id"): row for row in report.get("turkey_sites", [])}
+    return processed_keys, coverage_by_key, report_sites
+
+
+def coverage_state(key: str, processed_keys: set[str], coverage_by_key: dict[str, dict]) -> dict:
+    if key in processed_keys:
+        coverage = coverage_by_key.get(key, {})
+        return {
+            "cell_key": key,
+            "status": "processed",
+            "comparable": coverage.get("comparable"),
+        }
+    coverage = coverage_by_key.get(key)
+    if coverage and coverage.get("status") == "not_scanned":
+        return {"cell_key": key, "status": "not_scanned", "comparable": False}
+    return {"cell_key": key, "status": "out_of_scope", "comparable": False}
+
+
+def source_commit(source_path: Path = SOURCE_PATH) -> str:
+    if not source_path.is_file():
+        raise FileNotFoundError(f"Grid source metadata not found: {source_path}")
+    for line in source_path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("Source commit:"):
+            value = line.split(":", 1)[1].strip()
+            if value:
+                return value
+    raise ValueError(f"Source commit is missing from {source_path}")
+
+
+def build_records(
+    features_path: Path = FEATURES_PATH,
+    grid_path: Path = GRID_PATH,
+    coverage_path: Path = COVERAGE_PATH,
+) -> list[dict]:
     rows = source_rows()
+    feature_records = load_feature_records(features_path)
+    processed_keys, coverage_by_key, report_sites = load_grid_coverage(grid_path, coverage_path)
+    source = source_commit()
     grouped: dict[str, list[str]] = defaultdict(list)
     for row in rows:
         grouped[cell_id(row["lat"], row["lon"])].append(row["region_id"])
@@ -110,6 +245,22 @@ def build_records() -> list[dict]:
     records = []
     for row in rows:
         current_cell = cell_id(row["lat"], row["lon"])
+        features_ref, feature_availability = feature_links(row["region_id"], feature_records)
+        limitations = list(row["limitations"])
+        if row["region_id"] == "E-TR-04" and not features_ref:
+            limitations.append("features.json'da bu saha için ayrı kayıt yok; Meke ile aynı 0.5° hücreye düşer")
+        site_coverage = coverage_state(current_cell, processed_keys, coverage_by_key)
+        report_site = report_sites.get(row["region_id"])
+        if report_site is None or report_site.get("cell_id") != current_cell:
+            raise ValueError(f"Coverage report is missing or has a different cell for {row['region_id']}")
+        report_status = "processed" if report_site.get("status") == "valid" else report_site.get("status")
+        if report_status != site_coverage["status"]:
+            raise ValueError(
+                f"Coverage report and input files disagree for {row['region_id']}: "
+                f"{report_status!r} != {site_coverage['status']!r}"
+            )
+        if row["region_id"] == "E-TR-05" and site_coverage["status"] == "not_scanned":
+            limitations.append("Bu sahanın cell_key grid coverage dosyasında not_scanned durumundadır.")
         records.append({
             "region_id": row["region_id"],
             "name": row["name"],
@@ -123,15 +274,18 @@ def build_records() -> list[dict]:
             "analog_dimensions": row["analog_dimensions"],
             "candidate_targets": row["candidate_targets"],
             "usgs_listed": False,
-            "limitations": row["limitations"],
-            "features_ref": {"file": "features.json", "region_id": row["region_id"]},
+            "limitations": limitations,
+            "features_ref": features_ref,
+            "feature_availability": feature_availability,
+            "grid_coverage": site_coverage,
+            "source_commit": source,
             "local_media": [],
             "status": "draft_qualitative",
         })
     return records
 
 
-def validate(records: list[dict]) -> None:
+def validate(records: list[dict], feature_records: dict[str, dict] | None = None) -> None:
     expected_cells = {
         "E-TR-01": "g_037.75_029.75",
         "E-TR-02": "g_038.75_028.75",
@@ -150,8 +304,12 @@ def validate(records: list[dict]) -> None:
         assert set(record) == {
             "region_id", "name", "role", "lat", "lon", "coord_status", "cell_id",
             "shares_cell_with", "tags", "analog_dimensions", "candidate_targets",
-            "usgs_listed", "limitations", "features_ref", "local_media", "status",
+            "usgs_listed", "limitations", "features_ref", "feature_availability",
+            "grid_coverage", "local_media", "status", "source_commit",
         }
+        assert isinstance(record["features_ref"], list)
+        if feature_records is not None:
+            assert all(ref["region_id"] in feature_records for ref in record["features_ref"])
     meke = next(r for r in records if r["region_id"] == "E-TR-03")
     acigol = next(r for r in records if r["region_id"] == "E-TR-04")
     assert meke["shares_cell_with"] == ["E-TR-04"]
@@ -176,13 +334,16 @@ def main() -> int:
     args = parser.parse_args()
 
     records = build_records()
-    validate(records)
+    feature_records = load_feature_records()
+    source = source_commit()
+    validate(records, feature_records)
     payload = {
-        "schema_version": "0.1-draft",
+        "schema_version": "0.2-draft",
         "generated_at": datetime.now(timezone(timedelta(hours=3))).isoformat(timespec="seconds"),
         "owner": "Kisi 3 - discovery",
         "status": "draft_qualitative",
         "note": "Eslesmeler niteliksel hipotezdir; siralama sonucu Kisi 2 benzerlik motorundan gelir. Sayisal ozellikler features.json'da, region_id ile bagli.",
+        "source_commit": source,
         "records": records,
     }
     output = destination_path(args.force)
@@ -190,7 +351,7 @@ def main() -> int:
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     reparsed = json.loads(output.read_text(encoding="utf-8"))
     validate(reparsed["records"])
-    assert reparsed["schema_version"] == "0.1-draft"
+    assert reparsed["schema_version"] == "0.2-draft"
     assert reparsed["generated_at"].endswith("+03:00")
     print(f"Wrote {output.relative_to(ROOT)}")
     print("Validation passed: six unique IDs, expected cells, reciprocal shared cell, JSON round-trip, qualitative fields only.")

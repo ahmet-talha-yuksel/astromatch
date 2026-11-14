@@ -1,9 +1,10 @@
 {
-  "schema_version": "0.1-draft",
-  "generated_at": "2026-11-14T20:43:02+03:00",
+  "schema_version": "0.2-draft",
+  "generated_at": "2026-11-15T00:27:08+03:00",
   "owner": "Kisi 3 - discovery",
   "status": "draft_qualitative",
   "note": "Eslesmeler niteliksel hipotezdir; siralama sonucu Kisi 2 benzerlik motorundan gelir. Sayisal ozellikler features.json'da, region_id ile bagli.",
+  "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
   "records": [
     {
       "region_id": "E-TR-01",
@@ -34,10 +35,36 @@
       "limitations": [
         "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek."
       ],
-      "features_ref": {
-        "file": "features.json",
-        "region_id": "E-TR-01"
+      "features_ref": [
+        {
+          "file": "features.json",
+          "region_id": "earth_salda_local",
+          "scale": "local"
+        },
+        {
+          "file": "features.json",
+          "region_id": "earth_salda_regional",
+          "scale": "regional"
+        }
+      ],
+      "feature_availability": {
+        "local": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        },
+        "regional": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        }
       },
+      "grid_coverage": {
+        "cell_key": "g_037.75_029.75",
+        "status": "processed",
+        "comparable": true
+      },
+      "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
       "local_media": [],
       "status": "draft_qualitative"
     },
@@ -75,10 +102,36 @@
       "limitations": [
         "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek."
       ],
-      "features_ref": {
-        "file": "features.json",
-        "region_id": "E-TR-02"
+      "features_ref": [
+        {
+          "file": "features.json",
+          "region_id": "earth_kula_local",
+          "scale": "local"
+        },
+        {
+          "file": "features.json",
+          "region_id": "earth_kula_regional",
+          "scale": "regional"
+        }
+      ],
+      "feature_availability": {
+        "local": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        },
+        "regional": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        }
       },
+      "grid_coverage": {
+        "cell_key": "g_038.75_028.75",
+        "status": "processed",
+        "comparable": true
+      },
+      "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
       "local_media": [],
       "status": "draft_qualitative"
     },
@@ -113,10 +166,36 @@
         "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek.",
         "Global 0.5° ızgarada aynı hücreye düşer (shares_cell_with)."
       ],
-      "features_ref": {
-        "file": "features.json",
-        "region_id": "E-TR-03"
+      "features_ref": [
+        {
+          "file": "features.json",
+          "region_id": "earth_meke_local",
+          "scale": "local"
+        },
+        {
+          "file": "features.json",
+          "region_id": "earth_meke_regional",
+          "scale": "regional"
+        }
+      ],
+      "feature_availability": {
+        "local": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        },
+        "regional": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        }
       },
+      "grid_coverage": {
+        "cell_key": "g_037.75_033.75",
+        "status": "processed",
+        "comparable": true
+      },
+      "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
       "local_media": [],
       "status": "draft_qualitative"
     },
@@ -148,12 +227,20 @@
       "usgs_listed": false,
       "limitations": [
         "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek.",
-        "Global 0.5° ızgarada aynı hücreye düşer (shares_cell_with)."
+        "Global 0.5° ızgarada aynı hücreye düşer (shares_cell_with).",
+        "features.json'da bu saha için ayrı kayıt yok; Meke ile aynı 0.5° hücreye düşer"
       ],
-      "features_ref": {
-        "file": "features.json",
-        "region_id": "E-TR-04"
+      "features_ref": [],
+      "feature_availability": {
+        "local": null,
+        "regional": null
       },
+      "grid_coverage": {
+        "cell_key": "g_037.75_033.75",
+        "status": "processed",
+        "comparable": true
+      },
+      "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
       "local_media": [],
       "status": "draft_qualitative"
     },
@@ -185,12 +272,39 @@
         "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek.",
         "Lav tüpü ve çöküntü boyutu onlarca-yüzlerce metredir; 500 m çözünürlüklü DEM metrikleri bunu çözemez, bu boyut bu veri setiyle ölçülemez.",
         "Türkiye'nin ilk lav tüpü mağarasının 2015'te bulunduğu ve bilimsel olarak az karakterize edildiği bilgisi ekip raporundan alındı, kaynak teyit edilecek.",
-        "Koordinat ~36.5 boylamında hücre sınırında; kesinleşince cell_id yeniden hesaplanmalı."
+        "Koordinat ~36.5 boylamında hücre sınırında; kesinleşince cell_id yeniden hesaplanmalı.",
+        "Bu sahanın cell_key grid coverage dosyasında not_scanned durumundadır."
       ],
-      "features_ref": {
-        "file": "features.json",
-        "region_id": "E-TR-05"
+      "features_ref": [
+        {
+          "file": "features.json",
+          "region_id": "earth_hassa_local",
+          "scale": "local"
+        },
+        {
+          "file": "features.json",
+          "region_id": "earth_hassa_regional",
+          "scale": "regional"
+        }
+      ],
+      "feature_availability": {
+        "local": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        },
+        "regional": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        }
       },
+      "grid_coverage": {
+        "cell_key": "g_036.75_036.75",
+        "status": "not_scanned",
+        "comparable": false
+      },
+      "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
       "local_media": [],
       "status": "draft_qualitative"
     },
@@ -224,10 +338,36 @@
       "limitations": [
         "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek."
       ],
-      "features_ref": {
-        "file": "features.json",
-        "region_id": "E-TR-06"
+      "features_ref": [
+        {
+          "file": "features.json",
+          "region_id": "earth_tuz_golu_local",
+          "scale": "local"
+        },
+        {
+          "file": "features.json",
+          "region_id": "earth_tuz_golu_regional",
+          "scale": "regional"
+        }
+      ],
+      "feature_availability": {
+        "local": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        },
+        "regional": {
+          "resolution_validated": true,
+          "comparable_metric_count": 6,
+          "data_status": "derived"
+        }
       },
+      "grid_coverage": {
+        "cell_key": "g_038.75_033.25",
+        "status": "processed",
+        "comparable": true
+      },
+      "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
       "local_media": [],
       "status": "draft_qualitative"
     }
