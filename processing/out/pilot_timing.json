@@ -1,0 +1,215 @@
+{
+  "schema_version": "2.3",
+  "kind": "measured_pilot",
+  "acquired_on": "2026-11-14",
+  "cells_in_reference_areas": 408,
+  "selected_cells": 8,
+  "records_written": 8,
+  "areas": [
+    "turkey",
+    "atacama",
+    "iceland"
+  ],
+  "measurements": [
+    {
+      "region_id": "earth_grid_r254_c418",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 6.034596083918586,
+        "caching_s": 0.012471667025238276,
+        "cropping_mosaic_s": 0.13217670796439052,
+        "acquisition_wall_s": 7.643844624981284
+      },
+      "processing": {
+        "reprojection_s": 0.015879041980952024,
+        "feature_extraction_s": 0.0003352079074829817,
+        "validation_provenance_s": 0.009532417170703411,
+        "processing_wall_s": 0.025746667059138417,
+        "heightmap_export_s": 0.003852665890008211
+      }
+    },
+    {
+      "region_id": "earth_grid_r254_c419",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 3.048871041974053,
+        "caching_s": 0.0042611658573150635,
+        "cropping_mosaic_s": 0.0946509160567075,
+        "acquisition_wall_s": 3.148288916097954
+      },
+      "processing": {
+        "reprojection_s": 0.008626834023743868,
+        "feature_extraction_s": 0.0002704998478293419,
+        "validation_provenance_s": 0.0010604159906506538,
+        "processing_wall_s": 0.009957749862223864,
+        "heightmap_export_s": 0.0004373749252408743
+      }
+    },
+    {
+      "region_id": "earth_grid_r255_c418",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.0,
+        "caching_s": 0.0037901250179857016,
+        "cropping_mosaic_s": 0.06780208391137421,
+        "acquisition_wall_s": 0.07203654199838638
+      },
+      "processing": {
+        "reprojection_s": 0.008616958046332002,
+        "feature_extraction_s": 0.00025558285415172577,
+        "validation_provenance_s": 0.0010738340206444263,
+        "processing_wall_s": 0.009946374921128154,
+        "heightmap_export_s": 0.00038833310827612877
+      }
+    },
+    {
+      "region_id": "earth_grid_r255_c419",
+      "area": "turkey",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.0,
+        "caching_s": 0.0035862077493220568,
+        "cropping_mosaic_s": 0.06424120790325105,
+        "acquisition_wall_s": 0.06824508286081254
+      },
+      "processing": {
+        "reprojection_s": 0.008279499830678105,
+        "feature_extraction_s": 0.0002251670230180025,
+        "validation_provenance_s": 0.0010050833225250244,
+        "processing_wall_s": 0.009509750176221132,
+        "heightmap_export_s": 0.0003279170487076044
+      }
+    },
+    {
+      "region_id": "earth_grid_r130_c221",
+      "area": "atacama",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 2.2641312079504132,
+        "caching_s": 0.007379667134955525,
+        "cropping_mosaic_s": 0.08993824990466237,
+        "acquisition_wall_s": 4.028820958221331
+      },
+      "processing": {
+        "reprojection_s": 0.007371624931693077,
+        "feature_extraction_s": 0.0002448330633342266,
+        "validation_provenance_s": 0.0008701260667294264,
+        "processing_wall_s": 0.00848658406175673,
+        "heightmap_export_s": 0.00029041687957942486
+      }
+    },
+    {
+      "region_id": "earth_grid_r131_c220",
+      "area": "atacama",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.9419549161102623,
+        "caching_s": 0.006196124944835901,
+        "cropping_mosaic_s": 0.0887521249242127,
+        "acquisition_wall_s": 1.0375227502081543
+      },
+      "processing": {
+        "reprojection_s": 0.0071661660913378,
+        "feature_extraction_s": 0.00020150002092123032,
+        "validation_provenance_s": 0.0008169589564204216,
+        "processing_wall_s": 0.008184625068679452,
+        "heightmap_export_s": 0.000261958921328187
+      }
+    },
+    {
+      "region_id": "earth_grid_r308_c320",
+      "area": "iceland",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 1.9682874591089785,
+        "caching_s": 0.012371624819934368,
+        "cropping_mosaic_s": 0.06605483288876712,
+        "acquisition_wall_s": 2.047284625004977
+      },
+      "processing": {
+        "reprojection_s": 0.007513832999393344,
+        "feature_extraction_s": 0.00023949984461069107,
+        "validation_provenance_s": 0.0008328752592206001,
+        "processing_wall_s": 0.008586208103224635,
+        "heightmap_export_s": 0.00030533317476511
+      }
+    },
+    {
+      "region_id": "earth_grid_r309_c321",
+      "area": "iceland",
+      "status": "scanned",
+      "acquisition": {
+        "download_s": 0.8583130829501897,
+        "caching_s": 0.0033397499937564135,
+        "cropping_mosaic_s": 0.08520904206670821,
+        "acquisition_wall_s": 0.9473400840070099
+      },
+      "processing": {
+        "reprojection_s": 0.007524457992985845,
+        "feature_extraction_s": 0.00020745792426168919,
+        "validation_provenance_s": 0.0008835429325699806,
+        "processing_wall_s": 0.008615458849817514,
+        "heightmap_export_s": 0.00030874996446073055
+      }
+    }
+  ],
+  "landmask": {
+    "status": "not_run",
+    "duration_s": null,
+    "reason": "No validated land/water mask supplied; zero elevation is not treated as ocean."
+  },
+  "srtm_probes": {
+    "turkey": {
+      "catalog_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SRTMGL30&version=002&page_size=1&bounding_box=29.249%2C37.249%2C29.251%2C37.251",
+      "catalog_sha256": "4ef0239c19afde49bc5609a3e44bc3f2d8525e7dab98115c85be55c129077fe2",
+      "product": "SRTMGL30.002",
+      "download_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/e020n40.SRTMGL30.dem/e020n40.SRTMGL30.dem.zip",
+      "status": "http_access_failed",
+      "http_status": 401,
+      "source_lookup_s": 1.4525665000546724
+    },
+    "atacama": {
+      "catalog_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=SRTMGL30&version=002&page_size=1&bounding_box=-69.251%2C-24.751%2C-69.249%2C-24.749",
+      "catalog_sha256": "9b188765bb53795ee1c267bd3260adfbf869564ed9c991d5cec6a9b1a8efd4ef",
+      "product": "SRTMGL30.002",
+      "download_url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL30.002/w100s10.SRTMGL30.dem/w100s10.SRTMGL30.dem.zip",
+      "status": "http_access_failed",
+      "http_status": 401,
+      "source_lookup_s": 1.66483970801346
+    }
+  },
+  "dem_sources_measured": [
+    "copernicus_glo90"
+  ],
+  "source_transition_comparison": {
+    "status": "not_run",
+    "reason": "No SRTMGL30 input raster available."
+  },
+  "global_decision": {
+    "status": "deferred",
+    "estimated_hours_range": null,
+    "scope": null,
+    "reasons": [
+      "Validated land mask and target land-cell count are unavailable.",
+      "SRTMGL30/GLO-90 overlap measurements are unavailable.",
+      "8 selected windows and mixed cache conditions do not establish global throughput."
+    ]
+  },
+  "assumptions": {
+    "grid_step_deg": 0.5,
+    "window_km": 50,
+    "analysis_resolution_m": 1000,
+    "cache_state": "per-tile cache_hit recorded; mixed cold/warm conditions",
+    "land_fraction": null,
+    "global_land_cell_count": null
+  },
+  "limitations": [
+    "No score, rank or validated negative class is produced.",
+    "not_scanned means unknown, not dissimilar.",
+    "A missing ocean tile is not inferred to be zero-meter terrain.",
+    "Timing values are observations, not deterministic artifacts."
+  ]
+}

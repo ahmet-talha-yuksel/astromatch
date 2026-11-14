@@ -135,3 +135,33 @@ karşılaştırılmalı ve uyarılara yazılmalıdır.
 kapsama geometrisi ve 12 PNG+metadata çifti içerir. Gerekli MOLA/LOLA kalite
 kontrolü tamamlanmadığı için kayıtların comparable bayrakları false kalır.
 Hazır dosyalar modül entegrasyonunda okunabilir; skor üretmek için kullanılamaz.
+
+## Gerçek bölgesel 0,5° ön pilot (2026-11-14)
+
+- Öncelikli kaynak: [NASA SRTMGL30.002](https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl30-002),
+  [DOI](https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL30.002).
+  Resmi CMR granül araması Türkiye ve Atacama için indirme bağlantısı döndürdü;
+  her iki arşiv isteği HTTP 401 ile erişilemedi. Kullanılan katalog URL'leri,
+  cevap hash'leri, indirme adresleri ve erişim sonuçları `pilot/retrieval.json`
+  içindedir. NASA DEM rasteri bu pilotta indirilmedi.
+- Fiilen kullanılan kaynak: Copernicus DEM GLO-90 Public, 2021 release,
+  [resmi ürün portalı](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM),
+  [AWS dağıtım kaydı](https://registry.opendata.aws/copernicus-dem/),
+  [karo/ızgara açıklaması](https://copernicus-dem-90m.s3.amazonaws.com/readme.html).
+  Yükseklik EGM2008/metre; kuzey-güney 3 arc-second; doğu-batı aralığı enleme bağlı.
+- GLO-90 karolarının URL, ETag, Last-Modified, byte boyutu, SHA-256 ve cache
+  durumu erişim manifestinde bulunur. Ham karolar/mozaikler Git dışında
+  `processing/raw/pilot/` konumundadır. GLO-30 saha paketleri korunmuştur.
+- 408 referans hücre (Türkiye 10×10°, Atacama 1×1°, İzlanda 1×1°); açıkça
+  seçilen 8 hücre işlendi, 400 hücre taranmadı. Türkiye/Atacama'da erişilemeyen
+  SRTM yerine GLO-90 kullanımı `fallback_dem` ile belirtilir. İzlanda nominal
+  SRTM kapsamı dışı örneğidir. Seçilen 8 fiziksel pencerede NoData=0.
+- Özellik penceresi 50×50 km merkezli LAEA, analiz 1000 m, average resampling;
+  kaynak küre/elipsoidi ve mevcut metrik yöntemi korunur. 0,5° poligon yalnızca
+  örnekleme hücresini belirtir. Kaynak dosya hash'i her kayıtta saklanır.
+- Kara maskesi elde edilmedi; süre ve land_fraction null'dır. SRTMGL30/GLO-90
+  geçiş karşılaştırması yapılmadı. Bu nedenle global süre aralığı/kapsam kararı
+  ertelendi; v2.3 kararı verilmiş gibi sunulmaz. Ayrı aşama ölçümleri
+  `pilot/pilot_timing.json` ve `pilot_timing.json` içindedir.
+- Tüm sayısal özellikler gerçek GLO-90'dan derived, comparable=false'dur.
+  Bu ön pilot benzerlik skoru veya doğrulanmış bilimsel keşif değildir.

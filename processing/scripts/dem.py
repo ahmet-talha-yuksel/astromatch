@@ -3,6 +3,7 @@ from dataclasses import dataclass
 import hashlib
 from pathlib import Path
 import math
+from time import perf_counter
 
 import numpy as np
 from pyproj import CRS
@@ -14,7 +15,8 @@ from rasterio.vrt import WarpedVRT
 from .metrics import METHOD, TOPOGRAPHIC, terrain_features
 
 RADII = {'earth': 6371008.8, 'mars': 3396190.0, 'moon': 1737400.0}
-PRODUCTS = {'copernicus': 'earth', 'mola': 'mars', 'lola': 'moon'}
+PRODUCTS = {'copernicus': 'earth', 'copernicus_glo90': 'earth', 'srtmgl30': 'earth',
+            'mola': 'mars', 'lola': 'moon'}
 
 
 @dataclass(frozen=True)
@@ -42,8 +44,9 @@ class DemRequest:
     quality_notes: tuple[str, ...] = ()
 
 
-def process_dem(request: DemRequest):
+def process_dem(request: DemRequest, timings=None):
     """Return (v2.3 record, meter array). Pair validation is a separate step."""
+    started = perf_counter()
     r = request
     if PRODUCTS.get(r.product) != r.body:
         raise ValueError('Product/body mismatch')
@@ -108,15 +111,19 @@ def process_dem(request: DemRequest):
             raise ValueError('LOLA band offset encodes planetary radius; convert to sphere-relative height first')
         if not all(math.isfinite(v) for v in (band_scale, band_offset)) or band_scale <= 0:
             raise ValueError('Invalid band scale/offset')
+        warp_started = perf_counter()
         with WarpedVRT(src, crs=dst_crs.to_wkt(), transform=transform,
                        width=size, height=size, dtype='float64', nodata=np.nan,
                        resampling=Resampling.average) as vrt:
             array = vrt.read(1, masked=True).filled(np.nan)
         array = (array * band_scale + band_offset) * (1000 if r.vertical_unit == 'km' else 1)
         array[~np.isfinite(array)] = np.nan
+        warp_seconds = perf_counter() - warp_started
         source_crs = src.crs.to_wkt()
     ratio = float(1 - np.isfinite(array).mean())
+    feature_started = perf_counter()
     features = terrain_features(array, spacing, False, 'mock' if r.synthetic else 'derived')
+    feature_seconds = perf_counter() - feature_started
     warnings = list(r.quality_notes)
     if ratio > 0:
         warnings.append('Analysis window contains NoData; affected metric neighborhoods are excluded.')
@@ -179,6 +186,11 @@ def process_dem(request: DemRequest):
             record['quality']['validation_eligible'] = False
             record['quality']['warnings'].append(
                 'Some analysis cells have no directly observed source bins or no counts coverage.')
+    if timings is not None:
+        elapsed = perf_counter()-started
+        timings.update(reprojection_s=warp_seconds, feature_extraction_s=feature_seconds,
+                       validation_provenance_s=max(0.0, elapsed-warp_seconds-feature_seconds),
+                       processing_wall_s=elapsed)
     return record, array
 
 

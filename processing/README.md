@@ -194,7 +194,7 @@ Copernicus kaynak portalı ve ürün sürümü [DATA_SOURCES.md](out/DATA_SOURCE
 içindedir. Ham büyük rasterler Git'e dahil edilmez.
 
 MOLA için ölçek duyarlılığı incelemesi ve LOLA Ay hedefinin ilk çıktıları
-aşağıdaki bölümde sunulmuştur. Pilot/global taramaya henüz başlanmadı.
+aşağıdaki bölümde sunulmuştur. İlk 0,5° ön pilot aşağıdaki bölümde sunulur; global kapsam kararı henüz verilmedi.
 
 ## Ölçek duyarlılığı raporu ve Ay teslimi
 
@@ -251,8 +251,8 @@ processing/.venv/bin/python -m processing.scripts.process_dem \
 İlk iki edinim komutunun ham dosyaları yerelde mevcut olmalıdır. Tüketiciler
 hazır küçük çıktıları doğrudan okuyabilir. Paket derived ve gerçek veridir;
 **henüz benzerlik skoruna hazır değildir**. Uyumsuz/gerekli kontrolü eksik
-kayıtlara skor verilmemelidir. Global pilot ve Marius Hills global LOLA ürünü
-bu teslimin kapsamına henüz alınmadı.
+kayıtlara skor verilmemelidir. İlk global tarama ön pilotu aşağıdaki bölümde sunulur. Marius Hills global
+LOLA ürünü henüz eklenmedi.
 
 ## Minimum dört Dünya sahası
 
@@ -297,3 +297,59 @@ Koordinatların kaynak/notları `configs/earth_sites.json` ve retrieval manifest
 `combine_configs` bağımsız edinim config'lerini okuyup yollarını çıktı config'ine
 göre düzenler; aynı `region_id` iki kez gelirse çıktıyı değiştirmeden durur.
 Hazır küçük paketleri diğer ekipler ham raster indirmeden okuyabilir.
+
+## 0,5° P0-lite ön pilotu
+
+`out/pilot/` Kişi 3'ün tüketebileceği ilk gerçek, merkezleri global 0,5° ızgaraya
+hizalanmış pakettir. `configs/pilot.json` içindeki Türkiye referans kutusu
+25–35°D / 30–40°K (10×10°) tutulur; bu alanın tamamı işlenmiş değildir.
+Atacama ve İzlanda referans alanlarıyla birlikte 408 hücreden 8'i seçilip
+50×50 km LAEA / 1000 m çözünürlükte işlendi. Diğer 400 hücre `not_scanned`.
+Hücre poligonu 0,5°'dir; özellikler poligondan değil sabit fiziksel pencereden
+hesaplanır. `earth_grid_rRRR_cCCC` kimliği güneybatıdan başlayan sabit satır/sütun
+indeksidir; Dünya sahası kimliklerinden ayrıdır.
+
+```sh
+processing/.venv/bin/python -m processing.scripts.acquire_pilot \
+  processing/configs/pilot.json --accessed-on YYYY-MM-DD
+processing/.venv/bin/python -m processing.scripts.run_pilot \
+  processing/raw/pilot/acquisition.json --output processing/out/pilot
+```
+
+Edinim NASA CMR üzerinden önce SRTMGL30.002 indirme bağlantısını bulur ve küçük
+bir erişim isteği yapar. 2026-11-14 çalışmasında Türkiye ve Atacama ürünleri
+401 döndürdü; bu ortamda kimliği doğrulanmış Earthdata erişimi yoktu. Tercih
+edilen veri elde edilmiş gibi gösterilmedi. Pilot GLO-90 alternatifini kullandı;
+alçak enlem kayıtlarında `coverage=fallback_dem` ve erişim gerekçesi saklanır.
+İzlanda nominal SRTM enlem kapsamı dışındadır. SRTM erişimi mümkünse mevcut edinim
+komutu sessizce alternatife geçmez, SRTM adaptörü eklenmesini ister.
+
+GLO-90'ın enleme bağlı farklı doğu-batı piksel aralıkları kontrol edilir;
+mozaik daha ince bir doğu-batı ızgarasına zorlanmaz. Ön pilot kutup ve tarih
+çizgisi sarma pencerelerini desteklemez. Tile cache'i SHA-256 ile doğrulanır;
+cache dosyası değiştirilmişse işlem durur. Cache'den kullanmak yeni bir uzak
+indirme/erişim tarihi gibi sunulmaz. Ağ/401/403 hataları veri yokluğuna çevrilmez;
+GLO-90 404 karoları işlenmiş sıfır yükselti olarak doldurulmaz.
+
+Paket: `features.json`, düzleştirilmiş `earth_grid.parquet`, `coverage.geojson`,
+8 PNG+metadata çifti, `retrieval.json` ve `pilot_timing.json`. Ana zaman raporu
+ayrıca `out/pilot_timing.json` konumuna yazılır. `scanned`, `not_scanned`,
+`no_data` ayrı durumlardır. Bu gerçek örnekte 8 scanned / 400 not_scanned
+vardır; no_data davranışı ayrı testle doğrulanır. Taranmayan alan benzer olmayan
+alan değildir. Parquet yalnızca işlenmiş kayıtları taşır.
+
+Zaman raporu indirme, cache yazma/doğrulama, kırpma/mozaik, reprojeksiyon,
+özellik çıkarma, kalite/provenance ve PNG dışa aktarmayı ayrı kaydeder. NASA
+katalog/erişim sorgusu da ayrıca ölçülür. Kara maskesi henüz sağlanmadığı için
+`landmask.duration_s=null`, `earth_filters.land_fraction.value=null` kalır.
+Sıfır metre yükselti otomatik deniz sayılmaz. Soğuk/sıcak cache durumları her
+karo için yazılır; süreler veri değerleri gibi deterministik olması beklenen
+çıktılar değildir. Aynı girdiden özellikler tekrar üretilebilir, süreler değişir.
+
+**Global karar henüz verilmedi:** iki DEM kaynağı arasında ölçülmüş geçiş farkı,
+doğrulanmış kara maskesi/kara hücre sayısı ve genişletilmiş örnekleme yoktur.
+`estimated_hours_range=null`, karar `deferred` olur. 3/8 saatlik v2.3 karar
+kapısı fonksiyon ve sınır testleriyle hazırdır; bu örneğin süresi dünya hücre
+sayısıyla çarpılıp kesin tamamlanma tahmini olarak sunulmaz. Tüm pilot özellikler
+`derived` ama `comparable=false` kalır. Kod skor/sıralama veya USGS doğrulaması
+üretmez; bunlar ilgili ekiplerin sorumluluğundadır.
