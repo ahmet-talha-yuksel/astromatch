@@ -207,3 +207,4 @@ footer{font-size:11px;color:#8598b9;margin-top:10px;line-height:1.4;flex-shrink:
 @media(max-width:1450px){.comparison-layout{grid-template-columns:minmax(0,1fr)}.insights{width:100%}}
 @media(max-width:900px){.terrain-embed .terrain-canvas{height:clamp(320px,48dvh,530px)}}
 @media(max-width:520px){.terrain-embed .terrain-canvas{height:clamp(280px,44dvh,440px)}}
+.measurement-status{max-width:440px;text-align:left;line-height:1.6;padding:20px}.measurement-status h3{color:var(--ui-accent);font-size:20px;margin-top:0}.measurement-status p{margin:12px 0}.terrain-panel>.terrain-empty{height:clamp(350px,48dvh,600px);max-height:none;aspect-ratio:auto;flex-shrink:0;overflow:auto}
