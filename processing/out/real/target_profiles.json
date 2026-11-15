@@ -1,0 +1,1233 @@
+{
+  "schema_version": "profile-1.0",
+  "targets": [
+    {
+      "target_id": "T-01",
+      "region_id": "mars_jezero_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "carbonate_bearing_paleolake",
+          "summary": "Orbital observations indicate possible carbonate along the former western lake margin of Jezero.",
+          "evidence": "orbital_remote_sensing",
+          "spatial_scope": "regional",
+          "source": {
+            "title": "What a Lake in Turkey Can Tell Us about Mars",
+            "url_or_doi": "https://science.nasa.gov/blogs/earth-matters/2021/02/17/what-a-lake-in-turkey-can-tell-us-about-mars/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": [
+            "carbonate"
+          ]
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "target_id": "T-02",
+      "region_id": "moon_shackleton_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "orbital_indicator",
+          "summary": "Laser reflectance measurements of the Shackleton floor are consistent with small amounts of ice; not a direct ice detection.",
+          "evidence": "orbital_remote_sensing",
+          "spatial_scope": "site",
+          "source": {
+            "title": "NASA Spacecraft Reveals Ice Content in Moon Crater",
+            "url_or_doi": "https://www.lpi.usra.edu/features/LRO/072512/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "not_applicable",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "Atmospheric dust/wind dimension is not applicable to this lunar profile."
+        },
+        "illumination": {
+          "category": "permanently_shadowed_interior",
+          "summary": "The crater interior is permanently dark while parts of the upper walls receive sunlight.",
+          "evidence": "literature_synthesis",
+          "spatial_scope": "site",
+          "source": {
+            "title": "NASA Spacecraft Reveals Ice Content in Moon Crater",
+            "url_or_doi": "https://www.lpi.usra.edu/features/LRO/072512/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature."
+        }
+      }
+    },
+    {
+      "target_id": "T-03",
+      "region_id": "moon_marius_hills_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "volcanic_pit",
+          "summary": "The Marius Hills pit lies within a sinuous rille and is interpreted as a possible collapsed lava-tube roof.",
+          "evidence": "orbital_remote_sensing",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Marius Hills Pit - Lava Tube Skylight?",
+            "url_or_doi": "https://www.lroc.im-ldi.com/images/202",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "not_applicable",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "Atmospheric dust/wind dimension is not applicable to this lunar profile."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "target_id": "T-04",
+      "region_id": "mars_phoenix_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "direct_observation",
+          "summary": "Phoenix analyzed a collected sample and confirmed subsurface water ice at its landing site.",
+          "evidence": "direct_measurement",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Mars Phoenix",
+            "url_or_doi": "https://science.nasa.gov/mission/mars-phoenix/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature."
+        },
+        "surface_material": {
+          "category": "perchlorate_bearing_soil",
+          "summary": "Phoenix detected perchlorate in soil at its landing site.",
+          "evidence": "direct_measurement",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Mars Phoenix",
+            "url_or_doi": "https://science.nasa.gov/mission/mars-phoenix/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": [
+            "perchlorate"
+          ]
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "target_id": "T-05",
+      "region_id": "mars_arcadia_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "orbital_indicator",
+          "summary": "Rounded ridges in the cited Arcadia THEMIS image suggest ground ice; this is a regional geomorphic interpretation.",
+          "evidence": "orbital_remote_sensing",
+          "spatial_scope": "regional",
+          "source": {
+            "title": "Arcadia Planitia",
+            "url_or_doi": "https://science.nasa.gov/resource/arcadia-planitia/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    }
+  ],
+  "earth_sites": [
+    {
+      "region_id": "earth_salda_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "carbonate_lake_deposits",
+          "summary": "White sands and rocks on the eastern Salda shore are carbonate precipitates from the lake.",
+          "evidence": "literature_synthesis",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Lake Salda Beach",
+            "url_or_doi": "https://www.jpl.nasa.gov/images/pia24375-lake-salda-beach/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": [
+            "carbonate"
+          ]
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_kula_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_hassa_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_atacama_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meke_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_tuz_golu_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_haughton_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "impact_hydrothermal_deposits",
+          "summary": "Haughton impact deposits include gypsum-bearing carbonates and remobilized sulfates.",
+          "evidence": "literature_synthesis",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Microbial Preservation in Sulfates in the Haughton Impact Structure Suggests Target in Search for Life on Mars",
+            "url_or_doi": "https://ntrs.nasa.gov/search.jsp?R=20050173938",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": [
+            "gypsum",
+            "carbonate"
+          ]
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meteor_crater_local",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "impact_sandstone_terrain",
+          "summary": "Barringer Crater cuts desert sandstone west of Winslow, Arizona.",
+          "evidence": "literature_synthesis",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Barringer Meteor Crater, Arizona",
+            "url_or_doi": "https://science.nasa.gov/photojournal/barringer-meteor-crater-arizona/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_salda_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "carbonate_lake_deposits",
+          "summary": "White sands and rocks on the eastern Salda shore are carbonate precipitates from the lake.",
+          "evidence": "literature_synthesis",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Lake Salda Beach",
+            "url_or_doi": "https://www.jpl.nasa.gov/images/pia24375-lake-salda-beach/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": [
+            "carbonate"
+          ]
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_kula_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_hassa_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_atacama_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meke_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_tuz_golu_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_haughton_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "impact_hydrothermal_deposits",
+          "summary": "Haughton impact deposits include gypsum-bearing carbonates and remobilized sulfates.",
+          "evidence": "literature_synthesis",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Microbial Preservation in Sulfates in the Haughton Impact Structure Suggests Target in Search for Life on Mars",
+            "url_or_doi": "https://ntrs.nasa.gov/search.jsp?R=20050173938",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": [
+            "gypsum",
+            "carbonate"
+          ]
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    },
+    {
+      "region_id": "earth_meteor_crater_regional",
+      "dimensions": {
+        "water_ice": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "surface_material": {
+          "category": "impact_sandstone_terrain",
+          "summary": "Barringer Crater cuts desert sandstone west of Winslow, Arizona.",
+          "evidence": "literature_synthesis",
+          "spatial_scope": "site",
+          "source": {
+            "title": "Barringer Meteor Crater, Arizona",
+            "url_or_doi": "https://science.nasa.gov/photojournal/barringer-meteor-crater-arizona/",
+            "accessed_on": "2026-11-15"
+          },
+          "verified_by": null,
+          "notes": "Literature context only; not a DEM-window measurement or scoring feature.",
+          "minerals": []
+        },
+        "thermal": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session.",
+          "values": {
+            "surface_temp_min_c": null,
+            "surface_temp_max_c": null
+          }
+        },
+        "dust_wind": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        },
+        "illumination": {
+          "category": "unknown",
+          "summary": null,
+          "evidence": null,
+          "spatial_scope": null,
+          "source": null,
+          "verified_by": null,
+          "notes": "No applicable site-specific claim was verified in this session."
+        }
+      }
+    }
+  ]
+}

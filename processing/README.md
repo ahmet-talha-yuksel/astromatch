@@ -28,8 +28,11 @@ geçerlidir; eksik gözlemin yerine 0 yazılmaz.
 `out/real/context_report.md` kapsamı ve boşluk nedenlerini taşır. Topoğrafik
 özellikler, eski aylık çevre verisi, kimlikler, skor girdileri ve uygunluk
 bayrakları korunur. Bu veri katmanı PR #40'taki yardımcı context formatını
-izler; PR #39'un profil arayüzünü bu branch'e getirmez. Ay/literatür profilleri
-ve yağış bu MODIS işleminin kapsamı dışındadır.
+izler. Ay sıcaklık/PSR alanları ayrıca null değer ve açık nedenlerle taşınır;
+Diviner PRP'nin 2 cm derinlikteki değeri yüzey sıcaklığı sayılmaz.
+`out/real/target_profiles.json` beş hedef ile 16 Dünya saha/ölçek profilini
+içerir. Kaynaklı iddialarda `verified_by` henüz null olduğundan arayüz bunları
+doğrulanmamış olarak gösterir. Yağış bu MODIS işleminin kapsamı dışındadır.
 Mevcut kök/ızgara/ZIP yayın kopyaları da güncellenir; eski hedef QA kararları
 korunarak yalnızca yardımcı veri eklenen dosyanın yeni hash'ine bağlanır.
 Genişletilmiş ızgara ve doğrulama örneğinde bu 408 hücrelik bağlam grubunun

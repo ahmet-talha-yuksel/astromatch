@@ -1,5 +1,23 @@
 # DEM batch provenance
 
+## Diviner context inspection
+
+Opened on 2026-11-15: https://pds-geosciences.wustl.edu/missions/lro/diviner.htm and the South Polar Resource Product label https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.xml . Exact logical/version identifier: urn:nasa:pds:lro_diviner_derived1:data_derived_prp:dlre_prp_south::1.0. DOI: null (not verified). Period: calculated annual statistics, no 2025 observing period. Resolution: null (triangle mesh, uniform raster resolution not established). Access: label HTTP 200; no temperature mesh ingested. temp_avg is modeled temperature at 2 cm depth and temp_max is calculated surface annual maximum; neither is substituted for the requested observed mean/minimum surface temperature. No PSR mask was validated. Lunar radius in label: 1737.4 km. Global product catalog opened, but no reliable nonpolar surface-temperature product/window extraction was established.
+
+## Analog profile context (2025 annual request)
+
+Access checks: 2026-11-15. Metadata was opened; no authenticated 2025 granules were acquired. Numeric context fields remain null. The planned QA/aggregation policy is recorded in each context field; it has not been executed on 2025 pixels.
+
+| Short name | Version | DOI | Requested period | Native resolution | Opened metadata |
+|---|---|---|---|---|---|
+| MOD11C3 | 061 | 10.5067/MODIS/MOD11C3.061 | 2025-01..2025-12 | 0.05 degree CMG (~5550 m) | https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MOD11C3/ |
+| MOD13C2 | 061 | null (not independently verified in an accessible DOI record) | 2025-01..2025-12 | 0.05 degree CMG (~5550 m) | https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MOD13C2/ |
+| GPM_3IMERGM | 07 | 10.5067/GPM/IMERG/3B-MONTH/07 | 2025-01..2025-12 | 0.1 degree | https://data.nasa.gov/dataset/gpm-imerg-final-precipitation-l3-1-month-0-1-degree-x-0-1-degree-v07-gpm-3imergm-at-ges-di-75e72 |
+
+QC specifications opened: https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3 and https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2 . Fill and out-of-valid-range pixels must be masked before calibration. MODIS day/night LST is clear-sky overpass surface temperature, not air temperature or an instantaneous daily thermal amplitude. Annual values require at least 9 months; precipitation requires all 12 months. No missing value is zero-imputed.
+
+Earthdata login failed with LoginStrategyUnavailable for environment and netrc strategies. Credentials are not included in this report. Context is auxiliary only and does not alter features or scoring eligibility. Monthly acquisition, exact window extraction and annual observed statistics remain blocked, not completed.
+
 Synthetic fixtures are not NASA/ESA observations. No downloads were performed by this pipeline.
 
 Parameters and CRS are also stored in features.json.
