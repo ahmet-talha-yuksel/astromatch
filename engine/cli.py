@@ -123,6 +123,8 @@ def main(argv=None):
                 features=['processing/out/real/features.json']
                 if (Path(__file__).resolve().parent.parent/'processing/out/mars_measured/features.json').exists():
                     features.append('processing/out/mars_measured/features.json')
+                if (Path(__file__).resolve().parent.parent/'processing/out/moon_measured/features.json').exists():
+                    features.append('processing/out/moon_measured/features.json')
             paths=DataPaths(features=features,grid=args.grid)
             readiness=check_real_data(paths)
             if not readiness['ready']:

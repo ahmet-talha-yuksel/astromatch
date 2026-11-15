@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     data_dir: str = str(ROOT/'data')
     data_mode: Literal['mock','real','auto'] = 'auto'
     results_dir: str = str(ROOT/'engine/demo_results')
-    features: str = ','.join(str(ROOT/path) for path in ('processing/out/real/features.json','processing/out/mars_measured/features.json'))
+    features: str = ','.join(str(ROOT/path) for path in ('processing/out/real/features.json','processing/out/mars_measured/features.json','processing/out/moon_measured/features.json'))
     grid: str = str(ROOT/'processing/out/earth_grid.parquet')
     cors_origins: str = 'http://localhost:5173,http://localhost:5174'
     model_config = SettingsConfigDict(env_prefix='ASTROMATCH_',env_file='.env',extra='ignore')
