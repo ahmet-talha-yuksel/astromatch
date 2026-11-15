@@ -14,6 +14,7 @@ from .grid_status import not_scanned_points
 from .distance import standardized_distance
 from .discrimination import classify
 from .commonality import terrain_commonality
+from .contextual import commonality_factor
 
 DISCLAIMER='MOCK DATA — NOT A SCIENTIFIC RESULT'
 
@@ -168,6 +169,12 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         from .uncertainty import simulate
         intervals=simulate(target,candidates,keys,values,eligible,w,sig,feats,full,preset=preset)
         for row in full: row.update(intervals[row['id']])
+    context_factor=commonality_factor(commonality)
+    commonality['contextual_factor']=context_factor
+    for row in full:
+        row['score_contextual']=row['score_geo']*context_factor
+        row['score_contextual_ci_low']=row.get('score_ci_low',row['score_geo'])*context_factor
+        row['score_contextual_ci_high']=row.get('score_ci_high',row['score_geo'])*context_factor
     best=full[0]['distance_z'] if full else 0.0
     discrimination,discrimination_explanation=classify([r['score_geo'] for r in full],target_id=target_id)
     top_five=max(1,math.ceil(len(full)*.05))

@@ -82,18 +82,18 @@ def build_reports(ds,out='engine/report/'):
             sensitivity=compare(ds,scoped,'balanced') if scoped.body=='mars' else None
             if sensitivity:lines.append(f'- Method sensitivity: Spearman {sensitivity.get("spearman")}; top-10 Jaccard {sensitivity.get("top_10_jaccard")}; max Turkish-site rank shift {sensitivity.get("max_turkish_rank_shift")}')
             lines.extend(['','### Top 10 Earth candidates','',
-                          '| Candidate | Nearest place | Score geo (90% interval) | Relative | Match | Strongest / weakest |',
-                          '|---|---|---:|---:|---|---|'])
+                          '| Candidate | Nearest place | Contextual terrain (90% interval) | Raw geo | Relative | Match | Strongest / weakest |',
+                          '|---|---|---:|---:|---:|---|---|'])
             for row in result.top_k[:10]:
                 explanation=row.get('explanation') or {}
                 strong=', '.join(v['feature'] for v in explanation.get('strongest',[])[:2])
                 weak=', '.join(v['feature'] for v in explanation.get('weakest',[])[:2])
-                lines.append(f"| {_name(row)} | {_place(row)} | {row['score_geo']:.1f} ({row.get('score_ci_low',row['score_geo']):.1f}–{row.get('score_ci_high',row['score_geo']):.1f}) | {row['score_relative']:.1f} | {row['match_level']} | {strong} / {weak} |")
+                lines.append(f"| {_name(row)} | {_place(row)} | {row['score_contextual']:.1f} ({row['score_contextual_ci_low']:.1f}–{row['score_contextual_ci_high']:.1f}) | {row['score_geo']:.1f} | {row['score_relative']:.1f} | {row['match_level']} | {strong} / {weak} |")
             sites=_site_rows(ds,scoped,result)
             lines.extend(['','### Turkish sites','',
-                          '| Site | Nearest place | Score geo | Relative |',
-                          '|---|---|---:|---:|'])
-            for row in sites:lines.append(f"| {row['name']} | {_place(row)} | {row['score_geo']:.1f} | {row['score_relative']:.1f} |")
+                          '| Site | Nearest place | Contextual terrain | Raw geo | Relative |',
+                          '|---|---|---:|---:|---:|'])
+            for row in sites:lines.append(f"| {row['name']} | {_place(row)} | {row['score_contextual']:.1f} | {row['score_geo']:.1f} | {row['score_relative']:.1f} |")
             if result.top_k:
                 first=result.top_k[0]['explanation']
                 lines.extend(['','### Where the analogy breaks','']+[f'- {item}' for item in first.get('analogy_breaks',[])])

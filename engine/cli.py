@@ -135,7 +135,7 @@ def main(argv=None):
     stamp=getattr(args,'timestamp',None) or datetime.now(timezone.utc).isoformat()
     if args.command=='export-demo':
         if args.mock:
-            ds=load_dataset(mock=True,mock_n_grid=220)
+            ds=load_dataset(mock=True,mock_n_grid=190)
             ds.input_hashes=_mock_hashes(ds)
         else:
             paths=DataPaths(features=args.features,grid=args.grid)

@@ -235,6 +235,10 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
     out['score_percentile_scanned']=np.where(out['score'].notna(),
         100*np.searchsorted(sorted_scanned,out['score'].fillna(0).to_numpy(),side='left')/len(sorted_scanned)
         if len(sorted_scanned) else np.nan,np.nan)
+    share80=float(np.mean(sorted_scanned>=.8)) if len(sorted_scanned) else None
+    share90=float(np.mean(sorted_scanned>=.9)) if len(sorted_scanned) else None
+    factor=1-(share80+share90)/2 if share80 is not None else 1.0
+    out['score_contextual']=out['score']*factor
     if return_criteria:
         for j, key in enumerate(keys):
             out["s_" + key] = scores[:, j]
@@ -242,6 +246,7 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
     out.attrs["sigma_source"] = {key: value["sigma_source"] for key, value in table.items()}
     out.attrs["sigma_table"] = table
     out.attrs["sigma_calibration"] = calibration
+    out.attrs["contextual_factor"] = factor
     return out
 
 

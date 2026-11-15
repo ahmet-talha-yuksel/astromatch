@@ -6,6 +6,9 @@ class CandidateScore(BaseModel):
     model_config=ConfigDict(extra='allow')
     id: str
     score_geo: float = Field(description='Absolute geometric similarity, 0–100')
+    score_contextual: float | None = Field(default=None, description='Terrain score discounted by commonality in the scanned grid, 0–100')
+    score_contextual_ci_low: float | None = None
+    score_contextual_ci_high: float | None = None
     score_arith: float = Field(description='Arithmetic similarity, 0–100')
     score_relative: float = Field(description='Relative score: best eligible Earth record is 100')
     score_percentile: float
@@ -100,6 +103,9 @@ class CompareResponse(Envelope):
     z_by_feature: dict[str,float]
     distance_z: float
     score_geo: float
+    score_contextual: float | None = None
+    score_contextual_ci_low: float | None = None
+    score_contextual_ci_high: float | None = None
     score_ci_low: float | None = None
     score_ci_high: float | None = None
     score_relative: float

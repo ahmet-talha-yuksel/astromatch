@@ -13,6 +13,7 @@ from engine.ranking import rank
 from engine.validation_api import _default_reference, _sigma_table
 from engine.validation_metrics import grid_feature_correlations
 from engine.weights import weight_vector
+from engine.contextual import commonality_factor
 
 
 def test_failed_feature_is_excluded_without_blocking_target(caplog):
@@ -96,3 +97,15 @@ def test_local_frozen_sigma_and_feature_correlations():
     correlations = grid_feature_correlations(ds)
     assert correlations['n_cells'] == 216
     assert correlations['matrix']['relief_m']['elevation_std_m'] > .9
+
+
+def test_contextual_score_discount_is_common_and_order_preserving():
+    assert commonality_factor({'share_ge_80': .5, 'share_ge_90': .34}) == pytest.approx(.58)
+    assert commonality_factor({'share_ge_80': None, 'share_ge_90': None}) == 1
+    targets, candidates, _ = generate(n_grid=40, n_reference=0)
+    target = adapt(next(row for row in targets if row['region_id'] == 'T-01' and row['scale'] == 'regional'))
+    ds = Dataset(targets=[target], candidates=[adapt(row) for row in candidates if row['scale'] == 'regional'], mode='mock')
+    result = rank(ds, target.region_id, 'regional')
+    factor = result.terrain_commonality['contextual_factor']
+    assert all(row['score_contextual'] == pytest.approx(row['score_geo'] * factor) for row in result.full_scores)
+    assert all(row['score_contextual'] <= row['score_geo'] for row in result.full_scores)

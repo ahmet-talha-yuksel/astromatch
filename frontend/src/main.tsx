@@ -11,7 +11,7 @@ import "./style.css";
 type Target = { alias: string; region_id: string; name: string; body: string; scales: string[]; status: string; reason: string | null; excluded_features?: string[] };
 type Place = { name: string; admin1: string | null; country_code: string; distance_km: number } | null;
 type Criterion = { s_i: number };
-type Candidate = { id: string; name: string; score_geo: number; score_relative: number; score_ci_low?: number; score_ci_high?: number; match_level: string; place?: Place; per_criterion?: Record<string, Criterion> };
+type Candidate = { id: string; name: string; score_geo: number; score_contextual?: number; score_contextual_ci_low?: number; score_contextual_ci_high?: number; score_relative: number; score_ci_low?: number; score_ci_high?: number; match_level: string; place?: Place; per_criterion?: Record<string, Criterion> };
 type RankResponse = { top_k: Candidate[]; target_status: string; target_reason: string | null; excluded_features?: string[]; terrain_commonality?: { eligible_cells: number; share_ge_90: number | null }; data_status: string };
 type TerrainResponse = { source: string | null; viewer?: TerrainDataJSON };
 const BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
@@ -97,7 +97,8 @@ function App() {
   };
   const commonShare = commonality?.share_ge_90;
   const commonTerrain = commonShare != null && commonShare >= 0.1;
-  const displayColor = (score: number) => commonTerrain ? "#f5a45a" : color(score);
+  const contextual = (item: Candidate) => item.score_contextual ?? item.score_geo;
+  const displayColor = (score: number) => color(score);
 
   return <div className="app-shell" data-body={target?.body ?? "moon"}>
     <SpaceBackdrop enabled={spaceMotion} />
@@ -107,7 +108,7 @@ function App() {
         <div className="candidate-list">{ranked.map((item, index) => <button type="button" key={item.id} className={`candidate-item ${item.id === candidateId ? "active" : ""}`} onClick={() => setCandidateId(item.id)}>
           <span className="candidate-details"><span className="candidate-top"><span className="candidate-rank">{String(index + 1).padStart(2, "0")}</span><span className="candidate-name" title={item.name}>{item.name}</span></span>
           <span className="candidate-location">{item.place ? `${item.place.name}, ${item.place.country_code}` : "Location unavailable"}</span></span>
-          <ScoreRing score={item.score_geo} color={displayColor(item.score_geo)} label={fmt(item.score_geo)} />
+          <ScoreRing score={contextual(item)} color={displayColor(contextual(item))} label={fmt(contextual(item))} />
         </button>)}</div>
         {!ranked.length && <p className="muted empty-list">{rankStatus === "unscorable" ? "No validated matches available." : "Loading matches…"}</p>}
       </div><div className="sidebar-foot"><span className="status-dot" />{dataStatus === "real" ? "Measured data" : dataStatus === "mock" ? "Demo data" : "Waiting for data"}</div>
@@ -126,7 +127,8 @@ function App() {
           <article className="terrain-panel"><div className="panel-heading"><div><span className="panel-kicker">PLANETARY TARGET</span><h2>{target?.name ?? "Choosing target"}</h2></div><span className="body-badge">{target?.body === "moon" ? "MOON" : "MARS"}</span></div>{targetTerrain?.viewer ? <div className="terrain-embed"><TerrainViewer terrain={targetTerrain.viewer} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={false} /></div> : <div className="terrain-empty">No validated 3D elevation map is available for this region.</div>}<div className="panel-bottom"><span>{target?.region_id ?? "—"}</span><span>{targetTerrain?.source ?? "Elevation data unavailable"}</span></div></article>
           <article className="terrain-panel"><div className="panel-heading"><div><span className="panel-kicker">EARTH ANALOG</span><h2>{candidate?.name ?? "Select a match"}</h2></div><span className="body-badge earth-badge">EARTH</span></div>{earthTerrain?.viewer ? <div className="terrain-embed"><TerrainViewer terrain={earthTerrain.viewer} display={display} explorationTerrains={explorationTerrains} /></div> : <div className="terrain-empty">No validated 3D elevation map is available for this region.</div>}<div className="panel-bottom"><span>{candidate?.id ?? "—"}</span><span>{earthTerrain?.source ?? "Elevation data unavailable"}</span></div></article>
         </div><div className="gesture-hint">Drag: rotate · Right drag: pan · Scroll: zoom <span>Both surfaces use the same elevation scale</span></div></section>
-        <aside className="insights" aria-label="Similarity details"><p className="section-kicker">COMPARISON SUMMARY</p><h2>Similarity analysis</h2>{candidate ? <><div className="primary-score"><span>TERRAIN FEATURE MATCH · NOT ANALOG PROBABILITY</span><strong style={{ color: displayColor(candidate.score_geo) }}>{fmt(candidate.score_geo)} / 100</strong><div className="score-track"><span style={{ width: `${candidate.score_geo}%`, background: displayColor(candidate.score_geo) }} /></div><small>{candidate.score_ci_low != null && candidate.score_ci_high != null ? `90% sensitivity interval: ${fmt(candidate.score_ci_low)}–${fmt(candidate.score_ci_high)}` : "Interval unavailable"}</small></div>
+        <aside className="insights" aria-label="Similarity details"><p className="section-kicker">COMPARISON SUMMARY</p><h2>Similarity analysis</h2>{candidate ? <><div className="primary-score"><span>CONTEXTUAL TERRAIN SCORE · NOT ANALOG PROBABILITY</span><strong style={{ color: displayColor(contextual(candidate)) }}>{fmt(contextual(candidate))} / 100</strong><div className="score-track"><span style={{ width: `${contextual(candidate)}%`, background: displayColor(contextual(candidate)) }} /></div><small>{candidate.score_contextual_ci_low != null && candidate.score_contextual_ci_high != null ? `90% sensitivity interval: ${fmt(candidate.score_contextual_ci_low)}–${fmt(candidate.score_contextual_ci_high)}` : "Interval unavailable"}</small></div>
+          <div className="metric-row"><span>Raw feature match</span><strong>{fmt(candidate.score_geo)} / 100</strong></div>
           {commonTerrain && <div className="commonality-note">{fmt((commonShare ?? 0) * 100)}% of scanned Earth cells also have a terrain score of at least 90. Ice, temperature, mineralogy and atmosphere are not included.</div>}
           <div className="metric-row"><span>Relative score</span><strong>{fmt(candidate.score_relative)}%</strong></div><div className="metric-row"><span>Match level</span><strong>{candidate.match_level.replace(/_/g, " ")}</strong></div>
           <div className="criterion-section"><h3>Criteria</h3><p className="muted small">Similarity by terrain feature</p>{Object.entries(candidate.per_criterion ?? {}).map(([key, value]) => <div className="criterion" key={key}><div><span>{NAMES[key] ?? key}</span><strong>{fmt(value.s_i * 100)}%</strong></div><div className="criterion-track"><span style={{ width: `${Math.max(0, Math.min(100, value.s_i * 100))}%`, background: color(value.s_i * 100) }} /></div></div>)}</div>

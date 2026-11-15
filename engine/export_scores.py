@@ -86,6 +86,7 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     frames = []
     sigma_tables = {}
     calibration_tables = {}
+    contextual_factors = {}
     counts = {}
     unscorable = {}
     for alias in active:
@@ -108,8 +109,12 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
             scored[column]=scored[column]/100
         scored['score_ci_low']=np.minimum(scored['score_ci_low'],scored['score'])
         scored['score_ci_high']=np.maximum(scored['score_ci_high'],scored['score'])
+        factor=scored.attrs['contextual_factor']
+        scored['score_contextual_ci_low']=scored['score_ci_low']*factor
+        scored['score_contextual_ci_high']=scored['score_ci_high']*factor
         sigma_tables[alias] = scored.attrs["sigma_table"]
         calibration_tables[alias] = scored.attrs.get("sigma_calibration")
+        contextual_factors[alias] = factor
         counts[alias] = {"scored": int(scored.score.notna().sum()),
                          "nan": int(scored.score.isna().sum())}
         if not counts[alias]["scored"]:
@@ -126,7 +131,7 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
                 "overrides": overrides if not mock else [],
                 "engine_version": ENGINE_VERSION, "scale": "regional",
                 "preset": preset, "sigma_mode": sigma or "recompute",
-                "sigma_table": sigma_tables, "sigma_calibration": calibration_tables, "alias_table": aliases,
+                "sigma_table": sigma_tables, "sigma_calibration": calibration_tables, "contextual_factors": contextual_factors, "alias_table": aliases,
                 "grid_status": grid_status, "grid_rows": len(grid_df),
                 "grid_extent": _grid_extent(grid_df), "grid_label": "regional subset",
                 "counts_per_target": counts, "unscorable_targets": unscorable}
