@@ -6,26 +6,27 @@ import { createVisualFillGeometry } from "../geometry/visualInterpolation";
 import { createTerrainGeometry } from "../geometry/terrainGeometry";
 import { createPlanetTextures, isPlanetSurface, type SurfaceStyle } from "../materials/planetSurface";
 
-export function TerrainMesh({ terrain, verticalExaggeration, colorMode, elevationOffset, colorRange, worldSpanMeters, onInspect, onHoverChange, highlighted = false, fillMissing = false }: {
+export function TerrainMesh({ terrain, verticalExaggeration, colorMode, elevationOffset, colorRange, worldSpanMeters, onInspect, onHoverChange, highlighted = false, fillMissing = false, meterScale }: {
   terrain: TerrainData; verticalExaggeration?: number; colorMode?: SurfaceStyle;
   elevationOffset?: number; colorRange?: { min: number; max: number }; worldSpanMeters?: number;
   onInspect?: (point: THREE.Vector3) => void; onHoverChange?: (hovered: boolean) => void; highlighted?: boolean; fillMissing?: boolean;
+  meterScale?:number;
 }) {
   const planet = colorMode === "surface" ? terrain.body : colorMode && isPlanetSurface(colorMode) ? colorMode : null;
   const geometryMode = colorMode === "neutral" ? "neutral" : "elevation";
   const geometry = useMemo(() => (fillMissing ? createVisualFillGeometry : createTerrainGeometry)(terrain, { verticalExaggeration, colorMode: geometryMode, elevationOffset, colorRange, worldSpanMeters }), [terrain, verticalExaggeration, geometryMode, elevationOffset, colorRange, worldSpanMeters, fillMissing]);
   useEffect(() => () => { geometry.dispose(); }, [geometry]);
-  return <><mesh geometry={geometry} onPointerOver={() => onHoverChange?.(true)} onPointerMove={event => onInspect?.(event.point)} onPointerOut={() => { onHoverChange?.(false); onInspect?.(new THREE.Vector3(NaN, NaN, NaN)); }}>
-    <SurfaceMaterial style={planet ?? geometryMode} highlighted={highlighted} showEstimates={fillMissing} />
+  return <><mesh geometry={geometry} receiveShadow onPointerOver={() => onHoverChange?.(true)} onPointerMove={event => onInspect?.(event.point)} onPointerOut={() => { onHoverChange?.(false); onInspect?.(new THREE.Vector3(NaN, NaN, NaN)); }}>
+    <SurfaceMaterial style={planet ?? geometryMode} highlighted={highlighted} showEstimates={fillMissing} meterScale={meterScale} />
   </mesh>{!fillMissing && <NoDataOverlay terrain={terrain} verticalExaggeration={verticalExaggeration} elevationOffset={elevationOffset} worldSpanMeters={worldSpanMeters} />}</>;
 }
 
-export function SurfaceMaterial({ style, highlighted = false, dimmed = false, showEstimates = false }: { style: SurfaceStyle; highlighted?: boolean; dimmed?: boolean; showEstimates?: boolean }) {
+export function SurfaceMaterial({ style, highlighted = false, dimmed = false, showEstimates = false, meterScale }: { style: SurfaceStyle; highlighted?: boolean; dimmed?: boolean; showEstimates?: boolean; meterScale?:number }) {
   const planet = isPlanetSurface(style) ? style : null;
   const geometryMode = style;
   const textures = useMemo(() => planet ? createPlanetTextures(planet) : null, [planet]);
   useEffect(() => () => { textures?.map.dispose(); textures?.bumpMap.dispose(); textures?.soilMap?.dispose(); textures?.rockMap?.dispose(); }, [textures]);
-  return <meshStandardMaterial color={dimmed ? "#899296" : "#ffffff"} emissive="#4be6c2" emissiveIntensity={highlighted ? 0.16 : 0} key={planet ?? geometryMode} vertexColors={!planet} map={textures?.map ?? null} bumpMap={textures?.bumpMap ?? null} bumpScale={0.002} onBeforeCompile={shader => {
+  return <meshStandardMaterial color={dimmed ? "#899296" : "#ffffff"} emissive="#4be6c2" emissiveIntensity={highlighted ? 0.16 : 0} key={`${planet??geometryMode}-${meterScale??"overview"}`} vertexColors={!planet} map={textures?.map ?? null} bumpMap={textures?.bumpMap ?? null} bumpScale={meterScale?meterScale*.004:.002} onBeforeCompile={shader => {
       if (showEstimates) {
         shader.vertexShader = `attribute float visualEstimate; varying float vVisualEstimate;\n${shader.vertexShader}`
           .replace("#include <begin_vertex>", "#include <begin_vertex>\nvVisualEstimate = visualEstimate;");
@@ -33,6 +34,17 @@ export function SurfaceMaterial({ style, highlighted = false, dimmed = false, sh
           .replace("#include <color_fragment>", "#include <color_fragment>\ndiffuseColor.rgb *= mix(vec3(1.0), vec3(1.08, 1.03, 0.94), clamp(vVisualEstimate, 0.0, 1.0));");
       }
       if (!planet) return;
+      if(meterScale) {
+        shader.uniforms.simMeterScale={value:meterScale};
+        shader.vertexShader=`uniform float simMeterScale; varying vec2 vSimMeters;\n${shader.vertexShader}`.replace("#include <begin_vertex>","#include <begin_vertex>\nvSimMeters=transformed.xz/simMeterScale;");
+        shader.fragmentShader=`varying vec2 vSimMeters;\n${shader.fragmentShader}`.replace("#include <map_fragment>",`
+          vec3 macroColor=texture2D(map,vMapUv).rgb;
+          float grain=texture2D(bumpMap,vSimMeters*1.25).r;
+          vec3 microColor=texture2D(map,vSimMeters*.3).rgb;
+          diffuseColor.rgb*=mix(macroColor,microColor,.28)*(.8+grain*.4);
+        `).replace("#include <bumpmap_pars_fragment>",THREE.ShaderChunk.bumpmap_pars_fragment.split("vBumpMapUv").join("(vSimMeters*1.25)"));
+        return;
+      }
       if (planet === "Earth") {
         shader.uniforms.earthSoilMap = { value: textures?.soilMap };
         shader.uniforms.earthRockMap = { value: textures?.rockMap };
@@ -61,5 +73,5 @@ export function SurfaceMaterial({ style, highlighted = false, dimmed = false, sh
         "diffuseColor *= sampledDiffuseColor;",
         "vec3 detail = texture2D(map, vMapUv * 32.0 + vec2(0.17, 0.39)).rgb; diffuseColor *= sampledDiffuseColor; diffuseColor.rgb *= 0.65 + detail * 0.9;"
       )).replace("#include <bumpmap_pars_fragment>", THREE.ShaderChunk.bumpmap_pars_fragment.split("vBumpMapUv").join("(vBumpMapUv * 24.0)"));
-    }} customProgramCacheKey={() => `${planet === "Earth" ? "earth-layered-v1" : "planet-detail-v1"}-${showEstimates ? "estimated" : "source"}`} side={THREE.DoubleSide} roughness={0.96} />;
+    }} customProgramCacheKey={() => `${planet === "Earth" ? "earth-layered-v1" : "planet-detail-v1"}-${showEstimates ? "estimated" : "source"}-${meterScale?"meter-detail":"overview"}`} side={THREE.DoubleSide} roughness={0.96} />;
 }

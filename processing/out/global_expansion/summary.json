@@ -23,5 +23,10 @@
     "prior_base_grid_sha256": "eaf434a1fe1b9de3ae81f3762826c8b63154fce53696a7c37c5c1552bf20297e",
     "legacy_columns_preserved": true,
     "zero_roughness_notes_added": true
+  },
+  "context_enrichment": {
+    "period": "2025-01..2025-12",
+    "non_context_columns_preserved": true,
+    "base_grid_sha256": "10e16329de103a5c8a0c535dbcc803bb3e9dda098b5e1ec43ef238681f283be3"
   }
 }

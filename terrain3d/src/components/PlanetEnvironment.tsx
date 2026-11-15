@@ -2,7 +2,7 @@ import { Stars } from "@react-three/drei";
 import { useMemo } from "react";
 import * as THREE from "three";
 
-export function PlanetEnvironment({ body, immersive = false, space = false }: { body: "Earth" | "Mars" | "Moon"; immersive?: boolean; space?: boolean }) {
+export function PlanetEnvironment({ body, immersive = false, space = false, sunIntensity }: { body: "Earth" | "Mars" | "Moon"; immersive?: boolean; space?: boolean;sunIntensity?:number }) {
   const colors = useMemo(() => ({
     top: new THREE.Color(space ? "#02040c" : body === "Mars" ? "#50352c" : body === "Earth" ? "#3879ae" : "#010207"),
     horizon: new THREE.Color(space ? (body === "Mars" ? "#30241e" : body === "Earth" ? "#142331" : "#070912") : body === "Mars" ? "#d4a579" : body === "Earth" ? "#d3e4df" : "#080b12"),
@@ -24,6 +24,6 @@ export function PlanetEnvironment({ body, immersive = false, space = false }: { 
       </mesh>
     </>}
     <hemisphereLight args={[body === "Mars" ? "#efc5a4" : body === "Earth" ? "#d6ebff" : "#b4bbd0", body === "Earth" ? "#44472b" : "#3a2922", body === "Moon" ? 0.35 : 0.85]} />
-    <directionalLight position={[-5, 4, -6]} color={body === "Mars" ? "#ffe2c4" : "#fff5e6"} intensity={body === "Moon" ? 2.8 : 2.2} />
+    <directionalLight position={[-5, 4, -6]} color={body === "Mars" ? "#ffe2c4" : "#fff5e6"} intensity={sunIntensity??(body === "Moon" ? 2.8 : 2.2)} />
   </>;
 }

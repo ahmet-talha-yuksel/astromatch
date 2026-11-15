@@ -71,10 +71,19 @@ def merged_features(paths):
             old_version=_version(old.get('processing_version'))
             new_version=_version(row.get('processing_version'))
             if new_version>=old_version:
+                if old.get('context'):
+                    inherited=set(old['context'])-set(row.get('context') or {})
+                    row={**row,'context':{**old['context'],**(row.get('context') or {})}}
+                    if inherited:overrides.append(f'{rid}: carried context {sorted(inherited)} from {old_path} into selected record')
                 chosen[rid]=(row,path)
                 decision='newer processing_version' if new_version>old_version else 'later file at equal/unknown version'
                 overrides.append(f'{rid}: {old_path} -> {path} ({decision})')
             else:
+                if row.get('context'):
+                    inherited=set(row['context'])-set(old.get('context') or {})
+                    old={**old,'context':{**row['context'],**(old.get('context') or {})}}
+                    chosen[rid]=(old,old_path)
+                    if inherited:overrides.append(f'{rid}: carried context {sorted(inherited)} from {path} into selected record')
                 overrides.append(f'{rid}: kept {old_path} over {path} (newer processing_version)')
     return [item[0] for item in chosen.values()],overrides
 

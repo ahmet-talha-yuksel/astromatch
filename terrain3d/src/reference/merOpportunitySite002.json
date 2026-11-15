@@ -1,0 +1,1324 @@
+{
+  "schema_version": "mer-local-reference-1",
+  "mission": "MER1",
+  "rover": "Opportunity",
+  "site": 2,
+  "coordinate_frame": "SITE_FRAME 2",
+  "position_unit": "m",
+  "records": [
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 0,
+      "idd": 0,
+      "pma": 1,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "offset_m": [
+        -0.06,
+        0.0,
+        0.3
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975555,
+        0.0118491,
+        0.0423059,
+        0.21532
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-26T08:50:07Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 0,
+      "idd": 2,
+      "pma": 109,
+      "hga": 50,
+      "tweak": 0,
+      "rmc": [
+        2,
+        0,
+        2,
+        109,
+        50,
+        0
+      ],
+      "offset_m": [
+        -0.06,
+        0.0,
+        0.3
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.969646,
+        -0.0036092,
+        0.114941,
+        0.215785
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-28T05:08:34Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 3,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        -0.06,
+        0.0,
+        0.3
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.969646,
+        -0.0036558,
+        0.114709,
+        0.215907
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-28T05:08:41Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 3,
+      "idd": 0,
+      "pma": 1,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        3,
+        0,
+        1,
+        0,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975051,
+        0.00981089,
+        0.0504875,
+        0.215942
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-28T05:16:59Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 3,
+      "idd": 0,
+      "pma": 12,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        3,
+        0,
+        12,
+        0,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975051,
+        0.00981089,
+        0.0504875,
+        0.215942
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-28T05:09:21Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 3,
+      "idd": 0,
+      "pma": 19,
+      "hga": 42,
+      "tweak": 0,
+      "rmc": [
+        2,
+        3,
+        0,
+        19,
+        42,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.971922,
+        0.000932596,
+        0.0922273,
+        0.216473
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-28T06:42:56Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 5,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975011,
+        0.0101153,
+        0.0503333,
+        0.216142
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-28T06:43:10Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 5,
+      "idd": 0,
+      "pma": 25,
+      "hga": 42,
+      "tweak": 0,
+      "rmc": [
+        2,
+        5,
+        0,
+        25,
+        42,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975252,
+        0.0104606,
+        0.0441177,
+        0.216397
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-29T06:14:34Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 7,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        7,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975082,
+        0.0110294,
+        0.0452565,
+        0.216899
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-29T07:22:28Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 9,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        9,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975105,
+        0.0108685,
+        0.0446606,
+        0.216926
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-29T07:22:57Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 11,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        11,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.974987,
+        0.0108789,
+        0.0460908,
+        0.217159
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-29T07:25:45Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 11,
+      "idd": 0,
+      "pma": 4,
+      "hga": 42,
+      "tweak": 0,
+      "rmc": [
+        2,
+        11,
+        0,
+        4,
+        42,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.975291,
+        0.0126421,
+        0.0401105,
+        0.216882
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-29T11:51:04Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 11,
+      "idd": 0,
+      "pma": 5,
+      "hga": 42,
+      "tweak": 0,
+      "rmc": [
+        2,
+        11,
+        0,
+        5,
+        42,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.970884,
+        0.0500034,
+        -0.0998239,
+        0.211941
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-29T11:51:24Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 11,
+      "idd": 0,
+      "pma": 1080,
+      "hga": 42,
+      "tweak": 0,
+      "rmc": [
+        2,
+        11,
+        0,
+        1080,
+        42,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.970728,
+        0.0505418,
+        -0.101084,
+        0.21193
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-30T06:17:17Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 11,
+      "idd": 10,
+      "pma": 2812,
+      "hga": 112,
+      "tweak": 0,
+      "rmc": [
+        2,
+        11,
+        10,
+        2812,
+        112,
+        0
+      ],
+      "offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.97053,
+        0.0509516,
+        -0.102665,
+        0.211978
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-31T06:43:08Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 13,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        13,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        0.0908574,
+        0.0412327,
+        0.0259229
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.969076,
+        0.0517001,
+        -0.110735,
+        0.214374
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-31T07:59:04Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 15,
+      "idd": 0,
+      "pma": 0,
+      "hga": 3,
+      "tweak": 0,
+      "rmc": [
+        2,
+        15,
+        0,
+        0,
+        3,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959176,
+        0.0123599,
+        0.0650889,
+        0.27494
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-31T11:02:47Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 15,
+      "idd": 0,
+      "pma": 4,
+      "hga": 3,
+      "tweak": 0,
+      "rmc": [
+        2,
+        15,
+        0,
+        4,
+        3,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959118,
+        0.00889178,
+        0.0676664,
+        0.274655
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-31T11:07:16Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 15,
+      "idd": 0,
+      "pma": 6,
+      "hga": 3,
+      "tweak": 0,
+      "rmc": [
+        2,
+        15,
+        0,
+        6,
+        3,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959611,
+        0.00901378,
+        0.0676503,
+        0.272925
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-31T11:06:06Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 15,
+      "idd": 0,
+      "pma": 7,
+      "hga": 3,
+      "tweak": 0,
+      "rmc": [
+        2,
+        15,
+        0,
+        7,
+        3,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959545,
+        0.0130203,
+        0.0657026,
+        0.273474
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-01-31T11:03:15Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 24,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        24,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959072,
+        0.0133104,
+        0.0657031,
+        0.275113
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-01T08:52:37Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 24,
+      "idd": 13,
+      "pma": 28,
+      "hga": 127,
+      "tweak": 0,
+      "rmc": [
+        2,
+        24,
+        13,
+        28,
+        127,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959098,
+        0.0137462,
+        0.0645306,
+        0.275277
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-02T12:41:24Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 24,
+      "idd": 38,
+      "pma": 533,
+      "hga": 216,
+      "tweak": 0,
+      "rmc": [
+        2,
+        24,
+        38,
+        533,
+        216,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959212,
+        0.0143137,
+        0.0629861,
+        0.275211
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-04T10:43:44Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 24,
+      "idd": 39,
+      "pma": 536,
+      "hga": 216,
+      "tweak": 0,
+      "rmc": [
+        2,
+        24,
+        39,
+        536,
+        216,
+        0
+      ],
+      "offset_m": [
+        2.6367,
+        1.46606,
+        0.355954
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.959211,
+        0.0142911,
+        0.0628951,
+        0.275234
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-04T10:21:06Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 26,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        26,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        3.08104,
+        1.68339,
+        0.305884
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.983509,
+        0.00871419,
+        0.0679391,
+        0.167385
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T02:38:12Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 28,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        28,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        3.56217,
+        1.79361,
+        0.24703
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.995866,
+        0.00357102,
+        0.073616,
+        0.0530925
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T02:38:08Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 30,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        30,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        3.80338,
+        1.84075,
+        0.215314
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.987579,
+        0.00491499,
+        0.0762371,
+        0.137302
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T02:38:19Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 32,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        32,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        3.80338,
+        1.84075,
+        0.215314
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.921107,
+        0.016056,
+        0.070252,
+        0.382582
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T02:30:22Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 34,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        34,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        4.22325,
+        2.26472,
+        0.154553
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.921326,
+        0.0117298,
+        0.0756002,
+        0.38119
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T02:38:31Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 36,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        36,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        4.64395,
+        2.68623,
+        0.0832533
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.921924,
+        0.00669082,
+        0.0827548,
+        0.378369
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-05T14:00:28Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 38,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        38,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        5.0644,
+        3.10638,
+        0.00290661
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.92054,
+        0.00171408,
+        0.0901294,
+        0.380106
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-05T14:00:33Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 42,
+      "idd": 0,
+      "pma": 4,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        42,
+        0,
+        4,
+        0,
+        0
+      ],
+      "offset_m": [
+        5.4139,
+        3.45794,
+        -0.0721787
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.917518,
+        -0.00667883,
+        0.101206,
+        0.384542
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-05T13:52:26Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 42,
+      "idd": 0,
+      "pma": 6,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        42,
+        0,
+        6,
+        0,
+        0
+      ],
+      "offset_m": [
+        5.4139,
+        3.45794,
+        -0.0721787
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.919034,
+        -0.00627805,
+        0.101232,
+        0.380906
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-05T13:52:43Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 42,
+      "idd": 0,
+      "pma": 7,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        42,
+        0,
+        7,
+        0,
+        0
+      ],
+      "offset_m": [
+        5.4139,
+        3.45794,
+        -0.0721787
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.917639,
+        -0.00243242,
+        0.0992215,
+        0.384822
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-05T13:33:36Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 46,
+      "idd": 0,
+      "pma": 0,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        46,
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset_m": [
+        6.11771,
+        4.28467,
+        -0.256256
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.902085,
+        -0.01585,
+        0.10725,
+        0.417718
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T12:41:06Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 50,
+      "idd": 0,
+      "pma": 4,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        50,
+        0,
+        4,
+        0,
+        0
+      ],
+      "offset_m": [
+        6.43101,
+        4.66439,
+        -0.351334
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.894345,
+        -0.0266493,
+        0.112399,
+        0.432208
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T12:59:57Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    },
+    {
+      "rover": "Opportunity",
+      "site": 2,
+      "drive": 50,
+      "idd": 0,
+      "pma": 6,
+      "hga": 0,
+      "tweak": 0,
+      "rmc": [
+        2,
+        50,
+        0,
+        6,
+        0,
+        0
+      ],
+      "offset_m": [
+        6.43101,
+        4.66439,
+        -0.351334
+      ],
+      "orientation_s_v1_v2_v3": [
+        0.894345,
+        -0.0266493,
+        0.112399,
+        0.432208
+      ],
+      "solution_id": "telemetry",
+      "solution_added_at": "2004-02-06T12:59:53Z",
+      "sol": null,
+      "observation_utc": null,
+      "latitude": null,
+      "longitude": null,
+      "data_status": "derived"
+    }
+  ],
+  "geographic_registration": null,
+  "registered_terrain_id": null,
+  "limitations": [
+    "Local coordinate definitions, not a geographically registered traverse.",
+    "RMC counts are actuator identifiers, not distances or continuous dynamics telemetry.",
+    "add_date is solution metadata, not observation time; sol remains null.",
+    "Combining sites requires the matching SVF and coordinate transforms."
+  ],
+  "provenance": {
+    "product_lid": "urn:nasa:pds:mer1_rmc:data:mer1_site_002_master",
+    "source_url": "https://pds-geosciences.wustl.edu/mer/mer1-m-eng-6-rmc-ops-v1/mer1rm_0xxx/data/mer1_site_002_master.rvf",
+    "label_url": "https://pds-geosciences.wustl.edu/mer/mer1-m-eng-6-rmc-ops-v1/mer1rm_0xxx/data/mer1_site_002_master.xml",
+    "specification_url": "https://pds-geosciences.wustl.edu/mer/mer1-m-eng-6-rmc-ops-v1/mer1rm_0xxx/document/rmc_sis.htm",
+    "coordinate_units_url": "https://pds-imaging.jpl.nasa.gov/documentation/MER_camsis_v4_9-25-07.pdf",
+    "source_sha256": "c1aa1697a50bb9f23122c441bbeed576c4ea62989f7b94f99b7d936d73bdad69",
+    "label_sha256": "da79d19f1213d394929e26a22fe14028ef877950bf83dfc81edb257b1fa0779b",
+    "accessed_on": "2026-11-15",
+    "method": "priority-selected RVF definitions; original offsets/quaternions retained"
+  }
+}
