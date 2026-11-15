@@ -10,7 +10,7 @@ Data status: **real**. Grid: **regional subset**, scanned-cell extent `{'lat_min
 
 | Target | Reason |
 |---|---|
-| T-01: Jezero | sensitivity_failed: slope_p90_deg: rel 15.44% > 15.00%, abs 0.912 > 0.200 |
+| T-01: Jezero | resolution_not_validated |
 | T-03: Marius Hills Pit regional context | resolution_not_validated |
 
 These exclusions show that the validation gate is working; they are not zero-similarity findings.

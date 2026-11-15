@@ -15,8 +15,11 @@ from .adapters import adapt
 from .aggregate import aggregate_matrix
 from .io import ROOT, config, feature_paths, merged_features
 from .sigma import sigma_metadata
+from .sigma import calibrated_sigma
+from .calibration import calibrate
+from .weights import weight_vector
 from .similarity import criterion_similarity
-from .measurement import target_status
+from .measurement import target_status, eligible_target_feature
 from .distance import standardized_distance
 
 
@@ -61,6 +64,20 @@ def _default_reference(scale: str) -> pd.DataFrame:
                         row[key+'__comparable']=item.get('comparable',False)
                 rows.append(row)
         if rows: return pd.DataFrame(rows)
+        paths = feature_paths()
+        if paths and all(path.exists() for path in paths):
+            records, _ = merged_features(paths)
+            for raw in records:
+                if raw.get('kind') not in ('earth_site', 'candidate') or raw.get('scale') != 'local' or raw.get('body') != 'earth':
+                    continue
+                row = {key: value for key, value in raw.items() if key != 'features'}
+                row['kind'] = 'earth_site'
+                for key, item in (raw.get('features') or {}).items():
+                    if isinstance(item, dict):
+                        row[key] = item.get('value')
+                        row[key + '__comparable'] = item.get('comparable', False)
+                rows.append(row)
+            if rows: return pd.DataFrame(rows)
     path = Path(os.getenv('ASTROMATCH_GRID') or ROOT / "processing/out/earth_grid.parquet")
     if not path.is_absolute(): path=ROOT/path
     if not path.exists():
@@ -100,14 +117,13 @@ def _weights(weights, features):
         modifiers = weights
     else:
         raise TypeError("weights must be a preset, dict, or None")
-    result = np.array([float(features[k].get("weight", 1)) *
-                       float(modifiers.get(k, 1)) for k in features])
+    result = weight_vector(config("features.yaml"), modifiers)
     if not np.isfinite(result).all() or (result < 0).any() or result.sum() <= 0:
         raise ValueError("Weights must be finite, nonnegative, and have a positive sum")
     return result
 
 
-def _sigma_table(grid: pd.DataFrame, scale: str, sigma, features):
+def _sigma_table(grid: pd.DataFrame, scale: str, sigma, features, weights_array, preset):
     if isinstance(sigma, dict):
         if set(sigma) != set(features):
             raise ValueError("Explicit sigma must contain every configured feature")
@@ -117,34 +133,47 @@ def _sigma_table(grid: pd.DataFrame, scale: str, sigma, features):
             if not math.isfinite(value) or value <= 0:
                 raise ValueError(f"Invalid sigma for {key}")
             table[key] = {"value": value, "sigma_source": "explicit", "n_samples": 0}
-        return table
+        return table, None
     if sigma not in (None, "frozen"):
         raise ValueError("sigma must be None, 'frozen', or a complete dict")
     if sigma == "frozen":
-        return {key: dict(value) for key, value in _frozen_sigma(scale).items()}
+        table,calibration=_frozen_sigma(scale,tuple(weights_array))
+        return {key: dict(value) for key, value in table.items()},calibration
     source = grid
     same_mask = source["scale"].eq(scale).to_numpy() if "scale" in source else np.ones(len(source), bool)
     validated=source["resolution_validated"].fillna(False).astype(bool).to_numpy() if "resolution_validated" in source else np.ones(len(source),bool)
     table = {}
+    columns=[]; masks=[]
     for key, cfg in features.items():
         column = pd.to_numeric(source[key], errors="coerce").to_numpy(dtype=float) if key in source else np.full(len(source), np.nan)
         cmp_key=key+"__comparable"
         comparable=source[cmp_key].fillna(False).astype(bool).to_numpy() if cmp_key in source else validated
-        if scale=='regional':
-            eligible=same_mask & validated & comparable
-            threshold=config("features.yaml").get("min_sigma_samples_regional",150)
-        else:
-            kinds=source["kind"].eq("earth_reference").to_numpy() if "kind" in source else np.zeros(len(source),bool)
-            eligible=same_mask & validated & comparable & kinds
-            threshold=config("features.yaml").get("min_sigma_samples_local",100)
+        eligible=same_mask & validated & comparable & np.isfinite(column)
+        threshold=config("features.yaml").get("min_sigma_samples_local",100) if scale=='local' else config("features.yaml").get("min_sigma_samples_regional",150)
+        columns.append(column)
+        masks.append(eligible)
         table[key] = sigma_metadata(column[eligible], key, scale, cfg,[],threshold)
-    return table
+    calibration=None
+    if config('features.yaml').get('sigma_calibration')=='loo_median50':
+        matrix=np.column_stack(columns)
+        feature_mask=np.column_stack(masks)
+        record_mask=feature_mask.sum(axis=1)>=config('features.yaml').get('min_features',3)
+        kinds=source['kind'].to_numpy() if 'kind' in source else np.full(len(source),'earth_grid')
+        for pool_kind in ('earth_grid','earth_reference','earth_site'):
+            selected=record_mask & (kinds==pool_kind)
+            if selected.sum()>=3: break
+        else:
+            pool_kind='unavailable'
+            selected=np.zeros(len(source),bool)
+        calibration=calibrate(matrix[selected],feature_mask[selected],scale,preset,config('features.yaml'),pool_kind=pool_kind,weights_override=weights_array)
+        table={key:calibrated_sigma(calibration,key,cfg) for key,cfg in features.items()}
+    return table,calibration
 
 
-@lru_cache(maxsize=2)
-def _frozen_sigma(scale: str):
+@lru_cache(maxsize=16)
+def _frozen_sigma(scale: str, weights: tuple[float,...]):
     return _sigma_table(_default_reference(scale), scale, None,
-                        config("features.yaml")["features"])
+                        config("features.yaml")["features"],np.array(weights),'frozen')
 
 
 def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=None,
@@ -157,7 +186,7 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
     n = len(grid_df)
     ids = grid_df["cell_id"].to_numpy(copy=True) if "cell_id" in grid_df else grid_df["region_id"].to_numpy(copy=True)
     target = _target(target_records if target_records is not None else _default_targets()[0], target_id, scale)
-    table = _sigma_table(grid_df, scale, sigma, features)
+    table,calibration = _sigma_table(grid_df, scale, sigma, features, weights_array, weights if isinstance(weights,str) else 'custom' if weights is not None else 'balanced')
     scores = np.full((n, len(keys)), np.nan)
     values=np.full((n,len(keys)),np.nan)
     eligible = np.zeros((n, len(keys)), dtype=bool)
@@ -174,7 +203,7 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
     if reason is None:
         for j, key in enumerate(keys):
             tf = target.features.get(key)
-            if tf is None or tf.value is None or not tf.comparable or key not in grid_df:
+            if not eligible_target_feature(target,key) or key not in grid_df:
                 continue
             value = pd.to_numeric(grid_df[key], errors="coerce").to_numpy(dtype=float)
             values[:,j]=value
@@ -199,12 +228,20 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
         excluded[:] = reason
     out = pd.DataFrame({"cell_id": ids, "score": geo / 100,"distance_z":distance,
                         "n_features": count, "excluded_reason": excluded})
+    scanned=out['score'].notna().to_numpy(copy=True)
+    if 'kind' in grid_df:
+        scanned &= grid_df['kind'].eq('earth_grid').to_numpy()
+    sorted_scanned=np.sort(out.loc[scanned,'score'].to_numpy())
+    out['score_percentile_scanned']=np.where(out['score'].notna(),
+        100*np.searchsorted(sorted_scanned,out['score'].fillna(0).to_numpy(),side='left')/len(sorted_scanned)
+        if len(sorted_scanned) else np.nan,np.nan)
     if return_criteria:
         for j, key in enumerate(keys):
             out["s_" + key] = scores[:, j]
     out.attrs["sigma"] = {key: value["value"] for key, value in table.items()}
     out.attrs["sigma_source"] = {key: value["sigma_source"] for key, value in table.items()}
     out.attrs["sigma_table"] = table
+    out.attrs["sigma_calibration"] = calibration
     return out
 
 

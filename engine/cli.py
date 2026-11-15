@@ -31,7 +31,7 @@ def _spread(result,site_ids):
 
 def write_results(ds,out,presets,k,stamp):
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
-    index={'targets':sorted({t.region_id for t in ds.targets}),'scales':sorted({t.scale for t in ds.targets}),'presets':presets,'generated_at':stamp,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'sigma':{},'score_spread':{},'engine_version':ENGINE_VERSION,'data_status':ds.mode,'defaults_applied':ds.defaults_applied,'invalid_records':ds.invalid_records,'warnings':list(ds.warnings)}
+    index={'targets':sorted({t.region_id for t in ds.targets}),'scales':sorted({t.scale for t in ds.targets}),'presets':presets,'generated_at':stamp,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'sigma':{},'sigma_calibration':{},'score_spread':{},'engine_version':ENGINE_VERSION,'data_status':ds.mode,'defaults_applied':ds.defaults_applied,'invalid_records':ds.invalid_records,'warnings':list(ds.warnings)}
     index['grid_status'],index['grid_counts']=grid_inventory(ds.candidates) if ds.mode=='real' else ('synthetic_global',{'scanned':sum(c.kind=='earth_grid' for c in ds.candidates),'eligible':sum(c.kind=='earth_grid' and c.resolution_validated for c in ds.candidates)})
     index['grid_extent']=grid_extent(ds.candidates)
     index['grid_label']='regional subset'
@@ -67,10 +67,12 @@ def write_results(ds,out,presets,k,stamp):
                 heat.extend(not_scanned_points(scanned_ids=by_id))
             write(out/f'{stem}__heat.json',heat)
             if t.scale=='local':
-                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'sigma':result.sigma,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'comparison_scope':result.comparison_scope,'terrain_commonality':result.terrain_commonality}
+                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'excluded_features':result.excluded_features,'sigma':result.sigma,'sigma_calibration':result.sigma_calibration,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'comparison_scope':result.comparison_scope,'terrain_commonality':result.terrain_commonality}
                 if ds.mode=='mock': sites['disclaimer']=DISCLAIMER
                 write(out/f'sites__{stem}.json',sites)
-            index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma
+            index['sigma'][stem]=result.sigma
+            if preset=='balanced': index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma
+            index['sigma_calibration'][f'{t.scale}__{preset}']=result.sigma_calibration
             spread=_spread(result,site_ids)
             index['score_spread'][stem]=spread
             if spread['std'] is not None and spread['std']<5:
@@ -133,7 +135,7 @@ def main(argv=None):
     stamp=getattr(args,'timestamp',None) or datetime.now(timezone.utc).isoformat()
     if args.command=='export-demo':
         if args.mock:
-            ds=load_dataset(mock=True,mock_n_grid=240)
+            ds=load_dataset(mock=True,mock_n_grid=220)
             ds.input_hashes=_mock_hashes(ds)
         else:
             paths=DataPaths(features=args.features,grid=args.grid)

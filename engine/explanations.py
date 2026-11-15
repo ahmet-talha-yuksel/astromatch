@@ -1,7 +1,7 @@
 from __future__ import annotations
 from .models import Explanation
 from .io import config
-from .measurement import target_confidence, support_summary
+from .measurement import target_confidence, support_summary, excluded_features
 from .discrimination import NO_CLOSE_ANALOG
 from .place_names import place_phrase
 
@@ -17,7 +17,8 @@ def build(target,candidate,criteria,score,flags,not_compared,match_level=None,di
         breaks.append(f"Earth gravity {earth['gravity_ms2']} m/s²; {target.body} gravity {other['gravity_ms2']} m/s²")
         breaks.append(f"Earth surface pressure {earth['surface_pressure_kpa']} kPa; {target.body} surface pressure {other['surface_pressure_kpa']} kPa")
         breaks.extend(other.get('notes',[]))
-    breaks.extend(f'{k}: {v.comparability_note}' for k,v in target.features.items() if not v.comparable and v.comparability_note)
+    target_exclusions=excluded_features(target,config('features.yaml')['features'])
+    breaks.extend(target_exclusions)
     summary=('No close absolute analog on Earth for this target; this is among the closest available on Earth.' if match_level=='relative_only' else f'{band.capitalize()} topographic analogy ({score:.1f}/100).')
     if discrimination_label=='uniformly_dissimilar':
         summary=NO_CLOSE_ANALOG
@@ -32,4 +33,4 @@ def build(target,candidate,criteria,score,flags,not_compared,match_level=None,di
     support=support_summary(target)
     note='Interpolated MOLA values were not used.' if target.body=='mars' else None
     physical=[{'feature':name,'reason':'not in the topographic comparison'} for name in ('temperature','ice/volatiles','mineralogy','atmosphere')]
-    return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=[*not_compared,*physical],analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label,place=candidate.place)
+    return Explanation(strongest=strongest,weakest=weakest,summary=summary,not_compared=[*not_compared,*physical],analogy_breaks=breaks,flags=flags,target_method=target.method if target.body=='mars' else None,measurement_support=support,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note=note,discrimination_label=discrimination_label,place=candidate.place,excluded_features=target_exclusions)
