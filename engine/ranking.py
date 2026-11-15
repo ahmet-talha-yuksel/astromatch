@@ -37,7 +37,7 @@ def list_targets(ds:Dataset):
             continue
         preferred=next((t for t in records if t.scale=='regional'),records[0])
         status,reason=target_status(preferred,config('features.yaml')['features'])
-        summaries.append(TargetSummary(region_id=preferred.region_id,name=preferred.name,body=preferred.body,scales=sorted({t.scale for t in records}),alias=alias,status=status,reason=reason,target_confidence=target_confidence(preferred),measurement_support=support_summary(preferred),method_sensitive=preferred.method_sensitive,excluded_features=excluded_features(preferred,config('features.yaml')['features'])))
+        summaries.append(TargetSummary(region_id=preferred.region_id,name=preferred.name,body=preferred.body,scales=sorted({t.scale for t in records}),scale_statuses={t.scale:{'status':target_status(t,config('features.yaml')['features'])[0],'reason':target_status(t,config('features.yaml')['features'])[1]} for t in records},alias=alias,status=status,reason=reason,target_confidence=target_confidence(preferred),measurement_support=support_summary(preferred),method_sensitive=preferred.method_sensitive,excluded_features=excluded_features(preferred,config('features.yaml')['features'])))
     return summaries
 
 def haversine(a,b,c,d):

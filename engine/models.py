@@ -60,6 +60,7 @@ class TargetSummary(BaseModel):
     name: str
     body: str
     scales: list[str]
+    scale_statuses: dict[str, dict] = Field(default_factory=dict)
     alias: str | None = None
     status: str = 'scorable'
     reason: str | None = None
