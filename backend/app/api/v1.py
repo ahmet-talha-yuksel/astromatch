@@ -4,6 +4,7 @@ import importlib.util, json, math, re
 from pathlib import Path
 from typing import Literal
 from fastapi import APIRouter, HTTPException, Query
+from PIL import Image
 from pydantic import BaseModel, Field
 from engine import RankResult, explain as engine_explain, heat as engine_heat, list_targets, rank as engine_rank
 from engine.io import config, logical_input_hashes
@@ -15,6 +16,33 @@ from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResp
 from backend.app.services.data import active_mode, get_dataset
 
 router=APIRouter(prefix='/api/v1',tags=['engine'])
+
+@router.get('/terrain/{region_id}')
+def terrain_v1(region_id: str):
+    """Return measured elevation samples for the paired 3D viewer."""
+    if not re.fullmatch(r'[A-Za-z0-9_-]+', region_id):
+        raise HTTPException(404, 'Unknown terrain')
+    root = Path(__file__).resolve().parents[3] / 'processing' / 'out'
+    paths = list(root.rglob(f'heightmaps/{region_id}.json'))
+    if not paths:
+        raise HTTPException(404, f'No measured heightmap for {region_id}')
+    # The measured Mars replacement supersedes earlier regional products.
+    paths.sort(key=lambda p: (0 if 'mars_measured' in p.parts else 1, str(p)))
+    path = paths[0]
+    try:
+        metadata = json.loads(path.read_text())
+        with Image.open(path.with_suffix('.png')) as image:
+            pixels = list(image.getdata())
+            width, height = image.size
+        if (width, height) != (metadata['width'], metadata['height']):
+            raise ValueError('Raster dimensions differ from metadata')
+        nodata = metadata.get('NoData', 0)
+        heights = [None if value == nodata else round(value * metadata['scale'] + metadata['offset'], 3) for value in pixels]
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        raise HTTPException(500, f'Invalid terrain data for {region_id}: {exc}') from exc
+    return {'id': region_id, 'width': width, 'height': height,
+            'cell_size_m': [metadata['pixel_size_x_m'], metadata['pixel_size_y_m']],
+            'heights': heights, 'source': metadata.get('dem_source'), 'data_status': 'real'}
 
 def meta():
     mock=get_dataset().mode=='mock'

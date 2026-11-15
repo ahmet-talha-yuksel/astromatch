@@ -1,1 +1,159 @@
-body{margin:0;background:#0b1324;color:#eef3ff;font-family:system-ui,sans-serif}main{max-width:1050px;margin:50px auto;padding:0 24px}.eyebrow{letter-spacing:.12em;color:#8faad2;font-size:12px}h1{font-size:46px;margin:0}p,footer{color:#b2c0d5}select{padding:10px;background:#17253c;color:white;border:1px solid #47618a;border-radius:8px;margin-left:10px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}article{background:#162238;border:1px solid #304361;border-radius:12px;padding:20px}article p{font-size:12px}footer{margin-top:40px;font-size:12px}
+:root{font-family:Inter,system-ui,-apple-system,sans-serif;color:#f3f6ff;background:#030916;font-synthesis:none;color-scheme:dark;--line:#263652;--muted:#97a8c3;--red:#fc3d21;--blue:#0b3d91}
+*{box-sizing:border-box}
+html,body,#root{margin:0;width:100%;height:100%;overflow:hidden}
+body{min-width:320px}
+button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:2px solid #80b7ff;outline-offset:3px}
+.app-shell{height:100vh;height:100dvh;display:flex;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 60% -30%,#123675a8,transparent 65%)}
+.starfield{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.stars{position:absolute;inset:-160px;background-repeat:repeat;will-change:transform}
+.stars-far{background-image:radial-gradient(1px 1px at 28px 34px,#ffffffbb 98%,transparent),radial-gradient(1px 1px at 140px 210px,#fff8 98%,transparent),radial-gradient(1px 1px at 270px 92px,#fff9 98%,transparent);background-size:237px 221px;animation:drift 95s linear infinite}
+.stars-near{background-image:radial-gradient(1.5px 1.5px at 95px 60px,#fff 98%,transparent),radial-gradient(1px 1px at 350px 280px,#dbe9ff 98%,transparent);background-size:357px 289px;animation:drift 65s linear infinite,twinkle 7s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(110px,150px,0)}}
+@keyframes twinkle{from{opacity:.45}to{opacity:1}}
+.space-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 75% 12%,#21529b25,transparent 44%),radial-gradient(ellipse at 30% 85%,#443f8620,transparent 40%)}
+.meteor{position:absolute;height:1.5px;border-radius:100%;background:linear-gradient(90deg,transparent,#a8cbff88 60%,#fff);transform-origin:right center;animation:meteor-pass linear both;filter:drop-shadow(0 0 3px #b0d6ff);will-change:transform,opacity}
+.meteor::after{content:"";position:absolute;right:0;top:-1px;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 9px 2px #a4cdff99}
+@keyframes meteor-pass{0%{opacity:0;transform:translate3d(0,0,0) rotate(var(--angle))}12%{opacity:.95}75%{opacity:.8}100%{opacity:0;transform:translate3d(var(--dx),var(--dy),0) rotate(var(--angle))}}
+.apollo-flight{position:absolute;left:0;top:0;animation:apollo-crossing 38s linear infinite;pointer-events:none;will-change:transform,opacity}
+.apollo-craft{transform:rotate(-12deg);filter:drop-shadow(0 0 12px #a5c8ff30)}
+.apollo-caption{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:1px;color:#b8c9e4;font:8px monospace;letter-spacing:3px;opacity:.6}
+.apollo-caption i{display:inline-block;width:12px;height:1px;background:#fc3d21}
+.rocket-exhaust{animation:exhaust-pulse .8s ease-in-out infinite alternate;transform-origin:80px 41px}
+@keyframes exhaust-pulse{to{opacity:.6;transform:scaleX(.85)}}
+@keyframes apollo-crossing{0%{opacity:0;transform:translate3d(24vw,24vh,0) scale(.75)}5%{opacity:.6}34%{opacity:.6}43%,100%{opacity:0;transform:translate3d(105vw,1vh,0) scale(.9)}}
+.space-paused .stars{animation-play-state:paused}
+.motion-toggle{margin-left:auto}.topbar .topbar-data{margin-left:0}
+@media(max-width:700px){.apollo-craft svg{width:135px;height:auto}.apollo-caption{font-size:6px}}
+.sidebar{width:290px;flex:0 0 290px;min-height:0;display:flex;flex-direction:column;background:#060e20ed;border-right:1px solid var(--line);transition:width .2s,flex-basis .2s;overflow:hidden}
+.sidebar-closed{width:0;flex-basis:0;border:0;visibility:hidden}
+.sidebar-header{height:58px;flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.nasa-logo{width:48px;height:40px;object-fit:contain;flex-shrink:0}
+.brand-name{letter-spacing:.04em;font-size:15px;font-weight:800}.brand-name span{color:#ff6149}
+.icon-button{display:grid;place-items:center;background:none;border:0;color:#a8bad9;padding:6px;border-radius:6px}.icon-button:hover{color:white;background:#203659}.close-menu{margin-left:auto}
+.sidebar-body{padding:18px 11px 0;display:flex;flex-direction:column;min-height:0;flex:1;overflow:hidden}
+.sidebar-body>.section-kicker,.sidebar-body>h2,.sidebar-body>.small{margin-left:8px;flex-shrink:0}
+.section-kicker,.panel-kicker{color:#92b9f4;font-size:11px;font-weight:700;letter-spacing:.15em}
+.sidebar h2{font-size:19px;letter-spacing:-.03em;margin:6px 0 2px}.muted{color:var(--muted)}.small{font-size:13px}.sidebar .small{margin-top:4px}
+.candidate-list{display:flex;flex-direction:column;gap:6px;margin-top:13px;overflow-y:auto;min-height:0;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 3px 12px 0}
+*{scrollbar-width:thin;scrollbar-color:#354d77 transparent}
+.candidate-item{background:transparent;border:1px solid transparent;border-radius:8px;color:#e4ecfc;text-align:left;padding:11px 9px;display:block;width:100%;flex-shrink:0}
+.candidate-item:hover{background:#112342}.candidate-item.active{background:linear-gradient(110deg,#173666,#0b1a32);border-color:#5278b9;box-shadow:inset 3px 0 var(--red)}
+.candidate-top{display:flex;align-items:center;gap:8px;font-size:13px}.candidate-top strong{font-size:14px;font-variant-numeric:tabular-nums}.candidate-rank{color:#8299c1;font-size:12px}.candidate-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;font-weight:600}
+.candidate-bar,.score-track,.criterion-track{display:block;overflow:hidden;background:#27344b;border-radius:20px}.candidate-bar{height:3px;margin:10px 0 7px 23px}.candidate-bar span,.score-track span,.criterion-track span{display:block;height:100%;border-radius:inherit}.candidate-location{display:block;color:#91a4c2;font-size:12px;margin-left:23px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.empty-list{padding:12px 8px;line-height:1.5;overflow:auto}
+.sidebar-foot{border-top:1px solid var(--line);padding:13px 20px;font-size:12px;color:#a5b7d4;white-space:nowrap;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.status-dot,.sync-dot{width:6px;height:6px;flex-shrink:0;border-radius:100%;background:#75b5ff;box-shadow:0 0 8px #428cff}
+.workspace{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.topbar{height:58px;flex-shrink:0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:0 22px;background:#071126b8}
+.topbar-title{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;white-space:nowrap}.topbar-icon{color:#80aff5;display:flex}.topbar-divider{height:14px;border-left:1px solid #385078;margin:0 3px}.topbar-subtitle{color:#93a6c7;font-size:11px;letter-spacing:.12em;font-weight:500}.topbar-data{margin-left:auto;border:1px solid #4f3550;border-radius:4px;padding:6px 8px;color:#ffb6aa;background:#fc3d2110;font-size:11px;font-weight:700;letter-spacing:.1em;white-space:nowrap}
+.main-area{width:100%;max-width:1800px;margin:0 auto;padding:16px 22px 10px;min-height:0;flex:1;display:flex;flex-direction:column;overflow:hidden}
+.page-heading{position:relative;padding-left:12px;flex-shrink:0;border-left:3px solid var(--red)}
+.page-heading>.section-kicker{margin:0 0 3px;font-size:10px}.page-heading h1{font-size:24px;line-height:1.2;font-weight:650;letter-spacing:-.04em;margin:0 0 4px}.page-heading>p:last-child{color:#a1b0ca;font-size:13px;margin:0}
+.selectors{display:flex;align-items:end;gap:10px;margin:12px 0 14px;flex-shrink:0}
+.selectors label{display:flex;flex-direction:column;gap:5px;color:#a3b3ce;font-weight:700;font-size:10px;letter-spacing:.12em;min-width:0}.select-wrap{position:relative;display:flex;align-items:center;min-width:0}.select-wrap select{appearance:none;background:#0b1931;border:1px solid #34517c;color:#eff5ff;border-radius:6px;padding:8px 29px 8px 10px;min-width:125px;max-width:340px;font-size:13px;letter-spacing:0}.select-wrap svg{position:absolute;right:9px;pointer-events:none;color:#95b7ea}.sync-pill{margin:0 0 2px auto;display:flex;align-items:center;gap:7px;border:1px solid #2d4872;background:#102a4f80;color:#b9d3fa;padding:7px 9px;border-radius:5px;font-size:12px;white-space:nowrap}
+.notice{border:1px solid #8f4a44;background:#361d24;color:#ffc4b8;padding:8px 12px;border-radius:6px;margin-bottom:10px;font-size:14px;flex-shrink:0}
+.comparison-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px;min-height:0;flex:1;overflow:hidden}
+.comparison{min-width:0;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.terrain-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-height:0}
+.terrain-panel{background:#08152bd9;border:1px solid #304970;border-radius:10px;overflow:hidden;min-width:0;display:flex;flex-direction:column;min-height:0;box-shadow:0 12px 40px #0003}
+.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;min-height:61px;flex-shrink:0;border-bottom:1px solid #ffffff0a}.panel-heading h2{font-size:15px;line-height:1.2;font-weight:600;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;margin:5px 0 0}.panel-heading>div{min-width:0}.panel-kicker{font-size:10px}.body-badge{background:#fc3d211c;color:#ffb5a5;border:1px solid #914b50;border-radius:4px;padding:4px 6px;font-size:10px;font-weight:700}.earth-badge{background:#0b3d9140;color:#aecbff;border-color:#4265a0}
+.terrain-canvas,.terrain-empty{width:100%;aspect-ratio:1;min-height:0;max-height:calc(100dvh - 340px);background:#0b1830;flex-shrink:1}.terrain-canvas canvas{display:block}.terrain-empty{display:grid;place-items:center;padding:20px;text-align:center;color:#a3b6d3;font-size:14px}.panel-bottom{display:flex;justify-content:space-between;gap:8px;padding:10px 12px;color:#8fa5c8;font-size:11px;min-height:32px;flex-shrink:0}.panel-bottom span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.gesture-hint{display:flex;justify-content:space-between;gap:10px;color:#8ea3c2;font-size:11px;padding:11px 2px;flex-shrink:0}.gesture-hint span{color:#b4c3dd}
+.insights{background:linear-gradient(160deg,#102445e8,#071124ed);border:1px solid #345078;border-radius:10px;padding:14px;min-width:0;min-height:0;overflow-y:auto;overscroll-behavior:contain;align-self:stretch;box-shadow:0 10px 30px #0002}
+.insights>.section-kicker{margin:0;font-size:10px;color:#f99c92}.insights h2{font-size:19px;margin:5px 0 12px;letter-spacing:-.025em}.primary-score{background:#0b3d912d;border:1px solid #2f5085;border-radius:7px;padding:11px 12px}.primary-score>span{display:block;color:#acbfdf;font-size:10px;font-weight:700;letter-spacing:.08em}.primary-score strong{display:block;font-size:35px;font-weight:750;letter-spacing:-.05em;line-height:1.15;margin:5px 0 8px;font-variant-numeric:tabular-nums}.score-track{height:4px}.primary-score small{display:block;color:#a7bada;margin-top:7px;font-size:12px}.metric-row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #273d60;padding:9px 0;font-size:12px;color:#a0b2d0}.metric-row strong{color:#e8efff;text-align:right;font-weight:600;text-transform:capitalize}.criterion-section{margin-top:12px}.criterion-section h3{font-size:14px;margin:0}.criterion-section p{margin:3px 0 12px;font-size:11px}.criterion{margin:0 0 12px}.criterion>div:first-child{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#b6c7df;margin-bottom:6px}.criterion strong{font-size:12px;color:#edf3ff;font-variant-numeric:tabular-nums}.criterion-track{height:3px}.place-note{border-top:1px solid #2b4062;color:#9dafce;font-size:11px;line-height:1.45;padding-top:8px;margin-top:8px}
+footer{font-size:11px;color:#8598b9;margin-top:10px;line-height:1.4;flex-shrink:0}
+@media(max-height:780px) and (min-width:901px){.main-area{padding-top:10px}.page-heading h1{font-size:21px}.page-heading>p:last-child{display:none}.selectors{margin:10px 0}.insights{padding:12px}.insights h2{margin-bottom:8px}.primary-score{padding:8px 11px}.primary-score strong{font-size:30px}.criterion{margin-bottom:9px}.criterion-section{margin-top:9px}.criterion-section p{margin-bottom:9px}.metric-row{padding:7px 0}.terrain-canvas,.terrain-empty{max-height:calc(100dvh - 280px)}}
+@media(max-width:1200px){.sidebar{width:265px;flex-basis:265px}.sidebar-closed{width:0;flex-basis:0}.brand-name{font-size:13px}.nasa-logo{width:40px}.main-area{padding-left:15px;padding-right:15px}.comparison-layout{grid-template-columns:minmax(0,1fr) 260px;gap:10px}.topbar-subtitle,.topbar-divider{display:none}.gesture-hint{flex-direction:column;gap:5px}.select-wrap select{max-width:275px}.sync-pill{font-size:11px}.terrain-pair{gap:8px}}
+@media(max-width:900px){.sidebar{position:fixed;z-index:20;inset:0 auto 0 0;width:260px;box-shadow:15px 0 40px #0009}.sidebar-closed{width:0}.main-area{overflow:auto;overscroll-behavior:contain}.comparison-layout{flex:none;overflow:visible;grid-template-columns:minmax(0,1fr)}.insights{overflow:visible;display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.insights>.section-kicker,.insights>h2,.insights>.place-note{grid-column:1/-1}.criterion-section{grid-column:2;grid-row:3/6}.primary-score{grid-row:3}.topbar{padding:0 15px}.selectors{flex-wrap:wrap}.sync-pill{margin-left:0}.terrain-canvas,.terrain-empty{max-height:none}.topbar .icon-button{display:grid}}
+@media(max-width:520px){.main-area{padding:12px}.page-heading h1{font-size:21px}.page-heading>p:last-child{font-size:12px}.topbar-title{font-size:13px}.select-wrap select{max-width:230px}.selectors{gap:8px}.sync-pill{padding:5px 7px}.terrain-pair{grid-template-columns:1fr}.terrain-canvas,.terrain-empty{aspect-ratio:1.2}.insights{display:block}.topbar-data{font-size:10px;padding:5px}.gesture-hint{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.stars,.meteor,.apollo-flight,.rocket-exhaust{animation:none;will-change:auto}.meteor,.apollo-flight{display:none}.sidebar{transition:none}}
+/* A change of destination also changes the expedition's visual identity. */
+.app-shell{--mission:#b9cff4;--mission-rgb:150,183,236;--mission-wash:#183259}
+.app-shell[data-body="mars"]{--mission:#f1ad8c;--mission-rgb:230,132,92;--mission-wash:#4a2d31}
+.sidebar{background:linear-gradient(160deg,var(--mission-wash),#060e20 42%);transition:background .6s,width .2s,flex-basis .2s}
+.page-heading{border-color:var(--mission)}
+.candidate-item.active{border-color:var(--mission);box-shadow:inset 3px 0 var(--mission);background:linear-gradient(110deg,rgba(var(--mission-rgb),.16),#0b1a32)}
+.sidebar .section-kicker,.topbar-icon{color:var(--mission)}
+.mission-badge{position:relative;display:flex;align-items:center;gap:12px;width:100%;flex-shrink:0;text-align:left;color:#edf4ff;background:linear-gradient(120deg,rgba(var(--mission-rgb),.14),#0a1428aa);border:1px solid rgba(var(--mission-rgb),.25);border-radius:12px;padding:14px 10px;margin-bottom:17px;overflow:hidden;min-height:94px}
+.mission-badge:hover{border-color:var(--mission)}
+.mission-copy{display:flex;flex-direction:column;gap:5px;position:relative;z-index:1;min-width:0}
+.mission-eyebrow{font-size:10px;letter-spacing:.15em;color:var(--mission);font-weight:700}
+.mission-copy strong{font-size:13px;font-weight:650;letter-spacing:-.02em}
+.mission-secret{font-size:10px;color:#b4c1d7;line-height:1.4;max-width:175px}
+.mission-planet{position:relative;display:block;width:44px;height:44px;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 30% 25%,#eff1ee,#a1abc1 45%,#38445f 85%);box-shadow:inset -8px -6px 10px #040b26a0,0 0 22px #c7ddff22;transition:background .6s,transform .6s}
+.mission-planet>i{position:absolute;display:block;border-radius:50%;background:#59657d55;box-shadow:inset 1px 2px 3px #36425c88,0 1px 0 #ffffff66}
+.mission-planet>i:nth-child(1){width:11px;height:11px;left:9px;top:9px}.mission-planet>i:nth-child(2){width:7px;height:7px;left:24px;top:23px}.mission-planet>i:nth-child(3){width:5px;height:5px;left:10px;top:29px}
+[data-body="mars"] .mission-planet{background:radial-gradient(ellipse at 40% 5%,#e9c3a1 2%,transparent 18%),radial-gradient(circle at 30% 28%,#f4b47e,#bc6243 48%,#612f35 85%);box-shadow:inset -7px -5px 12px #30162caa,0 0 24px #ee8b5330}
+[data-body="mars"] .mission-planet>i{background:#8a442c66;box-shadow:none;transform:scaleX(1.6) rotate(-20deg)}
+.planet-orbit{position:absolute;inset:-6px;border:1px solid rgba(var(--mission-rgb),.3);border-radius:50%;transform:rotate(-30deg) scaleY(.45)}
+.mission-traveler{position:absolute;right:10px;bottom:1px;width:48px;height:22px;color:var(--mission);opacity:0;transform:translateX(-18px);transition:transform 1s,opacity .6s}
+.discovered .mission-traveler{opacity:.6;transform:translateX(0)}.discovered .mission-planet{transform:rotate(18deg)}
+.discovered .mission-copy{padding-bottom:9px}
+.candidate-item{display:flex;align-items:center;gap:10px;padding:10px 9px;min-height:86px}
+.candidate-details{min-width:0;flex:1}.candidate-top{gap:7px;font-size:14px}.candidate-name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.35;overflow:hidden;letter-spacing:-.015em}
+.candidate-rank{font-size:11px;align-self:flex-start;padding-top:3px}.candidate-location{margin:7px 0 0 21px;font-size:12px;color:#aabbd5}
+.score-ring{position:relative;display:grid;place-items:center;width:60px;height:60px;flex:0 0 60px}.score-ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.score-ring circle{fill:none;stroke-width:4}.ring-track{stroke:#344057}.ring-fill{transform:rotate(-90deg);transform-origin:32px 32px;transition:stroke-dashoffset .6s,stroke .6s;stroke-linecap:butt}.score-ring strong{font-size:13px;line-height:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-variant-numeric:tabular-nums}.score-ring small{font-size:9px;color:#9caecb;font-weight:500}
+.insights h2{font-size:21px}.criterion>div:first-child,.criterion strong{font-size:13px}.criterion-section h3{font-size:15px}.criterion-section p{font-size:11px}.metric-row{font-size:12px}.place-note{font-size:11px}.primary-score>span{font-size:10px}.panel-heading h2{font-size:16px}.panel-bottom{font-size:11px}.gesture-hint{font-size:11px}.sidebar-foot{font-size:12px}
+@media(min-width:901px) and (max-height:800px){.criterion{margin-bottom:8px}.criterion>div:first-child{margin-bottom:5px}.criterion-section{margin-top:8px}.criterion-section p{margin:3px 0 8px}.metric-row{padding:7px 0}.primary-score{padding:8px 10px}.insights h2{margin-bottom:8px}.primary-score strong{font-size:30px}.place-note{margin-top:6px;padding-top:6px}.sidebar-body{padding-top:12px}.mission-badge{margin-bottom:10px;padding-top:10px;padding-bottom:10px;min-height:84px}.sidebar-body>.small{margin-bottom:3px}}
+@media(max-width:1200px){.mission-badge{gap:9px}.mission-copy strong{font-size:12px}.score-ring{width:54px;height:54px;flex-basis:54px}.candidate-item{gap:6px}}
+@media(max-width:900px){.sidebar{width:290px}.sidebar-closed{width:0}.select-wrap select{max-width:min(340px,70vw)}}
+@media(prefers-reduced-motion:reduce){.mission-traveler,.mission-planet,.ring-fill{transition:none}}
+.mission-badge{min-height:118px;padding-bottom:34px;perspective:500px}
+.mission-badge:disabled{cursor:wait;opacity:1}
+.mission-badge .mission-planet{transform:none;transition:background .15s;transform-style:preserve-3d}
+.phase-out .mission-planet{animation:planet-depart .35s ease-in both}
+.phase-in .mission-planet{animation:planet-arrive .45s ease-out both}
+@keyframes planet-depart{from{transform:rotateY(0) rotateZ(0);opacity:1}to{transform:rotateY(90deg) rotateZ(20deg);opacity:.2}}
+@keyframes planet-arrive{from{transform:rotateY(-90deg) rotateZ(-20deg);opacity:.2}to{transform:rotateY(0) rotateZ(0);opacity:1}}
+.mission-easter{position:absolute;bottom:3px;left:12px;right:12px;display:flex;align-items:center;gap:5px;color:var(--mission);animation:easter-arrive .7s ease-out both}
+.mission-easter svg{width:66px;height:30px;flex-shrink:0}.mission-easter>span{font-size:11px}
+@keyframes easter-arrive{from{opacity:0;transform:translateX(-15px)}to{opacity:1;transform:translateX(0)}}
+.mission-badge.discovered .mission-copy{padding-bottom:0}
+.selectors{position:relative;z-index:5}
+.mission-select{position:relative;min-width:0;max-width:350px;flex:0 1 auto}
+.select-label{display:block;color:#afc1dd;font-weight:700;font-size:11px;letter-spacing:.1em;margin-bottom:5px}
+.select-trigger{display:flex;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(120deg,#122541,#09162c);border:1px solid #3c5478;border-radius:7px;color:#edf3ff;padding:9px 12px;font-size:13px;font-weight:600;min-width:140px;width:100%;text-align:left}
+.select-trigger span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.select-trigger svg{color:var(--mission);flex-shrink:0;transition:transform .2s}.select-trigger[aria-expanded="true"]{border-color:var(--mission);box-shadow:0 0 0 3px rgba(var(--mission-rgb),.1)}.select-trigger[aria-expanded="true"] svg{transform:rotate(180deg)}
+.select-options{position:absolute;top:calc(100% + 7px);left:0;min-width:100%;width:max-content;max-width:min(440px,80vw);max-height:240px;overflow:auto;overscroll-behavior:contain;padding:5px;background:#0c1b32;border:1px solid rgba(var(--mission-rgb),.5);border-radius:9px;box-shadow:0 16px 40px #0009;z-index:10}
+.select-option{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 12px;font-size:13px;line-height:1.4;cursor:pointer;border-radius:5px;color:#c3d0e5}.select-option span{min-width:0}.select-option svg{flex-shrink:0;color:var(--mission)}
+.select-option.highlighted{background:rgba(var(--mission-rgb),.13);color:white}.select-option[aria-selected="true"]{color:var(--mission)}
+@media(min-width:901px) and (max-height:800px){.mission-badge{min-height:110px;padding-bottom:32px}}
+@media(max-width:600px){.mission-select{max-width:100%;flex:1 1 180px}.select-options{max-width:calc(100vw - 32px);width:100%}}
+@media(prefers-reduced-motion:reduce){.phase-out .mission-planet,.phase-in .mission-planet{animation-duration:.01s}.mission-easter{animation:none}.select-trigger svg{transition:none}}
+.brand-logo{display:block;width:44px;height:44px;flex:0 0 44px;border-radius:50%;overflow:hidden;box-shadow:0 0 14px #ec9a4f20}
+.brand-logo img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.3)}
+.planet-globe{display:block;width:52px;height:52px;flex:0 0 52px;filter:drop-shadow(0 0 9px rgba(var(--mission-rgb),.2))}
+.app-shell{--sky-glow:18,54,117;--star-tint:168,203,255;--sky-haze:68,63,134;background:radial-gradient(ellipse at 60% -30%,rgba(var(--sky-glow),.66),transparent 65%)}
+.app-shell[data-body="mars"]{--sky-glow:126,56,24;--star-tint:255,190,133;--sky-haze:116,52,31}
+.space-glow{background:radial-gradient(ellipse at 75% 12%,rgba(var(--sky-glow),.25),transparent 44%),radial-gradient(ellipse at 30% 85%,rgba(var(--sky-haze),.15),transparent 40%)}
+.meteor{background:linear-gradient(90deg,transparent,rgba(var(--star-tint),.55) 60%,#fff);filter:drop-shadow(0 0 3px rgba(var(--star-tint),.9))}
+.meteor::after{box-shadow:0 0 9px 2px rgba(var(--star-tint),.6)}
+.stars-near{background-image:radial-gradient(1.5px 1.5px at 95px 60px,#fff 98%,transparent),radial-gradient(1px 1px at 350px 280px,rgb(var(--star-tint)) 98%,transparent)}
+[data-body="mars"] .topbar{background:#25150fb8}
+[data-body="mars"] .terrain-panel{background:#211810d9;border-color:#614132}
+[data-body="mars"] .insights{background:linear-gradient(160deg,#32231ce8,#171216ed);border-color:#664935}
+[data-body="mars"] .primary-score{background:#79402425;border-color:#704c37}
+[data-body="mars"] .select-trigger,[data-body="mars"] .select-options{background:#251b1a;border-color:#71513b}
+[data-body="mars"] .sync-pill{background:#3a241d80;border-color:#71513b;color:#f3cfb5}
+.brand-name{font-size:15px}.topbar-title{font-size:15px}.select-trigger,.select-option{font-size:14px}
+.candidate-name{font-size:15px}.candidate-location{font-size:13px}.score-ring strong{font-size:14px}
+.mission-copy strong{font-size:14px}.mission-secret,.mission-easter>span{font-size:12px}.mission-eyebrow{font-size:11px}
+.criterion>div:first-child,.criterion strong{font-size:14px}.metric-row{font-size:13px}.primary-score small{font-size:13px}
+.panel-heading h2{font-size:17px}.panel-kicker{font-size:11px}.place-note{font-size:12px}.sidebar-foot{font-size:13px}.gesture-hint,footer{font-size:12px}
+@media(min-width:901px) and (max-height:800px){.criterion{margin-bottom:6px}.criterion>div:first-child{margin-bottom:4px}.criterion-section p{margin-bottom:6px}.metric-row{padding:6px 0}.primary-score strong{margin:4px 0 6px}.insights{padding:11px}.insights h2{margin:4px 0 7px}.place-note{padding-top:5px;margin-top:5px}.gesture-hint{font-size:11px}footer{font-size:11px}}
+@media(max-width:1200px){.brand-name{font-size:13px}.brand-logo{width:38px;height:38px;flex-basis:38px}.mission-copy strong{font-size:13px}.mission-secret{font-size:11px}.planet-globe{width:46px;height:46px;flex-basis:46px}}
+[data-body="mars"] .terrain-canvas,[data-body="mars"] .terrain-empty{background:#201818}
+/* Mission accent follows the selected world across every interface surface. */
+.app-shell{--ui-accent:#b9d3ff;--ui-muted:#a9bde0;--ui-border:#355781;--ui-soft:rgba(143,187,255,.13);--ui-deep:#091b38;--muted:#a5b8da}
+.app-shell[data-body="mars"]{--ui-accent:#f8b884;--ui-muted:#e5bba1;--ui-border:#78513b;--ui-soft:rgba(241,145,83,.14);--ui-deep:#2a1a17;--muted:#d8b7a3}
+.sidebar-header,.sidebar-foot,.topbar{border-color:var(--ui-border)}
+.sidebar .section-kicker,.section-kicker,.panel-kicker,.insights>.section-kicker,.topbar-icon,.topbar-subtitle,.brand-name span{color:var(--ui-accent)}
+.page-heading>p:last-child,.sidebar .small,.candidate-location,.sidebar-foot,.panel-bottom,.gesture-hint,.gesture-hint span,footer,.metric-row,.criterion>div:first-child,.place-note,.primary-score>span,.primary-score small,.criterion-section p{color:var(--ui-muted)}
+.icon-button,.select-label,.select-trigger svg,.select-option svg,.mission-eyebrow{color:var(--ui-accent)}
+.icon-button:hover{background:var(--ui-soft)}
+.terrain-panel,.insights,.select-trigger,.select-options,.primary-score,.body-badge,.earth-badge,.sync-pill{border-color:var(--ui-border)}
+.select-trigger,.select-options{background:var(--ui-deep)}
+.select-option{color:var(--ui-muted)}.select-option.highlighted,.select-trigger[aria-expanded="true"]{background:var(--ui-soft)}
+.body-badge,.earth-badge,.topbar-data{color:var(--ui-accent);background:var(--ui-soft);border-color:var(--ui-border)}
+.sync-pill{color:var(--ui-accent);background:var(--ui-soft)}
+.status-dot,.sync-dot{background:var(--ui-accent);box-shadow:0 0 8px var(--ui-accent)}
+.candidate-item:hover{background:var(--ui-soft)}
+[data-body="mars"] .apollo-craft{filter:sepia(.55) saturate(1.1) hue-rotate(-12deg) drop-shadow(0 0 12px #f5aa742d)}
