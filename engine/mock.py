@@ -7,7 +7,10 @@ CENTERS = np.array([8,18,.3,30,250,80])
 SPREADS = np.array([6,12,.2,20,140,50])
 
 def _region(rid,name,kind,body,scale,lat,lon,vals,valid=True):
-    return {'schema_version':'2.3','region_id':rid,'kind':kind,'body':body,'name':name,'lat':lat,'lon':lon,'scale':scale,'window_km':10 if scale=='local' else 50,'analysis_resolution_m':500,'source_resolution_m':463,'resolution_validated':valid,'dem_source':'MOCK','features':{k:{'value':None if v is None else float(v),'data_status':'mock','comparable':bool(valid)} for k,v in zip(KEYS,vals)} | {'surface_temp_diurnal_range_c':{'value':80,'data_status':'mock','comparable':False,'comparability_note':'Temperature is not compared across bodies'}},'earth_filters':{'ndvi_mean':.08,'precip_mm_yr':45,'land_fraction':.97},'quality':{'coverage':'full','nodata_ratio':.01,'warnings':[]},'processing_version':'0.1.0','tags':[],'data_status':'mock','disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT'}
+    shape={'hypsometric_integral':float(np.clip(.5+.002*(float(vals[4]) if vals[4] is not None else 250)-.5,.01,.99)),
+           'roughness_ratio':float(max(0,(float(vals[3]) if vals[3] is not None else 30)/max(float(vals[4]) if vals[4] is not None else 250,1))),
+           'curvature_std_per_km':float(max(0,(float(vals[1]) if vals[1] is not None else 18)/200))}
+    return {'schema_version':'2.3','region_id':rid,'kind':kind,'body':body,'name':name,'lat':lat,'lon':lon,'scale':scale,'window_km':10 if scale=='local' else 50,'analysis_resolution_m':500,'source_resolution_m':463,'resolution_validated':valid,'dem_source':'MOCK','features':{k:{'value':None if v is None else float(v),'data_status':'mock','comparable':bool(valid)} for k,v in zip(KEYS,vals)} | {k:{'value':v,'data_status':'mock','comparable':bool(valid)} for k,v in shape.items()} | {'surface_temp_diurnal_range_c':{'value':80,'data_status':'mock','comparable':False,'comparability_note':'Temperature is not compared across bodies'}},'earth_filters':{'ndvi_mean':.08,'precip_mm_yr':45,'land_fraction':.97},'quality':{'coverage':'full','nodata_ratio':.01,'warnings':[]},'processing_version':'0.1.0','tags':[],'data_status':'mock','disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT'}
 
 def generate(n_grid=5000, seed=42, n_reference=300):
     rng=np.random.default_rng(seed)

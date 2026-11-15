@@ -103,7 +103,7 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
         if matching is not None:
             ranked=rank(dataset,target_id,'regional',preset,include_uncertainty=True)
             intervals={row['id']:row for row in ranked.full_scores}
-        for column in ('score_ci_low','score_ci_high','rank_p5','rank_p95','top10_stability'):
+        for column in ('score_ci_low','score_ci_high','rank_p5','rank_p95','top10_stability','top_tier','top_tier_size','score_percentile_scanned'):
             scored[column]=scored['cell_id'].map({rid:row.get(column) for rid,row in intervals.items()})
         for column in ('score_ci_low','score_ci_high'):
             scored[column]=scored[column]/100
@@ -126,7 +126,8 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     output.mkdir(parents=True, exist_ok=True)
     combined.to_parquet(output / "scores_all.parquet", index=False)
     combined.to_csv(output / "scores_all.csv", index=False, na_rep="")
-    manifest = {"data_status": data_status, "inputs_sha256": hashes,
+    from .io import config
+    manifest = {"feature_set":config('features.yaml')['feature_set'],"data_status": data_status, "inputs_sha256": hashes,
                 "input_source": os.getenv('ASTROMATCH_INPUT_SOURCE'),
                 "overrides": overrides if not mock else [],
                 "engine_version": ENGINE_VERSION, "scale": "regional",

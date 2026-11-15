@@ -41,7 +41,7 @@ def test_group_weights_and_calibration_median50():
     keys = list(cfg['features'])
     weights = weight_vector(cfg, {})
     for group in cfg['feature_groups'].values():
-        assert sum(weights[keys.index(key)] for key in group) == pytest.approx(1 / 3)
+        assert sum(weights[keys.index(key)] for key in group) == pytest.approx(1 / len(cfg['feature_groups']))
     rng = np.random.default_rng(21)
     values = rng.lognormal(size=(40, len(keys))) * np.arange(1, len(keys) + 1)
     values[:, keys.index('flat_fraction')] = rng.uniform(.02, .98, size=40)

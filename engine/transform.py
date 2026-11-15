@@ -11,7 +11,7 @@ def transform(values, cfg):
     elif method == 'logit':
         clipped = np.clip(array, float(spec['clip_min']), float(spec['clip_max']))
         result = np.log(clipped / (1 - clipped))
-    elif method == 'identity':
+    elif method in ('identity','none'):
         result = array
     else:
         raise ValueError(f'Unknown feature transform: {method}')

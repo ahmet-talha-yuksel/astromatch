@@ -28,7 +28,7 @@ def _spearman(a,b):
 
 def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
     out=Path(out); out.mkdir(parents=True,exist_ok=True)
-    rng=np.random.default_rng(seed); report={'data_status':ds.mode,'disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT' if ds.mode=='mock' else None,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'targets':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{},'method_sensitivity':{},'feature_correlations':grid_feature_correlations(ds)}
+    rng=np.random.default_rng(seed); report={'feature_set':config('features.yaml')['feature_set'],'data_status':ds.mode,'disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT' if ds.mode=='mock' else None,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'targets':{},'plausibility':{},'roc_auc':None,'roc_auc_reason':'Explicit negatives file required' if not negatives else None,'stability':{},'method_sensitivity':{},'feature_correlations':grid_feature_correlations(ds)}
     presets=list(config('presets.yaml'))
     for t in ds.targets:
         key=f'{t.region_id}__{t.scale}'
@@ -45,6 +45,14 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
             for pct in (1,5,10): entry['recall_at'][str(pct)]=sum(ranks[id_]<=max(1,int(np.ceil(len(rows)*pct/100))) for id_ in known)/len(known) if known else None
             report['targets'][f'{key}__{preset}']=entry
             if not rows: continue
+            if preset=='balanced':
+                used=list(rows[0]['per_criterion'])
+                report['plausibility'][key]={'features_used':used,'top3':[
+                    {'id':row['id'],'place':row.get('place'),'score_geo':row['score_geo'],
+                     'features':{feature:{'target_raw':row['per_criterion'][feature]['target_value'],
+                                          'candidate_raw':row['per_criterion'][feature]['candidate_value'],
+                                          's_i':row['per_criterion'][feature]['s_i']}
+                                 for feature in row['per_criterion']}} for row in rows[:3]]}
             # Weight perturbations can be recomputed from cached per-criterion scores.
             keys=list(config('features.yaml')['features']); base=np.array([r['score_geo'] for r in rows]); base_top={r['id'] for r in rows[:10]}
             all_scores=np.array([[r['per_criterion'].get(k,{}).get('s_i',np.nan) for k in keys] for r in rows]); mask=np.isfinite(all_scores)
@@ -127,6 +135,14 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
     lines.extend(['## Similarity-math acceptance','', '| Criterion | Result |', '|---|---|'])
     for name,entry in report['acceptance'].items():
         lines.append(f"| {name} | {'PASS' if entry['pass'] else 'FAIL'} |")
+    for target,entry in report['plausibility'].items():
+        lines.extend(['',f'## Plausibility: {target}','',
+                      '| Feature | Target raw | Top 1 raw (sᵢ) | Top 2 raw (sᵢ) | Top 3 raw (sᵢ) |','|---|---:|---:|---:|---:|'])
+        for feature in entry['features_used']:
+            items=[row['features'].get(feature) for row in entry['top3']]
+            target_raw=next(item['target_raw'] for item in items if item)
+            cells=[f"{item['candidate_raw']:.4g} ({item['s_i']:.3f})" if item else 'excluded' for item in items]
+            lines.append(f"| {feature} | {target_raw:.4g} | {' | '.join(cells)} |")
     lines.extend(['','Old versus transformed-space decile histograms, control-site ranks, top-ten spans, and rank correlations are in validation_report.json.',''])
     for key,entry in report['targets'].items(): lines.append(f"- {key}: {len(entry['known_analogs'])} known analogs; recall 1/5/10%: {entry['recall_at']}")
     if report['method_sensitivity']:

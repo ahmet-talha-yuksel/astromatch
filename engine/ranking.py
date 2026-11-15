@@ -151,7 +151,9 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         if ef.get('ndvi_mean') is not None and ef['ndvi_mean']>.3: flags.append('vegetated')
         if ef.get('precip_mm_yr') is not None and ef['precip_mm_yr']>500: flags.append('humid')
         if ef.get('land_fraction') is not None and ef['land_fraction']<.8: flags.append('coastal_or_lake')
-        if not valid[i]: excluded.append({'id':c.region_id,'reason':reason or 'fewer than min_features eligible','eligible_count':int(eligible[i].sum()),'place':c.place}); continue
+        roughness=c.features.get('roughness_ratio')
+        if roughness is not None and roughness.value==0: flags.append('possible_flattened_surface')
+        if not valid[i]: excluded.append({'id':c.region_id,'reason':reason or 'fewer than min_features eligible','eligible_count':int(eligible[i].sum()),'place':c.place,'flags':flags}); continue
         if filter_mode=='exclude' and flags: excluded.append({'id':c.region_id,'reason':'earth filter','flags':flags,'place':c.place}); continue
         if arith[i]-geo[i]>=15: flags.append('weak_link')
         usgs_dist=float(usgs_distances[i]) if np.isfinite(usgs_distances[i]) else None
@@ -172,6 +174,14 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         from .uncertainty import simulate
         intervals=simulate(target,candidates,keys,values,eligible,w,sig,feats,full,preset=preset)
         for row in full: row.update(intervals[row['id']])
+    if full:
+        leader=full[0]
+        leader_low=leader.get('score_ci_low',leader['score_geo'])
+        leader_high=leader.get('score_ci_high',leader['score_geo'])
+        tier_ids={row['id'] for row in full if row.get('score_ci_low',row['score_geo'])<=leader_high and row.get('score_ci_high',row['score_geo'])>=leader_low}
+        for row in full:
+            row['top_tier']=row['id'] in tier_ids
+            row['top_tier_size']=len(tier_ids)
     context_factor=commonality_factor(commonality)
     commonality['contextual_factor']=context_factor
     for row in full:
@@ -209,7 +219,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         row['explanation']=build(target,c,row['per_criterion'],row['score_geo'],row['flags'],row['not_compared'],row['match_level'],discrimination,commonality,row).model_dump()
     if ds.mode=='mock':
         for row in excluded: row.update(data_status='mock',disclaimer=DISCLAIMER)
-    return RankResult(target_id=target_id,scale=scale,preset=preset,top_k=top,full_scores=full,excluded=excluded,novel_candidates=[r for r in top if not r['is_known']],sigma=sig,data_status='mock' if ds.mode=='mock' else 'real',disclaimer=DISCLAIMER if ds.mode=='mock' else None,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,target_status=state,target_reason=reason,discrimination_label=discrimination,discrimination_explanation=discrimination_explanation,terrain_commonality=commonality,excluded_features=excluded_target,sigma_calibration={k:v for k,v in calibration.items() if k not in ('robust_std','feature_n')})
+    return RankResult(target_id=target_id,scale=scale,preset=preset,top_k=top,full_scores=full,excluded=excluded,novel_candidates=[r for r in top if not r['is_known']],sigma=sig,data_status='mock' if ds.mode=='mock' else 'real',disclaimer=DISCLAIMER if ds.mode=='mock' else None,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,target_status=state,target_reason=reason,discrimination_label=discrimination,discrimination_explanation=discrimination_explanation,terrain_commonality=commonality,excluded_features=excluded_target,sigma_calibration={k:v for k,v in calibration.items() if k not in ('robust_std','feature_n')},top_tier_size=full[0]['top_tier_size'] if full else 0)
 
 def explain(ds,target_id,candidate_id,scale,preset='balanced'):
     result=rank(ds,target_id,scale,preset,detailed=True,include_uncertainty=True)

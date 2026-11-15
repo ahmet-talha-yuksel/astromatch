@@ -28,6 +28,10 @@ def build(target,candidate,criteria,score,flags,not_compared,match_level=None,di
         low=uncertainty['score_ci_low'];high=uncertainty['score_ci_high']
         stability=uncertainty['top10_stability']
         summary=f'Score {score:.0f} (90% interval {low:.0f}–{high:.0f}); in top 10 in {stability:.0%} of perturbations. {summary}'
+    if uncertainty and uncertainty.get('top_tier_size'):
+        summary=f"{summary} {uncertainty['top_tier_size']} candidates are statistically indistinguishable at the top."
+    if 'possible_flattened_surface' in flags:
+        summary=f'{summary} Possible water body or DEM-flattened surface.'
     phrase=place_phrase(candidate.place)
     if phrase: summary=f'{summary} {phrase}.'
     support=support_summary(target)

@@ -54,10 +54,11 @@ def build_reports(ds,out='engine/report/'):
     """Write one report per scorable target alias and an index; return manifest."""
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
     for path in out.iterdir():
-        if path.is_file() and path.suffix in ('.md','.png','.json'): path.unlink()
+        if path.is_file() and path.name!='COMPARISON.md' and path.suffix in ('.md','.png','.json'): path.unlink()
     summaries=list_targets(ds)
     extent=grid_extent(ds.candidates)
     index=['# AstroMatch analog reports','',f'Data status: **{ds.mode}**. Grid: **regional subset**, scanned-cell extent `{extent}`.','']
+    if (out/'COMPARISON.md').exists(): index.extend(['[v6 versus v9 comparison](COMPARISON.md)',''])
     written=[]
     for summary in summaries:
         if summary.status!='scorable':continue
@@ -89,6 +90,15 @@ def build_reports(ds,out='engine/report/'):
                 strong=', '.join(v['feature'] for v in explanation.get('strongest',[])[:2])
                 weak=', '.join(v['feature'] for v in explanation.get('weakest',[])[:2])
                 lines.append(f"| {_name(row)} | {_place(row)} | {row['score_contextual']:.1f} ({row['score_contextual_ci_low']:.1f}–{row['score_contextual_ci_high']:.1f}) | {row['score_geo']:.1f} | {row['score_relative']:.1f} | {row['match_level']} | {strong} / {weak} |")
+            lines.extend(['',f"Top tier: {result.full_scores[0]['top_tier_size'] if result.full_scores else 0} candidates with a 90% score interval overlapping the top-ranked candidate.",'',
+                          '### Plausibility: target and top 3 raw feature values','',
+                          '| Feature | Target raw | Top 1 raw (sᵢ) | Top 2 raw (sᵢ) | Top 3 raw (sᵢ) |','|---|---:|---:|---:|---:|'])
+            for feature in config('features.yaml')['features']:
+                entries=[row.get('per_criterion',{}).get(feature) for row in result.full_scores[:3]]
+                if not any(entries): continue
+                target_raw=next(item['target_value'] for item in entries if item)
+                cells=[f"{item['candidate_value']:.4g} ({item['s_i']:.3f})" if item else 'excluded' for item in entries]
+                lines.append(f"| {feature} | {target_raw:.4g} | {' | '.join(cells)} |")
             sites=_site_rows(ds,scoped,result)
             lines.extend(['','### Turkish sites','',
                           '| Site | Nearest place | Contextual terrain | Raw geo | Relative |',
@@ -113,8 +123,8 @@ def build_reports(ds,out='engine/report/'):
         if summary.status=='unscorable':index.append(f'| {summary.alias}: {summary.name} | {summary.reason} |')
     index.extend(['','These exclusions show that the validation gate is working; they are not zero-similarity findings.',''])
     (out/'INDEX.md').write_text('\n'.join(index).rstrip()+'\n')
-    manifest={'data_status':ds.mode,'input_source':ds.input_source,'input_sha256':ds.input_hashes,
-              'generated_at':datetime.now(timezone.utc).isoformat(),'reports':written,'grid_label':'regional subset','grid_extent':extent}
+    manifest={'feature_set':config('features.yaml')['feature_set'],'data_status':ds.mode,'input_source':ds.input_source,'input_sha256':ds.input_hashes,
+              'generated_at':datetime.now(timezone.utc).isoformat(),'reports':written+(['COMPARISON.md'] if (out/'COMPARISON.md').exists() else []),'grid_label':'regional subset','grid_extent':extent}
     (out/'MANIFEST.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
     size=sum(path.stat().st_size for path in out.iterdir() if path.is_file())
     if size>=5_000_000:raise ValueError(f'Report exceeds 5 MB: {size} bytes')
