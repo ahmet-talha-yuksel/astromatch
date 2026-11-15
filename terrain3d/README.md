@@ -424,6 +424,79 @@ the dismiss button sends the visitor away. The encounter does not change source 
 it skips the entrance/waving animation when reduced motion is requested.
 
 
+### Rover simulator and manual Voyager landing
+
+Choose **Explore surface → Rover** for six-wheel driving. The rover uses a
+Rapier rigid chassis, six independent ray-cast wheel contacts, four-wheel
+steering, elastic suspension, friction-limited drive, braking and free body
+rotation. Earth, Mars and Moon use different gravity. The WASM physics backend
+loads when the rover is selected.
+
+Physics runs at a fixed 120 Hz in meters, kilograms and seconds on the original
+DEM triangles. Rover mode uses physical relief **1×**, independent of overview
+exaggeration. Source NoData remains absent from the collider, even when visual
+gap fill is enabled. A conservative footprint geofence prevents leaving measured
+terrain or the selected parcel; generated scenery and decorative rocks are not
+collision data. It also checks source cells between the footprint probes.
+
+- W/S or the forward/back arrows drive and reverse; A/D steer rather than strafe.
+- Space or Brake brakes; Shift gives a low-speed training crawl. Drag changes the
+  camera. Choose Chase or Mast view; P or Pause freezes the simulation.
+- Training is the initial profile at **1×**, with a **1.8 m/s** target speed.
+  Throttle ramps up progressively; release slows the rover before hill hold.
+  Holding the opposite direction first brings it to a controlled stop, then
+  reverses. Speed correction uses continuous motor feedback rather than pulsing
+  the full brake. MER reference remains selectable with a **0.05 m/s** target.
+- Time acceleration is independent of physical speed. MER defaults to 10× so its
+  authentic slow reference speed is usable; 1×, 5×, 10× and 20× are available.
+- Instruments show speed, attitude, wheel contacts, estimated suspension support,
+  odometer, steering and grip demand. TCS and three illustrative grip presets can
+  be changed in Drive setup. Recover rover resets an overturned or stuck rover.
+- The reference panel shows source resolution and an actual, locally framed
+  Opportunity Site 002 RMC example with 37 coordinate definitions and original
+  product/label links. It is a separate archive study, not a traverse registered
+  to the current terrain; no sol or observation time is invented.
+
+The mass (185 kg), wheel diameter (26.2 cm), width (21.5 cm), 25 grousers and
+reference speed follow JPL/PDS descriptions. Chassis layout, inertia, motor
+response, elastic suspension and grip are engineering approximations. This is
+not an exact rocker-bogie mechanism or a calibrated terramechanics model.
+Coarse regional DEMs cannot resolve wheel-sized rocks, sinkage or soil mechanics.
+See [ROVER_SIMULATOR.md](ROVER_SIMULATOR.md) for sources, model boundaries and
+the reproducible PDS importer.
+
+**Pilot Voyager** enters a manual landing exercise in the current world:
+
+- The craft waits 45 illustrative meters above a measured landing site. Press
+  Space or a movement key to take control; there is no automatic descent pilot.
+- WASD/arrows apply lateral thrust, Space or the hold-to-fire button provides
+  main thrust, and Shift or Brake reduces lateral speed. Drag to orbit the camera.
+- Instruments show altitude, vertical/lateral speed and remaining fuel. Gravity
+  follows the current Earth, Mars or Moon setting. Fuel is consumed by main thrust.
+- Touch down inside the mint ring at no more than 2.2 m/s descent and 1.4 m/s
+  lateral speed, on supported terrain. Excess speed, steep/unmeasured ground or
+  missing the zone produces a hard-contact result. Restart creates a fresh flight.
+- Return to explorer restores the astronaut/rover camera. A completed craft
+  stays at the landing site; an unfinished flight is cancelled. Switching planets clears the old flight. Closing
+  Explore surface restores focus and releases all controls.
+
+This is a fictional Voyager-inspired landing craft, with added landing legs and
+engines. Its dish, booms and Golden Record styling reference
+[NASA's Voyager spacecraft overview](https://science.nasa.gov/mission/voyager/spacecraft/).
+Flight distances use the existing illustrative character scale, independent of
+DEM normalization and relief exaggeration. Terrain, scientific data and scores
+are preserved. Footprint validation uses the original measured mask.
+
+The browser harnesses at `/tests/rover.html` and `/tests/vehicles.html` use dense,
+explicitly synthetic terrain. From the repository root, run
+`python terrain3d/tests/rover_browser_check.py` (default port 5176) and
+`python terrain3d/tests/vehicles_browser_check.py` (default port 5174); set
+`TERRAIN_URL` and `CHROME_PATH` to the running Vite server and a local Chromium
+executable. They exercise driving, steering, braking, pause, recovery, NASA
+references, planet changes, mobile input, manual touchdown and focus restoration.
+`cd terrain3d && npm test` covers suspension, ramps, gravity-dependent stopping,
+NoData, rollover recovery, frame-rate independence and physical scale invariance.
+
 ### Planet-specific jumping
 
 Space (from the terrain view) and the on-screen Jump button use the same impulse.
