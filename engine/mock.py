@@ -10,12 +10,16 @@ def _region(rid,name,kind,body,scale,lat,lon,vals,valid=True):
     shape={'hypsometric_integral':float(np.clip(.5+.002*(float(vals[4]) if vals[4] is not None else 250)-.5,.01,.99)),
            'roughness_ratio':float(max(0,(float(vals[3]) if vals[3] is not None else 30)/max(float(vals[4]) if vals[4] is not None else 250,1))),
            'curvature_std_per_km':float(max(0,(float(vals[1]) if vals[1] is not None else 18)/200))}
-    return {'schema_version':'2.3','region_id':rid,'kind':kind,'body':body,'name':name,'lat':lat,'lon':lon,'scale':scale,'window_km':10 if scale=='local' else 50,'analysis_resolution_m':500,'source_resolution_m':463,'resolution_validated':valid,'dem_source':'MOCK','features':{k:{'value':None if v is None else float(v),'data_status':'mock','comparable':bool(valid)} for k,v in zip(KEYS,vals)} | {k:{'value':v,'data_status':'mock','comparable':bool(valid)} for k,v in shape.items()} | {'surface_temp_diurnal_range_c':{'value':80,'data_status':'mock','comparable':False,'comparability_note':'Temperature is not compared across bodies'}},'earth_filters':{'ndvi_mean':.08,'precip_mm_yr':45,'land_fraction':.97},'quality':{'coverage':'full','nodata_ratio':.01,'warnings':[]},'processing_version':'0.1.0','tags':[],'data_status':'mock','disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT'}
+    ctx=lambda value: {'value':value,'source':'MOCK SOURCE','period':'MOCK PERIOD','evidence':'model','data_status':'mock'}
+    context=({'lst_diurnal_range_c':ctx(65),'lst_night_mean_c':ctx(-75),'lst_absolute_min_c':ctx(-95)} if body=='mars' else {'diviner_night_min_c':ctx(-180),'diviner_diurnal_range_c':ctx(150),'psr_fraction':ctx(.2)} if body=='moon' else {'lst_diurnal_range_c':ctx(30),'lst_min_month_c':ctx(-10),'lst_absolute_min_c':ctx(-30),'ndvi_mean':ctx(.08),'precip_mm_yr':ctx(45)})
+    return {'schema_version':'2.3','region_id':rid,'kind':kind,'body':body,'name':name,'lat':lat,'lon':lon,'scale':scale,'window_km':10 if scale=='local' else 50,'analysis_resolution_m':500,'source_resolution_m':463,'resolution_validated':valid,'dem_source':'MOCK','features':{k:{'value':None if v is None else float(v),'data_status':'mock','comparable':bool(valid)} for k,v in zip(KEYS,vals)} | {k:{'value':v,'data_status':'mock','comparable':bool(valid)} for k,v in shape.items()} | {'surface_temp_diurnal_range_c':{'value':80,'data_status':'mock','comparable':False,'comparability_note':'Temperature is not compared across bodies'}},'context':context,'earth_filters':{'ndvi_mean':.08,'precip_mm_yr':45,'land_fraction':.97},'quality':{'coverage':'full','nodata_ratio':.01,'warnings':[]},'processing_version':'0.1.0','tags':[],'data_status':'mock','disclaimer':'MOCK DATA — NOT A SCIENTIFIC RESULT'}
 
-def generate(n_grid=5000, seed=42, n_reference=300):
+def generate(n_grid=5000, seed=42, n_reference=300, include_profile_target=False):
     rng=np.random.default_rng(seed)
     targets=[]
-    for rid,name,body,scales,lat,lon,offset in [('T-01','Jezero','mars',['local','regional'],18.38,77.58,0),('T-02','Lunar south pole','moon',['local','regional'],-89.5,0,1),('T-03','Marius Hills','moon',['regional'],13.0,-54.0,-.5)]:
+    target_specs=[('T-01','Jezero','mars',['local','regional'],18.38,77.58,0),('T-02','Lunar south pole','moon',['local','regional'],-89.5,0,1),('T-03','Marius Hills','moon',['regional'],13.0,-54.0,-.5)]
+    if include_profile_target:target_specs.append(('T-04','Phoenix','mars',['regional'],68.22,-125.75,-.7))
+    for rid,name,body,scales,lat,lon,offset in target_specs:
         for scale in scales: targets.append(_region(rid,name,'target',body,scale,lat,lon,CENTERS+offset*SPREADS))
     names=['Salda','Kula','Meke','Hassa','Tuz Gölü','Atacama','Haughton','Meteor Crater']
     coords=[(37.55,29.68),(38.58,28.65),(37.68,33.63),(36.8,36.5),(38.75,33.4),(-23,-68),(75.4,-89.7),(35,-111)]
@@ -32,6 +36,8 @@ def generate(n_grid=5000, seed=42, n_reference=300):
         rec=_region(f'G-{i:05}',f'Grid {i}','earth_grid','earth','regional',float(rng.uniform(-80,80)),float(rng.uniform(-180,180)),[None if not np.isfinite(v) else v for v in vals],i%157!=0)
         if i%83==0: rec['features']['relief_m']['comparable']=False
         rec['earth_filters']={'ndvi_mean':float(rng.uniform(0,.7)),'precip_mm_yr':float(rng.uniform(0,1000)),'land_fraction':float(rng.uniform(.5,1))}
+        rec['context']['ndvi_mean']['value']=rec['earth_filters']['ndvi_mean']
+        rec['context']['precip_mm_yr']['value']=rec['earth_filters']['precip_mm_yr']
         grid.append(rec)
     references=[]
     for i in range(n_reference):
@@ -42,6 +48,6 @@ def generate(n_grid=5000, seed=42, n_reference=300):
 
 def write_mock(out):
     out=Path(out); out.mkdir(parents=True,exist_ok=True)
-    t,c,k=generate()
+    t,c,k=generate(include_profile_target=True)
     for name,records in [('targets.json',t),('candidates.json',c),('known_analogs.json',k)]:
         (out/name).write_text(json.dumps(records,indent=2,sort_keys=True)+'\n')

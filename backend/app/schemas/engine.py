@@ -121,6 +121,14 @@ class CompareResponse(Envelope):
     explanation: dict[str,Any]
     analogy_breaks: list[str]
     not_compared: list[dict[str,Any]]
+    profile_summary: list[dict[str,Any]] = Field(default_factory=list)
+
+class ProfileResponse(Envelope):
+    target: dict[str,Any]
+    candidate: dict[str,Any]
+    mission: str
+    dimensions: list[dict[str,Any]]
+    overall_confidence: str
 
 class ValidationResponse(Envelope):
     report: dict[str,Any]

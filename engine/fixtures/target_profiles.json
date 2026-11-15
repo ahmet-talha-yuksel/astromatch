@@ -1,0 +1,798 @@
+{
+  "schema_version": "profile-1.0",
+  "data_status": "mock",
+  "records": [
+    {
+      "region_id": "T-01",
+      "kind": "target",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "basalt",
+            "olivine"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "T-02",
+      "kind": "target",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "ice",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "T-03",
+      "kind": "target",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "T-04",
+      "kind": "target",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "ice",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "basalt",
+            "olivine"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-01",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-02",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "ice",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "basalt",
+            "olivine"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-03",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-04",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "basalt",
+            "olivine"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-05",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-06",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-07",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "ice",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    },
+    {
+      "region_id": "S-08",
+      "kind": "earth_site",
+      "data_status": "mock",
+      "dimensions": {
+        "water_ice": {
+          "category": "dry",
+          "summary": "Mock water or ice category",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "surface_material": {
+          "category": "mineral_list",
+          "summary": "Mock mineral list",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION",
+          "minerals": [
+            "carbonate",
+            "silica"
+          ]
+        },
+        "thermal": {
+          "category": "surface_temperature",
+          "summary": "Mock surface thermal context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "dust_wind": {
+          "category": "dust_proxy",
+          "summary": "Mock dust or wind context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        },
+        "illumination": {
+          "category": "illumination",
+          "summary": "Mock illumination context",
+          "evidence": "model",
+          "spatial_scope": "MOCK REGION",
+          "source": {
+            "title": "MOCK SOURCE",
+            "url_or_doi": "mock://"
+          },
+          "verified_by": "MOCK VERIFICATION"
+        }
+      }
+    }
+  ]
+}

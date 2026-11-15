@@ -6,11 +6,12 @@ import numpy as np
 import pandas as pd
 from collections import Counter
 from pathlib import Path
-from .adapters import adapt
+from .adapters import adapt, extract_context
 from .io import ROOT, _read, config, feature_paths, merged_features
 from .models import DataPaths
 from .measurement import target_status, target_confidence, support_summary, excluded_features, eligible_target_feature
 from .grid_status import grid_inventory
+from .analog_profile import CONTEXT_KEYS, read_profiles, profile_path, context_coverage, profile_coverage
 
 KINDS={'target','earth_site','earth_grid','earth_reference'}
 STATUSES={'mock','observed','derived'}
@@ -32,6 +33,14 @@ def check_real_data(paths:DataPaths|None=None):
     feature_path=feature_files[0]
     grid_path=_path(paths.grid or os.getenv('ASTROMATCH_GRID'),ROOT/'processing/out/earth_grid.parquet')
     errors=[]; records=[]; configured=set(config('features.yaml')['features'])
+    profiles_file=profile_path(paths.profiles or os.getenv('ASTROMATCH_PROFILES'))
+    profiles,profile_errors=read_profiles(profiles_file)
+    errors.extend(profile_errors)
+    for rid,profile in profiles.items():
+        if profile.get('data_status')=='mock': errors.append(f'{rid}: mock profile record in real-data check')
+        for name,item in profile.get('dimensions',{}).items():
+            if str(item['source']['url_or_doi']).startswith('mock://'):
+                errors.append(f'{rid}.{name}: mock source in real-data check')
     for path in feature_files:
         if not path.exists():
             errors.append(f'Missing input: {path}. Provide --features PATH with v2.3 target and earth_site records')
@@ -79,6 +88,21 @@ def check_real_data(paths:DataPaths|None=None):
         if isinstance(row.get('resolution_validated'),(bool,np.bool_)) and bool(row['resolution_validated']): resolution_true+=1
         elif not isinstance(row.get('resolution_validated'),(bool,np.bool_)): errors.append(f'{label}: resolution_validated must be boolean')
         items=_feature_items(row,configured)
+        if row.get('context') is not None and not isinstance(row.get('context'),dict):
+            errors.append(f'{label}: context must be an object');row['context']={}
+        context=extract_context(row)
+        for key,item in context.items():
+            if key not in CONTEXT_KEYS: errors.append(f'{label}: unknown context quantity {key}');continue
+            if isinstance(item,str):
+                try:item=json.loads(item)
+                except ValueError:pass
+            if not isinstance(item,dict) or not all(field in item for field in ('value','source','period','evidence')):
+                errors.append(f'{label}: context.{key} requires value, source, period, evidence')
+            elif item['value'] is not None:
+                if isinstance(item['value'],(bool,np.bool_)) or not isinstance(item['value'],Real) or not math.isfinite(item['value']):
+                    errors.append(f'{label}: context.{key}.value must be finite number or null')
+                if not item['source'] or not item['period'] or item['evidence'] not in config('profile_rules.yaml')['confidence']:
+                    errors.append(f'{label}: context.{key} requires source, period, and valid evidence tier')
         if config('features.yaml')['feature_set']=='v9' and isinstance(row.get('resolution_validated'),(bool,np.bool_)) and bool(row['resolution_validated']) and (body!='mars' or kind!='target'):
             for shape_key in ('hypsometric_integral','roughness_ratio','curvature_std_per_km'):
                 item=items.get(shape_key)
@@ -150,7 +174,12 @@ def check_real_data(paths:DataPaths|None=None):
     methods={t.method for t in targets if t.body=='mars' and target_statuses[f'{t.region_id}@{t.scale}']['status']=='scorable'}
     if len(methods)>1: warnings.append('mixed Mars methods')
     total=len(records)
-    return {'ready':not errors,'errors':errors,'warnings':warnings,'overrides':overrides,'input_source':os.getenv('ASTROMATCH_INPUT_SOURCE'),'target_statuses':target_statuses,'grid_status':grid_status,'grid_counts':grid_counts,'counts_by_kind_body_scale':dict(sorted(counts.items())),'feature_coverage':feature_coverage,'features_by_record':features_by_record,'feature_set':config('features.yaml')['feature_set'],'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':[str(path) for path in feature_files],'grid':str(grid_path) if grid_path.exists() else None,'coverage':os.getenv('ASTROMATCH_COVERAGE') or str(ROOT/'processing/out/coverage.geojson')}}
+    optional_missing=[]
+    if not profiles_file.exists():optional_missing.append(f'Missing optional profile input: {profiles_file}')
+    for kind in ('target','earth_site','earth_grid'):
+        subset=[r for r in adapted if r.kind==kind]
+        if subset and not any(r.context for r in subset):optional_missing.append(f'No context quantities delivered for {kind} records')
+    return {'ready':not errors,'errors':errors,'warnings':warnings,'overrides':overrides,'input_source':os.getenv('ASTROMATCH_INPUT_SOURCE'),'target_statuses':target_statuses,'grid_status':grid_status,'grid_counts':grid_counts,'counts_by_kind_body_scale':dict(sorted(counts.items())),'feature_coverage':feature_coverage,'features_by_record':features_by_record,'feature_set':config('features.yaml')['feature_set'],'context_coverage':context_coverage(adapted),'profile_coverage':profile_coverage(adapted,profiles),'optional_missing':optional_missing,'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':[str(path) for path in feature_files],'grid':str(grid_path) if grid_path.exists() else None,'profiles':str(profiles_file) if profiles_file.exists() else None,'coverage':os.getenv('ASTROMATCH_COVERAGE') or str(ROOT/'processing/out/coverage.geojson')}}
 
 def report_json(report):
     return json.dumps(report,indent=2,sort_keys=True,ensure_ascii=False)+'\n'

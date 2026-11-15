@@ -6,6 +6,7 @@ import type { TerrainDataJSON } from "../../terrain3d/src/types/terrain";
 import { SpaceBackdrop } from "./SpaceBackdrop";
 import { MissionBadge, ScoreRing } from "./MissionBadge";
 import { MissionSelect } from "./MissionSelect";
+import { AnalogProfile, type ProfileResponse } from "./AnalogProfile";
 import "./style.css";
 
 type Target = { alias: string; region_id: string; name: string; body: string; scales: string[]; status: string; reason: string | null; excluded_features?: string[]; measurement_support?: { effective_nodata_percent?: number; sensitivity_summary?: string } | null };
@@ -39,6 +40,9 @@ function App() {
   const [commonality, setCommonality] = useState<RankResponse["terrain_commonality"]>();
   const [dataStatus, setDataStatus] = useState("");
   const [error, setError] = useState("");
+  const [profileMission, setProfileMission] = useState("human_base");
+  const [profile, setProfile] = useState<ProfileResponse | null>(null);
+  const [profileLoading, setProfileLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(true);
   const [spaceMotion, setSpaceMotion] = useState(true);
   const [exploreRequest, setExploreRequest] = useState(0);
@@ -84,6 +88,15 @@ function App() {
     getJson<TerrainResponse>(`${BASE}/api/v1/terrain/${encodeURIComponent(candidateId)}`, c.signal).then(setEarthTerrain).catch(() => { if (!c.signal.aborted) setEarthTerrain(null); });
     return () => c.abort();
   }, [candidateId]);
+  useEffect(() => {
+    if (!targetId || !candidateId) { setProfile(null); setProfileLoading(false); return; }
+    const controller = new AbortController();
+    setProfile(null); setProfileLoading(true);
+    getJson<ProfileResponse>(`${BASE}/api/v1/profile?target_id=${encodeURIComponent(targetId)}&candidate_id=${encodeURIComponent(candidateId)}&scale=${scale}&mission=${profileMission}`, controller.signal)
+      .then(setProfile).catch(() => { if (!controller.signal.aborted) setProfile(null); })
+      .finally(() => { if (!controller.signal.aborted) setProfileLoading(false); });
+    return () => controller.abort();
+  }, [targetId, candidateId, scale, profileMission]);
   const chooseTarget = (alias: string) => {
     const next = targets.find(t => t.alias === alias);
     setTargetId(alias); setScale(next?.scales.includes("regional") ? "regional" : "local");
@@ -136,7 +149,8 @@ function App() {
           {candidate.flags?.includes('possible_flattened_surface') && <div className="commonality-note">Possible water body or DEM-flattened surface.</div>}
           <div className="place-note">{candidate.place ? `Near ${candidate.place.name}${candidate.place.admin1 ? `, ${candidate.place.admin1}` : ""}, ${candidate.place.country_code} · ${fmt(candidate.place.distance_km)} km` : "Nearby place unavailable"}</div>
         </> : rankStatus === "unscorable" ? <div className="notice" role="status"><strong>No validated Earth comparison.</strong><p>{reasonText(rankReason)}</p>{target?.measurement_support && <p>{target.measurement_support.effective_nodata_percent != null ? `${fmt(target.measurement_support.effective_nodata_percent)}% effective missing DEM data. ` : ''}{target.measurement_support.sensitivity_summary}</p>}{excludedFeatures.length > 0 && <ul>{excludedFeatures.map(item => <li key={item}>{item}</li>)}</ul>}</div> : <p className="muted">Choose an analog from the list to compare.</p>}</aside></div>
-        <footer>Topography only: slope, roughness, and relief. Temperature, ice, mineralogy, and atmosphere are not compared.</footer>
+        <AnalogProfile mission={profileMission} onMission={setProfileMission} profile={profile} loading={profileLoading} />
+        <footer>Terrain ranking uses topography only. The Analog profile describes additional evidence without combining it into a score.</footer>
       </main>
     </div>
   </div>;

@@ -45,3 +45,23 @@ An optional `measurement_support` object describes measured-only Mars processing
 ## Limitations of the delivered real data
 
 The currently delivered Jezero local record is not resolution validated; its score remains unavailable. The measured-only Jezero regional record also fails its supplied p90-slope sensitivity threshold. Phoenix regional and Arcadia regional are validated measured-only records with the same method; Marius Hills regional remains unvalidated. The 408-cell Earth grid is a **regional subset**: 216 cells pass comparison checks, while coverage polygons mark unscanned cells separately from scored and non-comparable cells. No local Earth-reference pool has been delivered, so real local calibration uses the eight eligible Earth sites. Similarity describes only the configured terrain measurements and cannot establish Earth/Mars physical equivalence. The Mars records used for this snapshot were read from the data branch at the revision recorded in the manifest; no processing files are modified by the engine.
+
+## Analog profile
+
+The Analog profile is a **categorical characterization**, separate from the terrain ranker. It never changes `score_geo`, candidate order, or the similarity formula and has no combined score or probability. Missing inputs remain **Not comparable** or **Unknown**. Each row carries target and Earth summaries, evidence tiers, sources, a note, and a mission-specific impact. The response states that Earth cannot reproduce planetary gravity, vacuum or thin atmosphere, or radiation.
+
+Inputs are optional `context` quantities on v2.3 feature records or `ctx__*` columns in the Earth grid. A quantity has `value`, `source`, `period`, and `evidence`. The cold-extreme rule additionally needs an actual Earth minimum (`lst_absolute_min_c`); a monthly average does not stand in for one. Optional `processing/out/real/target_profiles.json` uses schema `profile-1.0` with `records`, each keyed by `region_id`, `kind`, `data_status`, and `dimensions`. Dimension claims require category, summary, evidence, spatial scope, source title and URL/DOI, and verifier. Missing sources are rejected by `cli check`; rejected claims are not served. The mock file in `engine/fixtures/target_profiles.json` uses `MOCK SOURCE` and `mock://` and is never evidence about actual locations.
+
+The following thresholds are read from [`config/profile_rules.yaml`](config/profile_rules.yaml); that YAML is the authority for runtime decisions:
+
+| Dimension | Decision |
+| --- | --- |
+| Terrain | Scanned-cell percentile ≥90: Similar; ≥70: Partly; otherwise Different. Raw topographic score and its interval are shown separately. Without a percentile: Not comparable. |
+| Thermal | Compare the same surface-temperature quantity. Prefer diurnal range; use ratio target/Earth. Similar within 0.67–1.5; Partly within 0.4–2.5; otherwise Earth cannot reproduce. Absolute Celsius temperatures are converted to Kelvin before division. A planetary surface minimum more than 50°C below the Earth comparison minimum is Earth cannot reproduce. Missing or unmatched quantities: Not comparable. |
+| Aridity and vegetation | Earth-side analog quality only: Good when NDVI <0.15 and precipitation <250 mm/year; Moderate when both are <0.3 and <500; otherwise Poor. Missing either: Not comparable. |
+| Water and ice | Matching categories: Shared evidence type; differing categories: Different; missing side: Unknown. This does not establish equal resource abundance. |
+| Surface material | Case-insensitive mineral-list intersection: Overlap with the shared names; no intersection: No overlap; missing side or list: Unknown. |
+| Illumination | Moon target at absolute latitude ≥80°: Earth cannot reproduce polar grazing sunlight or permanent shadow; otherwise Not applicable. |
+| Dust and wind | Mars target with sourced dust evidence and a dry Earth aridity proxy: Partly. Missing evidence/proxy: Not comparable. Moon: Not applicable because it lacks an atmosphere. |
+
+Evidence levels are High for `direct_measurement`, Medium for `orbital_remote_sensing`, Low for `model` or `literature_synthesis`, and None when missing. A dimension's confidence is the lower of its available sides when both are required; overall confidence is the lowest displayed dimension. `engine/config/mission_profiles.yaml` defines the order and categorical impact (`advantage`, `risk`, `opportunity`, `neutral`) for Human base, Rover ops, Astrobiology, and Analog testing. Mission selection changes order, impact, and rationale, never labels or terrain ranking. There is no numeric aggregation because the dimensions describe different physical claims and some have no comparable Earth counterpart.

@@ -35,6 +35,7 @@ class Region(BaseModel):
     measurement_support: dict = Field(default_factory=dict)
     method_sensitive: bool = False
     place: dict | None = None
+    context: dict[str, dict] = Field(default_factory=dict)
 
 class Dataset(BaseModel):
     targets: list[Region] = Field(default_factory=list)
@@ -46,11 +47,13 @@ class Dataset(BaseModel):
     input_hashes: dict[str, str] = Field(default_factory=dict)
     mode: str = 'real'
     input_source: str | None = None
+    profiles: dict[str, dict] = Field(default_factory=dict)
 
 class DataPaths(BaseModel):
     features: str | list[str] | None = None
     grid: str | None = None
     known: str | None = None
+    profiles: str | None = None
 
 class TargetSummary(BaseModel):
     region_id: str
