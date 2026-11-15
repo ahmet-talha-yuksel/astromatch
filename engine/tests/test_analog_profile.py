@@ -2,6 +2,7 @@ import json
 from engine import load_dataset, rank
 from engine.analog_profile import characterize, read_profiles
 from engine.adapters import adapt
+from engine.io import merged_features
 from engine.models import DataPaths
 from engine.readiness import check_real_data
 
@@ -73,9 +74,12 @@ def test_unsourced_claim_rejected_and_check_lists_it(tmp_path):
 def test_flattened_context_columns_are_adapted():
     row={'region_id':'C','kind':'earth_grid','body':'earth','scale':'regional','resolution_validated':True,
          'ctx__ndvi_mean__value':.08,'ctx__ndvi_mean__source':'MOCK SOURCE',
-         'ctx__ndvi_mean__period':'MOCK PERIOD','ctx__ndvi_mean__evidence':'model'}
+         'ctx__ndvi_mean__period':'MOCK PERIOD','ctx__ndvi_mean__evidence':'model',
+         'ctx__ndvi_mean__n_valid_months':6,'ctx__ndvi_mean__warnings':'["coarse grid"]',
+         'ctx__ndvi_mean__reason':'cell_not_validated'}
     region=adapt(row,configured=set())
-    assert region.context['ndvi_mean']=={'value':.08,'source':'MOCK SOURCE','period':'MOCK PERIOD','evidence':'model'}
+    assert region.context['ndvi_mean']=={'value':.08,'source':'MOCK SOURCE','period':'MOCK PERIOD','evidence':'model',
+                                         'n_valid_months':6,'warnings':['coarse grid'],'reason':'cell_not_validated'}
 
 
 def test_other_categorical_and_terrain_paths():
@@ -91,3 +95,37 @@ def test_other_categorical_and_terrain_paths():
     assert dim(result,'surface_material')['label']=='No overlap'
     candidate.context['ndvi_mean']['value']=.2
     assert dim(characterize(ds,target,candidate,row),'aridity_vegetation')['label']=='Moderate'
+
+
+def test_filled_context_switches_labels_without_code_change():
+    ds,target,candidate,row=pair()
+    target.context={'lst_diurnal_range_c':{'value':65,'source':'MOCK SOURCE','period':'MOCK PERIOD','evidence':'model'}}
+    candidate.context={key:{'value':None,'reason':'earthdata_credentials_unavailable; no 2025 observations'} for key in ('lst_diurnal_range_c','ndvi_mean','precip_mm_yr')}
+    before={d['name']:d for d in characterize(ds,target,candidate,row)['dimensions']}
+    assert before['thermal']['label']==before['aridity_vegetation']['label']=='Not comparable'
+    assert 'earthdata_credentials_unavailable' in before['thermal']['null_reasons'][0]
+    for key,value in (('lst_diurnal_range_c',50),('ndvi_mean',.06),('precip_mm_yr',100)):
+        candidate.context[key].update(value=value,source='MOCK SOURCE',period='MOCK PERIOD',evidence='model')
+    after={d['name']:d for d in characterize(ds,target,candidate,row)['dimensions']}
+    assert after['thermal']['label']=='Similar' and after['aridity_vegetation']['label']=='Good'
+
+
+def test_actual_profile_shape_and_unverified_claims(tmp_path):
+    path=tmp_path/'profiles.json'
+    path.write_text(json.dumps({'schema_version':'profile-1.0','targets':[{'region_id':'mars_phoenix_regional','target_id':'T-04','dimensions':{
+        'water_ice':{'category':'direct_observation','summary':'Sourced claim','evidence':'direct_measurement','spatial_scope':'site','source':{'title':'MOCK SOURCE','url_or_doi':'mock://'},'verified_by':None},
+        'thermal':{'category':'unknown','summary':None,'source':None,'verified_by':None,'notes':'No surface value delivered.'}}}], 'earth_sites':[]}))
+    profiles,errors=read_profiles(path)
+    assert not errors
+    assert profiles['mars_phoenix_regional']['dimensions']['water_ice']['verified'] is False
+    assert profiles['mars_phoenix_regional']['dimensions']['thermal']['category']=='unknown'
+
+
+def test_later_measured_features_keep_earlier_context(tmp_path):
+    a,b=tmp_path/'a.json',tmp_path/'b.json'
+    a.write_text(json.dumps([{'region_id':'moon_x_regional','processing_version':'0.3.0','context':{'surface_temp_mean_c':{'value':None,'reason':'2 cm subsurface, not surface'}}}]))
+    b.write_text(json.dumps([{'region_id':'moon_x_regional','processing_version':'0.3.0','features':{'relief_m':{'value':10}}}]))
+    rows,logs=merged_features([a,b])
+    assert rows[0]['features']['relief_m']['value']==10
+    assert rows[0]['context']['surface_temp_mean_c']['reason'].startswith('2 cm')
+    assert any('carried context' in log for log in logs)

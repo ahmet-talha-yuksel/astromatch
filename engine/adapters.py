@@ -2,6 +2,7 @@
 from __future__ import annotations
 import math, json
 import pandas as pd
+import numpy as np
 from .models import Region, Feature
 
 ALIASES = {'slope_deg': 'slope_median_deg', 'tri_m': 'tri_median_m'}
@@ -9,17 +10,23 @@ TOPO = {'slope_median_deg','slope_p90_deg','flat_fraction','tri_median_m','relie
 META = {'context','schema_version','region_id','id','analog_id','analog_for','theme','source','kind','body','planet','name','lat','lon','scale','window_km','analysis_resolution_m','source_resolution_m','resolution_validated','dem_source','dem_version','features','earth_filters','quality','processing_version','tags','data_status','isSynthetic','method','features_interpolated','measurement_support','method_sensitive'}
 
 def extract_context(raw):
-    context=dict(raw.get('context') or {})
+    context={key:dict(value) for key,value in (raw.get('context') or {}).items() if isinstance(value,dict)}
+    def normalize(value):
+        if isinstance(value,str) and value[:1] in ('[','{'):
+            try:value=json.loads(value)
+            except ValueError:pass
+        if isinstance(value,(list,dict,np.ndarray)):return value
+        try:return None if pd.isna(value) else value
+        except (TypeError,ValueError):return value
     for key,value in raw.items():
         if not key.startswith('ctx__'):continue
         parts=key[5:].split('__',1)
-        if isinstance(value,str):
-            try:value=json.loads(value)
-            except ValueError:pass
-        if len(parts)==2 and parts[1] in ('value','source','period','evidence','data_status'):
-            context.setdefault(parts[0],{})[parts[1]]=None if not isinstance(value,(list,dict)) and pd.isna(value) else value
+        value=normalize(value)
+        if len(parts)==2 and parts[1] in ('value','source','period','evidence','data_status','n_valid_months','warnings','reason'):
+            context.setdefault(parts[0],{})[parts[1]]=value
         else:
-            context[parts[0]]=value if isinstance(value,dict) else {'value':None if pd.isna(value) else value,'source':None,'period':None,'evidence':None}
+            if isinstance(value,dict):context.setdefault(parts[0],{}).update(value)
+            else:context.setdefault(parts[0],{})['value']=value
     return context
 
 def adapt(raw: dict, kind: str | None = None, defaults: list[str] | None = None, configured: set[str] | None = None, warnings: list[str] | None = None) -> Region:

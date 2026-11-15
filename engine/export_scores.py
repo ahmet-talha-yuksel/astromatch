@@ -28,7 +28,7 @@ def _digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
+def export_scores(*, mock=False, features=None, grid=None, profiles=None, preset="balanced",
                   sigma=None, criteria=False, out="engine/out/scores/") -> dict:
     from .cli import ENGINE_VERSION
 
@@ -68,6 +68,9 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
         grid_df = pd.read_parquet(grid_path)
         for feature_path in feature_files: hashes[str(feature_path)] = _digest(feature_path)
         hashes[str(grid_path)] = _digest(grid_path)
+        profile_path=Path(profiles or os.getenv('ASTROMATCH_PROFILES') or ROOT/'processing/out/real/target_profiles.json')
+        if not profile_path.is_absolute():profile_path=ROOT/profile_path
+        if profile_path.exists():hashes[str(profile_path)]=_digest(profile_path)
         data_status = "real"
         kinds = set(grid_df["kind"].dropna()) if "kind" in grid_df else set()
         grid_status = "sites_only" if kinds == {"candidate"} else "regional_subset" if len(grid_df)<1000 else "global"
@@ -81,7 +84,7 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     from .io import load_dataset
     from .models import DataPaths
     from .ranking import rank
-    dataset=load_dataset(mock=True,mock_n_grid=5000) if mock else load_dataset(DataPaths(features=[str(p) for p in feature_files],grid=str(grid_path)))
+    dataset=load_dataset(mock=True,mock_n_grid=5000) if mock else load_dataset(DataPaths(features=[str(p) for p in feature_files],grid=str(grid_path),profiles=profiles))
     places={c.region_id:c.place for c in dataset.candidates if c.body=='earth'}
     frames = []
     sigma_tables = {}
