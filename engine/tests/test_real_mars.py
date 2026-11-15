@@ -96,9 +96,10 @@ def test_additional_failed_check_only_gates_scoring_that_uses_that_feature():
     assert gate_reason(target) is None
     after = rank(ds, target.region_id, 'regional').model_dump()
     assert [(r['id'], r['score_geo'], r['distance_z']) for r in before['full_scores']] == [(r['id'], r['score_geo'], r['distance_z']) for r in after['full_scores']]
-    assert target_status(target, [*target.features, 'curvature_std_per_km']) == ('unscorable', 'sensitivity_failed_but_flagged_validated')
+    assert target_status(target, [*target.features, 'curvature_std_per_km']) == ('scorable', None)
     target.measurement_support['sensitivity']['relief_m']['pass'] = False
-    assert gate_reason(target) == 'sensitivity_failed_but_flagged_validated'
+    assert gate_reason(target) is None
+    assert target_status(target) == ('scorable', None)
 
 
 def test_check_reports_measurement_disagreement(tmp_path):

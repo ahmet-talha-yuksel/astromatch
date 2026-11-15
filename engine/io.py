@@ -8,7 +8,7 @@ from .adapters import adapt
 from .models import DataPaths, Dataset
 ROOT = Path(__file__).resolve().parent.parent
 log=logging.getLogger(__name__)
-DEFAULT_FEATURES=(ROOT/'processing/out/real/features.json',ROOT/'processing/out/mars_measured/features.json')
+DEFAULT_FEATURES=(ROOT/'processing/out/real/features.json',ROOT/'processing/out/mars_measured/features.json',ROOT/'processing/out/moon_measured/features.json')
 
 def logical_input_hashes(hashes):
     """Compare identical inputs across host and container mount roots."""

@@ -14,7 +14,7 @@ services:
       ASTROMATCH_RESULTS_DIR: ${ASTROMATCH_RESULTS_DIR:-/app/engine/demo_results}
       ASTROMATCH_PRECOMPUTE: ${ASTROMATCH_PRECOMPUTE:-0}
       ASTROMATCH_WORKERS: ${ASTROMATCH_WORKERS:-1}
-      ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/real/features.json,/app/processing/out/mars_measured/features.json}
+      ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/real/features.json,/app/processing/out/mars_measured/features.json,/app/processing/out/moon_measured/features.json}
       ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/earth_grid.parquet}
       ASTROMATCH_COVERAGE: ${ASTROMATCH_COVERAGE:-/app/processing/out/coverage.geojson}
       ASTROMATCH_KNOWN: ${ASTROMATCH_KNOWN:-/app/discovery/out/known_analogs.json}
@@ -70,7 +70,7 @@ services:
     environment:
       ASTROMATCH_DATA_MODE: ${ASTROMATCH_DATA_MODE:-auto}
       ASTROMATCH_RESULTS_DIR: ${ASTROMATCH_RESULTS_DIR:-/app/engine/demo_results}
-      ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/real/features.json,/app/processing/out/mars_measured/features.json}
+      ASTROMATCH_FEATURES: ${ASTROMATCH_FEATURES:-/app/processing/out/real/features.json,/app/processing/out/mars_measured/features.json,/app/processing/out/moon_measured/features.json}
       ASTROMATCH_GRID: ${ASTROMATCH_GRID:-/app/processing/out/earth_grid.parquet}
       ASTROMATCH_COVERAGE: ${ASTROMATCH_COVERAGE:-/app/processing/out/coverage.geojson}
       ASTROMATCH_KNOWN: ${ASTROMATCH_KNOWN:-/app/discovery/out/known_analogs.json}

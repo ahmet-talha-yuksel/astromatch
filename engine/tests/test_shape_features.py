@@ -15,10 +15,10 @@ def test_feature_set_switch_and_mars_gate(monkeypatch):
     moon = next(t for t in ds.targets if t.region_id == 'moon_shackleton_regional')
     mars = next(t for t in ds.targets if t.region_id == 'mars_phoenix_regional')
     assert all(eligible_target_feature(moon, key) for key in SHAPE)
-    assert all(not eligible_target_feature(mars, key) for key in SHAPE)
-    assert all('shape feature sensitivity not delivered' in item for item in excluded_features(mars, SHAPE))
+    assert all(eligible_target_feature(mars, key) for key in SHAPE)
+    assert not excluded_features(mars, SHAPE)
     assert len(rank(ds, moon.region_id, 'regional', k=1).top_k[0]['per_criterion']) == 9
-    assert len(rank(ds, mars.region_id, 'regional', k=1).top_k[0]['per_criterion']) == 6
+    assert len(rank(ds, mars.region_id, 'regional', k=1).top_k[0]['per_criterion']) == 9
     monkeypatch.setenv('ASTROMATCH_FEATURE_SET', 'v6')
     assert len(config('features.yaml')['features']) == 6
     assert len(rank(ds, moon.region_id, 'regional', k=1).top_k[0]['per_criterion']) == 6
@@ -28,6 +28,7 @@ def test_delivered_shape_sensitivity_enables_mars(monkeypatch):
     monkeypatch.setenv('ASTROMATCH_FEATURE_SET', 'v9')
     mars = next(t for t in load_dataset().targets if t.region_id == 'mars_phoenix_regional')
     for key in SHAPE:
+        mars.measurement_support['sensitivity'].pop(key, None)
         assert not eligible_target_feature(mars, key)
         mars.measurement_support.setdefault('sensitivity', {})[key] = {'pass': True}
         mars.features_interpolated[key] = mars.features[key].value
