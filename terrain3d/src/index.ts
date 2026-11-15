@@ -8,3 +8,5 @@ export { validateTerrainData, TerrainValidationError } from "./validation/terrai
 export { loadTerrain } from "./loading/loadTerrain";
 export { requireCandidateTerrainLink, validateCandidateMetadata, validateSimilarityResult, validateTerrainInput } from "./integration";
 export type { CandidateMetadataInput, SimilarityResultInput, ValidatedSimilarityResult } from "./integration";
+
+export type { SurfaceStyle } from "./materials/planetSurface";

@@ -16,7 +16,7 @@ export function createTerrainGeometry(input: TerrainData, options?: { verticalEx
   const elevationOffset = options?.elevationOffset ?? 0;
   const colorMin = options?.colorRange?.min ?? min;
   const colorMax = options?.colorRange?.max ?? max;
-  const vertices: number[] = [], colors: number[] = [], indices: number[] = [];
+  const vertices: number[] = [], colors: number[] = [], uvs: number[] = [], indices: number[] = [];
   const vertexIndex = new Int32Array(heights.length).fill(-1);
   const color = new THREE.Color();
   for (let row = 0; row < height; row++) {
@@ -33,6 +33,7 @@ export function createTerrainGeometry(input: TerrainData, options?: { verticalEx
       if (colorMode === "neutral") color.setRGB(0.48 + 0.22 * t, 0.52 + 0.18 * t, 0.58 + 0.12 * t);
       else color.setHSL(0.6 - 0.5 * t, 0.45, 0.34 + t * 0.25);
       colors.push(color.r, color.g, color.b);
+      uvs.push(column * spacingX / span, row * spacingY / span);
     }
   }
   function triangle(a: number, b: number, c: number) {
@@ -50,6 +51,7 @@ export function createTerrainGeometry(input: TerrainData, options?: { verticalEx
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
   geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+  geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
   geometry.setIndex(indices);
   geometry.computeVertexNormals();
   return geometry;
