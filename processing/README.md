@@ -1,5 +1,13 @@
 # NASA Data Processing — v2.3
 
+## Analog profile context handoff (partial; not merge ready)
+
+`out/real/features.json` now has auxiliary `context` blocks; `out/earth_grid.parquet` has auxiliary `ctx__*` columns. Original features, identifiers and eligibility flags are unchanged. No 2025 Earth observations were acquired: environment and netrc Earthdata authentication were unavailable, so all annual climate fields are null with explicit reasons. The other 192 grid cells carry `cell_not_validated`. Moon context is also null: the inspected Diviner polar resource model does not supply the requested observed surface mean/minimum or PSR mask with a validated window extraction.
+
+`out/real/target_profiles.json` contains five target profiles and the 16 existing Earth site/scale IDs. Only claims backed by sources opened during this session are populated; every `verified_by` remains null. Kula, Meke, Hassa, Tuz Golu and Atacama dimensions are unknown in this delivery. `PROFILE_REVIEW.md` lists every sourced claim and gap for human review. `context_report.md` records all 424 Earth record/grid contexts, the eight sites at both scales, unavailable-data reasons and unevaluable sanity checks. `DATA_SOURCES.md` records inspected products.
+
+Read `out/real/PROFILE_INTEGRATION.md` before integration: current engine adapters cannot consume the requested warnings/profile/human-review/lunar-key contracts. CI currently fails; no engine/backend/frontend changes were made. Historical root/handoff snapshots are not silently repackaged as updated profile products. Reproduction commands and the baseline test comparison are in that integration note.
+
 Güncel ekip teslimi: `out/real/features.json` **21 kayıt** içerir (8 Dünya
 sahası × 2 ölçek, Jezero × 2, Shackleton × 2, Marius Hills regional).
 18 kaydın topoğrafik işlem QA bayrakları açıktır; Jezero ve Marius Hills

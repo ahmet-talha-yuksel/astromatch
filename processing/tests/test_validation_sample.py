@@ -26,7 +26,8 @@ def test_invalid_cell_key_rejected(tmp_path):
 
 
 def test_delivered_sample_preserves_schema_and_order_without_quality_replacement():
-    base=pq.read_schema(ROOT/'out/earth_grid.parquet')
+    pilot=pq.read_table(ROOT/'out/earth_grid.parquet')
+    base=pilot.select([n for n in pilot.column_names if not n.startswith('ctx__')]).schema
     table=pq.read_table(ROOT/'out/earth_grid_validation.parquet')
     assert table.schema.equals(base,check_metadata=True)
     ledger=json.loads((ROOT/'out/validation_sample/ledger.json').read_text())['entries']
