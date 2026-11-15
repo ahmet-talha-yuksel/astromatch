@@ -58,6 +58,7 @@ def check_real_data(paths:DataPaths|None=None):
             if row.get('kind')=='candidate': row['kind']='earth_site'
             records.append((row,path,index))
     counts=Counter(); features_by_record={}; null_counts=Counter(); comparable_total=comparable_true=resolution_true=0
+    feature_coverage={}
     mock_records=[]; adapted=[]
     for row,path,index in records:
         rid=str(row.get('region_id') or row.get('id') or f'row-{index}')
@@ -69,6 +70,7 @@ def check_real_data(paths:DataPaths|None=None):
         if not flattened and row.get('schema_version')!='2.3': errors.append(f'{label}: schema_version must be 2.3')
         kind=row.get('kind','unknown'); body=str(row.get('body','unknown')).lower(); scale=row.get('scale','unknown')
         counts[f'{kind}/{body}/{scale}']+=1
+        coverage=feature_coverage.setdefault(kind,{key:{'present':0,'null':0,'comparable':0} for key in configured})
         if kind not in KINDS: errors.append(f'{label}: invalid kind {kind!r}')
         if body not in BODIES: errors.append(f'{label}: invalid body {body!r}')
         if scale not in SCALES: errors.append(f'{label}: invalid scale {scale!r}')
@@ -77,6 +79,15 @@ def check_real_data(paths:DataPaths|None=None):
         if isinstance(row.get('resolution_validated'),(bool,np.bool_)) and bool(row['resolution_validated']): resolution_true+=1
         elif not isinstance(row.get('resolution_validated'),(bool,np.bool_)): errors.append(f'{label}: resolution_validated must be boolean')
         items=_feature_items(row,configured)
+        if config('features.yaml')['feature_set']=='v9' and isinstance(row.get('resolution_validated'),(bool,np.bool_)) and bool(row['resolution_validated']) and (body!='mars' or kind!='target'):
+            for shape_key in ('hypsometric_integral','roughness_ratio','curvature_std_per_km'):
+                item=items.get(shape_key)
+                value=item.get('value') if isinstance(item,dict) else item
+                comparable=item.get('comparable') if isinstance(item,dict) else row.get(shape_key+'__comparable')
+                if value is None or (not isinstance(value,(dict,list)) and pd.isna(value)):
+                    errors.append(f'{label}: v9 requires {shape_key} on validated {kind}')
+                elif not isinstance(comparable,(bool,np.bool_)) or not bool(comparable):
+                    errors.append(f'{label}: v9 requires comparable {shape_key} on validated {kind}')
         present=sorted(k for k in configured if k in items)
         missing=sorted(configured-set(present))
         features_by_record[label]={'present':present,'missing':missing}
@@ -95,6 +106,12 @@ def check_real_data(paths:DataPaths|None=None):
                 if flattened and key in items and comparable is None: errors.append(f'{label}: {key}__comparable missing')
             if feature_value is None or (not isinstance(feature_value,(dict,list)) and pd.isna(feature_value)): null_counts[key]+=1
             elif isinstance(feature_value,(bool,np.bool_)) or not isinstance(feature_value,Real) or not math.isfinite(feature_value): errors.append(f'{label}: {key} value must be finite number or null')
+            if key in items: coverage[key]['present']+=1
+            if feature_value is None or (not isinstance(feature_value,(dict,list)) and pd.isna(feature_value)): coverage[key]['null']+=1
+            if isinstance(comparable,(bool,np.bool_)) and comparable: coverage[key]['comparable']+=1
+            if isinstance(feature_value,Real) and not isinstance(feature_value,(bool,np.bool_)) and math.isfinite(feature_value):
+                invalid=(key=='hypsometric_integral' and not 0<=feature_value<=1) or (key=='roughness_ratio' and feature_value<0) or (key=='curvature_std_per_km' and feature_value<0)
+                if invalid: errors.append(f'{label}: {key} out of range')
             if key in items:
                 comparable_total+=1
                 if isinstance(comparable,(bool,np.bool_)) and bool(comparable): comparable_true+=1
@@ -133,7 +150,7 @@ def check_real_data(paths:DataPaths|None=None):
     methods={t.method for t in targets if t.body=='mars' and target_statuses[f'{t.region_id}@{t.scale}']['status']=='scorable'}
     if len(methods)>1: warnings.append('mixed Mars methods')
     total=len(records)
-    return {'ready':not errors,'errors':errors,'warnings':warnings,'overrides':overrides,'input_source':os.getenv('ASTROMATCH_INPUT_SOURCE'),'target_statuses':target_statuses,'grid_status':grid_status,'grid_counts':grid_counts,'counts_by_kind_body_scale':dict(sorted(counts.items())),'features_by_record':features_by_record,'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':[str(path) for path in feature_files],'grid':str(grid_path) if grid_path.exists() else None,'coverage':os.getenv('ASTROMATCH_COVERAGE') or str(ROOT/'processing/out/coverage.geojson')}}
+    return {'ready':not errors,'errors':errors,'warnings':warnings,'overrides':overrides,'input_source':os.getenv('ASTROMATCH_INPUT_SOURCE'),'target_statuses':target_statuses,'grid_status':grid_status,'grid_counts':grid_counts,'counts_by_kind_body_scale':dict(sorted(counts.items())),'feature_coverage':feature_coverage,'features_by_record':features_by_record,'feature_set':config('features.yaml')['feature_set'],'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':[str(path) for path in feature_files],'grid':str(grid_path) if grid_path.exists() else None,'coverage':os.getenv('ASTROMATCH_COVERAGE') or str(ROOT/'processing/out/coverage.geojson')}}
 
 def report_json(report):
     return json.dumps(report,indent=2,sort_keys=True,ensure_ascii=False)+'\n'

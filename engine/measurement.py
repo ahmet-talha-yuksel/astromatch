@@ -10,6 +10,12 @@ def failed_sensitivity(target, key):
     item = ((target.measurement_support or {}).get('sensitivity') or {}).get(key)
     return item if isinstance(item, dict) and item.get('pass') is False else None
 
+SHAPE_FEATURES=frozenset(('hypsometric_integral','roughness_ratio','curvature_std_per_km'))
+
+def missing_shape_sensitivity(target,key):
+    item=((target.measurement_support or {}).get('sensitivity') or {}).get(key)
+    return target.body=='mars' and key in SHAPE_FEATURES and not (isinstance(item,dict) and isinstance(item.get('pass'),bool))
+
 
 def per_feature_verdict_allowed(target):
     """Use a delivered engineering verdict when sensitivity is the sole failed gate."""
@@ -56,6 +62,8 @@ def excluded_features(target, configured=None) -> list[str]:
         failed = failed_sensitivity(target, key)
         if failed is not None:
             result.append(sensitivity_exclusion(target, key, failed))
+        elif missing_shape_sensitivity(target,key):
+            result.append(f'{key} excluded — shape feature sensitivity not delivered')
         elif feature is None or feature.value is None:
             result.append(f'{key} excluded — missing value')
         elif not feature.comparable and not (per_feature_verdict_allowed(target) and (target.measurement_support.get('sensitivity') or {}).get(key,{}).get('pass') is True):
@@ -70,6 +78,7 @@ def eligible_target_feature(target, key) -> bool:
     feature = target.features.get(key)
     passed=(target.measurement_support or {}).get('sensitivity',{}).get(key,{}).get('pass') is True
     return bool(feature and feature.value is not None and failed_sensitivity(target,key) is None and
+                not missing_shape_sensitivity(target,key) and
                 ((target.resolution_validated and feature.comparable) or (per_feature_verdict_allowed(target) and passed)))
 
 

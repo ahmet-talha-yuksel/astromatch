@@ -113,3 +113,4 @@ class RankResult(BaseModel):
     terrain_commonality: dict | None = None
     excluded_features: list[str] = Field(default_factory=list)
     sigma_calibration: dict | None = None
+    top_tier_size: int = 0

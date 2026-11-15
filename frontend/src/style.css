@@ -136,6 +136,7 @@ footer{font-size:11px;color:#8598b9;margin-top:10px;line-height:1.4;flex-shrink:
 [data-body="mars"] .sync-pill{background:#3a241d80;border-color:#71513b;color:#f3cfb5}
 .brand-name{font-size:15px}.topbar-title{font-size:15px}.select-trigger,.select-option{font-size:14px}
 .candidate-name{font-size:15px}.candidate-location{font-size:13px}.score-ring strong{font-size:14px}
+.top-tier-badge{display:inline-block;padding:1px 6px;margin-right:7px;border:1px solid var(--ui-border);border-radius:999px;color:var(--ui-accent);font-size:11px;font-weight:700}
 .mission-copy strong{font-size:14px}.mission-secret,.mission-easter>span{font-size:12px}.mission-eyebrow{font-size:11px}
 .criterion>div:first-child,.criterion strong{font-size:14px}.metric-row{font-size:13px}.primary-score small{font-size:13px}
 .panel-heading h2{font-size:17px}.panel-kicker{font-size:11px}.place-note{font-size:12px}.sidebar-foot{font-size:13px}.gesture-hint,footer{font-size:12px}

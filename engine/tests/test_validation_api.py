@@ -5,6 +5,7 @@ import pandas as pd
 import pytest
 
 from engine.export_scores import export_scores
+from engine.io import config
 from engine.mock import generate
 from engine.validation_api import _score_grid, list_target_ids, score_grid
 
@@ -83,7 +84,7 @@ def test_scale_and_missing_values(sample):
     frame, targets = sample
     altered = frame.copy(deep=True)
     altered.loc[1, "scale"] = "local"
-    for key in ("slope_median_deg", "slope_p90_deg", "flat_fraction", "tri_median_m"):
+    for key in list(config('features.yaml')['features'])[:-2]:
         altered.loc[2, key] = np.nan
     result = run_mock(altered, targets)
     assert np.isnan(result.loc[1, "score"])
