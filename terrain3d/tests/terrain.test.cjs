@@ -184,3 +184,156 @@ test('integration adapters do not fabricate absent producer outputs', () => {
   assert.throws(() => requireCandidateTerrainLink({ id: 'david-result', terrainId: '' }, ['terrain-1']), /no terrain link/);
   assert.throws(() => requireCandidateTerrainLink({ id: 'yenge-candidate', terrain_id: 'unpublished' }, []), /unavailable terrain/);
 });
+
+test('terrain UVs follow valid vertices and preserve physical texture proportions', () => {
+  const geometry = createTerrainGeometry(fixture('moon'));
+  const uv = geometry.getAttribute('uv');
+  assert.equal(uv.count, geometry.getAttribute('position').count);
+  assert.ok([...uv.array].every(v => Number.isFinite(v) && v >= 0 && v <= 1));
+  assert.deepEqual([uv.getX(0), uv.getY(0)], [0, 0]);
+  assert.deepEqual([uv.getX(uv.count - 1), uv.getY(uv.count - 1)], [1, 1]);
+  geometry.dispose();
+  const earth = validateTerrainData(fixture('earth'));
+  const rectangle = createTerrainGeometry(earth);
+  const texture = rectangle.getAttribute('uv');
+  const last = texture.count - 1;
+  assert.ok(Math.abs(texture.getX(last) / texture.getY(last) - earth.horizontalWindowMeters.width / earth.horizontalWindowMeters.height) < 1e-6);
+  rectangle.dispose();
+});
+
+const { surfaceElevation, findSurfaceSpawn } = require('../.test-build/geometry/surfaceNavigation.js');
+test('POV ground sampling follows both rendered triangles rather than bilinear interpolation', () => {
+  const terrain = validateTerrainData({ ...base(), width: 2, height: 2, heights: [0, 10, 20, 100],
+    cellSizeMeters: 10, horizontalWindowMeters: { width: 10, height: 10 } });
+  assert.equal(surfaceElevation(terrain, 0.25, 0.25), 7.5);
+  assert.equal(surfaceElevation(terrain, 0.75, 0.75), 57.5);
+  assert.equal(surfaceElevation(terrain, 1, 1), 100);
+  for (const uv of [[-0.01, 0.5], [0.5, 1.01], [NaN, 0]]) assert.equal(surfaceElevation(terrain, ...uv), null);
+});
+test('POV spawn lands on a valid triangle and movement sampling rejects NoData', () => {
+  const terrain = validateTerrainData(fixture('moon'));
+  assert.equal(surfaceElevation(terrain, 1 / 3, 1 / 3), null);
+  const spawn = findSurfaceSpawn(terrain);
+  assert.equal(typeof surfaceElevation(terrain, spawn.u, spawn.v), 'number');
+  const sparse = validateTerrainData({ ...base(), width: 2, height: 2, heights: [null, 10, 20, 100], validMask: [false, true, true, true],
+    cellSizeMeters: 10, horizontalWindowMeters: { width: 10, height: 10 } });
+  const safe = findSurfaceSpawn(sparse);
+  assert.ok(safe.u + safe.v > 1);
+  assert.equal(typeof surfaceElevation(sparse, safe.u, safe.v), 'number');
+  assert.equal(surfaceElevation(sparse, 0.2, 0.2), null);
+});
+
+const { explorationWorld, createContextGeometry } = require('../.test-build/geometry/explorationWorld.js');
+test('exploration context preserves source heights and NoData, and is deterministic outside the parcel', () => {
+  const terrain = validateTerrainData(fixture('moon'));
+  const world = explorationWorld(terrain, 2);
+  const valid = terrain.heights.filter(h => h !== null), min = Math.min(...valid);
+  for (const [u, v] of [[0, 0], [0.8, 0.8], [1 / 3, 1 / 3]]) {
+    const original = surfaceElevation(terrain, u, v);
+    assert.equal(world.at(u, v), original === null ? null : (original - min) * world.scale * 2);
+  }
+  assert.equal(world.at(-2.01, 0), null);
+  assert.equal(world.at(3.01, 0), null);
+  assert.equal(world.at(NaN, 0), null);
+  assert.equal(world.at(-0.7, 1.2), explorationWorld(terrain, 2).at(-0.7, 1.2));
+  assert.ok(Number.isFinite(world.at(-0.7, 1.2)));
+  const geometry = createContextGeometry(world);
+  assert.equal(geometry.index.count, 24 * 40 * 40 * 6);
+  const position = geometry.getAttribute('position');
+  for (let i = 0; i < geometry.index.count; i += 3) {
+    const ids = [0, 1, 2].map(j => geometry.index.getX(i + j));
+    const x = ids.reduce((total, id) => total + position.getX(id), 0) / 3;
+    const z = ids.reduce((total, id) => total + position.getZ(id), 0) / 3;
+    assert.ok(Math.abs(x) >= world.width / 2 - 1e-5 || Math.abs(z) >= world.depth / 2 - 1e-5, 'context must never cover the source parcel');
+  }
+  for (const name of ['position', 'normal', 'uv']) assert.ok([...geometry.getAttribute(name).array].every(Number.isFinite));
+  geometry.dispose();
+});
+
+test('overview context shares comparison scale and elevation offset with the selected DEM', () => {
+  const terrain = validateTerrainData(fixture('earth'));
+  const native = explorationWorld(terrain, 2);
+  const span = Math.max(terrain.horizontalWindowMeters.width, terrain.horizontalWindowMeters.height);
+  const overview = explorationWorld(terrain, 2, { worldSpanMeters: span * 2, elevationOffset: -100 });
+  assert.equal(overview.width, native.width / 2);
+  assert.equal(overview.depth, native.depth / 2);
+  const offset = -100 * overview.scale * 2;
+  assert.equal(overview.at(0.5, 0.5), native.at(0.5, 0.5) / 2 + offset);
+  const edge = overview.at(1, 0.5), adjacent = overview.at(1 + 1e-9, 0.5);
+  assert.ok(Math.abs(edge - adjacent) < 1e-6, 'generated context must meet the displayed source boundary');
+});
+
+const { Vector3 } = require('three');
+const { renderedWorldHeight, keepOverviewAboveGround } = require('../.test-build/geometry/overviewCollision.js');
+test('overview camera guard clears source ridges, respects relative heights and samples context triangles', () => {
+  const terrain = validateTerrainData(fixture('earth'));
+  const world = explorationWorld(terrain, 5, { elevationOffset: -123 });
+  for (const [u, v] of [[0.4, 0.7], [-0.4, 1.3], [2.99, -1.2]]) {
+    const floor = renderedWorldHeight(world, u, v);
+    assert.equal(typeof floor, 'number');
+    const p = new Vector3((u - 0.5) * world.width, floor - 5, (v - 0.5) * world.depth);
+    keepOverviewAboveGround(p, world, 0.2);
+    assert.ok(Math.abs(p.y - (floor + 0.2)) < 1e-9);
+    assert.equal(p.x, (u - 0.5) * world.width);
+    p.y += 100; const high = p.y;
+    keepOverviewAboveGround(p, world, 0.2); assert.equal(p.y, high);
+  }
+  assert.equal(renderedWorldHeight(world, 0.4, 0.7), world.at(0.4, 0.7));
+  assert.equal(renderedWorldHeight(world, -3, 0), null);
+});
+
+const { SURFACE_GRAVITY, CHARACTER_SCALE, JUMP_SPEED, groundedJump, launchJump, stepJump } = require('../.test-build/geometry/jumpPhysics.js');
+test('same jump impulse produces progressively higher, longer jumps on Earth, Mars and Moon', () => {
+  const flights = [];
+  for (const body of ['Earth', 'Mars', 'Moon']) {
+    const gravity = SURFACE_GRAVITY[body] * CHARACTER_SCALE;
+    let state = launchJump(groundedJump(3)), peak = 0, time = 0;
+    const dt = 1 / 120;
+    while (!state.grounded && time < 10) {
+      state = stepJump(state, body, dt, 3); time += dt;
+      peak = Math.max(peak, state.y - 3);
+      assert.ok(state.y >= 3);
+    }
+    assert.equal(state.grounded, true);
+    assert.equal(state.velocity, 0);
+    assert.equal(state.y, 3);
+    assert.ok(Math.abs(peak - JUMP_SPEED ** 2 / (2 * gravity)) < 0.001);
+    assert.ok(Math.abs(time - 2 * JUMP_SPEED / gravity) < dt + 1e-8);
+    flights.push({ peak, time });
+  }
+  assert.ok(flights[0].peak < flights[1].peak && flights[1].peak < flights[2].peak);
+  assert.ok(flights[0].time < flights[1].time && flights[1].time < flights[2].time);
+});
+test('jump integration is independent of frame rate, cannot double-jump, and lands on changing terrain', () => {
+  for (const body of ['Earth', 'Mars', 'Moon']) {
+    const initial = launchJump(groundedJump(10));
+    assert.strictEqual(launchJump(initial), initial);
+    let fine = initial, coarse = initial;
+    for (let i = 0; i < 30; i++) fine = stepJump(fine, body, 0.01, 10);
+    for (let i = 0; i < 3; i++) coarse = stepJump(coarse, body, 0.1, 10);
+    assert.ok(Math.abs(fine.y - coarse.y) < 1e-10);
+    assert.ok(Math.abs(fine.velocity - coarse.velocity) < 1e-10);
+    assert.strictEqual(stepJump(initial, body, 0, 10), initial);
+    assert.deepEqual(stepJump(fine, body, 0.1, fine.y + 1), groundedJump(fine.y + 1));
+    assert.equal(stepJump(fine, body, 0.1, 8).grounded, false);
+  }
+});
+const { moveWithinParcel, parcelSegmentIsValid } = require('../.test-build/geometry/surfaceNavigation.js');
+test('walking and airborne horizontal movement cannot leave any side or corner of the selected parcel', () => {
+  const earth = validateTerrainData(fixture('earth'));
+  const from = { u: 0.5, v: 0.5 };
+  for (const du of [-3, 0, 3]) for (const dv of [-3, 0, 3]) {
+    const next = moveWithinParcel(earth, from, du, dv, { u: 0.01, v: 0.02 });
+    assert.ok(next && next.u >= 0.01 && next.u <= 0.99 && next.v >= 0.02 && next.v <= 0.98);
+    assert.equal(typeof surfaceElevation(earth, next.u, next.v), 'number');
+  }
+});
+test('parcel movement rejects NoData crossed between valid endpoints and allows safe nearby routes', () => {
+  const moon = validateTerrainData(fixture('moon'));
+  const from = { u: 0.02, v: 0.02 }, to = { u: 0.98, v: 0.98 };
+  assert.notEqual(surfaceElevation(moon, from.u, from.v), null);
+  assert.notEqual(surfaceElevation(moon, to.u, to.v), null);
+  assert.equal(parcelSegmentIsValid(moon, from, to), false);
+  assert.equal(moveWithinParcel(moon, from, to.u - from.u, to.v - from.v), null);
+  assert.equal(parcelSegmentIsValid(moon, { u: 0.1, v: 0.9 }, { u: 0.9, v: 0.9 }), true);
+});

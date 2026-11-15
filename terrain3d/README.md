@@ -4,7 +4,7 @@ Phase 6 documentation: [integration readiness](docs/integration-readiness.md), [
 
 Independent React/TypeScript viewer with no dependency on `frontend/`, backend services,
 or NASA APIs. Every bundled terrain is **synthetic**, not NASA measurements.
-The original 64×64 Mars/Earth surfaces remain in the demo; three small JSON examples
+The demo includes 144×144 Mars/Earth/Moon surfaces; three small JSON examples
 also exercise URL loading, rectangular spacing and a NoData hole.
 
 ## Run and verify
@@ -313,3 +313,122 @@ Real conversion refuses missing dataset, product ID, version or HTTP(S) provenan
 Synthetic conversion still requires an explicit synthetic label and never claims NASA
 measurements. Run `pytest converter/tests` after installing pytest to exercise offline
 small-raster fixtures; no external dataset is downloaded.
+
+### Camera framing improvements
+
+Camera actions can be repeated after orbiting or panning. Reset and perspective
+restore the default angle; Fit preserves the current angle and recenters the terrain.
+Framing includes displayed relief and viewport aspect ratio, with clipping and zoom
+limits adjusted to the terrain bounds. Separate comparison instances use independent
+camera synchronization channels. Elevation summaries use a single pass so large DEMs
+do not exceed JavaScript function argument limits.
+
+For visual QA on macOS/Linux, set `CHROME_PATH` to your Chrome executable and run
+`python qa_visual.py`. `TERRAIN_URL` optionally selects a different dev server.
+
+## Planet surfaces and first person exploration
+
+The default `surface` appearance uses the terrain body's artistic material: ochre
+regolith for Mars, cratered gray regolith for the Moon, or layered grass, soil and
+rock for Earth. Earth blends rocky areas using geometric slope, with broad color
+variation, dry-grass patches and separate fine ground detail. These are artistic
+material choices, not inferred vegetation or land-cover classifications.
+The Surface menu can override that material without changing the terrain's body or
+elevation data. Elevation gradient and neutral shading remain available. Materials
+are generated locally with seamless color/bump textures and a second detail scale;
+there are no texture downloads or external imagery licenses. These are illustrative
+materials, not geographically registered satellite imagery. NoData holes remain open.
+Texture spacing preserves the terrain's horizontal aspect ratio.
+
+Each viewer has a **POV · Explore surface** button. It opens a full-screen explorer
+with a third person astronaut and a following camera by default:
+
+- Drag the mouse or swipe the canvas to look around.
+- Move with WASD, arrow keys, or the on-screen arrow buttons. Hold Shift for speed.
+- Press Space or tap Jump to jump with the current world's gravity.
+- Choose Third person or First person, and Slow, Explore, or Fast travel speed.
+- The mint boundary and four corner beacons identify the selected source parcel.
+- A live parcel map shows your location; Return to parcel restores a valid landing.
+- Use the Earth/Mars/Moon buttons to change loaded terrain, material, lighting and sky.
+- Press Escape or Exit POV to return to the comparison; keyboard focus is restored.
+
+Ground height follows the rendered DEM triangles and displayed exaggeration.
+Movement stays inside the selected source parcel, both on foot and in the air.
+An inset keeps the astronaut inside its boundary. Segment checks reject every crossed
+NoData triangle, even when both movement endpoints are valid. The surrounding 5×5
+area remains decorative and can still be viewed by the camera.
+The 24 surrounding parcels are deterministic decorative terrain with a gentle
+curvature toward the horizon, not geographic measurements. They never cover the
+source parcel or fill its NoData holes. A starfield and artistic horizon supply a
+space setting. This is a local planet-like surface, not a globe reconstruction.
+Third person uses an illustrative astronaut scale and a smoothed camera that stays
+above intervening terrain. First person eye height is 1.7 source meters
+with a 0.003 scene-unit minimum for display readability. Travel speed is a visual
+navigation setting, not a measured walking speed. Decorative
+rocks, sky and fog are artistic; rocks do not participate in collision or change
+measured elevations. Switching worlds retains the normalized horizontal position and
+look direction inside the selected parcel where valid, otherwise landing on a valid source triangle. This does not
+imply geographic correspondence. Separate POV terrain is normalized to its own span.
+
+Provide additional destinations through the optional `explorationTerrains` prop:
+
+```tsx
+<TerrainComparison target={mars} analog={earth} explorationTerrains={[moon]} />
+<TerrainViewer terrain={earth} explorationTerrains={[mars, moon]} />
+```
+
+The comparison automatically supplies target and analog as destinations. Missing
+planetary terrain leaves the corresponding button disabled. The demo includes three
+144×144 synthetic landscapes, with hills/ridges and separate lunar crater terrain;
+none represents real NASA measurements. The converter and real DEM inputs are unchanged.
+
+### Comparison overview scenery
+
+The overview canvases also show the 24 decorative context parcels, a starfield and a
+small orbiting survey spacecraft. Context terrain is dimmed so the selected source
+parcel remains prominent. Its mint boundary and corner beacons follow the source
+surface; hovering the source mesh or focusing the Selected parcel button increases
+its highlight. Clicking that button fits the source parcel. Context and spacecraft
+are excluded from scientific inspection and camera-fit bounds.
+
+Overview context uses the comparison's shared world span and display elevation offset,
+so changing absolute/relative modes does not detach the source boundary. The central
+DEM and its NoData holes remain unchanged. Surroundings are labeled generated scenery;
+the orbital spacecraft is illustrative and stops when reduced motion is requested.
+
+### Explorer character, camera guard and hidden encounter
+
+The astronaut has a gold visor, helmet hardware, collar, suit joints, chest controls,
+life-support pack, gloves and boots, with separate arm/leg swing and softened gait.
+Overview orbit controls stop short of the horizon and pan horizontally. A height
+guard keeps the camera above source DEM triangles and the actual tessellated context
+surface, including relative display offsets and vertical exaggeration.
+
+Click/tap the orbiting satellite (or focus its Inspect orbiting satellite button and
+press Enter) for a hidden alien visitor near the selected parcel. The satellite pauses
+on hover/focus for easier picking, and while the encounter is open. A second click or
+the dismiss button sends the visitor away. The encounter does not change source data;
+it skips the entrance/waving animation when reduced motion is requested.
+
+
+### Planet-specific jumping
+
+Space (from the terrain view) and the on-screen Jump button use the same impulse.
+A single press produces one jump; holding Space or clicking again in the air does
+not trigger another. Both first and third person views follow the jump. The astronaut
+uses a suspended pose in the air and resumes walking on landing.
+
+Approximate surface gravity comes from the NASA NSSDC fact sheets:
+[Earth: 9.80 m/s²](https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html),
+[Mars: 3.73 m/s²](https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html), and
+[Moon: 1.62 m/s²](https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html).
+The same 3.6 m/s launch impulse is displayed at the astronaut's illustrative
+0.14 scene-unit character scale, independently of DEM scale, travel speed and
+vertical exaggeration. Thus lower gravity produces higher jumps and longer airtime,
+without claiming DEM-meter-accurate human motion or local gravity measurements.
+
+Vertical integration follows elapsed time and lands on the current DEM triangle.
+Horizontal movement still respects parcel boundaries and NoData while airborne;
+the player cannot jump into terrain above their feet. Return to parcel, terrain
+replacement and planet changes safely reset the jump. A camera-view change preserves
+it. Background-tab frame intervals are capped to avoid a large return-time leap.
