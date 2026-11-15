@@ -10,6 +10,7 @@ import rasterio
 
 from .dem import DemRequest, process_dem
 from .metrics import TOPOGRAPHIC, feature
+from .morphology import morphology_features
 from .generate_mock import write_json
 from .process_dem import export_heightmap
 
@@ -83,6 +84,9 @@ def evaluate(request):
                 dst.write(heights, 1); dst.scales=src.scales; dst.offsets=src.offsets
                 if src.units[0]: dst.set_band_unit(1,src.units[0])
             _, measured = process_dem(replace(request, path=str(path)))
+    extra, morphology_support = morphology_features(measured, request.analysis_resolution_m,
+        status='mock' if request.synthetic else 'derived', comparable=not request.synthetic)
+    morphology_support["source_support"] = "counts > 0 before reprojection"
     primary, effective = metrics(measured)
     interpolated, _ = metrics(control)
     checks = sensitivity(primary, interpolated)
@@ -95,7 +99,7 @@ def evaluate(request):
     if request.synthetic: reasons.append('Synthetic source')
     record.update(method=METHOD, dem_source='MOLA MEGDR + measured-bin mask',
                   resolution_validated=bool(passed),
-                  features={k:feature(v, validated=passed, status='derived') for k,v in primary.items()},
+                  features={**{k:feature(v, validated=passed, status='derived') for k,v in primary.items()}, **extra},
                   features_interpolated=interpolated,
                   measurement_support={'raw_unmeasured_ratio':raw, 'effective_nodata_ratio':effective,
                       'min_measured_neighbors':6, 'sensitivity':checks, 'thresholds':THRESHOLDS,
@@ -108,6 +112,7 @@ def evaluate(request):
         validation_eligible=bool(passed), warnings=[f'measured-only; raw unmeasured {raw:.2%}; '+
             ('all features within sensitivity thresholds' if not failed else '; '.join(reasons)),
             'Engineering sensitivity validation; not independent accuracy or landing suitability validation.'])
+    record['quality']['morphology'] = morphology_support
     record['provenance'].update(max_nodata_ratio=.30, validation_policy=METHOD,
         counts_file_sha256=__import__('hashlib').sha256(Path(request.counts_path).read_bytes()).hexdigest())
     return record, measured

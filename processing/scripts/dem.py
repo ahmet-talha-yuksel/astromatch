@@ -13,6 +13,8 @@ from rasterio.transform import from_origin
 from rasterio.vrt import WarpedVRT
 
 from .metrics import METHOD, TOPOGRAPHIC, terrain_features
+from .morphology import MORPHOLOGY, morphology_features
+from .measured_window import measured_window
 
 RADII = {'earth': 6371008.8, 'mars': 3396190.0, 'moon': 1737400.0}
 PRODUCTS = {'copernicus': 'earth', 'copernicus_glo90': 'earth', 'srtmgl30': 'earth',
@@ -207,6 +209,23 @@ def process_dem(request: DemRequest, timings=None):
         record['quality']['validation_eligible'] = False
         record['provenance']['source_quality_verified'] = False
         record['quality']['warnings'].append('Real LOLA quality approval requires bound QA evidence.')
+    morphology_started = perf_counter()
+    if r.counts_path:
+        morphology_array = measured_window(r.path, r.counts_path, crs=dst_crs.to_wkt(), transform=transform,
+                                          shape=array.shape, vertical_unit=r.vertical_unit)
+        morphology_source = 'counts > 0 before reprojection'
+    elif r.body in ('mars', 'moon') and not r.synthetic:
+        morphology_array = np.full_like(array, np.nan)
+        morphology_source = 'unavailable: counts raster required for measured-only Mars/Moon descriptors'
+    else:
+        morphology_array = array
+        morphology_source = 'finite source DEM samples; no added infill'
+    extra, support = morphology_features(morphology_array, spacing,
+        status='mock' if r.synthetic else 'derived', comparable=not r.synthetic)
+    support['source_support'] = morphology_source
+    record['features'].update(extra)
+    record['quality']['morphology'] = support
+    feature_seconds += perf_counter() - morphology_started
     if timings is not None:
         elapsed = perf_counter()-started
         timings.update(reprojection_s=warp_seconds, feature_extraction_s=feature_seconds,
@@ -230,6 +249,10 @@ def validate_comparison(records):
         for name in TOPOGRAPHIC:
             f = record['features'][name]
             f['comparable'] = validated and f['value'] is not None
+        for name in MORPHOLOGY:
+            if name in record['features']:
+                f = record['features'][name]
+                f['comparable'] = f['value'] is not None and (validated if record['synthetic'] else True)
         waiting = 'Awaiting matching target/Earth window, resolution and method validation.'
         record['quality']['warnings'] = [w for w in record['quality']['warnings'] if w != waiting]
         if not validated:
