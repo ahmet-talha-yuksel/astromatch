@@ -35418,7 +35418,8 @@
         "coverage": "full",
         "warnings": [
           "Awaiting matching target/Earth window, resolution and method validation.",
-          "Validation terrain/land eligibility failed; retain record with comparison closed."
+          "Validation terrain/land eligibility failed; retain record with comparison closed.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {

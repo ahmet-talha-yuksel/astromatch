@@ -53,6 +53,8 @@ kenar/topografya analiz penceresine girmelidir.
 ## Veri sözleşmesi
 
 Sonlu hesaplamalar `data_status: derived`, `comparable: true` olarak eklenir.
+Measured-only hedeflerde ayrıca aşağıdaki özellik bazlı duyarlılık kontrolü
+uygulanır; başarısız yeni ölçütün `comparable` bayrağı false olur.
 Sabit yükseklikte hipsometrik oran ve `0/0` pürüz oranı tanımsızdır; yetersiz
 ölçüm desteği de değer üretmez. Bu durumlar `value: null`, `data_status: derived`,
 `comparable: false` olur. Sıfır gerçek bir sonuç olabilir: düz yüzeyde eğrilik
@@ -72,6 +74,8 @@ altındadır. Parquet'te her alan için nullable double, `__status` ve
 
 - `out/real/features.json` ve `out/features.json`: 21 saha/hedef kaydı.
 - `out/mars_measured/features.json`: 3 measured-only Mars hedefi.
+- `out/moon_measured/features.json`: Marius Hills measured-only bölgesel aday;
+  eski Ay onayı otomatik açılmaz, varsayılan motor girdilerine eklenmez.
 - `out/pilot_expanded/features.json`, kök ve pilot Parquet: 408 ızgara penceresi.
 - `out/global_expansion/features.json` ve Parquet: 604 ek pencere; birleşik
   Parquet 1012 kayıt.
@@ -84,6 +88,41 @@ penceresinde hipsometrik ve pürüz oranları null'dır; diğer özellik değerl
 sonludur. Dosya bazında sayılar `out/morphology_report.json` içindedir.
 Eski teslim/QA anlık görüntüleri korunur.
 
+## Duyarlılık kontrolleri ve sıfır pürüz notları
+
+Measured-only Mars ve Marius kayıtlarında `features_interpolated` dokuz sayısal
+kontrol değeri, `measurement_support.sensitivity` dokuz karşılaştırma içerir.
+Kontrol aynı pencere, çözünürlük ve hesaplama yöntemiyle, kaynak DEM'in
+enterpolasyonlu binleri de dahil edilerek hesaplanır.
+
+Geçiş kuralı `rel_diff <= 0.15 OR abs_diff <= tolerance` olarak kalır. Yeni
+mutlak toleranslar HI 0.02, pürüz oranı 0.05, eğrilik **0.01 km⁻¹**'dir.
+Sonuncusu 1000 m aralıkta 10 m'lik Laplasyen payına karşılık gelen mühendislik
+eşiğidir; bağımsız doğruluk ölçümü veya kalibre hata sınırı değildir. Sıfır
+referansta eşit değerlerin bağıl farkı sıfırdır; eşit olmayanlarda bağıl fark
+null olur ve mutlak eşik kullanılır. Eksik/sonlu olmayan ölçüt başarısızdır.
+
+`validation_features` kaydın eski altı ölçütlü onayının kapsamını belirtir.
+`all_nine_sensitivity_passed` dokuz testin sonucudur;
+`nine_feature_validation_passed` ayrıca mevcut kayıt onayını gerektirir.
+Phoenix 9/9, Arcadia 8/9, Jezero 7/9 testi geçer. Arcadia ve Jezero'da eğrilik
+karşılaştırılamaz; Jezero'nun eski p90 eğim başarısızlığı korunur. Marius 9/9
+duyarlılık testini geçse de eski LOLA onayı açılmaz. Motor yalnızca skorunda
+kullandığı ölçütlerin duyarlılık kontrollerini uygular; mevcut altı ölçütlü
+skorlar ve ağırlıklar korunur.
+
+Pilot/birleşik ızgaradaki 44 sıfır pürüz oranına `quality.warnings` notu
+eklenmiştir; sayısal değerler ve QA bayrakları korunur. Doğrulanmış 12 pencerede
+QA'dan geçmiş WorldCover kara oranı 0.000316–0.180583 olduğundan pencereler su
+ağırlıklıdır. Diğer 32 pencerede maske QA'sı geçersizdir; su veya kaynak DEM'in
+düzleştirilmesi olasılık olarak yazılır, kesin neden atfedilmez. Sıfır medyan,
+uygun küçük komşulukların en az yarısında yükseklik değişimi çözülemediğini
+gösterir; tüm 50 km pencerenin düz olduğunu göstermez. Ayrı doğrulama örneğindeki
+bir sıfır kayda da aynı not eklenir. Tanımsız 152 null kayıt sıfır diye işaretlenmez.
+
+Dosya bazında sonuçlar ve toleranslar `out/morphology_followup.json` içindedir.
+Teslim ZIP'i, kuratörlü 21 kaydı korurken iki measured-only klasörünü ayrı ekler.
+
 Ham dosyalar `raw/` altında mevcutken repo kökünden:
 
 ```sh
@@ -92,6 +131,7 @@ processing/.venv/bin/python -m processing.scripts.enrich_morphology
 
 # Eski alanları ve Parquet sütunlarını koruyarak güncel çıktıları zenginleştir.
 processing/.venv/bin/python -m processing.scripts.enrich_morphology --write
+processing/.venv/bin/python -m processing.scripts.complete_morphology_review --write
 processing/.venv/bin/python -m processing.scripts.package_handoff
 
 processing/.venv/bin/python -m pytest processing/tests -q

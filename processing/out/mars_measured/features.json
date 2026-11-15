@@ -104,7 +104,7 @@
           "curvature_unit": "km^-1",
           "interpolation": "none",
           "null_reasons": {},
-          "comparability_basis": "same mathematical and measured-support protocol; does not override record quality or scoring gates",
+          "comparability_basis": "finite measured value and per-feature absolute-or-relative sensitivity pass; record quality gate still applies",
           "source_support": "counts > 0 before reprojection",
           "source_file_sha256": "0ffd8db4e6e74db137df225c54c6c5a216ffeabe6c9b539c8b9b270460e86952",
           "counts_file_sha256": "316a0ec28920a66a8df0e8d932c2afee3c8883eec9307af5002389d972aa3d38",
@@ -140,7 +140,10 @@
         "flat_fraction": 0.9803685897435898,
         "tri_median_m": 24.95314237256334,
         "relief_m": 236.26661479208178,
-        "elevation_std_m": 85.82260022112365
+        "elevation_std_m": 85.82260022112365,
+        "hypsometric_integral": 0.6692009817340607,
+        "roughness_ratio": 0.2808842552819444,
+        "curvature_std_per_km": 0.026672333481827726
       },
       "measurement_support": {
         "raw_unmeasured_ratio": 0.07920000000000005,
@@ -176,6 +179,21 @@
             "abs_diff": 2.5575737711387774,
             "rel_diff": 0.029800702432099903,
             "pass": true
+          },
+          "hypsometric_integral": {
+            "abs_diff": 0.001492380823038264,
+            "rel_diff": 0.002230093594858672,
+            "pass": true
+          },
+          "roughness_ratio": {
+            "abs_diff": 0.0059924929124708926,
+            "rel_diff": 0.021334385248670425,
+            "pass": true
+          },
+          "curvature_std_per_km": {
+            "abs_diff": 0.004120023392526248,
+            "rel_diff": 0.15446805189854437,
+            "pass": true
           }
         },
         "thresholds": {
@@ -186,7 +204,10 @@
             "flat_fraction": 0.05,
             "tri_median_m": 2.0,
             "relief_m": 10.0,
-            "elevation_std_m": 5.0
+            "elevation_std_m": 5.0,
+            "hypsometric_integral": 0.02,
+            "roughness_ratio": 0.05,
+            "curvature_std_per_km": 0.01
           },
           "max_effective_nodata": 0.3
         },
@@ -194,7 +215,25 @@
         "raw_ratio_definition": "Analysis cells with no measured source-bin contribution / all analysis cells",
         "tri_definition": "Riley sqrt(sum squared differences), measured neighbors only, measured center required",
         "edge_rule": "Outside window is NoData; six measured samples still required",
-        "unscorable_reasons": []
+        "unscorable_reasons": [],
+        "validation_features": [
+          "slope_median_deg",
+          "slope_p90_deg",
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "all_nine_sensitivity_passed": true,
+        "nine_feature_validation_passed": true,
+        "morphology_sensitivity_policy": {
+          "version": "measured-only-morphology-sensitivity-v1",
+          "rule": "abs_diff <= absolute tolerance OR rel_diff <= 0.15; relative baseline is interpolated",
+          "curvature_absolute_unit": "km^-1",
+          "curvature_absolute_rationale": "Engineering tolerance 0.01 km^-1, equivalent to a 10 m Laplacian numerator at 1000 m spacing; not independently calibrated accuracy.",
+          "scope": "New descriptors are checked individually; legacy six-feature approval and scoring weights are unchanged.",
+          "failed_features": []
+        }
       },
       "target_id": "T-04",
       "heightmap": {
@@ -281,7 +320,7 @@
         "curvature_std_per_km": {
           "value": 0.08444357966725943,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         }
       },
       "earth_filters": null,
@@ -290,7 +329,8 @@
         "coverage": "partial",
         "warnings": [
           "measured-only; raw unmeasured 23.32%; Sensitivity thresholds exceeded or metric missing: slope_p90_deg",
-          "Engineering sensitivity validation; not independent accuracy or landing suitability validation."
+          "Engineering sensitivity validation; not independent accuracy or landing suitability validation.",
+          "Morphology sensitivity failed: curvature_std_per_km; those descriptors are not comparable. Legacy six-feature approval is unchanged."
         ],
         "validation_eligible": false,
         "sampling": {
@@ -324,7 +364,7 @@
           "curvature_unit": "km^-1",
           "interpolation": "none",
           "null_reasons": {},
-          "comparability_basis": "same mathematical and measured-support protocol; does not override record quality or scoring gates",
+          "comparability_basis": "finite measured value and per-feature absolute-or-relative sensitivity pass; record quality gate still applies",
           "source_support": "counts > 0 before reprojection",
           "source_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92",
           "counts_file_sha256": "28dacc66945d54947ab10152949d851f0df89645e3e7c2ee81299da49f35e320",
@@ -360,7 +400,10 @@
         "flat_fraction": 0.8649839743589743,
         "tri_median_m": 75.07388738354584,
         "relief_m": 763.2187413981055,
-        "elevation_std_m": 267.39518006737205
+        "elevation_std_m": 267.39518006737205,
+        "hypsometric_integral": 0.35585671206081365,
+        "roughness_ratio": 0.21187276465376065,
+        "curvature_std_per_km": 0.05819828093009456
       },
       "measurement_support": {
         "raw_unmeasured_ratio": 0.23319999999999996,
@@ -396,6 +439,21 @@
             "abs_diff": 8.232968268785044,
             "rel_diff": 0.03078951635070868,
             "pass": true
+          },
+          "hypsometric_integral": {
+            "abs_diff": 0.040049583157939495,
+            "rel_diff": 0.11254412745514064,
+            "pass": true
+          },
+          "roughness_ratio": {
+            "abs_diff": 0.023163126968348546,
+            "rel_diff": 0.1093256464850562,
+            "pass": true
+          },
+          "curvature_std_per_km": {
+            "abs_diff": 0.02624529873716487,
+            "rel_diff": 0.45096347035902434,
+            "pass": false
           }
         },
         "thresholds": {
@@ -406,7 +464,10 @@
             "flat_fraction": 0.05,
             "tri_median_m": 2.0,
             "relief_m": 10.0,
-            "elevation_std_m": 5.0
+            "elevation_std_m": 5.0,
+            "hypsometric_integral": 0.02,
+            "roughness_ratio": 0.05,
+            "curvature_std_per_km": 0.01
           },
           "max_effective_nodata": 0.3
         },
@@ -416,7 +477,27 @@
         "edge_rule": "Outside window is NoData; six measured samples still required",
         "unscorable_reasons": [
           "Sensitivity thresholds exceeded or metric missing: slope_p90_deg"
-        ]
+        ],
+        "validation_features": [
+          "slope_median_deg",
+          "slope_p90_deg",
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "all_nine_sensitivity_passed": false,
+        "nine_feature_validation_passed": false,
+        "morphology_sensitivity_policy": {
+          "version": "measured-only-morphology-sensitivity-v1",
+          "rule": "abs_diff <= absolute tolerance OR rel_diff <= 0.15; relative baseline is interpolated",
+          "curvature_absolute_unit": "km^-1",
+          "curvature_absolute_rationale": "Engineering tolerance 0.01 km^-1, equivalent to a 10 m Laplacian numerator at 1000 m spacing; not independently calibrated accuracy.",
+          "scope": "New descriptors are checked individually; legacy six-feature approval and scoring weights are unchanged.",
+          "failed_features": [
+            "curvature_std_per_km"
+          ]
+        }
       },
       "target_id": "T-01",
       "heightmap": {
@@ -503,7 +584,7 @@
         "curvature_std_per_km": {
           "value": 0.0712236410531109,
           "data_status": "derived",
-          "comparable": true
+          "comparable": false
         }
       },
       "earth_filters": null,
@@ -512,7 +593,8 @@
         "coverage": "partial",
         "warnings": [
           "measured-only; raw unmeasured 20.56%; all features within sensitivity thresholds",
-          "Engineering sensitivity validation; not independent accuracy or landing suitability validation."
+          "Engineering sensitivity validation; not independent accuracy or landing suitability validation.",
+          "Morphology sensitivity failed: curvature_std_per_km; those descriptors are not comparable. Legacy six-feature approval is unchanged."
         ],
         "validation_eligible": true,
         "sampling": {
@@ -546,7 +628,7 @@
           "curvature_unit": "km^-1",
           "interpolation": "none",
           "null_reasons": {},
-          "comparability_basis": "same mathematical and measured-support protocol; does not override record quality or scoring gates",
+          "comparability_basis": "finite measured value and per-feature absolute-or-relative sensitivity pass; record quality gate still applies",
           "source_support": "counts > 0 before reprojection",
           "source_file_sha256": "315873b4dd249a673ee2bfc7c930e8f4de50edd21f79800ad3d32583e6519a50",
           "counts_file_sha256": "b796fb7c06852f0838bb905e31f50f46b01832b0736cf2b8e77a9a01bfcf9d91",
@@ -582,7 +664,10 @@
         "flat_fraction": 0.8902243589743589,
         "tri_median_m": 74.21234073267252,
         "relief_m": 548.3552534934838,
-        "elevation_std_m": 191.03272203531833
+        "elevation_std_m": 191.03272203531833,
+        "hypsometric_integral": 0.17716075494150801,
+        "roughness_ratio": 0.22326228258984288,
+        "curvature_std_per_km": 0.05056495431760825
       },
       "measurement_support": {
         "raw_unmeasured_ratio": 0.2056,
@@ -618,6 +703,21 @@
             "abs_diff": 3.3624513227768773,
             "rel_diff": 0.017601441716122455,
             "pass": true
+          },
+          "hypsometric_integral": {
+            "abs_diff": 0.005762779251108713,
+            "rel_diff": 0.032528531801590994,
+            "pass": true
+          },
+          "roughness_ratio": {
+            "abs_diff": 0.011648265005715863,
+            "rel_diff": 0.05217300867211411,
+            "pass": true
+          },
+          "curvature_std_per_km": {
+            "abs_diff": 0.020658686735502647,
+            "rel_diff": 0.4085574092629738,
+            "pass": false
           }
         },
         "thresholds": {
@@ -628,7 +728,10 @@
             "flat_fraction": 0.05,
             "tri_median_m": 2.0,
             "relief_m": 10.0,
-            "elevation_std_m": 5.0
+            "elevation_std_m": 5.0,
+            "hypsometric_integral": 0.02,
+            "roughness_ratio": 0.05,
+            "curvature_std_per_km": 0.01
           },
           "max_effective_nodata": 0.3
         },
@@ -636,7 +739,27 @@
         "raw_ratio_definition": "Analysis cells with no measured source-bin contribution / all analysis cells",
         "tri_definition": "Riley sqrt(sum squared differences), measured neighbors only, measured center required",
         "edge_rule": "Outside window is NoData; six measured samples still required",
-        "unscorable_reasons": []
+        "unscorable_reasons": [],
+        "validation_features": [
+          "slope_median_deg",
+          "slope_p90_deg",
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "all_nine_sensitivity_passed": false,
+        "nine_feature_validation_passed": false,
+        "morphology_sensitivity_policy": {
+          "version": "measured-only-morphology-sensitivity-v1",
+          "rule": "abs_diff <= absolute tolerance OR rel_diff <= 0.15; relative baseline is interpolated",
+          "curvature_absolute_unit": "km^-1",
+          "curvature_absolute_rationale": "Engineering tolerance 0.01 km^-1, equivalent to a 10 m Laplacian numerator at 1000 m spacing; not independently calibrated accuracy.",
+          "scope": "New descriptors are checked individually; legacy six-feature approval and scoring weights are unchanged.",
+          "failed_features": [
+            "curvature_std_per_km"
+          ]
+        }
       },
       "target_id": "T-05",
       "heightmap": {

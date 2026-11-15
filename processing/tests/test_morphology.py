@@ -145,6 +145,7 @@ def test_offline_backfill_is_idempotent_and_preserves_legacy_data(tmp_path):
     request = replace(fixture_dem(raw), synthetic=False)
     record, _ = process_dem(request)
     old = legacy_record(record)
+    old['measurement_support'] = {'sensitivity': {'curvature_std_per_km': {'pass': False}}}
     output = root/'out'; output.mkdir()
     path = output/'features.json'; path.write_text(json.dumps({'records':[old]}))
     review_path = output/'target_quality.json'
@@ -154,6 +155,8 @@ def test_offline_backfill_is_idempotent_and_preserves_legacy_data(tmp_path):
     report = enrich(root, **args)
     delivered = json.loads(path.read_text())['records'][0]
     assert legacy_record(delivered) == old
+    assert delivered['features']['curvature_std_per_km']['value'] is not None
+    assert delivered['features']['curvature_std_per_km']['comparable'] is False
     assert report['artifacts'][0]['legacy_fields_preserved']
     first = path.read_bytes()
     review = json.loads(review_path.read_text())
@@ -186,7 +189,8 @@ def test_delivered_descriptors_have_consistent_contract_and_measured_jezero_wind
             for field in MORPHOLOGY:
                 item = record['features'][field]
                 assert item['data_status'] == 'derived'
-                assert item['comparable'] == (item['value'] is not None)
+                check = record.get('measurement_support', {}).get('sensitivity', {}).get(field, {'pass': True})
+                assert item['comparable'] == (item['value'] is not None and check['pass'])
                 if item['value'] is None:
                     assert field in support['null_reasons']
                 else:
@@ -201,4 +205,4 @@ def test_delivered_descriptors_have_consistent_contract_and_measured_jezero_wind
         return next(r for r in json.loads((root/name).read_text())['records'] if r['region_id'] == 'mars_jezero_regional')
     curated, measured = jezero('out/real/features.json'), jezero('out/mars_measured/features.json')
     # Both routes use the same measured-only window, although their legacy metrics differ.
-    assert {k: curated['features'][k] for k in MORPHOLOGY} == {k: measured['features'][k] for k in MORPHOLOGY}
+    assert {k: curated['features'][k]['value'] for k in MORPHOLOGY} == {k: measured['features'][k]['value'] for k in MORPHOLOGY}

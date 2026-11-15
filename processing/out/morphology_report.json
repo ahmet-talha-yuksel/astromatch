@@ -127,5 +127,6 @@
   "raw_rasters_verified": 370,
   "source": "hash-matching raw rasters; no quantized PNGs or visual fill",
   "null_policy": "undefined ratio or insufficient measured support -> null, comparable=false",
-  "comparability_policy": "finite new descriptors -> comparable=true, data_status=derived; record quality gates unchanged"
+  "comparability_policy": "finite new descriptors -> comparable=true, data_status=derived; measured-target sensitivity failures -> comparable=false; record quality gates unchanged",
+  "followup_report": "morphology_followup.json"
 }

@@ -28,6 +28,7 @@ PARQUET_FILES = ('out/earth_grid.parquet', 'out/real/earth_grid.parquet',
                  'out/pilot_expanded/earth_grid.parquet', 'out/global_expansion/earth_grid.parquet',
                  'out/earth_grid_validation.parquet', 'out/global_expansion/earth_grid_combined.parquet')
 NEW_COLUMNS = tuple(column for name in MORPHOLOGY for column in (name, name+'__status', name+'__comparable')) + ('morphology_metadata_json',)
+COMPARABILITY_POLICY = 'finite new descriptors -> comparable=true, data_status=derived; measured-target sensitivity failures -> comparable=false; record quality gates unchanged'
 
 
 def legacy_record(record):
@@ -61,6 +62,8 @@ def bind_unchanged_review(payload, report, prior_sha):
 
 def enrich(root, *, json_files=JSON_FILES, parquet_files=PARQUET_FILES, write=False):
     root = Path(root).resolve()
+    if json_files == JSON_FILES and (root/'out/moon_measured/features.json').is_file():
+        json_files = (*json_files, 'out/moon_measured/features.json')
     prior_base_hash = hashlib.sha256((root/'out/earth_grid.parquet').read_bytes()).hexdigest() if (root/'out/earth_grid.parquet').exists() else None
     rasters = {}
     for path in sorted((root/'raw').rglob('*')):
@@ -137,6 +140,12 @@ def enrich(root, *, json_files=JSON_FILES, parquet_files=PARQUET_FILES, write=Fa
         nulls = dict.fromkeys(MORPHOLOGY, 0)
         for record in payload['records']:
             features, support = additions(record)
+            checks = record.get('measurement_support', {}).get('sensitivity', {})
+            for field in MORPHOLOGY:
+                if field in checks:
+                    features = copy.deepcopy(features)
+                    features[field]['comparable'] = features[field]['value'] is not None and checks[field]['pass']
+                    support = {**support, 'comparability_basis': 'finite measured value and per-feature absolute-or-relative sensitivity pass; record quality gate still applies'}
             record['features'].update(copy.deepcopy(features))
             record.setdefault('quality', {})['morphology'] = copy.deepcopy(support)
             for field in MORPHOLOGY: nulls[field] += features[field]['value'] is None
@@ -174,7 +183,7 @@ def enrich(root, *, json_files=JSON_FILES, parquet_files=PARQUET_FILES, write=Fa
               'artifacts': summary, 'unique_windows': len(calculated),
               'raw_rasters_verified': len(hashes), 'source': 'hash-matching raw rasters; no quantized PNGs or visual fill',
               'null_policy': 'undefined ratio or insufficient measured support -> null, comparable=false',
-              'comparability_policy': 'finite new descriptors -> comparable=true, data_status=derived; record quality gates unchanged'}
+              'comparability_policy': COMPARABILITY_POLICY}
     # No existing output is touched until every source/window is successfully checked.
     if write:
         for path, payload in pending_json: write_json(path, payload)

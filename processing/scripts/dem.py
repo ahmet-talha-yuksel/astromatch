@@ -14,6 +14,7 @@ from rasterio.vrt import WarpedVRT
 
 from .metrics import METHOD, TOPOGRAPHIC, terrain_features
 from .morphology import MORPHOLOGY, morphology_features
+from .morphology_quality import annotate_zero_roughness
 from .measured_window import measured_window
 
 RADII = {'earth': 6371008.8, 'mars': 3396190.0, 'moon': 1737400.0}
@@ -225,6 +226,7 @@ def process_dem(request: DemRequest, timings=None):
     support['source_support'] = morphology_source
     record['features'].update(extra)
     record['quality']['morphology'] = support
+    annotate_zero_roughness(record)
     feature_seconds += perf_counter() - morphology_started
     if timings is not None:
         elapsed = perf_counter()-started

@@ -6,7 +6,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-def gate_reason(target) -> str | None:
+def gate_reason(target, configured=None) -> str | None:
     support = target.measurement_support or {}
     if not support:
         return None
@@ -16,7 +16,9 @@ def gate_reason(target) -> str | None:
         log.warning('%s: effective_nodata_exceeds_threshold (%s > %s)', target.region_id, ratio, limit)
         return 'effective_nodata_exceeds_threshold'
     sensitivity = support.get('sensitivity') or {}
-    failed=[(key,item) for key,item in sensitivity.items() if isinstance(item,dict) and item.get('pass') is False]
+    # Additional data-only checks must not invalidate scores that use other metrics.
+    active = set(configured) if configured is not None else set(target.features) or set(sensitivity)
+    failed=[(key,item) for key,item in sensitivity.items() if key in active and isinstance(item,dict) and item.get('pass') is False]
     if failed:
         if target.resolution_validated:
             log.warning('%s: sensitivity_failed_but_flagged_validated', target.region_id)
@@ -41,7 +43,7 @@ def target_confidence(target) -> str:
 
 
 def target_status(target, configured=None) -> tuple[str, str | None]:
-    reason = gate_reason(target)
+    reason = gate_reason(target, configured)
     if reason:
         return 'unscorable', reason
     if not target.resolution_validated:

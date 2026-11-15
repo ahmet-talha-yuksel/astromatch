@@ -1,0 +1,264 @@
+{
+  "schema_version": "2.3",
+  "records": [
+    {
+      "schema_version": "2.3",
+      "region_id": "moon_marius_hills_regional",
+      "kind": "target",
+      "body": "moon",
+      "name": "Marius Hills Pit regional context",
+      "lat": 14.0917,
+      "lon": -56.77010000000001,
+      "scale": "regional",
+      "window_km": 50,
+      "analysis_resolution_m": 1000,
+      "source_resolution_m": 236.90117518866782,
+      "resolution_validated": false,
+      "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",14.0917,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-56.7701,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+      "dem_source": "LOLA GDR + measured-bin mask",
+      "dem_version": "LRO-L-LOLA-4-GDR-V1.0; LDEM_128/LDEC_128 V3.0 (2017)",
+      "features": {
+        "slope_median_deg": {
+          "value": 1.1070841838375778,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "slope_p90_deg": {
+          "value": 3.131760747322452,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "flat_fraction": {
+          "value": 0.9795918367346939,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "tri_median_m": {
+          "value": 55.205850978316576,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "relief_m": {
+          "value": 683.6166267559865,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "elevation_std_m": {
+          "value": 209.23666662463688,
+          "data_status": "derived",
+          "comparable": false
+        },
+        "hypsometric_integral": {
+          "value": 0.4688611856563639,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "roughness_ratio": {
+          "value": 0.2285783846599132,
+          "data_status": "derived",
+          "comparable": true
+        },
+        "curvature_std_per_km": {
+          "value": 0.04601174762424979,
+          "data_status": "derived",
+          "comparable": true
+        }
+      },
+      "earth_filters": null,
+      "quality": {
+        "nodata_ratio": 0.03959999999999997,
+        "coverage": "partial",
+        "warnings": [
+          "measured-only; raw unmeasured 9.92%; Measured-only lunar candidate; existing LOLA scoring approval is not promoted by this export.",
+          "Engineering sensitivity validation; not independent accuracy or landing suitability validation.",
+          "Regional context only: a 1000 m grid cannot resolve the roughly 50 m Marius pit entrance."
+        ],
+        "validation_eligible": false,
+        "sampling": {
+          "counts_file": "ldec_128.tif",
+          "mean_observed_bin_fraction": 0.3429884612560272,
+          "min_observed_bin_fraction": 0.0,
+          "analysis_cells_without_counts_coverage": 0,
+          "analysis_cells_without_observed_bins": 248,
+          "analysis_cells_total": 2500,
+          "note": "Counts > 0 indicate measured source bins; other DEM bins are interpolated. This diagnostic does not automatically validate effective resolution."
+        },
+        "morphology": {
+          "method": "measured-only-morphology-v1",
+          "window_shape": [
+            50,
+            50
+          ],
+          "spacing_m": 1000.0,
+          "measured_samples": 2252,
+          "total_samples": 2500,
+          "roughness_paired_centers": 1673,
+          "curvature_centers": 1698,
+          "minimum_support": {
+            "3x3": 6,
+            "15x15": 150
+          },
+          "center_must_be_measured": true,
+          "roughness_aggregation": "median_of_paired_std3_over_std15",
+          "std_ddof": 0,
+          "curvature_definition": "std(d2z_dx2 + d2z_dy2) * 1000, z/x/y in meters",
+          "curvature_unit": "km^-1",
+          "interpolation": "none",
+          "null_reasons": {},
+          "comparability_basis": "finite measured value and per-feature absolute-or-relative sensitivity pass; record quality gate still applies",
+          "source_support": "counts > 0 before reprojection"
+        }
+      },
+      "processing_version": "0.3.0",
+      "method": "measured_only_planefit_v1",
+      "data_status": "derived",
+      "synthetic": false,
+      "tags": [],
+      "provenance": {
+        "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_128.img",
+        "accessed_on": "2026-11-14",
+        "source_file": "ldem_128.tif",
+        "source_file_sha256": "51c7e8c2ce1b410a98ef078fa5f2bc643c5a15b0ca01e275e1c89addcd3a3a4f",
+        "source_crs": "GEOGCS[\"unknown\",DATUM[\"unknown\",SPHEROID[\"unknown\",1737400,0]],PRIMEM[\"Reference meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "source_radius_m": 1737400.0,
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+        "vertical_unit": "m",
+        "band_scale": 0.5,
+        "band_offset": 0.0,
+        "resampling": "average",
+        "georeferencing_verified": true,
+        "source_quality_verified": false,
+        "max_nodata_ratio": 0.3,
+        "validation_policy": "measured_only_planefit_v1",
+        "counts_file_sha256": "b21a4a692fe2d350f86813fff0857ce44b402bfc02a9a3902ca232f8069565e7"
+      },
+      "features_interpolated": {
+        "slope_median_deg": 1.072328445669727,
+        "slope_p90_deg": 2.953115050218818,
+        "flat_fraction": 0.9839743589743589,
+        "tri_median_m": 54.249297161295026,
+        "relief_m": 670.7349112903605,
+        "elevation_std_m": 204.81175667463864,
+        "hypsometric_integral": 0.46692965714899304,
+        "roughness_ratio": 0.22818646540573728,
+        "curvature_std_per_km": 0.037458483213191694
+      },
+      "measurement_support": {
+        "raw_unmeasured_ratio": 0.09919999999999995,
+        "effective_nodata_ratio": 0.03959999999999997,
+        "min_measured_neighbors": 6,
+        "sensitivity": {
+          "slope_median_deg": {
+            "abs_diff": 0.034755738167850714,
+            "rel_diff": 0.03241146712856608,
+            "pass": true
+          },
+          "slope_p90_deg": {
+            "abs_diff": 0.17864569710363387,
+            "rel_diff": 0.06049398484843884,
+            "pass": true
+          },
+          "flat_fraction": {
+            "abs_diff": 0.004382522239665065,
+            "rel_diff": 0.004453898823372966,
+            "pass": true
+          },
+          "tri_median_m": {
+            "abs_diff": 0.9565538170215504,
+            "rel_diff": 0.017632556863870635,
+            "pass": true
+          },
+          "relief_m": {
+            "abs_diff": 12.88171546562603,
+            "rel_diff": 0.019205374953339124,
+            "pass": true
+          },
+          "elevation_std_m": {
+            "abs_diff": 4.424909949998238,
+            "rel_diff": 0.021604765379887803,
+            "pass": true
+          },
+          "hypsometric_integral": {
+            "abs_diff": 0.0019315285073708832,
+            "rel_diff": 0.004136658440512271,
+            "pass": true
+          },
+          "roughness_ratio": {
+            "abs_diff": 0.0003919192541759209,
+            "rel_diff": 0.0017175394407334856,
+            "pass": true
+          },
+          "curvature_std_per_km": {
+            "abs_diff": 0.008553264411058095,
+            "rel_diff": 0.22833984927734355,
+            "pass": true
+          }
+        },
+        "thresholds": {
+          "rel": 0.15,
+          "abs": {
+            "slope_median_deg": 0.2,
+            "slope_p90_deg": 0.2,
+            "flat_fraction": 0.05,
+            "tri_median_m": 2.0,
+            "relief_m": 10.0,
+            "elevation_std_m": 5.0,
+            "hypsometric_integral": 0.02,
+            "roughness_ratio": 0.05,
+            "curvature_std_per_km": 0.01
+          },
+          "max_effective_nodata": 0.3
+        },
+        "validation_basis": "Engineering sensitivity checks only; no lunar scoring approval or independent accuracy validation",
+        "raw_ratio_definition": "Analysis cells with no measured source-bin contribution / all analysis cells",
+        "tri_definition": "Riley sqrt(sum squared differences), measured neighbors only, measured center required",
+        "edge_rule": "Outside window is NoData; six measured samples still required",
+        "unscorable_reasons": [
+          "Measured-only lunar candidate; existing LOLA scoring approval is not promoted by this export."
+        ],
+        "validation_features": [
+          "slope_median_deg",
+          "slope_p90_deg",
+          "flat_fraction",
+          "tri_median_m",
+          "relief_m",
+          "elevation_std_m"
+        ],
+        "all_nine_sensitivity_passed": true,
+        "nine_feature_validation_passed": false,
+        "morphology_sensitivity_policy": {
+          "version": "measured-only-morphology-sensitivity-v1",
+          "rule": "abs_diff <= absolute tolerance OR rel_diff <= 0.15; relative baseline is interpolated",
+          "curvature_absolute_unit": "km^-1",
+          "curvature_absolute_rationale": "Engineering tolerance 0.01 km^-1, equivalent to a 10 m Laplacian numerator at 1000 m spacing; not independently calibrated accuracy.",
+          "scope": "New descriptors are checked individually; legacy six-feature approval and scoring weights are unchanged.",
+          "failed_features": []
+        }
+      },
+      "target_id": "T-03",
+      "heightmap": {
+        "path": "heightmaps/moon_marius_hills_regional.png",
+        "metadata_path": "heightmaps/moon_marius_hills_regional.json",
+        "width": 50,
+        "height": 50,
+        "bit_depth": 16,
+        "offset": -2044.1995188160793,
+        "scale": 0.1,
+        "NoData": 0,
+        "nodata_mask": "pixel == 0",
+        "pixel_size_x_m": 1000,
+        "pixel_size_y_m": 1000,
+        "origin_x_m": -25000,
+        "origin_y_m": 25000,
+        "row_direction": "south",
+        "crs": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"unknown\",ELLIPSOID[\"unknown\",1737400,0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Reference meridian\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]]],CONVERSION[\"unknown\",METHOD[\"Lambert Azimuthal Equal Area (Spherical)\",ID[\"EPSG\",1027]],PARAMETER[\"Latitude of natural origin\",14.0917,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-56.7701,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+        "dem_source": "LOLA GDR + measured-bin mask",
+        "vertical_reference": "Height above 1737400 m sphere; not an equipotential surface",
+        "elevation_unit": "m",
+        "vertical_exaggeration": 1,
+        "synthetic": false,
+        "decode": "elevation_m = pixel * scale + offset"
+      }
+    }
+  ]
+}

@@ -19,8 +19,9 @@
   "scope": "bounded_multi_continent_sample_not_full_global_scan",
   "morphology_enrichment": {
     "method": "measured-only-morphology-v1",
-    "base_grid_sha256": "0d4b06cc9153a9eab70d6e55beacdceef1f515d0c702331bebe95101c89353aa",
+    "base_grid_sha256": "639a51c6484a561d72a3bf216c378f4b9a00de96d9e0a8b2ea95084e483af20d",
     "prior_base_grid_sha256": "eaf434a1fe1b9de3ae81f3762826c8b63154fce53696a7c37c5c1552bf20297e",
-    "legacy_columns_preserved": true
+    "legacy_columns_preserved": true,
+    "zero_roughness_notes_added": true
   }
 }

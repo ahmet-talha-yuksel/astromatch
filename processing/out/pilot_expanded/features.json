@@ -8594,7 +8594,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -8781,7 +8782,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -10274,7 +10276,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -11391,7 +11394,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -11578,7 +11582,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -13285,7 +13290,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -13472,7 +13478,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -13659,7 +13666,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -14606,7 +14614,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -22386,7 +22395,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -33973,7 +33983,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -34160,7 +34171,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -34347,7 +34359,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -37370,7 +37383,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -38305,7 +38319,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -38492,7 +38507,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -40389,7 +40405,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -41134,7 +41151,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -41890,7 +41908,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.000358, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -42076,7 +42095,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.000458, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -42262,7 +42282,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.091796, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -42449,7 +42470,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -44916,7 +44938,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -45103,7 +45126,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -45290,7 +45314,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -45477,7 +45502,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -45663,7 +45689,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.000547, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -45849,7 +45876,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.003965, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -46036,7 +46064,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -49403,7 +49432,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.050496, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -49589,7 +49619,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.037805, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -52745,7 +52776,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.180583, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -52931,7 +52963,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.081087, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -53117,7 +53150,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.000316, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -53303,7 +53337,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.060844, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -56454,7 +56489,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -56641,7 +56677,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -60358,7 +60395,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -63879,7 +63917,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -64066,7 +64105,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -64252,7 +64292,8 @@
         "warnings": [
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
-          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature."
+          "Permanent-water mix in the physical window; land_fraction is an auxiliary filter, not a similarity feature.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. QA-passed WorldCover mask has land_fraction=0.139094, so the physical window is water-dominated. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": true,
         "landmask": {
@@ -67587,7 +67628,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -67774,7 +67816,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
@@ -71481,7 +71524,8 @@
           "Source selection: preferred_srtm_from_local_earthdata_download.",
           "Terrain comparison requires a validated target with the same physical window, resolution and method.",
           "Global candidate land mask is unknown, fails sampling QA or has no sampled land; excluded from scoring.",
-          "Awaiting matching target/Earth window, resolution and method validation."
+          "Awaiting matching target/Earth window, resolution and method validation.",
+          "roughness_ratio=0: The median paired std3/std15 is zero: at least half of eligible 3x3 neighborhoods have no resolved elevation variation; the whole analysis window need not be flat. Water dominance is not established by a QA-passed land mask. Water surfaces or flattened/quantized source DEM patches can produce this pattern; the cause is not proven by this metric. Value and QA flags retained."
         ],
         "validation_eligible": false,
         "landmask": {
