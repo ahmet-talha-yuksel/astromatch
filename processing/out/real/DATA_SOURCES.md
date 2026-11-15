@@ -1,5 +1,19 @@
 # DEM batch provenance
 
+## Analog profile context (2025 annual request)
+
+Access checks: 2026-11-15. Metadata was opened; no authenticated 2025 granules were acquired. Numeric context fields remain null. The planned QA/aggregation policy is recorded in each context field; it has not been executed on 2025 pixels.
+
+| Short name | Version | DOI | Requested period | Native resolution | Opened metadata |
+|---|---|---|---|---|---|
+| MOD11C3 | 061 | 10.5067/MODIS/MOD11C3.061 | 2025-01..2025-12 | 0.05 degree CMG (~5550 m) | https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MOD11C3/ |
+| MOD13C2 | 061 | null (not independently verified in an accessible DOI record) | 2025-01..2025-12 | 0.05 degree CMG (~5550 m) | https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MOD13C2/ |
+| GPM_3IMERGM | 07 | 10.5067/GPM/IMERG/3B-MONTH/07 | 2025-01..2025-12 | 0.1 degree | https://data.nasa.gov/dataset/gpm-imerg-final-precipitation-l3-1-month-0-1-degree-x-0-1-degree-v07-gpm-3imergm-at-ges-di-75e72 |
+
+QC specifications opened: https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3 and https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2 . Fill and out-of-valid-range pixels must be masked before calibration. MODIS day/night LST is clear-sky overpass surface temperature, not air temperature or an instantaneous daily thermal amplitude. Annual values require at least 9 months; precipitation requires all 12 months. No missing value is zero-imputed.
+
+Earthdata login failed with LoginStrategyUnavailable for environment and netrc strategies. Credentials are not included in this report. Context is auxiliary only and does not alter features or scoring eligibility. Monthly acquisition, exact window extraction and annual observed statistics remain blocked, not completed.
+
 Synthetic fixtures are not NASA/ESA observations. No downloads were performed by this pipeline.
 
 Parameters and CRS are also stored in features.json.

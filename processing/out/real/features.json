@@ -262,6 +262,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -845,6 +950,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -1110,6 +1320,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -1206,7 +1521,7 @@
         "coverage": "full",
         "warnings": [
           "Copernicus DSM includes surface cover; not bare-earth geology.",
-          "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
+          "Study site 24°03′49.6″S, 69°52′49.8″W; one Yungay locality, not the whole Atacama Desert.",
           "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain."
         ],
         "validation_eligible": true,
@@ -1375,6 +1690,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -1640,6 +2060,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -1905,6 +2430,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -2170,6 +2800,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -2435,6 +3170,111 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [
+            "coarse relative to local window"
+          ],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -2700,6 +3540,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -2966,6 +3899,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -3232,6 +4258,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -3327,7 +4446,7 @@
         "nodata_ratio": 0.0,
         "coverage": "full",
         "warnings": [
-          "Study site 24\u00b003\u203249.6\u2033S, 69\u00b052\u203249.8\u2033W; one Yungay locality, not the whole Atacama Desert.",
+          "Study site 24°03′49.6″S, 69°52′49.8″W; one Yungay locality, not the whole Atacama Desert.",
           "Control locality is not a labeled negative analog; no chemical or biological similarity inferred from terrain.",
           "SRTMGL30 global raster can include GTOPO30 fills; native SRTM latitude domain is enforced.",
           "Measured SRTMGL30 minus GLO-90: slope median -0.047727 deg; Riley TRI median -5.202954 m. See source_transition.json."
@@ -3498,6 +4617,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -3764,6 +4976,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -4030,6 +5335,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -4297,6 +5695,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {
@@ -4563,6 +6054,99 @@
         "vertical_exaggeration": 1,
         "synthetic": false,
         "decode": "elevation_m = pixel * scale + offset"
+      },
+      "context": {
+        "lst_day_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_night_mean_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_diurnal_range_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_min_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "lst_max_month_c": {
+          "value": null,
+          "unit": "degC",
+          "source": "MOD11C3 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "ndvi_mean": {
+          "value": null,
+          "unit": "1",
+          "source": "MOD13C2 v061",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": 5550,
+          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        },
+        "precip_mm_yr": {
+          "value": null,
+          "unit": "mm/yr",
+          "source": "GPM_3IMERGM v07",
+          "period": "2025-01..2025-12",
+          "evidence": "orbital_remote_sensing",
+          "n_valid_months": 0,
+          "n_pixels": null,
+          "source_resolution_m": null,
+          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "warnings": [],
+          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+        }
       }
     },
     {

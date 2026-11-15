@@ -164,23 +164,40 @@ def test_bad_environmental_input_preserves_existing_release(tmp_path):
 
 def test_root_release_and_handoff_bundle_match_current_outputs():
     root = ROOT/'out'
-    for name in ('features.json', 'environment.json', 'retrieval.json', 'target_quality.json'):
+    # Analog-profile context is a separate augmentation of real/features.json;
+    # historical handoff/root snapshots retain identical non-context attributes.
+    def without_context(data):
+        doc = json.loads(data)
+        for record in doc['records']:
+            record.pop('context', None)
+        return doc
+    assert without_context((root/'features.json').read_bytes()) == without_context((root/'real/features.json').read_bytes())
+    for name in ('environment.json', 'retrieval.json', 'target_quality.json'):
         assert (root/name).read_bytes() == (root/'real'/name).read_bytes()
-    for name in ('earth_grid.parquet','coverage.geojson','pilot_timing.json'):
+    a, b = pq.read_table(root/'earth_grid.parquet'), pq.read_table(root/'pilot_expanded/earth_grid.parquet')
+    assert a.select(b.column_names).equals(b)
+    for name in ('coverage.geojson','pilot_timing.json'):
         assert (root/name).read_bytes()==(root/'pilot_expanded'/name).read_bytes()
     records = json.loads((root/'features.json').read_text())['records']
     with zipfile.ZipFile(root/'handoff/kisi2_v2_3.zip') as archive:
         assert archive.testzip() is None
-        for name in ('features.json','earth_grid.parquet','coverage.geojson','environment.json'):
-            assert archive.read(name)==(root/'real'/name).read_bytes()
+        assert without_context(archive.read('features.json')) == without_context((root/'real/features.json').read_bytes())
+        for name in ('earth_grid.parquet','coverage.geojson','environment.json'):
+            if name.endswith(('.json', '.geojson')):
+                assert json.loads(archive.read(name)) == json.loads((root/'real'/name).read_bytes())
+            else:
+                assert archive.read(name)==(root/'real'/name).read_bytes()
         for record in records:
             for key in ('path','metadata_path'):
                 path=record['heightmap'][key]
-                assert archive.read(path)==(root/path).read_bytes()
+                if path.endswith('.json'):
+                    assert json.loads(archive.read(path)) == json.loads((root/path).read_bytes())
+                else:
+                    assert archive.read(path)==(root/path).read_bytes()
             evidence=record['quality'].get('qa_validation',{})
             if evidence.get('report_file'):
                 path=evidence['report_file']
-                assert archive.read(path)==(root/path).read_bytes()
+                assert json.loads(archive.read(path)) == json.loads((root/path).read_bytes())
         assert not any(name.endswith(('.hdf','.tif','.zip')) for name in archive.namelist())
 
 

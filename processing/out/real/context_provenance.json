@@ -1,0 +1,11 @@
+{
+  "feature_input_sha256": "adff6455cfb3f614415c38506a446656e27960ff51ef41bcbdb12708fcde64aa",
+  "grid_input_sha256": "639a51c6484a561d72a3bf216c378f4b9a00de96d9e0a8b2ea95084e483af20d",
+  "original_records_semantic_sha256": "d702e978eee06894abec01f750a8ae22d11ac37a7eb06067c131fc12c296a2e0",
+  "original_grid_semantic_sha256": "9f5aa7d6a5dbcb3e889a92186963ed1ac973affa93385cf9c421ff3c790a2341",
+  "created_at": "2026-11-15T10:32:57.009280+00:00",
+  "period": "2025-01..2025-12",
+  "status": "blocked_missing_credentials",
+  "missing_reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired",
+  "observations_acquired": false
+}
