@@ -48,7 +48,9 @@ with sync_playwright() as p:
             page.wait_for_function("document.querySelector('.app-shell').dataset.body === 'mars'")
             comparison_ready(page)
         page.get_by_role('combobox',name='TARGET REGION',exact=True).click()
-        page.get_by_role('option',name=re.compile(r'^T-01\b')).click()
+        assert page.get_by_role('option',name=re.compile(r'^T-01\b')).count() == 0
+        assert page.get_by_role('option',name=re.compile(r'^T-05\b')).count() == 1
+        page.get_by_role('option',name=re.compile(r'^T-04\b')).click()
         comparison_ready(page)
         capture(page,'terrain-comparison.jpg')
 

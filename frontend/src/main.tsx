@@ -57,8 +57,9 @@ function App() {
   useEffect(() => {
     const c = new AbortController();
     getJson<{ targets: Target[]; data_status: string }>(`${BASE}/api/v1/targets`, c.signal).then(data => {
-      setTargets(data.targets); setDataStatus(data.data_status);
-      const first = data.targets.find(t => t.status === "scorable") ?? data.targets[0];
+      const availableTargets = data.targets.filter(t => !(t.body === "mars" && t.alias === "T-01"));
+      setTargets(availableTargets); setDataStatus(data.data_status);
+      const first = availableTargets.find(t => t.status === "scorable") ?? availableTargets[0];
       if (first) { setTargetId(first.alias); setScale(first.scales.includes("regional") ? "regional" : "local"); }
     }).catch(e => { if (!c.signal.aborted) setError(`Could not load targets: ${e}`); });
     return () => c.abort();
