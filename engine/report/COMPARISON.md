@@ -1,6 +1,6 @@
 # v6 versus v9 real-data comparison
 
-Inputs: `main@cbb06c4` (`processing/out/real/features.json`, `processing/out/mars_measured/features.json`, `processing/out/earth_grid.parquet`). Same inputs and presets for both feature sets. Regional rankings below use the full eligible ordering before spatial NMS. Scores are raw topographic scores, not probabilities.
+Inputs: `feature/terrain3d-improvements@217870c` (`processing/out/real/features.json`, `processing/out/mars_measured/features.json`, `processing/out/moon_measured/features.json`, `processing/out/earth_grid.parquet`). Same inputs and presets for both feature sets. Regional rankings below use the full eligible ordering before spatial NMS. Scores are raw topographic scores, not probabilities.
 
 ## Acceptance criteria
 
@@ -15,29 +15,29 @@ Regional calibrated k: v6 `1.107180`; v9 `1.222905`. Both achieved median pairwi
 ## mars_arcadia_regional · regional
 
 - v6: 6 features; top-10 span 0.71; top-tier size 11; ≥90 share 0.35; ≥80 share 0.50.
-- v9: 6 features; top-10 span 0.58; top-tier size 10; ≥90 share 0.38; ≥80 share 0.55.
-- v6/v9 Spearman: 1.00; top-10 overlap: 10/10.
+- v9: 8 features; top-10 span 2.84; top-tier size 5; ≥90 share 0.22; ≥80 share 0.45.
+- v6/v9 Spearman: 0.92; top-10 overlap: 4/10.
 
 | Rank | v6 place | v6 score [p5–p95] | v6 percentile | v9 place | v9 score [p5–p95] | v9 percentile |
 |---:|---|---:|---:|---|---:|---:|
-| 1 | Halitpasa, Manisa, TR | 99.9 [99.4–99.9] | 99.54 | Halitpasa, Manisa, TR | 99.9 [99.6–99.9] | 99.54 |
-| 2 | Beysehir, Konya, TR | 99.7 [99.1–99.8] | 99.07 | Beysehir, Konya, TR | 99.7 [99.3–99.9] | 99.07 |
-| 3 | Cobanlar, Afyonkarahisar, TR | 99.6 [99.1–99.8] | 98.61 | Cobanlar, Afyonkarahisar, TR | 99.7 [99.2–99.8] | 98.61 |
-| 4 | Antofagasta, Antofagasta, CL | 99.5 [98.9–99.8] | 98.61 | Antofagasta, Antofagasta, CL | 99.6 [99.1–99.8] | 98.61 |
-| 5 | Gelegra, Ankara, TR | 99.4 [98.7–99.6] | 98.15 | Gelegra, Ankara, TR | 99.5 [99.0–99.7] | 98.15 |
-| 6 | Savcili, Kirsehir, TR | 99.4 [98.8–99.6] | 97.69 | Savcili, Kirsehir, TR | 99.5 [99.0–99.7] | 97.69 |
-| 7 | Yunak, Konya, TR | 99.4 [98.6–99.7] | 97.22 | Yunak, Konya, TR | 99.5 [98.7–99.7] | 97.22 |
-| 8 | Guellue, Usak, TR | 99.3 [98.7–99.6] | 96.76 | Guellue, Usak, TR | 99.4 [98.8–99.7] | 96.76 |
-| 9 | Vestmannaeyjar, South, IS | 99.3 [98.6–99.6] | 96.30 | Vestmannaeyjar, South, IS | 99.4 [98.8–99.6] | 96.30 |
-| 10 | Urla, Izmir, TR | 99.2 [98.1–99.5] | 95.83 | Urla, Izmir, TR | 99.3 [98.6–99.6] | 95.83 |
+| 1 | Halitpasa, Manisa, TR | 99.9 [99.4–99.9] | 99.54 | Beysehir, Konya, TR | 99.6 [99.0–99.8] | 99.54 |
+| 2 | Beysehir, Konya, TR | 99.7 [99.1–99.8] | 99.07 | Halitpasa, Manisa, TR | 99.5 [98.8–99.8] | 99.07 |
+| 3 | Cobanlar, Afyonkarahisar, TR | 99.6 [99.1–99.8] | 98.61 | Karaman, Karaman, TR | 98.6 [97.7–99.0] | 98.61 |
+| 4 | Antofagasta, Antofagasta, CL | 99.5 [98.9–99.8] | 98.61 | Agia Paraskevi, North Aegean, GR | 98.5 [97.3–99.1] | 98.15 |
+| 5 | Gelegra, Ankara, TR | 99.4 [98.7–99.6] | 98.15 | Cobanlar, Afyonkarahisar, TR | 98.2 [96.5–99.2] | 97.69 |
+| 6 | Savcili, Kirsehir, TR | 99.4 [98.8–99.6] | 97.69 | Civril, Denizli, TR | 98.0 [96.6–98.8] | 97.22 |
+| 7 | Yunak, Konya, TR | 99.4 [98.6–99.7] | 97.22 | Antofagasta, Antofagasta, CL | 97.9 [96.4–98.9] | 97.22 |
+| 8 | Guellue, Usak, TR | 99.3 [98.7–99.6] | 96.76 | Misli, Nigde, TR | 97.8 [96.4–98.5] | 96.76 |
+| 9 | Vestmannaeyjar, South, IS | 99.3 [98.6–99.6] | 96.30 | Dalaman, Mugla, TR | 96.7 [94.9–97.9] | 95.83 |
+| 10 | Urla, Izmir, TR | 99.2 [98.1–99.5] | 95.83 | Mammari, Lefkosia, CY | 96.8 [95.0–97.4] | 96.30 |
 
 Control-site ranks (full eligible ordering):
 
 | Control | v6 rank | v9 rank |
 |---|---:|---:|
-| atacama | 4 | 4 |
-| haughton | 59 | 59 |
-| meteor_crater | 101 | 101 |
+| atacama | 4 | 7 |
+| haughton | 59 | 143 |
+| meteor_crater | 101 | 67 |
 
 ## mars_jezero_local · local
 
@@ -46,56 +46,56 @@ Unscorable: resolution_not_validated. No ranking claimed.
 ## mars_jezero_regional · regional
 
 - v6: 5 features; top-10 span 1.61; top-tier size 5; ≥90 share 0.38; ≥80 share 0.53.
-- v9: 5 features; top-10 span 1.33; top-tier size 6; ≥90 share 0.43; ≥80 share 0.54.
-- v6/v9 Spearman: 1.00; top-10 overlap: 10/10.
+- v9: 7 features; top-10 span 5.85; top-tier size 8; ≥90 share 0.08; ≥80 share 0.44.
+- v6/v9 Spearman: 0.93; top-10 overlap: 5/10.
 
 | Rank | v6 place | v6 score [p5–p95] | v6 percentile | v9 place | v9 score [p5–p95] | v9 percentile |
 |---:|---|---:|---:|---|---:|---:|
-| 1 | Misli, Nigde, TR | 99.9 [99.5–99.9] | 99.54 | Misli, Nigde, TR | 99.9 [99.6–99.9] | 99.54 |
-| 2 | Saudarkrokur, Northwest, IS | 99.5 [98.9–99.7] | 99.07 | Saudarkrokur, Northwest, IS | 99.6 [99.2–99.8] | 99.07 |
-| 3 | Civril, Denizli, TR | 99.4 [98.7–99.6] | 98.61 | Civril, Denizli, TR | 99.5 [99.0–99.7] | 98.61 |
-| 4 | Pyrgos, Limassol, CY | 99.2 [98.6–99.6] | 98.15 | Pyrgos, Limassol, CY | 99.4 [98.7–99.6] | 98.15 |
-| 5 | Argithani, Konya, TR | 99.2 [98.4–99.5] | 97.69 | Argithani, Konya, TR | 99.3 [98.8–99.6] | 97.69 |
-| 6 | Antofagasta, Antofagasta, CL | 99.1 [98.4–99.5] | 97.22 | Antofagasta, Antofagasta, CL | 99.3 [98.6–99.6] | 97.22 |
-| 7 | Kadinhani, Konya, TR | 99.0 [98.2–99.3] | 96.76 | Kadinhani, Konya, TR | 99.2 [98.5–99.5] | 96.76 |
-| 8 | Bolvadin, Afyonkarahisar, TR | 98.8 [97.9–99.3] | 96.30 | Bolvadin, Afyonkarahisar, TR | 99.0 [98.4–99.4] | 96.30 |
-| 9 | Saudarkrokur, Northwest, IS | 98.7 [97.7–99.2] | 95.83 | Saudarkrokur, Northwest, IS | 98.9 [98.2–99.3] | 95.83 |
-| 10 | Beylikova, Eskisehir, TR | 98.2 [97.3–98.8] | 95.37 | Beylikova, Eskisehir, TR | 98.6 [97.7–99.0] | 95.37 |
+| 1 | Misli, Nigde, TR | 99.9 [99.5–99.9] | 99.54 | Saudarkrokur, Northwest, IS | 97.9 [95.9–99.0] | 99.54 |
+| 2 | Saudarkrokur, Northwest, IS | 99.5 [98.9–99.7] | 99.07 | Antofagasta, Antofagasta, CL | 97.5 [95.7–98.5] | 99.07 |
+| 3 | Civril, Denizli, TR | 99.4 [98.7–99.6] | 98.61 | Saudarkrokur, Northwest, IS | 97.2 [95.5–98.2] | 98.61 |
+| 4 | Pyrgos, Limassol, CY | 99.2 [98.6–99.6] | 98.15 | Taltal, Antofagasta, CL | 96.4 [93.6–98.0] | 98.15 |
+| 5 | Argithani, Konya, TR | 99.2 [98.4–99.5] | 97.69 | Antofagasta, Antofagasta, CL | 94.5 [91.3–96.3] | 98.15 |
+| 6 | Antofagasta, Antofagasta, CL | 99.1 [98.4–99.5] | 97.22 | Inonu, Karaman, TR | 93.4 [88.3–96.7] | 97.69 |
+| 7 | Kadinhani, Konya, TR | 99.0 [98.2–99.3] | 96.76 | Akdere, Mersin, TR | 93.0 [88.2–95.5] | 97.22 |
+| 8 | Bolvadin, Afyonkarahisar, TR | 98.8 [97.9–99.3] | 96.30 | Salmanli, Yozgat, TR | 92.1 [85.5–96.2] | 96.30 |
+| 9 | Saudarkrokur, Northwest, IS | 98.7 [97.7–99.2] | 95.83 | Misli, Nigde, TR | 92.3 [85.3–96.2] | 96.76 |
+| 10 | Beylikova, Eskisehir, TR | 98.2 [97.3–98.8] | 95.37 | Kadinhani, Konya, TR | 92.0 [86.7–95.7] | 95.83 |
 
 Control-site ranks (full eligible ordering):
 
 | Control | v6 rank | v9 rank |
 |---|---:|---:|
-| atacama | 18 | 18 |
-| haughton | 113 | 113 |
-| meteor_crater | 102 | 102 |
+| atacama | 18 | 5 |
+| haughton | 113 | 144 |
+| meteor_crater | 102 | 30 |
 
 ## mars_phoenix_regional · regional
 
 - v6: 6 features; top-10 span 2.24; top-tier size 18; ≥90 share 0.15; ≥80 share 0.27.
-- v9: 6 features; top-10 span 1.84; top-tier size 18; ≥90 share 0.17; ≥80 share 0.33.
-- v6/v9 Spearman: 1.00; top-10 overlap: 10/10.
+- v9: 9 features; top-10 span 6.56; top-tier size 32; ≥90 share 0.01; ≥80 share 0.12.
+- v6/v9 Spearman: 0.86; top-10 overlap: 3/10.
 
 | Rank | v6 place | v6 score [p5–p95] | v6 percentile | v9 place | v9 score [p5–p95] | v9 percentile |
 |---:|---|---:|---:|---|---:|---:|
-| 1 | Umraniye, Afyonkarahisar, TR | 99.5 [97.4–99.7] | 99.54 | Umraniye, Afyonkarahisar, TR | 99.6 [97.7–99.7] | 99.54 |
-| 2 | Suluklu, Konya, TR | 99.2 [97.0–99.5] | 99.07 | Suluklu, Konya, TR | 99.4 [97.2–99.6] | 99.07 |
-| 3 | Yeniceoba, Konya, TR | 99.0 [96.6–99.5] | 98.61 | Yeniceoba, Konya, TR | 99.2 [96.7–99.6] | 98.61 |
-| 4 | Mitzpe Ramon, Southern District, IL | 98.9 [96.3–99.4] | 98.15 | Mitzpe Ramon, Southern District, IL | 99.1 [97.0–99.5] | 98.15 |
-| 5 | Arish, Muhafazat Shamal Sina', EG | 98.8 [96.0–99.5] | 97.69 | Arish, Muhafazat Shamal Sina', EG | 99.0 [96.8–99.5] | 97.69 |
-| 6 | Ismailia, Al Isma'iliyah, EG | 98.4 [94.7–99.1] | 97.22 | Ismailia, Al Isma'iliyah, EG | 98.7 [95.4–99.3] | 97.22 |
-| 7 | Hotamis, Konya, TR | 98.2 [93.3–98.9] | 96.76 | Hotamis, Konya, TR | 98.5 [95.3–99.2] | 96.76 |
-| 8 | Al `Alamayn, Muhafazat Matruh, EG | 97.6 [93.0–98.7] | 96.30 | Al `Alamayn, Muhafazat Matruh, EG | 98.1 [94.4–98.8] | 96.30 |
-| 9 | Arish, Muhafazat Shamal Sina', EG | 97.5 [93.3–98.6] | 95.83 | Arish, Muhafazat Shamal Sina', EG | 98.0 [94.1–98.9] | 95.83 |
-| 10 | Bilbays, Eastern Province, EG | 97.3 [90.9–98.8] | 94.91 | Bilbays, Eastern Province, EG | 97.7 [92.7–98.8] | 94.91 |
+| 1 | Umraniye, Afyonkarahisar, TR | 99.5 [97.4–99.7] | 99.54 | Mersa Matruh, Muhafazat Matruh, EG | 91.5 [85.9–94.1] | 99.54 |
+| 2 | Suluklu, Konya, TR | 99.2 [97.0–99.5] | 99.07 | Beheira, Al Buhayrah, EG | 91.5 [83.9–93.8] | 99.07 |
+| 3 | Yeniceoba, Konya, TR | 99.0 [96.6–99.5] | 98.61 | Karahasanli, Nevsehir, TR | 88.3 [78.9–92.8] | 98.61 |
+| 4 | Mitzpe Ramon, Southern District, IL | 98.9 [96.3–99.4] | 98.15 | Kulu, Konya, TR | 88.0 [79.9–92.7] | 98.15 |
+| 5 | Arish, Muhafazat Shamal Sina', EG | 98.8 [96.0–99.5] | 97.69 | Yeniceoba, Konya, TR | 86.6 [74.4–93.3] | 97.69 |
+| 6 | Ismailia, Al Isma'iliyah, EG | 98.4 [94.7–99.1] | 97.22 | Mitzpe Ramon, Southern District, IL | 86.4 [77.2–91.5] | 97.22 |
+| 7 | Hotamis, Konya, TR | 98.2 [93.3–98.9] | 96.76 | Al `Alamayn, Muhafazat Matruh, EG | 86.3 [74.6–91.5] | 96.76 |
+| 8 | Al `Alamayn, Muhafazat Matruh, EG | 97.6 [93.0–98.7] | 96.30 | Bi'r al `Abd, Muhafazat Shamal Sina', EG | 85.6 [75.0–90.8] | 96.30 |
+| 9 | Arish, Muhafazat Shamal Sina', EG | 97.5 [93.3–98.6] | 95.83 | Gjoa Haven, Nunavut, CA | 85.0 [77.6–89.2] | 95.83 |
+| 10 | Bilbays, Eastern Province, EG | 97.3 [90.9–98.8] | 94.91 | Mitzpe Ramon, Southern District, IL | 85.1 [73.6–91.3] | 95.83 |
 
 Control-site ranks (full eligible ordering):
 
 | Control | v6 rank | v9 rank |
 |---|---:|---:|
-| atacama | 81 | 81 |
-| haughton | 33 | 33 |
-| meteor_crater | 39 | 39 |
+| atacama | 81 | 69 |
+| haughton | 33 | 9 |
+| meteor_crater | 39 | 33 |
 
 ## moon_marius_hills_regional · regional
 
@@ -192,4 +192,4 @@ Validated Earth records with `roughness_ratio = 0` (nearest populated place is a
 
 ## Eligibility and default
 
-v9 is the default because all three pre-registered acceptance criteria pass. Shackleton local/regional uses nine features. Phoenix and Arcadia use six; Jezero regional uses five because `slope_p90_deg` fails delivered sensitivity and all three shape verdicts are absent. Marius and Jezero local remain unscorable. Mars shape features will become eligible only after per-feature sensitivity verdicts are delivered.
+v9 is the default because all three pre-registered acceptance criteria pass. Shackleton local/regional and Phoenix use nine features. Arcadia uses eight because curvature fails delivered sensitivity. Jezero regional uses seven because slope_p90 and curvature fail delivered sensitivity. Marius and Jezero local remain unscorable; the new Marius measured-only export explicitly withholds resolution validation. Every feature is included only when its per-feature verdict permits it.
