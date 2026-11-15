@@ -1,0 +1,4791 @@
+{
+  "positive_counts_at_start": [
+    {
+      "target_id": "T-01",
+      "engine_region_id": "mars_jezero_regional",
+      "used_feature_count": 5,
+      "used_features": [
+        "slope_median_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [
+        "slope_p90_deg"
+      ],
+      "valid_positive_cell_count": 176,
+      "valid_cell_count": 396,
+      "base_rate": 0.4444444444444444
+    },
+    {
+      "target_id": "T-02",
+      "engine_region_id": "moon_shackleton_regional",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "valid_positive_cell_count": 176,
+      "valid_cell_count": 396,
+      "base_rate": 0.4444444444444444
+    },
+    {
+      "target_id": "T-03",
+      "engine_region_id": "moon_marius_hills_regional",
+      "used_feature_count": 0,
+      "used_features": [],
+      "excluded_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "valid_positive_cell_count": 0,
+      "valid_cell_count": 0,
+      "base_rate": null
+    },
+    {
+      "target_id": "mars_phoenix_regional",
+      "engine_region_id": "mars_phoenix_regional",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "valid_positive_cell_count": 176,
+      "valid_cell_count": 396,
+      "base_rate": 0.4444444444444444
+    },
+    {
+      "target_id": "mars_arcadia_regional",
+      "engine_region_id": "mars_arcadia_regional",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "valid_positive_cell_count": 176,
+      "valid_cell_count": 396,
+      "base_rate": 0.4444444444444444
+    }
+  ],
+  "scope": {
+    "processed_cell_count": 405,
+    "valid_cell_count": 396,
+    "latitude_range": [
+      -50.75,
+      75.75
+    ],
+    "longitude_range": [
+      -156.75,
+      177.25
+    ],
+    "five_degree_bins_top_10": [
+      {
+        "lat_min": 40,
+        "lat_max": 45,
+        "lon_min": -90,
+        "lon_max": -85,
+        "cell_count": 7
+      },
+      {
+        "lat_min": -20,
+        "lat_max": -15,
+        "lon_min": 125,
+        "lon_max": 130,
+        "cell_count": 6
+      },
+      {
+        "lat_min": 55,
+        "lat_max": 60,
+        "lon_min": 20,
+        "lon_max": 25,
+        "cell_count": 6
+      },
+      {
+        "lat_min": 60,
+        "lat_max": 65,
+        "lon_min": 25,
+        "lon_max": 30,
+        "cell_count": 6
+      },
+      {
+        "lat_min": 45,
+        "lat_max": 50,
+        "lon_min": 30,
+        "lon_max": 35,
+        "cell_count": 5
+      },
+      {
+        "lat_min": 60,
+        "lat_max": 65,
+        "lon_min": 20,
+        "lon_max": 25,
+        "cell_count": 5
+      },
+      {
+        "lat_min": -25,
+        "lat_max": -20,
+        "lon_min": 130,
+        "lon_max": 135,
+        "cell_count": 4
+      },
+      {
+        "lat_min": 35,
+        "lat_max": 40,
+        "lon_min": -100,
+        "lon_max": -95,
+        "cell_count": 4
+      },
+      {
+        "lat_min": 60,
+        "lat_max": 65,
+        "lon_min": 10,
+        "lon_max": 15,
+        "cell_count": 4
+      },
+      {
+        "lat_min": -30,
+        "lat_max": -25,
+        "lon_min": -55,
+        "lon_max": -50,
+        "cell_count": 3
+      }
+    ],
+    "source_branch": "origin/main",
+    "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
+    "note": "Kapsam küresel değildir; sonuçlar yalnızca işlenmiş hücreler için geçerlidir."
+  },
+  "targets": {
+    "T-01": {
+      "status": "evaluated",
+      "engine_region_id": "mars_jezero_regional",
+      "used_feature_count": 5,
+      "used_features": [
+        "slope_median_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [
+        "slope_p90_deg"
+      ],
+      "valid_cell_count": 396,
+      "valid_positive_cell_count": 176,
+      "base_rate": 0.4444444444444444,
+      "positive_cells": [
+        {
+          "cell_key": "g_-07.75_-46.75",
+          "analog_names": "Riachao Ring",
+          "score": 0.1407741997736295,
+          "percentile": 35.1010101010101
+        },
+        {
+          "cell_key": "g_-08.25_-46.75",
+          "analog_names": "Serra da Cangalha",
+          "score": 0.3428884758332299,
+          "percentile": 67.17171717171718
+        },
+        {
+          "cell_key": "g_-10.25_-45.25",
+          "analog_names": "Santa Marta",
+          "score": 0.4624436802141573,
+          "percentile": 86.86868686868688
+        },
+        {
+          "cell_key": "g_-10.25_028.25",
+          "analog_names": "Luizi",
+          "score": 0.40108890728858454,
+          "percentile": 76.76767676767676
+        },
+        {
+          "cell_key": "g_-12.25_134.25",
+          "analog_names": "Liverpool",
+          "score": 0.0768478827361667,
+          "percentile": 19.94949494949495
+        },
+        {
+          "cell_key": "g_-13.25_135.25",
+          "analog_names": "Goyder",
+          "score": 0.3369251726979526,
+          "percentile": 65.65656565656566
+        },
+        {
+          "cell_key": "g_-15.25_131.25",
+          "analog_names": "Matt Wilson",
+          "score": 0.2305932178867723,
+          "percentile": 52.02020202020202
+        },
+        {
+          "cell_key": "g_-15.25_133.75",
+          "analog_names": "Strangways",
+          "score": 0.15412410533764453,
+          "percentile": 38.38383838383838
+        },
+        {
+          "cell_key": "g_-16.75_-52.75",
+          "analog_names": "Araguainha",
+          "score": 0.35061387792241905,
+          "percentile": 68.18181818181817
+        },
+        {
+          "cell_key": "g_-16.75_-69.25",
+          "analog_names": "Carancas",
+          "score": 0.8980409935702337,
+          "percentile": 98.98989898989899
+        },
+        {
+          "cell_key": "g_-16.75_126.25",
+          "analog_names": "Spider",
+          "score": 0.2626747106904343,
+          "percentile": 56.56565656565656
+        },
+        {
+          "cell_key": "g_-16.75_136.75",
+          "analog_names": "Foelsche",
+          "score": 0.18596625297579245,
+          "percentile": 44.19191919191919
+        },
+        {
+          "cell_key": "g_-17.75_128.25",
+          "analog_names": "Piccaninny",
+          "score": 0.2982756136893029,
+          "percentile": 60.1010101010101
+        },
+        {
+          "cell_key": "g_-18.25_126.75",
+          "analog_names": "Goat Paddock",
+          "score": 0.4159591606533577,
+          "percentile": 78.78787878787878
+        },
+        {
+          "cell_key": "g_-18.75_138.75",
+          "analog_names": "Lawn Hill",
+          "score": 0.17414999036395176,
+          "percentile": 42.17171717171717
+        },
+        {
+          "cell_key": "g_-19.25_127.75",
+          "analog_names": "Wolfe Creek",
+          "score": 0.061080833420744704,
+          "percentile": 15.656565656565657
+        },
+        {
+          "cell_key": "g_-19.75_133.75",
+          "analog_names": "Kelly West",
+          "score": 0.02199285789637682,
+          "percentile": 4.797979797979798
+        },
+        {
+          "cell_key": "g_-20.75_134.75",
+          "analog_names": "Amelia Creek",
+          "score": 0.28719030622572167,
+          "percentile": 59.34343434343434
+        },
+        {
+          "cell_key": "g_-22.25_027.75",
+          "analog_names": "Kgagodi",
+          "score": 0.17529773282986974,
+          "percentile": 42.42424242424242
+        },
+        {
+          "cell_key": "g_-22.75_125.25",
+          "analog_names": "Veevers",
+          "score": 0.04846622684653359,
+          "percentile": 12.878787878787879
+        },
+        {
+          "cell_key": "g_-22.75_135.25",
+          "analog_names": "Boxhole",
+          "score": 0.10554738489552225,
+          "percentile": 29.040404040404038
+        },
+        {
+          "cell_key": "g_-23.75_-46.75",
+          "analog_names": "Colonia",
+          "score": 0.32184446510302034,
+          "percentile": 62.878787878787875
+        },
+        {
+          "cell_key": "g_-23.75_-68.25",
+          "analog_names": "Monturaqui",
+          "score": 0.724854203611526,
+          "percentile": 96.21212121212122
+        },
+        {
+          "cell_key": "g_-23.75_121.75",
+          "analog_names": "Glikson",
+          "score": 0.13882180733106497,
+          "percentile": 34.5959595959596
+        },
+        {
+          "cell_key": "g_-23.75_124.75",
+          "analog_names": "Connolly Basin",
+          "score": 0.04061672975236164,
+          "percentile": 10.1010101010101
+        },
+        {
+          "cell_key": "g_-23.75_132.25",
+          "analog_names": "Gosses Bluff",
+          "score": 0.3224959455060581,
+          "percentile": 63.13131313131313
+        },
+        {
+          "cell_key": "g_-24.75_133.25",
+          "analog_names": "Henbury",
+          "score": 0.10426722321076705,
+          "percentile": 27.77777777777778
+        },
+        {
+          "cell_key": "g_-25.25_028.25",
+          "analog_names": "Tswaing (formerly Pretoria Saltpan)",
+          "score": 0.20336703346225785,
+          "percentile": 48.23232323232323
+        },
+        {
+          "cell_key": "g_-25.75_-52.75",
+          "analog_names": "Vista Alegre",
+          "score": 0.4444796039017932,
+          "percentile": 83.83838383838383
+        },
+        {
+          "cell_key": "g_-25.75_120.75",
+          "analog_names": "Shoemaker (formerly Teague)",
+          "score": 0.04595410166824529,
+          "percentile": 11.363636363636363
+        },
+        {
+          "cell_key": "g_-26.25_023.75",
+          "analog_names": "Morokweng",
+          "score": 0.09814883150142421,
+          "percentile": 26.515151515151516
+        },
+        {
+          "cell_key": "g_-26.25_114.75",
+          "analog_names": "Woodleigh",
+          "score": 0.14406221011239015,
+          "percentile": 36.11111111111111
+        },
+        {
+          "cell_key": "g_-26.75_-52.25",
+          "analog_names": "Vargeao Dome",
+          "score": 0.4943062035594579,
+          "percentile": 90.65656565656566
+        },
+        {
+          "cell_key": "g_-26.75_027.75",
+          "analog_names": "Vredefort",
+          "score": 0.16216658238931245,
+          "percentile": 40.15151515151515
+        },
+        {
+          "cell_key": "g_-27.25_118.75",
+          "analog_names": "Yarrabubba",
+          "score": 0.09473924251816813,
+          "percentile": 25.252525252525253
+        },
+        {
+          "cell_key": "g_-27.25_142.75",
+          "analog_names": "Tookoonooka",
+          "score": 0.07248209885385505,
+          "percentile": 18.939393939393938
+        },
+        {
+          "cell_key": "g_-27.75_-61.75",
+          "analog_names": "Campo Del Cielo",
+          "score": 0.08018259928215189,
+          "percentile": 20.454545454545457
+        },
+        {
+          "cell_key": "g_-27.75_016.25",
+          "analog_names": "Roter Kamm",
+          "score": 0.49895369352874497,
+          "percentile": 91.16161616161617
+        },
+        {
+          "cell_key": "g_-27.75_117.25",
+          "analog_names": "Dalgaranga",
+          "score": 0.14315953477729867,
+          "percentile": 35.858585858585855
+        },
+        {
+          "cell_key": "g_-27.75_135.25",
+          "analog_names": "Mount Toondina",
+          "score": 0.09882965149662715,
+          "percentile": 26.767676767676768
+        },
+        {
+          "cell_key": "g_-32.25_135.25",
+          "analog_names": "Acraman",
+          "score": 0.34339074913404116,
+          "percentile": 67.42424242424242
+        },
+        {
+          "cell_key": "g_-32.75_-64.25",
+          "analog_names": "Rio Cuarto",
+          "score": 0.38250154245828144,
+          "percentile": 73.98989898989899
+        },
+        {
+          "cell_key": "g_-32.75_024.25",
+          "analog_names": "Kalkkop",
+          "score": 0.38420288589546997,
+          "percentile": 74.4949494949495
+        },
+        {
+          "cell_key": "g_-34.75_139.25",
+          "analog_names": "Flaxman",
+          "score": 0.4894826869880615,
+          "percentile": 89.8989898989899
+        },
+        {
+          "cell_key": "g_006.75_-01.25",
+          "analog_names": "Bosumtwi (= Ashanti)",
+          "score": 0.3383017489475656,
+          "percentile": 66.41414141414141
+        },
+        {
+          "cell_key": "g_017.25_021.75",
+          "analog_names": "Gweni-Fada",
+          "score": 0.49739297610761246,
+          "percentile": 90.9090909090909
+        },
+        {
+          "cell_key": "g_019.25_019.25",
+          "analog_names": "Aorounga",
+          "score": 0.3099053516147737,
+          "percentile": 61.36363636363637
+        },
+        {
+          "cell_key": "g_019.75_076.75",
+          "analog_names": "Lonar",
+          "score": 0.22431655884971757,
+          "percentile": 50.75757575757576
+        },
+        {
+          "cell_key": "g_020.25_-12.75",
+          "analog_names": "Aouelloul",
+          "score": 0.40204914561364385,
+          "percentile": 77.02020202020202
+        },
+        {
+          "cell_key": "g_021.25_-89.25",
+          "analog_names": "Chicxulub",
+          "score": 0.010038645194185762,
+          "percentile": 1.0101010101010102
+        },
+        {
+          "cell_key": "g_021.75_050.25",
+          "analog_names": "Wabar",
+          "score": 0.019017522349866322,
+          "percentile": 2.7777777777777777
+        },
+        {
+          "cell_key": "g_022.25_026.25",
+          "analog_names": "Kamil",
+          "score": 0.24995858555292602,
+          "percentile": 55.80808080808081
+        },
+        {
+          "cell_key": "g_022.75_-10.25",
+          "analog_names": "Tenoumer",
+          "score": 0.02748081174058377,
+          "percentile": 6.8181818181818175
+        },
+        {
+          "cell_key": "g_024.75_024.25",
+          "analog_names": "Oasis",
+          "score": 0.13676518892188966,
+          "percentile": 34.090909090909086
+        },
+        {
+          "cell_key": "g_025.25_024.25",
+          "analog_names": "B.P. Structure",
+          "score": 0.11117384024936826,
+          "percentile": 29.545454545454547
+        },
+        {
+          "cell_key": "g_025.25_078.25",
+          "analog_names": "Dhala",
+          "score": 0.15929733316204958,
+          "percentile": 39.39393939393939
+        },
+        {
+          "cell_key": "g_026.25_004.25",
+          "analog_names": "Amguid",
+          "score": 0.38700556488031784,
+          "percentile": 75.25252525252525
+        },
+        {
+          "cell_key": "g_027.75_005.25",
+          "analog_names": "Tin Bider",
+          "score": 0.17240477340468455,
+          "percentile": 41.91919191919192
+        },
+        {
+          "cell_key": "g_029.25_-07.75",
+          "analog_names": "Ouarkziz",
+          "score": 0.3014888080715124,
+          "percentile": 60.60606060606061
+        },
+        {
+          "cell_key": "g_029.75_038.75",
+          "analog_names": "Saqqar",
+          "score": 0.16283765655880386,
+          "percentile": 40.65656565656566
+        },
+        {
+          "cell_key": "g_030.75_-102.75",
+          "analog_names": "Sierra Madera",
+          "score": 0.41472886403567694,
+          "percentile": 78.53535353535354
+        },
+        {
+          "cell_key": "g_031.25_-96.25",
+          "analog_names": "Marquez",
+          "score": 0.07357295968095455,
+          "percentile": 19.19191919191919
+        },
+        {
+          "cell_key": "g_031.25_036.75",
+          "analog_names": "Jebel Waqf as Suwwan",
+          "score": 0.36352718095010145,
+          "percentile": 70.45454545454545
+        },
+        {
+          "cell_key": "g_031.75_-05.25",
+          "analog_names": "Agoudal",
+          "score": 0.45689666747962193,
+          "percentile": 85.60606060606061
+        },
+        {
+          "cell_key": "g_031.75_-102.25",
+          "analog_names": "Odessa",
+          "score": 0.09567421670195339,
+          "percentile": 25.757575757575758
+        },
+        {
+          "cell_key": "g_032.75_-86.25",
+          "analog_names": "Wetumpka",
+          "score": 0.2435431953435373,
+          "percentile": 53.78787878787878
+        },
+        {
+          "cell_key": "g_033.25_004.25",
+          "analog_names": "Talemzane (= Maadna)",
+          "score": 0.26238952530869425,
+          "percentile": 56.313131313131315
+        },
+        {
+          "cell_key": "g_034.75_-115.75",
+          "analog_names": "Amboy",
+          "score": 0.9545114847351717,
+          "percentile": 99.74747474747475
+        },
+        {
+          "cell_key": "g_035.25_-111.25",
+          "analog_names": "Barringer (= Meteor); Grand Falls",
+          "score": 0.5377992453734204,
+          "percentile": 93.93939393939394
+        },
+        {
+          "cell_key": "g_035.75_-105.75",
+          "analog_names": "Santa Fe",
+          "score": 0.44905683117478906,
+          "percentile": 84.59595959595958
+        },
+        {
+          "cell_key": "g_036.25_-85.75",
+          "analog_names": "Flynn Creek",
+          "score": 0.27004012308482644,
+          "percentile": 56.81818181818182
+        },
+        {
+          "cell_key": "g_036.25_-87.75",
+          "analog_names": "Wells Creek",
+          "score": 0.21716898063296594,
+          "percentile": 49.74747474747475
+        },
+        {
+          "cell_key": "g_036.25_-98.25",
+          "analog_names": "Ames",
+          "score": 0.11803910953199051,
+          "percentile": 31.313131313131315
+        },
+        {
+          "cell_key": "g_036.75_-83.75",
+          "analog_names": "Middlesboro",
+          "score": 0.800539606231042,
+          "percentile": 97.72727272727273
+        },
+        {
+          "cell_key": "g_037.75_-91.25",
+          "analog_names": "Crooked Creek",
+          "score": 0.2402424122289246,
+          "percentile": 53.535353535353536
+        },
+        {
+          "cell_key": "g_037.75_-92.75",
+          "analog_names": "Decaturville",
+          "score": 0.21308307885446978,
+          "percentile": 49.24242424242424
+        },
+        {
+          "cell_key": "g_037.75_-99.25",
+          "analog_names": "Haviland",
+          "score": 0.06716225145252101,
+          "percentile": 16.666666666666664
+        },
+        {
+          "cell_key": "g_038.25_-109.75",
+          "analog_names": "Upheaval Dome",
+          "score": 0.7425827884248928,
+          "percentile": 96.71717171717171
+        },
+        {
+          "cell_key": "g_039.25_-83.25",
+          "analog_names": "Serpent Mound",
+          "score": 0.23960311254896588,
+          "percentile": 53.28282828282829
+        },
+        {
+          "cell_key": "g_039.25_073.25",
+          "analog_names": "Kara-Kul",
+          "score": 0.31680341014652935,
+          "percentile": 61.61616161616161
+        },
+        {
+          "cell_key": "g_040.25_123.25",
+          "analog_names": "Xiuyan",
+          "score": 0.8302238539284571,
+          "percentile": 98.23232323232324
+        },
+        {
+          "cell_key": "g_040.75_-87.25",
+          "analog_names": "Kentland",
+          "score": 0.03276406812885,
+          "percentile": 8.83838383838384
+        },
+        {
+          "cell_key": "g_040.75_-89.75",
+          "analog_names": "Glasford",
+          "score": 0.1304014469585546,
+          "percentile": 33.83838383838384
+        },
+        {
+          "cell_key": "g_041.75_-85.75",
+          "analog_names": "Calvin",
+          "score": 0.053258650582005365,
+          "percentile": 13.88888888888889
+        },
+        {
+          "cell_key": "g_042.75_-94.75",
+          "analog_names": "Manson",
+          "score": 0.046830418652086904,
+          "percentile": 11.868686868686869
+        },
+        {
+          "cell_key": "g_043.25_-106.75",
+          "analog_names": "Cloud Creek",
+          "score": 0.4413668864636634,
+          "percentile": 82.57575757575758
+        },
+        {
+          "cell_key": "g_043.75_-89.75",
+          "analog_names": "Glover Bluff",
+          "score": 0.1230484268162243,
+          "percentile": 32.57575757575758
+        },
+        {
+          "cell_key": "g_044.25_-76.75",
+          "analog_names": "Holleford",
+          "score": 0.13852988381727255,
+          "percentile": 34.34343434343434
+        },
+        {
+          "cell_key": "g_044.25_109.75",
+          "analog_names": "Tabun-Khara-Obo",
+          "score": 0.24947049247670658,
+          "percentile": 55.55555555555556
+        },
+        {
+          "cell_key": "g_044.75_-112.75",
+          "analog_names": "Beaverhead",
+          "score": 0.48231911510343145,
+          "percentile": 88.63636363636364
+        },
+        {
+          "cell_key": "g_044.75_-92.25",
+          "analog_names": "Rock Elm",
+          "score": 0.2351829102179628,
+          "percentile": 53.03030303030303
+        },
+        {
+          "cell_key": "g_045.75_000.75",
+          "analog_names": "Rochechouart",
+          "score": 0.37714705180298386,
+          "percentile": 73.48484848484848
+        },
+        {
+          "cell_key": "g_046.25_-78.25",
+          "analog_names": "Brent",
+          "score": 0.3459703870352525,
+          "percentile": 67.67676767676768
+        },
+        {
+          "cell_key": "g_046.25_134.75",
+          "analog_names": "Sikhote Alin",
+          "score": 0.3709362761810989,
+          "percentile": 71.96969696969697
+        },
+        {
+          "cell_key": "g_046.25_137.75",
+          "analog_names": "Sobolev",
+          "score": 0.4832010559381017,
+          "percentile": 88.88888888888889
+        },
+        {
+          "cell_key": "g_046.75_-80.75",
+          "analog_names": "Wanapitei",
+          "score": 0.22580587389913853,
+          "percentile": 51.26262626262626
+        },
+        {
+          "cell_key": "g_046.75_-81.25",
+          "analog_names": "Sudbury",
+          "score": 0.28508112409399666,
+          "percentile": 58.58585858585859
+        },
+        {
+          "cell_key": "g_047.25_072.75",
+          "analog_names": "Shunak",
+          "score": 0.332899911340718,
+          "percentile": 65.15151515151516
+        },
+        {
+          "cell_key": "g_047.75_-103.75",
+          "analog_names": "Red Wing",
+          "score": 0.2508438402542704,
+          "percentile": 56.060606060606055
+        },
+        {
+          "cell_key": "g_047.75_-70.25",
+          "analog_names": "Charlevoix (=La Malbaie)",
+          "score": 0.5183556871074252,
+          "percentile": 93.18181818181817
+        },
+        {
+          "cell_key": "g_048.25_032.75",
+          "analog_names": "Zeleny Gai",
+          "score": 0.10518209714535141,
+          "percentile": 28.78787878787879
+        },
+        {
+          "cell_key": "g_048.25_033.75",
+          "analog_names": "Ternovka",
+          "score": 0.11522527504842377,
+          "percentile": 30.303030303030305
+        },
+        {
+          "cell_key": "g_048.25_040.75",
+          "analog_names": "Kamensk",
+          "score": 0.22564579740154456,
+          "percentile": 51.010101010101
+        },
+        {
+          "cell_key": "g_048.25_060.75",
+          "analog_names": "Zhamanshin",
+          "score": 0.22368961747941063,
+          "percentile": 50.252525252525245
+        },
+        {
+          "cell_key": "g_048.75_-101.75",
+          "analog_names": "Newporte",
+          "score": 0.11887598844438427,
+          "percentile": 32.07070707070707
+        },
+        {
+          "cell_key": "g_048.75_010.25",
+          "analog_names": "Steinheim",
+          "score": 0.38322939969711584,
+          "percentile": 74.24242424242425
+        },
+        {
+          "cell_key": "g_048.75_010.75",
+          "analog_names": "Ries",
+          "score": 0.27044274409916713,
+          "percentile": 57.07070707070707
+        },
+        {
+          "cell_key": "g_048.75_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.12651398028734837,
+          "percentile": 32.82828282828283
+        },
+        {
+          "cell_key": "g_048.75_082.25",
+          "analog_names": "Bigach",
+          "score": 0.45614584112224965,
+          "percentile": 85.1010101010101
+        },
+        {
+          "cell_key": "g_049.25_029.25",
+          "analog_names": "Ilyinets",
+          "score": 0.13033775302091224,
+          "percentile": 33.58585858585859
+        },
+        {
+          "cell_key": "g_049.25_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.19131571158900262,
+          "percentile": 46.464646464646464
+        },
+        {
+          "cell_key": "g_049.25_057.75",
+          "analog_names": "Chiyli",
+          "score": 0.1485886707495568,
+          "percentile": 37.121212121212125
+        },
+        {
+          "cell_key": "g_049.75_-103.25",
+          "analog_names": "Viewfield",
+          "score": 0.040149421093237665,
+          "percentile": 9.848484848484848
+        },
+        {
+          "cell_key": "g_049.75_-109.25",
+          "analog_names": "Maple Creek (= White Valley)",
+          "score": 0.4994077055758306,
+          "percentile": 91.66666666666666
+        },
+        {
+          "cell_key": "g_049.75_-110.25",
+          "analog_names": "Eagle Butte",
+          "score": 0.5476241525698857,
+          "percentile": 94.44444444444444
+        },
+        {
+          "cell_key": "g_049.75_-74.75",
+          "analog_names": "Presqu'ile",
+          "score": 0.05469348679896231,
+          "percentile": 14.14141414141414
+        },
+        {
+          "cell_key": "g_049.75_-95.25",
+          "analog_names": "West Hawk",
+          "score": 0.06888070302942526,
+          "percentile": 17.424242424242426
+        },
+        {
+          "cell_key": "g_049.75_029.25",
+          "analog_names": "Zapadnaya",
+          "score": 0.0962063846335649,
+          "percentile": 26.01010101010101
+        },
+        {
+          "cell_key": "g_049.75_032.75",
+          "analog_names": "Obolon",
+          "score": 0.030027138017315838,
+          "percentile": 7.828282828282829
+        },
+        {
+          "cell_key": "g_050.75_-106.75",
+          "analog_names": "Elbow",
+          "score": 0.2457710780148742,
+          "percentile": 54.04040404040404
+        },
+        {
+          "cell_key": "g_050.75_-73.75",
+          "analog_names": "Ile Rouleau",
+          "score": 0.08404520447628883,
+          "percentile": 21.71717171717172
+        },
+        {
+          "cell_key": "g_051.25_-68.75",
+          "analog_names": "Manicouagan",
+          "score": 0.41887489316108595,
+          "percentile": 79.54545454545455
+        },
+        {
+          "cell_key": "g_051.75_-98.75",
+          "analog_names": "Saint Martin",
+          "score": 0.021597842962019144,
+          "percentile": 4.292929292929292
+        },
+        {
+          "cell_key": "g_051.75_036.25",
+          "analog_names": "Kursk",
+          "score": 0.14091728049545169,
+          "percentile": 35.35353535353536
+        },
+        {
+          "cell_key": "g_052.25_016.75",
+          "analog_names": "Morasko",
+          "score": 0.02805722230580673,
+          "percentile": 7.3232323232323235
+        },
+        {
+          "cell_key": "g_054.25_-115.75",
+          "analog_names": "Whitecourt",
+          "score": 0.4486162058835725,
+          "percentile": 84.34343434343434
+        },
+        {
+          "cell_key": "g_054.25_023.75",
+          "analog_names": "Mizarai",
+          "score": 0.09963366041257637,
+          "percentile": 27.27272727272727
+        },
+        {
+          "cell_key": "g_054.25_027.75",
+          "analog_names": "Logoisk",
+          "score": 0.18827585908808106,
+          "percentile": 44.696969696969695
+        },
+        {
+          "cell_key": "g_054.75_036.25",
+          "analog_names": "Kaluga",
+          "score": 0.146430939410921,
+          "percentile": 36.36363636363637
+        },
+        {
+          "cell_key": "g_054.75_048.25",
+          "analog_names": "Karla",
+          "score": 0.22416782888264725,
+          "percentile": 50.505050505050505
+        },
+        {
+          "cell_key": "g_055.25_024.75",
+          "analog_names": "Vepriai",
+          "score": 0.09158832573668164,
+          "percentile": 23.484848484848484
+        },
+        {
+          "cell_key": "g_055.75_-63.25",
+          "analog_names": "Mistastin",
+          "score": 0.35306176914788184,
+          "percentile": 68.93939393939394
+        },
+        {
+          "cell_key": "g_056.25_-102.75",
+          "analog_names": "Deep Bay",
+          "score": 0.11633589600924496,
+          "percentile": 30.808080808080806
+        },
+        {
+          "cell_key": "g_056.25_-104.25",
+          "analog_names": "Gow",
+          "score": 0.17152688908991956,
+          "percentile": 41.66666666666667
+        },
+        {
+          "cell_key": "g_056.25_-74.25",
+          "analog_names": "Clearwater East",
+          "score": 0.1266129354554734,
+          "percentile": 33.08080808080808
+        },
+        {
+          "cell_key": "g_056.25_014.75",
+          "analog_names": "Mien",
+          "score": 0.2296234927312818,
+          "percentile": 51.76767676767676
+        },
+        {
+          "cell_key": "g_056.75_023.25",
+          "analog_names": "Dobele",
+          "score": 0.127793636707534,
+          "percentile": 33.33333333333333
+        },
+        {
+          "cell_key": "g_056.75_043.75",
+          "analog_names": "Puchezh-Katunki",
+          "score": 0.0864886850788615,
+          "percentile": 21.96969696969697
+        },
+        {
+          "cell_key": "g_057.25_-66.75",
+          "analog_names": "La Moinerie",
+          "score": 0.1854731207988467,
+          "percentile": 43.93939393939394
+        },
+        {
+          "cell_key": "g_057.25_016.25",
+          "analog_names": "Hummeln",
+          "score": 0.18954525830150107,
+          "percentile": 44.94949494949495
+        },
+        {
+          "cell_key": "g_057.75_027.25",
+          "analog_names": "Ilumetsa",
+          "score": 0.21524462592230229,
+          "percentile": 49.494949494949495
+        },
+        {
+          "cell_key": "g_058.25_-109.25",
+          "analog_names": "Carswell",
+          "score": 0.24687737298666634,
+          "percentile": 54.292929292929294
+        },
+        {
+          "cell_key": "g_058.25_014.75",
+          "analog_names": "Granby",
+          "score": 0.19286717113601948,
+          "percentile": 47.22222222222222
+        },
+        {
+          "cell_key": "g_058.75_017.25",
+          "analog_names": "Tvaren",
+          "score": 0.07063575142231203,
+          "percentile": 18.434343434343432
+        },
+        {
+          "cell_key": "g_058.75_028.25",
+          "analog_names": "Mishina Gora",
+          "score": 0.04702130094294081,
+          "percentile": 12.373737373737374
+        },
+        {
+          "cell_key": "g_058.75_061.75",
+          "analog_names": "Ragozinka",
+          "score": 0.08249782554134623,
+          "percentile": 20.707070707070706
+        },
+        {
+          "cell_key": "g_059.25_006.25",
+          "analog_names": "Ritland",
+          "score": 0.4481395387602213,
+          "percentile": 84.0909090909091
+        },
+        {
+          "cell_key": "g_059.75_-117.75",
+          "analog_names": "Steen River",
+          "score": 0.41892516873145885,
+          "percentile": 79.7979797979798
+        },
+        {
+          "cell_key": "g_060.25_-111.25",
+          "analog_names": "Pilot",
+          "score": 0.11989606216456104,
+          "percentile": 32.323232323232325
+        },
+        {
+          "cell_key": "g_060.25_-75.25",
+          "analog_names": "Couture (= Lac Couture)",
+          "score": 0.15863729225072035,
+          "percentile": 39.141414141414145
+        },
+        {
+          "cell_key": "g_060.25_117.75",
+          "analog_names": "Macha",
+          "score": 0.27994646224220093,
+          "percentile": 57.82828282828283
+        },
+        {
+          "cell_key": "g_060.75_009.25",
+          "analog_names": "Gardnos",
+          "score": 0.5032776498761322,
+          "percentile": 92.17171717171718
+        },
+        {
+          "cell_key": "g_061.25_-73.75",
+          "analog_names": "New Quebec (Chubb, Ungava, Pingualuit)",
+          "score": 0.19004191606008233,
+          "percentile": 45.45454545454545
+        },
+        {
+          "cell_key": "g_061.25_014.75",
+          "analog_names": "Siljan",
+          "score": 0.4882487541154367,
+          "percentile": 89.64646464646465
+        },
+        {
+          "cell_key": "g_061.25_022.25",
+          "analog_names": "Saaksjarvi",
+          "score": 0.09337568195398034,
+          "percentile": 24.747474747474747
+        },
+        {
+          "cell_key": "g_061.75_016.75",
+          "analog_names": "Dellen",
+          "score": 0.43086780998209717,
+          "percentile": 81.06060606060606
+        },
+        {
+          "cell_key": "g_061.75_030.75",
+          "analog_names": "Janisjarvi",
+          "score": 0.19257405220083756,
+          "percentile": 46.717171717171716
+        },
+        {
+          "cell_key": "g_062.25_024.75",
+          "analog_names": "Keurusselka",
+          "score": 0.16033701228339228,
+          "percentile": 39.8989898989899
+        },
+        {
+          "cell_key": "g_062.25_025.25",
+          "analog_names": "Karikkoselka",
+          "score": 0.18261294051591587,
+          "percentile": 43.686868686868685
+        },
+        {
+          "cell_key": "g_062.25_027.25",
+          "analog_names": "Iso-Naakkima",
+          "score": 0.06686627378410734,
+          "percentile": 16.414141414141415
+        },
+        {
+          "cell_key": "g_062.25_029.25",
+          "analog_names": "Paasselka",
+          "score": 0.09004768702333069,
+          "percentile": 23.232323232323232
+        },
+        {
+          "cell_key": "g_062.75_-102.75",
+          "analog_names": "Nicholson",
+          "score": 0.11835501735895196,
+          "percentile": 31.818181818181817
+        },
+        {
+          "cell_key": "g_062.75_014.75",
+          "analog_names": "Lockne",
+          "score": 0.32179853016629495,
+          "percentile": 62.62626262626263
+        },
+        {
+          "cell_key": "g_062.75_028.25",
+          "analog_names": "Suvasvesi N; Suvasvesi S",
+          "score": 0.11515436380307115,
+          "percentile": 30.05050505050505
+        },
+        {
+          "cell_key": "g_063.25_014.75",
+          "analog_names": "Lockne",
+          "score": 0.2789854186931544,
+          "percentile": 57.57575757575758
+        },
+        {
+          "cell_key": "g_063.25_023.75",
+          "analog_names": "Lappajarvi",
+          "score": 0.11833059969921161,
+          "percentile": 31.565656565656564
+        },
+        {
+          "cell_key": "g_063.25_033.25",
+          "analog_names": "Suavjarvi",
+          "score": 0.17652781452723068,
+          "percentile": 42.92929292929293
+        },
+        {
+          "cell_key": "g_064.75_-16.25",
+          "analog_names": "Ritland",
+          "score": 0.5608743056028748,
+          "percentile": 94.6969696969697
+        },
+        {
+          "cell_key": "g_065.25_028.25",
+          "analog_names": "Saarijarvi",
+          "score": 0.20228956494693978,
+          "percentile": 47.97979797979798
+        },
+        {
+          "cell_key": "g_065.75_095.75",
+          "analog_names": "Logancha",
+          "score": 0.8269511535946799,
+          "percentile": 97.97979797979798
+        },
+        {
+          "cell_key": "g_067.75_172.25",
+          "analog_names": "El'gygytgyn",
+          "score": 0.6895529270164935,
+          "percentile": 95.45454545454545
+        },
+        {
+          "cell_key": "g_069.25_064.25",
+          "analog_names": "Kara",
+          "score": 0.1985085304953418,
+          "percentile": 47.474747474747474
+        },
+        {
+          "cell_key": "g_071.25_121.75",
+          "analog_names": "Beyenchime-Salaaty",
+          "score": 0.3172241470072554,
+          "percentile": 61.86868686868687
+        },
+        {
+          "cell_key": "g_071.75_111.25",
+          "analog_names": "Popigai",
+          "score": 0.15239691467013783,
+          "percentile": 37.878787878787875
+        },
+        {
+          "cell_key": "g_075.25_-89.75",
+          "analog_names": "Haughton",
+          "score": 0.3671177541234968,
+          "percentile": 70.95959595959596
+        },
+        {
+          "cell_key": "g_075.75_097.75",
+          "analog_names": "Chukcha",
+          "score": 0.4007404543871324,
+          "percentile": 76.51515151515152
+        }
+      ],
+      "cohorts": {
+        "primary_unlabeled_background": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.5043904958677686,
+          "auc_bootstrap_95_ci": [
+            0.449557076446281,
+            0.5651685175619834
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 50.37017906336087,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 8,
+            "enrichment": 0.9000000000000001
+          },
+          "permutation_p_value": 0.4245754245754246,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        },
+        "sensitivity_without_positive_neighbors": {
+          "positive_count": 176,
+          "background_count": 211,
+          "auc": 0.49859974149073677,
+          "auc_bootstrap_95_ci": [
+            0.4379564304179233,
+            0.555377531236536
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 50.37017906336087,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 8,
+            "enrichment": 0.9000000000000001
+          },
+          "permutation_p_value": 0.5284715284715285,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        }
+      }
+    },
+    "T-02": {
+      "status": "evaluated",
+      "engine_region_id": "moon_shackleton_regional",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "valid_cell_count": 396,
+      "valid_positive_cell_count": 176,
+      "base_rate": 0.4444444444444444,
+      "positive_cells": [
+        {
+          "cell_key": "g_-07.75_-46.75",
+          "analog_names": "Riachao Ring",
+          "score": 0.013476675678223794,
+          "percentile": 33.83838383838384
+        },
+        {
+          "cell_key": "g_-08.25_-46.75",
+          "analog_names": "Serra da Cangalha",
+          "score": 0.06062787700473739,
+          "percentile": 67.17171717171718
+        },
+        {
+          "cell_key": "g_-10.25_-45.25",
+          "analog_names": "Santa Marta",
+          "score": 0.12383902090502798,
+          "percentile": 77.77777777777779
+        },
+        {
+          "cell_key": "g_-10.25_028.25",
+          "analog_names": "Luizi",
+          "score": 0.06717316713065277,
+          "percentile": 69.6969696969697
+        },
+        {
+          "cell_key": "g_-12.25_134.25",
+          "analog_names": "Liverpool",
+          "score": 0.01153003946265843,
+          "percentile": 26.262626262626267
+        },
+        {
+          "cell_key": "g_-13.25_135.25",
+          "analog_names": "Goyder",
+          "score": 0.048788377059148964,
+          "percentile": 63.13131313131313
+        },
+        {
+          "cell_key": "g_-15.25_131.25",
+          "analog_names": "Matt Wilson",
+          "score": 0.026267339060520044,
+          "percentile": 52.77777777777778
+        },
+        {
+          "cell_key": "g_-15.25_133.75",
+          "analog_names": "Strangways",
+          "score": 0.016736529625277823,
+          "percentile": 40.65656565656566
+        },
+        {
+          "cell_key": "g_-16.75_-52.75",
+          "analog_names": "Araguainha",
+          "score": 0.07228468631489379,
+          "percentile": 71.46464646464646
+        },
+        {
+          "cell_key": "g_-16.75_-69.25",
+          "analog_names": "Carancas",
+          "score": 0.20056651350200486,
+          "percentile": 83.33333333333334
+        },
+        {
+          "cell_key": "g_-16.75_126.25",
+          "analog_names": "Spider",
+          "score": 0.04245726822118362,
+          "percentile": 59.84848484848485
+        },
+        {
+          "cell_key": "g_-16.75_136.75",
+          "analog_names": "Foelsche",
+          "score": 0.016974578088014135,
+          "percentile": 41.66666666666667
+        },
+        {
+          "cell_key": "g_-17.75_128.25",
+          "analog_names": "Piccaninny",
+          "score": 0.04239771013996099,
+          "percentile": 59.59595959595959
+        },
+        {
+          "cell_key": "g_-18.25_126.75",
+          "analog_names": "Goat Paddock",
+          "score": 0.10237585572694036,
+          "percentile": 74.4949494949495
+        },
+        {
+          "cell_key": "g_-18.75_138.75",
+          "analog_names": "Lawn Hill",
+          "score": 0.016162701822079288,
+          "percentile": 39.141414141414145
+        },
+        {
+          "cell_key": "g_-19.25_127.75",
+          "analog_names": "Wolfe Creek",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-19.75_133.75",
+          "analog_names": "Kelly West",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-20.75_134.75",
+          "analog_names": "Amelia Creek",
+          "score": 0.04189193741254296,
+          "percentile": 58.838383838383834
+        },
+        {
+          "cell_key": "g_-22.25_027.75",
+          "analog_names": "Kgagodi",
+          "score": 0.012865845327309819,
+          "percentile": 32.82828282828283
+        },
+        {
+          "cell_key": "g_-22.75_125.25",
+          "analog_names": "Veevers",
+          "score": 0.010652669098317658,
+          "percentile": 22.474747474747474
+        },
+        {
+          "cell_key": "g_-22.75_135.25",
+          "analog_names": "Boxhole",
+          "score": 0.010306832935956111,
+          "percentile": 19.444444444444446
+        },
+        {
+          "cell_key": "g_-23.75_-46.75",
+          "analog_names": "Colonia",
+          "score": 0.05119045232966256,
+          "percentile": 63.888888888888886
+        },
+        {
+          "cell_key": "g_-23.75_-68.25",
+          "analog_names": "Monturaqui",
+          "score": 0.3432544276641639,
+          "percentile": 88.88888888888889
+        },
+        {
+          "cell_key": "g_-23.75_121.75",
+          "analog_names": "Glikson",
+          "score": 0.011676880918126692,
+          "percentile": 27.77777777777778
+        },
+        {
+          "cell_key": "g_-23.75_124.75",
+          "analog_names": "Connolly Basin",
+          "score": 0.010522452368642455,
+          "percentile": 21.71717171717172
+        },
+        {
+          "cell_key": "g_-23.75_132.25",
+          "analog_names": "Gosses Bluff",
+          "score": 0.04702929983827981,
+          "percentile": 61.86868686868687
+        },
+        {
+          "cell_key": "g_-24.75_133.25",
+          "analog_names": "Henbury",
+          "score": 0.011615064513142386,
+          "percentile": 27.27272727272727
+        },
+        {
+          "cell_key": "g_-25.25_028.25",
+          "analog_names": "Tswaing (formerly Pretoria Saltpan)",
+          "score": 0.01674364019992614,
+          "percentile": 40.909090909090914
+        },
+        {
+          "cell_key": "g_-25.75_-52.75",
+          "analog_names": "Vista Alegre",
+          "score": 0.12738594996002878,
+          "percentile": 78.28282828282829
+        },
+        {
+          "cell_key": "g_-25.75_120.75",
+          "analog_names": "Shoemaker (formerly Teague)",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-26.25_023.75",
+          "analog_names": "Morokweng",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-26.25_114.75",
+          "analog_names": "Woodleigh",
+          "score": 0.010845708080521594,
+          "percentile": 23.232323232323232
+        },
+        {
+          "cell_key": "g_-26.75_-52.25",
+          "analog_names": "Vargeao Dome",
+          "score": 0.17664809018187072,
+          "percentile": 81.81818181818183
+        },
+        {
+          "cell_key": "g_-26.75_027.75",
+          "analog_names": "Vredefort",
+          "score": 0.01728748403000529,
+          "percentile": 43.43434343434344
+        },
+        {
+          "cell_key": "g_-27.25_118.75",
+          "analog_names": "Yarrabubba",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-27.25_142.75",
+          "analog_names": "Tookoonooka",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-27.75_-61.75",
+          "analog_names": "Campo Del Cielo",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-27.75_016.25",
+          "analog_names": "Roter Kamm",
+          "score": 0.11899389033216706,
+          "percentile": 76.76767676767676
+        },
+        {
+          "cell_key": "g_-27.75_117.25",
+          "analog_names": "Dalgaranga",
+          "score": 0.011744470731246997,
+          "percentile": 28.28282828282828
+        },
+        {
+          "cell_key": "g_-27.75_135.25",
+          "analog_names": "Mount Toondina",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_-32.25_135.25",
+          "analog_names": "Acraman",
+          "score": 0.05952461185169069,
+          "percentile": 66.91919191919192
+        },
+        {
+          "cell_key": "g_-32.75_-64.25",
+          "analog_names": "Rio Cuarto",
+          "score": 0.04878459181942918,
+          "percentile": 62.878787878787875
+        },
+        {
+          "cell_key": "g_-32.75_024.25",
+          "analog_names": "Kalkkop",
+          "score": 0.06440502145605012,
+          "percentile": 68.43434343434343
+        },
+        {
+          "cell_key": "g_-34.75_139.25",
+          "analog_names": "Flaxman",
+          "score": 0.1187995456924919,
+          "percentile": 76.51515151515152
+        },
+        {
+          "cell_key": "g_006.75_-01.25",
+          "analog_names": "Bosumtwi (= Ashanti)",
+          "score": 0.05722044208681502,
+          "percentile": 66.16161616161617
+        },
+        {
+          "cell_key": "g_017.25_021.75",
+          "analog_names": "Gweni-Fada",
+          "score": 0.1391305273951791,
+          "percentile": 79.7979797979798
+        },
+        {
+          "cell_key": "g_019.25_019.25",
+          "analog_names": "Aorounga",
+          "score": 0.045535142069040024,
+          "percentile": 61.61616161616161
+        },
+        {
+          "cell_key": "g_019.75_076.75",
+          "analog_names": "Lonar",
+          "score": 0.021891408322643743,
+          "percentile": 50.0
+        },
+        {
+          "cell_key": "g_020.25_-12.75",
+          "analog_names": "Aouelloul",
+          "score": 0.07343141509667377,
+          "percentile": 71.71717171717171
+        },
+        {
+          "cell_key": "g_021.25_-89.25",
+          "analog_names": "Chicxulub",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_021.75_050.25",
+          "analog_names": "Wabar",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_022.25_026.25",
+          "analog_names": "Kamil",
+          "score": 0.027265044027536763,
+          "percentile": 53.28282828282829
+        },
+        {
+          "cell_key": "g_022.75_-10.25",
+          "analog_names": "Tenoumer",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_024.75_024.25",
+          "analog_names": "Oasis",
+          "score": 0.01078513228980797,
+          "percentile": 22.727272727272727
+        },
+        {
+          "cell_key": "g_025.25_024.25",
+          "analog_names": "B.P. Structure",
+          "score": 0.01139706230959735,
+          "percentile": 25.252525252525253
+        },
+        {
+          "cell_key": "g_025.25_078.25",
+          "analog_names": "Dhala",
+          "score": 0.011516420471500527,
+          "percentile": 26.01010101010101
+        },
+        {
+          "cell_key": "g_026.25_004.25",
+          "analog_names": "Amguid",
+          "score": 0.06649665024668186,
+          "percentile": 69.1919191919192
+        },
+        {
+          "cell_key": "g_027.75_005.25",
+          "analog_names": "Tin Bider",
+          "score": 0.014084069136412393,
+          "percentile": 34.84848484848485
+        },
+        {
+          "cell_key": "g_029.25_-07.75",
+          "analog_names": "Ouarkziz",
+          "score": 0.041246053124801285,
+          "percentile": 58.58585858585859
+        },
+        {
+          "cell_key": "g_029.75_038.75",
+          "analog_names": "Saqqar",
+          "score": 0.012180227081267569,
+          "percentile": 30.05050505050505
+        },
+        {
+          "cell_key": "g_030.75_-102.75",
+          "analog_names": "Sierra Madera",
+          "score": 0.07112549447415727,
+          "percentile": 70.95959595959596
+        },
+        {
+          "cell_key": "g_031.25_-96.25",
+          "analog_names": "Marquez",
+          "score": 0.012642146468149141,
+          "percentile": 32.07070707070707
+        },
+        {
+          "cell_key": "g_031.25_036.75",
+          "analog_names": "Jebel Waqf as Suwwan",
+          "score": 0.04452317345189542,
+          "percentile": 60.858585858585855
+        },
+        {
+          "cell_key": "g_031.75_-05.25",
+          "analog_names": "Agoudal",
+          "score": 0.49670091333059263,
+          "percentile": 95.70707070707071
+        },
+        {
+          "cell_key": "g_031.75_-102.25",
+          "analog_names": "Odessa",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_032.75_-86.25",
+          "analog_names": "Wetumpka",
+          "score": 0.027494380351067393,
+          "percentile": 53.535353535353536
+        },
+        {
+          "cell_key": "g_033.25_004.25",
+          "analog_names": "Talemzane (= Maadna)",
+          "score": 0.024156491315743808,
+          "percentile": 51.76767676767676
+        },
+        {
+          "cell_key": "g_034.75_-115.75",
+          "analog_names": "Amboy",
+          "score": 0.37231218911571934,
+          "percentile": 90.15151515151516
+        },
+        {
+          "cell_key": "g_035.25_-111.25",
+          "analog_names": "Barringer (= Meteor); Grand Falls",
+          "score": 0.16989217133158913,
+          "percentile": 81.31313131313132
+        },
+        {
+          "cell_key": "g_035.75_-105.75",
+          "analog_names": "Santa Fe",
+          "score": 0.4926448776762023,
+          "percentile": 95.45454545454545
+        },
+        {
+          "cell_key": "g_036.25_-85.75",
+          "analog_names": "Flynn Creek",
+          "score": 0.04429749476317105,
+          "percentile": 60.35353535353535
+        },
+        {
+          "cell_key": "g_036.25_-87.75",
+          "analog_names": "Wells Creek",
+          "score": 0.02569914030388614,
+          "percentile": 52.52525252525253
+        },
+        {
+          "cell_key": "g_036.25_-98.25",
+          "analog_names": "Ames",
+          "score": 0.010365244938085333,
+          "percentile": 20.95959595959596
+        },
+        {
+          "cell_key": "g_036.75_-83.75",
+          "analog_names": "Middlesboro",
+          "score": 0.18552292209671203,
+          "percentile": 82.82828282828282
+        },
+        {
+          "cell_key": "g_037.75_-91.25",
+          "analog_names": "Crooked Creek",
+          "score": 0.029643505096529226,
+          "percentile": 54.54545454545454
+        },
+        {
+          "cell_key": "g_037.75_-92.75",
+          "analog_names": "Decaturville",
+          "score": 0.021740046085919163,
+          "percentile": 49.74747474747475
+        },
+        {
+          "cell_key": "g_037.75_-99.25",
+          "analog_names": "Haviland",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_038.25_-109.75",
+          "analog_names": "Upheaval Dome",
+          "score": 0.2898544401265565,
+          "percentile": 87.37373737373737
+        },
+        {
+          "cell_key": "g_039.25_-83.25",
+          "analog_names": "Serpent Mound",
+          "score": 0.03419601338926284,
+          "percentile": 55.55555555555556
+        },
+        {
+          "cell_key": "g_039.25_073.25",
+          "analog_names": "Kara-Kul",
+          "score": 0.9122686140470574,
+          "percentile": 100.0
+        },
+        {
+          "cell_key": "g_040.25_123.25",
+          "analog_names": "Xiuyan",
+          "score": 0.19513304409287657,
+          "percentile": 83.08080808080808
+        },
+        {
+          "cell_key": "g_040.75_-87.25",
+          "analog_names": "Kentland",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_040.75_-89.75",
+          "analog_names": "Glasford",
+          "score": 0.012446914227678227,
+          "percentile": 31.565656565656564
+        },
+        {
+          "cell_key": "g_041.75_-85.75",
+          "analog_names": "Calvin",
+          "score": 0.01007848057055049,
+          "percentile": 18.181818181818183
+        },
+        {
+          "cell_key": "g_042.75_-94.75",
+          "analog_names": "Manson",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_043.25_-106.75",
+          "analog_names": "Cloud Creek",
+          "score": 0.09583201198468458,
+          "percentile": 74.24242424242425
+        },
+        {
+          "cell_key": "g_043.75_-89.75",
+          "analog_names": "Glover Bluff",
+          "score": 0.01316529848758185,
+          "percentile": 33.08080808080808
+        },
+        {
+          "cell_key": "g_044.25_-76.75",
+          "analog_names": "Holleford",
+          "score": 0.01212054798288205,
+          "percentile": 29.797979797979796
+        },
+        {
+          "cell_key": "g_044.25_109.75",
+          "analog_names": "Tabun-Khara-Obo",
+          "score": 0.024052738926587162,
+          "percentile": 51.515151515151516
+        },
+        {
+          "cell_key": "g_044.75_-112.75",
+          "analog_names": "Beaverhead",
+          "score": 0.39331023399555143,
+          "percentile": 90.9090909090909
+        },
+        {
+          "cell_key": "g_044.75_-92.25",
+          "analog_names": "Rock Elm",
+          "score": 0.029679270572500537,
+          "percentile": 54.7979797979798
+        },
+        {
+          "cell_key": "g_045.75_000.75",
+          "analog_names": "Rochechouart",
+          "score": 0.06971793696425348,
+          "percentile": 70.45454545454545
+        },
+        {
+          "cell_key": "g_046.25_-78.25",
+          "analog_names": "Brent",
+          "score": 0.06815047446644751,
+          "percentile": 69.94949494949495
+        },
+        {
+          "cell_key": "g_046.25_134.75",
+          "analog_names": "Sikhote Alin",
+          "score": 0.08722513237789313,
+          "percentile": 73.98989898989899
+        },
+        {
+          "cell_key": "g_046.25_137.75",
+          "analog_names": "Sobolev",
+          "score": 0.40171685697866927,
+          "percentile": 91.41414141414141
+        },
+        {
+          "cell_key": "g_046.75_-80.75",
+          "analog_names": "Wanapitei",
+          "score": 0.025647030777998795,
+          "percentile": 52.27272727272727
+        },
+        {
+          "cell_key": "g_046.75_-81.25",
+          "analog_names": "Sudbury",
+          "score": 0.0355048739073845,
+          "percentile": 56.060606060606055
+        },
+        {
+          "cell_key": "g_047.25_072.75",
+          "analog_names": "Shunak",
+          "score": 0.0521711966901233,
+          "percentile": 64.64646464646465
+        },
+        {
+          "cell_key": "g_047.75_-103.75",
+          "analog_names": "Red Wing",
+          "score": 0.030865945493310717,
+          "percentile": 55.3030303030303
+        },
+        {
+          "cell_key": "g_047.75_-70.25",
+          "analog_names": "Charlevoix (=La Malbaie)",
+          "score": 0.35016400326850766,
+          "percentile": 89.39393939393939
+        },
+        {
+          "cell_key": "g_048.25_032.75",
+          "analog_names": "Zeleny Gai",
+          "score": 0.01544009408153285,
+          "percentile": 37.37373737373738
+        },
+        {
+          "cell_key": "g_048.25_033.75",
+          "analog_names": "Ternovka",
+          "score": 0.01464837055795376,
+          "percentile": 35.60606060606061
+        },
+        {
+          "cell_key": "g_048.25_040.75",
+          "analog_names": "Kamensk",
+          "score": 0.02813969422735439,
+          "percentile": 54.04040404040404
+        },
+        {
+          "cell_key": "g_048.25_060.75",
+          "analog_names": "Zhamanshin",
+          "score": 0.02121741388413597,
+          "percentile": 48.73737373737374
+        },
+        {
+          "cell_key": "g_048.75_-101.75",
+          "analog_names": "Newporte",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_048.75_010.25",
+          "analog_names": "Steinheim",
+          "score": 0.07551365652352376,
+          "percentile": 72.47474747474747
+        },
+        {
+          "cell_key": "g_048.75_010.75",
+          "analog_names": "Ries",
+          "score": 0.03952921476157346,
+          "percentile": 57.32323232323232
+        },
+        {
+          "cell_key": "g_048.75_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.017684137908238765,
+          "percentile": 43.686868686868685
+        },
+        {
+          "cell_key": "g_048.75_082.25",
+          "analog_names": "Bigach",
+          "score": 0.10336417899832599,
+          "percentile": 74.74747474747475
+        },
+        {
+          "cell_key": "g_049.25_029.25",
+          "analog_names": "Ilyinets",
+          "score": 0.015516829806008593,
+          "percentile": 37.878787878787875
+        },
+        {
+          "cell_key": "g_049.25_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.017063695644399187,
+          "percentile": 42.17171717171717
+        },
+        {
+          "cell_key": "g_049.25_057.75",
+          "analog_names": "Chiyli",
+          "score": 0.011682889433173069,
+          "percentile": 28.030303030303028
+        },
+        {
+          "cell_key": "g_049.75_-103.25",
+          "analog_names": "Viewfield",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_049.75_-109.25",
+          "analog_names": "Maple Creek (= White Valley)",
+          "score": 0.12224993488098262,
+          "percentile": 77.27272727272727
+        },
+        {
+          "cell_key": "g_049.75_-110.25",
+          "analog_names": "Eagle Butte",
+          "score": 0.18446042692932368,
+          "percentile": 82.57575757575758
+        },
+        {
+          "cell_key": "g_049.75_-74.75",
+          "analog_names": "Presqu'ile",
+          "score": 0.01179273056920736,
+          "percentile": 28.78787878787879
+        },
+        {
+          "cell_key": "g_049.75_-95.25",
+          "analog_names": "West Hawk",
+          "score": 0.011461103379245002,
+          "percentile": 25.5050505050505
+        },
+        {
+          "cell_key": "g_049.75_029.25",
+          "analog_names": "Zapadnaya",
+          "score": 0.01157802523541645,
+          "percentile": 27.02020202020202
+        },
+        {
+          "cell_key": "g_049.75_032.75",
+          "analog_names": "Obolon",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_050.75_-106.75",
+          "analog_names": "Elbow",
+          "score": 0.025046609386637206,
+          "percentile": 52.02020202020202
+        },
+        {
+          "cell_key": "g_050.75_-73.75",
+          "analog_names": "Ile Rouleau",
+          "score": 0.011667421032456661,
+          "percentile": 27.525252525252526
+        },
+        {
+          "cell_key": "g_051.25_-68.75",
+          "analog_names": "Manicouagan",
+          "score": 0.11563183522345431,
+          "percentile": 76.01010101010101
+        },
+        {
+          "cell_key": "g_051.75_-98.75",
+          "analog_names": "Saint Martin",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_051.75_036.25",
+          "analog_names": "Kursk",
+          "score": 0.018323406907729125,
+          "percentile": 45.20202020202021
+        },
+        {
+          "cell_key": "g_052.25_016.75",
+          "analog_names": "Morasko",
+          "score": 0.010086746212052385,
+          "percentile": 18.434343434343432
+        },
+        {
+          "cell_key": "g_054.25_-115.75",
+          "analog_names": "Whitecourt",
+          "score": 0.1077443145052076,
+          "percentile": 75.25252525252525
+        },
+        {
+          "cell_key": "g_054.25_023.75",
+          "analog_names": "Mizarai",
+          "score": 0.01243329513926233,
+          "percentile": 31.313131313131315
+        },
+        {
+          "cell_key": "g_054.25_027.75",
+          "analog_names": "Logoisk",
+          "score": 0.017246872853197523,
+          "percentile": 43.18181818181818
+        },
+        {
+          "cell_key": "g_054.75_036.25",
+          "analog_names": "Kaluga",
+          "score": 0.01623308861132629,
+          "percentile": 39.64646464646464
+        },
+        {
+          "cell_key": "g_054.75_048.25",
+          "analog_names": "Karla",
+          "score": 0.024004216137908988,
+          "percentile": 51.26262626262626
+        },
+        {
+          "cell_key": "g_055.25_024.75",
+          "analog_names": "Vepriai",
+          "score": 0.010407545373279814,
+          "percentile": 21.21212121212121
+        },
+        {
+          "cell_key": "g_055.75_-63.25",
+          "analog_names": "Mistastin",
+          "score": 0.06568749253863668,
+          "percentile": 68.93939393939394
+        },
+        {
+          "cell_key": "g_056.25_-102.75",
+          "analog_names": "Deep Bay",
+          "score": 0.016623982336334175,
+          "percentile": 40.15151515151515
+        },
+        {
+          "cell_key": "g_056.25_-104.25",
+          "analog_names": "Gow",
+          "score": 0.017740682195641802,
+          "percentile": 44.19191919191919
+        },
+        {
+          "cell_key": "g_056.25_-74.25",
+          "analog_names": "Clearwater East",
+          "score": 0.01713245730517357,
+          "percentile": 42.676767676767675
+        },
+        {
+          "cell_key": "g_056.25_014.75",
+          "analog_names": "Mien",
+          "score": 0.02130985044807312,
+          "percentile": 48.98989898989899
+        },
+        {
+          "cell_key": "g_056.75_023.25",
+          "analog_names": "Dobele",
+          "score": 0.010017265350031905,
+          "percentile": 17.17171717171717
+        },
+        {
+          "cell_key": "g_056.75_043.75",
+          "analog_names": "Puchezh-Katunki",
+          "score": 0.010835034708087084,
+          "percentile": 22.97979797979798
+        },
+        {
+          "cell_key": "g_057.25_-66.75",
+          "analog_names": "La Moinerie",
+          "score": 0.017022500796761302,
+          "percentile": 41.91919191919192
+        },
+        {
+          "cell_key": "g_057.25_016.25",
+          "analog_names": "Hummeln",
+          "score": 0.015071958602053258,
+          "percentile": 36.36363636363637
+        },
+        {
+          "cell_key": "g_057.75_027.25",
+          "analog_names": "Ilumetsa",
+          "score": 0.01851796239471158,
+          "percentile": 45.45454545454545
+        },
+        {
+          "cell_key": "g_058.25_-109.25",
+          "analog_names": "Carswell",
+          "score": 0.023646360204627483,
+          "percentile": 50.75757575757576
+        },
+        {
+          "cell_key": "g_058.25_014.75",
+          "analog_names": "Granby",
+          "score": 0.01689787010355461,
+          "percentile": 41.41414141414141
+        },
+        {
+          "cell_key": "g_058.75_017.25",
+          "analog_names": "Tvaren",
+          "score": 0.011498792421871896,
+          "percentile": 25.757575757575758
+        },
+        {
+          "cell_key": "g_058.75_028.25",
+          "analog_names": "Mishina Gora",
+          "score": 0.009999999999999995,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_058.75_061.75",
+          "analog_names": "Ragozinka",
+          "score": 0.011073041096658744,
+          "percentile": 23.98989898989899
+        },
+        {
+          "cell_key": "g_059.25_006.25",
+          "analog_names": "Ritland",
+          "score": 0.4460912319573669,
+          "percentile": 93.18181818181817
+        },
+        {
+          "cell_key": "g_059.75_-117.75",
+          "analog_names": "Steen River",
+          "score": 0.07367310231657515,
+          "percentile": 71.96969696969697
+        },
+        {
+          "cell_key": "g_060.25_-111.25",
+          "analog_names": "Pilot",
+          "score": 0.012672414523293216,
+          "percentile": 32.323232323232325
+        },
+        {
+          "cell_key": "g_060.25_-75.25",
+          "analog_names": "Couture (= Lac Couture)",
+          "score": 0.016018953974420748,
+          "percentile": 38.63636363636363
+        },
+        {
+          "cell_key": "g_060.25_117.75",
+          "analog_names": "Macha",
+          "score": 0.038486737998434016,
+          "percentile": 56.81818181818182
+        },
+        {
+          "cell_key": "g_060.75_009.25",
+          "analog_names": "Gardnos",
+          "score": 0.3247240029196094,
+          "percentile": 88.13131313131312
+        },
+        {
+          "cell_key": "g_061.25_-73.75",
+          "analog_names": "New Quebec (Chubb, Ungava, Pingualuit)",
+          "score": 0.020692398683562523,
+          "percentile": 47.72727272727273
+        },
+        {
+          "cell_key": "g_061.25_014.75",
+          "analog_names": "Siljan",
+          "score": 0.14269921005922687,
+          "percentile": 80.3030303030303
+        },
+        {
+          "cell_key": "g_061.25_022.25",
+          "analog_names": "Saaksjarvi",
+          "score": 0.012017347529964412,
+          "percentile": 29.292929292929294
+        },
+        {
+          "cell_key": "g_061.75_016.75",
+          "analog_names": "Dellen",
+          "score": 0.11207055898178525,
+          "percentile": 75.75757575757575
+        },
+        {
+          "cell_key": "g_061.75_030.75",
+          "analog_names": "Janisjarvi",
+          "score": 0.019377088828496782,
+          "percentile": 46.717171717171716
+        },
+        {
+          "cell_key": "g_062.25_024.75",
+          "analog_names": "Keurusselka",
+          "score": 0.018804357811299233,
+          "percentile": 46.21212121212121
+        },
+        {
+          "cell_key": "g_062.25_025.25",
+          "analog_names": "Karikkoselka",
+          "score": 0.021122954917842836,
+          "percentile": 48.484848484848484
+        },
+        {
+          "cell_key": "g_062.25_027.25",
+          "analog_names": "Iso-Naakkima",
+          "score": 0.012115819493946599,
+          "percentile": 29.545454545454547
+        },
+        {
+          "cell_key": "g_062.25_029.25",
+          "analog_names": "Paasselka",
+          "score": 0.015304497789425144,
+          "percentile": 36.61616161616162
+        },
+        {
+          "cell_key": "g_062.75_-102.75",
+          "analog_names": "Nicholson",
+          "score": 0.012849455253687999,
+          "percentile": 32.57575757575758
+        },
+        {
+          "cell_key": "g_062.75_014.75",
+          "analog_names": "Lockne",
+          "score": 0.06405720085582017,
+          "percentile": 68.18181818181817
+        },
+        {
+          "cell_key": "g_062.75_028.25",
+          "analog_names": "Suvasvesi N; Suvasvesi S",
+          "score": 0.017129974715156093,
+          "percentile": 42.42424242424242
+        },
+        {
+          "cell_key": "g_063.25_014.75",
+          "analog_names": "Lockne",
+          "score": 0.04113679828991326,
+          "percentile": 58.333333333333336
+        },
+        {
+          "cell_key": "g_063.25_023.75",
+          "analog_names": "Lappajarvi",
+          "score": 0.01063303193909717,
+          "percentile": 22.22222222222222
+        },
+        {
+          "cell_key": "g_063.25_033.25",
+          "analog_names": "Suavjarvi",
+          "score": 0.01617967573685656,
+          "percentile": 39.39393939393939
+        },
+        {
+          "cell_key": "g_064.75_-16.25",
+          "analog_names": "Ritland",
+          "score": 0.2431564468040384,
+          "percentile": 85.85858585858585
+        },
+        {
+          "cell_key": "g_065.25_028.25",
+          "analog_names": "Saarijarvi",
+          "score": 0.021337139201995318,
+          "percentile": 49.494949494949495
+        },
+        {
+          "cell_key": "g_065.75_095.75",
+          "analog_names": "Logancha",
+          "score": 0.23261628808313387,
+          "percentile": 85.35353535353535
+        },
+        {
+          "cell_key": "g_067.75_172.25",
+          "analog_names": "El'gygytgyn",
+          "score": 0.21181954792027524,
+          "percentile": 84.34343434343434
+        },
+        {
+          "cell_key": "g_069.25_064.25",
+          "analog_names": "Kara",
+          "score": 0.016097206960436695,
+          "percentile": 38.88888888888889
+        },
+        {
+          "cell_key": "g_071.25_121.75",
+          "analog_names": "Beyenchime-Salaaty",
+          "score": 0.042135720360257256,
+          "percentile": 59.09090909090909
+        },
+        {
+          "cell_key": "g_071.75_111.25",
+          "analog_names": "Popigai",
+          "score": 0.01430212046087168,
+          "percentile": 35.1010101010101
+        },
+        {
+          "cell_key": "g_075.25_-89.75",
+          "analog_names": "Haughton",
+          "score": 0.07149634842688525,
+          "percentile": 71.21212121212122
+        },
+        {
+          "cell_key": "g_075.75_097.75",
+          "analog_names": "Chukcha",
+          "score": 0.08147968006614943,
+          "percentile": 73.23232323232324
+        }
+      ],
+      "cohorts": {
+        "primary_unlabeled_background": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4683884297520661,
+          "auc_bootstrap_95_ci": [
+            0.41107922262396696,
+            0.5279474431818182
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 48.370064279155194,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 3,
+            "enrichment": 0.3375
+          },
+          "permutation_p_value": 0.8601398601398601,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        },
+        "sensitivity_without_positive_neighbors": {
+          "positive_count": 176,
+          "background_count": 211,
+          "auc": 0.4606581214993537,
+          "auc_bootstrap_95_ci": [
+            0.40275877854373116,
+            0.5182935695820767
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 48.370064279155194,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 3,
+            "enrichment": 0.3375
+          },
+          "permutation_p_value": 0.903096903096903,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        }
+      }
+    },
+    "T-03": {
+      "status": "unscorable",
+      "reason": "unscorable",
+      "engine_region_id": "moon_marius_hills_regional",
+      "used_feature_count": 0,
+      "used_features": [],
+      "excluded_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "score": null,
+      "metrics": null
+    },
+    "mars_phoenix_regional": {
+      "status": "evaluated",
+      "engine_region_id": "mars_phoenix_regional",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "valid_cell_count": 396,
+      "valid_positive_cell_count": 176,
+      "base_rate": 0.4444444444444444,
+      "positive_cells": [
+        {
+          "cell_key": "g_-07.75_-46.75",
+          "analog_names": "Riachao Ring",
+          "score": 0.46429290280562235,
+          "percentile": 55.05050505050505
+        },
+        {
+          "cell_key": "g_-08.25_-46.75",
+          "analog_names": "Serra da Cangalha",
+          "score": 0.5691887325157711,
+          "percentile": 84.84848484848484
+        },
+        {
+          "cell_key": "g_-10.25_-45.25",
+          "analog_names": "Santa Marta",
+          "score": 0.5305037861540465,
+          "percentile": 72.47474747474747
+        },
+        {
+          "cell_key": "g_-10.25_028.25",
+          "analog_names": "Luizi",
+          "score": 0.8448271531487203,
+          "percentile": 97.22222222222221
+        },
+        {
+          "cell_key": "g_-12.25_134.25",
+          "analog_names": "Liverpool",
+          "score": 0.35854021820206744,
+          "percentile": 34.090909090909086
+        },
+        {
+          "cell_key": "g_-13.25_135.25",
+          "analog_names": "Goyder",
+          "score": 0.5949978546711574,
+          "percentile": 93.18181818181817
+        },
+        {
+          "cell_key": "g_-15.25_131.25",
+          "analog_names": "Matt Wilson",
+          "score": 0.5506197478096732,
+          "percentile": 78.53535353535354
+        },
+        {
+          "cell_key": "g_-15.25_133.75",
+          "analog_names": "Strangways",
+          "score": 0.4767297227759811,
+          "percentile": 57.32323232323232
+        },
+        {
+          "cell_key": "g_-16.75_-52.75",
+          "analog_names": "Araguainha",
+          "score": 0.6961789355147521,
+          "percentile": 95.70707070707071
+        },
+        {
+          "cell_key": "g_-16.75_-69.25",
+          "analog_names": "Carancas",
+          "score": 0.45097996785162375,
+          "percentile": 51.26262626262626
+        },
+        {
+          "cell_key": "g_-16.75_126.25",
+          "analog_names": "Spider",
+          "score": 0.5234566298894454,
+          "percentile": 70.45454545454545
+        },
+        {
+          "cell_key": "g_-16.75_136.75",
+          "analog_names": "Foelsche",
+          "score": 0.509735372677252,
+          "percentile": 65.40404040404042
+        },
+        {
+          "cell_key": "g_-17.75_128.25",
+          "analog_names": "Piccaninny",
+          "score": 0.6336461836347593,
+          "percentile": 94.1919191919192
+        },
+        {
+          "cell_key": "g_-18.25_126.75",
+          "analog_names": "Goat Paddock",
+          "score": 0.5291589896851047,
+          "percentile": 71.96969696969697
+        },
+        {
+          "cell_key": "g_-18.75_138.75",
+          "analog_names": "Lawn Hill",
+          "score": 0.5105921858865425,
+          "percentile": 65.9090909090909
+        },
+        {
+          "cell_key": "g_-19.25_127.75",
+          "analog_names": "Wolfe Creek",
+          "score": 0.317260334267785,
+          "percentile": 28.78787878787879
+        },
+        {
+          "cell_key": "g_-19.75_133.75",
+          "analog_names": "Kelly West",
+          "score": 0.1653494014826512,
+          "percentile": 9.848484848484848
+        },
+        {
+          "cell_key": "g_-20.75_134.75",
+          "analog_names": "Amelia Creek",
+          "score": 0.5592090759330691,
+          "percentile": 81.31313131313132
+        },
+        {
+          "cell_key": "g_-22.25_027.75",
+          "analog_names": "Kgagodi",
+          "score": 0.49747815986954946,
+          "percentile": 62.62626262626263
+        },
+        {
+          "cell_key": "g_-22.75_125.25",
+          "analog_names": "Veevers",
+          "score": 0.27533176656640346,
+          "percentile": 23.98989898989899
+        },
+        {
+          "cell_key": "g_-22.75_135.25",
+          "analog_names": "Boxhole",
+          "score": 0.4122823501667886,
+          "percentile": 45.20202020202021
+        },
+        {
+          "cell_key": "g_-23.75_-46.75",
+          "analog_names": "Colonia",
+          "score": 0.9477978657763854,
+          "percentile": 99.24242424242425
+        },
+        {
+          "cell_key": "g_-23.75_-68.25",
+          "analog_names": "Monturaqui",
+          "score": 0.2984643135283017,
+          "percentile": 26.515151515151516
+        },
+        {
+          "cell_key": "g_-23.75_121.75",
+          "analog_names": "Glikson",
+          "score": 0.46063554139586155,
+          "percentile": 53.28282828282829
+        },
+        {
+          "cell_key": "g_-23.75_124.75",
+          "analog_names": "Connolly Basin",
+          "score": 0.24836383623645472,
+          "percentile": 20.707070707070706
+        },
+        {
+          "cell_key": "g_-23.75_132.25",
+          "analog_names": "Gosses Bluff",
+          "score": 0.5913829963361507,
+          "percentile": 92.17171717171718
+        },
+        {
+          "cell_key": "g_-24.75_133.25",
+          "analog_names": "Henbury",
+          "score": 0.4108153951375399,
+          "percentile": 44.696969696969695
+        },
+        {
+          "cell_key": "g_-25.25_028.25",
+          "analog_names": "Tswaing (formerly Pretoria Saltpan)",
+          "score": 0.5339991013842407,
+          "percentile": 73.23232323232324
+        },
+        {
+          "cell_key": "g_-25.75_-52.75",
+          "analog_names": "Vista Alegre",
+          "score": 0.4962828013037438,
+          "percentile": 62.121212121212125
+        },
+        {
+          "cell_key": "g_-25.75_120.75",
+          "analog_names": "Shoemaker (formerly Teague)",
+          "score": 0.27891009266340694,
+          "percentile": 24.494949494949495
+        },
+        {
+          "cell_key": "g_-26.25_023.75",
+          "analog_names": "Morokweng",
+          "score": 0.37662550256058963,
+          "percentile": 36.11111111111111
+        },
+        {
+          "cell_key": "g_-26.25_114.75",
+          "analog_names": "Woodleigh",
+          "score": 0.45436689783642875,
+          "percentile": 51.76767676767676
+        },
+        {
+          "cell_key": "g_-26.75_-52.25",
+          "analog_names": "Vargeao Dome",
+          "score": 0.45853815663807895,
+          "percentile": 52.77777777777778
+        },
+        {
+          "cell_key": "g_-26.75_027.75",
+          "analog_names": "Vredefort",
+          "score": 0.4871169576738378,
+          "percentile": 60.1010101010101
+        },
+        {
+          "cell_key": "g_-27.25_118.75",
+          "analog_names": "Yarrabubba",
+          "score": 0.38736960661754016,
+          "percentile": 38.88888888888889
+        },
+        {
+          "cell_key": "g_-27.25_142.75",
+          "analog_names": "Tookoonooka",
+          "score": 0.33957552088145354,
+          "percentile": 31.060606060606062
+        },
+        {
+          "cell_key": "g_-27.75_-61.75",
+          "analog_names": "Campo Del Cielo",
+          "score": 0.342391375168279,
+          "percentile": 32.07070707070707
+        },
+        {
+          "cell_key": "g_-27.75_016.25",
+          "analog_names": "Roter Kamm",
+          "score": 0.5478648792580184,
+          "percentile": 77.02020202020202
+        },
+        {
+          "cell_key": "g_-27.75_117.25",
+          "analog_names": "Dalgaranga",
+          "score": 0.46646167957532564,
+          "percentile": 55.3030303030303
+        },
+        {
+          "cell_key": "g_-27.75_135.25",
+          "analog_names": "Mount Toondina",
+          "score": 0.3963577543966706,
+          "percentile": 41.66666666666667
+        },
+        {
+          "cell_key": "g_-32.25_135.25",
+          "analog_names": "Acraman",
+          "score": 0.5703199300686104,
+          "percentile": 85.60606060606061
+        },
+        {
+          "cell_key": "g_-32.75_-64.25",
+          "analog_names": "Rio Cuarto",
+          "score": 0.572987030430968,
+          "percentile": 86.61616161616162
+        },
+        {
+          "cell_key": "g_-32.75_024.25",
+          "analog_names": "Kalkkop",
+          "score": 0.5929421252279614,
+          "percentile": 92.67676767676768
+        },
+        {
+          "cell_key": "g_-34.75_139.25",
+          "analog_names": "Flaxman",
+          "score": 0.5448435597554094,
+          "percentile": 75.75757575757575
+        },
+        {
+          "cell_key": "g_006.75_-01.25",
+          "analog_names": "Bosumtwi (= Ashanti)",
+          "score": 0.8896690144396863,
+          "percentile": 97.97979797979798
+        },
+        {
+          "cell_key": "g_017.25_021.75",
+          "analog_names": "Gweni-Fada",
+          "score": 0.5178690617925802,
+          "percentile": 68.68686868686868
+        },
+        {
+          "cell_key": "g_019.25_019.25",
+          "analog_names": "Aorounga",
+          "score": 0.5860497161633519,
+          "percentile": 89.64646464646465
+        },
+        {
+          "cell_key": "g_019.75_076.75",
+          "analog_names": "Lonar",
+          "score": 0.5477868520563054,
+          "percentile": 76.76767676767676
+        },
+        {
+          "cell_key": "g_020.25_-12.75",
+          "analog_names": "Aouelloul",
+          "score": 0.9450980748762028,
+          "percentile": 98.98989898989899
+        },
+        {
+          "cell_key": "g_021.25_-89.25",
+          "analog_names": "Chicxulub",
+          "score": 0.03251634784229249,
+          "percentile": 1.0101010101010102
+        },
+        {
+          "cell_key": "g_021.75_050.25",
+          "analog_names": "Wabar",
+          "score": 0.1493514322329337,
+          "percentile": 8.080808080808081
+        },
+        {
+          "cell_key": "g_022.25_026.25",
+          "analog_names": "Kamil",
+          "score": 0.5663981291107751,
+          "percentile": 83.83838383838383
+        },
+        {
+          "cell_key": "g_022.75_-10.25",
+          "analog_names": "Tenoumer",
+          "score": 0.20684900140531412,
+          "percentile": 15.404040404040403
+        },
+        {
+          "cell_key": "g_024.75_024.25",
+          "analog_names": "Oasis",
+          "score": 0.4628838568713014,
+          "percentile": 54.54545454545454
+        },
+        {
+          "cell_key": "g_025.25_024.25",
+          "analog_names": "B.P. Structure",
+          "score": 0.4225331238957261,
+          "percentile": 46.464646464646464
+        },
+        {
+          "cell_key": "g_025.25_078.25",
+          "analog_names": "Dhala",
+          "score": 0.4759011858667764,
+          "percentile": 56.81818181818182
+        },
+        {
+          "cell_key": "g_026.25_004.25",
+          "analog_names": "Amguid",
+          "score": 0.9320464792021919,
+          "percentile": 98.73737373737373
+        },
+        {
+          "cell_key": "g_027.75_005.25",
+          "analog_names": "Tin Bider",
+          "score": 0.5093704213332536,
+          "percentile": 65.15151515151516
+        },
+        {
+          "cell_key": "g_029.25_-07.75",
+          "analog_names": "Ouarkziz",
+          "score": 0.7797065666469775,
+          "percentile": 96.46464646464646
+        },
+        {
+          "cell_key": "g_029.75_038.75",
+          "analog_names": "Saqqar",
+          "score": 0.4884318314357152,
+          "percentile": 60.35353535353535
+        },
+        {
+          "cell_key": "g_030.75_-102.75",
+          "analog_names": "Sierra Madera",
+          "score": 0.5856603821481912,
+          "percentile": 89.14141414141415
+        },
+        {
+          "cell_key": "g_031.25_-96.25",
+          "analog_names": "Marquez",
+          "score": 0.342802948074015,
+          "percentile": 32.323232323232325
+        },
+        {
+          "cell_key": "g_031.25_036.75",
+          "analog_names": "Jebel Waqf as Suwwan",
+          "score": 0.5800933061838102,
+          "percentile": 87.87878787878788
+        },
+        {
+          "cell_key": "g_031.75_-05.25",
+          "analog_names": "Agoudal",
+          "score": 0.16292956818501672,
+          "percentile": 9.090909090909092
+        },
+        {
+          "cell_key": "g_031.75_-102.25",
+          "analog_names": "Odessa",
+          "score": 0.3807675401276934,
+          "percentile": 36.868686868686865
+        },
+        {
+          "cell_key": "g_032.75_-86.25",
+          "analog_names": "Wetumpka",
+          "score": 0.5530813318216588,
+          "percentile": 80.05050505050505
+        },
+        {
+          "cell_key": "g_033.25_004.25",
+          "analog_names": "Talemzane (= Maadna)",
+          "score": 0.5527437752359253,
+          "percentile": 79.7979797979798
+        },
+        {
+          "cell_key": "g_034.75_-115.75",
+          "analog_names": "Amboy",
+          "score": 0.2706246992292669,
+          "percentile": 23.232323232323232
+        },
+        {
+          "cell_key": "g_035.25_-111.25",
+          "analog_names": "Barringer (= Meteor); Grand Falls",
+          "score": 0.6764884114626625,
+          "percentile": 94.94949494949495
+        },
+        {
+          "cell_key": "g_035.75_-105.75",
+          "analog_names": "Santa Fe",
+          "score": 0.16509284406182462,
+          "percentile": 9.343434343434344
+        },
+        {
+          "cell_key": "g_036.25_-85.75",
+          "analog_names": "Flynn Creek",
+          "score": 0.5166245552520505,
+          "percentile": 68.18181818181817
+        },
+        {
+          "cell_key": "g_036.25_-87.75",
+          "analog_names": "Wells Creek",
+          "score": 0.514888174690131,
+          "percentile": 67.92929292929293
+        },
+        {
+          "cell_key": "g_036.25_-98.25",
+          "analog_names": "Ames",
+          "score": 0.4290465904816413,
+          "percentile": 47.72727272727273
+        },
+        {
+          "cell_key": "g_036.75_-83.75",
+          "analog_names": "Middlesboro",
+          "score": 0.40022494267352937,
+          "percentile": 42.17171717171717
+        },
+        {
+          "cell_key": "g_037.75_-91.25",
+          "analog_names": "Crooked Creek",
+          "score": 0.5316836318083397,
+          "percentile": 72.97979797979798
+        },
+        {
+          "cell_key": "g_037.75_-92.75",
+          "analog_names": "Decaturville",
+          "score": 0.5284932141873875,
+          "percentile": 71.71717171717171
+        },
+        {
+          "cell_key": "g_037.75_-99.25",
+          "analog_names": "Haviland",
+          "score": 0.3034513009186403,
+          "percentile": 27.525252525252526
+        },
+        {
+          "cell_key": "g_038.25_-109.75",
+          "analog_names": "Upheaval Dome",
+          "score": 0.33657266280149156,
+          "percentile": 30.555555555555557
+        },
+        {
+          "cell_key": "g_039.25_-83.25",
+          "analog_names": "Serpent Mound",
+          "score": 0.5227846163093771,
+          "percentile": 69.94949494949495
+        },
+        {
+          "cell_key": "g_039.25_073.25",
+          "analog_names": "Kara-Kul",
+          "score": 0.08280452159228101,
+          "percentile": 3.535353535353535
+        },
+        {
+          "cell_key": "g_040.25_123.25",
+          "analog_names": "Xiuyan",
+          "score": 0.4037485130636073,
+          "percentile": 43.43434343434344
+        },
+        {
+          "cell_key": "g_040.75_-87.25",
+          "analog_names": "Kentland",
+          "score": 0.21672156313016055,
+          "percentile": 16.666666666666664
+        },
+        {
+          "cell_key": "g_040.75_-89.75",
+          "analog_names": "Glasford",
+          "score": 0.45851478495420606,
+          "percentile": 52.52525252525253
+        },
+        {
+          "cell_key": "g_041.75_-85.75",
+          "analog_names": "Calvin",
+          "score": 0.29803675160191884,
+          "percentile": 26.262626262626267
+        },
+        {
+          "cell_key": "g_042.75_-94.75",
+          "analog_names": "Manson",
+          "score": 0.25730757685772226,
+          "percentile": 21.71717171717172
+        },
+        {
+          "cell_key": "g_043.25_-106.75",
+          "analog_names": "Cloud Creek",
+          "score": 0.5642075598205449,
+          "percentile": 82.82828282828282
+        },
+        {
+          "cell_key": "g_043.75_-89.75",
+          "analog_names": "Glover Bluff",
+          "score": 0.443316037293181,
+          "percentile": 50.75757575757576
+        },
+        {
+          "cell_key": "g_044.25_-76.75",
+          "analog_names": "Holleford",
+          "score": 0.4669759177849199,
+          "percentile": 55.80808080808081
+        },
+        {
+          "cell_key": "g_044.25_109.75",
+          "analog_names": "Tabun-Khara-Obo",
+          "score": 0.5658340373846333,
+          "percentile": 83.33333333333334
+        },
+        {
+          "cell_key": "g_044.75_-112.75",
+          "analog_names": "Beaverhead",
+          "score": 0.23221338632845456,
+          "percentile": 19.19191919191919
+        },
+        {
+          "cell_key": "g_044.75_-92.25",
+          "analog_names": "Rock Elm",
+          "score": 0.5390188483868207,
+          "percentile": 74.74747474747475
+        },
+        {
+          "cell_key": "g_045.75_000.75",
+          "analog_names": "Rochechouart",
+          "score": 0.5661161987139597,
+          "percentile": 83.58585858585859
+        },
+        {
+          "cell_key": "g_046.25_-78.25",
+          "analog_names": "Brent",
+          "score": 0.732264133348375,
+          "percentile": 96.21212121212122
+        },
+        {
+          "cell_key": "g_046.25_134.75",
+          "analog_names": "Sikhote Alin",
+          "score": 0.6399127317603469,
+          "percentile": 94.6969696969697
+        },
+        {
+          "cell_key": "g_046.25_137.75",
+          "analog_names": "Sobolev",
+          "score": 0.2295543979827358,
+          "percentile": 18.181818181818183
+        },
+        {
+          "cell_key": "g_046.75_-80.75",
+          "analog_names": "Wanapitei",
+          "score": 0.5375806937402391,
+          "percentile": 74.24242424242425
+        },
+        {
+          "cell_key": "g_046.75_-81.25",
+          "analog_names": "Sudbury",
+          "score": 0.5767899547880437,
+          "percentile": 87.62626262626263
+        },
+        {
+          "cell_key": "g_047.25_072.75",
+          "analog_names": "Shunak",
+          "score": 0.5882641947040644,
+          "percentile": 90.9090909090909
+        },
+        {
+          "cell_key": "g_047.75_-103.75",
+          "analog_names": "Red Wing",
+          "score": 0.5456815283346941,
+          "percentile": 76.51515151515152
+        },
+        {
+          "cell_key": "g_047.75_-70.25",
+          "analog_names": "Charlevoix (=La Malbaie)",
+          "score": 0.28290510846318634,
+          "percentile": 25.0
+        },
+        {
+          "cell_key": "g_048.25_032.75",
+          "analog_names": "Zeleny Gai",
+          "score": 0.40471699585636,
+          "percentile": 43.93939393939394
+        },
+        {
+          "cell_key": "g_048.25_033.75",
+          "analog_names": "Ternovka",
+          "score": 0.4263411627704066,
+          "percentile": 46.96969696969697
+        },
+        {
+          "cell_key": "g_048.25_040.75",
+          "analog_names": "Kamensk",
+          "score": 0.5201700859553807,
+          "percentile": 69.1919191919192
+        },
+        {
+          "cell_key": "g_048.25_060.75",
+          "analog_names": "Zhamanshin",
+          "score": 0.5524039054343046,
+          "percentile": 79.54545454545455
+        },
+        {
+          "cell_key": "g_048.75_-101.75",
+          "analog_names": "Newporte",
+          "score": 0.4412923888727584,
+          "percentile": 50.0
+        },
+        {
+          "cell_key": "g_048.75_010.25",
+          "analog_names": "Steinheim",
+          "score": 0.6206132934373104,
+          "percentile": 93.93939393939394
+        },
+        {
+          "cell_key": "g_048.75_010.75",
+          "analog_names": "Ries",
+          "score": 0.5490547954842981,
+          "percentile": 78.03030303030303
+        },
+        {
+          "cell_key": "g_048.75_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.43331003275725943,
+          "percentile": 48.73737373737374
+        },
+        {
+          "cell_key": "g_048.75_082.25",
+          "analog_names": "Bigach",
+          "score": 0.5613736559334831,
+          "percentile": 81.81818181818183
+        },
+        {
+          "cell_key": "g_049.25_029.25",
+          "analog_names": "Ilyinets",
+          "score": 0.44234655499140374,
+          "percentile": 50.252525252525245
+        },
+        {
+          "cell_key": "g_049.25_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.5279398865027412,
+          "percentile": 71.46464646464646
+        },
+        {
+          "cell_key": "g_049.25_057.75",
+          "analog_names": "Chiyli",
+          "score": 0.47765096390164635,
+          "percentile": 57.57575757575758
+        },
+        {
+          "cell_key": "g_049.75_-103.25",
+          "analog_names": "Viewfield",
+          "score": 0.24541521814603867,
+          "percentile": 20.2020202020202
+        },
+        {
+          "cell_key": "g_049.75_-109.25",
+          "analog_names": "Maple Creek (= White Valley)",
+          "score": 0.5374191333878146,
+          "percentile": 73.98989898989899
+        },
+        {
+          "cell_key": "g_049.75_-110.25",
+          "analog_names": "Eagle Butte",
+          "score": 0.46242958707832593,
+          "percentile": 53.78787878787878
+        },
+        {
+          "cell_key": "g_049.75_-74.75",
+          "analog_names": "Presqu'ile",
+          "score": 0.30104956292665724,
+          "percentile": 26.767676767676768
+        },
+        {
+          "cell_key": "g_049.75_-95.25",
+          "analog_names": "West Hawk",
+          "score": 0.34035442058383014,
+          "percentile": 31.313131313131315
+        },
+        {
+          "cell_key": "g_049.75_029.25",
+          "analog_names": "Zapadnaya",
+          "score": 0.39096909923530904,
+          "percentile": 40.65656565656566
+        },
+        {
+          "cell_key": "g_049.75_032.75",
+          "analog_names": "Obolon",
+          "score": 0.21830913762060636,
+          "percentile": 17.17171717171717
+        },
+        {
+          "cell_key": "g_050.75_-106.75",
+          "analog_names": "Elbow",
+          "score": 0.5695646585165672,
+          "percentile": 85.1010101010101
+        },
+        {
+          "cell_key": "g_050.75_-73.75",
+          "analog_names": "Ile Rouleau",
+          "score": 0.37865401466854465,
+          "percentile": 36.36363636363637
+        },
+        {
+          "cell_key": "g_051.25_-68.75",
+          "analog_names": "Manicouagan",
+          "score": 0.5027786001928713,
+          "percentile": 63.63636363636363
+        },
+        {
+          "cell_key": "g_051.75_-98.75",
+          "analog_names": "Saint Martin",
+          "score": 0.1607443245553263,
+          "percentile": 8.585858585858585
+        },
+        {
+          "cell_key": "g_051.75_036.25",
+          "analog_names": "Kursk",
+          "score": 0.4544101305416065,
+          "percentile": 52.02020202020202
+        },
+        {
+          "cell_key": "g_052.25_016.75",
+          "analog_names": "Morasko",
+          "score": 0.2057079946047601,
+          "percentile": 14.898989898989898
+        },
+        {
+          "cell_key": "g_054.25_-115.75",
+          "analog_names": "Whitecourt",
+          "score": 0.5425096495323412,
+          "percentile": 75.25252525252525
+        },
+        {
+          "cell_key": "g_054.25_023.75",
+          "analog_names": "Mizarai",
+          "score": 0.40576584492217177,
+          "percentile": 44.19191919191919
+        },
+        {
+          "cell_key": "g_054.25_027.75",
+          "analog_names": "Logoisk",
+          "score": 0.5130514845575309,
+          "percentile": 66.66666666666666
+        },
+        {
+          "cell_key": "g_054.75_036.25",
+          "analog_names": "Kaluga",
+          "score": 0.4666566527227893,
+          "percentile": 55.55555555555556
+        },
+        {
+          "cell_key": "g_054.75_048.25",
+          "analog_names": "Karla",
+          "score": 0.5436216973011341,
+          "percentile": 75.5050505050505
+        },
+        {
+          "cell_key": "g_055.25_024.75",
+          "analog_names": "Vepriai",
+          "score": 0.39112084311611783,
+          "percentile": 40.909090909090914
+        },
+        {
+          "cell_key": "g_055.75_-63.25",
+          "analog_names": "Mistastin",
+          "score": 0.5617757792867817,
+          "percentile": 82.07070707070707
+        },
+        {
+          "cell_key": "g_056.25_-102.75",
+          "analog_names": "Deep Bay",
+          "score": 0.42103716168437605,
+          "percentile": 46.21212121212121
+        },
+        {
+          "cell_key": "g_056.25_-104.25",
+          "analog_names": "Gow",
+          "score": 0.4898871761340069,
+          "percentile": 61.36363636363637
+        },
+        {
+          "cell_key": "g_056.25_-74.25",
+          "analog_names": "Clearwater East",
+          "score": 0.44732176846079724,
+          "percentile": 51.010101010101
+        },
+        {
+          "cell_key": "g_056.25_014.75",
+          "analog_names": "Mien",
+          "score": 0.5589305029177974,
+          "percentile": 81.06060606060606
+        },
+        {
+          "cell_key": "g_056.75_023.25",
+          "analog_names": "Dobele",
+          "score": 0.43670760946462417,
+          "percentile": 49.24242424242424
+        },
+        {
+          "cell_key": "g_056.75_043.75",
+          "analog_names": "Puchezh-Katunki",
+          "score": 0.37440920453481463,
+          "percentile": 35.35353535353536
+        },
+        {
+          "cell_key": "g_057.25_-66.75",
+          "analog_names": "La Moinerie",
+          "score": 0.5166790248243831,
+          "percentile": 68.43434343434343
+        },
+        {
+          "cell_key": "g_057.25_016.25",
+          "analog_names": "Hummeln",
+          "score": 0.5130435639496648,
+          "percentile": 66.41414141414141
+        },
+        {
+          "cell_key": "g_057.75_027.25",
+          "analog_names": "Ilumetsa",
+          "score": 0.5451778999222084,
+          "percentile": 76.01010101010101
+        },
+        {
+          "cell_key": "g_058.25_-109.25",
+          "analog_names": "Carswell",
+          "score": 0.5632841127534959,
+          "percentile": 82.57575757575758
+        },
+        {
+          "cell_key": "g_058.25_014.75",
+          "analog_names": "Granby",
+          "score": 0.535075016225969,
+          "percentile": 73.73737373737373
+        },
+        {
+          "cell_key": "g_058.75_017.25",
+          "analog_names": "Tvaren",
+          "score": 0.3480495908345474,
+          "percentile": 32.82828282828283
+        },
+        {
+          "cell_key": "g_058.75_028.25",
+          "analog_names": "Mishina Gora",
+          "score": 0.2752385939297734,
+          "percentile": 23.737373737373737
+        },
+        {
+          "cell_key": "g_058.75_061.75",
+          "analog_names": "Ragozinka",
+          "score": 0.37547407938528005,
+          "percentile": 35.60606060606061
+        },
+        {
+          "cell_key": "g_059.25_006.25",
+          "analog_names": "Ritland",
+          "score": 0.18222960864630178,
+          "percentile": 12.878787878787879
+        },
+        {
+          "cell_key": "g_059.75_-117.75",
+          "analog_names": "Steen River",
+          "score": 0.5737030366126633,
+          "percentile": 86.86868686868688
+        },
+        {
+          "cell_key": "g_060.25_-111.25",
+          "analog_names": "Pilot",
+          "score": 0.4387111272814982,
+          "percentile": 49.494949494949495
+        },
+        {
+          "cell_key": "g_060.25_-75.25",
+          "analog_names": "Couture (= Lac Couture)",
+          "score": 0.48389241623126766,
+          "percentile": 58.838383838383834
+        },
+        {
+          "cell_key": "g_060.25_117.75",
+          "analog_names": "Macha",
+          "score": 0.5651109575976265,
+          "percentile": 83.08080808080808
+        },
+        {
+          "cell_key": "g_060.75_009.25",
+          "analog_names": "Gardnos",
+          "score": 0.28804291794721076,
+          "percentile": 25.5050505050505
+        },
+        {
+          "cell_key": "g_061.25_-73.75",
+          "analog_names": "New Quebec (Chubb, Ungava, Pingualuit)",
+          "score": 0.504685802127837,
+          "percentile": 64.39393939393939
+        },
+        {
+          "cell_key": "g_061.25_014.75",
+          "analog_names": "Siljan",
+          "score": 0.6872603275866384,
+          "percentile": 95.45454545454545
+        },
+        {
+          "cell_key": "g_061.25_022.25",
+          "analog_names": "Saaksjarvi",
+          "score": 0.38890898992047984,
+          "percentile": 39.8989898989899
+        },
+        {
+          "cell_key": "g_061.75_016.75",
+          "analog_names": "Dellen",
+          "score": 0.8328458256296135,
+          "percentile": 96.96969696969697
+        },
+        {
+          "cell_key": "g_061.75_030.75",
+          "analog_names": "Janisjarvi",
+          "score": 0.5118113774275722,
+          "percentile": 66.16161616161617
+        },
+        {
+          "cell_key": "g_062.25_024.75",
+          "analog_names": "Keurusselka",
+          "score": 0.4781344894274869,
+          "percentile": 57.82828282828283
+        },
+        {
+          "cell_key": "g_062.25_025.25",
+          "analog_names": "Karikkoselka",
+          "score": 0.4968712741161065,
+          "percentile": 62.37373737373737
+        },
+        {
+          "cell_key": "g_062.25_027.25",
+          "analog_names": "Iso-Naakkima",
+          "score": 0.33158852490506974,
+          "percentile": 29.545454545454547
+        },
+        {
+          "cell_key": "g_062.25_029.25",
+          "analog_names": "Paasselka",
+          "score": 0.3794186656958788,
+          "percentile": 36.61616161616162
+        },
+        {
+          "cell_key": "g_062.75_-102.75",
+          "analog_names": "Nicholson",
+          "score": 0.43039556118115607,
+          "percentile": 48.23232323232323
+        },
+        {
+          "cell_key": "g_062.75_014.75",
+          "analog_names": "Lockne",
+          "score": 0.525170710399955,
+          "percentile": 70.70707070707071
+        },
+        {
+          "cell_key": "g_062.75_028.25",
+          "analog_names": "Suvasvesi N; Suvasvesi S",
+          "score": 0.42071978089703693,
+          "percentile": 45.95959595959596
+        },
+        {
+          "cell_key": "g_063.25_014.75",
+          "analog_names": "Lockne",
+          "score": 0.5536389616610741,
+          "percentile": 80.3030303030303
+        },
+        {
+          "cell_key": "g_063.25_023.75",
+          "analog_names": "Lappajarvi",
+          "score": 0.43109174725891264,
+          "percentile": 48.484848484848484
+        },
+        {
+          "cell_key": "g_063.25_033.25",
+          "analog_names": "Suavjarvi",
+          "score": 0.5144347687569975,
+          "percentile": 67.67676767676768
+        },
+        {
+          "cell_key": "g_064.75_-16.25",
+          "analog_names": "Ritland",
+          "score": 0.39446464127920305,
+          "percentile": 41.16161616161616
+        },
+        {
+          "cell_key": "g_065.25_028.25",
+          "analog_names": "Saarijarvi",
+          "score": 0.522848182696445,
+          "percentile": 70.2020202020202
+        },
+        {
+          "cell_key": "g_065.75_095.75",
+          "analog_names": "Logancha",
+          "score": 0.3577010705510698,
+          "percentile": 33.83838383838384
+        },
+        {
+          "cell_key": "g_067.75_172.25",
+          "analog_names": "El'gygytgyn",
+          "score": 0.3813877773310772,
+          "percentile": 37.121212121212125
+        },
+        {
+          "cell_key": "g_069.25_064.25",
+          "analog_names": "Kara",
+          "score": 0.5297692170906186,
+          "percentile": 72.22222222222221
+        },
+        {
+          "cell_key": "g_071.25_121.75",
+          "analog_names": "Beyenchime-Salaaty",
+          "score": 0.5908642462043406,
+          "percentile": 91.91919191919192
+        },
+        {
+          "cell_key": "g_071.75_111.25",
+          "analog_names": "Popigai",
+          "score": 0.48886837143084977,
+          "percentile": 60.60606060606061
+        },
+        {
+          "cell_key": "g_075.25_-89.75",
+          "analog_names": "Haughton",
+          "score": 0.6814932111452017,
+          "percentile": 95.2020202020202
+        },
+        {
+          "cell_key": "g_075.75_097.75",
+          "analog_names": "Chukcha",
+          "score": 0.5623061266987753,
+          "percentile": 82.32323232323232
+        }
+      ],
+      "cohorts": {
+        "primary_unlabeled_background": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.6432592975206611,
+          "auc_bootstrap_95_ci": [
+            0.5909536415289256,
+            0.6947849948347107
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 58.08511248852158,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 11,
+            "enrichment": 1.2375000000000003
+          },
+          "permutation_p_value": 0.000999000999000999,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        },
+        "sensitivity_without_positive_neighbors": {
+          "positive_count": 176,
+          "background_count": 211,
+          "auc": 0.6467309349418354,
+          "auc_bootstrap_95_ci": [
+            0.5927045185264972,
+            0.6965861966824645
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 58.08511248852158,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 11,
+            "enrichment": 1.2375000000000003
+          },
+          "permutation_p_value": 0.000999000999000999,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        }
+      }
+    },
+    "mars_arcadia_regional": {
+      "status": "evaluated",
+      "engine_region_id": "mars_arcadia_regional",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "valid_cell_count": 396,
+      "valid_positive_cell_count": 176,
+      "base_rate": 0.4444444444444444,
+      "positive_cells": [
+        {
+          "cell_key": "g_-07.75_-46.75",
+          "analog_names": "Riachao Ring",
+          "score": 0.2061157535725689,
+          "percentile": 36.36363636363637
+        },
+        {
+          "cell_key": "g_-08.25_-46.75",
+          "analog_names": "Serra da Cangalha",
+          "score": 0.4523807393043901,
+          "percentile": 74.4949494949495
+        },
+        {
+          "cell_key": "g_-10.25_-45.25",
+          "analog_names": "Santa Marta",
+          "score": 0.7225270100100086,
+          "percentile": 95.70707070707071
+        },
+        {
+          "cell_key": "g_-10.25_028.25",
+          "analog_names": "Luizi",
+          "score": 0.46907953505636013,
+          "percentile": 77.02020202020202
+        },
+        {
+          "cell_key": "g_-12.25_134.25",
+          "analog_names": "Liverpool",
+          "score": 0.12599445468719267,
+          "percentile": 20.707070707070706
+        },
+        {
+          "cell_key": "g_-13.25_135.25",
+          "analog_names": "Goyder",
+          "score": 0.42523780101791286,
+          "percentile": 68.43434343434343
+        },
+        {
+          "cell_key": "g_-15.25_131.25",
+          "analog_names": "Matt Wilson",
+          "score": 0.32738415226184486,
+          "percentile": 55.05050505050505
+        },
+        {
+          "cell_key": "g_-15.25_133.75",
+          "analog_names": "Strangways",
+          "score": 0.23064055239506984,
+          "percentile": 39.8989898989899
+        },
+        {
+          "cell_key": "g_-16.75_-52.75",
+          "analog_names": "Araguainha",
+          "score": 0.4656079764298317,
+          "percentile": 76.26262626262627
+        },
+        {
+          "cell_key": "g_-16.75_-69.25",
+          "analog_names": "Carancas",
+          "score": 0.9677193477314446,
+          "percentile": 99.4949494949495
+        },
+        {
+          "cell_key": "g_-16.75_126.25",
+          "analog_names": "Spider",
+          "score": 0.3817645204202027,
+          "percentile": 59.84848484848485
+        },
+        {
+          "cell_key": "g_-16.75_136.75",
+          "analog_names": "Foelsche",
+          "score": 0.2632439900627062,
+          "percentile": 45.20202020202021
+        },
+        {
+          "cell_key": "g_-17.75_128.25",
+          "analog_names": "Piccaninny",
+          "score": 0.40037168730657713,
+          "percentile": 64.14141414141415
+        },
+        {
+          "cell_key": "g_-18.25_126.75",
+          "analog_names": "Goat Paddock",
+          "score": 0.5217580900518123,
+          "percentile": 85.1010101010101
+        },
+        {
+          "cell_key": "g_-18.75_138.75",
+          "analog_names": "Lawn Hill",
+          "score": 0.25796405643674536,
+          "percentile": 44.44444444444444
+        },
+        {
+          "cell_key": "g_-19.25_127.75",
+          "analog_names": "Wolfe Creek",
+          "score": 0.09316942307242483,
+          "percentile": 15.151515151515152
+        },
+        {
+          "cell_key": "g_-19.75_133.75",
+          "analog_names": "Kelly West",
+          "score": 0.03272549070114726,
+          "percentile": 4.292929292929292
+        },
+        {
+          "cell_key": "g_-20.75_134.75",
+          "analog_names": "Amelia Creek",
+          "score": 0.39131228655316547,
+          "percentile": 62.62626262626263
+        },
+        {
+          "cell_key": "g_-22.25_027.75",
+          "analog_names": "Kgagodi",
+          "score": 0.2254625270668395,
+          "percentile": 38.88888888888889
+        },
+        {
+          "cell_key": "g_-22.75_125.25",
+          "analog_names": "Veevers",
+          "score": 0.08022289060765951,
+          "percentile": 13.383838383838384
+        },
+        {
+          "cell_key": "g_-22.75_135.25",
+          "analog_names": "Boxhole",
+          "score": 0.15237467811443056,
+          "percentile": 26.767676767676768
+        },
+        {
+          "cell_key": "g_-23.75_-46.75",
+          "analog_names": "Colonia",
+          "score": 0.4247816002064459,
+          "percentile": 68.18181818181817
+        },
+        {
+          "cell_key": "g_-23.75_-68.25",
+          "analog_names": "Monturaqui",
+          "score": 0.9067004951122076,
+          "percentile": 98.48484848484848
+        },
+        {
+          "cell_key": "g_-23.75_121.75",
+          "analog_names": "Glikson",
+          "score": 0.19380860816038697,
+          "percentile": 34.090909090909086
+        },
+        {
+          "cell_key": "g_-23.75_124.75",
+          "analog_names": "Connolly Basin",
+          "score": 0.06837879981560749,
+          "percentile": 11.363636363636363
+        },
+        {
+          "cell_key": "g_-23.75_132.25",
+          "analog_names": "Gosses Bluff",
+          "score": 0.42006000988644215,
+          "percentile": 67.17171717171718
+        },
+        {
+          "cell_key": "g_-24.75_133.25",
+          "analog_names": "Henbury",
+          "score": 0.1572051930095331,
+          "percentile": 27.77777777777778
+        },
+        {
+          "cell_key": "g_-25.25_028.25",
+          "analog_names": "Tswaing (formerly Pretoria Saltpan)",
+          "score": 0.2690413906342101,
+          "percentile": 46.717171717171716
+        },
+        {
+          "cell_key": "g_-25.75_-52.75",
+          "analog_names": "Vista Alegre",
+          "score": 0.5408583271392596,
+          "percentile": 88.63636363636364
+        },
+        {
+          "cell_key": "g_-25.75_120.75",
+          "analog_names": "Shoemaker (formerly Teague)",
+          "score": 0.07775971871976402,
+          "percentile": 12.878787878787879
+        },
+        {
+          "cell_key": "g_-26.25_023.75",
+          "analog_names": "Morokweng",
+          "score": 0.12511225576185214,
+          "percentile": 20.454545454545457
+        },
+        {
+          "cell_key": "g_-26.25_114.75",
+          "analog_names": "Woodleigh",
+          "score": 0.1801182074462209,
+          "percentile": 32.323232323232325
+        },
+        {
+          "cell_key": "g_-26.75_-52.25",
+          "analog_names": "Vargeao Dome",
+          "score": 0.5791405513388582,
+          "percentile": 93.43434343434343
+        },
+        {
+          "cell_key": "g_-26.75_027.75",
+          "analog_names": "Vredefort",
+          "score": 0.24239929810021624,
+          "percentile": 42.42424242424242
+        },
+        {
+          "cell_key": "g_-27.25_118.75",
+          "analog_names": "Yarrabubba",
+          "score": 0.13316840285985604,
+          "percentile": 22.97979797979798
+        },
+        {
+          "cell_key": "g_-27.25_142.75",
+          "analog_names": "Tookoonooka",
+          "score": 0.10608563676851514,
+          "percentile": 16.414141414141415
+        },
+        {
+          "cell_key": "g_-27.75_-61.75",
+          "analog_names": "Campo Del Cielo",
+          "score": 0.10576518044043029,
+          "percentile": 16.161616161616163
+        },
+        {
+          "cell_key": "g_-27.75_016.25",
+          "analog_names": "Roter Kamm",
+          "score": 0.5338969568286207,
+          "percentile": 86.86868686868688
+        },
+        {
+          "cell_key": "g_-27.75_117.25",
+          "analog_names": "Dalgaranga",
+          "score": 0.19944997715134863,
+          "percentile": 34.84848484848485
+        },
+        {
+          "cell_key": "g_-27.75_135.25",
+          "analog_names": "Mount Toondina",
+          "score": 0.13932511206443973,
+          "percentile": 25.0
+        },
+        {
+          "cell_key": "g_-32.25_135.25",
+          "analog_names": "Acraman",
+          "score": 0.4488224289774693,
+          "percentile": 73.23232323232324
+        },
+        {
+          "cell_key": "g_-32.75_-64.25",
+          "analog_names": "Rio Cuarto",
+          "score": 0.40506816662889167,
+          "percentile": 65.40404040404042
+        },
+        {
+          "cell_key": "g_-32.75_024.25",
+          "analog_names": "Kalkkop",
+          "score": 0.4680787688866415,
+          "percentile": 76.76767676767676
+        },
+        {
+          "cell_key": "g_-34.75_139.25",
+          "analog_names": "Flaxman",
+          "score": 0.5496733507402433,
+          "percentile": 90.40404040404042
+        },
+        {
+          "cell_key": "g_006.75_-01.25",
+          "analog_names": "Bosumtwi (= Ashanti)",
+          "score": 0.450256701583962,
+          "percentile": 73.73737373737373
+        },
+        {
+          "cell_key": "g_017.25_021.75",
+          "analog_names": "Gweni-Fada",
+          "score": 0.5670278230643334,
+          "percentile": 91.41414141414141
+        },
+        {
+          "cell_key": "g_019.25_019.25",
+          "analog_names": "Aorounga",
+          "score": 0.41438456514319894,
+          "percentile": 66.41414141414141
+        },
+        {
+          "cell_key": "g_019.75_076.75",
+          "analog_names": "Lonar",
+          "score": 0.3029093317156664,
+          "percentile": 52.27272727272727
+        },
+        {
+          "cell_key": "g_020.25_-12.75",
+          "analog_names": "Aouelloul",
+          "score": 0.4885372857756225,
+          "percentile": 81.56565656565657
+        },
+        {
+          "cell_key": "g_021.25_-89.25",
+          "analog_names": "Chicxulub",
+          "score": 0.009999999999999995,
+          "percentile": 0.6313131313131313
+        },
+        {
+          "cell_key": "g_021.75_050.25",
+          "analog_names": "Wabar",
+          "score": 0.028403514425122667,
+          "percentile": 3.787878787878788
+        },
+        {
+          "cell_key": "g_022.25_026.25",
+          "analog_names": "Kamil",
+          "score": 0.3351996263315222,
+          "percentile": 56.060606060606055
+        },
+        {
+          "cell_key": "g_022.75_-10.25",
+          "analog_names": "Tenoumer",
+          "score": 0.04998650032227922,
+          "percentile": 7.575757575757576
+        },
+        {
+          "cell_key": "g_024.75_024.25",
+          "analog_names": "Oasis",
+          "score": 0.19141024648294777,
+          "percentile": 33.83838383838384
+        },
+        {
+          "cell_key": "g_025.25_024.25",
+          "analog_names": "B.P. Structure",
+          "score": 0.16605498776767816,
+          "percentile": 29.545454545454547
+        },
+        {
+          "cell_key": "g_025.25_078.25",
+          "analog_names": "Dhala",
+          "score": 0.20150281229929898,
+          "percentile": 35.858585858585855
+        },
+        {
+          "cell_key": "g_026.25_004.25",
+          "analog_names": "Amguid",
+          "score": 0.47320550200250805,
+          "percentile": 78.03030303030303
+        },
+        {
+          "cell_key": "g_027.75_005.25",
+          "analog_names": "Tin Bider",
+          "score": 0.24559068197338005,
+          "percentile": 43.18181818181818
+        },
+        {
+          "cell_key": "g_029.25_-07.75",
+          "analog_names": "Ouarkziz",
+          "score": 0.4008973396500091,
+          "percentile": 64.39393939393939
+        },
+        {
+          "cell_key": "g_029.75_038.75",
+          "analog_names": "Saqqar",
+          "score": 0.2116742475321138,
+          "percentile": 37.37373737373738
+        },
+        {
+          "cell_key": "g_030.75_-102.75",
+          "analog_names": "Sierra Madera",
+          "score": 0.477798312654838,
+          "percentile": 79.7979797979798
+        },
+        {
+          "cell_key": "g_031.25_-96.25",
+          "analog_names": "Marquez",
+          "score": 0.12224654812816858,
+          "percentile": 20.2020202020202
+        },
+        {
+          "cell_key": "g_031.25_036.75",
+          "analog_names": "Jebel Waqf as Suwwan",
+          "score": 0.39646369829065053,
+          "percentile": 63.888888888888886
+        },
+        {
+          "cell_key": "g_031.75_-05.25",
+          "analog_names": "Agoudal",
+          "score": 0.4307674977554025,
+          "percentile": 69.6969696969697
+        },
+        {
+          "cell_key": "g_031.75_-102.25",
+          "analog_names": "Odessa",
+          "score": 0.1279183090256565,
+          "percentile": 21.21212121212121
+        },
+        {
+          "cell_key": "g_032.75_-86.25",
+          "analog_names": "Wetumpka",
+          "score": 0.3322601881328397,
+          "percentile": 55.55555555555556
+        },
+        {
+          "cell_key": "g_033.25_004.25",
+          "analog_names": "Talemzane (= Maadna)",
+          "score": 0.2995175264265734,
+          "percentile": 51.515151515151516
+        },
+        {
+          "cell_key": "g_034.75_-115.75",
+          "analog_names": "Amboy",
+          "score": 0.7220999596373219,
+          "percentile": 95.45454545454545
+        },
+        {
+          "cell_key": "g_035.25_-111.25",
+          "analog_names": "Barringer (= Meteor); Grand Falls",
+          "score": 0.558867337715523,
+          "percentile": 90.65656565656566
+        },
+        {
+          "cell_key": "g_035.75_-105.75",
+          "analog_names": "Santa Fe",
+          "score": 0.43162220626919784,
+          "percentile": 70.2020202020202
+        },
+        {
+          "cell_key": "g_036.25_-85.75",
+          "analog_names": "Flynn Creek",
+          "score": 0.3827827269433236,
+          "percentile": 60.35353535353535
+        },
+        {
+          "cell_key": "g_036.25_-87.75",
+          "analog_names": "Wells Creek",
+          "score": 0.31071253237181956,
+          "percentile": 53.03030303030303
+        },
+        {
+          "cell_key": "g_036.25_-98.25",
+          "analog_names": "Ames",
+          "score": 0.16346880052418025,
+          "percentile": 28.535353535353536
+        },
+        {
+          "cell_key": "g_036.75_-83.75",
+          "analog_names": "Middlesboro",
+          "score": 0.7369228594295966,
+          "percentile": 96.21212121212122
+        },
+        {
+          "cell_key": "g_037.75_-91.25",
+          "analog_names": "Crooked Creek",
+          "score": 0.33455647579428793,
+          "percentile": 55.80808080808081
+        },
+        {
+          "cell_key": "g_037.75_-92.75",
+          "analog_names": "Decaturville",
+          "score": 0.29689862327812494,
+          "percentile": 50.75757575757576
+        },
+        {
+          "cell_key": "g_037.75_-99.25",
+          "analog_names": "Haviland",
+          "score": 0.08537792652067233,
+          "percentile": 14.393939393939394
+        },
+        {
+          "cell_key": "g_038.25_-109.75",
+          "analog_names": "Upheaval Dome",
+          "score": 0.5698528805543601,
+          "percentile": 91.66666666666666
+        },
+        {
+          "cell_key": "g_039.25_-83.25",
+          "analog_names": "Serpent Mound",
+          "score": 0.3519209890425599,
+          "percentile": 57.57575757575758
+        },
+        {
+          "cell_key": "g_039.25_073.25",
+          "analog_names": "Kara-Kul",
+          "score": 0.2952392375735675,
+          "percentile": 50.0
+        },
+        {
+          "cell_key": "g_040.25_123.25",
+          "analog_names": "Xiuyan",
+          "score": 0.8182710319501667,
+          "percentile": 97.22222222222221
+        },
+        {
+          "cell_key": "g_040.75_-87.25",
+          "analog_names": "Kentland",
+          "score": 0.05076097847140244,
+          "percentile": 8.080808080808081
+        },
+        {
+          "cell_key": "g_040.75_-89.75",
+          "analog_names": "Glasford",
+          "score": 0.19562057378837752,
+          "percentile": 34.34343434343434
+        },
+        {
+          "cell_key": "g_041.75_-85.75",
+          "analog_names": "Calvin",
+          "score": 0.08870872885131159,
+          "percentile": 14.646464646464647
+        },
+        {
+          "cell_key": "g_042.75_-94.75",
+          "analog_names": "Manson",
+          "score": 0.06572856650486403,
+          "percentile": 10.85858585858586
+        },
+        {
+          "cell_key": "g_043.25_-106.75",
+          "analog_names": "Cloud Creek",
+          "score": 0.5243516727400939,
+          "percentile": 85.60606060606061
+        },
+        {
+          "cell_key": "g_043.75_-89.75",
+          "analog_names": "Glover Bluff",
+          "score": 0.18765046828441906,
+          "percentile": 33.58585858585859
+        },
+        {
+          "cell_key": "g_044.25_-76.75",
+          "analog_names": "Holleford",
+          "score": 0.2000798508237754,
+          "percentile": 35.35353535353536
+        },
+        {
+          "cell_key": "g_044.25_109.75",
+          "analog_names": "Tabun-Khara-Obo",
+          "score": 0.3173387188477663,
+          "percentile": 54.04040404040404
+        },
+        {
+          "cell_key": "g_044.75_-112.75",
+          "analog_names": "Beaverhead",
+          "score": 0.5025790998603247,
+          "percentile": 83.58585858585859
+        },
+        {
+          "cell_key": "g_044.75_-92.25",
+          "analog_names": "Rock Elm",
+          "score": 0.3391325576928643,
+          "percentile": 56.56565656565656
+        },
+        {
+          "cell_key": "g_045.75_000.75",
+          "analog_names": "Rochechouart",
+          "score": 0.47064744864042574,
+          "percentile": 77.52525252525253
+        },
+        {
+          "cell_key": "g_046.25_-78.25",
+          "analog_names": "Brent",
+          "score": 0.46052537970358065,
+          "percentile": 75.5050505050505
+        },
+        {
+          "cell_key": "g_046.25_134.75",
+          "analog_names": "Sikhote Alin",
+          "score": 0.4890945568149152,
+          "percentile": 82.07070707070707
+        },
+        {
+          "cell_key": "g_046.25_137.75",
+          "analog_names": "Sobolev",
+          "score": 0.5001306480409294,
+          "percentile": 83.33333333333334
+        },
+        {
+          "cell_key": "g_046.75_-80.75",
+          "analog_names": "Wanapitei",
+          "score": 0.31961978361634275,
+          "percentile": 54.292929292929294
+        },
+        {
+          "cell_key": "g_046.75_-81.25",
+          "analog_names": "Sudbury",
+          "score": 0.37261828568447947,
+          "percentile": 58.838383838383834
+        },
+        {
+          "cell_key": "g_047.25_072.75",
+          "analog_names": "Shunak",
+          "score": 0.43564934172797726,
+          "percentile": 71.71717171717171
+        },
+        {
+          "cell_key": "g_047.75_-103.75",
+          "analog_names": "Red Wing",
+          "score": 0.34448496153978053,
+          "percentile": 56.81818181818182
+        },
+        {
+          "cell_key": "g_047.75_-70.25",
+          "analog_names": "Charlevoix (=La Malbaie)",
+          "score": 0.543953384001993,
+          "percentile": 89.39393939393939
+        },
+        {
+          "cell_key": "g_048.25_032.75",
+          "analog_names": "Zeleny Gai",
+          "score": 0.16979512657787094,
+          "percentile": 30.555555555555557
+        },
+        {
+          "cell_key": "g_048.25_033.75",
+          "analog_names": "Ternovka",
+          "score": 0.18155297375256926,
+          "percentile": 32.57575757575758
+        },
+        {
+          "cell_key": "g_048.25_040.75",
+          "analog_names": "Kamensk",
+          "score": 0.32532311568930405,
+          "percentile": 54.7979797979798
+        },
+        {
+          "cell_key": "g_048.25_060.75",
+          "analog_names": "Zhamanshin",
+          "score": 0.3005196307318004,
+          "percentile": 51.76767676767676
+        },
+        {
+          "cell_key": "g_048.75_-101.75",
+          "analog_names": "Newporte",
+          "score": 0.16960755963048835,
+          "percentile": 30.303030303030305
+        },
+        {
+          "cell_key": "g_048.75_010.25",
+          "analog_names": "Steinheim",
+          "score": 0.4861672601304187,
+          "percentile": 81.31313131313132
+        },
+        {
+          "cell_key": "g_048.75_010.75",
+          "analog_names": "Ries",
+          "score": 0.3805570756463539,
+          "percentile": 59.34343434343434
+        },
+        {
+          "cell_key": "g_048.75_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.1996374503381179,
+          "percentile": 35.1010101010101
+        },
+        {
+          "cell_key": "g_048.75_082.25",
+          "analog_names": "Bigach",
+          "score": 0.5366105408410997,
+          "percentile": 87.87878787878788
+        },
+        {
+          "cell_key": "g_049.25_029.25",
+          "analog_names": "Ilyinets",
+          "score": 0.198038949320648,
+          "percentile": 34.5959595959596
+        },
+        {
+          "cell_key": "g_049.25_032.25",
+          "analog_names": "Boltysh",
+          "score": 0.2711262716725001,
+          "percentile": 46.96969696969697
+        },
+        {
+          "cell_key": "g_049.25_057.75",
+          "analog_names": "Chiyli",
+          "score": 0.2079647895904567,
+          "percentile": 36.868686868686865
+        },
+        {
+          "cell_key": "g_049.75_-103.25",
+          "analog_names": "Viewfield",
+          "score": 0.06063087563503672,
+          "percentile": 9.595959595959595
+        },
+        {
+          "cell_key": "g_049.75_-109.25",
+          "analog_names": "Maple Creek (= White Valley)",
+          "score": 0.5487833609783824,
+          "percentile": 89.8989898989899
+        },
+        {
+          "cell_key": "g_049.75_-110.25",
+          "analog_names": "Eagle Butte",
+          "score": 0.5775885569955228,
+          "percentile": 92.67676767676768
+        },
+        {
+          "cell_key": "g_049.75_-74.75",
+          "analog_names": "Presqu'ile",
+          "score": 0.09681285625020547,
+          "percentile": 15.404040404040403
+        },
+        {
+          "cell_key": "g_049.75_-95.25",
+          "analog_names": "West Hawk",
+          "score": 0.11455623568829566,
+          "percentile": 19.19191919191919
+        },
+        {
+          "cell_key": "g_049.75_029.25",
+          "analog_names": "Zapadnaya",
+          "score": 0.1442732976165584,
+          "percentile": 25.757575757575758
+        },
+        {
+          "cell_key": "g_049.75_032.75",
+          "analog_names": "Obolon",
+          "score": 0.051983095841576954,
+          "percentile": 8.83838383838384
+        },
+        {
+          "cell_key": "g_050.75_-106.75",
+          "analog_names": "Elbow",
+          "score": 0.32485586784032827,
+          "percentile": 54.54545454545454
+        },
+        {
+          "cell_key": "g_050.75_-73.75",
+          "analog_names": "Ile Rouleau",
+          "score": 0.1369889204861631,
+          "percentile": 24.242424242424242
+        },
+        {
+          "cell_key": "g_051.25_-68.75",
+          "analog_names": "Manicouagan",
+          "score": 0.5309259668853921,
+          "percentile": 86.11111111111111
+        },
+        {
+          "cell_key": "g_051.75_-98.75",
+          "analog_names": "Saint Martin",
+          "score": 0.03326890963106332,
+          "percentile": 4.545454545454546
+        },
+        {
+          "cell_key": "g_051.75_036.25",
+          "analog_names": "Kursk",
+          "score": 0.21906860743975728,
+          "percentile": 38.131313131313135
+        },
+        {
+          "cell_key": "g_052.25_016.75",
+          "analog_names": "Morasko",
+          "score": 0.051578994525824956,
+          "percentile": 8.333333333333332
+        },
+        {
+          "cell_key": "g_054.25_-115.75",
+          "analog_names": "Whitecourt",
+          "score": 0.5350842164664567,
+          "percentile": 87.12121212121212
+        },
+        {
+          "cell_key": "g_054.25_023.75",
+          "analog_names": "Mizarai",
+          "score": 0.15901268572638486,
+          "percentile": 28.28282828282828
+        },
+        {
+          "cell_key": "g_054.25_027.75",
+          "analog_names": "Logoisk",
+          "score": 0.26457747917186597,
+          "percentile": 45.45454545454545
+        },
+        {
+          "cell_key": "g_054.75_036.25",
+          "analog_names": "Kaluga",
+          "score": 0.21985250579787124,
+          "percentile": 38.38383838383838
+        },
+        {
+          "cell_key": "g_054.75_048.25",
+          "analog_names": "Karla",
+          "score": 0.3135633203030317,
+          "percentile": 53.28282828282829
+        },
+        {
+          "cell_key": "g_055.25_024.75",
+          "analog_names": "Vepriai",
+          "score": 0.13932234963094073,
+          "percentile": 24.747474747474747
+        },
+        {
+          "cell_key": "g_055.75_-63.25",
+          "analog_names": "Mistastin",
+          "score": 0.4616364044154283,
+          "percentile": 76.01010101010101
+        },
+        {
+          "cell_key": "g_056.25_-102.75",
+          "analog_names": "Deep Bay",
+          "score": 0.18594402990857492,
+          "percentile": 33.08080808080808
+        },
+        {
+          "cell_key": "g_056.25_-104.25",
+          "analog_names": "Gow",
+          "score": 0.2493731827557675,
+          "percentile": 43.686868686868685
+        },
+        {
+          "cell_key": "g_056.25_-74.25",
+          "analog_names": "Clearwater East",
+          "score": 0.2067483247198981,
+          "percentile": 36.61616161616162
+        },
+        {
+          "cell_key": "g_056.25_014.75",
+          "analog_names": "Mien",
+          "score": 0.30180814015180524,
+          "percentile": 52.02020202020202
+        },
+        {
+          "cell_key": "g_056.75_023.25",
+          "analog_names": "Dobele",
+          "score": 0.16671126279198448,
+          "percentile": 29.797979797979796
+        },
+        {
+          "cell_key": "g_056.75_043.75",
+          "analog_names": "Puchezh-Katunki",
+          "score": 0.13067786237037923,
+          "percentile": 21.96969696969697
+        },
+        {
+          "cell_key": "g_057.25_-66.75",
+          "analog_names": "La Moinerie",
+          "score": 0.2682888471647025,
+          "percentile": 46.464646464646464
+        },
+        {
+          "cell_key": "g_057.25_016.25",
+          "analog_names": "Hummeln",
+          "score": 0.23846548754353825,
+          "percentile": 40.909090909090914
+        },
+        {
+          "cell_key": "g_057.75_027.25",
+          "analog_names": "Ilumetsa",
+          "score": 0.27698591511025417,
+          "percentile": 47.72727272727273
+        },
+        {
+          "cell_key": "g_058.25_-109.25",
+          "analog_names": "Carswell",
+          "score": 0.3145529272998071,
+          "percentile": 53.535353535353536
+        },
+        {
+          "cell_key": "g_058.25_014.75",
+          "analog_names": "Granby",
+          "score": 0.26558872551452906,
+          "percentile": 45.95959595959596
+        },
+        {
+          "cell_key": "g_058.75_017.25",
+          "analog_names": "Tvaren",
+          "score": 0.11836379057913819,
+          "percentile": 19.696969696969695
+        },
+        {
+          "cell_key": "g_058.75_028.25",
+          "analog_names": "Mishina Gora",
+          "score": 0.07854302427616468,
+          "percentile": 13.131313131313133
+        },
+        {
+          "cell_key": "g_058.75_061.75",
+          "analog_names": "Ragozinka",
+          "score": 0.13354999063450246,
+          "percentile": 23.232323232323232
+        },
+        {
+          "cell_key": "g_059.25_006.25",
+          "analog_names": "Ritland",
+          "score": 0.4514659620312973,
+          "percentile": 74.24242424242425
+        },
+        {
+          "cell_key": "g_059.75_-117.75",
+          "analog_names": "Steen River",
+          "score": 0.47507658713459233,
+          "percentile": 79.04040404040404
+        },
+        {
+          "cell_key": "g_060.25_-111.25",
+          "analog_names": "Pilot",
+          "score": 0.18156543671330522,
+          "percentile": 32.82828282828283
+        },
+        {
+          "cell_key": "g_060.25_-75.25",
+          "analog_names": "Couture (= Lac Couture)",
+          "score": 0.2336008369449121,
+          "percentile": 40.4040404040404
+        },
+        {
+          "cell_key": "g_060.25_117.75",
+          "analog_names": "Macha",
+          "score": 0.38173063145256847,
+          "percentile": 59.59595959595959
+        },
+        {
+          "cell_key": "g_060.75_009.25",
+          "analog_names": "Gardnos",
+          "score": 0.5414915932196525,
+          "percentile": 88.88888888888889
+        },
+        {
+          "cell_key": "g_061.25_-73.75",
+          "analog_names": "New Quebec (Chubb, Ungava, Pingualuit)",
+          "score": 0.27974313938082634,
+          "percentile": 48.73737373737374
+        },
+        {
+          "cell_key": "g_061.25_014.75",
+          "analog_names": "Siljan",
+          "score": 0.5707459790961362,
+          "percentile": 91.91919191919192
+        },
+        {
+          "cell_key": "g_061.25_022.25",
+          "analog_names": "Saaksjarvi",
+          "score": 0.14612823710993236,
+          "percentile": 26.01010101010101
+        },
+        {
+          "cell_key": "g_061.75_016.75",
+          "analog_names": "Dellen",
+          "score": 0.5354612662900009,
+          "percentile": 87.62626262626263
+        },
+        {
+          "cell_key": "g_061.75_030.75",
+          "analog_names": "Janisjarvi",
+          "score": 0.27917170792479057,
+          "percentile": 48.484848484848484
+        },
+        {
+          "cell_key": "g_062.25_024.75",
+          "analog_names": "Keurusselka",
+          "score": 0.2424325505185715,
+          "percentile": 42.676767676767675
+        },
+        {
+          "cell_key": "g_062.25_025.25",
+          "analog_names": "Karikkoselka",
+          "score": 0.27383336401144837,
+          "percentile": 47.22222222222222
+        },
+        {
+          "cell_key": "g_062.25_027.25",
+          "analog_names": "Iso-Naakkima",
+          "score": 0.1145005003690978,
+          "percentile": 18.939393939393938
+        },
+        {
+          "cell_key": "g_062.25_029.25",
+          "analog_names": "Paasselka",
+          "score": 0.15217252263557787,
+          "percentile": 26.515151515151516
+        },
+        {
+          "cell_key": "g_062.75_-102.75",
+          "analog_names": "Nicholson",
+          "score": 0.17777789150420578,
+          "percentile": 31.565656565656564
+        },
+        {
+          "cell_key": "g_062.75_014.75",
+          "analog_names": "Lockne",
+          "score": 0.4425052082223835,
+          "percentile": 72.72727272727273
+        },
+        {
+          "cell_key": "g_062.75_028.25",
+          "analog_names": "Suvasvesi N; Suvasvesi S",
+          "score": 0.1870833310984798,
+          "percentile": 33.33333333333333
+        },
+        {
+          "cell_key": "g_063.25_014.75",
+          "analog_names": "Lockne",
+          "score": 0.38762466413472263,
+          "percentile": 61.86868686868687
+        },
+        {
+          "cell_key": "g_063.25_023.75",
+          "analog_names": "Lappajarvi",
+          "score": 0.16518651964038736,
+          "percentile": 29.292929292929294
+        },
+        {
+          "cell_key": "g_063.25_033.25",
+          "analog_names": "Suavjarvi",
+          "score": 0.2616800409181133,
+          "percentile": 44.696969696969695
+        },
+        {
+          "cell_key": "g_064.75_-16.25",
+          "analog_names": "Ritland",
+          "score": 0.577215099509813,
+          "percentile": 92.17171717171718
+        },
+        {
+          "cell_key": "g_065.25_028.25",
+          "analog_names": "Saarijarvi",
+          "score": 0.2944749202858508,
+          "percentile": 49.74747474747475
+        },
+        {
+          "cell_key": "g_065.75_095.75",
+          "analog_names": "Logancha",
+          "score": 0.7047602240073035,
+          "percentile": 94.94949494949495
+        },
+        {
+          "cell_key": "g_067.75_172.25",
+          "analog_names": "El'gygytgyn",
+          "score": 0.9234047379912527,
+          "percentile": 98.98989898989899
+        },
+        {
+          "cell_key": "g_069.25_064.25",
+          "analog_names": "Kara",
+          "score": 0.26311255088846586,
+          "percentile": 44.94949494949495
+        },
+        {
+          "cell_key": "g_071.25_121.75",
+          "analog_names": "Beyenchime-Salaaty",
+          "score": 0.4011732911752822,
+          "percentile": 64.64646464646465
+        },
+        {
+          "cell_key": "g_071.75_111.25",
+          "analog_names": "Popigai",
+          "score": 0.2286812120161602,
+          "percentile": 39.64646464646464
+        },
+        {
+          "cell_key": "g_075.25_-89.75",
+          "analog_names": "Haughton",
+          "score": 0.4750014764907753,
+          "percentile": 78.53535353535354
+        },
+        {
+          "cell_key": "g_075.75_097.75",
+          "analog_names": "Chukcha",
+          "score": 0.4961015507216126,
+          "percentile": 83.08080808080808
+        }
+      ],
+      "cohorts": {
+        "primary_unlabeled_background": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.5186596074380165,
+          "auc_bootstrap_95_ci": [
+            0.4600619834710744,
+            0.5735698605371901
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 51.16290748393021,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 7,
+            "enrichment": 0.7875
+          },
+          "permutation_p_value": 0.24075924075924077,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        },
+        "sensitivity_without_positive_neighbors": {
+          "positive_count": 176,
+          "background_count": 211,
+          "auc": 0.5133697759586385,
+          "auc_bootstrap_95_ci": [
+            0.4607577552778974,
+            0.5694571978672985
+          ],
+          "bootstrap_iterations": 1000,
+          "mean_positive_percentile": 51.16290748393021,
+          "top_1_percent": {
+            "top_cell_count": 4,
+            "positive_count_in_top": 1,
+            "enrichment": 0.5625
+          },
+          "top_5_percent": {
+            "top_cell_count": 20,
+            "positive_count_in_top": 7,
+            "enrichment": 0.7875
+          },
+          "permutation_p_value": 0.32667332667332666,
+          "permutation_iterations": 1000,
+          "positive_prevalence": 0.4444444444444444
+        }
+      }
+    }
+  },
+  "analog_cells_excluded_from_valid_positive_set": {
+    "not_in_grid": {
+      "count": 2,
+      "cells": [
+        {
+          "cell_key": "g_042.75_-64.25",
+          "analog_names": "Montagnais"
+        },
+        {
+          "cell_key": "g_073.75_029.75",
+          "analog_names": "Mjolnir"
+        }
+      ]
+    },
+    "not_scanned": {
+      "count": 0,
+      "cells": []
+    },
+    "score_nan": {
+      "count": 9,
+      "cells": [
+        {
+          "cell_key": "g_037.25_-76.25",
+          "analog_names": "Chesapeake Bay"
+        },
+        {
+          "cell_key": "g_042.25_-87.75",
+          "analog_names": "Des Plaines"
+        },
+        {
+          "cell_key": "g_048.75_-86.75",
+          "analog_names": "Slate Islands"
+        },
+        {
+          "cell_key": "g_058.25_022.75",
+          "analog_names": "Kaalijarv"
+        },
+        {
+          "cell_key": "g_059.25_022.75",
+          "analog_names": "Kardla"
+        },
+        {
+          "cell_key": "g_059.25_023.75",
+          "analog_names": "Neugrund"
+        },
+        {
+          "cell_key": "g_060.25_020.25",
+          "analog_names": "Lumparn"
+        },
+        {
+          "cell_key": "g_063.25_021.75",
+          "analog_names": "Soderfjarden"
+        },
+        {
+          "cell_key": "g_071.25_-156.75",
+          "analog_names": "Avak"
+        }
+      ]
+    },
+    "land_fraction_below_0_5": {
+      "count": 0,
+      "cells": []
+    }
+  },
+  "control_sites": [
+    {
+      "name": "Meteor Crater",
+      "cell_key": "g_035.25_-111.25",
+      "status": "scored",
+      "percentile": 81.31313131313132
+    },
+    {
+      "name": "Haughton",
+      "cell_key": "g_075.25_-89.75",
+      "status": "scored",
+      "percentile": 71.21212121212122
+    }
+  ],
+  "caveats": [
+    "190/192 USGS records are impact crater records.",
+    "Most positive cells correspond to crater records; their 50x50 km windows are crater-centered, so relief and roughness partly measure crater morphology and AUC can confound analog quality with crater-like terrain discrimination.",
+    "Results for target T-02 (Shackleton, Moon) do not apply to Mars targets.",
+    "analog_for is empty for 191 records, so all scored targets use the same positive cell set.",
+    "The negative set is unlabeled background, not confirmed non-analogs; AUC measures ranking of known analogs against background, not classification accuracy.",
+    "Atacama and the supplied Turkish sites are absent from the USGS known-analogs list.",
+    "This validation is not evidence for volcanic or carbonate analogs."
+  ],
+  "generated_at": "2026-11-15T11:10:08+03:00",
+  "parameters": {
+    "seed": 42,
+    "n_perm": 1000,
+    "n_boot": 1000,
+    "min_positives": 20
+  }
+}

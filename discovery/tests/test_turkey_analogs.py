@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from discovery.build_turkey_analogs import (
     FEATURES_PATH, FEATURE_SITE_PREFIXES, SCORING_FEATURES, build_records,
     coordinate_updates, load_feature_records, source_commit, validate,
@@ -11,8 +13,10 @@ from discovery.build_turkey_analogs import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "out" / "turkey_analogs.json"
+DATA_REASON = "requires ignored discovery/data/inputs/features.json"
 
 
+@pytest.mark.skipif(not FEATURES_PATH.exists(), reason=DATA_REASON)
 def test_turkey_features_refs_cells_and_qualitative_schema():
     feature_records = load_feature_records()
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
@@ -66,6 +70,7 @@ def test_turkey_features_refs_cells_and_qualitative_schema():
         _assert_no_metric_values(row, set(SCORING_FEATURES))
 
 
+@pytest.mark.skipif(not FEATURES_PATH.exists(), reason=DATA_REASON)
 def test_feature_refs_are_local_regional_pairs_for_mapped_sites():
     records = build_records()
     by_id = {row["region_id"]: row for row in records}
@@ -75,6 +80,7 @@ def test_feature_refs_are_local_regional_pairs_for_mapped_sites():
         assert all(ref["region_id"].endswith(f"_{ref['scale']}") for ref in refs)
 
 
+@pytest.mark.skipif(not FEATURES_PATH.exists(), reason=DATA_REASON)
 def test_feature_coordinate_shifts_and_recomputed_cells():
     updates = coordinate_updates(load_feature_records())
     assert [row["region_id"] for row in updates] == [f"E-TR-{i:02d}" for i in range(1, 7)]

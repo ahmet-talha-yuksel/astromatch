@@ -38,11 +38,20 @@ def load_scores(path: str | Path) -> pd.DataFrame:
     frame = frame.copy()
     frame["cell_id"] = frame["cell_id"].astype("string")
     frame["target_id"] = frame["target_id"].astype("string")
+    if "engine_region_id" in frame.columns:
+        frame["engine_region_id"] = frame["engine_region_id"].astype("string")
+        missing_engine_ids = frame["engine_region_id"].isna()
+        if missing_engine_ids.any():
+            raise ValueError("engine_region_id must be present for every score row")
     frame["score"] = pd.to_numeric(frame["score"], errors="coerce")
     finite = frame["score"].dropna()
     if not finite.between(0, 1).all():
         raise ValueError("Non-null score values must be in [0, 1]")
-    duplicate_mask = frame.duplicated(["cell_id", "target_id"], keep="first")
+    duplicate_columns = ["cell_id", "target_id"]
+    if "grid_source" in frame.columns:
+        frame["grid_source"] = frame["grid_source"].astype("string")
+        duplicate_columns.append("grid_source")
+    duplicate_mask = frame.duplicated(duplicate_columns, keep="first")
     if duplicate_mask.any():
         warnings.warn(
             f"Dropping {int(duplicate_mask.sum())} duplicate (cell_id, target_id) score rows; keeping first",

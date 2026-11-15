@@ -15,7 +15,7 @@ import pandas as pd
 from scipy.stats import rankdata
 
 from .analysis_utils import (
-    TARGET_IDS, UNSCORABLE_TARGETS, load_grid, non_overwriting_path,
+    TARGET_ENGINE_IDS, TARGET_IDS, UNSCORABLE_TARGETS, load_grid, non_overwriting_path,
     rank_percentiles, safe_json_value, scope_block, scores_by_key, timestamp_iso,
 )
 from .analog_mapping import cell_id
@@ -168,6 +168,9 @@ def analyze(
     for target_index, target_id in enumerate(TARGET_IDS):
         target_scores = keyed_scores.loc[keyed_scores.target_id.astype(str) == target_id]
         target_scores = target_scores.dropna(subset=["cell_key"])
+        criterion_columns = [c for c in target_scores.columns if str(c).startswith("s_")]
+        used_features = [c[2:] for c in criterion_columns if pd.to_numeric(target_scores[c], errors="coerce").notna().any()]
+        excluded_features = [c for c in SCORING_FEATURES if c not in used_features]
         score_map = target_scores.drop_duplicates("cell_key", keep="first").set_index("cell_key")["score"]
         joined = grid.set_index("cell_key").join(score_map.rename("score"), how="left")
         score_valid = joined.score.notna()
@@ -183,6 +186,10 @@ def analyze(
         base_rate = len(positives) / len(valid_keys) if valid_keys else None
         positive_summary.append({
             "target_id": target_id,
+            "engine_region_id": TARGET_ENGINE_IDS[target_id],
+            "used_feature_count": len(used_features),
+            "used_features": used_features,
+            "excluded_features": excluded_features,
             "valid_positive_cell_count": len(positives),
             "valid_cell_count": len(valid_keys),
             "base_rate": base_rate,
@@ -203,10 +210,17 @@ def analyze(
                     continue
                 excluded_analogs[reason].append({"cell_key": key, "analog_names": names})
 
-        if target_id in UNSCORABLE_TARGETS:
+        # The engine's evidence gates can make a formerly unscorable target
+        # scoreable when current scores are supplied. Keep the static reason
+        # only when this score file contains no finite cells for that target.
+        if target_id in UNSCORABLE_TARGETS and not len(valid_keys):
             target_results[target_id] = {
                 "status": "unscorable",
                 "reason": UNSCORABLE_TARGETS[target_id],
+                "engine_region_id": TARGET_ENGINE_IDS[target_id],
+                "used_feature_count": len(used_features),
+                "used_features": used_features,
+                "excluded_features": excluded_features,
                 "score": None,
                 "metrics": None,
             }
@@ -214,6 +228,10 @@ def analyze(
 
         result: dict[str, Any] = {
             "status": None,
+            "engine_region_id": TARGET_ENGINE_IDS[target_id],
+            "used_feature_count": len(used_features),
+            "used_features": used_features,
+            "excluded_features": excluded_features,
             "valid_cell_count": len(valid_keys),
             "valid_positive_cell_count": len(positives),
             "base_rate": base_rate,
@@ -346,7 +364,8 @@ def main() -> int:
     json_path.write_text(json.dumps(safe_json_value(result), ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     with csv_path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=[
-            "target_id", "status", "valid_positive_cell_count", "valid_cell_count", "base_rate",
+            "target_id", "engine_region_id", "status", "used_feature_count", "used_features", "excluded_features",
+            "valid_positive_cell_count", "valid_cell_count", "base_rate",
             "primary_auc", "primary_auc_ci_low", "primary_auc_ci_high",
             "sensitivity_auc", "sensitivity_auc_ci_low", "sensitivity_auc_ci_high", "reason", "scope",
         ])
@@ -358,7 +377,10 @@ def main() -> int:
             pci = primary.get("auc_bootstrap_95_ci", [None, None])
             sci = sensitivity.get("auc_bootstrap_95_ci", [None, None])
             writer.writerow({
-                "target_id": target_id, "status": item["status"],
+                "target_id": target_id, "engine_region_id": TARGET_ENGINE_IDS[target_id], "status": item["status"],
+                "used_feature_count": item.get("used_feature_count", 0),
+                "used_features": ";".join(item.get("used_features", [])),
+                "excluded_features": ";".join(item.get("excluded_features", [])),
                 "valid_positive_cell_count": item.get("valid_positive_cell_count", 0),
                 "valid_cell_count": item.get("valid_cell_count", 0), "base_rate": item.get("base_rate"),
                 "primary_auc": primary.get("auc"), "primary_auc_ci_low": pci[0], "primary_auc_ci_high": pci[1],

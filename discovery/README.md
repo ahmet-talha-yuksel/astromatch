@@ -12,7 +12,7 @@ The source Shapefile has 192 point records in EPSG:3857. The cleaned outputs ret
 
 These records are **not target-validated analogs**: 190/192 are impact craters, and 191 records have an empty `analog_for`. A candidate's proximity to a USGS-listed site does not mean that it is a validated analog for that target; it indicates geographic proximity only.
 
-For engine integration, Kişi 2 will align the adapter using `analog_id` → `region_id`, `theme` → `tags`, and `body="earth"` (option A). Do not merge the integration into main before that alignment is complete. USGS `g_...` cell keys do not match engine candidate IDs (`earth_grid_rNNN_cNNN`), so known-analog ranking and top-k recall do not work automatically in the engine. USGS validation is run separately with `discovery/validate_usgs`.
+The current engine adapter accepts these records: `analog_id` becomes `region_id`, `theme` becomes `tags`, the body is normalized to `earth`, and `analog_for` is preserved. USGS `g_...` cell keys still differ from engine grid IDs (`earth_grid_rNNN_cNNN`), so location-based validation is performed separately with `discovery/validate_usgs`.
 
 ## Turkey analog records
 
@@ -20,69 +20,104 @@ For engine integration, Kişi 2 will align the adapter using `analog_id` → `re
 
 ## Grid scope and global coordinate pool
 
-The processed pilot grid contains 408 cells: a Turkey-centered 20 by 20 pilot plus four Atacama and four Iceland cells. It is a regional sample, not a global grid. Of the 408 cells, 216 pass the resolution and six-feature comparability checks. The `global_grid.py` module remains a placeholder; it does not scan the globe.
+`data/inputs/earth_grid.parquet` is a regional pilot: 408 processed cells, 216 valid/comparable cells. It is centered on Turkey with small Atacama and Iceland samples; it is **not a global grid**. The separate `out/global_pool.parquet` contains coordinates only, not terrain features or scores. It uses 25 `global-land-mask` point samples per 0.5-degree cell and retains estimated land fraction >= 0.5. The current pool has 579 scanned cells (179 pilot, 400 validation sample), 1,639 `not_scanned`, and 83,694 `out_of_coverage`; the latter is a coverage label, not a measurement of all global terrain.
 
-`out/global_pool.parquet` is a separate coordinate-only pool generated over all 0.5-degree cell centers. Land fraction is approximate: 25 `global-land-mask` point samples per cell, retaining cells with estimated land fraction at least 0.5. It contains no terrain features or scores. It currently has 579 scanned cells (179 pilot, 400 validation sample), 1,639 `not_scanned`, and 83,694 `out_of_coverage`. `out_of_coverage` does not mean unscanned global terrain was measured.
+## Current scored results (engine c6e4be4)
 
-`out/global_candidates.geojson` is a scored export from the supplied regional grid. Its 216 features are not global coverage; its metadata records that scope.
+The current run is `out/runs/c6e4be4_v2/`, produced with engine commit `c6e4be499ebfac7e7d5fbcb544c027b74475eaf5`. Its complete inputs, package versions, commands, and source commits are recorded in `out/runs/c6e4be4_v2/RUN_INFO_v2.json`. The earlier engine `4ca89bc` results are retained for traceability under `out/archive/engine_4ca89bc/`; they predate calibration and are not current results.
 
-## Scoring, validation, and stability
+### Target identities and feature availability
 
-The scoring features are `slope_median_deg`, `slope_p90_deg`, `flat_fraction`, `tri_median_m`, `relief_m`, and `elevation_std_m`.
+`T-01`, `T-02`, and `T-03` retain their specification aliases for Jezero, Shackleton, and Marius Hills. Phoenix and Arcadia use their engine region IDs, `mars_phoenix_regional` and `mars_arcadia_regional`; they are not T-04/T-05 aliases. Optional T-04 Tharsis is not scored in this run. `T-04` in `out/turkey_analogs.json` names the optional Tharsis hypothesis.
 
-The pilot USGS validation (`out/validation/validation_results.json`) is `not_evaluable` for T-02 because none of the known analog cells overlap its valid scored cells. The independent sample results are under `out/validation/usgs_sample/`: 176 valid positive cells and 220 valid background cells for T-02. T-01 and T-03 are unscorable. AUC is 0.4621 with bootstrap 95% interval [0.4432, 0.4802], permutation p=1.0, mean positive percentile 48.02, and top 1% / 5% enrichment 0.5625 / 0.1125. The result is negative: **the score did not distinguish known analogs from background**. Sensitivity excluding positive neighbors gives AUC 0.4604 [0.4408, 0.4798]. The background is unlabeled, not confirmed negative examples. Diagnostics are in `out/validation/usgs_sample/diagnostics.json` and `.csv` (or timestamped equivalents if those names already existed).
+Jezero is evaluated with five of six scoring features; `slope_p90_deg` is excluded. Its target record has `resolution_validated=false`; all six feature `comparable` flags in that source record are false. Marius Hills has no valid score (`resolution_not_validated`) and all six scoring features are excluded. The score and validation outputs retain both the requested target ID and `engine_region_id`.
 
-Stability outputs are under `out/stability/`. They use T-02, 50 runs per noise level (1%, 5%, 10%), seed 42, and separate `end_to_end` and `frozen` sigma modes. At 1% noise, mean top-5 Jaccard is 0.860 / 0.867 and mean Spearman is 0.99964 / 0.99967 for end-to-end / frozen. At 5%, the values are 0.636 / 0.625 and 0.99542 / 0.99558. At 10%, they are 0.414 / 0.417 and 0.98466 / 0.98508. These are regional-grid results for T-02; they do not establish stability for Mars targets.
+The engine loads `processing/out/real/features.json`, followed by `processing/out/mars_measured/features.json`; for equal or unknown processing versions the later file wins. The `engine_refresh` copy at commit `c6e4be4` was used. Neither source file differs between `c6e4be4` and `origin/main`. The discovered regional target values are:
 
-Most USGS records are impact craters (190 of 192). Crater-centered 50 by 50 km windows can make relief and roughness reflect crater morphology, so AUC can confound analog quality with crater-like terrain discrimination. T-02 is Shackleton on the Moon; these results do not apply to Mars. Univariate AUC is not evidence of causality. Background cells were selected from those passing WorldCover QA; `VALIDATION_SAMPLE.md` does not state whether the same QA was applied to analog cells.
+| Target / loaded record | resolution_validated | slope median (deg) | slope p90 (deg) | flat fraction | TRI median (m) | relief (m) | elevation std (m) | comparable flags (same feature order) |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| Jezero / `mars_jezero_regional` (`mars_measured`) | false | 1.4405 | 6.8147 | 0.8421 | 75.3586 | 805.8346 | 275.6281 | F, F, F, F, F, F |
+| Shackleton / `moon_shackleton_regional` (`real`) | true | 8.3934 | 22.7676 | 0.2596 | 413.3622 | 2783.0303 | 918.2550 | T, T, T, T, T, T |
+| Phoenix / `mars_phoenix_regional` (`mars_measured`) | true | 0.5178 | 1.8192 | 0.9794 | 26.6621 | 243.3709 | 88.3802 | T, T, T, T, T, T |
+| Arcadia / `mars_arcadia_regional` (`mars_measured`) | true | 1.5613 | 5.5627 | 0.8828 | 72.7447 | 555.9476 | 194.3952 | T, T, T, T, T, T |
 
-## Integration
+All four source records have `processing_version=0.3.0`. Their `quality.sampling.note` says that nonzero counts indicate measured source bins, while other DEM bins are interpolated, and that this diagnostic does not automatically validate effective resolution. No separate probe explanation was present. In these four rows, target AUC decreases monotonically as `relief_m` and `slope_p90_deg` increase; this is a descriptive ordering of these records only.
 
-The adapter mapping described above remains an integration requirement. The engine does not load `turkey_analogs.json` or `global_candidates.geojson`.
+### Independent USGS sample validation
 
-## File map
+The primary validation uses only `earth_grid_validation.parquet`, not the 408-cell pilot. Each scoreable target uses 176 positive USGS cells and 220 background cells. Bootstrap and permutation tests use 1,000 iterations. Bonferroni threshold is `0.05/4 = 0.0125`.
 
-- `data/raw/`: downloaded USGS ZIP and metadata; `data/raw/extracted/` contains the source Shapefile components.
-- `data/processed/usgs_analogs_clean.geojson`, `usgs_analogs_clean.csv`, `cleaning_report.json`: source preserving cleaned release and audit report.
-- `data/inputs/`: pilot grid, coverage, real `features.json`, scores, validation sample snapshot, and source manifests. These inputs are ignored by Git.
-- `out/known_analogs.json`: 192 USGS records mapped to cell keys.
-- `out/turkey_analogs.json`: six qualitative Turkish site records.
-- `out/global_pool.parquet`: coordinate-only global land-cell pool; no features or scores.
-- `out/global_candidates.geojson`: scored cells from the regional pilot grid.
-- `out/validation/`: pilot and independent-sample validation reports and request artifacts.
-- `out/stability/`: T-02 noise stability reports for both sigma modes.
-- `out/scores/`: traceable copies of pilot and validation score tables.
+| Target | AUC [95% bootstrap CI] | Permutation p | Mean positive percentile | Bonferroni |
+|---|---:|---:|---:|---|
+| T-01 / Jezero | 0.5044 [0.4496, 0.5652] | 0.4246 | 50.37 | not passed |
+| T-02 / Shackleton | 0.4684 [0.4111, 0.5279] | 0.8601 | 48.37 | not passed |
+| T-03 / Marius Hills | null (unscorable) | null | null | not tested |
+| `mars_phoenix_regional` | 0.6433 [0.5910, 0.6948] | 0.0010 | 58.09 | passed |
+| `mars_arcadia_regional` | 0.5187 [0.4601, 0.5736] | 0.2408 | 51.16 | not passed |
 
-## Commands
+Phoenix is the only result passing the Bonferroni threshold. Its interpretation is reference dependent. The flat-fraction reference AUC is 0.6063; its latitude-stratified pooled AUC is 0.6284. The target-score latitude-stratified pooled AUCs are Jezero 0.4868, Shackleton 0.4482, Phoenix 0.6373, and Arcadia 0.4976. Per-band counts and AUCs are in `usgs_sample/diagnostics_v2.json`.
 
-Run from the repository root with the discovery environment activated:
+The paired bootstrap intervals below are for `target AUC ? reference AUC`. If an interval includes zero, the target AUC is ?referanstan ay?rt edilemez?; if wholly positive, ?referanstan y?ksek?; if wholly negative, ?referanstan d???k?.
+
+| Target | flat_fraction | -relief_m | -slope_median_deg | -elevation_std_m |
+|---|---|---|---|---|
+| T-01 | [-0.2071, -0.0004] ? referanstan d???k | [-0.1323, 0.0961] ? referanstan ay?rt edilemez | [-0.1156, 0.1058] ? referanstan ay?rt edilemez | [-0.1407, 0.0827] ? referanstan ay?rt edilemez |
+| T-02 | [-0.2370, -0.0296] ? referanstan d???k | [-0.1642, 0.0615] ? referanstan ay?rt edilemez | [-0.1549, 0.0718] ? referanstan ay?rt edilemez | [-0.1665, 0.0468] ? referanstan ay?rt edilemez |
+| Phoenix | [-0.0339, 0.1172] ? referanstan ay?rt edilemez | [0.0294, 0.2087] ? referanstan y?ksek | [0.0505, 0.2140] ? referanstan y?ksek | [0.0322, 0.1989] ? referanstan y?ksek |
+| Arcadia | [-0.1886, 0.0244] ? referanstan ay?rt edilemez | [-0.1152, 0.1030] ? referanstan ay?rt edilemez | [-0.0935, 0.1218] ? referanstan ay?rt edilemez | [-0.1213, 0.0922] ? referanstan ay?rt edilemez |
+
+All target validations use the same positive set; `analog_for` is empty for 191/192 USGS records. Therefore, these results are **not evidence of target-specific analog quality**. The background was selected from cells that passed WorldCover QA; the sample documentation does not say whether identical QA was applied to analog cells. A univariate AUC is not causal evidence.
+
+### Stability
+
+The T-02/Shackleton stability run uses the 408-cell pilot, 50 repetitions per noise level, seed 42, and noise levels 1%, 5%, and 10%. Jaccard is mean top-5 Jaccard; Spearman is mean rank correlation.
+
+| Sigma mode | Noise | Top-5 Jaccard | Spearman |
+|---|---:|---:|---:|
+| end_to_end | 1% | 1.0000 | 0.999562 |
+| end_to_end | 5% | 1.0000 | 0.996346 |
+| end_to_end | 10% | 0.9933 | 0.992225 |
+| frozen | 1% | 1.0000 | 0.999618 |
+| frozen | 5% | 1.0000 | 0.996668 |
+| frozen | 10% | 0.9933 | 0.992630 |
+
+These are regional pilot results for Shackleton, not global stability results.
+
+### Candidate export and archive map
+
+`out/global_candidates.geojson` is the canonical copy of `out/runs/c6e4be4_v2/global_candidates.geojson`: 589 features, comprising 216 pilot, 370 validation-sample, and 3 `reference_only` features. The grid scope is regional, not global; the file contains scored candidates only where valid grid scores exist plus reference locations. It is not a global 0.5-degree terrain-feature grid.
+
+- `out/runs/c6e4be4_v2/`: current scores, validation, diagnostics, stability, export, and `RUN_INFO_v2.json`.
+- `out/archive/engine_4ca89bc/`: prior calibration-era score, validation, stability, and GeoJSON outputs, retained only for traceability.
+- `out/validation/`: motor-independent coverage reports and validation-sample request artifacts.
+- `C:\Users\eraym\astromatch_ext\discarded\runs_c6e4be4\`: old alias-label run directory moved outside the repository.
+
+### Reproduction
+
+Run from the repository root with the discovery environment and the external engine archive available. The ignored source inputs are restored as bytes from their recorded source commits; do not use PowerShell text redirection for Parquet files. For example:
 
 ```powershell
-python -m pip install -r discovery/requirements.txt
+python -c "import pathlib,subprocess; src='processing/out/earth_grid.parquet'; dst=pathlib.Path('discovery/data/inputs/earth_grid.parquet'); dst.parent.mkdir(parents=True,exist_ok=True); dst.write_bytes(subprocess.run(['git','show',f'origin/main:{src}'],check=True,stdout=subprocess.PIPE).stdout)"
 ```
 
-Build the Turkish records and coordinate pool:
+Restore `earth_grid_validation.parquet`, `features.json`, and coverage files from the commits recorded in `data/inputs/SOURCE*.txt` using the same byte-writing pattern and their recorded Git paths. Recreate the external engine archive with:
 
 ```powershell
-python -m discovery.build_turkey_analogs
-python -m discovery.global_pool
+git archive c6e4be4 engine processing/out/real/features.json processing/out/mars_measured/features.json | tar -x -C C:\Users\eraym\astromatch_ext\engine_refresh
 ```
 
-Validate the independent sample after its score table is available:
+The v2 score tables were generated by calling `engine.validation_api.score_grid` for each target with `weights=None`, `sigma=None`, and `return_criteria=True`; target IDs, feature mapping, output paths, input commits, and package versions are recorded in `out/runs/c6e4be4_v2/RUN_INFO_v2.json`. Re-run validation with:
 
 ```powershell
-python -m discovery.validate_usgs --grid discovery/data/inputs/earth_grid_validation.parquet --scores discovery/data/inputs/scores_validation.parquet --out-dir discovery/out/validation/usgs_sample
+python -m discovery.validate_usgs --grid discovery/data/inputs/earth_grid_validation.parquet --scores discovery/out/runs/c6e4be4_v2/scores_validation.parquet --out-dir discovery/out/runs/c6e4be4_v2/usgs_sample
 ```
 
-Run stability separately for each sigma mode, supplying the external engine directory:
+Re-run the two stability modes and export with:
 
 ```powershell
-python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\Users\eraym\astromatch_ext\engine_main --target-id T-02 --sigma-mode end_to_end
-python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\Users\eraym\astromatch_ext\engine_main --target-id T-02 --sigma-mode frozen
+python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\Users\eraym\astromatch_ext\engine_refresh --target-id T-02 --sigma-mode end_to_end --out-dir discovery/out/runs/c6e4be4_v2/stability
+python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\Users\eraym\astromatch_ext\engine_refresh --target-id T-02 --sigma-mode frozen --out-dir discovery/out/runs/c6e4be4_v2/stability
+python -m discovery.export_global_candidates --grid discovery/data/inputs/earth_grid.parquet discovery/data/inputs/earth_grid_validation.parquet --scores discovery/out/runs/c6e4be4_v2/scores_pilot_408.parquet discovery/out/runs/c6e4be4_v2/scores_validation.parquet --analogs discovery/out/known_analogs.json --turkey discovery/out/turkey_analogs.json --top-k 500 --out discovery/out/global_candidates.geojson --engine-commit c6e4be499ebfac7e7d5fbcb544c027b74475eaf5
 ```
 
-Export the scored regional candidates:
-
-```powershell
-python -m discovery.export_global_candidates --grid discovery/data/inputs/earth_grid.parquet --scores discovery/data/inputs/scores_all.parquet --analogs discovery/out/known_analogs.json --turkey discovery/out/turkey_analogs.json
-```
+The validation and stability commands write results; preserve existing run artifacts before executing them again.
