@@ -12,11 +12,11 @@ from typing import Any
 import pandas as pd
 
 from .analysis_utils import (
-    SCORING_FEATURES, TARGET_IDS, UNSCORABLE_TARGETS, load_grid,
+    SCORING_FEATURES, TARGET_ENGINE_IDS, TARGET_IDS, UNSCORABLE_TARGETS, load_grid,
     non_overwriting_path, safe_json_value, scope_block, scores_by_key, timestamp_iso,
 )
 from .analog_mapping import cell_id
-from .grid_utils import cell_polygon
+from .grid_utils import cell_polygon, parse_cell_id
 from .score_io import load_scores
 
 
@@ -56,70 +56,132 @@ def turkey_groups(path: Path | None) -> dict[str, list[str]]:
     return dict(groups)
 
 
+def load_grid_sources(paths: list[Path]) -> pd.DataFrame:
+    frames = []
+    for path in paths:
+        frame = pd.read_parquet(path).copy()
+        if "lat" not in frame or "lon" not in frame:
+            raise ValueError(f"Grid is missing coordinates: {path}")
+        frame["cell_key"] = [cell_id(float(lat), float(lon)) for lat, lon in zip(frame.lat, frame.lon)]
+        frame["grid_source"] = "validation_sample" if "validation" in path.stem.lower() else "pilot"
+        frames.append(frame)
+    if not frames:
+        raise ValueError("At least one grid is required")
+    return pd.concat(frames, ignore_index=True, sort=False)
+
+
 def build_collection(
     grid: pd.DataFrame, score_frame: pd.DataFrame, analogs: dict[str, list[str]],
     turkey: dict[str, list[str]], top_k: int, precision: int,
+    engine_commit: str | None = None,
 ) -> dict[str, Any]:
     keyed_scores = scores_by_key(score_frame, grid)
-    grid_by_key = grid.drop_duplicates("cell_key", keep="first").set_index("cell_key")
-    reasons: dict[str, set[str]] = defaultdict(set)
-    score_map: dict[str, dict[str, float]] = defaultdict(dict)
-    rank_map: dict[str, dict[str, int]] = defaultdict(dict)
-    criteria_map: dict[str, dict[str, dict[str, float]]] = defaultdict(dict)
+    if "grid_source" not in grid:
+        grid = grid.copy()
+        grid["grid_source"] = "pilot"
+    grid = grid.reset_index(drop=True)
+    reasons: dict[tuple[str, str], set[str]] = defaultdict(set)
+    score_map: dict[tuple[str, str], dict[str, float]] = defaultdict(dict)
+    rank_map: dict[tuple[str, str], dict[str, int]] = defaultdict(dict)
+    criteria_map: dict[tuple[str, str], dict[str, dict[str, float]]] = defaultdict(dict)
+    grid_lookup = {}
+    for idx, row in grid.iterrows():
+        source, key = str(row.grid_source), str(row.cell_key)
+        grid_lookup[(source, key)] = idx
+    if "grid_source" in score_frame.columns:
+        score_lookup = {
+            (str(row.grid_source), str(row.cell_id), str(row.target_id)): row
+            for row in keyed_scores.itertuples(index=False)
+        }
+    else:
+        score_lookup = {}
+        for row in keyed_scores.itertuples(index=False):
+            score_lookup[("*", str(row.cell_key), str(row.target_id))] = row
+
+    target_states = {}
 
     for target_id in TARGET_IDS:
-        if target_id in UNSCORABLE_TARGETS:
+        selected_rows = []
+        feature_columns = [f"s_{feature}" for feature in SCORING_FEATURES if f"s_{feature}" in keyed_scores.columns]
+        valid_target = keyed_scores.loc[keyed_scores.target_id.astype(str).eq(target_id)]
+        used_features = [col[2:] for col in feature_columns if pd.to_numeric(valid_target[col], errors="coerce").notna().any()]
+        target_states[target_id] = {
+            "engine_region_id": TARGET_ENGINE_IDS[target_id],
+            "status": "scorable" if valid_target.score.notna().any() else "unscorable",
+            "used_feature_count": len(used_features),
+            "used_features": used_features,
+            "excluded_features": [feature for feature in SCORING_FEATURES if feature not in used_features],
+        }
+        if target_states[target_id]["status"] == "unscorable":
             continue
-        target = keyed_scores.loc[
-            keyed_scores.target_id.astype(str).eq(target_id)
-            & keyed_scores.cell_key.notna()
-            & keyed_scores.score.notna()
-        ].copy()
-        target = target.drop_duplicates("cell_key", keep="first")
-        target = target.loc[target.cell_key.astype(str).isin(grid_by_key.index)]
-        target = target.sort_values(["score", "cell_key"], ascending=[False, True], kind="mergesort")
-        selected = target.head(top_k)
-        for rank, (_, row) in enumerate(selected.iterrows(), start=1):
-            key = str(row.cell_key)
-            reasons[key].add(f"top_{target_id}")
-            score_map[key][target_id] = float(row.score)
-            rank_map[key][target_id] = rank
+        for (source, key), idx in grid_lookup.items():
+            row = grid.iloc[idx]
+            cell_id_value = str(row.get("cell_id", key))
+            match = score_lookup.get((source, cell_id_value, target_id))
+            if match is None and "grid_source" not in score_frame.columns:
+                match = score_lookup.get(("*", key, target_id))
+            if match is None or pd.isna(match.score):
+                continue
+            selected_rows.append({"source": source, "key": key, "idx": idx, "score": float(match.score), "match": match})
+        selected_rows.sort(key=lambda item: (-item["score"], item["key"], item["source"]))
+        for rank, item in enumerate(selected_rows[:top_k], start=1):
+            pair, row, match = (item["source"], item["key"]), grid.iloc[item["idx"]], item["match"]
+            reasons[pair].add(f"top_{target_id}")
+            score_map[pair][target_id] = item["score"]
+            rank_map[pair][target_id] = rank
             criteria = {}
             for feature in SCORING_FEATURES:
                 col = f"s_{feature}"
-                if col in target.columns and pd.notna(row.get(col)):
-                    criteria[col] = float(row[col])
+                value = getattr(match, col, None)
+                if value is not None and pd.notna(value):
+                    criteria[col] = float(value)
             if criteria:
-                criteria_map[key][target_id] = criteria
+                criteria_map[pair][target_id] = criteria
 
-    for key in turkey:
-        if key in grid_by_key.index:
-            reasons[key].add("turkey_site")
-    for key in analogs:
-        if key in grid_by_key.index:
-            reasons[key].add("usgs_analog")
+    for pair in reasons:
+        _, key = pair
+        if key in turkey:
+            reasons[pair].add("turkey_site")
+        if key in analogs:
+            reasons[pair].add("usgs_analog")
+    for source, key in grid_lookup:
+        pair = (source, key)
+        if key in turkey:
+            reasons[pair].add("turkey_site")
+        if key in analogs:
+            reasons[pair].add("usgs_analog")
+    processed_keys = {key for _, key in grid_lookup}
+    for key in (set(turkey) | set(analogs)) - processed_keys:
+        pair = ("reference_only", key)
+        if key in turkey:
+            reasons[pair].add("turkey_site")
+        if key in analogs:
+            reasons[pair].add("usgs_analog")
 
     features = []
-    for key in sorted(reasons):
-        row = grid_by_key.loc[key]
-        lat, lon = float(row.lat), float(row.lon)
+    for source, key in sorted(reasons):
+        row = grid.iloc[grid_lookup[(source, key)]] if source != "reference_only" else None
+        pair = (source, key)
+        lat, lon = (float(row.lat), float(row.lon)) if row is not None else parse_cell_id(key)
         props: dict[str, Any] = {
-            "cell_id": row.get("cell_id", key),
+            "cell_id": row.get("cell_id", key) if row is not None else key,
             "cell_key": key,
+            "grid_source": source,
             "lat": round(lat, precision),
             "lon": round(lon, precision),
             "features": {
-                name: (round(float(row[name]), precision) if pd.notna(row.get(name)) else None)
+                name: (round(float(row[name]), precision) if row is not None and pd.notna(row.get(name)) else None)
                 for name in SCORING_FEATURES
             },
-            "scores": {target_id: score_map[key].get(target_id) for target_id in TARGET_IDS},
-            "ranks": {target_id: rank_map[key].get(target_id) for target_id in TARGET_IDS},
+            "scores": {target_id: score_map[pair].get(target_id) for target_id in TARGET_IDS},
+            "ranks": {target_id: rank_map[pair].get(target_id) for target_id in TARGET_IDS},
+            "engine_region_ids": {target_id: TARGET_ENGINE_IDS[target_id] for target_id in TARGET_IDS},
             "turkey_region_ids": turkey.get(key, []),
             "usgs_analog_count": len(analogs.get(key, [])),
-            "selection_reasons": sorted(reasons[key]),
+            "selection_reasons": sorted(reasons[pair]),
         }
-        if key in criteria_map:
-            props["criterion_scores"] = criteria_map[key]
+        if pair in criteria_map:
+            props["criterion_scores"] = criteria_map[pair]
         feature = {
             "type": "Feature",
             "geometry": cell_polygon(key),
@@ -131,7 +193,8 @@ def build_collection(
         "type": "FeatureCollection",
         "metadata": {
             "scope": scope_block(grid),
-            "unscorable_targets": UNSCORABLE_TARGETS,
+            "targets": target_states,
+            "engine_commit": engine_commit,
             "generated_at": timestamp_iso(),
         },
         "features": features,
@@ -141,24 +204,24 @@ def build_collection(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--grid", nargs="+", type=Path, default=[DEFAULT_GRID])
-    parser.add_argument("--scores", type=Path, default=DEFAULT_SCORES)
+    parser.add_argument("--scores", nargs="+", type=Path, default=[DEFAULT_SCORES])
     parser.add_argument("--analogs", type=Path, default=DEFAULT_ANALOGS)
     parser.add_argument("--turkey", type=Path, default=DEFAULT_TURKEY)
     parser.add_argument("--top-k", type=int, default=500)
     parser.add_argument("--precision", type=int, default=4)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--engine-commit", default=None)
     args = parser.parse_args()
     if args.top_k < 1 or args.precision < 0:
         parser.error("--top-k must be positive and --precision non-negative")
-    if not args.scores.exists():
-        raise FileNotFoundError(
-            f"Person 2 score export not found: {args.scores}; expected scores_all.parquet or scores_all.csv"
-        )
-    grid = load_grid(args.grid)
-    scores = load_scores(args.scores)
+    missing_scores = [path for path in args.scores if not path.exists()]
+    if missing_scores:
+        raise FileNotFoundError(f"Score file(s) not found: {missing_scores}")
+    grid = load_grid_sources(args.grid)
+    scores = pd.concat([load_scores(path) for path in args.scores], ignore_index=True, sort=False)
     analogs = analog_groups(args.analogs)
     turkey = turkey_groups(args.turkey)
-    collection = build_collection(grid, scores, analogs, turkey, args.top_k, args.precision)
+    collection = build_collection(grid, scores, analogs, turkey, args.top_k, args.precision, args.engine_commit)
     payload = json.dumps(safe_json_value(collection), ensure_ascii=False, separators=(",", ":"), allow_nan=False)
     size = len(payload.encode("utf-8"))
     if size > MAX_BYTES:

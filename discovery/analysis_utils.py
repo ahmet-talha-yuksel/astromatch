@@ -20,7 +20,14 @@ SCORING_FEATURES = (
     "slope_median_deg", "slope_p90_deg", "flat_fraction", "tri_median_m",
     "relief_m", "elevation_std_m",
 )
-TARGET_IDS = ("T-01", "T-02", "T-03")
+TARGET_ENGINE_IDS = {
+    "T-01": "mars_jezero_regional",
+    "T-02": "moon_shackleton_regional",
+    "T-03": "moon_marius_hills_regional",
+    "mars_phoenix_regional": "mars_phoenix_regional",
+    "mars_arcadia_regional": "mars_arcadia_regional",
+}
+TARGET_IDS = tuple(TARGET_ENGINE_IDS)
 UNSCORABLE_TARGETS = {
     "T-01": "unscorable",
     "T-03": "unscorable",

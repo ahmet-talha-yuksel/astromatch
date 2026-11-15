@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import pytest
+
 from discovery.analog_mapping import cell_id
-from discovery.build_turkey_analogs import load_feature_records
+from discovery.build_turkey_analogs import FEATURES_PATH, load_feature_records
 from discovery.global_pool import include_land_cell, land_fraction_5x5, scan_status
 from discovery.grid_utils import parse_cell_id
 
@@ -13,6 +15,7 @@ def test_atacama_cell_is_retained_by_land_threshold():
     assert include_land_cell(lat, lon)
 
 
+@pytest.mark.skipif(not FEATURES_PATH.exists(), reason="requires ignored discovery/data/inputs/features.json")
 def test_salda_cell_is_retained_by_land_threshold():
     record = load_feature_records()["earth_salda_regional"]
     key = cell_id(float(record["lat"]), float(record["lon"]))

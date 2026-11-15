@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from discovery.analysis_utils import SCORING_FEATURES, load_grid
+from discovery.analysis_utils import SCORING_FEATURES, SOURCE_FILE, TARGET_ENGINE_IDS, TARGET_IDS, load_grid
 from discovery.analog_mapping import cell_id
 from discovery.export_global_candidates import build_collection
 from discovery.grid_utils import cell_bounds, cell_polygon, neighbor_keys, parse_cell_id
@@ -105,16 +105,20 @@ def test_grid_merge_uses_coordinate_cell_key_and_deduplicates(tmp_path):
 
 
 def test_load_scores_parquet_and_csv(tmp_path):
-    frame = pd.DataFrame({"cell_id": ["earth_grid_r254_c418"], "target_id": ["T-02"], "score": [0.75]})
+    frame = pd.DataFrame({"cell_id": ["earth_grid_r254_c418"], "target_id": ["T-02"],
+                          "engine_region_id": ["moon_shackleton_regional"], "grid_source": ["pilot"], "score": [0.75]})
     parquet = tmp_path / "scores_all.parquet"
     csv = tmp_path / "scores_all.csv"
     frame.to_parquet(parquet, index=False)
     frame.to_csv(csv, index=False)
     assert load_scores(parquet).iloc[0].score == pytest.approx(0.75)
+    assert load_scores(parquet).iloc[0].engine_region_id == "moon_shackleton_regional"
+    assert load_scores(parquet).iloc[0].grid_source == "pilot"
     assert load_scores(csv).iloc[0].score == pytest.approx(0.75)
     assert load_scores(tmp_path).iloc[0].target_id == "T-02"
 
 
+@pytest.mark.skipif(not SOURCE_FILE.exists(), reason="requires ignored discovery/data/inputs/SOURCE.txt")
 def test_export_converts_nan_to_null():
     grid = _grid(["g_000.25_000.25"])
     grid.loc[0, "elevation_std_m"] = np.nan
@@ -123,10 +127,36 @@ def test_export_converts_nan_to_null():
     feature = collection["features"][0]
     assert feature["properties"]["scores"]["T-01"] is None
     assert feature["properties"]["scores"]["T-02"] == 0.8
+    assert feature["properties"]["grid_source"] == "pilot"
+    assert feature["properties"]["engine_region_ids"]["T-02"] == "moon_shackleton_regional"
+    assert "top_T-02" in feature["properties"]["selection_reasons"]
     assert feature["properties"]["features"]["elevation_std_m"] is None
     encoded = json.dumps(collection, allow_nan=False)
     assert '"T-01": null' in encoded
     assert "metadata" in collection and "scope" in collection["metadata"]
+
+
+def test_target_identity_mapping_uses_engine_region_ids():
+    assert TARGET_IDS == ("T-01", "T-02", "T-03", "mars_phoenix_regional", "mars_arcadia_regional")
+    assert TARGET_ENGINE_IDS["T-01"] == "mars_jezero_regional"
+    assert TARGET_ENGINE_IDS["T-03"] == "moon_marius_hills_regional"
+
+
+@pytest.mark.skipif(not SOURCE_FILE.exists(), reason="requires ignored discovery/data/inputs/SOURCE.txt")
+def test_export_keeps_reference_cells_outside_processed_grids_unscored():
+    grid = _grid(["g_000.25_000.25"])
+    scores = pd.DataFrame({"cell_id": grid.cell_key.tolist(), "target_id": ["T-02"], "score": [0.8]})
+    collection = build_collection(
+        grid, scores, {"g_010.25_010.25": ["USGS site"]},
+        {"g_020.25_020.25": ["E-TR-X"]}, top_k=1, precision=4,
+    )
+    refs = {f["properties"]["cell_key"]: f["properties"] for f in collection["features"]
+            if f["properties"]["grid_source"] == "reference_only"}
+    assert set(refs) == {"g_010.25_010.25", "g_020.25_020.25"}
+    assert refs["g_010.25_010.25"]["features"]["relief_m"] is None
+    assert refs["g_010.25_010.25"]["scores"]["T-02"] is None
+    assert refs["g_010.25_010.25"]["usgs_analog_count"] == 1
+    assert refs["g_020.25_020.25"]["turkey_region_ids"] == ["E-TR-X"]
 
 
 def _grid(keys: list[str]) -> pd.DataFrame:

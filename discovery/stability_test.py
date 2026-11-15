@@ -15,7 +15,7 @@ import pandas as pd
 from scipy.stats import spearmanr
 
 from .analysis_utils import (
-    SCORING_FEATURES, load_grid, non_overwriting_path, safe_json_value,
+    SCORING_FEATURES, TARGET_ENGINE_IDS, load_grid, non_overwriting_path, safe_json_value,
     scope_block, timestamp_iso,
 )
 
@@ -47,9 +47,10 @@ def load_ranker(spec: str, engine_path: Path | None):
     return function
 
 
-def call_ranker(ranker, grid_df: pd.DataFrame, target_id: str, weights: dict | None, sigma: Any):
+def call_ranker(ranker, grid_df: pd.DataFrame, target_id: str, weights: dict | None, sigma: Any, return_criteria: bool = False):
     result = ranker(
-        grid_df, target_id, weights=weights, sigma=sigma, return_criteria=False
+        grid_df, TARGET_ENGINE_IDS.get(target_id, target_id), weights=weights, sigma=sigma,
+        return_criteria=return_criteria
     )
     if not isinstance(result, pd.DataFrame):
         raise TypeError("score_grid must return a pandas DataFrame")
@@ -61,7 +62,8 @@ def call_ranker(ranker, grid_df: pd.DataFrame, target_id: str, weights: dict | N
     output["score"] = pd.to_numeric(output.score, errors="coerce")
     output = output.dropna(subset=["score"]).drop_duplicates("cell_id", keep="first")
     sigma_used = result.attrs.get("sigma")
-    return output.set_index("cell_id").score, sigma_used
+    used_features = [column[2:] for column in result.columns if column.startswith("s_") and pd.to_numeric(result[column], errors="coerce").notna().any()]
+    return output.set_index("cell_id").score, sigma_used, used_features
 
 
 def top_keys(scores: pd.Series, count: int = 5) -> list[str]:
@@ -103,7 +105,9 @@ def summarize_mode(
     sigma_mode: str, n_runs: int, seed: int,
 ) -> dict[str, Any]:
     sigma_arg = "frozen" if sigma_mode == "frozen" else None
-    baseline, baseline_sigma = call_ranker(ranker, grid.copy(deep=True), target_id, weights, sigma_arg)
+    baseline, baseline_sigma, used_features = call_ranker(
+        ranker, grid.copy(deep=True), target_id, weights, sigma_arg, return_criteria=True
+    )
     if baseline.empty:
         raise ValueError(f"Ranker returned no finite scores for target {target_id}")
     baseline_top = set(top_keys(baseline))
@@ -116,7 +120,7 @@ def summarize_mode(
         sigma_values: list[Any] = []
         for run_index in range(n_runs):
             perturbed = noisy_grid(grid, level, seed + run_index)
-            scores, sigma_used = call_ranker(ranker, perturbed, target_id, weights, sigma_arg)
+            scores, sigma_used, _ = call_ranker(ranker, perturbed, target_id, weights, sigma_arg)
             sigma_values.append(safe_json_value(sigma_used))
             jaccards.append(jaccard(baseline_top, set(top_keys(scores))))
             if top_keys(scores, 1) and top_keys(scores, 1)[0] == baseline_winner:
@@ -139,6 +143,10 @@ def summarize_mode(
         }
     return {
         "target_id": target_id,
+        "engine_region_id": TARGET_ENGINE_IDS.get(target_id, target_id),
+        "used_feature_count": len(used_features),
+        "used_features": used_features,
+        "excluded_features": [feature for feature in SCORING_FEATURES if feature not in used_features],
         "sigma_mode": sigma_mode,
         "sigma_baseline": safe_json_value(baseline_sigma),
         "baseline_cell_count": len(baseline),

@@ -1,0 +1,40 @@
+{
+  "engine_commit": "c6e4be499ebfac7e7d5fbcb544c027b74475eaf5",
+  "grid_source_commits": {
+    "earth_grid.parquet": "0c851bf2dbd0d9c5fd398770440da57079851eee",
+    "earth_grid_validation.parquet": "bc22a67e29ce5c424480c434220c6be454b1d256",
+    "features.json": "0c851bf2dbd0d9c5fd398770440da57079851eee"
+  },
+  "generated_at": "2026-11-15T11:13:31+03:00",
+  "commands": [
+    "python -m discovery.validate_usgs --grid discovery/data/inputs/earth_grid_validation.parquet --scores discovery/out/runs/c6e4be4_v2/scores_validation.parquet --out-dir discovery/out/runs/c6e4be4_v2/usgs_sample",
+    "python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\\Users\\eraym\\astromatch_ext\\engine_refresh --target-id T-02 --sigma-mode end_to_end --out-dir discovery/out/runs/c6e4be4_v2/stability",
+    "python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\\Users\\eraym\\astromatch_ext\\engine_refresh --target-id T-02 --sigma-mode frozen --out-dir discovery/out/runs/c6e4be4_v2/stability",
+    "python -m discovery.diagnose_validation --grid discovery/data/inputs/earth_grid_validation.parquet --sample-map discovery/data/inputs/validation_sample/cell_key_map.csv --scores discovery/out/runs/c6e4be4_v2/scores_validation.parquet --analogs discovery/out/known_analogs.json --validation-results discovery/out/runs/c6e4be4_v2/usgs_sample/validation_results.json --out-dir discovery/out/runs/c6e4be4_v2/usgs_sample --n-boot 1000 --seed 42",
+    "python -m discovery.export_global_candidates --grid discovery/data/inputs/earth_grid.parquet discovery/data/inputs/earth_grid_validation.parquet --scores discovery/out/runs/c6e4be4_v2/scores_pilot_408.parquet discovery/out/runs/c6e4be4_v2/scores_validation.parquet --analogs discovery/out/known_analogs.json --turkey discovery/out/turkey_analogs.json --top-k 500 --out discovery/out/runs/c6e4be4_v2/global_candidates.geojson --engine-commit c6e4be499ebfac7e7d5fbcb544c027b74475eaf5",
+    "python -m pytest discovery/tests -q"
+  ],
+  "scoring": "engine.validation_api.score_grid; regional; weights=None; sigma=None; return_criteria=True; output target aliases T-01/T-02/T-03 and engine IDs mars_phoenix_regional/mars_arcadia_regional; engine_region_id and grid_source columns included.",
+  "python_version": "Python 3.12.10",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "pyarrow": "23.0.1",
+    "pydantic": "2.14.3",
+    "PyYAML": "6.0.3",
+    "scikit-learn": "1.9.1",
+    "reverse-geocoder": "1.5.1",
+    "matplotlib": "3.11.2",
+    "scipy": "1.18.1"
+  },
+  "changed_scripts": [
+    "discovery/analysis_utils.py",
+    "discovery/validate_usgs.py",
+    "discovery/stability_test.py",
+    "discovery/score_io.py",
+    "discovery/diagnose_validation.py",
+    "discovery/export_global_candidates.py",
+    "discovery/tests/test_analysis.py",
+    "discovery/tests/test_diagnose_validation.py"
+  ]
+}

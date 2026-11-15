@@ -1,0 +1,906 @@
+{
+  "grid_rows": 405,
+  "tested_target_count": 4,
+  "bonferroni_alpha": 0.05,
+  "bonferroni_threshold": 0.0125,
+  "bonferroni_results": {
+    "T-01": {
+      "permutation_p_value": 0.4245754245754246,
+      "passes_bonferroni": false
+    },
+    "T-02": {
+      "permutation_p_value": 0.8601398601398601,
+      "passes_bonferroni": false
+    },
+    "mars_phoenix_regional": {
+      "permutation_p_value": 0.000999000999000999,
+      "passes_bonferroni": true
+    },
+    "mars_arcadia_regional": {
+      "permutation_p_value": 0.24075924075924077,
+      "passes_bonferroni": false
+    }
+  },
+  "targets": {
+    "T-01": {
+      "engine_region_id": "mars_jezero_regional",
+      "status": "evaluated",
+      "used_feature_count": 5,
+      "used_features": [
+        "slope_median_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [
+        "slope_p90_deg"
+      ],
+      "positive_count": 176,
+      "background_count": 220,
+      "target_score_auc": 0.5043904958677686,
+      "target_score_auc_ci": [
+        0.449557076446281,
+        0.5651685175619834
+      ],
+      "permutation_p_value": 0.4245754245754246,
+      "criterion_score_aucs": {
+        "s_slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.5892303719008265
+        },
+        "s_slope_p90_deg": {
+          "positive_count": 0,
+          "background_count": 0,
+          "auc": null
+        },
+        "s_flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4221720041322314
+        },
+        "s_tri_median_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.5914256198347108
+        },
+        "s_relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4800361570247934
+        },
+        "s_elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4712293388429752
+        }
+      },
+      "reference_scores": {
+        "flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5043904958677686,
+          "reference_auc": 0.6063403925619835,
+          "difference_target_minus_reference": -0.10194989669421484,
+          "reference_auc_bootstrap_95_ci": [
+            0.5565973657024794,
+            0.6573401988636364
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.20709775309917355,
+            -0.000363830061983603
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5043904958677686,
+          "reference_auc": 0.5248966942148761,
+          "difference_target_minus_reference": -0.02050619834710743,
+          "reference_auc_bootstrap_95_ci": [
+            0.4663358729338843,
+            0.5799399535123967
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.13228370351239668,
+            0.09614604855371897
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5043904958677686,
+          "reference_auc": 0.506120867768595,
+          "difference_target_minus_reference": -0.0017303719008263663,
+          "reference_auc_bootstrap_95_ci": [
+            0.4508768078512397,
+            0.5652647210743802
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.1155759297520661,
+            0.1058419421487603
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5043904958677686,
+          "reference_auc": 0.5315599173553719,
+          "difference_target_minus_reference": -0.027169421487603262,
+          "reference_auc_bootstrap_95_ci": [
+            0.4770383522727273,
+            0.5891535382231404
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.14069085743801654,
+            0.08274922520661152
+          ],
+          "bootstrap_iterations": 1000
+        }
+      },
+      "best_reference_by_auc": "flat_fraction",
+      "latitude_stratified_target_score": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.8
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.5782894736842106
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.5676020408163265
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.4755017709563164
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.3796583850931677
+          }
+        ],
+        "pooled_auc": 0.486837048424289,
+        "pooled_weight": 10408
+      },
+      "latitude_stratified_best_reference": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.425
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.5029605263157895
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.5471938775510204
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.6560655253837072
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.6863354037267081
+          }
+        ],
+        "pooled_auc": 0.6283627978478094,
+        "pooled_weight": 10408
+      }
+    },
+    "T-02": {
+      "engine_region_id": "moon_shackleton_regional",
+      "status": "evaluated",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "positive_count": 176,
+      "background_count": 220,
+      "target_score_auc": 0.4683884297520661,
+      "target_score_auc_ci": [
+        0.41107922262396696,
+        0.5279474431818182
+      ],
+      "permutation_p_value": 0.8601398601398601,
+      "criterion_score_aucs": {
+        "s_slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.49390495867768597
+        },
+        "s_slope_p90_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4608987603305785
+        },
+        "s_flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.39585485537190085
+        },
+        "s_tri_median_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.49083161157024796
+        },
+        "s_relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.47510330578512394
+        },
+        "s_elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4684400826446281
+        }
+      },
+      "reference_scores": {
+        "flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.4683884297520661,
+          "reference_auc": 0.6063403925619835,
+          "difference_target_minus_reference": -0.13795196280991734,
+          "reference_auc_bootstrap_95_ci": [
+            0.5522052556818181,
+            0.6535140108471074
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.23698960485537188,
+            -0.029617768595041345
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.4683884297520661,
+          "reference_auc": 0.5248966942148761,
+          "difference_target_minus_reference": -0.05650826446280993,
+          "reference_auc_bootstrap_95_ci": [
+            0.46577737603305785,
+            0.5793278667355372
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.16418904958677683,
+            0.061526342975206635
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.4683884297520661,
+          "reference_auc": 0.506120867768595,
+          "difference_target_minus_reference": -0.03773243801652887,
+          "reference_auc_bootstrap_95_ci": [
+            0.44948153409090913,
+            0.5645538481404958
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.15489733987603302,
+            0.07182205578512398
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.4683884297520661,
+          "reference_auc": 0.5315599173553719,
+          "difference_target_minus_reference": -0.06317148760330576,
+          "reference_auc_bootstrap_95_ci": [
+            0.4762629132231405,
+            0.5845448088842975
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.16646113119834705,
+            0.04683722882231401
+          ],
+          "bootstrap_iterations": 1000
+        }
+      },
+      "best_reference_by_auc": "flat_fraction",
+      "latitude_stratified_target_score": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.675
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.5427631578947368
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.5191326530612245
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.43919716646989376
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.3338509316770186
+          }
+        ],
+        "pooled_auc": 0.44821291314373557,
+        "pooled_weight": 10408
+      },
+      "latitude_stratified_best_reference": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.425
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.5029605263157895
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.5471938775510204
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.6560655253837072
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.6863354037267081
+          }
+        ],
+        "pooled_auc": 0.6283627978478094,
+        "pooled_weight": 10408
+      }
+    },
+    "T-03": {
+      "engine_region_id": "moon_marius_hills_regional",
+      "status": "unscorable",
+      "used_feature_count": 0,
+      "used_features": [],
+      "excluded_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "positive_count": 0,
+      "background_count": 0,
+      "target_score_auc": null,
+      "target_score_auc_ci": null,
+      "permutation_p_value": null,
+      "criterion_score_aucs": {
+        "s_slope_median_deg": {
+          "positive_count": 0,
+          "background_count": 0,
+          "auc": null
+        },
+        "s_slope_p90_deg": {
+          "positive_count": 0,
+          "background_count": 0,
+          "auc": null
+        },
+        "s_flat_fraction": {
+          "positive_count": 0,
+          "background_count": 0,
+          "auc": null
+        },
+        "s_tri_median_m": {
+          "positive_count": 0,
+          "background_count": 0,
+          "auc": null
+        },
+        "s_relief_m": {
+          "positive_count": 0,
+          "background_count": 0,
+          "auc": null
+        },
+        "s_elevation_std_m": {
+          "positive_count": 0,
+          "background_count": 0,
+          "auc": null
+        }
+      },
+      "reference_scores": {
+        "flat_fraction": {
+          "positive_count": 0,
+          "background_count": 0,
+          "target_auc": null,
+          "reference_auc": null,
+          "difference_target_minus_reference": null,
+          "reference_auc_bootstrap_95_ci": null,
+          "difference_paired_bootstrap_95_ci": null
+        },
+        "-relief_m": {
+          "positive_count": 0,
+          "background_count": 0,
+          "target_auc": null,
+          "reference_auc": null,
+          "difference_target_minus_reference": null,
+          "reference_auc_bootstrap_95_ci": null,
+          "difference_paired_bootstrap_95_ci": null
+        },
+        "-slope_median_deg": {
+          "positive_count": 0,
+          "background_count": 0,
+          "target_auc": null,
+          "reference_auc": null,
+          "difference_target_minus_reference": null,
+          "reference_auc_bootstrap_95_ci": null,
+          "difference_paired_bootstrap_95_ci": null
+        },
+        "-elevation_std_m": {
+          "positive_count": 0,
+          "background_count": 0,
+          "target_auc": null,
+          "reference_auc": null,
+          "difference_target_minus_reference": null,
+          "reference_auc_bootstrap_95_ci": null,
+          "difference_paired_bootstrap_95_ci": null
+        }
+      },
+      "best_reference_by_auc": "flat_fraction",
+      "latitude_stratified_target_score": {
+        "bands": [],
+        "pooled_auc": null,
+        "pooled_weight": 0
+      },
+      "latitude_stratified_best_reference": {
+        "bands": [],
+        "pooled_auc": null,
+        "pooled_weight": 0
+      }
+    },
+    "mars_phoenix_regional": {
+      "engine_region_id": "mars_phoenix_regional",
+      "status": "evaluated",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "positive_count": 176,
+      "background_count": 220,
+      "target_score_auc": 0.6432592975206611,
+      "target_score_auc_ci": [
+        0.5909536415289256,
+        0.6947849948347107
+      ],
+      "permutation_p_value": 0.000999000999000999,
+      "criterion_score_aucs": {
+        "s_slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.6700929752066116
+        },
+        "s_slope_p90_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.6577221074380165
+        },
+        "s_flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.576846590909091
+        },
+        "s_tri_median_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.6773243801652893
+        },
+        "s_relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.603073347107438
+        },
+        "s_elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.578279958677686
+        }
+      },
+      "reference_scores": {
+        "flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.6432592975206611,
+          "reference_auc": 0.6063403925619835,
+          "difference_target_minus_reference": 0.03691890495867767,
+          "reference_auc_bootstrap_95_ci": [
+            0.5551384943181817,
+            0.6565737990702479
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.033859762396694276,
+            0.11719718491735537
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.6432592975206611,
+          "reference_auc": 0.5248966942148761,
+          "difference_target_minus_reference": 0.11836260330578507,
+          "reference_auc_bootstrap_95_ci": [
+            0.46569860537190083,
+            0.5860653409090909
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            0.029402117768595044,
+            0.2087493543388429
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.6432592975206611,
+          "reference_auc": 0.506120867768595,
+          "difference_target_minus_reference": 0.13713842975206614,
+          "reference_auc_bootstrap_95_ci": [
+            0.452735020661157,
+            0.5622953254132231
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            0.05047456095041323,
+            0.2140127840909091
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.6432592975206611,
+          "reference_auc": 0.5315599173553719,
+          "difference_target_minus_reference": 0.11169938016528924,
+          "reference_auc_bootstrap_95_ci": [
+            0.47462616219008263,
+            0.5861305526859504
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            0.0321778150826446,
+            0.19885524276859504
+          ],
+          "bootstrap_iterations": 1000
+        }
+      },
+      "best_reference_by_auc": "flat_fraction",
+      "latitude_stratified_target_score": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.85
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.6381578947368421
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.7206632653061225
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.6285419126328218
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.625
+          }
+        ],
+        "pooled_auc": 0.6372982321291314,
+        "pooled_weight": 10408
+      },
+      "latitude_stratified_best_reference": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.425
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.5029605263157895
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.5471938775510204
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.6560655253837072
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.6863354037267081
+          }
+        ],
+        "pooled_auc": 0.6283627978478094,
+        "pooled_weight": 10408
+      }
+    },
+    "mars_arcadia_regional": {
+      "engine_region_id": "mars_arcadia_regional",
+      "status": "evaluated",
+      "used_feature_count": 6,
+      "used_features": [
+        "slope_median_deg",
+        "slope_p90_deg",
+        "flat_fraction",
+        "tri_median_m",
+        "relief_m",
+        "elevation_std_m"
+      ],
+      "excluded_features": [],
+      "positive_count": 176,
+      "background_count": 220,
+      "target_score_auc": 0.5186596074380165,
+      "target_score_auc_ci": [
+        0.4600619834710744,
+        0.5735698605371901
+      ],
+      "permutation_p_value": 0.24075924075924077,
+      "criterion_score_aucs": {
+        "s_slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.5761880165289256
+        },
+        "s_slope_p90_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4854080578512397
+        },
+        "s_flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.4509684917355372
+        },
+        "s_tri_median_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.5957902892561984
+        },
+        "s_relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.49646177685950416
+        },
+        "s_elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "auc": 0.48241219008264463
+        }
+      },
+      "reference_scores": {
+        "flat_fraction": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5186596074380165,
+          "reference_auc": 0.6063403925619835,
+          "difference_target_minus_reference": -0.08768078512396693,
+          "reference_auc_bootstrap_95_ci": [
+            0.552918388429752,
+            0.6570903279958678
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.18856340392561988,
+            0.024362409607437973
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-relief_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5186596074380165,
+          "reference_auc": 0.5248966942148761,
+          "difference_target_minus_reference": -0.006237086776859524,
+          "reference_auc_bootstrap_95_ci": [
+            0.4686169938016529,
+            0.5811253873966943
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.11515431301652894,
+            0.10297972623966944
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-slope_median_deg": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5186596074380165,
+          "reference_auc": 0.506120867768595,
+          "difference_target_minus_reference": 0.01253873966942154,
+          "reference_auc_bootstrap_95_ci": [
+            0.44887396694214876,
+            0.5613378099173554
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.09352627840909093,
+            0.12176782024793381
+          ],
+          "bootstrap_iterations": 1000
+        },
+        "-elevation_std_m": {
+          "positive_count": 176,
+          "background_count": 220,
+          "target_auc": 0.5186596074380165,
+          "reference_auc": 0.5315599173553719,
+          "difference_target_minus_reference": -0.012900309917355357,
+          "reference_auc_bootstrap_95_ci": [
+            0.47804816632231406,
+            0.5917303719008264
+          ],
+          "difference_paired_bootstrap_95_ci": [
+            -0.12129842458677684,
+            0.0921526342975206
+          ],
+          "bootstrap_iterations": 1000
+        }
+      },
+      "best_reference_by_auc": "flat_fraction",
+      "latitude_stratified_target_score": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.8
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.5802631578947368
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.5880102040816326
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.4834710743801653
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.40993788819875776
+          }
+        ],
+        "pooled_auc": 0.497598001537279,
+        "pooled_weight": 10408
+      },
+      "latitude_stratified_best_reference": {
+        "bands": [
+          {
+            "band": "[-60,-30)",
+            "positive_count": 4,
+            "background_count": 10,
+            "auc": 0.425
+          },
+          {
+            "band": "[-30,0)",
+            "positive_count": 40,
+            "background_count": 38,
+            "auc": 0.5029605263157895
+          },
+          {
+            "band": "[0,30)",
+            "positive_count": 16,
+            "background_count": 49,
+            "auc": 0.5471938775510204
+          },
+          {
+            "band": "[30,60)",
+            "positive_count": 88,
+            "background_count": 77,
+            "auc": 0.6560655253837072
+          },
+          {
+            "band": "[60,90]",
+            "positive_count": 28,
+            "background_count": 46,
+            "auc": 0.6863354037267081
+          }
+        ],
+        "pooled_auc": 0.6283627978478094,
+        "pooled_weight": 10408
+      }
+    }
+  },
+  "caveats": [
+    "All targets use the same positive USGS cells because analog_for is empty for 191/192 records.",
+    "The background sample was selected from cells passing WorldCover QA."
+  ],
+  "bootstrap_iterations": 1000,
+  "bootstrap_seed": 42,
+  "generated_at": "2026-11-15T11:20:15+03:00"
+}
