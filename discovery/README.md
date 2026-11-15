@@ -41,7 +41,7 @@ The engine loads `processing/out/real/features.json`, followed by `processing/ou
 | Phoenix / `mars_phoenix_regional` (`mars_measured`) | true | 0.5178 | 1.8192 | 0.9794 | 26.6621 | 243.3709 | 88.3802 | T, T, T, T, T, T |
 | Arcadia / `mars_arcadia_regional` (`mars_measured`) | true | 1.5613 | 5.5627 | 0.8828 | 72.7447 | 555.9476 | 194.3952 | T, T, T, T, T, T |
 
-All four source records have `processing_version=0.3.0`. Their `quality.sampling.note` says that nonzero counts indicate measured source bins, while other DEM bins are interpolated, and that this diagnostic does not automatically validate effective resolution. No separate probe explanation was present. In these four rows, target AUC decreases monotonically as `relief_m` and `slope_p90_deg` increase; this is a descriptive ordering of these records only.
+All four source records have `processing_version=0.3.0`. Their `quality.sampling.note` says that nonzero counts indicate measured source bins, while other DEM bins are interpolated, and that this diagnostic does not automatically validate effective resolution. No separate probe explanation was present. In these four rows, target AUC decreases monotonically as `relief_m` and `slope_p90_deg` increase; this is a descriptive ordering of these records only (n=4 targets; descriptive, not a statistical test).
 
 ### Independent USGS sample validation
 
@@ -55,7 +55,7 @@ The primary validation uses only `earth_grid_validation.parquet`, not the 408-ce
 | `mars_phoenix_regional` | 0.6433 [0.5910, 0.6948] | 0.0010 | 58.09 | passed |
 | `mars_arcadia_regional` | 0.5187 [0.4601, 0.5736] | 0.2408 | 51.16 | not passed |
 
-Phoenix is the only result passing the Bonferroni threshold. Its interpretation is reference dependent. The flat-fraction reference AUC is 0.6063; its latitude-stratified pooled AUC is 0.6284. The target-score latitude-stratified pooled AUCs are Jezero 0.4868, Shackleton 0.4482, Phoenix 0.6373, and Arcadia 0.4976. Per-band counts and AUCs are in `usgs_sample/diagnostics_v2.json`.
+Phoenix is the only result passing the Bonferroni threshold (p=0.0010, alpha=0.0125). Its AUC (0.643) is statistically indistinguishable from the raw flat_fraction baseline (AUC 0.606; paired bootstrap difference 95% CI [-0.034, 0.117]) while exceeding the -relief_m, -slope_median_deg and -elevation_std_m baselines, so the result does not show information beyond terrain flatness. The flat-fraction reference AUC is 0.6063; its latitude-stratified pooled AUC is 0.6284. The target-score latitude-stratified pooled AUCs are Jezero 0.4868, Shackleton 0.4482, Phoenix 0.6373, and Arcadia 0.4976. Per-band counts and AUCs are in `usgs_sample/diagnostics_v2.json`.
 
 The paired bootstrap intervals below are for `target AUC ? reference AUC`. If an interval includes zero, the target AUC is ?referanstan ay?rt edilemez?; if wholly positive, ?referanstan y?ksek?; if wholly negative, ?referanstan d???k?.
 
