@@ -9,7 +9,7 @@ def package(source,output):
     source,output=Path(source),Path(output)
     records=json.loads((source/'features.json').read_text())['records']
     allowed=[source/name for name in ('features.json','earth_grid.parquet','coverage.geojson','DATA_SOURCES.md')]
-    for name in ('environment.json','target_quality.json'):
+    for name in ('environment.json','target_quality.json','context_provenance.json','context_report.md'):
         if (source/name).exists():allowed.append(source/name)
     for directory in ('heightmaps','quality'):
         if (source/directory).exists():allowed.extend(p for p in (source/directory).rglob('*') if p.is_file())
@@ -41,6 +41,7 @@ def package(source,output):
             'measurement_support.validation_features identifies the legacy six-feature gate; all_nine_sensitivity_passed and nine_feature_validation_passed distinguish nine checks from record approval. Curated QA decisions remain unchanged; Marius measured-only is a separate unpromoted candidate.\n'
             'earth_filters (including NDVI/land fraction) are not scoring features. Missing values are null, not zero.\n'
             'Monthly MODIS overpass temperatures are contextual; their day/night difference is not daily Tmax-minus-Tmin and is not score-ready.\n'
+            'Optional annual context uses 2025 monthly MODIS inputs with at least nine accepted months. Context is separate from scoring features; read context_report.md and context_provenance.json when present.\n'
             'Current approved target: Shackleton. Jezero and Marius Hills remain unapproved until their stated quality gaps are resolved.\n'
             'Operational QA is not independent absolute accuracy or mission suitability validation.\n'
             'Discovery uses processing/out/earth_grid.parquet and coverage.geojson. This bundle includes curated Earth sites; its Parquet is not the discovery scan.\n'

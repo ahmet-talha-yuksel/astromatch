@@ -27,7 +27,7 @@ def test_delivered_global_grid_preserves_base_and_gates_quality():
     combined=pq.read_table(output/'earth_grid_combined.parquet').to_pylist()
     assert combined[:len(base)]==base
     assert len(combined)==1012 and len({r['cell_id'] for r in combined})==1012
-    assert summary.get('morphology_enrichment',{}).get('base_grid_sha256',summary['original_grid_sha256'])==hashlib.sha256((ROOT/'out/earth_grid.parquet').read_bytes()).hexdigest()
+    assert summary.get('context_enrichment',{}).get('base_grid_sha256',summary.get('morphology_enrichment',{}).get('base_grid_sha256',summary['original_grid_sha256']))==hashlib.sha256((ROOT/'out/earth_grid.parquet').read_bytes()).hexdigest()
     assert summary['original_grid_unchanged']
     assert sum(r['pilot_area']=='turkey' for r in combined)<len(combined)/2
     records=json.loads((output/'features.json').read_text())['records']

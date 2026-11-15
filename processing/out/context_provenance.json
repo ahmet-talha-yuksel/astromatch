@@ -1,0 +1,467 @@
+{
+  "period": "2025-01..2025-12",
+  "status": "MODIS_extracted_IMERG_not_supplied",
+  "observations_acquired": true,
+  "inputs": [
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025001.061.2025035172114.hdf",
+      "file_sha256": "de47a59c6d7e707bdbd2b717349f9cb3f833177233830fd09214dbcc495b4f2a",
+      "bytes": 70964636,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-01-01",
+        "end": "2025-01-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025032.061.2025063170308.hdf",
+      "file_sha256": "6fc74964ed711fe82e9a46e78c56dea102eed48c96254552808f6190b7155a46",
+      "bytes": 72219922,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-02-01",
+        "end": "2025-02-28"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025060.061.2025093043031.hdf",
+      "file_sha256": "80521ad05e0747633db440fad69e112568529e6c14d09e0ef4d84260ed3782bf",
+      "bytes": 73863959,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-03-01",
+        "end": "2025-03-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025091.061.2025125142315.hdf",
+      "file_sha256": "785d16804bf47b75cbf366928dd047fd6ab1e5bed16dc948d4f1534e11717e31",
+      "bytes": 74037314,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-04-01",
+        "end": "2025-04-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025121.061.2025153164905.hdf",
+      "file_sha256": "ee64cce6c87e6217524536d665d6153b4978e822cc61d37096280326aa9fd4a6",
+      "bytes": 73691014,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-05-01",
+        "end": "2025-05-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025152.061.2025182145012.hdf",
+      "file_sha256": "2de88ee37219ff17323f35ba6dc5c0d91ec7e8b1dbccd79bc6252cd547ceb5cc",
+      "bytes": 72164923,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-06-01",
+        "end": "2025-06-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025182.061.2025213154157.hdf",
+      "file_sha256": "4dfb7758dda3776e303565d67acaf4885ba77242bcaa43b516fbad96667b7e83",
+      "bytes": 71413359,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-07-01",
+        "end": "2025-07-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025213.061.2025246014643.hdf",
+      "file_sha256": "4ed20fff080247cd6039d5cc2e094cea04852d2badfb724eb1c9159e1639dfd7",
+      "bytes": 72758381,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-08-01",
+        "end": "2025-08-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025244.061.2025275150152.hdf",
+      "file_sha256": "39af72fc2df2483c6d7a52e4d87319f1ef0cb602438ac351a9dfbda5c3102d34",
+      "bytes": 73253020,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-09-01",
+        "end": "2025-09-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025274.061.2025306143832.hdf",
+      "file_sha256": "d29b11f918697b219f1c41546c0dba0eaefb12c8b66504370b67f218ebdd08be",
+      "bytes": 75951178,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-10-01",
+        "end": "2025-10-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025305.061.2025335114103.hdf",
+      "file_sha256": "1f20f8890b5b6c3ff0c19d8efdcee9e65b239db7d68ffa288f23201edd3873fb",
+      "bytes": 74445464,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-11-01",
+        "end": "2025-11-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD11C3.061",
+      "file": "MOD11C3.A2025335.061.2026006185449.hdf",
+      "file_sha256": "0f23a9ddc83b52fc2f24f77a8dbbe3e074ece129f22e239f03ef4cb9ef9b02a7",
+      "bytes": 72808827,
+      "doi": "10.5067/MODIS/MOD11C3.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD11C3.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD11C3",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-12-01",
+        "end": "2025-12-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025001.061.2025035171541.hdf",
+      "file_sha256": "6f0cd70653119f8a1443a5bc9e0daa27ac699fe43adc947f1222bfcef8a5e254",
+      "bytes": 94202155,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-01-01",
+        "end": "2025-01-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025032.061.2025072100143.hdf",
+      "file_sha256": "4d636df410c7cad87b584b2230a982a739f17c3eedbfbd72237b584380df97f7",
+      "bytes": 106186443,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-02-01",
+        "end": "2025-02-28"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025060.061.2025098184723.hdf",
+      "file_sha256": "7ac10579258a09e30802c24682393dd8638524a473c2a2f8fc2d9ef493986519",
+      "bytes": 107674634,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-03-01",
+        "end": "2025-03-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025091.061.2025133163506.hdf",
+      "file_sha256": "af13a65a7c78ff12987592974326948269249de4facea67f022b2134c528f2ef",
+      "bytes": 106625820,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-04-01",
+        "end": "2025-04-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025121.061.2025163044304.hdf",
+      "file_sha256": "6c27cd02065b96c27115562a39c3ecefa6d444c674779bc84c175b25e039c972",
+      "bytes": 106265772,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-05-01",
+        "end": "2025-05-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025152.061.2025219165905.hdf",
+      "file_sha256": "455f818e66a1481f7a0f2a17cf271afce298805e34751954b4e4cf2e961895f8",
+      "bytes": 105706922,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-06-01",
+        "end": "2025-06-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025182.061.2025227032314.hdf",
+      "file_sha256": "317c70125a78cce66ee2bba093ffd1335897648c7676df4eea65d9afc8e809c4",
+      "bytes": 105843939,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-07-01",
+        "end": "2025-07-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025213.061.2025259093641.hdf",
+      "file_sha256": "a1457ec890902f0c780c9a640f5873e4fab66549e699715e47f2ccbb49b3fb9a",
+      "bytes": 105517277,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-08-01",
+        "end": "2025-08-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025244.061.2025290121318.hdf",
+      "file_sha256": "8d63b34565e4cf58c61dbb309df120a808325bbf48184d9b449def874956ecc5",
+      "bytes": 105342430,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-09-01",
+        "end": "2025-09-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025274.061.2025306103720.hdf",
+      "file_sha256": "335d868133643889b1f85b43b37b458ef67318b0d7976becb9d09b50dcef31d2",
+      "bytes": 105777641,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-10-01",
+        "end": "2025-10-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025305.061.2025339133307.hdf",
+      "file_sha256": "5cedf0ec8ec0b23b62fce3900454d84edadf3b1d1c11f36293e31bbaa9159186",
+      "bytes": 97561081,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-11-01",
+        "end": "2025-11-30"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    },
+    {
+      "product": "MOD13C2.061",
+      "file": "MOD13C2.A2025335.061.2026006151829.hdf",
+      "file_sha256": "b724b326c82f9226d7315abc2112c879a07dd559b495ca620a636bd85d321abc",
+      "bytes": 89136384,
+      "doi": "10.5067/MODIS/MOD13C2.061",
+      "source_url": "https://doi.org/10.5067/MODIS/MOD13C2.061",
+      "specification_url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13C2",
+      "accessed_on": "2026-11-15",
+      "period": {
+        "start": "2025-12-01",
+        "end": "2025-12-31"
+      },
+      "native_grid_step_deg": 0.05,
+      "crs": "EPSG:4326",
+      "grid_origin": "HDFE_GD_UL (HDF-EOS default when omitted)",
+      "spatial_method": "CMG center sampling within physical LAEA window; cosine-latitude area weights; no downscaling"
+    }
+  ],
+  "counts": {
+    "sites": {
+      "lst_day_mean_c": 0,
+      "lst_night_mean_c": 1,
+      "lst_diurnal_range_c": 0,
+      "lst_min_month_c": 1,
+      "lst_max_month_c": 0,
+      "ndvi_mean": 13,
+      "precip_mm_yr": 0
+    },
+    "grid": {
+      "lst_day_mean_c": 31,
+      "lst_night_mean_c": 3,
+      "lst_diurnal_range_c": 0,
+      "lst_min_month_c": 3,
+      "lst_max_month_c": 31,
+      "ndvi_mean": 202,
+      "precip_mm_yr": 0
+    }
+  },
+  "minimum_valid_months": 9,
+  "feature_input_sha256": "9723bf6e8d35386f66423688861b7ce365e53bdcf7a0c6ecd3c977ffe1e044eb",
+  "grid_input_sha256": "639a51c6484a561d72a3bf216c378f4b9a00de96d9e0a8b2ea95084e483af20d",
+  "original_records_semantic_sha256": "d702e978eee06894abec01f750a8ae22d11ac37a7eb06067c131fc12c296a2e0",
+  "non_context_grid_preserved": true,
+  "site_records": 16,
+  "grid_cells": 408,
+  "unvalidated_grid_cells": 192
+}
