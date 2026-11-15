@@ -16,8 +16,8 @@ type Body = "Earth" | "Mars" | "Moon";
 type HeldKeys = React.MutableRefObject<Set<string>>;
 const bodies: Body[] = ["Earth", "Mars", "Moon"];
 
-export function TerrainExplorer({ terrain, destinations, exaggeration, onClose }: {
-  terrain: ValidatedTerrainData; destinations: ValidatedTerrainData[]; exaggeration: number; onClose: () => void;
+export function TerrainExplorer({ terrain, destinations, exaggeration, onClose, showParcelUi = true }: {
+  terrain: ValidatedTerrainData; destinations: ValidatedTerrainData[]; exaggeration: number; onClose: () => void; showParcelUi?: boolean;
 }) {
   const [active, setActive] = useState(terrain);
   const [speed, setSpeed] = useState(1);
@@ -79,14 +79,14 @@ export function TerrainExplorer({ terrain, destinations, exaggeration, onClose }
         onClick={() => world.terrain && changeWorld(world.terrain)}><span className={`planet-dot ${world.body.toLowerCase()}`} />{world.body}</button>)}
     </nav>
     <div className="explorer-gravity" aria-label="Surface gravity"><strong>{SURFACE_GRAVITY[active.body].toFixed(2)} m/s²</strong><span>Gravity · {(SURFACE_GRAVITY[active.body] / SURFACE_GRAVITY.Earth).toFixed(2)}g</span></div>
-    <aside className="explorer-parcel" aria-label="Selected parcel map">
+    {showParcelUi && <aside className="explorer-parcel" aria-label="Selected parcel map">
       <div className="parcel-map"><span className="parcel-selected" /><span ref={marker} className="parcel-player" /></div>
       <strong><i /> Selected parcel</strong><span ref={parcelStatus}>Inside selected parcel</span>
       <small>Movement stays inside this parcel</small>
       <button onClick={() => setReturnRevision(value => value + 1)}>Return to parcel</button>
-    </aside>
+    </aside>}
     <div className="explorer-bottom">
-      <div className="explorer-instructions"><strong>{view === "third" ? "Explore the selected parcel." : "Walk the surface."}</strong><span>Drag to look · WASD / arrows to move · Shift to move faster · Space to jump</span>
+      <div className="explorer-instructions"><strong>{view === "third" ? (showParcelUi ? "Explore the selected parcel." : "Explore the surface.") : "Walk the surface."}</strong><span>Drag to look · WASD / arrows to move · Shift to move faster · Space to jump</span>
         <label>Camera <select aria-label="Explorer camera" value={view} onChange={event => setView(event.target.value as "third" | "first")}><option value="third">Third person</option><option value="first">First person</option></select></label>
         <label>Travel speed <select aria-label="POV travel speed" value={speed} onChange={event => setSpeed(Number(event.target.value))}><option value={0.25}>Slow</option><option value={1}>Explore</option><option value={3}>Fast</option></select></label>
         <small>{active.dataType === "synthetic" ? "SYNTHETIC TERRAIN" : "REAL DEM"} · Artistic environment · Relief {exaggeration.toFixed(1)}×</small>
