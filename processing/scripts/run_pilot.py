@@ -12,6 +12,7 @@ from .dem import DemRequest, process_dem, validate_comparison
 from .generate_mock import coverage_cell, flatten, write_json
 from .metrics import feature, TOPOGRAPHIC
 from .morphology import MORPHOLOGY
+from .morphology_quality import annotate_zero_roughness
 from .pilot_grid import cells
 from .process_dem import export_heightmap
 
@@ -29,6 +30,7 @@ def scope_for_time_range(low_hours, high_hours):
 
 def write_pilot(records, coverage, manifest, timing, output):
     output.mkdir(parents=True, exist_ok=True)
+    for record in records: annotate_zero_roughness(record)
     write_json(output / 'features.json', {'schema_version': '2.3', 'records': records})
     rows = []
     for record in records:

@@ -88,6 +88,20 @@ def test_measurement_gate_confidence_and_warning(caplog):
     assert 'relief_m excluded' in caplog.text
 
 
+def test_additional_failed_check_only_gates_scoring_that_uses_that_feature():
+    ds = phoenix_fixture(); target = ds.targets[0]
+    before = rank(ds, target.region_id, 'regional').model_dump()
+    target.measurement_support['sensitivity']['curvature_std_per_km'] = {'pass': False, 'abs_diff': .021, 'rel_diff': .4}
+    target.measurement_support['thresholds']['abs']['curvature_std_per_km'] = .01
+    assert gate_reason(target) is None
+    after = rank(ds, target.region_id, 'regional').model_dump()
+    assert [(r['id'], r['score_geo'], r['distance_z']) for r in before['full_scores']] == [(r['id'], r['score_geo'], r['distance_z']) for r in after['full_scores']]
+    assert target_status(target, [*target.features, 'curvature_std_per_km']) == ('scorable', None)
+    target.measurement_support['sensitivity']['relief_m']['pass'] = False
+    assert gate_reason(target) is None
+    assert target_status(target) == ('scorable', None)
+
+
 def test_check_reports_measurement_disagreement(tmp_path):
     targets,candidates,_=generate(n_grid=0,n_reference=0)
     target=next(r for r in targets if r['region_id']=='T-01' and r['scale']=='regional')

@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
-from processing.scripts.measured_mars import metrics, sensitivity, TOPOGRAPHIC
+from processing.scripts.measured_mars import ABS, MEASURED_FEATURES, metrics, sensitivity, TOPOGRAPHIC
+from processing.scripts.morphology import MORPHOLOGY
 
 
 def test_plane_with_missing_center_has_exact_slope_and_effective_support():
@@ -24,12 +25,27 @@ def test_six_samples_required_and_empty_metrics_fail():
 
 
 def test_sensitivity_absolute_or_relative_and_zero_baseline():
-    baseline=dict.fromkeys(TOPOGRAPHIC,100.)
-    assert all(c['pass'] for c in sensitivity(dict.fromkeys(TOPOGRAPHIC,114.),baseline).values())
-    assert not any(c['pass'] for c in sensitivity(dict.fromkeys(TOPOGRAPHIC,120.),baseline).values())
-    baseline=dict.fromkeys(TOPOGRAPHIC,0.)
+    baseline=dict.fromkeys(MEASURED_FEATURES,100.)
+    assert all(c['pass'] for c in sensitivity(dict.fromkeys(MEASURED_FEATURES,114.),baseline).values())
+    assert not any(c['pass'] for c in sensitivity(dict.fromkeys(MEASURED_FEATURES,120.),baseline).values())
+    baseline=dict.fromkeys(MEASURED_FEATURES,0.)
     assert all(c['pass'] for c in sensitivity(baseline,baseline).values())
     assert sensitivity(dict(baseline,slope_median_deg=.2),baseline)['slope_median_deg']['pass']
+
+
+@pytest.mark.parametrize('key', MORPHOLOGY)
+def test_new_tolerances_boundaries_missing_and_nonfinite(key):
+    baseline = dict.fromkeys(MEASURED_FEATURES, 0.)
+    measured = {**baseline, key: ABS[key]}
+    assert sensitivity(measured, baseline)[key]['pass']
+    measured[key] = ABS[key] * 1.001
+    assert not sensitivity(measured, baseline)[key]['pass']
+    for value in (None, np.nan, np.inf):
+        measured[key] = value
+        assert not sensitivity(measured, baseline)[key]['pass']
+    baseline[key] = 1
+    measured[key] = 1.14
+    assert sensitivity(measured, baseline)[key]['pass']
 
 
 def test_delivered_records_match_engineering_gate():
@@ -40,12 +56,17 @@ def test_delivered_records_match_engineering_gate():
     assert {r['region_id'] for r in records}=={'mars_phoenix_regional','mars_jezero_regional','mars_arcadia_regional'}
     for record in records:
         support=record['measurement_support']
-        primary={k:record['features'][k]['value'] for k in TOPOGRAPHIC}
+        primary={k:record['features'][k]['value'] for k in MEASURED_FEATURES}
         assert support['sensitivity']==sensitivity(primary,record['features_interpolated'])
-        expected=all(c['pass'] for c in support['sensitivity'].values()) and support['effective_nodata_ratio']<=.30
+        assert set(record['features_interpolated']) == set(support['sensitivity']) == set(MEASURED_FEATURES)
+        expected=all(support['sensitivity'][k]['pass'] for k in TOPOGRAPHIC) and support['effective_nodata_ratio']<=.30
         assert record['resolution_validated']==expected
         assert record['quality']['nodata_ratio']==support['effective_nodata_ratio']
         assert all(record['features'][key]['comparable']==expected for key in TOPOGRAPHIC)
+        assert support['nine_feature_validation_passed'] == (expected and all(c['pass'] for c in support['sensitivity'].values()))
+        assert support['thresholds']['abs'] == ABS
+        for key in MORPHOLOGY:
+            assert record['features'][key]['comparable'] == support['sensitivity'][key]['pass']
         assert record['provenance']['source_radius_m']==3396000
         assert record['analysis_resolution_m']==1000 and record['window_km']==50
         if not expected: assert support['unscorable_reasons']

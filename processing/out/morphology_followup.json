@@ -1,0 +1,125 @@
+{
+  "absolute_tolerances": {
+    "slope_median_deg": 0.2,
+    "slope_p90_deg": 0.2,
+    "flat_fraction": 0.05,
+    "tri_median_m": 2.0,
+    "relief_m": 10.0,
+    "elevation_std_m": 5.0,
+    "hypsometric_integral": 0.02,
+    "roughness_ratio": 0.05,
+    "curvature_std_per_km": 0.01
+  },
+  "relative_tolerance": 0.15,
+  "curvature_unit": "km^-1",
+  "targets": [
+    {
+      "region_id": "mars_phoenix_regional",
+      "legacy_resolution_validated": true,
+      "all_nine_sensitivity_passed": true,
+      "nine_feature_validation_passed": true,
+      "sensitivity_passed": 9,
+      "sensitivity_total": 9,
+      "failed_features": [],
+      "source_file_sha256": "0ffd8db4e6e74db137df225c54c6c5a216ffeabe6c9b539c8b9b270460e86952",
+      "counts_file_sha256": "316a0ec28920a66a8df0e8d932c2afee3c8883eec9307af5002389d972aa3d38"
+    },
+    {
+      "region_id": "mars_jezero_regional",
+      "legacy_resolution_validated": false,
+      "all_nine_sensitivity_passed": false,
+      "nine_feature_validation_passed": false,
+      "sensitivity_passed": 7,
+      "sensitivity_total": 9,
+      "failed_features": [
+        "slope_p90_deg",
+        "curvature_std_per_km"
+      ],
+      "source_file_sha256": "7c4a43c4a0acdb7c0f63707ac1cb401c2cc0b9335a9bcc39ab7b1687dc9bbb92",
+      "counts_file_sha256": "28dacc66945d54947ab10152949d851f0df89645e3e7c2ee81299da49f35e320"
+    },
+    {
+      "region_id": "mars_arcadia_regional",
+      "legacy_resolution_validated": true,
+      "all_nine_sensitivity_passed": false,
+      "nine_feature_validation_passed": false,
+      "sensitivity_passed": 8,
+      "sensitivity_total": 9,
+      "failed_features": [
+        "curvature_std_per_km"
+      ],
+      "source_file_sha256": "315873b4dd249a673ee2bfc7c930e8f4de50edd21f79800ad3d32583e6519a50",
+      "counts_file_sha256": "b796fb7c06852f0838bb905e31f50f46b01832b0736cf2b8e77a9a01bfcf9d91"
+    },
+    {
+      "region_id": "moon_marius_hills_regional",
+      "legacy_resolution_validated": false,
+      "all_nine_sensitivity_passed": true,
+      "nine_feature_validation_passed": false,
+      "sensitivity_passed": 9,
+      "sensitivity_total": 9,
+      "failed_features": [],
+      "source_file_sha256": "51c7e8c2ce1b410a98ef078fa5f2bc643c5a15b0ca01e275e1c89addcd3a3a4f",
+      "counts_file_sha256": "b21a4a692fe2d350f86813fff0857ce44b402bfc02a9a3902ca232f8069565e7"
+    }
+  ],
+  "zero_roughness": [
+    {
+      "path": "out/real/features.json",
+      "zero_roughness_records": 0,
+      "validated": 0
+    },
+    {
+      "path": "out/features.json",
+      "zero_roughness_records": 0,
+      "validated": 0
+    },
+    {
+      "path": "out/mars_measured/features.json",
+      "zero_roughness_records": 0,
+      "validated": 0
+    },
+    {
+      "path": "out/pilot_expanded/features.json",
+      "zero_roughness_records": 44,
+      "validated": 12
+    },
+    {
+      "path": "out/global_expansion/features.json",
+      "zero_roughness_records": 0,
+      "validated": 0
+    },
+    {
+      "path": "out/validation_sample/features.json",
+      "zero_roughness_records": 1,
+      "validated": 0
+    },
+    {
+      "path": "out/earth_grid.parquet",
+      "zero_roughness_records": 44
+    },
+    {
+      "path": "out/real/earth_grid.parquet",
+      "zero_roughness_records": 0
+    },
+    {
+      "path": "out/pilot_expanded/earth_grid.parquet",
+      "zero_roughness_records": 44
+    },
+    {
+      "path": "out/global_expansion/earth_grid.parquet",
+      "zero_roughness_records": 0
+    },
+    {
+      "path": "out/earth_grid_validation.parquet",
+      "zero_roughness_records": 1
+    },
+    {
+      "path": "out/global_expansion/earth_grid_combined.parquet",
+      "zero_roughness_records": 44
+    }
+  ],
+  "numeric_values_and_legacy_scoring_preserved": true,
+  "moon_record": "out/moon_measured/features.json",
+  "moon_record_automatically_promoted": false
+}

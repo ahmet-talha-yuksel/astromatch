@@ -18,6 +18,9 @@ ve `curvature_std_per_km` de bulunur. Bunlar aynı analiz penceresinde ölçülm
 örneklerden türetilir; mevcut skorlar ve altı ölçütün QA kararları korunur.
 Tanımlar, ölçüm desteği, null politikası ve yeniden üretim komutları:
 [MORPHOLOGY.md](MORPHOLOGY.md).
+Measured-only Mars kayıtlarında artık dokuz enterpolasyonlu kontrol ve dokuz
+duyarlılık testi vardır; Marius adayı `out/moon_measured/` içindedir. Sıfır pürüz
+oranlarına bağlam notları eklenmiştir; sayısal değerler ve eski skorlar korunur.
 
 
 Bu onay bağımsız doğruluk veya görev uygunluğu doğrulaması değildir. Mock paket

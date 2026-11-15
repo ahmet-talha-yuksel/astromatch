@@ -23,8 +23,9 @@ def test_jezero_uses_only_passing_feature_verdicts():
     target = next(t for t in ds.targets if t.region_id == 'mars_jezero_regional')
     assert not target.resolution_validated
     assert target_status(target) == ('scorable', None)
-    assert sum(eligible_target_feature(target, key) for key in config('features.yaml')['features']) == 5
+    assert sum(eligible_target_feature(target, key) for key in config('features.yaml')['features']) == 7
     assert not eligible_target_feature(target, 'slope_p90_deg')
+    assert not eligible_target_feature(target, 'curvature_std_per_km')
     result = rank(ds, target.region_id, 'regional', k=1, include_uncertainty=True)
     assert result.top_k and result.top_k[0]['score_ci_low'] <= result.top_k[0]['score_geo'] <= result.top_k[0]['score_ci_high']
     assert 'slope_p90_deg excluded' in result.excluded_features[0]
