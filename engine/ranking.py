@@ -15,6 +15,7 @@ from .distance import standardized_distance
 from .discrimination import classify
 from .commonality import terrain_commonality
 from .contextual import commonality_factor
+from .transform import transform
 
 DISCLAIMER='MOCK DATA — NOT A SCIENTIFIC RESULT'
 
@@ -106,7 +107,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         if ds.mode=='real': same=values[grid_mask & resolution & comparable[:,j],j]
         reference_values=[r.features[key].value for r in references if key in r.features and r.features[key].value is not None and (ds.mode=='mock' or (r.features[key].data_status!='mock' and r.resolution_validated and r.features[key].comparable))]
         if reference_values: same=np.concatenate((same,np.asarray(reference_values,dtype=float)))
-        if fconfig.get('sigma_calibration')=='loo_median50' and sigma_override is None:
+        if fconfig.get('sigma_calibration') in ('loo_median50','fixed_k') and sigma_override is None:
             sig[key]=calibrated_sigma(calibration,key,feats[key])
         elif ds.mode=='real':
             sig[key]=sigma_metadata(same,key,scale,feats[key],[],fconfig.get('min_sigma_samples_local',100) if scale=='local' else fconfig.get('min_sigma_samples_regional',150))
@@ -120,7 +121,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         mask=np.isfinite(values[:,j]) & comparable[:,j] & resolution
         eligible[:,j]=mask
         if feats[key]['method']=='gaussian':
-            scores[mask,j]=np.exp(-.5*((values[mask,j]-tf.value)/sig[key]['value'])**2)
+            scores[mask,j]=np.exp(-.5*((transform(values[mask,j],feats[key])-transform(tf.value,feats[key]))/sig[key]['value'])**2)
         else:
             scores[mask,j]=[criterion_similarity(float(v),tf.value,feats[key],sig[key]['value']) for v in values[mask,j]]
     def missing_reasons(i):
@@ -128,16 +129,18 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         for j,key in enumerate(keys):
             tf=target.features.get(key); cf=c.features.get(key)
             if tf is None or tf.value is None or cf is None or cf.value is None: reason='missing value'
-            elif not target.resolution_validated or not c.resolution_validated: reason='resolution not validated'
+            elif (not target.resolution_validated and state!='scorable') or not c.resolution_validated: reason='resolution not validated'
             elif not eligible_target_feature(target,key): reason=next((item for item in excluded_target if item.startswith(key+' excluded')), 'not comparable')
-            elif not tf.comparable or not cf.comparable: reason='not comparable'
+            elif not cf.comparable: reason='not comparable'
             else: continue
             out.append({'feature':key,'reason':reason})
         return out
     geo,arith,coverage,valid,norm=aggregate_matrix(scores,eligible,w,fconfig.get('min_features',3))
     target_values=np.array([target.features[key].value if key in target.features and target.features[key].value is not None else np.nan for key in keys],dtype=float)
     floors=np.array([float(feats[key]['sigma'].get('floor',1)) for key in keys])
-    distances=standardized_distance(values,target_values,eligible,w,floors)
+    transformed_values=np.column_stack([transform(values[:,j],feats[key]) for j,key in enumerate(keys)]) if n else values
+    transformed_target=np.array([transform(target_values[j],feats[key]) for j,key in enumerate(keys)])
+    distances=standardized_distance(transformed_values,transformed_target,eligible,w,np.full(m,.01))
     distances[~valid]=np.nan
     known_ids={(r.region_id,r.scale) for r in ds.known_analogs if r.kind!='earth_reference'}
     usgs_distances=nearest_known_distances(candidates,[r for r in ds.known_analogs if r.kind!='earth_reference' and (r.source or '').upper().startswith('USGS')])

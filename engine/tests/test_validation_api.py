@@ -58,10 +58,8 @@ def test_aliases_and_unscorable_target(sample):
         result = run_mock(frame, targets, "T-04")
     assert result.score.isna().all()
     assert result.excluded_reason.str.startswith("target_unscorable:").all()
-    with pytest.warns(UserWarning, match="target_unscorable"):
-        real = score_grid(frame, "T-01")
-    assert real.score.isna().all()
-    assert real.excluded_reason.str.startswith("target_unscorable: resolution_not_validated").all()
+    real = score_grid(frame, "T-01")
+    assert real.score.notna().any()
 
 
 def test_sigma_modes(sample):

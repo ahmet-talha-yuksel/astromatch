@@ -6,6 +6,7 @@ import numpy as np
 
 from .sigma import robust_std
 from .weights import weight_vector
+from .transform import transform
 
 _CACHE: dict[str, dict] = {}
 
@@ -25,6 +26,7 @@ def calibration_pool(ds, scale: str, keys: list[str]):
 def calibrate(values, comparable, scale: str, preset: str, configuration: dict, *, pool_kind='earth_grid', modifiers=None, weights_override=None) -> dict:
     keys = list(configuration['features'])
     values = np.asarray(values, dtype=float)
+    values = np.column_stack([transform(values[:, j], configuration['features'][key]) for j, key in enumerate(keys)])
     comparable = np.asarray(comparable, dtype=bool) & np.isfinite(values)
     if values.ndim != 2 or values.shape != comparable.shape or values.shape[1] != len(keys):
         raise ValueError('Calibration values and comparable mask must match configured features')
