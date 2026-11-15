@@ -36,6 +36,8 @@ SCORING_FEATURES = (
 
 CAVEATS = [
     "190/192 USGS records are impact crater records.",
+    "Most positive cells correspond to crater records; their 50x50 km windows are crater-centered, so relief and roughness partly measure crater morphology and AUC can confound analog quality with crater-like terrain discrimination.",
+    "Results for target T-02 (Shackleton, Moon) do not apply to Mars targets.",
     "analog_for is empty for 191 records, so all scored targets use the same positive cell set.",
     "The negative set is unlabeled background, not confirmed non-analogs; AUC measures ranking of known analogs against background, not classification accuracy.",
     "Atacama and the supplied Turkish sites are absent from the USGS known-analogs list.",

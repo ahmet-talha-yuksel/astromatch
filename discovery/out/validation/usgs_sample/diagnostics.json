@@ -1,0 +1,159 @@
+{
+  "target_id": "T-02",
+  "grid_rows": 405,
+  "valid_cell_count": 396,
+  "positive_count": 176,
+  "background_count": 220,
+  "feature_diagnostics": [
+    {
+      "feature": "slope_median_deg",
+      "positive_n": 176,
+      "positive_median": 0.5099956749174925,
+      "background_n": 220,
+      "background_median": 0.5256484742957871,
+      "univariate_auc_raw_value": 0.49387913223140495,
+      "moon_shackleton_regional_reference_value": 8.393435393377196
+    },
+    {
+      "feature": "slope_p90_deg",
+      "positive_n": 176,
+      "positive_median": 1.199255638662736,
+      "background_n": 220,
+      "background_median": 1.4517522311630926,
+      "univariate_auc_raw_value": 0.4608987603305785,
+      "moon_shackleton_regional_reference_value": 22.767591246461432
+    },
+    {
+      "feature": "flat_fraction",
+      "positive_n": 176,
+      "positive_median": 1.0,
+      "background_n": 220,
+      "background_median": 0.9992,
+      "univariate_auc_raw_value": 0.6063403925619835,
+      "moon_shackleton_regional_reference_value": 0.2596
+    },
+    {
+      "feature": "tri_median_m",
+      "positive_n": 176,
+      "positive_median": 28.711296078807806,
+      "background_n": 220,
+      "background_median": 29.078588654014013,
+      "univariate_auc_raw_value": 0.4909865702479339,
+      "moon_shackleton_regional_reference_value": 413.36222022394975
+    },
+    {
+      "feature": "relief_m",
+      "positive_n": 176,
+      "positive_median": 132.18394054122874,
+      "background_n": 220,
+      "background_median": 167.0261028088194,
+      "univariate_auc_raw_value": 0.47510330578512394,
+      "moon_shackleton_regional_reference_value": 2783.0302878484067
+    },
+    {
+      "feature": "elevation_std_m",
+      "positive_n": 176,
+      "positive_median": 40.51566544112278,
+      "background_n": 220,
+      "background_median": 52.34744064018891,
+      "univariate_auc_raw_value": 0.4684400826446281,
+      "moon_shackleton_regional_reference_value": 918.2549684835935
+    }
+  ],
+  "criterion_score_diagnostics": [
+    {
+      "criterion": "s_slope_median_deg",
+      "positive_n": 176,
+      "positive_median": 3.1962040602968e-14,
+      "background_n": 220,
+      "background_median": 3.620418946943309e-14,
+      "auc": 0.49447314049586777
+    },
+    {
+      "criterion": "s_slope_p90_deg",
+      "positive_n": 176,
+      "positive_median": 5.579839960232812e-26,
+      "background_n": 220,
+      "background_median": 2.158432762906318e-25,
+      "auc": 0.4608987603305785
+    },
+    {
+      "criterion": "s_flat_fraction",
+      "positive_n": 176,
+      "positive_median": 2.4245658167363263e-48,
+      "background_n": 220,
+      "background_median": 3.072379871457967e-48,
+      "auc": 0.3937370867768595
+    },
+    {
+      "criterion": "s_tri_median_m",
+      "positive_n": 176,
+      "positive_median": 5.125854362810307e-186,
+      "background_n": 220,
+      "background_median": 1.506611713887655e-186,
+      "auc": 0.49568698347107437
+    },
+    {
+      "criterion": "s_relief_m",
+      "positive_n": 176,
+      "positive_median": 0.0,
+      "background_n": 220,
+      "background_median": 0.0,
+      "auc": 0.428202479338843
+    },
+    {
+      "criterion": "s_elevation_std_m",
+      "positive_n": 176,
+      "positive_median": 0.0,
+      "background_n": 220,
+      "background_median": 0.0,
+      "auc": 0.43428460743801656
+    }
+  ],
+  "latitude_distribution": {
+    "positive": {
+      "count": 176,
+      "median_absolute_latitude": 44.25,
+      "latitude_band_counts": {
+        "[-90,-60)": 0,
+        "[-60,-30)": 4,
+        "[-30,0)": 40,
+        "[0,30)": 16,
+        "[30,60)": 88,
+        "[60,90]": 28
+      },
+      "latitude_band_proportions": {
+        "[-90,-60)": 0.0,
+        "[-60,-30)": 0.022727272727272728,
+        "[-30,0)": 0.22727272727272727,
+        "[0,30)": 0.09090909090909091,
+        "[30,60)": 0.5,
+        "[60,90]": 0.1590909090909091
+      }
+    },
+    "background": {
+      "count": 220,
+      "median_absolute_latitude": 38.75,
+      "latitude_band_counts": {
+        "[-90,-60)": 0,
+        "[-60,-30)": 10,
+        "[-30,0)": 38,
+        "[0,30)": 49,
+        "[30,60)": 77,
+        "[60,90]": 46
+      },
+      "latitude_band_proportions": {
+        "[-90,-60)": 0.0,
+        "[-60,-30)": 0.045454545454545456,
+        "[-30,0)": 0.17272727272727273,
+        "[0,30)": 0.22272727272727272,
+        "[30,60)": 0.35,
+        "[60,90]": 0.20909090909090908
+      }
+    }
+  },
+  "caveats": [
+    "Univariate AUC is not evidence of causality.",
+    "Background cells were selected from those passing WorldCover QA; VALIDATION_SAMPLE.md does not state whether the same QA was applied to analog cells."
+  ]
+}

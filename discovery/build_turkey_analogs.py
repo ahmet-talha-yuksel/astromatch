@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import warnings
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
@@ -40,7 +41,7 @@ COMMON_LIMITATION = "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilec
 MEKE_ACIGOL_LIMITATION = "Global 0.5° ızgarada aynı hücreye düşer (shares_cell_with)."
 
 
-def candidate(target_id: str, basis: str, rationale: str) -> dict[str, str]:
+def candidate(target_id: str, basis: str, rationale: str) -> dict[str, object]:
     return {"target_id": target_id, "rationale": rationale, "basis": basis}
 
 
@@ -139,6 +140,42 @@ def load_feature_records(features_path: Path = FEATURES_PATH) -> dict[str, dict]
     return records
 
 
+def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    radius_km = 6371.0088
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    delta_phi = math.radians(lat2 - lat1)
+    delta_lambda = math.radians(lon2 - lon1)
+    value = math.sin(delta_phi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(delta_lambda / 2) ** 2
+    return radius_km * 2 * math.asin(math.sqrt(value))
+
+
+def coordinate_updates(feature_records: dict[str, dict] | None = None) -> list[dict]:
+    feature_records = feature_records or load_feature_records()
+    updates = []
+    for row in source_rows():
+        prefix = FEATURE_SITE_PREFIXES[row["region_id"]]
+        possible_ids = [f"{prefix}_regional", f"{prefix}_local"] if prefix else []
+        source_id = next((rid for rid in possible_ids if rid in feature_records), None)
+        if source_id is None:
+            new_lat, new_lon, distance = row["lat"], row["lon"], 0.0
+        else:
+            source = feature_records[source_id]
+            if source.get("lat") is None or source.get("lon") is None:
+                raise ValueError(f"{source_id} has no latitude/longitude")
+            new_lat, new_lon = float(source["lat"]), float(source["lon"])
+            distance = haversine_km(row["lat"], row["lon"], new_lat, new_lon)
+        old_cell = cell_id(row["lat"], row["lon"])
+        new_cell = cell_id(new_lat, new_lon)
+        updates.append({
+            "region_id": row["region_id"], "source_record_id": source_id,
+            "old_lat": row["lat"], "old_lon": row["lon"],
+            "new_lat": new_lat, "new_lon": new_lon,
+            "distance_km": distance, "old_cell_id": old_cell, "new_cell_id": new_cell,
+            "cell_changed": old_cell != new_cell,
+        })
+    return updates
+
+
 def feature_links(region_id: str, feature_records: dict[str, dict]) -> tuple[list[dict], dict[str, dict | None]]:
     prefix = FEATURE_SITE_PREFIXES[region_id]
     refs: list[dict] = []
@@ -175,7 +212,7 @@ def feature_links(region_id: str, feature_records: dict[str, dict]) -> tuple[lis
 def load_grid_coverage(
     grid_path: Path = GRID_PATH,
     coverage_path: Path = COVERAGE_PATH,
-) -> tuple[set[str], dict[str, dict], dict[str, dict]]:
+) -> tuple[set[str], dict[str, dict]]:
     if not grid_path.is_file():
         raise FileNotFoundError(f"Processed earth grid not found: {grid_path}")
     if not coverage_path.is_file():
@@ -200,8 +237,7 @@ def load_grid_coverage(
         raise ValueError(
             f"coverage_report processed count ({report_count}) does not match grid ({len(processed_keys)})"
         )
-    report_sites = {row.get("region_id"): row for row in report.get("turkey_sites", [])}
-    return processed_keys, coverage_by_key, report_sites
+    return processed_keys, coverage_by_key
 
 
 def coverage_state(key: str, processed_keys: set[str], coverage_by_key: dict[str, dict]) -> dict:
@@ -236,38 +272,38 @@ def build_records(
 ) -> list[dict]:
     rows = source_rows()
     feature_records = load_feature_records(features_path)
-    processed_keys, coverage_by_key, report_sites = load_grid_coverage(grid_path, coverage_path)
+    processed_keys, coverage_by_key = load_grid_coverage(grid_path, coverage_path)
     source = source_commit()
+    coord_by_id = {item["region_id"]: item for item in coordinate_updates(feature_records)}
     grouped: dict[str, list[str]] = defaultdict(list)
     for row in rows:
+        update = coord_by_id[row["region_id"]]
+        row["lat"], row["lon"] = update["new_lat"], update["new_lon"]
         grouped[cell_id(row["lat"], row["lon"])].append(row["region_id"])
 
     records = []
     for row in rows:
+        update = coord_by_id[row["region_id"]]
         current_cell = cell_id(row["lat"], row["lon"])
         features_ref, feature_availability = feature_links(row["region_id"], feature_records)
         limitations = list(row["limitations"])
         if row["region_id"] == "E-TR-04" and not features_ref:
             limitations.append("features.json'da bu saha için ayrı kayıt yok; Meke ile aynı 0.5° hücreye düşer")
         site_coverage = coverage_state(current_cell, processed_keys, coverage_by_key)
-        report_site = report_sites.get(row["region_id"])
-        if report_site is None or report_site.get("cell_id") != current_cell:
-            raise ValueError(f"Coverage report is missing or has a different cell for {row['region_id']}")
-        report_status = "processed" if report_site.get("status") == "valid" else report_site.get("status")
-        if report_status != site_coverage["status"]:
-            raise ValueError(
-                f"Coverage report and input files disagree for {row['region_id']}: "
-                f"{report_status!r} != {site_coverage['status']!r}"
-            )
         if row["region_id"] == "E-TR-05" and site_coverage["status"] == "not_scanned":
             limitations.append("Bu sahanın cell_key grid coverage dosyasında not_scanned durumundadır.")
+        for target in row["candidate_targets"]:
+            if target["target_id"] == "T-04":
+                target["target_available"] = False
+                target["note"] = "T-04 has no planetary target record in features.json."
         records.append({
             "region_id": row["region_id"],
             "name": row["name"],
             "role": row["role"],
             "lat": row["lat"],
             "lon": row["lon"],
-            "coord_status": "approximate_unverified",
+            "coord_status": "from_features_json" if update["source_record_id"] else "approximate_unverified",
+            "coord_source": update["source_record_id"],
             "cell_id": current_cell,
             "shares_cell_with": [rid for rid in grouped[current_cell] if rid != row["region_id"]],
             "tags": row["tags"],
@@ -286,23 +322,15 @@ def build_records(
 
 
 def validate(records: list[dict], feature_records: dict[str, dict] | None = None) -> None:
-    expected_cells = {
-        "E-TR-01": "g_037.75_029.75",
-        "E-TR-02": "g_038.75_028.75",
-        "E-TR-03": "g_037.75_033.75",
-        "E-TR-04": "g_037.75_033.75",
-        "E-TR-05": "g_036.75_036.75",
-        "E-TR-06": "g_038.75_033.25",
-    }
     assert len(records) == 6
     ids = [record["region_id"] for record in records]
     assert ids == [f"E-TR-{i:02d}" for i in range(1, 7)]
     assert len(set(ids)) == 6
     for record in records:
-        assert record["cell_id"] == expected_cells[record["region_id"]]
+        assert record["cell_id"] == cell_id(record["lat"], record["lon"])
         assert record["usgs_listed"] is False
         assert set(record) == {
-            "region_id", "name", "role", "lat", "lon", "coord_status", "cell_id",
+            "region_id", "name", "role", "lat", "lon", "coord_status", "coord_source", "cell_id",
             "shares_cell_with", "tags", "analog_dimensions", "candidate_targets",
             "usgs_listed", "limitations", "features_ref", "feature_availability",
             "grid_coverage", "local_media", "status", "source_commit",
@@ -310,6 +338,20 @@ def validate(records: list[dict], feature_records: dict[str, dict] | None = None
         assert isinstance(record["features_ref"], list)
         if feature_records is not None:
             assert all(ref["region_id"] in feature_records for ref in record["features_ref"])
+            prefix = FEATURE_SITE_PREFIXES[record["region_id"]]
+            choices = [f"{prefix}_regional", f"{prefix}_local"] if prefix else []
+            expected_source = next((rid for rid in choices if rid in feature_records), None)
+            assert record["coord_source"] == expected_source
+            if expected_source:
+                assert record["coord_status"] == "from_features_json"
+                assert record["lat"] == float(feature_records[expected_source]["lat"])
+                assert record["lon"] == float(feature_records[expected_source]["lon"])
+            else:
+                assert record["coord_status"] == "approximate_unverified"
+            for target in record["candidate_targets"]:
+                if target["target_id"] == "T-04":
+                    assert target["target_available"] is False
+                    assert target.get("note")
     meke = next(r for r in records if r["region_id"] == "E-TR-03")
     acigol = next(r for r in records if r["region_id"] == "E-TR-04")
     assert meke["shares_cell_with"] == ["E-TR-04"]
@@ -336,9 +378,10 @@ def main() -> int:
     records = build_records()
     feature_records = load_feature_records()
     source = source_commit()
+    updates = coordinate_updates(feature_records)
     validate(records, feature_records)
     payload = {
-        "schema_version": "0.2-draft",
+        "schema_version": "0.3-draft",
         "generated_at": datetime.now(timezone(timedelta(hours=3))).isoformat(timespec="seconds"),
         "owner": "Kisi 3 - discovery",
         "status": "draft_qualitative",
@@ -351,10 +394,18 @@ def main() -> int:
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     reparsed = json.loads(output.read_text(encoding="utf-8"))
     validate(reparsed["records"])
-    assert reparsed["schema_version"] == "0.2-draft"
+    assert reparsed["schema_version"] == "0.3-draft"
     assert reparsed["generated_at"].endswith("+03:00")
+    for item in updates:
+        print(
+            "COORDINATE", item["region_id"], item["source_record_id"],
+            f"shift_km={item['distance_km']:.4f}",
+            f"cell={item['old_cell_id']}->{item['new_cell_id']}",
+        )
+    changes = [item for item in updates if item["cell_changed"]]
+    print("CELL_ID_CHANGES", len(changes), json.dumps(changes, ensure_ascii=False))
     print(f"Wrote {output.relative_to(ROOT)}")
-    print("Validation passed: six unique IDs, expected cells, reciprocal shared cell, JSON round-trip, qualitative fields only.")
+    print("Validation passed: six unique IDs, coordinate-derived cells, reciprocal shared cell, JSON round-trip, qualitative fields only.")
     return 0
 
 

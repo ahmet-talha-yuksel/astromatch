@@ -1,6 +1,6 @@
 {
-  "schema_version": "0.2-draft",
-  "generated_at": "2026-11-15T00:27:08+03:00",
+  "schema_version": "0.3-draft",
+  "generated_at": "2026-11-15T02:36:02+03:00",
   "owner": "Kisi 3 - discovery",
   "status": "draft_qualitative",
   "note": "Eslesmeler niteliksel hipotezdir; siralama sonucu Kisi 2 benzerlik motorundan gelir. Sayisal ozellikler features.json'da, region_id ile bagli.",
@@ -11,8 +11,9 @@
       "name": "Salda Gölü",
       "role": "turkey_candidate_and_reference",
       "lat": 37.55,
-      "lon": 29.68,
-      "coord_status": "approximate_unverified",
+      "lon": 29.67,
+      "coord_status": "from_features_json",
+      "coord_source": "earth_salda_regional",
       "cell_id": "g_037.75_029.75",
       "shares_cell_with": [],
       "tags": [
@@ -72,9 +73,10 @@
       "region_id": "E-TR-02",
       "name": "Kula Volkanik Alanı",
       "role": "turkey_candidate",
-      "lat": 38.6,
-      "lon": 28.6,
-      "coord_status": "approximate_unverified",
+      "lat": 38.58,
+      "lon": 28.52,
+      "coord_status": "from_features_json",
+      "coord_source": "earth_kula_regional",
       "cell_id": "g_038.75_028.75",
       "shares_cell_with": [],
       "tags": [
@@ -95,7 +97,9 @@
         {
           "target_id": "T-04",
           "rationale": "Opsiyonel Tharsis volkanik ovası ile volkanik arazi sınıfı benzerliği; T-04 opsiyonel hedef.",
-          "basis": "hipotez"
+          "basis": "hipotez",
+          "target_available": false,
+          "note": "T-04 has no planetary target record in features.json."
         }
       ],
       "usgs_listed": false,
@@ -139,9 +143,10 @@
       "region_id": "E-TR-03",
       "name": "Meke Gölü maarı",
       "role": "turkey_candidate",
-      "lat": 37.68,
-      "lon": 33.64,
-      "coord_status": "approximate_unverified",
+      "lat": 37.68694444444444,
+      "lon": 33.643055555555556,
+      "coord_status": "from_features_json",
+      "coord_source": "earth_meke_regional",
       "cell_id": "g_037.75_033.75",
       "shares_cell_with": [
         "E-TR-04"
@@ -206,6 +211,7 @@
       "lat": 37.7,
       "lon": 33.7,
       "coord_status": "approximate_unverified",
+      "coord_source": null,
       "cell_id": "g_037.75_033.75",
       "shares_cell_with": [
         "E-TR-03"
@@ -249,8 +255,9 @@
       "name": "Hassa lav tüpleri (Hatay)",
       "role": "turkey_candidate",
       "lat": 36.8,
-      "lon": 36.5,
-      "coord_status": "approximate_unverified",
+      "lon": 36.55,
+      "coord_status": "from_features_json",
+      "coord_source": "earth_hassa_regional",
       "cell_id": "g_036.75_036.75",
       "shares_cell_with": [],
       "tags": [
@@ -313,8 +320,9 @@
       "name": "Tuz Gölü",
       "role": "turkey_candidate",
       "lat": 38.75,
-      "lon": 33.37,
-      "coord_status": "approximate_unverified",
+      "lon": 33.33,
+      "coord_status": "from_features_json",
+      "coord_source": "earth_tuz_golu_regional",
       "cell_id": "g_038.75_033.25",
       "shares_cell_with": [],
       "tags": [

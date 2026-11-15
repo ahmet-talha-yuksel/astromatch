@@ -1,135 +1,80 @@
-# AstroMatch AI — USGS analog dataset preparation
+# AstroMatch Discovery: USGS and Earth Analog Data
 
-**Branch:** `feature/discovery`  
-**Folder:** `discovery/`  
-**Dataset:** USGS *Known Terrestrial Analog Sites for Planetary Science*  
-**DOI:** https://doi.org/10.5066/P9J72921  
-**ScienceBase item:** `5f88940b82cebb8c13d912ee`
+## Data sources and preparation
 
-## Important scope note
+The USGS release **Known Terrestrial Analog Sites for Planetary Science** by Marc A. Hunter (2020) was downloaded from the official release. DOI: https://doi.org/10.5066/P9J72921; ScienceBase item: `5f88940b82cebb8c13d912ee`.
 
-This USGS release is a **known-site point layer** (examples described by USGS include impact craters, dunes, volcanoes, and other planetary-relevant processes). It is a validation/reference dataset. It is **not** the 0.5° global candidate grid and should not be treated as a complete inventory of every Earth analog.
+The source Shapefile has 192 point records in EPSG:3857. The cleaned outputs retain all 192 records, convert geometry to EPSG:4326, and report zero null, empty, invalid, duplicate, or out-of-range geometries removed. See `data/processed/cleaning_report.json` for source and output SHA256 values and the full cleaning report. The USGS list is a known-site validation set, not a global inventory of Earth analog terrain.
 
-The source download could not be retrieved in the current ChatGPT execution environment because the official ScienceBase/USGS endpoints returned access errors. Therefore no row count, field list, or cleaned output is claimed here. Run the script from your local machine to fetch and process the actual source.
+## Turkey analog records
 
-## Setup
+`out/turkey_analogs.json` uses schema `0.3-draft`. Five sites use latitude and longitude from their regional `features.json` record, falling back to local only if regional is absent. Acigol has no separate feature record and retains its approximate supplied coordinates. The file keeps qualitative hypotheses separate from numeric metrics, which remain in `features.json`. T-04 is explicitly marked unavailable because no T-04 target record exists in the supplied `features.json`.
 
-From the repository root:
+## Grid scope and global coordinate pool
 
-```bash
-git switch -c feature/discovery
-mkdir -p discovery
-# Copy this package's contents into discovery/
+The processed pilot grid contains 408 cells: a Turkey-centered 20 by 20 pilot plus four Atacama and four Iceland cells. It is a regional sample, not a global grid. Of the 408 cells, 216 pass the resolution and six-feature comparability checks. The `global_grid.py` module remains a placeholder; it does not scan the globe.
 
-cd discovery
-python -m venv .venv
-# Windows PowerShell:
-.venv\\Scripts\\Activate.ps1
-# macOS/Linux:
-# source .venv/bin/activate
+`out/global_pool.parquet` is a separate coordinate-only pool generated over all 0.5-degree cell centers. Land fraction is approximate: 25 `global-land-mask` point samples per cell, retaining cells with estimated land fraction at least 0.5. It contains no terrain features or scores. It currently has 579 scanned cells (179 pilot, 400 validation sample), 1,639 `not_scanned`, and 83,694 `out_of_coverage`. `out_of_coverage` does not mean unscanned global terrain was measured.
 
-pip install -r requirements.txt
-python fetch_usgs_analogs.py
+`out/global_candidates.geojson` is a scored export from the supplied regional grid. Its 216 features are not global coverage; its metadata records that scope.
+
+## Scoring, validation, and stability
+
+The scoring features are `slope_median_deg`, `slope_p90_deg`, `flat_fraction`, `tri_median_m`, `relief_m`, and `elevation_std_m`.
+
+The pilot USGS validation (`out/validation/validation_results.json`) is `not_evaluable` for T-02 because none of the known analog cells overlap its valid scored cells. The independent sample results are under `out/validation/usgs_sample/`: 176 valid positive cells and 220 valid background cells for T-02. T-01 and T-03 are unscorable. AUC is 0.4621 with bootstrap 95% interval [0.4432, 0.4802], permutation p=1.0, mean positive percentile 48.02, and top 1% / 5% enrichment 0.5625 / 0.1125. The result is negative: **the score did not distinguish known analogs from background**. Sensitivity excluding positive neighbors gives AUC 0.4604 [0.4408, 0.4798]. The background is unlabeled, not confirmed negative examples. Diagnostics are in `out/validation/usgs_sample/diagnostics.json` and `.csv` (or timestamped equivalents if those names already existed).
+
+Stability outputs are under `out/stability/`. They use T-02, 50 runs per noise level (1%, 5%, 10%), seed 42, and separate `end_to_end` and `frozen` sigma modes. At 1% noise, mean top-5 Jaccard is 0.860 / 0.867 and mean Spearman is 0.99964 / 0.99967 for end-to-end / frozen. At 5%, the values are 0.636 / 0.625 and 0.99542 / 0.99558. At 10%, they are 0.414 / 0.417 and 0.98466 / 0.98508. These are regional-grid results for T-02; they do not establish stability for Mars targets.
+
+Most USGS records are impact craters (190 of 192). Crater-centered 50 by 50 km windows can make relief and roughness reflect crater morphology, so AUC can confound analog quality with crater-like terrain discrimination. T-02 is Shackleton on the Moon; these results do not apply to Mars. Univariate AUC is not evidence of causality. Background cells were selected from those passing WorldCover QA; `VALIDATION_SAMPLE.md` does not state whether the same QA was applied to analog cells.
+
+## Integration
+
+`known_analogs.json` records expose `analog_id`, `theme`, and `analog_for`, while the engine adapter looks for `region_id` or `id`, `tags`, and `body`; these names do not align. The adapter does not load `turkey_analogs.json` or `global_candidates.geojson`.
+
+## File map
+
+- `data/raw/`: downloaded USGS ZIP and metadata; `data/raw/extracted/` contains the source Shapefile components.
+- `data/processed/usgs_analogs_clean.geojson`, `usgs_analogs_clean.csv`, `cleaning_report.json`: source preserving cleaned release and audit report.
+- `data/inputs/`: pilot grid, coverage, real `features.json`, scores, validation sample snapshot, and source manifests. These inputs are ignored by Git.
+- `out/known_analogs.json`: 192 USGS records mapped to cell keys.
+- `out/turkey_analogs.json`: six qualitative Turkish site records.
+- `out/global_pool.parquet`: coordinate-only global land-cell pool; no features or scores.
+- `out/global_candidates.geojson`: scored cells from the regional pilot grid.
+- `out/validation/`: pilot and independent-sample validation reports and request artifacts.
+- `out/stability/`: T-02 noise stability reports for both sigma modes.
+- `out/scores/`: traceable copies of pilot and validation score tables.
+
+## Commands
+
+Run from the repository root with the discovery environment activated:
+
+```powershell
+python -m pip install -r discovery/requirements.txt
 ```
 
-## Outputs
+Build the Turkish records and coordinate pool:
 
-After a successful run:
-
-```text
-discovery/
-├── fetch_usgs_analogs.py
-├── requirements.txt
-├── README.md
-└── data/
-    ├── raw/
-    │   ├── usgs_analogs_source.zip
-    │   └── extracted/
-    └── processed/
-        ├── usgs_analogs_clean.geojson
-        ├── usgs_analogs_clean.csv
-        └── cleaning_report.json
+```powershell
+python -m discovery.build_turkey_analogs
+python -m discovery.global_pool
 ```
 
-## Cleaning rules
+Validate the independent sample after its score table is available:
 
-1. Download item metadata and all attached ScienceBase files.
-2. Extract the source archive safely.
-3. Find a supported vector dataset (`.gpkg`, `.geojson`, `.json`, `.shp`, `.kml`, `.gml`).
-4. Reject missing CRS instead of guessing it.
-5. Reproject to `EPSG:4326`.
-6. Remove null/empty geometries and impossible WGS84 bounds.
-7. Remove exact duplicate geometries.
-8. Preserve all original attributes.
-9. Add normalized fields only when a source field can be mapped conservatively.
-10. Derive point longitude/latitude from geometry, not potentially stale attribute values.
-11. Write GeoJSON, CSV, and a machine-readable cleaning report.
+```powershell
+python -m discovery.validate_usgs --grid discovery/data/inputs/earth_grid_validation.parquet --scores discovery/data/inputs/scores_validation.parquet --out-dir discovery/out/validation/usgs_sample
+```
 
-## Important scientific safeguards
+Run stability separately for each sigma mode, supplying the external engine directory:
 
-- Do not infer a planetary target body from a landform name.
-- Do not fill missing analog types with guessed categories.
-- Do not assume the USGS points cover all relevant analog sites.
-- Keep source record IDs and the DOI in downstream records.
-- Use this set for a known-site validation check, not as training truth for the global similarity ranking.
-- Keep `global_candidates.geojson` (generated from the global 0.5° grid) separate from the known-site validation layer.
+```powershell
+python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\Users\eraym\astromatch_ext\engine_main --target-id T-02 --sigma-mode end_to_end
+python -m discovery.stability_test --grid discovery/data/inputs/earth_grid.parquet --engine-path C:\Users\eraym\astromatch_ext\engine_main --target-id T-02 --sigma-mode frozen
+```
 
-## Suggested integration contract
+Export the scored regional candidates:
 
-The output GeoJSON retains original fields and adds:
-
-| Field | Meaning |
-|---|---|
-| `astromatch_source` | Stable source label |
-| `source_doi` | Original DOI |
-| `source_item_id` | ScienceBase item identifier |
-| `source_record_id` | Deterministic ID for this export |
-| `name` | Mapped site name, if present |
-| `analog_type` | Mapped analog type, if present |
-| `target_body` | Mapped planetary target, if present |
-| `longitude` | WGS84 longitude for point geometries |
-| `latitude` | WGS84 latitude for point geometries |
-
-Do not change the team's shared JSON schema without approval. If the team schema differs, write a small adapter rather than changing this source-preserving output.
-
-## Source citation
-
-Hunter, M.A. (2020). *Known Terrestrial Analog Sites for Planetary Science*. U.S. Geological Survey data release. https://doi.org/10.5066/P9J72921
-
-
-## Known analogs
-
-`known_analogs.json` adapts the cleaned USGS point records without changing the shared JSON schema. Cell IDs use the containing 0.5-degree latitude/longitude cell, formatted as `g_{lat:06.2f}_{lon:06.2f}`; each value is the cell center (for example, `g_037.75_029.75`).
-
-`analog_for` is `mars` or `moon` only when the source `AnalogBody` says Mars or Moon. It remains an empty list when the source body is blank or missing; no target is inferred.
-
-The USGS list has 190 impact crater records out of 192, so validation is crater-weighted.
-
-
-## Turkey analogs
-
-`out/turkey_analogs.json` records the six supplied Turkish field sites as qualitative candidate/reference hypotheses and links each to `features.json` by `region_id`. It uses the `0.1-draft` schema, `draft_qualitative` status, approximate unverified coordinates, qualitative tags/dimensions, and no numeric terrain or climate features.
-
-Matches are qualitative hypotheses; ranking comes from Person 2's similarity engine. Meke and Acıgöl share the same global 0.5° cell (`g_037.75_033.75`) and reference each other through `shares_cell_with`. Hassa's longitude is on a cell boundary at approximately 36.5°; its current cell is computed from the supplied coordinate and must be recalculated when the coordinate is confirmed.
-
-### Bilinen sorunlar
-
-USGS-ANALOG-00136 (Ritland) attribute and geometry coordinates differ by approximately 1.3 km; the geometry coordinate was used. `analog_mapping.cell_id` gives `g_064.75_-16.25` for geometry (64.92813695180274, -16.4958615463001), and `g_064.75_-16.75` for attributes (64.9321, -16.5217).
-
-
-## Validation and stability
-
-The validation, stability and export outputs include a `scope` block with processed/valid cell counts, latitude/longitude ranges, the ten most populated 5-degree bins, source branch/commit from `data/inputs/SOURCE.txt`, and the note that coverage is not global. Cell joins use coordinate-derived `cell_key` values; grid `region_id` values are not treated as cell keys.
-
-Only `slope_median_deg`, `slope_p90_deg`, `flat_fraction`, `tri_median_m`, `relief_m`, and `elevation_std_m` enter scoring or stability noise. NDVI and precipitation are filters when supplied; temperature does not enter the score.
-
-For USGS validation, positives are cells containing listed analogs. The primary comparison set is all valid cells without a listed analog; this is unlabeled background, not confirmed negative examples. The sensitivity comparison removes the eight neighboring cells of positives from that background. AUC uses average ranks for ties; bootstrap intervals resample positive and background scores independently; permutation p-values shuffle class membership. Percentile is the positive-cell average rank among valid cells, with the highest rank at 100. Top 1%/5% enrichment compares positive share in each ranked slice with overall positive prevalence.
-
-T-01 and T-03 are unscorable and have null metrics with an `unscorable` reason. T-02 is the only target currently scored. If positive counts are below the configured minimum, metric tests are skipped and positive names, scores, and percentiles are reported descriptively. Caveats: 190/192 USGS records are impact craters; `analog_for` is blank for 191 records, so targets share the same positive cells; background is unlabeled; Atacama and Turkish sites are absent from the USGS list; this does not establish volcanic or carbonate analog evidence.
-
-Stability noise is Gaussian at 1%, 5%, and 10% of each scoring feature's standard deviation, clipped to physical bounds. `end_to_end` lets the ranker recompute sigma; `frozen` calls the ranker with `sigma="frozen"`. Run the two modes separately and compare their separate result files.
-
-
-### Feature and grid coverage links (schema 0.2-draft)
-
-Turkey records link to the actual local and regional `features.json` records when both scales exist. Each record's `feature_availability` contains only `resolution_validated`, the count of comparable scoring metrics (out of six), and `data_status`; numerical feature values remain in `features.json`. `grid_coverage` is derived from the coordinate cell key against the processed grid and coverage report. The source commit is copied from `data/inputs/SOURCE.txt`. Acigol has no separate feature record and shares Meke's 0.5-degree cell; Hassa's cell is marked `not_scanned` in the supplied grid coverage.
+```powershell
+python -m discovery.export_global_candidates --grid discovery/data/inputs/earth_grid.parquet --scores discovery/data/inputs/scores_all.parquet --analogs discovery/out/known_analogs.json --turkey discovery/out/turkey_analogs.json
+```
