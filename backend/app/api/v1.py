@@ -176,7 +176,7 @@ def sites_v1(target_id:str,scale:Literal['local']='local',preset:str='balanced')
     ds=checked(target_id,scale,preset)
     result=ranked(target_id,scale,preset,k=20,filter_mode='flag',detailed=True)
     ids={r.region_id for r in ds.candidates if r.scale==scale and r.kind=='earth_site'}
-    return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'sites':[r for r in result.full_scores if r['id'] in ids],'excluded':[r for r in result.excluded if r['id'] in ids],'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'terrain_commonality':result.terrain_commonality}
+    return {**meta(),'target_id':target_id,'scale':scale,'preset':preset,'sites':[r for r in result.full_scores if r['id'] in ids],'excluded':[r for r in result.excluded if r['id'] in ids],'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'excluded_features':result.excluded_features,'sigma_calibration':result.sigma_calibration,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'terrain_commonality':result.terrain_commonality}
 
 @router.get('/heat',response_model=HeatResponse)
 def heat_v1(target_id:str,scale:Literal['local','regional']='local',preset:str='balanced'):
@@ -203,7 +203,7 @@ def region_v1(region_id:str):
             if target.scale!=record.scale: continue
             result=engine_rank(ds,target.region_id,target.scale)
             row=next((r for r in result.full_scores if r['id']==region_id),None)
-            if row: scores.append({'target_id':target.region_id,'scale':target.scale,'score_geo':row['score_geo'],'score_relative':row['score_relative'],'match_level':row['match_level']})
+            if row: scores.append({'target_id':target.region_id,'scale':target.scale,'score_geo':row['score_geo'],'score_relative':row['score_relative'],'score_percentile_scanned':row.get('score_percentile_scanned'),'match_level':row['match_level']})
     return {**meta(),'region':records[0].model_dump(),'records':[r.model_dump() for r in records],'scores':scores}
 
 @router.get('/explain',response_model=ExplainResponse)
@@ -234,8 +234,8 @@ def compare_v1(target_id:str,candidate_id:str,scale:Literal['local','regional'],
     return {**meta(),'target_id':target_id,'candidate_id':candidate_id,'scale':scale,'preset':preset,
             'target':target.model_dump(),'candidate':candidate.model_dump(),
             'per_criterion':criteria,'z_by_feature':z_by_feature,'distance_z':row['distance_z'],
-            'score_geo':row['score_geo'],'score_ci_low':row.get('score_ci_low'),'score_ci_high':row.get('score_ci_high'),
-            'score_relative':row['score_relative'],'match_level':row['match_level'],
+            'score_geo':row['score_geo'],'score_contextual':row.get('score_contextual'),'score_contextual_ci_low':row.get('score_contextual_ci_low'),'score_contextual_ci_high':row.get('score_contextual_ci_high'),'score_ci_low':row.get('score_ci_low'),'score_ci_high':row.get('score_ci_high'),
+            'score_relative':row['score_relative'],'score_percentile_scanned':row.get('score_percentile_scanned'),'match_level':row['match_level'],
             'place':row.get('place'),'explanation':explanation,'analogy_breaks':explanation.get('analogy_breaks',[]),
             'not_compared':explanation.get('not_compared',[])}
 

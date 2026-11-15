@@ -9,7 +9,7 @@ from pathlib import Path
 from .adapters import adapt
 from .io import ROOT, _read, config, feature_paths, merged_features
 from .models import DataPaths
-from .measurement import target_status, target_confidence, support_summary
+from .measurement import target_status, target_confidence, support_summary, excluded_features, eligible_target_feature
 from .grid_status import grid_inventory
 
 KINDS={'target','earth_site','earth_grid','earth_reference'}
@@ -119,13 +119,13 @@ def check_real_data(paths:DataPaths|None=None):
         found=False
         for site in sites if status=='scorable' else []:
             if target.scale!=site.scale or not target.resolution_validated or not site.resolution_validated: continue
-            eligible=sum(key in site.features and tf.value is not None and site.features[key].value is not None and tf.comparable and site.features[key].comparable for key,tf in target.features.items() if key in configured)
+            eligible=sum(key in site.features and site.features[key].value is not None and site.features[key].comparable and eligible_target_feature(target,key) for key in configured)
             if eligible>=min_features: found=True; break
         if not found:
             reason=reason or f'no earth_site has at least {min_features} eligible features at the same scale'
             status='unscorable'
             warnings.append(f'{target.region_id}@{target.scale}: {reason}')
-        target_statuses[f'{target.region_id}@{target.scale}']={'status':status,'reason':reason,'target_confidence':target_confidence(target),'measurement_support':support_summary(target)}
+        target_statuses[f'{target.region_id}@{target.scale}']={'status':status,'reason':reason,'target_confidence':target_confidence(target),'measurement_support':support_summary(target),'excluded_features':excluded_features(target,configured)}
     if targets and not any(value['status']=='scorable' for value in target_statuses.values()):
         errors.append('No scorable target; validate resolution, comparability and Earth-site feature overlap')
     grid_status,grid_counts=grid_inventory(adapted)

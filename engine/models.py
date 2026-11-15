@@ -63,6 +63,7 @@ class TargetSummary(BaseModel):
     target_confidence: str | None = None
     measurement_support: dict | None = None
     method_sensitive: bool | None = None
+    excluded_features: list[str] = Field(default_factory=list)
 
 class Explanation(BaseModel):
     strongest: list[dict] = Field(default_factory=list)
@@ -79,6 +80,7 @@ class Explanation(BaseModel):
     discrimination_label: str | None = None
     comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'
     place: dict | None = None
+    excluded_features: list[str] = Field(default_factory=list)
 
 class HeatPoint(BaseModel):
     id: str
@@ -109,3 +111,5 @@ class RankResult(BaseModel):
     discrimination_explanation: str | None = None
     comparison_scope: str = 'Topographic similarity only (slope, roughness, relief). Not compared: temperature, ice/volatiles, mineralogy, atmosphere.'
     terrain_commonality: dict | None = None
+    excluded_features: list[str] = Field(default_factory=list)
+    sigma_calibration: dict | None = None
