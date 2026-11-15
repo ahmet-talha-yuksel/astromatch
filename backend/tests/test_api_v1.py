@@ -62,7 +62,7 @@ def test_get_post_rank_and_sites(client):
     c,_=client
     get=check_mock(c.get('/api/v1/rank',params={'target_id':'T-01','scale':'local'}))
     assert get['top_k'][0]['score_geo']<=100 and get['top_k'][0]['score_relative']==100
-    assert get['sigma']['relief_m']['sigma_source']=='earth_robust_std' and get['sigma']['relief_m']['n_samples']>=200
+    assert get['sigma']['relief_m']['sigma_source']=='earth_reference_robust_std' and get['sigma']['relief_m']['n_samples']==300
     post=check_mock(c.post('/api/v1/rank',json={'target_id':'T-01','scale':'local','weights':{'relief_m':2}}))
     assert post['top_k'] and post['preset']=='balanced'
     sites=check_mock(c.get('/api/v1/sites',params={'target_id':'T-01'}))

@@ -85,6 +85,8 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     places={c.region_id:c.place for c in dataset.candidates if c.body=='earth'}
     frames = []
     sigma_tables = {}
+    calibration_tables = {}
+    contextual_factors = {}
     counts = {}
     unscorable = {}
     for alias in active:
@@ -101,13 +103,18 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
         if matching is not None:
             ranked=rank(dataset,target_id,'regional',preset,include_uncertainty=True)
             intervals={row['id']:row for row in ranked.full_scores}
-        for column in ('score_ci_low','score_ci_high','rank_p5','rank_p95','top10_stability'):
+        for column in ('score_ci_low','score_ci_high','rank_p5','rank_p95','top10_stability','top_tier','top_tier_size','score_percentile_scanned'):
             scored[column]=scored['cell_id'].map({rid:row.get(column) for rid,row in intervals.items()})
         for column in ('score_ci_low','score_ci_high'):
             scored[column]=scored[column]/100
         scored['score_ci_low']=np.minimum(scored['score_ci_low'],scored['score'])
         scored['score_ci_high']=np.maximum(scored['score_ci_high'],scored['score'])
+        factor=scored.attrs['contextual_factor']
+        scored['score_contextual_ci_low']=scored['score_ci_low']*factor
+        scored['score_contextual_ci_high']=scored['score_ci_high']*factor
         sigma_tables[alias] = scored.attrs["sigma_table"]
+        calibration_tables[alias] = scored.attrs.get("sigma_calibration")
+        contextual_factors[alias] = factor
         counts[alias] = {"scored": int(scored.score.notna().sum()),
                          "nan": int(scored.score.isna().sum())}
         if not counts[alias]["scored"]:
@@ -119,12 +126,13 @@ def export_scores(*, mock=False, features=None, grid=None, preset="balanced",
     output.mkdir(parents=True, exist_ok=True)
     combined.to_parquet(output / "scores_all.parquet", index=False)
     combined.to_csv(output / "scores_all.csv", index=False, na_rep="")
-    manifest = {"data_status": data_status, "inputs_sha256": hashes,
+    from .io import config
+    manifest = {"feature_set":config('features.yaml')['feature_set'],"data_status": data_status, "inputs_sha256": hashes,
                 "input_source": os.getenv('ASTROMATCH_INPUT_SOURCE'),
                 "overrides": overrides if not mock else [],
                 "engine_version": ENGINE_VERSION, "scale": "regional",
                 "preset": preset, "sigma_mode": sigma or "recompute",
-                "sigma_table": sigma_tables, "alias_table": aliases,
+                "sigma_table": sigma_tables, "sigma_calibration": calibration_tables, "contextual_factors": contextual_factors, "alias_table": aliases,
                 "grid_status": grid_status, "grid_rows": len(grid_df),
                 "grid_extent": _grid_extent(grid_df), "grid_label": "regional subset",
                 "counts_per_target": counts, "unscorable_targets": unscorable}

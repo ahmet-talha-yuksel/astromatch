@@ -8,7 +8,7 @@ from .adapters import adapt
 from .models import DataPaths, Dataset
 ROOT = Path(__file__).resolve().parent.parent
 log=logging.getLogger(__name__)
-DEFAULT_FEATURES=(ROOT/'processing/out/real/features.json',ROOT/'processing/out/mars_measured/features.json')
+DEFAULT_FEATURES=(ROOT/'processing/out/real/features.json',ROOT/'processing/out/mars_measured/features.json',ROOT/'processing/out/moon_measured/features.json')
 
 def logical_input_hashes(hashes):
     """Compare identical inputs across host and container mount roots."""
@@ -21,8 +21,18 @@ def logical_input_hashes(hashes):
     return result
 
 @lru_cache(maxsize=8)
-def config(name):
+def _raw_config(name):
     return yaml.safe_load((Path(__file__).parent / 'config' / name).read_text())
+
+def config(name):
+    raw=_raw_config(name)
+    if name!='features.yaml': return raw
+    selected=os.getenv('ASTROMATCH_FEATURE_SET',raw.get('feature_set','v9'))
+    if selected not in ('v6','v9'): raise ValueError(f'Unknown feature_set: {selected}')
+    if selected=='v9': return raw
+    allowed=set(raw['v6_features'])
+    return {**raw,'feature_set':'v6','features':{k:v for k,v in raw['features'].items() if k in allowed},
+            'feature_groups':{k:[f for f in members if f in allowed] for k,members in raw['feature_groups'].items() if any(f in allowed for f in members)}}
 
 def _read(path):
     if path.suffix == '.parquet': return pd.read_parquet(path).to_dict('records')

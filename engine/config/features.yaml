@@ -2,12 +2,25 @@ min_features: 3
 min_sigma_samples: 200
 min_sigma_samples_regional: 150
 min_sigma_samples_local: 100
+sigma_calibration: loo_median50
+sigma_calibration_seed: 42
+sigma_calibration_max_cells: 512
+feature_set: v9
+v6_features: [slope_median_deg, slope_p90_deg, flat_fraction, tri_median_m, relief_m, elevation_std_m]
+feature_groups:
+  slope: [slope_median_deg, slope_p90_deg, flat_fraction]
+  roughness: [tri_median_m, elevation_std_m]
+  relief: [relief_m]
+  shape: [hypsometric_integral, roughness_ratio, curvature_std_per_km]
 # fixed_fallback values are engineering defaults, not measured/calibrated sigmas.
 features:
-  slope_median_deg: {label: Median slope, unit: deg, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 1.0, fixed_fallback: 8.0}}
-  slope_p90_deg: {label: 90th percentile slope, unit: deg, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 2.0, fixed_fallback: 15.0}}
-  flat_fraction: {label: Flat terrain fraction, unit: fraction, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 0.05, fixed_fallback: 0.2}}
-  tri_median_m: {label: Median terrain ruggedness, unit: m, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 5.0, fixed_fallback: 25.0}}
-  relief_m: {label: Relief, unit: m, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 25.0, fixed_fallback: 150.0}}
-  elevation_std_m: {label: Elevation standard deviation, unit: m, weight: 1, method: gaussian, sigma: {method: earth_robust_std, k: 0.5, floor: 10.0, fixed_fallback: 60.0}}
+  slope_median_deg: {label: Median slope, unit: deg, method: gaussian, transform: {method: log, eps: 0.05}, sigma: {method: earth_robust_std, k: 0.5, floor: 1.0, fixed_fallback: 8.0}}
+  slope_p90_deg: {label: 90th percentile slope, unit: deg, method: gaussian, transform: {method: log, eps: 0.05}, sigma: {method: earth_robust_std, k: 0.5, floor: 2.0, fixed_fallback: 15.0}}
+  flat_fraction: {label: Flat terrain fraction, unit: fraction, method: gaussian, transform: {method: logit, clip_min: 0.01, clip_max: 0.99}, sigma: {method: earth_robust_std, k: 0.5, floor: 0.05, fixed_fallback: 0.2}}
+  tri_median_m: {label: Median terrain ruggedness, unit: m, method: gaussian, transform: {method: log, eps: 0.5}, sigma: {method: earth_robust_std, k: 0.5, floor: 5.0, fixed_fallback: 25.0}}
+  relief_m: {label: Relief, unit: m, method: gaussian, transform: {method: log, eps: 2.0}, sigma: {method: earth_robust_std, k: 0.5, floor: 25.0, fixed_fallback: 150.0}}
+  elevation_std_m: {label: Elevation standard deviation, unit: m, method: gaussian, transform: {method: log, eps: 1.0}, sigma: {method: earth_robust_std, k: 0.5, floor: 10.0, fixed_fallback: 60.0}}
+  hypsometric_integral: {label: Basin vs plateau shape, unit: fraction, method: gaussian, transform: {method: none}, sigma: {method: earth_robust_std, k: 0.5, floor: 0.01, fixed_fallback: 0.2}}
+  roughness_ratio: {label: Fine vs coarse roughness, unit: ratio, method: gaussian, transform: {method: log, eps: 0.01}, sigma: {method: earth_robust_std, k: 0.5, floor: 0.01, fixed_fallback: 0.2}}
+  curvature_std_per_km: {label: Hill/hollow density, unit: per_km, method: gaussian, transform: {method: log, eps: 0.001}, sigma: {method: earth_robust_std, k: 0.5, floor: 0.001, fixed_fallback: 0.1}}
 # surface_temp_diurnal_range_c: {label: Diurnal temperature range, unit: C, weight: 1, method: gaussian, sigma: {method: fixed, value: 10}}

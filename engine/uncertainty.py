@@ -5,6 +5,7 @@ import hashlib
 import numpy as np
 
 from .distance import standardized_distance
+from .transform import transform
 
 
 def _declared_uncertainty(region, key):
@@ -60,13 +61,15 @@ def simulate(target,candidates,keys,values,eligible,weights,sigma,feature_cfg,fu
         drawn_sigma=sigma_values*rng.uniform(.8,1.2,len(keys))
         noisy_values=values+rng.normal(size=values.shape)*candidate_uncertainty
         noisy_target=target_values+rng.normal(size=len(keys))*target_uncertainty
-        similarity=np.exp(-.5*((noisy_values-noisy_target)/drawn_sigma)**2)
+        transformed_values=np.column_stack([transform(noisy_values[:,j],feature_cfg[key]) for j,key in enumerate(keys)])
+        transformed_target=np.array([transform(noisy_target[j],feature_cfg[key]) for j,key in enumerate(keys)])
+        similarity=np.exp(-.5*((transformed_values-transformed_target)/drawn_sigma)**2)
         active_cells=eligible & (drawn_weights>0)
         total=np.sum(active_cells*drawn_weights,axis=1)
         normalized=np.divide(active_cells*drawn_weights,total[:,None],out=np.zeros_like(noisy_values),where=total[:,None]>0)
         score=100*np.exp(np.sum(normalized*np.log(np.where(active_cells,np.maximum(similarity,.01),1)),axis=1))
         score_draws[draw]=score[scored_indices]
-        distance=standardized_distance(noisy_values,noisy_target,eligible,drawn_weights,floors)[scored_indices]
+        distance=standardized_distance(transformed_values,transformed_target,eligible,drawn_weights,np.full(len(keys),.01))[scored_indices]
         order=np.lexsort((np.array([row['id'] for row in full_rows]),distance))
         ranks=np.empty(len(order),dtype=float);ranks[order]=np.arange(1,len(order)+1)
         rank_draws[draw]=ranks
