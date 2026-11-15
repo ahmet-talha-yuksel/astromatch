@@ -40,7 +40,9 @@ services:
       - /app/frontend/node_modules
     environment:
       VITE_API_BASE_URL: http://localhost:8000
-    command: npm run dev -- --host 0.0.0.0
+    # The bind mount keeps source live while node_modules is an anonymous volume.
+    # Sync that volume with the current lockfile after dependency changes.
+    command: ["sh", "-lc", "npm ci --prefer-offline --no-audit --no-fund && npm run dev -- --host 0.0.0.0"]
     depends_on:
       backend:
         condition: service_healthy
