@@ -164,7 +164,7 @@ function CameraControls({ world, terrain, action, relief, exaggeration, elevatio
     const verticalFov = THREE.MathUtils.degToRad((camera as THREE.PerspectiveCamera).fov);
     const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * size.width / size.height);
     const fitDistance = Math.max(2, radius / Math.sin(Math.min(verticalFov, horizontalFov) / 2) * 1.15);
-    const direction = mode === "top" ? new THREE.Vector3(0, 1, 0.0001) : mode === "fit" ? camera.position.clone().sub(controls.current?.target ?? target).normalize() : new THREE.Vector3(0.7, 0.7, 1).normalize();
+    const direction = mode === "top" ? new THREE.Vector3(0, 1, 0.0001) : mode === "fit" ? camera.position.clone().sub(controls.current?.target ?? target).normalize() : new THREE.Vector3(0.7, 1.45, 1).normalize();
     camera.position.copy(target).addScaledVector(direction, fitDistance);
     camera.near = Math.max(0.001, fitDistance / 1000);
     camera.far = Math.max(1000, fitDistance * 20);
