@@ -2,6 +2,8 @@
 
 Data status: **real**. Grid: **regional subset**, scanned-cell extent `{'lat_min': -24.75, 'lat_max': 64.75, 'lon_min': -69.75, 'lon_max': 34.75}`.
 
+[v6 versus v9 comparison](COMPARISON.md)
+
 - [T-01: Jezero](T-01.md)
 - [T-02: Shackleton](T-02.md)
 - [T-04: Phoenix regional feasibility probe](T-04.md)
