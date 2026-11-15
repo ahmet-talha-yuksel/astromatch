@@ -459,3 +459,23 @@ lst_diurnal_range_c denotes mean day-overpass minus night-overpass LST; not dail
 | earth_tuz_golu_regional | null / null / null / null / null / null / null | earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired |
 | earth_haughton_regional | null / null / null / null / null / null / null | earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired |
 | earth_meteor_crater_regional | null / null / null / null / null / null / null | earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired |
+
+## Diviner thermal context
+
+Metadata opened 2026-11-15: https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.xml (HTTP 200).
+
+Product urn:nasa:pds:lro_diviner_derived1:data_derived_prp:dlre_prp_south::1.0; lunar reference radius 1737.4 km. Mesh resolution is not a uniform raster pixel size and was not established.
+The PRP table contains modeled annual surface maxima, modeled annual average at 2 cm depth and ice stability depth. It supplies neither the requested mean/minimum surface observation nor a PSR mask. No derived values are mislabeled as direct orbital surface measurements.
+
+- moon_shackleton_local / surface_temp_max_c: null; PRP temp_max is a calculated annual surface maximum; not ingested as an orbital measured window statistic. No validated triangle-area/LAEA extraction.
+- moon_shackleton_local / surface_temp_min_c: null; PRP has no minimum surface-temperature field; no validated alternative product extraction.
+- moon_shackleton_local / surface_temp_mean_c: null; PRP temp_avg is calculated at 2 cm depth, not mean surface temperature; incompatible statistic.
+- moon_shackleton_local / psr_fraction: null; PRP ice_depth is not a permanent-shadow mask; no validated PSR product/window extraction.
+- moon_shackleton_regional / surface_temp_max_c: null; PRP temp_max is a calculated annual surface maximum; not ingested as an orbital measured window statistic. No validated triangle-area/LAEA extraction.
+- moon_shackleton_regional / surface_temp_min_c: null; PRP has no minimum surface-temperature field; no validated alternative product extraction.
+- moon_shackleton_regional / surface_temp_mean_c: null; PRP temp_avg is calculated at 2 cm depth, not mean surface temperature; incompatible statistic.
+- moon_shackleton_regional / psr_fraction: null; PRP ice_depth is not a permanent-shadow mask; no validated PSR product/window extraction.
+- moon_marius_hills_regional / surface_temp_max_c: null; nonpolar_global_product_not_validated; no reliable temperature extraction
+- moon_marius_hills_regional / surface_temp_min_c: null; nonpolar_global_product_not_validated; no reliable temperature extraction
+- moon_marius_hills_regional / surface_temp_mean_c: null; nonpolar_global_product_not_validated; no reliable temperature extraction
+- moon_marius_hills_regional / psr_fraction: null; nonpolar_global_product_not_validated; no reliable temperature extraction

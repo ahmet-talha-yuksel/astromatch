@@ -1,5 +1,9 @@
 # DEM batch provenance
 
+## Diviner context inspection
+
+Opened on 2026-11-15: https://pds-geosciences.wustl.edu/missions/lro/diviner.htm and the South Polar Resource Product label https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.xml . Exact logical/version identifier: urn:nasa:pds:lro_diviner_derived1:data_derived_prp:dlre_prp_south::1.0. DOI: null (not verified). Period: calculated annual statistics, no 2025 observing period. Resolution: null (triangle mesh, uniform raster resolution not established). Access: label HTTP 200; no temperature mesh ingested. temp_avg is modeled temperature at 2 cm depth and temp_max is calculated surface annual maximum; neither is substituted for the requested observed mean/minimum surface temperature. No PSR mask was validated. Lunar radius in label: 1737.4 km. Global product catalog opened, but no reliable nonpolar surface-temperature product/window extraction was established.
+
 ## Analog profile context (2025 annual request)
 
 Access checks: 2026-11-15. Metadata was opened; no authenticated 2025 granules were acquired. Numeric context fields remain null. The planned QA/aggregation policy is recorded in each context field; it has not been executed on 2025 pixels.
