@@ -1,0 +1,31 @@
+# All profile decisions are categorical. These thresholds never modify terrain ranking.
+terrain:
+  similar_percentile_min: 90
+  partly_percentile_min: 70
+thermal:
+  similar_ratio_min: 0.67
+  similar_ratio_max: 1.5
+  partly_ratio_min: 0.4
+  partly_ratio_max: 2.5
+  extreme_cold_margin_c: 50
+  # Compare surface-temperature quantities only; diurnal range is preferred.
+  comparable_pairs:
+    - [diviner_diurnal_range_c, lst_diurnal_range_c]
+    - [lst_diurnal_range_c, lst_diurnal_range_c]
+    - [lst_day_mean_c, lst_day_mean_c]
+    - [lst_night_mean_c, lst_night_mean_c]
+  # The cold override requires actual minima, not a monthly average or mean night value.
+  absolute_min_target_keys: [diviner_night_min_c, lst_absolute_min_c]
+  absolute_min_earth_key: lst_absolute_min_c
+aridity_vegetation:
+  good_ndvi_max: 0.15
+  good_precip_mm_yr_max: 250
+  moderate_ndvi_max: 0.3
+  moderate_precip_mm_yr_max: 500
+illumination:
+  moon_polar_lat_min: 80
+confidence:
+  direct_measurement: High
+  orbital_remote_sensing: Medium
+  model: Low
+  literature_synthesis: Low

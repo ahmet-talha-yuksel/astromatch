@@ -78,11 +78,12 @@ def merged_features(paths):
                 overrides.append(f'{rid}: kept {old_path} over {path} (newer processing_version)')
     return [item[0] for item in chosen.values()],overrides
 
-def load_dataset(paths: DataPaths | None = None, mock: bool = False, mock_n_grid: int = 5000) -> Dataset:
+def load_dataset(paths: DataPaths | None = None, mock: bool = False, mock_n_grid: int = 5000, mock_profile_target: bool = False) -> Dataset:
     if mock:
         from .mock import generate
-        raw_t, raw_c, raw_k = generate(n_grid=mock_n_grid)
+        raw_t, raw_c, raw_k = generate(n_grid=mock_n_grid,include_profile_target=mock_profile_target)
         sources = {}
+        profile_file=Path(__file__).parent/'fixtures'/'target_profiles.json'
     else:
         paths = paths or DataPaths()
         defaults = [ROOT/'data/processed/targets.json', ROOT/'data/processed/candidates.json']
@@ -90,6 +91,7 @@ def load_dataset(paths: DataPaths | None = None, mock: bool = False, mock_n_grid
         feature_path=feature_files[0]
         grid_path = Path(paths.grid or os.environ.get('ASTROMATCH_GRID') or ROOT/'processing/out/earth_grid.parquet')
         known_path = Path(paths.known or os.environ.get('ASTROMATCH_KNOWN') or ROOT/'discovery/out/known_analogs.json')
+        profile_file=Path(paths.profiles or os.environ.get('ASTROMATCH_PROFILES') or ROOT/'processing/out/real/target_profiles.json')
         sources = {}
         ds = Dataset(mode='real')
         raw_t, raw_c, raw_k = [], [], []
@@ -133,6 +135,10 @@ def load_dataset(paths: DataPaths | None = None, mock: bool = False, mock_n_grid
         if external_targets: raw_t=raw_t[legacy_t_count:]
         if external_candidates: raw_c=raw_c[legacy_c_count:]
     if mock: ds = Dataset(mode='mock')
+    from .analog_profile import read_profiles
+    ds.profiles,profile_errors=read_profiles(profile_file)
+    ds.invalid_records.extend(profile_errors)
+    if profile_file.exists() and not mock: sources[str(profile_file)]=hashlib.sha256(profile_file.read_bytes()).hexdigest()
     ds.input_hashes = sources
     if not mock: ds.input_source=os.getenv('ASTROMATCH_INPUT_SOURCE')
     configured = set(config('features.yaml')['features'])

@@ -53,7 +53,7 @@ def test_health_targets_presets(client):
     assert health['data_mode']=='mock' and health['dataset_counts']['candidates']>=5000
     assert isinstance(health['sklearn_available'],bool) and isinstance(health['hdbscan_available'],bool)
     targets=check_mock(c.get('/api/v1/targets'))['targets']
-    assert {t['region_id'] for t in targets}=={'T-01','T-02','T-03'}
+    assert {t['region_id'] for t in targets}=={'T-01','T-02','T-03','T-04'}
     presets=check_mock(c.get('/api/v1/presets'))
     assert 'balanced' in presets['presets'] and presets['features']['relief_m']['unit']=='m'
 
@@ -82,7 +82,7 @@ def test_heat_computed_and_precomputed(client):
 def test_region_explain_validation_legacy(client):
     c,_=client
     region=check_mock(c.get('/api/v1/regions/S-01'))
-    assert region['region']['name']=='Salda' and len(region['records'])==2 and len(region['scores'])==5
+    assert region['region']['name']=='Salda' and len(region['records'])==2 and len(region['scores'])==6
     explanation=check_mock(c.get('/api/v1/explain',params={'target_id':'T-02','candidate_id':'S-01','scale':'local'}))
     assert explanation['explanation']['summary']
     assert check_mock(c.get('/api/v1/validation'))['report']['data_status']=='mock'
@@ -116,6 +116,27 @@ def test_compare_card_and_errors(client):
     assert c.get('/api/v1/compare',params={**params,'target_id':'missing'}).status_code==404
     assert c.get('/api/v1/compare',params={**params,'preset':'missing'}).status_code==422
     assert c.get('/api/v1/compare',params={**params,'scale':'invalid'}).status_code==422
+
+
+def test_analog_profile_missions_and_summary(client):
+    c,_=client
+    rank=c.get('/api/v1/rank',params={'target_id':'T-04','scale':'regional','k':1}).json()
+    candidate=rank['top_k'][0]['id']
+    base={'target_id':'T-04','candidate_id':candidate,'scale':'regional'}
+    human_response=c.get('/api/v1/profile',params={**base,'mission':'human_base'})
+    astro_response=c.get('/api/v1/profile',params={**base,'mission':'astrobiology'})
+    assert human_response.status_code==astro_response.status_code==200
+    human,astro=human_response.json(),astro_response.json()
+    assert human['data_status']==astro['data_status']=='mock'
+    assert human['candidate']['region_id']==candidate
+    assert len(human['dimensions'])==7
+    assert [d['name'] for d in human['dimensions']] != [d['name'] for d in astro['dimensions']]
+    assert {d['name']:d['label'] for d in human['dimensions']}=={d['name']:d['label'] for d in astro['dimensions']}
+    assert 'score' not in human and 'percentage' not in human
+    assert all('sources' in d and 'confidence' in d for d in human['dimensions'])
+    card=check_mock(c.get('/api/v1/compare',params={**base,'preset':'balanced'}))
+    assert len(card['profile_summary'])==3
+    assert c.get('/api/v1/profile',params={**base,'mission':'bad'}).status_code==422
 
 
 def test_mock_demo_precomputed_without_ranking(client,monkeypatch,tmp_path):

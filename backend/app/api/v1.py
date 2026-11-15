@@ -11,8 +11,9 @@ from engine.io import _read, config, feature_paths, logical_input_hashes
 from engine.ranking import DISCLAIMER, nearest_known_distances
 from engine.validation_api import list_target_ids
 from engine.radar import feature_z_offsets
+from engine.analog_profile import characterize
 from backend.app.core.config import settings
-from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResponse, PresetsResponse, SitesResponse, HeatResponse, RegionResponse, ExplainResponse, ValidationResponse, CompareResponse
+from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResponse, PresetsResponse, SitesResponse, HeatResponse, RegionResponse, ExplainResponse, ValidationResponse, CompareResponse, ProfileResponse
 from backend.app.services.data import active_mode, get_dataset
 
 router=APIRouter(prefix='/api/v1',tags=['engine'])
@@ -215,6 +216,18 @@ def explain_v1(target_id:str,candidate_id:str,scale:Literal['local','regional']=
     except ValueError as exc: raise HTTPException(422,str(exc)) from exc
     return {**meta(),'target_id':target_id,'candidate_id':candidate_id,'scale':scale,'preset':preset,'explanation':explanation.model_dump()}
 
+@router.get('/profile',response_model=ProfileResponse)
+def profile_v1(target_id:str,candidate_id:str,mission:str='human_base',scale:Literal['local','regional']='regional'):
+    ds=checked(target_id,scale,'balanced')
+    target_id=resolved_target(target_id,scale)
+    target=next(t for t in ds.targets if t.region_id==target_id and t.scale==scale)
+    candidate=next((c for c in ds.candidates if c.region_id==candidate_id and c.scale==scale and c.body=='earth' and c.kind in ('earth_site','earth_grid')),None)
+    if candidate is None:raise HTTPException(404,f'Unknown Earth candidate at {scale}: {candidate_id}')
+    result=ranked(target_id,scale,'balanced',20,'flag')
+    row=next((r for r in result.full_scores if r['id']==candidate_id),None)
+    try:return characterize(ds,target,candidate,row,mission)
+    except ValueError as exc:raise HTTPException(422,str(exc)) from exc
+
 @router.get('/compare',response_model=CompareResponse)
 def compare_v1(target_id:str,candidate_id:str,scale:Literal['local','regional'],preset:str='balanced'):
     ds=checked(target_id,scale,preset)
@@ -231,13 +244,14 @@ def compare_v1(target_id:str,candidate_id:str,scale:Literal['local','regional'],
         explanation=engine_explain(ds,target_id,candidate_id,scale,preset).model_dump()
     z_by_feature=feature_z_offsets(ds,target,candidate)
     criteria={key:{**value,'z':z_by_feature.get(key)} for key,value in row.get('per_criterion',{}).items()}
+    profile=characterize(ds,target,candidate,row,'human_base')
     return {**meta(),'target_id':target_id,'candidate_id':candidate_id,'scale':scale,'preset':preset,
             'target':target.model_dump(),'candidate':candidate.model_dump(),
             'per_criterion':criteria,'z_by_feature':z_by_feature,'distance_z':row['distance_z'],
             'score_geo':row['score_geo'],'score_contextual':row.get('score_contextual'),'score_contextual_ci_low':row.get('score_contextual_ci_low'),'score_contextual_ci_high':row.get('score_contextual_ci_high'),'score_ci_low':row.get('score_ci_low'),'score_ci_high':row.get('score_ci_high'),
             'score_relative':row['score_relative'],'score_percentile_scanned':row.get('score_percentile_scanned'),'top_tier':row.get('top_tier'),'top_tier_size':row.get('top_tier_size'),'match_level':row['match_level'],
             'place':row.get('place'),'explanation':explanation,'analogy_breaks':explanation.get('analogy_breaks',[]),
-            'not_compared':explanation.get('not_compared',[])}
+            'not_compared':explanation.get('not_compared',[]),'profile_summary':profile['dimensions'][:3]}
 
 @router.get('/validation',response_model=ValidationResponse)
 def validation_v1():

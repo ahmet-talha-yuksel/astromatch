@@ -94,7 +94,7 @@ def main(argv=None):
     logging.basicConfig(level=logging.WARNING)
     p=argparse.ArgumentParser(prog='python -m engine.cli');sub=p.add_subparsers(dest='command',required=True)
     gen=sub.add_parser('generate-mock');gen.add_argument('--out',default='engine/mock_data/')
-    check=sub.add_parser('check');check.add_argument('--features',action='append');check.add_argument('--grid');check.add_argument('--input-source')
+    check=sub.add_parser('check');check.add_argument('--features',action='append');check.add_argument('--grid');check.add_argument('--profiles');check.add_argument('--input-source')
     demo=sub.add_parser('export-demo');demo.add_argument('--out',default='engine/demo_results/');demo.add_argument('--timestamp');demo.add_argument('--mock',action='store_true');demo.add_argument('--features',action='append');demo.add_argument('--grid');demo.add_argument('--input-source')
     scores=sub.add_parser('export-scores');scores.add_argument('--mock',action='store_true');scores.add_argument('--features',action='append');scores.add_argument('--grid');scores.add_argument('--preset',default='balanced');scores.add_argument('--sigma',choices=('recompute','frozen'),default='recompute');scores.add_argument('--criteria',action='store_true');scores.add_argument('--out',default='engine/out/scores/');scores.add_argument('--input-source')
     report=sub.add_parser('report');report.add_argument('--mock',action='store_true');report.add_argument('--features',action='append');report.add_argument('--grid');report.add_argument('--out',default='engine/report/');report.add_argument('--input-source')
@@ -134,14 +134,14 @@ def main(argv=None):
         sys.stdout.write(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
         return
     if args.command=='check':
-        report=check_real_data(DataPaths(features=args.features,grid=args.grid))
+        report=check_real_data(DataPaths(features=args.features,grid=args.grid,profiles=args.profiles))
         sys.stdout.write(report_json(report))
         if not report['ready']:raise SystemExit(2)
         return
     stamp=getattr(args,'timestamp',None) or datetime.now(timezone.utc).isoformat()
     if args.command=='export-demo':
         if args.mock:
-            ds=load_dataset(mock=True,mock_n_grid=100)
+            ds=load_dataset(mock=True,mock_n_grid=70)
             ds.input_hashes=_mock_hashes(ds)
         else:
             paths=DataPaths(features=args.features,grid=args.grid)

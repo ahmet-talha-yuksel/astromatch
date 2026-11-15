@@ -1,12 +1,26 @@
 """Convert legacy fixtures, v2.3 JSON and flattened Parquet rows to Region."""
 from __future__ import annotations
-import math
+import math, json
 import pandas as pd
 from .models import Region, Feature
 
 ALIASES = {'slope_deg': 'slope_median_deg', 'tri_m': 'tri_median_m'}
 TOPO = {'slope_median_deg','slope_p90_deg','flat_fraction','tri_median_m','relief_m','elevation_std_m'}
-META = {'schema_version','region_id','id','analog_id','analog_for','theme','source','kind','body','planet','name','lat','lon','scale','window_km','analysis_resolution_m','source_resolution_m','resolution_validated','dem_source','dem_version','features','earth_filters','quality','processing_version','tags','data_status','isSynthetic','method','features_interpolated','measurement_support','method_sensitive'}
+META = {'context','schema_version','region_id','id','analog_id','analog_for','theme','source','kind','body','planet','name','lat','lon','scale','window_km','analysis_resolution_m','source_resolution_m','resolution_validated','dem_source','dem_version','features','earth_filters','quality','processing_version','tags','data_status','isSynthetic','method','features_interpolated','measurement_support','method_sensitive'}
+
+def extract_context(raw):
+    context=dict(raw.get('context') or {})
+    for key,value in raw.items():
+        if not key.startswith('ctx__'):continue
+        parts=key[5:].split('__',1)
+        if isinstance(value,str):
+            try:value=json.loads(value)
+            except ValueError:pass
+        if len(parts)==2 and parts[1] in ('value','source','period','evidence','data_status'):
+            context.setdefault(parts[0],{})[parts[1]]=None if not isinstance(value,(list,dict)) and pd.isna(value) else value
+        else:
+            context[parts[0]]=value if isinstance(value,dict) else {'value':None if pd.isna(value) else value,'source':None,'period':None,'evidence':None}
+    return context
 
 def adapt(raw: dict, kind: str | None = None, defaults: list[str] | None = None, configured: set[str] | None = None, warnings: list[str] | None = None) -> Region:
     defaults = defaults if defaults is not None else []
@@ -54,7 +68,8 @@ def adapt(raw: dict, kind: str | None = None, defaults: list[str] | None = None,
     if normalized_kind=='candidate' and kind=='earth_site':
         normalized_kind='earth_site'
         defaults.append(f'{rid}: kind candidate -> earth_site')
-    region = Region(region_id=rid, kind=normalized_kind, body='earth' if raw.get('analog_id') and kind != 'target' else str(raw.get('body') or raw.get('planet') or ('earth' if kind != 'target' else 'mars')).lower(), name=raw.get('name', rid), lat=raw.get('lat'), lon=raw.get('lon'), scale=scale, window_km=raw.get('window_km'), analysis_resolution_m=raw.get('analysis_resolution_m'), source_resolution_m=raw.get('source_resolution_m'), resolution_validated=resolution, dem_source=raw.get('dem_source'), dem_version=raw.get('dem_version'), features=features, earth_filters=filters, quality=raw.get('quality') or {}, tags=tags, analog_for=raw.get('analog_for') or [], source=raw.get('source'), processing_version=raw.get('processing_version'), data_status=status, method=raw.get('method'), features_interpolated=raw.get('features_interpolated') or {}, measurement_support=raw.get('measurement_support') or {}, method_sensitive=bool(raw.get('method_sensitive',False)),place=raw.get('place'))
+    context=extract_context(raw)
+    region = Region(region_id=rid, kind=normalized_kind, body='earth' if raw.get('analog_id') and kind != 'target' else str(raw.get('body') or raw.get('planet') or ('earth' if kind != 'target' else 'mars')).lower(), name=raw.get('name', rid), lat=raw.get('lat'), lon=raw.get('lon'), scale=scale, window_km=raw.get('window_km'), analysis_resolution_m=raw.get('analysis_resolution_m'), source_resolution_m=raw.get('source_resolution_m'), resolution_validated=resolution, dem_source=raw.get('dem_source'), dem_version=raw.get('dem_version'), features=features, earth_filters=filters, quality=raw.get('quality') or {}, tags=tags, analog_for=raw.get('analog_for') or [], source=raw.get('source'), processing_version=raw.get('processing_version'), data_status=status, method=raw.get('method'), features_interpolated=raw.get('features_interpolated') or {}, measurement_support=raw.get('measurement_support') or {}, method_sensitive=bool(raw.get('method_sensitive',False)),place=raw.get('place'),context=context)
     if region.kind == 'target':
         from .measurement import enforce_sensitivity
         enforce_sensitivity(region)

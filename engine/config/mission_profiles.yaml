@@ -1,0 +1,73 @@
+# Mission choice changes presentation and interpretation, never dimension labels or ranking.
+human_base:
+  order: [terrain, thermal, illumination, water_ice, surface_material, dust_wind, aridity_vegetation]
+  rationale:
+    terrain: "Terrain is {label}; that shapes construction and access planning."
+    thermal: "Thermal conditions are {label}; habitat protection depends on them."
+    illumination: "Illumination is {label}; power and shelter plans must account for it."
+    water_ice: "Water and ice evidence is {label}; resource assumptions remain limited."
+    surface_material: "Surface material is {label}; local construction feedstock is uncertain."
+    dust_wind: "Dust and wind are {label}; exposed systems need protection."
+    aridity_vegetation: "Earth-side aridity is {label}; this affects analog field testing."
+  impacts:
+    terrain: {Similar: advantage, Partly: neutral, Different: risk}
+    thermal: {Similar: advantage, Partly: neutral, Earth cannot reproduce: risk}
+    illumination: {Earth cannot reproduce: risk, Not applicable: neutral}
+    water_ice: {Shared evidence type: opportunity, Different: risk}
+    surface_material: {Overlap: opportunity, No overlap: neutral}
+    dust_wind: {Partly: risk}
+    aridity_vegetation: {Good: advantage, Moderate: neutral, Poor: risk}
+rover_ops:
+  order: [terrain, dust_wind, thermal, illumination, surface_material, water_ice, aridity_vegetation]
+  rationale:
+    terrain: "Terrain is {label}; rover traction and route choice depend on it."
+    dust_wind: "Dust and wind are {label}; optics and mechanisms may be exposed."
+    thermal: "Thermal conditions are {label}; rover hardware needs protection."
+    illumination: "Illumination is {label}; charging and navigation may be constrained."
+    surface_material: "Surface material is {label}; wheel-soil interaction remains uncertain."
+    water_ice: "Water and ice evidence is {label}; drilling conditions may differ."
+    aridity_vegetation: "Earth-side aridity is {label}; test terrain may retain moisture."
+  impacts:
+    terrain: {Similar: advantage, Partly: neutral, Different: risk}
+    dust_wind: {Partly: risk}
+    thermal: {Similar: advantage, Partly: neutral, Earth cannot reproduce: risk}
+    illumination: {Earth cannot reproduce: risk}
+    surface_material: {Overlap: opportunity, No overlap: neutral}
+    water_ice: {Shared evidence type: opportunity}
+    aridity_vegetation: {Good: advantage, Moderate: neutral, Poor: risk}
+astrobiology:
+  order: [water_ice, surface_material, illumination, thermal, terrain, aridity_vegetation, dust_wind]
+  rationale:
+    water_ice: "Water and ice evidence is {label}; sampling opportunities depend on it."
+    surface_material: "Surface material is {label}; mineral context informs sample selection."
+    illumination: "Illumination is {label}; permanent shadow may preserve volatiles."
+    thermal: "Thermal conditions are {label}; preservation conditions may differ."
+    terrain: "Terrain is {label}; access to sampling sites may differ."
+    aridity_vegetation: "Earth-side aridity is {label}; biological background may differ."
+    dust_wind: "Dust and wind are {label}; transport processes may alter samples."
+  impacts:
+    water_ice: {Shared evidence type: opportunity, Different: risk}
+    surface_material: {Overlap: opportunity, No overlap: risk}
+    illumination: {Earth cannot reproduce: opportunity}
+    thermal: {Similar: opportunity, Partly: neutral, Earth cannot reproduce: risk}
+    terrain: {Similar: advantage, Partly: neutral, Different: risk}
+    aridity_vegetation: {Good: opportunity, Moderate: neutral, Poor: risk}
+    dust_wind: {Partly: opportunity}
+analog_testing:
+  order: [terrain, surface_material, aridity_vegetation, thermal, water_ice, dust_wind, illumination]
+  rationale:
+    terrain: "Terrain is {label}; this affects how faithfully hardware trials transfer."
+    surface_material: "Surface material is {label}; simulant behavior may differ."
+    aridity_vegetation: "Earth-side aridity is {label}; wet or vegetated ground weakens the analog."
+    thermal: "Thermal conditions are {label}; test exposure may differ."
+    water_ice: "Water and ice evidence is {label}; field procedures may need adaptation."
+    dust_wind: "Dust and wind are {label}; Earth is only a proxy for transport."
+    illumination: "Illumination is {label}; Earth lighting cannot duplicate a polar Moon site."
+  impacts:
+    terrain: {Similar: advantage, Partly: neutral, Different: risk}
+    surface_material: {Overlap: advantage, No overlap: risk}
+    aridity_vegetation: {Good: advantage, Moderate: neutral, Poor: risk}
+    thermal: {Similar: advantage, Partly: neutral, Earth cannot reproduce: risk}
+    water_ice: {Shared evidence type: advantage, Different: risk}
+    dust_wind: {Partly: opportunity}
+    illumination: {Earth cannot reproduce: risk}

@@ -28,7 +28,7 @@ def initialize_dataset() -> Dataset:
     requested=os.getenv('ASTROMATCH_DATA_MODE',settings.data_mode)
     if requested not in ('auto','mock','real'): raise ValueError('ASTROMATCH_DATA_MODE must be mock, real, or auto')
     if requested=='mock':
-        ds=load_dataset(mock=True); mode='mock'
+        ds=load_dataset(mock=True,mock_profile_target=True); mode='mock'
     elif requested=='real':
         ds=load_dataset(_data_paths()); mode='real'
         if not _real_valid(ds): raise ValueError('Real mode requires valid, non-mock target and Earth records. Set ASTROMATCH_FEATURES to a v2.3 features file or use ASTROMATCH_DATA_MODE=mock.')
@@ -37,10 +37,10 @@ def initialize_dataset() -> Dataset:
         if _real_valid(candidate): ds=candidate; mode='real'
         else:
             log.warning('Real features found but validation failed: %s; switching to mock',candidate.invalid_records)
-            ds=load_dataset(mock=True); mode='mock'
+            ds=load_dataset(mock=True,mock_profile_target=True); mode='mock'
     else:
         log.info('No real features at %s; switching to mock',_feature_path())
-        ds=load_dataset(mock=True); mode='mock'
+        ds=load_dataset(mock=True,mock_profile_target=True); mode='mock'
     _dataset=ds; _active_mode=mode
     log.warning('AstroMatch dataset mode=%s status=%s targets=%d candidates=%d',mode,'mock' if mode=='mock' else 'real',len(ds.targets),len(ds.candidates))
     return ds
