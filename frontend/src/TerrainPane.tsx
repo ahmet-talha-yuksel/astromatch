@@ -86,10 +86,9 @@ function SyncedControls({ id }: { id: string }) {
 }
 
 export function TerrainPane({ terrain, relief, earth }: { terrain: Terrain | null; relief: number; earth: boolean }) {
-  if (!terrain) return <div className="terrain-empty">Bu bölge için 3D yükseklik haritası bulunamadı.</div>;
-  return <div className="terrain-canvas" aria-label={`${terrain.id} 3D arazi görünümü`}>
+  if (!terrain) return <div className="terrain-empty">No 3D elevation map is available for this region.</div>;
+  return <div className="terrain-canvas" aria-label={`${terrain.id} 3D terrain view`}>
     <Canvas camera={{ position: [9, 8, 10], fov: 42 }}>
-      <color attach="background" args={[earth ? "#102b2a" : "#2a2527"]} />
       <ambientLight intensity={1.5} />
       <directionalLight position={[3, 8, 5]} intensity={2.4} />
       <Surface terrain={terrain} relief={relief} earth={earth} />
