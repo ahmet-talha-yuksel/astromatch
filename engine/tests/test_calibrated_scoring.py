@@ -43,7 +43,8 @@ def test_group_weights_and_calibration_median50():
     for group in cfg['feature_groups'].values():
         assert sum(weights[keys.index(key)] for key in group) == pytest.approx(1 / 3)
     rng = np.random.default_rng(21)
-    values = rng.normal(size=(40, len(keys))) * np.arange(1, len(keys) + 1)
+    values = rng.lognormal(size=(40, len(keys))) * np.arange(1, len(keys) + 1)
+    values[:, keys.index('flat_fraction')] = rng.uniform(.02, .98, size=40)
     mask = np.ones_like(values, dtype=bool)
     first = calibrate(values, mask, 'regional', 'balanced', cfg)
     second = calibrate(values, mask, 'regional', 'balanced', cfg)

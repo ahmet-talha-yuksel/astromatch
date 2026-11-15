@@ -118,7 +118,7 @@ def check_real_data(paths:DataPaths|None=None):
         status,reason=target_status(target,configured)
         found=False
         for site in sites if status=='scorable' else []:
-            if target.scale!=site.scale or not target.resolution_validated or not site.resolution_validated: continue
+            if target.scale!=site.scale or not site.resolution_validated: continue
             eligible=sum(key in site.features and site.features[key].value is not None and site.features[key].comparable and eligible_target_feature(target,key) for key in configured)
             if eligible>=min_features: found=True; break
         if not found:

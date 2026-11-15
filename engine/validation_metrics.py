@@ -7,6 +7,7 @@ from .ranking import rank
 from .io import config
 from .method_sensitivity import compare
 from .weights import weight_vector
+from .transform import transform
 
 def grid_feature_correlations(ds):
     keys=list(config('features.yaml')['features'])
@@ -56,7 +57,9 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
             for _ in range(n):
                 w=rng.dirichlet(np.maximum(weights,1e-6)*50); ww=mask*w; ww=ww/np.maximum(ww.sum(axis=1,keepdims=True),1e-12)
                 noise=rng.normal(0,.05*robust,size=all_scores.shape)
-                pert=np.exp(-.5*((candidate_values+noise-target_values)/sigmas)**2)
+                transformed_candidates=np.column_stack([transform(candidate_values[:,j]+noise[:,j],config('features.yaml')['features'][feature]) for j,feature in enumerate(keys)])
+                transformed_target=np.array([transform(target_values[j],config('features.yaml')['features'][feature]) for j,feature in enumerate(keys)])
+                pert=np.exp(-.5*((transformed_candidates-transformed_target)/sigmas)**2)
                 pert=np.where(mask,pert,1)
                 scores=100*np.exp(np.sum(ww*np.log(np.maximum(pert,.01)),axis=1))
                 correlations.append(_spearman(base,scores))
@@ -75,12 +78,56 @@ def validate(ds, negatives=None, out='engine/out', n=200, seed=42):
             if len(set(labels))==2: report['roc_auc']=float(roc_auc_score(labels,scores)); report['roc_auc_reason']=None
             else: report['roc_auc_reason']='Both labeled positives and negatives required for same target/scale'
         except ImportError: report['roc_auc_reason']='scikit-learn unavailable'
+    # Diagnostic comparison uses the same eligibility and weights with identity transforms.
+    # The historical Jezero run was unscorable; this comparison isolates the math change.
+    diagnostics={}; feature_cfg=config('features.yaml')['features']
+    original={key:spec.get('transform') for key,spec in feature_cfg.items()}
+    for target in ds.targets:
+        if target.scale!='regional': continue
+        new=rank(ds,target.region_id,'regional','balanced')
+        try:
+            for spec in feature_cfg.values(): spec['transform']={'method':'identity'}
+            old=rank(ds,target.region_id,'regional','balanced')
+        finally:
+            for key,spec in feature_cfg.items():
+                if original[key] is None: spec.pop('transform',None)
+                else: spec['transform']=original[key]
+        def summary(result):
+            scores=np.array([r['score_geo'] for r in result.full_scores])
+            top=np.sort(scores)[-10:]
+            return {'histogram_deciles':np.histogram(scores,bins=np.arange(0,101,10))[0].tolist(),
+                    'top10_span':float(top[-1]-top[0]) if len(top)==10 else None,
+                    'share_ge_90':result.terrain_commonality['share_ge_90'],
+                    'share_ge_80':result.terrain_commonality['share_ge_80'],
+                    'calibrated_k':result.sigma_calibration['k']}
+        old_ids={r['id']:i for i,r in enumerate(old.full_scores)}
+        new_ids={r['id']:i for i,r in enumerate(new.full_scores)}
+        common=sorted(old_ids.keys() & new_ids.keys())
+        controls={name: {'old_rank':next((i+1 for i,r in enumerate(old.full_scores) if name in r['id'].lower()),None),
+                         'new_rank':next((i+1 for i,r in enumerate(new.full_scores) if name in r['id'].lower()),None)}
+                  for name in ('atacama','haughton','meteor_crater')}
+        diagnostics[target.region_id]={'old':summary(old),'new':summary(new),
+            'spearman_old_new':_spearman(np.array([old_ids[x] for x in common]),np.array([new_ids[x] for x in common])) if common else None,
+            'top10_overlap':len({r['id'] for r in old.full_scores[:10]} & {r['id'] for r in new.full_scores[:10]}),
+            'earth_controls':controls}
+        print(f"math diagnostic {target.region_id}: {diagnostics[target.region_id]}")
+    regional=[v['new']['calibrated_k'] for v in diagnostics.values() if v['new']['calibrated_k'] is not None]
+    medians=[rank(ds,t.region_id,t.scale,'balanced').sigma_calibration['median_pairwise_score_geo'] for t in ds.targets if t.scale in ('local','regional')]
+    stability=[v['mean_spearman'] for k,v in report['stability'].items() if k.endswith('__balanced')]
+    report['math_diagnostics']=diagnostics
+    report['acceptance']={'loo_median50':{'pass':bool(medians) and all(x is not None and abs(x-50)<=2 for x in medians),'values':medians},
+                          'controls_reported':{'pass':all(any(v['earth_controls'][c]['new_rank'] is not None for v in diagnostics.values()) for c in ('atacama','haughton','meteor_crater'))},
+                          'stability_spearman_ge_0_8':{'pass':bool(stability) and all(x>=.8 for x in stability),'values':stability}}
     (out/'validation_report.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
     lines=['# Validation report','']
     if ds.mode=='mock': lines.extend(['MOCK DATA — NOT A SCIENTIFIC RESULT',''])
     lines.extend([f"ROC/AUC: {report['roc_auc'] if report['roc_auc'] is not None else 'skipped — '+str(report['roc_auc_reason'])}",''])
     correlations=report['feature_correlations']
     lines.extend([f"Regional grid feature correlations: {correlations['n_cells']} cells (pairwise Spearman; see JSON matrix).",''])
+    lines.extend(['## Similarity-math acceptance','', '| Criterion | Result |', '|---|---|'])
+    for name,entry in report['acceptance'].items():
+        lines.append(f"| {name} | {'PASS' if entry['pass'] else 'FAIL'} |")
+    lines.extend(['','Old versus transformed-space decile histograms, control-site ranks, top-ten spans, and rank correlations are in validation_report.json.',''])
     for key,entry in report['targets'].items(): lines.append(f"- {key}: {len(entry['known_analogs'])} known analogs; recall 1/5/10%: {entry['recall_at']}")
     if report['method_sensitivity']:
         lines.extend(['','## Method sensitivity',''])

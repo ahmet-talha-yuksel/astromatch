@@ -11,6 +11,20 @@ def failed_sensitivity(target, key):
     return item if isinstance(item, dict) and item.get('pass') is False else None
 
 
+def per_feature_verdict_allowed(target):
+    """Use a delivered engineering verdict when sensitivity is the sole failed gate."""
+    if target.resolution_validated or not target.measurement_support:
+        return False
+    support = target.measurement_support
+    ratio = support.get('effective_nodata_ratio')
+    limit = (support.get('thresholds') or {}).get('max_effective_nodata', .30)
+    sensitivity = support.get('sensitivity') or {}
+    reasons = support.get('unscorable_reasons') or []
+    return (ratio is not None and ratio <= limit and bool(sensitivity)
+            and all(isinstance(item,dict) and isinstance(item.get('pass'),bool) for item in sensitivity.values())
+            and bool(reasons) and all('Sensitivity thresholds exceeded' in reason for reason in reasons))
+
+
 def sensitivity_exclusion(target, key, item):
     from .io import config
     unit = config('features.yaml')['features'].get(key, {}).get('unit', '')
@@ -44,9 +58,9 @@ def excluded_features(target, configured=None) -> list[str]:
             result.append(sensitivity_exclusion(target, key, failed))
         elif feature is None or feature.value is None:
             result.append(f'{key} excluded — missing value')
-        elif not feature.comparable:
+        elif not feature.comparable and not (per_feature_verdict_allowed(target) and (target.measurement_support.get('sensitivity') or {}).get(key,{}).get('pass') is True):
             result.append(f'{key} excluded — not comparable')
-        elif not target.resolution_validated:
+        elif not target.resolution_validated and not per_feature_verdict_allowed(target):
             result.append(f'{key} excluded — target resolution not validated')
     return result
 
@@ -54,7 +68,9 @@ def excluded_features(target, configured=None) -> list[str]:
 def eligible_target_feature(target, key) -> bool:
     enforce_sensitivity(target)
     feature = target.features.get(key)
-    return bool(target.resolution_validated and feature and feature.value is not None and feature.comparable)
+    passed=(target.measurement_support or {}).get('sensitivity',{}).get(key,{}).get('pass') is True
+    return bool(feature and feature.value is not None and failed_sensitivity(target,key) is None and
+                ((target.resolution_validated and feature.comparable) or (per_feature_verdict_allowed(target) and passed)))
 
 
 def gate_reason(target) -> str | None:

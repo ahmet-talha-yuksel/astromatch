@@ -18,6 +18,7 @@ from .sigma import sigma_metadata
 from .sigma import calibrated_sigma
 from .calibration import calibrate
 from .weights import weight_vector
+from .transform import transform
 from .similarity import criterion_similarity
 from .measurement import target_status, eligible_target_feature
 from .distance import standardized_distance
@@ -154,7 +155,7 @@ def _sigma_table(grid: pd.DataFrame, scale: str, sigma, features, weights_array,
         masks.append(eligible)
         table[key] = sigma_metadata(column[eligible], key, scale, cfg,[],threshold)
     calibration=None
-    if config('features.yaml').get('sigma_calibration')=='loo_median50':
+    if config('features.yaml').get('sigma_calibration') in ('loo_median50','fixed_k'):
         matrix=np.column_stack(columns)
         feature_mask=np.column_stack(masks)
         record_mask=feature_mask.sum(axis=1)>=config('features.yaml').get('min_features',3)
@@ -212,14 +213,16 @@ def _score_grid(grid_df: pd.DataFrame, target_id: str, weights=None, *, sigma=No
             mask = np.isfinite(value) & comparable & resolution & matching
             eligible[:, j] = mask
             if features[key]["method"] == "gaussian":
-                scores[mask, j] = np.exp(-.5 * ((value[mask] - tf.value) / table[key]["value"]) ** 2)
+                scores[mask, j] = np.exp(-.5 * ((transform(value[mask],features[key]) - transform(tf.value,features[key])) / table[key]["value"]) ** 2)
             else:
                 scores[mask, j] = [criterion_similarity(v, tf.value, features[key], table[key]["value"]) for v in value[mask]]
     geo, _, _, valid, _ = aggregate_matrix(scores, eligible, weights_array,
                                             config("features.yaml").get("min_features", 3))
     target_values=np.array([target.features[key].value if target is not None and key in target.features and target.features[key].value is not None else np.nan for key in keys])
     floors=np.array([float(features[key]['sigma'].get('floor',1)) for key in keys])
-    distance=standardized_distance(values,target_values,eligible,weights_array,floors)
+    transformed_values=np.column_stack([transform(values[:,j],features[key]) for j,key in enumerate(keys)])
+    transformed_target=np.array([transform(target_values[j],features[key]) for j,key in enumerate(keys)])
+    distance=standardized_distance(transformed_values,transformed_target,eligible,weights_array,np.full(len(keys),.01))
     distance[~valid]=np.nan
     count = (eligible & (weights_array > 0)).sum(axis=1)
     excluded = np.where(valid, None, "fewer than min_features eligible").astype(object)
