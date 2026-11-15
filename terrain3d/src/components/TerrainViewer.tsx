@@ -21,31 +21,31 @@ import { loadTerrain } from "../loading/loadTerrain";
 
 export type TerrainViewerProps = (
   | { terrain: TerrainData; terrainUrl?: never; display?: TerrainDisplay }
-  | { terrainUrl: string; terrain?: never; display?: TerrainDisplay }) & { explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean };
+  | { terrainUrl: string; terrain?: never; display?: TerrainDisplay }) & { explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean; forceVisualFill?: boolean };
 export interface TerrainDisplay { exaggeration?: number; colorMode?: SurfaceStyle; elevationOffset?: number; colorRange?: { min: number; max: number }; worldSpanMeters?: number; syncKey?: string; syncEnabled?: boolean }
 type TerrainState = { terrain: ValidatedTerrainData; error?: never } | { terrain?: never; error: string };
 type ColorMode = SurfaceStyle;
 function errorMessage(error: unknown): string { return error instanceof Error ? error.message : String(error); }
 
 export function TerrainViewer(props: TerrainViewerProps) {
-  if (props.terrainUrl !== undefined) return <TerrainUrlViewer key={props.terrainUrl} url={props.terrainUrl} display={props.display} explorationTerrains={props.explorationTerrains} exploreRequest={props.exploreRequest} showParcelUi={props.showParcelUi} />;
-  return <TerrainObjectViewer terrain={props.terrain} display={props.display} explorationTerrains={props.explorationTerrains} exploreRequest={props.exploreRequest} showParcelUi={props.showParcelUi} />;
+  if (props.terrainUrl !== undefined) return <TerrainUrlViewer key={props.terrainUrl} url={props.terrainUrl} display={props.display} explorationTerrains={props.explorationTerrains} exploreRequest={props.exploreRequest} showParcelUi={props.showParcelUi} forceVisualFill={props.forceVisualFill} />;
+  return <TerrainObjectViewer terrain={props.terrain} display={props.display} explorationTerrains={props.explorationTerrains} exploreRequest={props.exploreRequest} showParcelUi={props.showParcelUi} forceVisualFill={props.forceVisualFill} />;
 }
-function TerrainObjectViewer({ terrain, display, explorationTerrains, exploreRequest, showParcelUi }: { terrain: TerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean }) {
+function TerrainObjectViewer({ terrain, display, explorationTerrains, exploreRequest, showParcelUi, forceVisualFill }: { terrain: TerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean; forceVisualFill?: boolean }) {
   const state = useMemo<TerrainState>(() => { try { return { terrain: validateTerrainData(terrain) }; } catch (e) { return { error: errorMessage(e) }; } }, [terrain]);
-  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={showParcelUi} /> : <p role="alert">{state.error}</p>;
+  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={showParcelUi} forceVisualFill={forceVisualFill} /> : <p role="alert">{state.error}</p>;
 }
-function TerrainUrlViewer({ url, display, explorationTerrains, exploreRequest, showParcelUi }: { url: string; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean }) {
+function TerrainUrlViewer({ url, display, explorationTerrains, exploreRequest, showParcelUi, forceVisualFill }: { url: string; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean; forceVisualFill?: boolean }) {
   const [state, setState] = useState<TerrainState | null>(null);
   useEffect(() => { const controller = new AbortController(); let active = true;
     loadTerrain(url, controller.signal).then(t => { if (active) setState({ terrain: t }); }, e => { if (active) setState({ error: errorMessage(e) }); });
     return () => { active = false; controller.abort(); };
   }, [url]);
   if (!state) return <p role="status">Loading terrain…</p>;
-  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={showParcelUi} /> : <p role="alert">{url}: {state.error}</p>;
+  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={showParcelUi} forceVisualFill={forceVisualFill} /> : <p role="alert">{url}: {state.error}</p>;
 }
 
-function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, showParcelUi }: { terrain: ValidatedTerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean }) {
+function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, showParcelUi, forceVisualFill = false }: { terrain: ValidatedTerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean; forceVisualFill?: boolean }) {
   const [localExaggeration, setExaggeration] = useState(terrain.verticalExaggeration);
   const [localColorMode, setColorMode] = useState<ColorMode>("surface");
   const [pov, setPov] = useState(false);
@@ -61,7 +61,8 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
   const surfaceBody = colorMode === "surface" ? terrain.body : isPlanetSurface(colorMode) ? colorMode : null;
   const [cameraAction, setCameraAction] = useState({ mode: "perspective", revision: 0 });
   const [fillMissing, setFillMissing] = useState(true);
-  const visualTerrain = useMemo(() => fillMissing ? interpolateTerrainForDisplay(terrain).terrain : terrain, [terrain, fillMissing]);
+  const visualFill = forceVisualFill || fillMissing;
+  const visualTerrain = useMemo(() => visualFill ? interpolateTerrainForDisplay(terrain).terrain : terrain, [terrain, visualFill]);
   const [alien, setAlien] = useState(false);
   const [parcelHovered, setParcelHovered] = useState(false);
   const context = useMemo(() => explorationWorld(visualTerrain, exaggeration, { worldSpanMeters: display?.worldSpanMeters, elevationOffset: display?.elevationOffset }), [visualTerrain, exaggeration, display?.worldSpanMeters, display?.elevationOffset]);
@@ -81,7 +82,7 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
       <Canvas camera={{ position: [9, 9, 13], fov: 45 }} style={{ touchAction: "none" }}>
         <PlanetEnvironment key={surfaceBody ?? terrain.body} body={surfaceBody ?? terrain.body} immersive space />
         <CameraControls world={context} terrain={terrain} action={cameraAction} relief={max - min} exaggeration={exaggeration} elevationOffset={display?.elevationOffset ?? 0} syncKey={display?.syncKey} syncEnabled={display?.syncEnabled} displayWorldSpanMeters={display?.worldSpanMeters} />
-        <TerrainMesh terrain={terrain} fillMissing={fillMissing} highlighted={parcelHovered} onHoverChange={setParcelHovered} verticalExaggeration={exaggeration} colorMode={colorMode} elevationOffset={display?.elevationOffset} colorRange={display?.colorRange} worldSpanMeters={display?.worldSpanMeters} onInspect={point => { const next = pointToInspection(point, terrain, display?.worldSpanMeters); setInspection(previous => sameInspection(previous, next) ? previous : next); }} />
+        <TerrainMesh terrain={terrain} fillMissing={visualFill} highlighted={parcelHovered} onHoverChange={setParcelHovered} verticalExaggeration={exaggeration} colorMode={colorMode} elevationOffset={display?.elevationOffset} colorRange={display?.colorRange} worldSpanMeters={display?.worldSpanMeters} onInspect={point => { const next = pointToInspection(point, terrain, display?.worldSpanMeters); setInspection(previous => sameInspection(previous, next) ? previous : next); }} />
         <ExplorationContext terrain={terrain} world={context} appearance={surfaceBody ?? terrain.body} overview highlighted={parcelHovered} />
         <OrbitingSpacecraft onDiscover={() => setAlien(value => !value)} discovered={alien} altitude={(max - min + (display?.elevationOffset ?? 0)) * context.scale * exaggeration + 3} radius={Math.max(context.width, context.depth) * 0.85 + 1} />
         {alien && <AlienEncounter world={context} />}
@@ -91,9 +92,9 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
         <span className="overview-parcel-dot" /><span><strong>Selected parcel</strong><small>{terrain.name}</small></span><span aria-hidden="true">⌗</span>
       </button>
       {alien && <div className="alien-message" role="status"><span>UNKNOWN SIGNAL / 👽</span><strong>Greetings, Earthling. Nice parcel!</strong><button aria-label="Dismiss alien" onClick={() => setAlien(false)}>×</button></div>}
-      {validCount < terrain.heights.length && <div className="terrain-nodata-legend" role="note" aria-label="Missing elevation data" data-fill-mode={fillMissing ? "estimated" : "gaps"} title={fillMissing ? "Missing elevations are interpolated for display only. Source measurements, inspection, navigation and scores are unchanged." : "Hatched areas have no measured elevation. They are shown on a reference plane, not filled terrain."}>
-        <span className={fillMissing ? "estimated-swatch" : "nodata-swatch"} aria-hidden="true" /><span><strong>{fillMissing ? "Estimated fill" : "No elevation data"} · {(100 * (terrain.heights.length - validCount) / terrain.heights.length).toFixed(2)}%</strong><small>{fillMissing ? "Interpolated for display only" : "Hatched areas are unmeasured"}</small></span>
-        <button aria-label="Fill missing terrain (visual only)" aria-pressed={fillMissing} onClick={() => { setFillMissing(value => !value); setInspection(null); }}>{fillMissing ? "Show gaps" : "Fill gaps"}</button>
+      {validCount < terrain.heights.length && <div className="terrain-nodata-legend" role="note" aria-label="Missing elevation data" data-fill-mode={visualFill ? "estimated" : "gaps"} title={visualFill ? "Missing elevations are interpolated for display only. Source measurements, inspection, navigation and scores are unchanged." : "Hatched areas have no measured elevation. They are shown on a reference plane, not filled terrain."}>
+        <span className={visualFill ? "estimated-swatch" : "nodata-swatch"} aria-hidden="true" /><span><strong>{visualFill ? "Estimated fill" : "No elevation data"} · {(100 * (terrain.heights.length - validCount) / terrain.heights.length).toFixed(2)}%</strong><small>{visualFill ? "Interpolated for display only" : "Hatched areas are unmeasured"}</small></span>
+        {!forceVisualFill && <button aria-label="Fill missing terrain (visual only)" aria-pressed={visualFill} onClick={() => { setFillMissing(value => !value); setInspection(null); }}>{visualFill ? "Show gaps" : "Fill gaps"}</button>}
       </div>}
       <span className="overview-context-note">24 generated parcels · Decorative surroundings</span>
     </div>
@@ -107,7 +108,7 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
     </div>
     {destinations.error && <p role="alert">POV destinations: {destinations.error}</p>}
     {surfaceBody && <p className="surface-disclaimer">{surfaceBody} surface · Artistic material; elevation data unchanged.</p>}
-    {pov && <TerrainExplorer terrain={terrain} fillMissing={fillMissing} destinations={destinations.terrains} exaggeration={exaggeration} onClose={closePov} showParcelUi={showParcelUi} />}
+    {pov && <TerrainExplorer terrain={terrain} fillMissing={visualFill} destinations={destinations.terrains} exaggeration={exaggeration} onClose={closePov} showParcelUi={showParcelUi} />}
     <label style={{ display: "block", marginTop: 7 }}>Vertical exaggeration: <output>{exaggeration.toFixed(1)}×</output>
       {!display && <input aria-label="Vertical exaggeration" type="range" min="0.5" max="5" step="0.1" value={exaggeration} onChange={e => setExaggeration(Number(e.target.value))} />}
     </label>
