@@ -19,35 +19,37 @@ import { loadTerrain } from "../loading/loadTerrain";
 
 export type TerrainViewerProps = (
   | { terrain: TerrainData; terrainUrl?: never; display?: TerrainDisplay }
-  | { terrainUrl: string; terrain?: never; display?: TerrainDisplay }) & { explorationTerrains?: TerrainData[] };
+  | { terrainUrl: string; terrain?: never; display?: TerrainDisplay }) & { explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean };
 export interface TerrainDisplay { exaggeration?: number; colorMode?: SurfaceStyle; elevationOffset?: number; colorRange?: { min: number; max: number }; worldSpanMeters?: number; syncKey?: string; syncEnabled?: boolean }
 type TerrainState = { terrain: ValidatedTerrainData; error?: never } | { terrain?: never; error: string };
 type ColorMode = SurfaceStyle;
 function errorMessage(error: unknown): string { return error instanceof Error ? error.message : String(error); }
 
 export function TerrainViewer(props: TerrainViewerProps) {
-  if (props.terrainUrl !== undefined) return <TerrainUrlViewer key={props.terrainUrl} url={props.terrainUrl} display={props.display} explorationTerrains={props.explorationTerrains} />;
-  return <TerrainObjectViewer terrain={props.terrain} display={props.display} explorationTerrains={props.explorationTerrains} />;
+  if (props.terrainUrl !== undefined) return <TerrainUrlViewer key={props.terrainUrl} url={props.terrainUrl} display={props.display} explorationTerrains={props.explorationTerrains} exploreRequest={props.exploreRequest} showParcelUi={props.showParcelUi} />;
+  return <TerrainObjectViewer terrain={props.terrain} display={props.display} explorationTerrains={props.explorationTerrains} exploreRequest={props.exploreRequest} showParcelUi={props.showParcelUi} />;
 }
-function TerrainObjectViewer({ terrain, display, explorationTerrains }: { terrain: TerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[] }) {
+function TerrainObjectViewer({ terrain, display, explorationTerrains, exploreRequest, showParcelUi }: { terrain: TerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean }) {
   const state = useMemo<TerrainState>(() => { try { return { terrain: validateTerrainData(terrain) }; } catch (e) { return { error: errorMessage(e) }; } }, [terrain]);
-  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} /> : <p role="alert">{state.error}</p>;
+  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={showParcelUi} /> : <p role="alert">{state.error}</p>;
 }
-function TerrainUrlViewer({ url, display, explorationTerrains }: { url: string; display?: TerrainDisplay; explorationTerrains?: TerrainData[] }) {
+function TerrainUrlViewer({ url, display, explorationTerrains, exploreRequest, showParcelUi }: { url: string; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean }) {
   const [state, setState] = useState<TerrainState | null>(null);
   useEffect(() => { const controller = new AbortController(); let active = true;
     loadTerrain(url, controller.signal).then(t => { if (active) setState({ terrain: t }); }, e => { if (active) setState({ error: errorMessage(e) }); });
     return () => { active = false; controller.abort(); };
   }, [url]);
   if (!state) return <p role="status">Loading terrain…</p>;
-  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} /> : <p role="alert">{url}: {state.error}</p>;
+  return state.terrain ? <TerrainScene key={state.terrain.id} terrain={state.terrain} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={showParcelUi} /> : <p role="alert">{url}: {state.error}</p>;
 }
 
-function TerrainScene({ terrain, display, explorationTerrains }: { terrain: ValidatedTerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[] }) {
+function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, showParcelUi }: { terrain: ValidatedTerrainData; display?: TerrainDisplay; explorationTerrains?: TerrainData[]; exploreRequest?: number; showParcelUi?: boolean }) {
   const [localExaggeration, setExaggeration] = useState(terrain.verticalExaggeration);
   const [localColorMode, setColorMode] = useState<ColorMode>("surface");
   const [pov, setPov] = useState(false);
   const closePov = useCallback(() => setPov(false), []);
+  const lastExploreRequest = useRef(exploreRequest);
+  useEffect(() => { if (exploreRequest !== lastExploreRequest.current) { lastExploreRequest.current = exploreRequest; setPov(true); } }, [exploreRequest]);
   const destinations = useMemo(() => {
     try { return { terrains: (explorationTerrains ?? []).map(validateTerrainData), error: "" }; }
     catch (error) { return { terrains: [], error: errorMessage(error) }; }
@@ -97,7 +99,7 @@ function TerrainScene({ terrain, display, explorationTerrains }: { terrain: Vali
     </div>
     {destinations.error && <p role="alert">POV destinations: {destinations.error}</p>}
     {surfaceBody && <p className="surface-disclaimer">{surfaceBody} surface · Artistic material; elevation data unchanged.</p>}
-    {pov && <TerrainExplorer terrain={terrain} destinations={destinations.terrains} exaggeration={exaggeration} onClose={closePov} />}
+    {pov && <TerrainExplorer terrain={terrain} destinations={destinations.terrains} exaggeration={exaggeration} onClose={closePov} showParcelUi={showParcelUi} />}
     <label style={{ display: "block", marginTop: 7 }}>Vertical exaggeration: <output>{exaggeration.toFixed(1)}×</output>
       {!display && <input aria-label="Vertical exaggeration" type="range" min="0.5" max="5" step="0.1" value={exaggeration} onChange={e => setExaggeration(Number(e.target.value))} />}
     </label>

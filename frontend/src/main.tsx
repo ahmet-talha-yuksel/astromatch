@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Layers3, Menu, PanelLeftClose, Pause, Play } from "lucide-react";
-import { TerrainPane, terrainRelief, type Terrain } from "./TerrainPane";
+import { Gamepad2, Layers3, Menu, PanelLeftClose, Pause, Play } from "lucide-react";
+import { TerrainViewer, type TerrainDisplay } from "../../terrain3d/src/components/TerrainViewer";
+import type { TerrainDataJSON } from "../../terrain3d/src/types/terrain";
 import { SpaceBackdrop } from "./SpaceBackdrop";
 import { MissionBadge, ScoreRing } from "./MissionBadge";
 import { MissionSelect } from "./MissionSelect";
@@ -12,6 +13,7 @@ type Place = { name: string; admin1: string | null; country_code: string; distan
 type Criterion = { s_i: number };
 type Candidate = { id: string; name: string; score_geo: number; score_relative: number; score_ci_low?: number; score_ci_high?: number; match_level: string; place?: Place; per_criterion?: Record<string, Criterion> };
 type RankResponse = { top_k: Candidate[]; target_status: string; target_reason: string | null; data_status: string };
+type TerrainResponse = { source: string | null; viewer?: TerrainDataJSON };
 const BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
 const NAMES: Record<string, string> = { slope_median_deg: "Median slope", slope_p90_deg: "Steep slopes", flat_fraction: "Flat terrain", tri_median_m: "Roughness", relief_m: "Relief", elevation_std_m: "Elevation spread" };
 const fmt = (n: number) => n.toLocaleString("en-US", { maximumFractionDigits: 1 });
@@ -28,17 +30,22 @@ function App() {
   const [scale, setScale] = useState("regional");
   const [ranked, setRanked] = useState<Candidate[]>([]);
   const [candidateId, setCandidateId] = useState("");
-  const [targetTerrain, setTargetTerrain] = useState<Terrain | null>(null);
-  const [earthTerrain, setEarthTerrain] = useState<Terrain | null>(null);
+  const [targetTerrain, setTargetTerrain] = useState<TerrainResponse | null>(null);
+  const [earthTerrain, setEarthTerrain] = useState<TerrainResponse | null>(null);
   const [rankStatus, setRankStatus] = useState("");
   const [rankReason, setRankReason] = useState<string | null>(null);
   const [dataStatus, setDataStatus] = useState("");
   const [error, setError] = useState("");
   const [menuOpen, setMenuOpen] = useState(true);
   const [spaceMotion, setSpaceMotion] = useState(true);
+  const [exploreRequest, setExploreRequest] = useState(0);
   const target = targets.find(t => t.alias === targetId);
   const candidate = ranked.find(c => c.id === candidateId);
-  const relief = useMemo(() => Math.max(1, terrainRelief(targetTerrain), terrainRelief(earthTerrain)), [targetTerrain, earthTerrain]);
+  const explorationTerrains = useMemo(() => [targetTerrain?.viewer, earthTerrain?.viewer].filter((item): item is TerrainDataJSON => !!item), [targetTerrain, earthTerrain]);
+  const display = useMemo<TerrainDisplay>(() => ({
+    colorMode: "surface", exaggeration: 1, syncEnabled: true, syncKey: "astrogrid-comparison",
+    worldSpanMeters: Math.max(1, ...explorationTerrains.flatMap(item => [item.horizontalWindowMeters.width, item.horizontalWindowMeters.height])),
+  }), [explorationTerrains]);
 
   useEffect(() => {
     const c = new AbortController();
@@ -64,14 +71,14 @@ function App() {
     const c = new AbortController();
     setTargetTerrain(null);
     const id = target.region_id.replace(/_(local|regional)$/, `_${scale}`);
-    getJson<Terrain>(`${BASE}/api/v1/terrain/${encodeURIComponent(id)}`, c.signal).then(setTargetTerrain).catch(() => { if (!c.signal.aborted) setTargetTerrain(null); });
+    getJson<TerrainResponse>(`${BASE}/api/v1/terrain/${encodeURIComponent(id)}`, c.signal).then(setTargetTerrain).catch(() => { if (!c.signal.aborted) setTargetTerrain(null); });
     return () => c.abort();
   }, [targetId, scale, targets]);
   useEffect(() => {
     if (!candidateId) { setEarthTerrain(null); return; }
     const c = new AbortController();
     setEarthTerrain(null);
-    getJson<Terrain>(`${BASE}/api/v1/terrain/${encodeURIComponent(candidateId)}`, c.signal).then(setEarthTerrain).catch(() => { if (!c.signal.aborted) setEarthTerrain(null); });
+    getJson<TerrainResponse>(`${BASE}/api/v1/terrain/${encodeURIComponent(candidateId)}`, c.signal).then(setEarthTerrain).catch(() => { if (!c.signal.aborted) setEarthTerrain(null); });
     return () => c.abort();
   }, [candidateId]);
   const chooseTarget = (alias: string) => {
@@ -104,12 +111,13 @@ function App() {
       <main className="main-area"><div className="page-heading"><p className="section-kicker">EXPLORE / 3D COMPARISON</p><h1>Two worlds. One familiar landscape.</h1><p>Move either terrain to explore both from the same angle.</p></div>
         <div className="selectors"><MissionSelect label="TARGET REGION" value={targetId} onChange={chooseTarget} options={targets.filter(t => t.body === target?.body).map(t => ({ value: t.alias, label: `${t.alias} · ${t.name}` }))} />
           <MissionSelect label="SCALE" value={scale} onChange={setScale} options={(target?.scales ?? []).map(s => ({ value: s, label: s === "regional" ? "Regional" : "Local" }))} />
+          <button type="button" className="explore-surface-button" onClick={() => setExploreRequest(value => value + 1)} disabled={!targetTerrain?.viewer}><Gamepad2 size={16} /> Explore surface</button>
           <span className="sync-pill"><span className="sync-dot" /> Cameras in sync</span></div>
         {error && <div className="notice" role="alert">{error}</div>}
         {rankStatus === "unscorable" && <div className="notice" role="status">This target cannot be ranked yet: {rankReason}</div>}
         <div className="comparison-layout"><section className="comparison" aria-label="3D terrain comparison"><div className="terrain-pair">
-          <article className="terrain-panel"><div className="panel-heading"><div><span className="panel-kicker">PLANETARY TARGET</span><h2>{target?.name ?? "Choosing target"}</h2></div><span className="body-badge">{target?.body === "moon" ? "MOON" : "MARS"}</span></div><TerrainPane terrain={targetTerrain} relief={relief} earth={false} /><div className="panel-bottom"><span>{target?.region_id ?? "—"}</span><span>{targetTerrain?.source ?? "Elevation data unavailable"}</span></div></article>
-          <article className="terrain-panel"><div className="panel-heading"><div><span className="panel-kicker">EARTH ANALOG</span><h2>{candidate?.name ?? "Select a match"}</h2></div><span className="body-badge earth-badge">EARTH</span></div><TerrainPane terrain={earthTerrain} relief={relief} earth /><div className="panel-bottom"><span>{candidate?.id ?? "—"}</span><span>{earthTerrain?.source ?? "Elevation data unavailable"}</span></div></article>
+          <article className="terrain-panel"><div className="panel-heading"><div><span className="panel-kicker">PLANETARY TARGET</span><h2>{target?.name ?? "Choosing target"}</h2></div><span className="body-badge">{target?.body === "moon" ? "MOON" : "MARS"}</span></div>{targetTerrain?.viewer ? <div className="terrain-embed"><TerrainViewer terrain={targetTerrain.viewer} display={display} explorationTerrains={explorationTerrains} exploreRequest={exploreRequest} showParcelUi={false} /></div> : <div className="terrain-empty">No validated 3D elevation map is available for this region.</div>}<div className="panel-bottom"><span>{target?.region_id ?? "—"}</span><span>{targetTerrain?.source ?? "Elevation data unavailable"}</span></div></article>
+          <article className="terrain-panel"><div className="panel-heading"><div><span className="panel-kicker">EARTH ANALOG</span><h2>{candidate?.name ?? "Select a match"}</h2></div><span className="body-badge earth-badge">EARTH</span></div>{earthTerrain?.viewer ? <div className="terrain-embed"><TerrainViewer terrain={earthTerrain.viewer} display={display} explorationTerrains={explorationTerrains} /></div> : <div className="terrain-empty">No validated 3D elevation map is available for this region.</div>}<div className="panel-bottom"><span>{candidate?.id ?? "—"}</span><span>{earthTerrain?.source ?? "Elevation data unavailable"}</span></div></article>
         </div><div className="gesture-hint">Drag: rotate · Right drag: pan · Scroll: zoom <span>Both surfaces use the same elevation scale</span></div></section>
         <aside className="insights" aria-label="Similarity details"><p className="section-kicker">COMPARISON SUMMARY</p><h2>Similarity analysis</h2>{candidate ? <><div className="primary-score"><span>TOPOGRAPHIC SIMILARITY</span><strong style={{ color: color(candidate.score_geo) }}>{fmt(candidate.score_geo)}%</strong><div className="score-track"><span style={{ width: `${candidate.score_geo}%`, background: color(candidate.score_geo) }} /></div><small>{candidate.score_ci_low != null && candidate.score_ci_high != null ? `90% interval: ${fmt(candidate.score_ci_low)}–${fmt(candidate.score_ci_high)}` : "Interval unavailable"}</small></div>
           <div className="metric-row"><span>Relative score</span><strong>{fmt(candidate.score_relative)}%</strong></div><div className="metric-row"><span>Match level</span><strong>{candidate.match_level.replace(/_/g, " ")}</strong></div>

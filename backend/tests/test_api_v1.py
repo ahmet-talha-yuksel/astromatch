@@ -37,6 +37,13 @@ def test_measured_terrain_for_paired_viewer(client):
     assert terrain['data_status'] == 'real'
     assert len(terrain['heights']) == terrain['width'] * terrain['height']
     assert any(value is not None for value in terrain['heights'])
+    viewer = terrain['viewer']
+    assert viewer['body'] == 'Mars' and viewer['dataType'] == 'real'
+    assert viewer['heights'] == terrain['heights']
+    assert viewer['processingMetadata']['provenance']['url'].startswith('https://')
+    earth = c.get('/api/v1/terrain/earth_grid_r254_c429').json()['viewer']
+    assert earth['body'] == 'Earth' and earth['dataType'] == 'real'
+    assert earth['horizontalWindowMeters']['width'] == 49 * earth['cellSizeMeters']['x']
     assert c.get('/api/v1/terrain/unknown_region').status_code == 404
 
 

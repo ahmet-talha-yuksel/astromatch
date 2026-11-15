@@ -1,13 +1,13 @@
 """Versioned explainable engine API. All scores in this module use 0–100."""
 from __future__ import annotations
-import importlib.util, json, math, re
+import importlib.util, json, math, os, re
 from pathlib import Path
 from typing import Literal
 from fastapi import APIRouter, HTTPException, Query
 from PIL import Image
 from pydantic import BaseModel, Field
 from engine import RankResult, explain as engine_explain, heat as engine_heat, list_targets, rank as engine_rank
-from engine.io import config, logical_input_hashes
+from engine.io import _read, config, feature_paths, logical_input_hashes
 from engine.ranking import DISCLAIMER, nearest_known_distances
 from engine.validation_api import list_target_ids
 from engine.radar import feature_z_offsets
@@ -16,6 +16,17 @@ from backend.app.schemas.engine import RankResponse, HealthResponse, TargetsResp
 from backend.app.services.data import active_mode, get_dataset
 
 router=APIRouter(prefix='/api/v1',tags=['engine'])
+
+def terrain_source_record(region_id: str):
+    """Find the original record so the 3D viewer receives genuine DEM provenance."""
+    grid=Path(os.getenv('ASTROMATCH_GRID',settings.grid))
+    paths=[grid,*feature_paths(os.getenv('ASTROMATCH_FEATURES',settings.features))]
+    found=None
+    for path in paths:
+        if not path.exists(): continue
+        for row in _read(path):
+            if row.get('region_id')==region_id: found=row
+    return found
 
 @router.get('/terrain/{region_id}')
 def terrain_v1(region_id: str):
@@ -40,9 +51,36 @@ def terrain_v1(region_id: str):
         heights = [None if value == nodata else round(value * metadata['scale'] + metadata['offset'], 3) for value in pixels]
     except (OSError, ValueError, KeyError, TypeError) as exc:
         raise HTTPException(500, f'Invalid terrain data for {region_id}: {exc}') from exc
-    return {'id': region_id, 'width': width, 'height': height,
+    result={'id': region_id, 'width': width, 'height': height,
             'cell_size_m': [metadata['pixel_size_x_m'], metadata['pixel_size_y_m']],
             'heights': heights, 'source': metadata.get('dem_source'), 'data_status': 'real'}
+    record=terrain_source_record(region_id)
+    if record:
+        provenance=record.get('provenance') or record.get('provenance_json') or {}
+        if isinstance(provenance,str):
+            try: provenance=json.loads(provenance)
+            except ValueError: provenance={}
+        resolution=record.get('source_resolution_m')
+        source_url=provenance.get('source_url') if isinstance(provenance,dict) else None
+        vertical_datum=metadata.get('vertical_reference') or provenance.get('vertical_reference')
+        crs=metadata.get('crs') or record.get('crs')
+        if resolution and source_url and vertical_datum and crs:
+            x,y=metadata['pixel_size_x_m'],metadata['pixel_size_y_m']
+            result['viewer']={
+                'id':region_id,'name':record.get('name') or region_id,'body':str(record.get('body','earth')).title(),
+                'width':width,'height':height,'heights':heights,'validMask':[h is not None for h in heights],
+                'cellSizeMeters':{'x':x,'y':y},'resolutionMeters':float(resolution),
+                'horizontalWindowMeters':{'width':(width-1)*x,'height':(height-1)*y},
+                'source':metadata.get('dem_source') or str(record.get('dem_source')),
+                'verticalExaggeration':metadata.get('vertical_exaggeration',1),
+                'dataType':'synthetic' if metadata.get('synthetic') else 'real',
+                'verticalDatum':vertical_datum,'coordinateReferenceSystem':crs,
+                'processingMetadata':{'provenance':{'dataset':str(record.get('dem_source') or metadata.get('dem_source')),
+                    'productId':str(provenance.get('source_file') or record.get('dem_version')),
+                    'version':str(record.get('dem_version') or record.get('processing_version') or 'unknown'),
+                    'url':source_url}},
+            }
+    return result
 
 def meta():
     mock=get_dataset().mode=='mock'
