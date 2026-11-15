@@ -6,6 +6,14 @@ The USGS release **Known Terrestrial Analog Sites for Planetary Science** by Mar
 
 The source Shapefile has 192 point records in EPSG:3857. The cleaned outputs retain all 192 records, convert geometry to EPSG:4326, and report zero null, empty, invalid, duplicate, or out-of-range geometries removed. See `data/processed/cleaning_report.json` for source and output SHA256 values and the full cleaning report. The USGS list is a known-site validation set, not a global inventory of Earth analog terrain.
 
+## Known analogs
+
+`out/known_analogs.json` keeps its existing schema and field names. `analog_for` describes which planetary target a record is associated with; it does not describe the celestial body where the site is located. All 192 sites are on Earth, and `analog_for` is empty for 191 records.
+
+These records are **not target-validated analogs**: 190/192 are impact craters, and 191 records have an empty `analog_for`. A candidate's proximity to a USGS-listed site does not mean that it is a validated analog for that target; it indicates geographic proximity only.
+
+For engine integration, Kişi 2 will align the adapter using `analog_id` → `region_id`, `theme` → `tags`, and `body="earth"` (option A). Do not merge the integration into main before that alignment is complete. USGS `g_...` cell keys do not match engine candidate IDs (`earth_grid_rNNN_cNNN`), so known-analog ranking and top-k recall do not work automatically in the engine. USGS validation is run separately with `discovery/validate_usgs`.
+
 ## Turkey analog records
 
 `out/turkey_analogs.json` uses schema `0.3-draft`. Five sites use latitude and longitude from their regional `features.json` record, falling back to local only if regional is absent. Acigol has no separate feature record and retains its approximate supplied coordinates. The file keeps qualitative hypotheses separate from numeric metrics, which remain in `features.json`. T-04 is explicitly marked unavailable because no T-04 target record exists in the supplied `features.json`.
@@ -30,7 +38,7 @@ Most USGS records are impact craters (190 of 192). Crater-centered 50 by 50 km w
 
 ## Integration
 
-`known_analogs.json` records expose `analog_id`, `theme`, and `analog_for`, while the engine adapter looks for `region_id` or `id`, `tags`, and `body`; these names do not align. The adapter does not load `turkey_analogs.json` or `global_candidates.geojson`.
+The adapter mapping described above remains an integration requirement. The engine does not load `turkey_analogs.json` or `global_candidates.geojson`.
 
 ## File map
 
