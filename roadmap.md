@@ -1,7 +1,7 @@
 # AstroMatch AI — 4 Kişilik Teknik Geliştirme Roadmap'i
 
 **Proje:** AstroMatch AI — NASA Space Apps Challenge 2026  
-**Ekip:** Ahmetson, David, Yenge, Abonman  
+**Ekip:** Ahmetson, David, Melis, Abonman  
 **Çalışma modeli:** Paralel geliştirme, bağımsız Git branch'leri  
 **Hedef:** Mars ve Ay bölgelerine topografik açıdan benzeyen Dünya bölgelerini gerçek DEM verileriyle keşfetmek, sıralamak ve 3D olarak karşılaştırmak.
 
@@ -11,10 +11,10 @@
 
 | Kişi | İsim | Sorumluluk | Branch | Süre |
 |---|---|---|---|---|
-| 1 | Ahmetson | NASA Data Processing & Terrain Features | `feature/data` | 6–8 saat |
-| 2 | David | Similarity Engine & Ranking | `feature/engine` | 5–6 saat |
-| 3 | Yenge | Global Discovery & Earth Analogs | `feature/discovery` | 6–7 saat |
-| 4 | Abonman | 3D Terrain & Scientific Validation | `feature/terrain3d` | 6,5 saat |
+| 1 | Ahmet | NASA Data Processing & Terrain Features | `feature/data` | 6–8 saat |
+| 2 | Davut | Similarity Engine & Ranking | `feature/engine` | 5–6 saat |
+| 3 | Melis | Global Discovery & Earth Analogs | `feature/discovery` | 6–7 saat |
+| 4 | Mustafa | 3D Terrain & Scientific Validation | `feature/terrain3d` | 6,5 saat |
 
 **Önemli:** Ana frontend geliştirme bu görevlerin kapsamında değildir. Her ekip üyesi kendi modülünü bağımsız geliştirecek ve entegrasyona hazır teslim edecektir.
 
@@ -38,7 +38,7 @@ Topografik benzerlik, jeolojik eşdeğerlik veya görev güvenliği kanıtı de�
 
 ---
 
-# 3. AHMETSON — NASA DATA PROCESSING & TERRAIN FEATURES
+# 3. AHMET — NASA DATA PROCESSING & TERRAIN FEATURES
 
 **Sorumlu:** Ahmetson  
 **Branch:** `feature/data`  
@@ -96,7 +96,7 @@ NASA ve Dünya DEM verilerini ortak fiziksel ölçekte işleyerek diğer modüll
 - [ ] Hedef ve aday ID'lerini ekle.
 - [ ] Veri kaynağı ve çözünürlük metadata'sını ekle.
 - [ ] David için örnek feature JSON hazırla.
-- [ ] Yenge için aday feature formatını hazırla.
+- [ ] Melis için aday feature formatını hazırla.
 - [ ] Abonman için işlenmiş DEM yükseklik verisi sağla.
 - [ ] Sentetik verileri açıkça işaretle.
 
@@ -113,7 +113,7 @@ NASA ve Dünya DEM verilerini ortak fiziksel ölçekte işleyerek diğer modüll
 - [ ] Örnek verileri Git'e ekle.
 - [ ] Pull Request hazırla.
 
-### Ahmetson kabul kriterleri
+### Ahmet kabul kriterleri
 
 - [ ] En az bir Mars DEM örneği işlenebiliyor.
 - [ ] En az bir Ay DEM örneği işlenebiliyor.
@@ -124,7 +124,7 @@ NASA ve Dünya DEM verilerini ortak fiziksel ölçekte işleyerek diğer modüll
 
 ---
 
-# 4. DAVID — SIMILARITY ENGINE & RANKING
+# 4. Davut — SIMILARITY ENGINE & RANKING
 
 **Sorumlu:** David  
 **Branch:** `feature/engine`  
@@ -213,7 +213,7 @@ Koşul:
 - [ ] README hazırla.
 - [ ] Pull Request hazırla.
 
-### David kabul kriterleri
+### Davut kabul kriterleri
 
 - [ ] Kriter bazlı skorlar hesaplanıyor.
 - [ ] Toplam benzerlik skoru hesaplanıyor.
@@ -224,9 +224,9 @@ Koşul:
 
 ---
 
-# 5. YENGE — GLOBAL DISCOVERY & EARTH ANALOGS
+# 5. Melis Çolak — GLOBAL DISCOVERY & EARTH ANALOGS
 
-**Sorumlu:** Yenge  
+**Sorumlu:** Melis  
 **Branch:** `feature/discovery`  
 **Klasör:** `discovery/`  
 **Tahmini süre:** 6–7 saat  
@@ -317,7 +317,7 @@ Bu bölgeler başlangıç adaylarıdır. Bilimsel benzerlikleri verilerle değer
 - [ ] README hazırla.
 - [ ] Pull Request hazırla.
 
-### Yenge kabul kriterleri
+### Melis kabul kriterleri
 
 - [ ] Türkiye analog listesi hazır.
 - [ ] Global kaba keşif algoritması çalışıyor.
@@ -328,7 +328,7 @@ Bu bölgeler başlangıç adaylarıdır. Bilimsel benzerlikleri verilerle değer
 
 ---
 
-# 6. ABONMAN — 3D TERRAIN & SCIENTIFIC VALIDATION
+# 6. Mustafa — 3D TERRAIN & SCIENTIFIC VALIDATION
 
 **Sorumlu:** Abonman  
 **Branch:** `feature/terrain3d`  
@@ -441,7 +441,7 @@ Ana frontend'den bağımsız, yeniden kullanılabilir bileşenler geliştirilece
 - [ ] README hazırla.
 - [ ] Pull Request hazırla.
 
-### Abonman kabul kriterleri
+### Mustafa kabul kriterleri
 
 - [ ] Gerçek DEM'den JSON üretilebiliyor.
 - [ ] Mars, Ay ve Dünya verileri destekleniyor.
@@ -463,7 +463,7 @@ Geliştirmeye başlamadan önce üç temel veri formatı netleştirilecektir.
 ### 1. terrain_features.json
 
 **Üreten:** Ahmetson  
-**Kullanan:** David, Yenge
+**Kullanan:** David, Melis
 
 İçerik:
 
@@ -477,7 +477,7 @@ Geliştirmeye başlamadan önce üç temel veri formatı netleştirilecektir.
 ### 2. similarity_results.json
 
 **Üreten:** David  
-**Kullanan:** Yenge, backend
+**Kullanan:** Melis, backend
 
 İçerik:
 
@@ -518,9 +518,9 @@ Ahmetson'un terrain fingerprint çıktısı David'in similarity engine'i tarafı
 
 **Test:** Bir hedef ve bir Dünya adayı için benzerlik skoru hesaplanmalı.
 
-## Entegrasyon 2 — Ahmetson + David → Yenge
+## Entegrasyon 2 — Ahmetson + David → Melis
 
-Yenge'nin Dünya adayları Ahmetson'un feature formatını kullanacak ve David'in motoruyla skorlanacaktır.
+Melis'nin Dünya adayları Ahmetson'un feature formatını kullanacak ve David'in motoruyla skorlanacaktır.
 
 **Test:** Birden fazla Dünya adayı sıralanmalı.
 
@@ -546,7 +546,7 @@ Ana frontend entegrasyonu, ortak API ve modül export'ları üzerinden yapılaca
 
 # 9. PARALEL ÇALIŞMA TAKVİMİ
 
-| Zaman | Ahmetson | David | Yenge | Abonman |
+| Zaman | Ahmetson | David | Melis | Abonman |
 |---|---|---|---|---|
 | 0:00–0:30 | Veri sözleşmesi | Veri sözleşmesi | Veri sözleşmesi | Veri sözleşmesi |
 | 0:30–2:00 | DEM preprocessing | Gaussian similarity | Analog araştırması | 3D render ve veri tipi |
@@ -573,7 +573,7 @@ Branch: `feature/engine`
 
 Yalnızca `engine/` ve üzerinde anlaşılan ortak veri sözleşmelerini düzenler.
 
-### Yenge
+### Melis
 
 Branch: `feature/discovery`
 
@@ -650,7 +650,7 @@ Yalnızca `terrain3d/`, `validation/` ve üzerinde anlaşılan dokümantasyon al
 - [ ] Explainability çalışıyor.
 - [ ] Testler başarılı.
 
-### Yenge
+### Melis
 
 - [ ] Türkiye analogları hazır.
 - [ ] Global kaba keşif çalışıyor.
@@ -688,7 +688,7 @@ AstroMatch AI, aşağıdaki dört bileşen birlikte çalıştığında teknik ol
 
 **David:** Hedef ve adayları karşılaştırır, benzerlik skorlarını hesaplar ve sıralar.
 
-**Yenge:** Dünya üzerindeki analog adaylarını keşfeder ve haritalanabilir veri üretir.
+**Melis:** Dünya üzerindeki analog adaylarını keşfeder ve haritalanabilir veri üretir.
 
 **Abonman:** Gerçek DEM yükseklik verilerini 3D görüntüler, hedef ve analogları yan yana karşılaştırır ve bilimsel doğrulamayı gerçekleştirir.
 
