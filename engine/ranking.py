@@ -130,7 +130,8 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
     floors=np.array([float(feats[key]['sigma'].get('floor',1)) for key in keys])
     distances=standardized_distance(values,target_values,eligible,w,floors)
     distances[~valid]=np.nan
-    known_distances=nearest_known_distances(candidates,[r for r in ds.known_analogs if r.kind!='earth_reference'])
+    known_ids={(r.region_id,r.scale) for r in ds.known_analogs if r.kind!='earth_reference'}
+    usgs_distances=nearest_known_distances(candidates,[r for r in ds.known_analogs if r.kind!='earth_reference' and (r.source or '').upper().startswith('USGS')])
     excluded=[]; full=[]
     candidate_index={c.region_id:i for i,c in enumerate(candidates)}
     for i,c in enumerate(candidates):
@@ -141,8 +142,8 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         if not valid[i]: excluded.append({'id':c.region_id,'reason':reason or 'fewer than min_features eligible','eligible_count':int(eligible[i].sum()),'place':c.place}); continue
         if filter_mode=='exclude' and flags: excluded.append({'id':c.region_id,'reason':'earth filter','flags':flags,'place':c.place}); continue
         if arith[i]-geo[i]>=15: flags.append('weak_link')
-        known_dist=float(known_distances[i]) if np.isfinite(known_distances[i]) else None
-        row={'id':c.region_id,'name':c.name,'lat':c.lat,'lon':c.lon,'place':c.place,'score_geo':float(geo[i]),'score_arith':float(arith[i]),'distance_z':float(distances[i]),'criteria_coverage':float(coverage[i]),'flags':flags,'distance_to_known_km':known_dist,'is_known':known_dist is not None and known_dist<=50,'agreement':'unavailable','target_confidence':target_confidence(target),'method_sensitive':target.method_sensitive}
+        usgs_dist=float(usgs_distances[i]) if np.isfinite(usgs_distances[i]) else None
+        row={'id':c.region_id,'name':c.name,'lat':c.lat,'lon':c.lon,'place':c.place,'score_geo':float(geo[i]),'score_arith':float(arith[i]),'distance_z':float(distances[i]),'criteria_coverage':float(coverage[i]),'flags':flags,'distance_to_usgs_site_km':usgs_dist,'is_known':(c.region_id,c.scale) in known_ids,'agreement':'unavailable','target_confidence':target_confidence(target),'method_sensitive':target.method_sensitive}
         if detailed:
             row['floored_criteria']=[key for j,key in enumerate(keys) if eligible[i,j] and scores[i,j]<=.01]
             row['per_criterion']={key:{'target_value':target.features[key].value,'candidate_value':c.features[key].value,'sigma':sig[key]['value'],'sigma_source':sig[key]['sigma_source'],'n_samples':sig[key]['n_samples'],'s_i':float(scores[i,j]),'weight':float(norm[i,j])} for j,key in enumerate(keys) if eligible[i,j] and w[j]>0}

@@ -8,7 +8,7 @@ from PIL import Image
 from pydantic import BaseModel, Field
 from engine import RankResult, explain as engine_explain, heat as engine_heat, list_targets, rank as engine_rank
 from engine.io import config, logical_input_hashes
-from engine.ranking import DISCLAIMER
+from engine.ranking import DISCLAIMER, nearest_known_distances
 from engine.validation_api import list_target_ids
 from engine.radar import feature_z_offsets
 from backend.app.core.config import settings
@@ -85,12 +85,22 @@ def ranked(target_id,scale,preset,k,filter_mode,weights=None,detailed=False):
             try:
                 saved=RankResult.model_validate_json(path.read_text())
                 if saved.data_status==ds.mode and k<=20 and (not detailed or all('per_criterion' in row for row in saved.full_scores)):
+                    # Known-site metadata can change without changing terrain scores.
+                    candidates={c.region_id:c for c in ds.candidates if c.scale==scale and c.kind in ('earth_site','earth_grid')}
+                    scored=[candidates[row['id']] for row in saved.full_scores if row['id'] in candidates]
+                    usgs=[r for r in ds.known_analogs if r.kind!='earth_reference' and (r.source or '').upper().startswith('USGS')]
+                    distances=nearest_known_distances(scored,usgs)
+                    proximity={c.region_id:(float(d) if math.isfinite(d) else None) for c,d in zip(scored,distances)}
+                    known_ids={(r.region_id,r.scale) for r in ds.known_analogs if r.kind!='earth_reference'}
+                    for row in saved.top_k+saved.full_scores+saved.novel_candidates:
+                        row.pop('distance_to_known_km',None)
+                        row['distance_to_usgs_site_km']=proximity.get(row['id'])
+                        row['is_known']=(row['id'],scale) in known_ids
                     saved.top_k=saved.top_k[:k]
-                    selected={row['id'] for row in saved.top_k}
-                    saved.novel_candidates=[row for row in saved.novel_candidates if row['id'] in selected]
+                    saved.novel_candidates=[row for row in saved.top_k if not row['is_known']]
                     return saved
             except (ValueError,TypeError): pass
-    try: return engine_rank(ds,target_id,scale,preset,weights=weights,k=k,filter_mode=filter_mode,detailed=detailed)
+    try: return engine_rank(ds,target_id,scale,preset,weights=weights,k=k,filter_mode=filter_mode,detailed=detailed,include_uncertainty=bool(ds.known_analogs))
     except ValueError as exc: raise HTTPException(422,str(exc)) from exc
 
 @router.get('/health',response_model=HealthResponse)
