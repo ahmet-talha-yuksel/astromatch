@@ -429,3 +429,71 @@ test('filled geometry is continuous with per-sample estimate tags and unchanged 
   assert.equal(createTerrainGeometry(terrain).index.count, raw.index.count);
   raw.dispose(); filled.dispose();
 });
+
+const { vehicleGround, findRoverSpawn, findLandingSite, LANDER_RADIUS } = require('../.test-build/geometry/explorerVehicles.js');
+const { stepLander } = require('../.test-build/geometry/manualLanding.js');
+function vehicleFixture() {
+  return validateTerrainData({ ...base(), width: 11, height: 11, heights: Array(121).fill(0), validMask: Array(121).fill(true),
+    cellSizeMeters: { x: 100, y: 100 }, horizontalWindowMeters: { width: 1000, height: 1000 }, resolutionMeters: 100 });
+}
+const vehicleWorld = { width: 10, depth: 10, at: (u, v) => u >= 0 && u <= 1 && v >= 0 && v <= 1 ? 0 : null };
+test('vehicles require a measured footprint and landing search never accepts generated scenery or NoData', () => {
+  const terrain = vehicleFixture();
+  assert.ok(vehicleGround(terrain, vehicleWorld, { u: .5, v: .5 }).measured);
+  assert.equal(vehicleGround(terrain, vehicleWorld, { u: .01, v: .5 }).measured, false);
+  const hole = structuredClone(terrain); hole.heights[5*11+7] = null; hole.validMask[5*11+7] = false;
+  assert.notEqual(surfaceElevation(hole, .5, .5), null);
+  assert.equal(vehicleGround(hole, vehicleWorld, { u: .5, v: .5 }, 1.2).measured, false);
+  const dense = validateTerrainData({ ...terrain, width: 41, height: 41, cellSizeMeters: 25, resolutionMeters: 25,
+    heights: Array(1681).fill(0), validMask: Array(1681).fill(true) });
+  dense.heights[18*41+18] = null; dense.validMask[18*41+18] = false;
+  for (const u of [.395,.5,.605]) for (const v of [.395,.5,.605]) assert.notEqual(surfaceElevation(dense,u,v),null);
+  assert.equal(vehicleGround(dense,vehicleWorld,{u:.5,v:.5},1.05).measured,false,'detect NoData between the nine footprint probes');
+  const site = findLandingSite(terrain, vehicleWorld, { u: .5, v: .68 }, 0);
+  assert.ok(site && site.u > 0 && site.u < 1 && site.v > 0 && site.v < 1);
+  assert.ok(Math.abs(site.x) <= vehicleWorld.width / 2 - LANDER_RADIUS && Math.abs(site.z) <= vehicleWorld.depth / 2 - LANDER_RADIUS);
+  assert.ok(vehicleGround(terrain, vehicleWorld, site, .52).measured);
+  const empty = { ...terrain, heights: Array(121).fill(null), validMask: Array(121).fill(false) };
+  assert.equal(findRoverSpawn(empty, vehicleWorld, { u: .5, v: .5 }, .01), null);
+  assert.equal(findLandingSite(empty, vehicleWorld, { u: .5, v: .5 }, 0), null);
+});
+const flightInput = { forward: 0, strafe: 0, yaw: 0, thrust: false, brake: false };
+const flightStart = { x: 0, y: 6.3, z: 0, vx: 0, vy: 0, vz: 0, fuel: 100, phase: 'ready', reason: '', boundaryBlocked: false };
+const flightFloor = () => ({ height: 0, measured: true, spread: 0 });
+const flightBounds = { width: 10, depth: 10, radius: .5 }, flightTarget = { x: 0, z: 0 };
+test('manual landing waits for input; gravity, thrust, fuel and braking respond to pilot controls', () => {
+  assert.equal(stepLander(flightStart, flightInput, 'Earth', .1, flightFloor, flightBounds, flightTarget), flightStart);
+  const falling = { ...flightStart, phase: 'flying' };
+  const earth = stepLander(falling, flightInput, 'Earth', .1, flightFloor, flightBounds, flightTarget);
+  const moon = stepLander(falling, flightInput, 'Moon', .1, flightFloor, flightBounds, flightTarget);
+  assert.ok(earth.vy < moon.vy && earth.y < moon.y);
+  const powered = stepLander(falling, { ...flightInput, thrust: true }, 'Earth', .1, flightFloor, flightBounds, flightTarget);
+  assert.ok(powered.vy > 0 && powered.fuel < 100);
+  const empty = stepLander({ ...falling, fuel: 0 }, { ...flightInput, thrust: true }, 'Earth', .1, flightFloor, flightBounds, flightTarget);
+  assert.equal(empty.vy, earth.vy);
+  const braking = stepLander({ ...falling, vx: .5 }, { ...flightInput, brake: true }, 'Moon', .1, flightFloor, flightBounds, flightTarget);
+  const coasting = stepLander({ ...falling, vx: .5 }, flightInput, 'Moon', .1, flightFloor, flightBounds, flightTarget);
+  assert.ok(braking.vx < coasting.vx);
+});
+test('manual landing distinguishes a safe touchdown, hard impact, unknown ground, and a missed zone', () => {
+  const touchdown = { ...flightStart, phase: 'flying', y: .015, vy: -.1 };
+  const safe = stepLander(touchdown, flightInput, 'Moon', .1, flightFloor, flightBounds, flightTarget);
+  assert.equal(safe.phase, 'landed'); assert.ok(safe.y >= 0);
+  assert.equal(safe.vy, 0); assert.equal(safe.vx, 0); assert.equal(safe.vz, 0);
+  assert.equal(stepLander(safe, { ...flightInput, thrust: true }, 'Moon', .1, flightFloor, flightBounds, flightTarget), safe);
+  const hard = stepLander({ ...touchdown, vy: -1 }, flightInput, 'Earth', .1, flightFloor, flightBounds, flightTarget);
+  assert.equal(hard.phase, 'crashed'); assert.match(hard.reason, /Descent too fast/);
+  const unknown = stepLander(touchdown, flightInput, 'Moon', .1, () => ({ ...flightFloor(), measured: false }), flightBounds, flightTarget);
+  assert.equal(unknown.phase, 'crashed'); assert.match(unknown.reason, /No measured/);
+  const missed = stepLander({ ...touchdown, x: 2 }, flightInput, 'Moon', .1, flightFloor, flightBounds, flightTarget);
+  assert.equal(missed.phase, 'crashed'); assert.match(missed.reason, /Outside/);
+});
+test('a piloted lander stays within the selected parcel and cannot tunnel below its surface', () => {
+  let state = { ...flightStart, phase: 'flying' };
+  const bounds = { width: 2, depth: 2, radius: .5 };
+  for (let i = 0; i < 600; i++) {
+    state = stepLander(state, { ...flightInput, strafe: 1, thrust: true }, 'Moon', 1/60, flightFloor, bounds, flightTarget);
+    assert.ok(state.x <= .5 && state.x >= -.5 && state.z <= .5 && state.z >= -.5 && state.y >= 0);
+  }
+  assert.ok(state.boundaryBlocked);
+});

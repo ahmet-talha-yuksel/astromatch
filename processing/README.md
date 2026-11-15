@@ -1,5 +1,40 @@
 # NASA Data Processing — v2.3
 
+## Analog Profile: 2025 Dünya iklim bağlamı
+
+`out/real/features.json` içindeki Dünya kayıtlarının `context` alanları ve
+`out/earth_grid.parquet` dosyasındaki mevcut `ctx__*` kolon sözleşmesi,
+2025'in 12 aylık MOD11C3.061 ve MOD13C2.061 ürünlerinden üretilir.
+16 saha/ölçek kaydı ve doğrulanmış 216 hücre örneklenir; doğrulanmamış
+192 hücre `cell_not_validated` gerekçesiyle null kalır. Kaynak dosyalar ve
+aylık QA sonuçları Git dışında `raw/earth_context/2025/` içinde tutulur.
+
+```sh
+processing/.venv/bin/python -m processing.scripts.analog_context \
+  --inputs processing/raw/earth_context/2025 \
+  --year 2025 --accessed-on 2026-11-15
+```
+
+Bu komut yerel, tamamlanmış 24 HDF girdisini ister; indirme veya giriş yapmaz.
+Her alan için en az 9 geçerli ay gerekir. Aylık yerel/regional pencere
+ortalamaları ürünün QA ve kalibrasyonuyla, doğal 0.05° CMG merkezlerinden
+hesaplanır. Yıllık ortalamada aylara eşit ağırlık verilir. Gündüz–gece farkı
+aynı ayda aynı geçerli piksellerden alınır; günlük Tmax−Tmin değildir.
+Min/max alanları aylık gece/gündüz ortalamalarının uçlarıdır. IMERG henüz
+sağlanmadığından yağış null ve gerekçelidir. NDVI=0 gerçekten ölçülmüşse
+geçerlidir; eksik gözlemin yerine 0 yazılmaz.
+
+`out/real/context_provenance.json` 24 ürünün hash/dönem/kaynak bilgisini,
+`out/real/context_report.md` kapsamı ve boşluk nedenlerini taşır. Topoğrafik
+özellikler, eski aylık çevre verisi, kimlikler, skor girdileri ve uygunluk
+bayrakları korunur. Bu veri katmanı PR #40'taki yardımcı context formatını
+izler; PR #39'un profil arayüzünü bu branch'e getirmez. Ay/literatür profilleri
+ve yağış bu MODIS işleminin kapsamı dışındadır.
+Mevcut kök/ızgara/ZIP yayın kopyaları da güncellenir; eski hedef QA kararları
+korunarak yalnızca yardımcı veri eklenen dosyanın yeni hash'ine bağlanır.
+Genişletilmiş ızgara ve doğrulama örneğinde bu 408 hücrelik bağlam grubunun
+dışındaki alanlar `outside_current_context_batch` gerekçesiyle boş tutulur.
+
 Güncel ekip teslimi: `out/real/features.json` **21 kayıt** içerir (8 Dünya
 sahası × 2 ölçek, Jezero × 2, Shackleton × 2, Marius Hills regional).
 18 kaydın topoğrafik işlem QA bayrakları açıktır; Jezero ve Marius Hills

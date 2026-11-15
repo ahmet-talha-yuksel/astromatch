@@ -10,7 +10,7 @@ try {
   if (compile.status === 0) {
     mkdirSync(output, { recursive: true });
     writeFileSync(path.join(output, 'package.json'), '{"type":"commonjs"}');
-    status = spawnSync(process.execPath, ['--test', path.join(__dirname, 'terrain.test.cjs')], { stdio: 'inherit', cwd: root }).status ?? 1;
+    status = spawnSync(process.execPath, ['--test', path.join(__dirname, 'terrain.test.cjs'), path.join(__dirname,'rover.test.cjs')], { stdio: 'inherit', cwd: root }).status ?? 1;
   }
 } finally {
   rmSync(output, { recursive: true, force: true });
