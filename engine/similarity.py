@@ -33,7 +33,8 @@ def criterion_similarity(x, target, cfg, sigma=None):
     method = cfg['method']
     if method == 'gaussian':
         if sigma is None or sigma <= 0: raise ValueError('sigma must be positive')
-        return math.exp(-.5*((x-target)/sigma)**2)
+        from .transform import transform
+        return math.exp(-.5*((transform(x,cfg)-transform(target,cfg))/sigma)**2)
     if method == 'trapezoid':
         a,b,c,d = (float(cfg[k]) for k in ('a','b','c','d'))
         if not a < b < c < d: raise ValueError('trapezoid requires a<b<c<d')

@@ -16,14 +16,14 @@ def test_references_only_affect_sigma():
     refs=[r for r in ds.candidates if r.kind=='earth_reference']
     assert len(refs)==300 and all(r.scale=='local' for r in refs)
     result=rank(ds,'T-01','local')
-    assert result.sigma['relief_m']['sigma_source']=='earth_robust_std'
+    assert result.sigma['relief_m']['sigma_source']=='earth_reference_robust_std'
     assert result.sigma['relief_m']['n_samples']==300
     assert len(result.full_scores)==8
     assert not any(r['id'].startswith('R-') for r in result.full_scores)
     assert not any(p['id'].startswith('R-') for p in pca_export(ds)['points'])
     regional=rank(ds,'T-01','regional')
-    assert regional.sigma['relief_m']['sigma_source']=='pooled_from_regional'
-    assert regional.sigma['relief_m']['n_samples']==10
+    assert regional.sigma['relief_m']['sigma_source']=='earth_robust_std'
+    assert regional.sigma['relief_m']['n_samples']==9  # one mock grid cell is ineligible
 
 
 def test_local_relative_threshold_and_regional_top_five():

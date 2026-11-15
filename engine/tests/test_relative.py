@@ -10,7 +10,7 @@ from engine.sigma import sigma_metadata
 def test_local_sigma_pools_regional_and_fixed_fallback():
     ds=load_dataset(mock=True)
     result=rank(ds,'T-02','local')
-    assert all(x['sigma_source']=='earth_robust_std' and x['n_samples']>=200 for x in result.sigma.values())
+    assert all(x['sigma_source']=='earth_reference_robust_std' and x['n_samples']==300 for x in result.sigma.values())
     spec=config('features.yaml')['features']['relief_m']
     fixed=sigma_metadata([1,2],'relief_m','local',spec,[],200)
     assert fixed=={'value':150.0,'sigma_source':'fixed_default','n_samples':0}

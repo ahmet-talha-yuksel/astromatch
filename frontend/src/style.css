@@ -51,6 +51,7 @@ button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:foc
 .selectors{display:flex;align-items:end;gap:10px;margin:12px 0 14px;flex-shrink:0}
 .selectors label{display:flex;flex-direction:column;gap:5px;color:#a3b3ce;font-weight:700;font-size:10px;letter-spacing:.12em;min-width:0}.select-wrap{position:relative;display:flex;align-items:center;min-width:0}.select-wrap select{appearance:none;background:#0b1931;border:1px solid #34517c;color:#eff5ff;border-radius:6px;padding:8px 29px 8px 10px;min-width:125px;max-width:340px;font-size:13px;letter-spacing:0}.select-wrap svg{position:absolute;right:9px;pointer-events:none;color:#95b7ea}.sync-pill{margin:0 0 2px auto;display:flex;align-items:center;gap:7px;border:1px solid #2d4872;background:#102a4f80;color:#b9d3fa;padding:7px 9px;border-radius:5px;font-size:12px;white-space:nowrap}
 .notice{border:1px solid #8f4a44;background:#361d24;color:#ffc4b8;padding:8px 12px;border-radius:6px;margin-bottom:10px;font-size:14px;flex-shrink:0}
+.notice details{margin-top:8px}.notice summary{cursor:pointer;font-weight:650}.notice ul{margin:8px 0 0;padding-left:20px}.notice li{margin:3px 0}.terrain-caution,.commonality-note{border:1px solid #a96832;background:#4a2b1dcf;color:#ffe2bd;border-radius:7px;line-height:1.45}.terrain-caution{padding:9px 12px;margin-bottom:10px;font-size:13px}.commonality-note{padding:8px 10px;margin-top:9px;font-size:12px}
 .comparison-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px;min-height:0;flex:1;overflow:hidden}
 .comparison{min-width:0;min-height:0;display:flex;flex-direction:column;justify-content:center}
 .terrain-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-height:0}
@@ -135,6 +136,7 @@ footer{font-size:11px;color:#8598b9;margin-top:10px;line-height:1.4;flex-shrink:
 [data-body="mars"] .sync-pill{background:#3a241d80;border-color:#71513b;color:#f3cfb5}
 .brand-name{font-size:15px}.topbar-title{font-size:15px}.select-trigger,.select-option{font-size:14px}
 .candidate-name{font-size:15px}.candidate-location{font-size:13px}.score-ring strong{font-size:14px}
+.top-tier-badge{display:inline-block;padding:1px 6px;margin-right:7px;border:1px solid var(--ui-border);border-radius:999px;color:var(--ui-accent);font-size:11px;font-weight:700}
 .mission-copy strong{font-size:14px}.mission-secret,.mission-easter>span{font-size:12px}.mission-eyebrow{font-size:11px}
 .criterion>div:first-child,.criterion strong{font-size:14px}.metric-row{font-size:13px}.primary-score small{font-size:13px}
 .panel-heading h2{font-size:17px}.panel-kicker{font-size:11px}.place-note{font-size:12px}.sidebar-foot{font-size:13px}.gesture-hint,footer{font-size:12px}

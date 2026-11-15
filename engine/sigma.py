@@ -25,6 +25,17 @@ def sigma_metadata(values, feature, scale, cfg, regional_values=None, min_sample
             return {'value':float(spec['fixed_fallback']),'sigma_source':'fixed_default','n_samples':0}
     return {'value':max(float(spec.get('floor',0)),float(spec.get('k',1))*robust_std(sample)),'sigma_source':source,'n_samples':int(len(sample))}
 
+def calibrated_sigma(calibration, feature, cfg):
+    spec = cfg['sigma']
+    std = calibration['robust_std'].get(feature, 0)
+    count = calibration['feature_n'].get(feature, 0)
+    if count < 3 or std <= 0:
+        return {'value': float(spec['fixed_fallback']), 'sigma_source': 'fixed_default', 'n_samples': 0}
+    source = {'earth_grid': 'earth_robust_std', 'earth_reference': 'earth_reference_robust_std',
+              'earth_site': 'earth_site_robust_std'}.get(calibration['pool_kind'], 'earth_robust_std')
+    return {'value': calibration['k'] * std,
+            'sigma_source': source, 'n_samples': count}
+
 def sigma_table(ds,scale,features,min_samples=200):
     out={}
     for key,cfg in features.items():

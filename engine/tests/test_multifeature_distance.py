@@ -75,4 +75,6 @@ def test_mars_measured_fixtures_without_overriding_flags():
         rows.append(adapt(row))
     assert [target_status(row)[0] for row in rows]==['scorable','scorable','unscorable']
     assert [target_confidence(row) for row in rows]==['high','medium','low']
-    assert 'slope_p90_deg' in target_status(rows[2])[1]
+    assert target_status(rows[2])[1]=='resolution_not_validated'
+    from engine.measurement import excluded_features
+    assert any('slope_p90_deg excluded' in item for item in excluded_features(rows[2]))

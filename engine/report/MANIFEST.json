@@ -1,6 +1,7 @@
 {
   "data_status": "real",
-  "generated_at": "2026-11-14T21:57:38.081971+00:00",
+  "feature_set": "v9",
+  "generated_at": "2026-11-15T08:02:40.251704+00:00",
   "grid_extent": {
     "lat_max": 64.75,
     "lat_min": -24.75,
@@ -11,15 +12,18 @@
   "input_sha256": {
     "/Users/x/Desktop/astromatch/data/processed/candidates.json": "01545d8e9037d19e4e4a29147b17a4984140329e21ded307a95f8f462f2237a1",
     "/Users/x/Desktop/astromatch/data/processed/targets.json": "a6246231f66aaff2aab8cd5bd1cc2baf23a6ae29f6b0a6f07683d6c24a31ede3",
+    "/Users/x/Desktop/astromatch/discovery/out/known_analogs.json": "ce7e83ec98308bdd0d41fd7f654566c5b0274102dc066dbfc901711fca3391e9",
     "/Users/x/Desktop/astromatch/processing/out/coverage.geojson": "1bfa26be448b6da83f5108b9f384dd79bc14fad4c39ca1277cb0f87b9c754abf",
-    "/Users/x/Desktop/astromatch/processing/out/earth_grid.parquet": "eaf434a1fe1b9de3ae81f3762826c8b63154fce53696a7c37c5c1552bf20297e",
-    "/Users/x/Desktop/astromatch/processing/out/mars_measured/features.json": "1d8302a3cc6dbbc37177508cb1932d3c0c5e1b6bec329b6c48071408f71f6b43",
-    "/Users/x/Desktop/astromatch/processing/out/real/features.json": "e05ae01a49f53ea4f3bc0c7626a33b2722d4e55cd988037aaf1d19fd0eddf821"
+    "/Users/x/Desktop/astromatch/processing/out/earth_grid.parquet": "0d4b06cc9153a9eab70d6e55beacdceef1f515d0c702331bebe95101c89353aa",
+    "/Users/x/Desktop/astromatch/processing/out/mars_measured/features.json": "deb7cf50e90d1af241d82eddd24397d0bcff9ab95923345c288d61cc858c524b",
+    "/Users/x/Desktop/astromatch/processing/out/real/features.json": "9723bf6e8d35386f66423688861b7ce365e53bdcf7a0c6ecd3c977ffe1e044eb"
   },
-  "input_source": "origin/main@4ca89bc",
+  "input_source": "main@cbb06c4",
   "reports": [
+    "T-01.md",
     "T-02.md",
     "T-04.md",
-    "T-05.md"
+    "T-05.md",
+    "COMPARISON.md"
   ]
 }

@@ -78,13 +78,14 @@ def test_measurement_gate_confidence_and_warning(caplog):
     with caplog.at_level(logging.WARNING):
         assert gate_reason(target)=='effective_nodata_exceeds_threshold'
         result=rank(ds,target.region_id,'regional')
-    assert not result.full_scores and result.target_reason=='effective_nodata_exceeds_threshold'
+    assert result.full_scores and result.target_status=='scorable'
     assert 'effective_nodata_exceeds_threshold' in caplog.text
     target.measurement_support['effective_nodata_ratio']=.15
     target.measurement_support['sensitivity']['relief_m']['pass']=False
     with caplog.at_level(logging.WARNING):
-        assert target_status(target)==('unscorable','sensitivity_failed_but_flagged_validated')
-    assert 'sensitivity_failed_but_flagged_validated' in caplog.text
+        assert target_status(target)==('scorable',None)
+    assert target.features['relief_m'].comparable is False
+    assert 'relief_m excluded' in caplog.text
 
 
 def test_additional_failed_check_only_gates_scoring_that_uses_that_feature():
@@ -110,13 +111,13 @@ def test_check_reports_measurement_disagreement(tmp_path):
     target['measurement_support']={'effective_nodata_ratio':.32,'thresholds':{'max_effective_nodata':.30}}
     path=tmp_path/'features.json';path.write_text(json.dumps({'schema_version':'2.3','records':[target,site]}))
     report=check_real_data(DataPaths(features=str(path)))
-    assert not report['ready']
-    assert report['target_statuses']['T-01@regional']['reason']=='effective_nodata_exceeds_threshold'
-    assert any('effective_nodata_exceeds_threshold' in item for item in report['warnings'])
+    assert report['ready']
+    assert report['target_statuses']['T-01@regional']['status']=='scorable'
     target['measurement_support']={'effective_nodata_ratio':.15,'sensitivity':{'relief_m':{'pass':False}}}
     path.write_text(json.dumps({'schema_version':'2.3','records':[target,site]}))
     report=check_real_data(DataPaths(features=str(path)))
-    assert report['target_statuses']['T-01@regional']['reason']=='sensitivity_failed_but_flagged_validated'
+    assert report['target_statuses']['T-01@regional']['status']=='scorable'
+    assert any('relief_m excluded' in item for item in report['target_statuses']['T-01@regional']['excluded_features'])
 
 
 def test_method_sensitivity_explanation_aliases_and_mixed_methods(tmp_path,caplog):
@@ -157,7 +158,7 @@ def test_coverage_not_scanned_and_sigma_sources():
     regional=rank(ds,'moon_shackleton_regional','regional')
     assert all(v['n_samples']==216 and v['sigma_source']=='earth_robust_std' for v in regional.sigma.values())
     local=rank(ds,'moon_shackleton_local','local')
-    assert all(v['n_samples']==0 and v['sigma_source']=='fixed_default' for v in local.sigma.values())
+    assert all(v['n_samples']==8 and v['sigma_source']=='earth_site_robust_std' for v in local.sigma.values())
     points=heat(ds,'moon_shackleton_regional','regional')
     assert any(p.status=='not_scanned' and p.score is None for p in points)
     assert any(p.status=='not_comparable' and p.score is None for p in points)

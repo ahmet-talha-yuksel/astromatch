@@ -6,9 +6,15 @@ class CandidateScore(BaseModel):
     model_config=ConfigDict(extra='allow')
     id: str
     score_geo: float = Field(description='Absolute geometric similarity, 0–100')
+    score_contextual: float | None = Field(default=None, description='Terrain score discounted by commonality in the scanned grid, 0–100')
+    score_contextual_ci_low: float | None = None
+    score_contextual_ci_high: float | None = None
     score_arith: float = Field(description='Arithmetic similarity, 0–100')
     score_relative: float = Field(description='Relative score: best eligible Earth record is 100')
     score_percentile: float
+    score_percentile_scanned: float | None = None
+    top_tier: bool | None = None
+    top_tier_size: int | None = None
     match_level: str
     data_status: str | None = None
     disclaimer: str | None = None
@@ -31,6 +37,9 @@ class RankResponse(BaseModel):
     discrimination_label: str | None = None
     discrimination_explanation: str | None = None
     terrain_commonality: dict[str, Any] | None = None
+    excluded_features: list[str] = Field(default_factory=list)
+    sigma_calibration: dict[str, Any] | None = None
+    top_tier_size: int = 0
 
 class Envelope(BaseModel):
     data_status: str
@@ -64,6 +73,9 @@ class SitesResponse(Envelope):
     discrimination_label: str | None = None
     discrimination_explanation: str | None = None
     terrain_commonality: dict[str, Any] | None = None
+    excluded_features: list[str] = Field(default_factory=list)
+    sigma_calibration: dict[str, Any] | None = None
+    top_tier_size: int = 0
 
 class HeatResponse(Envelope):
     target_id: str
@@ -95,10 +107,16 @@ class CompareResponse(Envelope):
     z_by_feature: dict[str,float]
     distance_z: float
     score_geo: float
+    score_contextual: float | None = None
+    score_contextual_ci_low: float | None = None
+    score_contextual_ci_high: float | None = None
     score_ci_low: float | None = None
     score_ci_high: float | None = None
     score_relative: float
     match_level: str
+    score_percentile_scanned: float | None = None
+    top_tier: bool | None = None
+    top_tier_size: int | None = None
     place: dict[str,Any] | None = None
     explanation: dict[str,Any]
     analogy_breaks: list[str]

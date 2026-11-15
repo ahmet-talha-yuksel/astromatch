@@ -3,15 +3,19 @@ import math, warnings
 import numpy as np
 from .models import Dataset, RankResult, TargetSummary, HeatPoint
 from .io import config
-from .sigma import sigma_metadata
+from .sigma import calibrated_sigma, sigma_metadata
+from .calibration import calibrate, calibration_pool
+from .weights import weight_vector
 from .aggregate import aggregate_matrix
 from .explanations import build
 from .similarity import criterion_similarity
-from .measurement import target_status, target_confidence, support_summary
+from .measurement import target_status, target_confidence, support_summary, excluded_features, eligible_target_feature
 from .grid_status import not_scanned_points
 from .distance import standardized_distance
 from .discrimination import classify
 from .commonality import terrain_commonality
+from .contextual import commonality_factor
+from .transform import transform
 
 DISCLAIMER='MOCK DATA — NOT A SCIENTIFIC RESULT'
 
@@ -33,7 +37,7 @@ def list_targets(ds:Dataset):
             continue
         preferred=next((t for t in records if t.scale=='regional'),records[0])
         status,reason=target_status(preferred,config('features.yaml')['features'])
-        summaries.append(TargetSummary(region_id=preferred.region_id,name=preferred.name,body=preferred.body,scales=sorted({t.scale for t in records}),alias=alias,status=status,reason=reason,target_confidence=target_confidence(preferred),measurement_support=support_summary(preferred),method_sensitive=preferred.method_sensitive))
+        summaries.append(TargetSummary(region_id=preferred.region_id,name=preferred.name,body=preferred.body,scales=sorted({t.scale for t in records}),alias=alias,status=status,reason=reason,target_confidence=target_confidence(preferred),measurement_support=support_summary(preferred),method_sensitive=preferred.method_sensitive,excluded_features=excluded_features(preferred,config('features.yaml')['features'])))
     return summaries
 
 def haversine(a,b,c,d):
@@ -82,8 +86,11 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
     modifiers=weights if weights is not None else presets[preset]
     for key in modifiers:
         if key not in feats: warnings.warn(f'Unknown weight {key} ignored',stacklevel=2)
-    keys=list(feats); w=np.array([float(feats[key].get('weight',1))*float(modifiers.get(key,1)) for key in keys])
+    keys=list(feats); w=weight_vector(fconfig,modifiers)
     if not np.all(np.isfinite(w)) or np.any(w<0) or w.sum()<=0: raise ValueError('Weights must be finite, nonnegative, with positive sum')
+    excluded_target=excluded_features(target,keys)
+    pool_values,pool_mask,pool_kind=calibration_pool(ds,scale,keys)
+    calibration=calibrate(pool_values,pool_mask,scale,preset,fconfig,pool_kind=pool_kind,modifiers=modifiers)
     n=len(candidates); m=len(keys)
     scores=np.full((n,m),np.nan); eligible=np.zeros((n,m),bool)
     values=np.full((n,m),np.nan)
@@ -100,7 +107,9 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         if ds.mode=='real': same=values[grid_mask & resolution & comparable[:,j],j]
         reference_values=[r.features[key].value for r in references if key in r.features and r.features[key].value is not None and (ds.mode=='mock' or (r.features[key].data_status!='mock' and r.resolution_validated and r.features[key].comparable))]
         if reference_values: same=np.concatenate((same,np.asarray(reference_values,dtype=float)))
-        if ds.mode=='real':
+        if fconfig.get('sigma_calibration') in ('loo_median50','fixed_k') and sigma_override is None:
+            sig[key]=calibrated_sigma(calibration,key,feats[key])
+        elif ds.mode=='real':
             sig[key]=sigma_metadata(same,key,scale,feats[key],[],fconfig.get('min_sigma_samples_local',100) if scale=='local' else fconfig.get('min_sigma_samples_regional',150))
         elif np.isfinite(same).sum()<fconfig.get('min_sigma_samples',200):
             regional=[r.features[key].value for r in ds.candidates if r.scale=='regional' and r.kind in ('earth_grid','earth_reference') and key in r.features and r.features[key].value is not None and (ds.mode=='mock' or r.features[key].data_status!='mock')]
@@ -108,11 +117,11 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         else: sig[key]=sigma_metadata(same,key,scale,feats[key],[],fconfig.get('min_sigma_samples',200))
         if sigma_override is not None: sig[key]=sigma_override[key]
         tf=target.features.get(key)
-        if state!='scorable' or tf is None or tf.value is None or not tf.comparable or not target.resolution_validated: continue
+        if state!='scorable' or not eligible_target_feature(target,key): continue
         mask=np.isfinite(values[:,j]) & comparable[:,j] & resolution
         eligible[:,j]=mask
         if feats[key]['method']=='gaussian':
-            scores[mask,j]=np.exp(-.5*((values[mask,j]-tf.value)/sig[key]['value'])**2)
+            scores[mask,j]=np.exp(-.5*((transform(values[mask,j],feats[key])-transform(tf.value,feats[key]))/sig[key]['value'])**2)
         else:
             scores[mask,j]=[criterion_similarity(float(v),tf.value,feats[key],sig[key]['value']) for v in values[mask,j]]
     def missing_reasons(i):
@@ -120,15 +129,18 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         for j,key in enumerate(keys):
             tf=target.features.get(key); cf=c.features.get(key)
             if tf is None or tf.value is None or cf is None or cf.value is None: reason='missing value'
-            elif not target.resolution_validated or not c.resolution_validated: reason='resolution not validated'
-            elif not tf.comparable or not cf.comparable: reason='not comparable'
+            elif (not target.resolution_validated and state!='scorable') or not c.resolution_validated: reason='resolution not validated'
+            elif not eligible_target_feature(target,key): reason=next((item for item in excluded_target if item.startswith(key+' excluded')), 'not comparable')
+            elif not cf.comparable: reason='not comparable'
             else: continue
             out.append({'feature':key,'reason':reason})
         return out
     geo,arith,coverage,valid,norm=aggregate_matrix(scores,eligible,w,fconfig.get('min_features',3))
     target_values=np.array([target.features[key].value if key in target.features and target.features[key].value is not None else np.nan for key in keys],dtype=float)
     floors=np.array([float(feats[key]['sigma'].get('floor',1)) for key in keys])
-    distances=standardized_distance(values,target_values,eligible,w,floors)
+    transformed_values=np.column_stack([transform(values[:,j],feats[key]) for j,key in enumerate(keys)]) if n else values
+    transformed_target=np.array([transform(target_values[j],feats[key]) for j,key in enumerate(keys)])
+    distances=standardized_distance(transformed_values,transformed_target,eligible,w,np.full(m,.01))
     distances[~valid]=np.nan
     known_ids={(r.region_id,r.scale) for r in ds.known_analogs if r.kind!='earth_reference'}
     usgs_distances=nearest_known_distances(candidates,[r for r in ds.known_analogs if r.kind!='earth_reference' and (r.source or '').upper().startswith('USGS')])
@@ -139,7 +151,9 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         if ef.get('ndvi_mean') is not None and ef['ndvi_mean']>.3: flags.append('vegetated')
         if ef.get('precip_mm_yr') is not None and ef['precip_mm_yr']>500: flags.append('humid')
         if ef.get('land_fraction') is not None and ef['land_fraction']<.8: flags.append('coastal_or_lake')
-        if not valid[i]: excluded.append({'id':c.region_id,'reason':reason or 'fewer than min_features eligible','eligible_count':int(eligible[i].sum()),'place':c.place}); continue
+        roughness=c.features.get('roughness_ratio')
+        if roughness is not None and roughness.value==0: flags.append('possible_flattened_surface')
+        if not valid[i]: excluded.append({'id':c.region_id,'reason':reason or 'fewer than min_features eligible','eligible_count':int(eligible[i].sum()),'place':c.place,'flags':flags}); continue
         if filter_mode=='exclude' and flags: excluded.append({'id':c.region_id,'reason':'earth filter','flags':flags,'place':c.place}); continue
         if arith[i]-geo[i]>=15: flags.append('weak_link')
         usgs_dist=float(usgs_distances[i]) if np.isfinite(usgs_distances[i]) else None
@@ -151,11 +165,29 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         if ds.mode=='mock': row.update(data_status='mock',disclaimer=DISCLAIMER)
         full.append(row)
     full.sort(key=lambda r:(r['distance_z'],r['id']))
+    grid_ids={c.region_id for c in candidates if c.kind=='earth_grid'}
+    scanned_scores=np.sort(np.asarray([row['score_geo'] for row in full if row['id'] in grid_ids]))
+    for row in full:
+        row['score_percentile_scanned']=float(100*np.searchsorted(scanned_scores,row['score_geo'],side='left')/len(scanned_scores)) if len(scanned_scores) else None
     commonality=terrain_commonality(full,{c.region_id for c in candidates if c.kind=='earth_grid'})
     if include_uncertainty and full:
         from .uncertainty import simulate
         intervals=simulate(target,candidates,keys,values,eligible,w,sig,feats,full,preset=preset)
         for row in full: row.update(intervals[row['id']])
+    if full:
+        leader=full[0]
+        leader_low=leader.get('score_ci_low',leader['score_geo'])
+        leader_high=leader.get('score_ci_high',leader['score_geo'])
+        tier_ids={row['id'] for row in full if row.get('score_ci_low',row['score_geo'])<=leader_high and row.get('score_ci_high',row['score_geo'])>=leader_low}
+        for row in full:
+            row['top_tier']=row['id'] in tier_ids
+            row['top_tier_size']=len(tier_ids)
+    context_factor=commonality_factor(commonality)
+    commonality['contextual_factor']=context_factor
+    for row in full:
+        row['score_contextual']=row['score_geo']*context_factor
+        row['score_contextual_ci_low']=row.get('score_ci_low',row['score_geo'])*context_factor
+        row['score_contextual_ci_high']=row.get('score_ci_high',row['score_geo'])*context_factor
     best=full[0]['distance_z'] if full else 0.0
     discrimination,discrimination_explanation=classify([r['score_geo'] for r in full],target_id=target_id)
     top_five=max(1,math.ceil(len(full)*.05))
@@ -187,7 +219,7 @@ def rank(ds:Dataset,target_id:str,scale:str,preset:str='balanced',weights:dict|N
         row['explanation']=build(target,c,row['per_criterion'],row['score_geo'],row['flags'],row['not_compared'],row['match_level'],discrimination,commonality,row).model_dump()
     if ds.mode=='mock':
         for row in excluded: row.update(data_status='mock',disclaimer=DISCLAIMER)
-    return RankResult(target_id=target_id,scale=scale,preset=preset,top_k=top,full_scores=full,excluded=excluded,novel_candidates=[r for r in top if not r['is_known']],sigma=sig,data_status='mock' if ds.mode=='mock' else 'real',disclaimer=DISCLAIMER if ds.mode=='mock' else None,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,target_status=state,target_reason=reason,discrimination_label=discrimination,discrimination_explanation=discrimination_explanation,terrain_commonality=commonality)
+    return RankResult(target_id=target_id,scale=scale,preset=preset,top_k=top,full_scores=full,excluded=excluded,novel_candidates=[r for r in top if not r['is_known']],sigma=sig,data_status='mock' if ds.mode=='mock' else 'real',disclaimer=DISCLAIMER if ds.mode=='mock' else None,target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,target_status=state,target_reason=reason,discrimination_label=discrimination,discrimination_explanation=discrimination_explanation,terrain_commonality=commonality,excluded_features=excluded_target,sigma_calibration={k:v for k,v in calibration.items() if k not in ('robust_std','feature_n')},top_tier_size=full[0]['top_tier_size'] if full else 0)
 
 def explain(ds,target_id,candidate_id,scale,preset='balanced'):
     result=rank(ds,target_id,scale,preset,detailed=True,include_uncertainty=True)
@@ -196,7 +228,7 @@ def explain(ds,target_id,candidate_id,scale,preset='balanced'):
         if result.target_status=='unscorable':
             from .models import Explanation
             target=next(t for t in ds.targets if t.region_id==target_id and t.scale==scale)
-            return Explanation(summary=result.target_reason or 'target_unscorable',flags=[result.target_reason or 'target_unscorable'],target_method=target.method,measurement_support=support_summary(target),target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note='Interpolated MOLA values were not used.' if target.body=='mars' else None)
+            return Explanation(summary=result.target_reason or 'target_unscorable',flags=[result.target_reason or 'target_unscorable'],target_method=target.method,measurement_support=support_summary(target),target_confidence=target_confidence(target),method_sensitive=target.method_sensitive,methodology_note='Interpolated MOLA values were not used.' if target.body=='mars' else None,excluded_features=result.excluded_features)
         raise ValueError(f'Candidate {candidate_id} not ranked')
     target=next(t for t in ds.targets if t.region_id==target_id and t.scale==scale)
     candidate=next(c for c in ds.candidates if c.region_id==candidate_id and c.scale==scale)

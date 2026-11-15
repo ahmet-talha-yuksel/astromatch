@@ -31,7 +31,7 @@ def _spread(result,site_ids):
 
 def write_results(ds,out,presets,k,stamp):
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
-    index={'targets':sorted({t.region_id for t in ds.targets}),'scales':sorted({t.scale for t in ds.targets}),'presets':presets,'generated_at':stamp,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'sigma':{},'score_spread':{},'engine_version':ENGINE_VERSION,'data_status':ds.mode,'defaults_applied':ds.defaults_applied,'invalid_records':ds.invalid_records,'warnings':list(ds.warnings)}
+    index={'feature_set':config('features.yaml')['feature_set'],'targets':sorted({t.region_id for t in ds.targets}),'scales':sorted({t.scale for t in ds.targets}),'presets':presets,'generated_at':stamp,'input_sha256':ds.input_hashes,'input_source':ds.input_source,'sigma':{},'sigma_calibration':{},'score_spread':{},'engine_version':ENGINE_VERSION,'data_status':ds.mode,'defaults_applied':ds.defaults_applied,'invalid_records':ds.invalid_records,'warnings':list(ds.warnings)}
     index['grid_status'],index['grid_counts']=grid_inventory(ds.candidates) if ds.mode=='real' else ('synthetic_global',{'scanned':sum(c.kind=='earth_grid' for c in ds.candidates),'eligible':sum(c.kind=='earth_grid' and c.resolution_validated for c in ds.candidates)})
     index['grid_extent']=grid_extent(ds.candidates)
     index['grid_label']='regional subset'
@@ -57,6 +57,7 @@ def write_results(ds,out,presets,k,stamp):
             write(out/f'{stem}.json',result.model_dump())
             index.setdefault('discrimination',{})[stem]={'label':result.discrimination_label,'explanation':result.discrimination_explanation,'median_score_geo':float(np.median([r['score_geo'] for r in result.full_scores])) if result.full_scores else None}
             index.setdefault('terrain_commonality',{})[stem]=result.terrain_commonality
+            index.setdefault('top_tier_size',{})[stem]=result.top_tier_size
             heat=[{'id':r['id'],'lat':r['lat'],'lon':r['lon'],'score':round(r['score_geo'],1),'distance_z':r['distance_z'],**({'data_status':'mock','disclaimer':DISCLAIMER} if ds.mode=='mock' else {})} for r in result.full_scores if r['lat'] is not None and r['lon'] is not None]
             if ds.mode=='real' and t.scale=='regional':
                 by_id={c.region_id:c for c in ds.candidates if c.scale==t.scale and c.kind=='earth_grid'}
@@ -67,10 +68,12 @@ def write_results(ds,out,presets,k,stamp):
                 heat.extend(not_scanned_points(scanned_ids=by_id))
             write(out/f'{stem}__heat.json',heat)
             if t.scale=='local':
-                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'sigma':result.sigma,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'comparison_scope':result.comparison_scope,'terrain_commonality':result.terrain_commonality}
+                sites={'target_id':t.region_id,'scale':'local','preset':preset,'sites':[r for r in result.full_scores if r['id'] in site_ids],'excluded':[r for r in result.excluded if r['id'] in site_ids],'data_status':ds.mode,'target_confidence':result.target_confidence,'target_status':result.target_status,'target_reason':result.target_reason,'excluded_features':result.excluded_features,'sigma':result.sigma,'sigma_calibration':result.sigma_calibration,'discrimination_label':result.discrimination_label,'discrimination_explanation':result.discrimination_explanation,'comparison_scope':result.comparison_scope,'terrain_commonality':result.terrain_commonality,'top_tier_size':result.top_tier_size}
                 if ds.mode=='mock': sites['disclaimer']=DISCLAIMER
                 write(out/f'sites__{stem}.json',sites)
-            index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma
+            index['sigma'][stem]=result.sigma
+            if preset=='balanced': index['sigma'][f'{t.region_id}__{t.scale}']=result.sigma
+            index['sigma_calibration'][f'{t.scale}__{preset}']=result.sigma_calibration
             spread=_spread(result,site_ids)
             index['score_spread'][stem]=spread
             if spread['std'] is not None and spread['std']<5:
@@ -100,7 +103,10 @@ def main(argv=None):
         if command=='run':
             s.add_argument('--preset',default='balanced');s.add_argument('--k',type=int,default=20);s.add_argument('--timestamp')
         else:s.add_argument('--negatives')
+    for command in (check,demo,scores,report,*[sub.choices[name] for name in ('run','validate')]):
+        command.add_argument('--feature-set',choices=('v6','v9'),default=None)
     args=p.parse_args(argv)
+    if getattr(args,'feature_set',None): os.environ['ASTROMATCH_FEATURE_SET']=args.feature_set
     if getattr(args,'input_source',None): os.environ['ASTROMATCH_INPUT_SOURCE']=args.input_source
     if args.command=='generate-mock':write_mock(args.out);return
     if args.command=='export-scores':
@@ -133,7 +139,7 @@ def main(argv=None):
     stamp=getattr(args,'timestamp',None) or datetime.now(timezone.utc).isoformat()
     if args.command=='export-demo':
         if args.mock:
-            ds=load_dataset(mock=True,mock_n_grid=240)
+            ds=load_dataset(mock=True,mock_n_grid=100)
             ds.input_hashes=_mock_hashes(ds)
         else:
             paths=DataPaths(features=args.features,grid=args.grid)
@@ -149,7 +155,7 @@ def main(argv=None):
         validate(ds,out=out)
         for path in out.glob('*.json'):
             path.write_text(json.dumps(json.loads(path.read_text()),sort_keys=True,separators=(',',':'),ensure_ascii=False)+'\n')
-        write(out/'MANIFEST.json',{'input_sha256':ds.input_hashes,'input_source':ds.input_source,'engine_version':ENGINE_VERSION,'generated_at':stamp,'data_status':ds.mode,'disclaimer':DISCLAIMER if ds.mode=='mock' else None,'grid_extent':grid_extent(ds.candidates),'grid_label':'regional subset'})
+        write(out/'MANIFEST.json',{'feature_set':config('features.yaml')['feature_set'],'input_sha256':ds.input_hashes,'input_source':ds.input_source,'engine_version':ENGINE_VERSION,'generated_at':stamp,'data_status':ds.mode,'disclaimer':DISCLAIMER if ds.mode=='mock' else None,'grid_extent':grid_extent(ds.candidates),'grid_label':'regional subset'})
         return
     paths=DataPaths(features=args.features,grid=args.grid,known=args.known)
     if not args.mock:
