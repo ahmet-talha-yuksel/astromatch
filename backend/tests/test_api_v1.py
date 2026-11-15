@@ -91,6 +91,20 @@ def test_region_explain_validation_legacy(client):
     assert app.openapi()['paths']['/api/rank']['post']['deprecated'] is True
 
 
+def test_marius_uses_measured_heightmap(client):
+    import json
+    from pathlib import Path
+    from PIL import Image
+    c, _ = client
+    response = c.get('/api/v1/terrain/moon_marius_hills_regional')
+    assert response.status_code == 200
+    folder = Path(__file__).resolve().parents[2] / 'processing/out/moon_measured/heightmaps'
+    metadata = json.loads((folder/'moon_marius_hills_regional.json').read_text())
+    with Image.open(folder/'moon_marius_hills_regional.png') as raster:
+        expected = [None if p == metadata['NoData'] else round(p * metadata['scale'] + metadata['offset'], 3) for p in raster.getdata()]
+    assert response.json()['heights'] == expected
+
+
 def test_errors(client):
     c,_=client
     assert c.get('/api/v1/rank',params={'target_id':'missing'}).status_code==404

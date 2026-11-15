@@ -171,6 +171,7 @@ def support_summary(target) -> dict | None:
     raw = support.get('raw_unmeasured_ratio')
     effective = support.get('effective_nodata_ratio')
     return {
+        'unscorable_reasons': list(support.get('unscorable_reasons') or []),
         'raw_unmeasured_ratio': raw,
         'effective_nodata_ratio': effective,
         'raw_unmeasured_percent': None if raw is None else 100 * raw,

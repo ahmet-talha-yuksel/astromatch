@@ -35,11 +35,11 @@ def terrain_v1(region_id: str):
     if not re.fullmatch(r'[A-Za-z0-9_-]+', region_id):
         raise HTTPException(404, 'Unknown terrain')
     root = Path(__file__).resolve().parents[3] / 'processing' / 'out'
-    paths = list(root.rglob(f'heightmaps/{region_id}.json'))
+    paths = [p for p in root.rglob(f'heightmaps/{region_id}.json') if 'mock' not in p.parts]
     if not paths:
         raise HTTPException(404, f'No measured heightmap for {region_id}')
     # The measured Mars replacement supersedes earlier regional products.
-    paths.sort(key=lambda p: (0 if 'mars_measured' in p.parts else 1, str(p)))
+    paths.sort(key=lambda p: (0 if {'mars_measured', 'moon_measured'}.intersection(p.parts) else 1, str(p)))
     path = paths[0]
     try:
         metadata = json.loads(path.read_text())
