@@ -18,7 +18,8 @@ def _feature_path() -> Path:
 
 def _data_paths() -> DataPaths:
     return DataPaths(features=os.getenv('ASTROMATCH_FEATURES',settings.features),
-                     grid=os.getenv('ASTROMATCH_GRID',settings.grid))
+                     grid=os.getenv('ASTROMATCH_GRID',settings.grid),
+                     profiles=os.getenv('ASTROMATCH_PROFILES',settings.profiles))
 
 def _real_valid(ds: Dataset) -> bool:
     return bool(ds.targets and ds.candidates and not ds.invalid_records and not any(r.data_status=='mock' or any(f.data_status=='mock' for f in r.features.values()) for r in ds.targets+ds.candidates))

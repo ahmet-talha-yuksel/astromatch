@@ -5,7 +5,7 @@ from pathlib import Path
 from .io import ROOT, config
 
 PROFILE_DIMENSIONS=('water_ice','surface_material','thermal','dust_wind','illumination')
-CONTEXT_KEYS=('lst_day_mean_c','lst_night_mean_c','lst_diurnal_range_c','lst_min_month_c','lst_max_month_c','lst_absolute_min_c','ndvi_mean','precip_mm_yr','diviner_day_max_c','diviner_night_min_c','diviner_mean_c','diviner_diurnal_range_c','psr_fraction')
+CONTEXT_KEYS=('lst_day_mean_c','lst_night_mean_c','lst_diurnal_range_c','lst_min_month_c','lst_max_month_c','lst_absolute_min_c','ndvi_mean','precip_mm_yr','surface_temp_max_c','surface_temp_min_c','surface_temp_mean_c','diviner_day_max_c','diviner_night_min_c','diviner_mean_c','diviner_diurnal_range_c','psr_fraction')
 DISCLAIMER='Characterization, not a probability. Earth cannot reproduce gravity, vacuum/thin atmosphere or radiation.'
 RANK={'None':0,'Low':1,'Medium':2,'High':3}
 
@@ -20,31 +20,41 @@ def read_profiles(path):
     try: data=json.loads(path.read_text())
     except (OSError,ValueError) as exc: return {},[f'{path}: invalid profile JSON: {exc}']
     errors=[];result={}
-    if not isinstance(data,dict) or data.get('schema_version')!='profile-1.0' or not isinstance(data.get('records'),list):
-        return {},[f'{path}: expected profile-1.0 object with records list']
-    for index,record in enumerate(data['records']):
+    if not isinstance(data,dict) or data.get('schema_version')!='profile-1.0':
+        return {},[f'{path}: expected profile-1.0 object']
+    if isinstance(data.get('records'),list):
+        entries=[(record,None) for record in data['records']]
+    elif isinstance(data.get('targets'),list) and isinstance(data.get('earth_sites'),list):
+        entries=[(record,'target') for record in data['targets']]+[(record,'earth_site') for record in data['earth_sites']]
+    else:return {},[f'{path}: expected records list or targets and earth_sites lists']
+    for index,(record,group_kind) in enumerate(entries):
         if not isinstance(record,dict): errors.append(f'profiles[{index}]: expected object');continue
         rid=record.get('region_id')
         if not isinstance(rid,str) or not rid: errors.append(f'profiles[{index}]: region_id required');continue
-        if record.get('kind') not in ('target','earth_site'): errors.append(f'{rid}: profile kind must be target or earth_site')
-        if record.get('data_status') not in ('real','mock'): errors.append(f'{rid}: profile data_status must be real or mock')
+        kind=record.get('kind',group_kind)
+        if kind not in ('target','earth_site'): errors.append(f'{rid}: profile kind must be target or earth_site')
+        if record.get('data_status') not in (None,'real','mock'): errors.append(f'{rid}: profile data_status must be real or mock')
         dimensions=record.get('dimensions')
         if not isinstance(dimensions,dict): errors.append(f'{rid}: dimensions must be object');continue
         valid={}
         for name,item in dimensions.items():
             if name not in PROFILE_DIMENSIONS: errors.append(f'{rid}: unknown profile dimension {name}');continue
             if not isinstance(item,dict): errors.append(f'{rid}.{name}: expected object');continue
+            category=item.get('category')
+            if not isinstance(category,str) or not category:errors.append(f'{rid}.{name}: category required');continue
+            gap=category in ('unknown','not_applicable')
             source=item.get('source')
-            if not isinstance(source,dict) or not isinstance(source.get('title'),str) or not source.get('title', '').strip() or not isinstance(source.get('url_or_doi'),str) or not source.get('url_or_doi','').strip():
+            sourced=isinstance(source,dict) and isinstance(source.get('title'),str) and bool(source['title'].strip()) and isinstance(source.get('url_or_doi'),str) and bool(source['url_or_doi'].strip())
+            if not gap and not sourced:
                 errors.append(f'{rid}.{name}: unsourced claim (source.title and source.url_or_doi required)');continue
-            missing=[key for key in ('category','summary','evidence','spatial_scope','verified_by') if not item.get(key)]
-            if missing: errors.append(f'{rid}.{name}: missing {", ".join(missing)}');continue
-            if item['evidence'] not in config('profile_rules.yaml')['confidence']:
-                errors.append(f'{rid}.{name}: unknown evidence tier {item["evidence"]}');continue
+            if not gap and not item.get('summary'):
+                errors.append(f'{rid}.{name}: summary required for a claim');continue
+            if not gap and item.get('evidence') not in config('profile_rules.yaml')['confidence']:
+                errors.append(f'{rid}.{name}: unknown evidence tier {item.get("evidence")}');continue
             if name=='surface_material' and 'minerals' in item and (not isinstance(item['minerals'],list) or not all(isinstance(x,str) for x in item['minerals'])):
                 errors.append(f'{rid}.{name}: minerals must be a list of names');continue
-            valid[name]=item
-        result[rid]={**record,'dimensions':valid}
+            valid[name]={**item,'verified':bool(item.get('verified_by')) if sourced else None}
+        result[rid]={**record,'kind':kind,'dimensions':valid}
     return result,errors
 
 def context_coverage(regions):
@@ -58,7 +68,15 @@ def profile_coverage(regions,profiles):
     output={}
     for kind in ('target','earth_site'):
         subset=[r for r in regions if r.kind==kind]
-        output[kind]={'records':len(subset),'with_profile':sum(r.region_id in profiles for r in subset),'dimensions':{key:sum(key in profiles.get(r.region_id,{}).get('dimensions',{}) for r in subset) for key in PROFILE_DIMENSIONS}}
+        per_record={}
+        for region in subset:
+            dimensions=profiles.get(region.region_id,{}).get('dimensions',{})
+            filled=[key for key,item in dimensions.items() if item.get('category') not in ('unknown','not_applicable')]
+            unknown=[key for key in PROFILE_DIMENSIONS if key not in dimensions or dimensions[key].get('category')=='unknown']
+            not_applicable=[key for key,item in dimensions.items() if item.get('category')=='not_applicable']
+            unverified=[key for key in filled if dimensions[key].get('verified') is False]
+            per_record[region.region_id]={'filled':filled,'unknown':unknown,'not_applicable':not_applicable,'unverified':unverified}
+        output[kind]={'records':len(subset),'with_profile':sum(r.region_id in profiles for r in subset),'dimensions':{key:sum(key in profiles.get(r.region_id,{}).get('dimensions',{}) for r in subset) for key in PROFILE_DIMENSIONS},'per_record':per_record}
     return output
 
 def _ctx(region,key):
@@ -71,12 +89,29 @@ def _ctx(region,key):
     return item
 
 def _claim(profiles,region,name):
-    return profiles.get(region.region_id,{}).get('dimensions',{}).get(name)
+    item=profiles.get(region.region_id,{}).get('dimensions',{}).get(name)
+    return item if item and item.get('category') not in ('unknown','not_applicable') else None
+
+def _profile_reason(profiles,region,name):
+    item=profiles.get(region.region_id,{}).get('dimensions',{}).get(name)
+    if item and item.get('category') in ('unknown','not_applicable'):
+        return item.get('notes') or f'{region.region_id}: {name} is explicitly {item["category"]}.'
+    if item is None:return f'No {name} profile claim delivered for {region.region_id}.'
+    return None
+
+def _context_reasons(region,keys):
+    reasons=[]
+    for key in keys:
+        item=region.context.get(key)
+        if isinstance(item,dict) and item.get('value') is None and item.get('reason') and item['reason'] not in reasons:
+            reasons.append(item['reason'])
+    return reasons
 
 def _source(item):
     if not item:return []
     source=item.get('source')
-    if isinstance(source,dict) and source.get('title') and source.get('url_or_doi'):return [source]
+    if isinstance(source,dict) and source.get('title') and source.get('url_or_doi'):
+        return [{**source,**({'verified':item.get('verified')} if 'verified' in item else {})}]
     if isinstance(source,str) and source.strip():return [{'title':source,'url_or_doi':source if source.startswith(('http://','https://','mock://','doi:')) else None}]
     return []
 
@@ -85,15 +120,18 @@ def _confidence(items):
     tiers=[cfg.get(item.get('evidence'),'None') for item in items if item]
     return min(tiers,key=lambda x:RANK[x]) if tiers else 'None'
 
-def _dimension(name,label,target_item=None,earth_item=None,note='',extra=None):
+def _dimension(name,label,target_item=None,earth_item=None,note='',extra=None,null_reasons=None):
     sources=[]
     for item in (target_item,earth_item):
         for source in _source(item):
             if source not in sources:sources.append(source)
+    claim_verifications=[item['verified'] for item in (target_item,earth_item) if isinstance(item,dict) and item.get('source') and item.get('verified') is not None]
     data={'name':name,'label':label,'target_value_or_summary':target_item.get('summary',target_item.get('value')) if target_item else None,
           'earth_value_or_summary':earth_item.get('summary',earth_item.get('value')) if earth_item else None,
           'evidence_target':target_item.get('evidence') if target_item else None,'evidence_earth':earth_item.get('evidence') if earth_item else None,
-          'sources':sources,'note':note,'confidence':_confidence([target_item,earth_item]) if (target_item and earth_item) or name in ('aridity_vegetation','illumination') else 'None'}
+          'sources':sources,'note':note,'null_reasons':list(dict.fromkeys(x for x in (null_reasons or []) if x)),
+          'verified':all(claim_verifications) if claim_verifications else None,
+          'confidence':_confidence([target_item,earth_item]) if (target_item and earth_item) or name in ('aridity_vegetation','illumination') else 'None'}
     if extra:data.update(extra)
     return data
 
@@ -108,7 +146,8 @@ def characterize(ds,target,candidate,row,mission='human_base'):
     terrain_earth={'summary':'Validated Earth topography','evidence':'orbital_remote_sensing','source':{'title':candidate.dem_source or 'Terrain source','url_or_doi':candidate.source or ''}}
     dims['terrain']=_dimension('terrain',terrain_label,terrain_target if percentile is not None else None,terrain_earth if percentile is not None else None,
         'Scanned-cell percentile determines this label; raw terrain score is unchanged.',
-        {'topographic_score':row.get('score_geo') if row else None,'topographic_interval':[row.get('score_ci_low'),row.get('score_ci_high')] if row else None})
+        {'topographic_score':row.get('score_geo') if row else None,'topographic_interval':[row.get('score_ci_low'),row.get('score_ci_high')] if row else None},
+        null_reasons=['No eligible, validated terrain score for this target–candidate pair.'] if percentile is None else [])
     # Thermal compares matching surface quantities; Celsius offsets are converted to Kelvin.
     thermal=None
     for target_key,earth_key in rules['thermal']['comparable_pairs']:
@@ -127,7 +166,11 @@ def characterize(ds,target,candidate,row,mission='human_base'):
         cfg=rules['thermal']
         label='Similar' if cfg['similar_ratio_min']<=ratio<=cfg['similar_ratio_max'] else 'Partly' if cfg['partly_ratio_min']<=ratio<=cfg['partly_ratio_max'] else 'Earth cannot reproduce'
         dims['thermal']=_dimension('thermal',label,a,b,f'Compared {tk} to {ek}; ratio {ratio:.2f}.')
-    else:dims['thermal']=_dimension('thermal','Not comparable',note='No matching measured surface-temperature quantity on both sides.')
+    else:
+        target_reasons=_context_reasons(target,('surface_temp_mean_c','surface_temp_min_c','surface_temp_max_c','diviner_diurnal_range_c','lst_diurnal_range_c','lst_day_mean_c','lst_night_mean_c'))
+        earth_reasons=_context_reasons(candidate,('lst_diurnal_range_c','lst_day_mean_c','lst_night_mean_c','lst_min_month_c','lst_max_month_c','surface_temp_mean_c'))
+        dims['thermal']=_dimension('thermal','Not comparable',note='No matching measured surface-temperature quantity on both sides.',
+                                  null_reasons=target_reasons+earth_reasons+[_profile_reason(profiles,target,'thermal'),_profile_reason(profiles,candidate,'thermal')])
     ndvi,precip=_ctx(candidate,'ndvi_mean'),_ctx(candidate,'precip_mm_yr')
     if ndvi and precip:
         cfg=rules['aridity_vegetation'];n,p=float(ndvi['value']),float(precip['value'])
@@ -138,26 +181,30 @@ def characterize(ds,target,candidate,row,mission='human_base'):
         dims['aridity_vegetation']['sources']=list(dict.fromkeys(tuple(sorted(s.items())) for item in (ndvi,precip) for s in _source(item)))
         dims['aridity_vegetation']['sources']=[dict(x) for x in dims['aridity_vegetation']['sources']]
         dims['aridity_vegetation']['confidence']=_confidence([ndvi,precip])
-    else:dims['aridity_vegetation']=_dimension('aridity_vegetation','Not comparable',note='Earth NDVI or precipitation is missing.')
+    else:dims['aridity_vegetation']=_dimension('aridity_vegetation','Not comparable',note='Earth NDVI or precipitation is missing.',null_reasons=_context_reasons(candidate,('ndvi_mean','precip_mm_yr')))
     ta,ea=_claim(profiles,target,'water_ice'),_claim(profiles,candidate,'water_ice')
     label='Unknown' if not ta or not ea else 'Shared evidence type' if str(ta['category']).casefold()==str(ea['category']).casefold() else 'Different'
-    dims['water_ice']=_dimension('water_ice',label,ta,ea,'Categorical evidence comparison; shared type does not establish equivalent resource abundance.')
+    dims['water_ice']=_dimension('water_ice',label,ta,ea,'Categorical evidence comparison; shared type does not establish equivalent resource abundance.',
+                                 null_reasons=[_profile_reason(profiles,target,'water_ice'),_profile_reason(profiles,candidate,'water_ice')])
     ta,ea=_claim(profiles,target,'surface_material'),_claim(profiles,candidate,'surface_material')
     tm={str(x).casefold():str(x) for x in ta.get('minerals',[]) } if ta else {}
     em={str(x).casefold():str(x) for x in ea.get('minerals',[]) } if ea else {}
     overlap=sorted(tm.keys()&em.keys())
     label='Unknown' if not ta or not ea or not tm or not em else f'Overlap: {", ".join(overlap)}' if overlap else 'No overlap'
-    dims['surface_material']=_dimension('surface_material',label,ta,ea,'Mineral names compared case-insensitively; abundance and grain size are not assessed.')
+    dims['surface_material']=_dimension('surface_material',label,ta,ea,'Mineral names compared case-insensitively; abundance and grain size are not assessed.',
+                                         null_reasons=[_profile_reason(profiles,target,'surface_material'),_profile_reason(profiles,candidate,'surface_material')])
     if target.body=='moon' and target.lat is not None and abs(target.lat)>=rules['illumination']['moon_polar_lat_min']:
         ta=_claim(profiles,target,'illumination')
-        dims['illumination']=_dimension('illumination','Earth cannot reproduce',ta, note='Polar grazing Sun or permanent shadow cannot be reproduced by an Earth site.')
+        dims['illumination']=_dimension('illumination','Earth cannot reproduce',ta, note='Polar grazing Sun or permanent shadow cannot be reproduced by an Earth site.',
+                                        null_reasons=_context_reasons(target,('psr_fraction',)))
     else:dims['illumination']=_dimension('illumination','Not applicable',note='Special polar illumination rule applies only to Moon targets at the configured latitude.')
     if target.body=='moon':dims['dust_wind']=_dimension('dust_wind','Not applicable',note='The Moon has no atmosphere.')
     elif target.body=='mars':
         ta=_claim(profiles,target,'dust_wind')
         if ta and ndvi and precip and dims['aridity_vegetation']['label'] in ('Good','Moderate'):
             dims['dust_wind']=_dimension('dust_wind','Partly',ta,{'summary':dims['aridity_vegetation']['earth_value_or_summary'],'evidence':ndvi.get('evidence'),'source':ndvi.get('source')},'Earth aridity is only a proxy; it does not reproduce Mars atmosphere or dust dynamics.')
-        else:dims['dust_wind']=_dimension('dust_wind','Not comparable',ta,note='Mars dust evidence or a dry Earth proxy is missing.')
+        else:dims['dust_wind']=_dimension('dust_wind','Not comparable',ta,note='Mars dust evidence or a dry Earth proxy is missing.',
+                                        null_reasons=[_profile_reason(profiles,target,'dust_wind'),*_context_reasons(candidate,('ndvi_mean','precip_mm_yr'))])
     else:dims['dust_wind']=_dimension('dust_wind','Not applicable')
     result=[]
     for name in missions[mission]['order']:

@@ -32,14 +32,14 @@ def check_real_data(paths:DataPaths|None=None):
     feature_files=feature_paths(paths.features)
     feature_path=feature_files[0]
     grid_path=_path(paths.grid or os.getenv('ASTROMATCH_GRID'),ROOT/'processing/out/earth_grid.parquet')
-    errors=[]; records=[]; configured=set(config('features.yaml')['features'])
+    errors=[]; records=[]; warnings=[]; configured=set(config('features.yaml')['features'])
     profiles_file=profile_path(paths.profiles or os.getenv('ASTROMATCH_PROFILES'))
     profiles,profile_errors=read_profiles(profiles_file)
     errors.extend(profile_errors)
     for rid,profile in profiles.items():
         if profile.get('data_status')=='mock': errors.append(f'{rid}: mock profile record in real-data check')
         for name,item in profile.get('dimensions',{}).items():
-            if str(item['source']['url_or_doi']).startswith('mock://'):
+            if isinstance(item.get('source'),dict) and str(item['source'].get('url_or_doi','')).startswith('mock://'):
                 errors.append(f'{rid}.{name}: mock source in real-data check')
     for path in feature_files:
         if not path.exists():
@@ -93,16 +93,23 @@ def check_real_data(paths:DataPaths|None=None):
         context=extract_context(row)
         for key,item in context.items():
             if key not in CONTEXT_KEYS: errors.append(f'{label}: unknown context quantity {key}');continue
-            if isinstance(item,str):
-                try:item=json.loads(item)
-                except ValueError:pass
-            if not isinstance(item,dict) or not all(field in item for field in ('value','source','period','evidence')):
-                errors.append(f'{label}: context.{key} requires value, source, period, evidence')
-            elif item['value'] is not None:
-                if isinstance(item['value'],(bool,np.bool_)) or not isinstance(item['value'],Real) or not math.isfinite(item['value']):
+            if not isinstance(item,dict) or 'value' not in item:
+                errors.append(f'{label}: context.{key} requires value');continue
+            value=item['value']
+            if value is not None:
+                if isinstance(value,(bool,np.bool_)) or not isinstance(value,Real) or not math.isfinite(value):
                     errors.append(f'{label}: context.{key}.value must be finite number or null')
-                if not item['source'] or not item['period'] or item['evidence'] not in config('profile_rules.yaml')['confidence']:
+                if not flattened and (not item.get('source') or not item.get('period') or item.get('evidence') not in config('profile_rules.yaml')['confidence']):
                     errors.append(f'{label}: context.{key} requires source, period, and valid evidence tier')
+            elif not item.get('reason'):
+                warnings.append(f'{label}: context.{key} is null without a reason')
+            if item.get('evidence') is not None and item['evidence'] not in config('profile_rules.yaml')['confidence']:
+                errors.append(f'{label}: context.{key}.evidence has unknown tier')
+            if item.get('warnings') is not None and not isinstance(item['warnings'],list):
+                errors.append(f'{label}: context.{key}.warnings must be a list')
+            months=item.get('n_valid_months')
+            if months is not None and (isinstance(months,(bool,np.bool_)) or not isinstance(months,(int,np.integer)) or months<0):
+                errors.append(f'{label}: context.{key}.n_valid_months must be a nonnegative integer')
         if config('features.yaml')['feature_set']=='v9' and isinstance(row.get('resolution_validated'),(bool,np.bool_)) and bool(row['resolution_validated']) and (body!='mars' or kind!='target'):
             for shape_key in ('hypsometric_integral','roughness_ratio','curvature_std_per_km'):
                 item=items.get(shape_key)
@@ -154,7 +161,7 @@ def check_real_data(paths:DataPaths|None=None):
     if not targets: errors.append('No valid target records; supply v2.3 targets in --features')
     if not sites: errors.append('No valid earth_site records; supply comparable Earth sites in --features or --grid')
     min_features=config('features.yaml').get('min_features',3)
-    target_statuses={};warnings=list(overrides)
+    target_statuses={};warnings.extend(overrides)
     for target in targets:
         status,reason=target_status(target,configured)
         found=False
@@ -176,10 +183,14 @@ def check_real_data(paths:DataPaths|None=None):
     total=len(records)
     optional_missing=[]
     if not profiles_file.exists():optional_missing.append(f'Missing optional profile input: {profiles_file}')
+    context_summary=context_coverage(adapted)
     for kind in ('target','earth_site','earth_grid'):
         subset=[r for r in adapted if r.kind==kind]
         if subset and not any(r.context for r in subset):optional_missing.append(f'No context quantities delivered for {kind} records')
-    return {'ready':not errors,'errors':errors,'warnings':warnings,'overrides':overrides,'input_source':os.getenv('ASTROMATCH_INPUT_SOURCE'),'target_statuses':target_statuses,'grid_status':grid_status,'grid_counts':grid_counts,'counts_by_kind_body_scale':dict(sorted(counts.items())),'feature_coverage':feature_coverage,'features_by_record':features_by_record,'feature_set':config('features.yaml')['feature_set'],'context_coverage':context_coverage(adapted),'profile_coverage':profile_coverage(adapted,profiles),'optional_missing':optional_missing,'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':[str(path) for path in feature_files],'grid':str(grid_path) if grid_path.exists() else None,'profiles':str(profiles_file) if profiles_file.exists() else None,'coverage':os.getenv('ASTROMATCH_COVERAGE') or str(ROOT/'processing/out/coverage.geojson')}}
+        elif subset and not sum(value['non_null'] for value in context_summary[kind]['keys'].values()):optional_missing.append(f'All delivered context quantities are null for {kind} records')
+    missing_profiles=[r.region_id for r in targets+sites if r.region_id not in profiles]
+    if missing_profiles:optional_missing.append(f'No profile record for: {", ".join(missing_profiles)}')
+    return {'ready':not errors,'errors':errors,'warnings':warnings,'overrides':overrides,'input_source':os.getenv('ASTROMATCH_INPUT_SOURCE'),'target_statuses':target_statuses,'grid_status':grid_status,'grid_counts':grid_counts,'counts_by_kind_body_scale':dict(sorted(counts.items())),'feature_coverage':feature_coverage,'features_by_record':features_by_record,'feature_set':config('features.yaml')['feature_set'],'context_coverage':context_summary,'profile_coverage':profile_coverage(adapted,profiles),'optional_missing':optional_missing,'stats':{'records':total,'resolution_validated':resolution_true,'resolution_validated_ratio':resolution_true/total if total else None,'comparable_true':comparable_true,'comparable_total':comparable_total,'comparable_ratio':comparable_true/comparable_total if comparable_total else None},'null_ratios':{key:null_counts[key]/total if total else None for key in sorted(configured)},'mock_records':mock_records,'inputs':{'features':[str(path) for path in feature_files],'grid':str(grid_path) if grid_path.exists() else None,'profiles':str(profiles_file) if profiles_file.exists() else None,'coverage':os.getenv('ASTROMATCH_COVERAGE') or str(ROOT/'processing/out/coverage.geojson')}}
 
 def report_json(report):
     return json.dumps(report,indent=2,sort_keys=True,ensure_ascii=False)+'\n'

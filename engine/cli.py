@@ -95,11 +95,11 @@ def main(argv=None):
     p=argparse.ArgumentParser(prog='python -m engine.cli');sub=p.add_subparsers(dest='command',required=True)
     gen=sub.add_parser('generate-mock');gen.add_argument('--out',default='engine/mock_data/')
     check=sub.add_parser('check');check.add_argument('--features',action='append');check.add_argument('--grid');check.add_argument('--profiles');check.add_argument('--input-source')
-    demo=sub.add_parser('export-demo');demo.add_argument('--out',default='engine/demo_results/');demo.add_argument('--timestamp');demo.add_argument('--mock',action='store_true');demo.add_argument('--features',action='append');demo.add_argument('--grid');demo.add_argument('--input-source')
-    scores=sub.add_parser('export-scores');scores.add_argument('--mock',action='store_true');scores.add_argument('--features',action='append');scores.add_argument('--grid');scores.add_argument('--preset',default='balanced');scores.add_argument('--sigma',choices=('recompute','frozen'),default='recompute');scores.add_argument('--criteria',action='store_true');scores.add_argument('--out',default='engine/out/scores/');scores.add_argument('--input-source')
-    report=sub.add_parser('report');report.add_argument('--mock',action='store_true');report.add_argument('--features',action='append');report.add_argument('--grid');report.add_argument('--out',default='engine/report/');report.add_argument('--input-source')
+    demo=sub.add_parser('export-demo');demo.add_argument('--out',default='engine/demo_results/');demo.add_argument('--timestamp');demo.add_argument('--mock',action='store_true');demo.add_argument('--features',action='append');demo.add_argument('--grid');demo.add_argument('--profiles');demo.add_argument('--input-source')
+    scores=sub.add_parser('export-scores');scores.add_argument('--mock',action='store_true');scores.add_argument('--features',action='append');scores.add_argument('--grid');scores.add_argument('--profiles');scores.add_argument('--preset',default='balanced');scores.add_argument('--sigma',choices=('recompute','frozen'),default='recompute');scores.add_argument('--criteria',action='store_true');scores.add_argument('--out',default='engine/out/scores/');scores.add_argument('--input-source')
+    report=sub.add_parser('report');report.add_argument('--mock',action='store_true');report.add_argument('--features',action='append');report.add_argument('--grid');report.add_argument('--profiles');report.add_argument('--out',default='engine/report/');report.add_argument('--input-source')
     for command in ('run','validate'):
-        s=sub.add_parser(command);s.add_argument('--mock',action='store_true');s.add_argument('--features',action='append');s.add_argument('--grid');s.add_argument('--known');s.add_argument('--out',default='engine/out/');s.add_argument('--input-source')
+        s=sub.add_parser(command);s.add_argument('--mock',action='store_true');s.add_argument('--features',action='append');s.add_argument('--grid');s.add_argument('--profiles');s.add_argument('--known');s.add_argument('--out',default='engine/out/');s.add_argument('--input-source')
         if command=='run':
             s.add_argument('--preset',default='balanced');s.add_argument('--k',type=int,default=20);s.add_argument('--timestamp')
         else:s.add_argument('--negatives')
@@ -111,7 +111,7 @@ def main(argv=None):
     if args.command=='generate-mock':write_mock(args.out);return
     if args.command=='export-scores':
         from .export_scores import export_scores
-        manifest=export_scores(mock=args.mock,features=args.features,grid=args.grid,preset=args.preset,sigma=None if args.sigma=='recompute' else args.sigma,criteria=args.criteria,out=args.out)
+        manifest=export_scores(mock=args.mock,features=args.features,grid=args.grid,profiles=args.profiles,preset=args.preset,sigma=None if args.sigma=='recompute' else args.sigma,criteria=args.criteria,out=args.out)
         sys.stdout.write(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
         return
     if args.command=='report':
@@ -125,7 +125,7 @@ def main(argv=None):
                     features.append('processing/out/mars_measured/features.json')
                 if (Path(__file__).resolve().parent.parent/'processing/out/moon_measured/features.json').exists():
                     features.append('processing/out/moon_measured/features.json')
-            paths=DataPaths(features=features,grid=args.grid)
+            paths=DataPaths(features=features,grid=args.grid,profiles=args.profiles)
             readiness=check_real_data(paths)
             if not readiness['ready']:
                 sys.stderr.write(report_json(readiness));raise SystemExit(2)
@@ -144,7 +144,7 @@ def main(argv=None):
             ds=load_dataset(mock=True,mock_n_grid=70)
             ds.input_hashes=_mock_hashes(ds)
         else:
-            paths=DataPaths(features=args.features,grid=args.grid)
+            paths=DataPaths(features=args.features,grid=args.grid,profiles=args.profiles)
             report=check_real_data(paths)
             if not report['ready']:
                 sys.stderr.write(report_json(report));raise SystemExit(2)
@@ -159,7 +159,7 @@ def main(argv=None):
             path.write_text(json.dumps(json.loads(path.read_text()),sort_keys=True,separators=(',',':'),ensure_ascii=False)+'\n')
         write(out/'MANIFEST.json',{'feature_set':config('features.yaml')['feature_set'],'input_sha256':ds.input_hashes,'input_source':ds.input_source,'engine_version':ENGINE_VERSION,'generated_at':stamp,'data_status':ds.mode,'disclaimer':DISCLAIMER if ds.mode=='mock' else None,'grid_extent':grid_extent(ds.candidates),'grid_label':'regional subset'})
         return
-    paths=DataPaths(features=args.features,grid=args.grid,known=args.known)
+    paths=DataPaths(features=args.features,grid=args.grid,profiles=args.profiles,known=args.known)
     if not args.mock:
         report=check_real_data(paths)
         if not report['ready']:

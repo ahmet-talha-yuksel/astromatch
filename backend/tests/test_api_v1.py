@@ -139,6 +139,22 @@ def test_analog_profile_missions_and_summary(client):
     assert c.get('/api/v1/profile',params={**base,'mission':'bad'}).status_code==422
 
 
+def test_unverified_profile_claim_is_visible(client):
+    from backend.app.services.data import get_dataset
+    c,_=client
+    ds=get_dataset()
+    claim=ds.profiles['T-04']['dimensions']['water_ice']
+    old=claim['verified']
+    try:
+        claim['verified']=False
+        response=c.get('/api/v1/profile',params={'target_id':'T-04','candidate_id':'S-02','scale':'regional'})
+        assert response.status_code==200,response.text
+        water=next(d for d in response.json()['dimensions'] if d['name']=='water_ice')
+        assert water['verified'] is False
+        assert water['sources'][0]['verified'] is False
+    finally:claim['verified']=old
+
+
 def test_mock_demo_precomputed_without_ranking(client,monkeypatch,tmp_path):
     from pathlib import Path
     import backend.app.api.v1 as v1
