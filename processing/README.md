@@ -13,6 +13,12 @@ ZIP içindeki HANDOFF.md v2.3 okuyucu sözleşmesini açıklar. Motor aynı penc
 ölçütleri dışlamalıdır. JSON zaten v2.3 biçimindedir; elle dönüştürme gerekmez.
 Aşağıdaki ilk teslim açıklamaları ve QA anlık görüntüleri denetim bağlamıdır.
 
+Güncel hedef/saha/ızgara dosyalarında `hypsometric_integral`, `roughness_ratio`
+ve `curvature_std_per_km` de bulunur. Bunlar aynı analiz penceresinde ölçülmüş
+örneklerden türetilir; mevcut skorlar ve altı ölçütün QA kararları korunur.
+Tanımlar, ölçüm desteği, null politikası ve yeniden üretim komutları:
+[MORPHOLOGY.md](MORPHOLOGY.md).
+
 
 Bu onay bağımsız doğruluk veya görev uygunluğu doğrulaması değildir. Mock paket
 tamamen sentetiktir. `out/salda_jezero/` ve `out/lola_shackleton/` ilk teslim

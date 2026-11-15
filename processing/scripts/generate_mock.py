@@ -34,6 +34,8 @@ def flatten(record):
                 'quality_warnings_json': json.dumps(record['quality']['warnings']),
                 'heightmap_path': record['heightmap']['path'],
                 'heightmap_metadata_path': record['heightmap']['metadata_path']})
+    if record['quality'].get('morphology'):
+        row['morphology_metadata_json'] = json.dumps(record['quality']['morphology'], sort_keys=True)
     return row
 
 

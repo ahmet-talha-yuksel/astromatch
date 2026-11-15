@@ -1,0 +1,131 @@
+{
+  "method": "measured-only-morphology-v1",
+  "scope": "data enrichment only; scoring configuration/weights/rankings unchanged",
+  "artifacts": [
+    {
+      "path": "out/real/features.json",
+      "records": 21,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/features.json",
+      "records": 21,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/mars_measured/features.json",
+      "records": 3,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/pilot_expanded/features.json",
+      "records": 408,
+      "null_counts": {
+        "hypsometric_integral": 152,
+        "roughness_ratio": 152,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/global_expansion/features.json",
+      "records": 604,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/validation_sample/features.json",
+      "records": 405,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/earth_grid.parquet",
+      "records": 408,
+      "null_counts": {
+        "hypsometric_integral": 152,
+        "roughness_ratio": 152,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/real/earth_grid.parquet",
+      "records": 8,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/pilot_expanded/earth_grid.parquet",
+      "records": 408,
+      "null_counts": {
+        "hypsometric_integral": 152,
+        "roughness_ratio": 152,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/global_expansion/earth_grid.parquet",
+      "records": 604,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/earth_grid_validation.parquet",
+      "records": 405,
+      "null_counts": {
+        "hypsometric_integral": 0,
+        "roughness_ratio": 0,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    },
+    {
+      "path": "out/global_expansion/earth_grid_combined.parquet",
+      "records": 1012,
+      "null_counts": {
+        "hypsometric_integral": 152,
+        "roughness_ratio": 152,
+        "curvature_std_per_km": 0
+      },
+      "legacy_fields_preserved": true
+    }
+  ],
+  "unique_windows": 1435,
+  "raw_rasters_verified": 370,
+  "source": "hash-matching raw rasters; no quantized PNGs or visual fill",
+  "null_policy": "undefined ratio or insufficient measured support -> null, comparable=false",
+  "comparability_policy": "finite new descriptors -> comparable=true, data_status=derived; record quality gates unchanged"
+}

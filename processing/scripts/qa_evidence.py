@@ -72,8 +72,10 @@ def check_evidence(record, report_path, counts_path):
         entry = matches[0]
         if binding(entry['primary']) != binding(record):
             raise ValueError('QA source hash or analysis binding changed')
-        # Bind actual metric values as well as the file/scale; stale software output cannot pass.
-        if entry['primary']['features'] != record['features'] or entry['primary']['quality']['sampling'] != record['quality'].get('sampling'):
+        # The policy covers the original six metrics. Additive morphology is not
+        # approved by this evidence. Bind actual reviewed values and sampling too.
+        if ({k: entry['primary']['features'][k] for k in TOPOGRAPHIC} != {k: record['features'][k] for k in TOPOGRAPHIC}
+                or entry['primary']['quality']['sampling'] != record['quality'].get('sampling')):
             raise ValueError('QA metric or sampling evidence changed')
         if counts_path is None or file_hash(counts_path) != entry['counts_file_sha256']:
             raise ValueError('QA counts file changed')

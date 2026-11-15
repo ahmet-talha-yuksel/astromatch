@@ -45,7 +45,7 @@ def test_delivered_records_match_engineering_gate():
         expected=all(c['pass'] for c in support['sensitivity'].values()) and support['effective_nodata_ratio']<=.30
         assert record['resolution_validated']==expected
         assert record['quality']['nodata_ratio']==support['effective_nodata_ratio']
-        assert all(f['comparable']==expected for f in record['features'].values())
+        assert all(record['features'][key]['comparable']==expected for key in TOPOGRAPHIC)
         assert record['provenance']['source_radius_m']==3396000
         assert record['analysis_resolution_m']==1000 and record['window_km']==50
         if not expected: assert support['unscorable_reasons']

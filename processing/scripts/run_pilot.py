@@ -11,6 +11,7 @@ import pyarrow.parquet as pq
 from .dem import DemRequest, process_dem, validate_comparison
 from .generate_mock import coverage_cell, flatten, write_json
 from .metrics import feature, TOPOGRAPHIC
+from .morphology import MORPHOLOGY
 from .pilot_grid import cells
 from .process_dem import export_heightmap
 
@@ -38,9 +39,10 @@ def write_pilot(records, coverage, manifest, timing, output):
         rows.append(row)
     if rows:
         table = pa.Table.from_pylist(rows)
-        for name in (*TOPOGRAPHIC, 'land_fraction'):
+        for name in (*TOPOGRAPHIC, *MORPHOLOGY, 'land_fraction'):
             index = table.schema.get_field_index(name)
-            table = table.set_column(index, name, pa.array([row[name] for row in rows], type=pa.float64()))
+            if index >= 0:
+                table = table.set_column(index, name, pa.array([row.get(name) for row in rows], type=pa.float64()))
     else:
         table = pa.table({'region_id': pa.array([], type=pa.string()), 'body': pa.array([], type=pa.string())})
     table = table.replace_schema_metadata({b'schema_version': b'2.3', b'grid_step_deg': b'0.5',
