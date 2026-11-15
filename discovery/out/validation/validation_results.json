@@ -1,0 +1,902 @@
+{
+  "positive_counts_at_start": [
+    {
+      "target_id": "T-01",
+      "valid_positive_cell_count": 0,
+      "valid_cell_count": 0,
+      "base_rate": null
+    },
+    {
+      "target_id": "T-02",
+      "valid_positive_cell_count": 0,
+      "valid_cell_count": 179,
+      "base_rate": 0.0
+    },
+    {
+      "target_id": "T-03",
+      "valid_positive_cell_count": 0,
+      "valid_cell_count": 0,
+      "base_rate": null
+    }
+  ],
+  "scope": {
+    "processed_cell_count": 408,
+    "valid_cell_count": 216,
+    "latitude_range": [
+      -24.75,
+      64.75
+    ],
+    "longitude_range": [
+      -69.75,
+      34.75
+    ],
+    "five_degree_bins_top_10": [
+      {
+        "lat_min": 30,
+        "lat_max": 35,
+        "lon_min": 25,
+        "lon_max": 30,
+        "cell_count": 100
+      },
+      {
+        "lat_min": 30,
+        "lat_max": 35,
+        "lon_min": 30,
+        "lon_max": 35,
+        "cell_count": 100
+      },
+      {
+        "lat_min": 35,
+        "lat_max": 40,
+        "lon_min": 25,
+        "lon_max": 30,
+        "cell_count": 100
+      },
+      {
+        "lat_min": 35,
+        "lat_max": 40,
+        "lon_min": 30,
+        "lon_max": 35,
+        "cell_count": 100
+      },
+      {
+        "lat_min": -25,
+        "lat_max": -20,
+        "lon_min": -70,
+        "lon_max": -65,
+        "cell_count": 4
+      },
+      {
+        "lat_min": 60,
+        "lat_max": 65,
+        "lon_min": -20,
+        "lon_max": -15,
+        "cell_count": 4
+      }
+    ],
+    "source_branch": "origin/main",
+    "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
+    "note": "Kapsam küresel değildir; sonuçlar yalnızca işlenmiş hücreler için geçerlidir."
+  },
+  "targets": {
+    "T-01": {
+      "status": "unscorable",
+      "reason": "unscorable",
+      "score": null,
+      "metrics": null
+    },
+    "T-02": {
+      "status": "not_evaluable",
+      "valid_cell_count": 179,
+      "valid_positive_cell_count": 0,
+      "base_rate": 0.0,
+      "positive_cells": [],
+      "cohorts": {},
+      "reason": "zero valid positive cells; no metrics calculated"
+    },
+    "T-03": {
+      "status": "unscorable",
+      "reason": "unscorable",
+      "score": null,
+      "metrics": null
+    }
+  },
+  "analog_cells_excluded_from_valid_positive_set": {
+    "not_in_grid": {
+      "count": 184,
+      "cells": [
+        {
+          "cell_key": "g_-07.75_-46.75",
+          "analog_names": "Riachao Ring"
+        },
+        {
+          "cell_key": "g_-08.25_-46.75",
+          "analog_names": "Serra da Cangalha"
+        },
+        {
+          "cell_key": "g_-10.25_-45.25",
+          "analog_names": "Santa Marta"
+        },
+        {
+          "cell_key": "g_-10.25_028.25",
+          "analog_names": "Luizi"
+        },
+        {
+          "cell_key": "g_-12.25_134.25",
+          "analog_names": "Liverpool"
+        },
+        {
+          "cell_key": "g_-13.25_135.25",
+          "analog_names": "Goyder"
+        },
+        {
+          "cell_key": "g_-15.25_131.25",
+          "analog_names": "Matt Wilson"
+        },
+        {
+          "cell_key": "g_-15.25_133.75",
+          "analog_names": "Strangways"
+        },
+        {
+          "cell_key": "g_-16.75_-52.75",
+          "analog_names": "Araguainha"
+        },
+        {
+          "cell_key": "g_-16.75_-69.25",
+          "analog_names": "Carancas"
+        },
+        {
+          "cell_key": "g_-16.75_126.25",
+          "analog_names": "Spider"
+        },
+        {
+          "cell_key": "g_-16.75_136.75",
+          "analog_names": "Foelsche"
+        },
+        {
+          "cell_key": "g_-17.75_128.25",
+          "analog_names": "Piccaninny"
+        },
+        {
+          "cell_key": "g_-18.25_126.75",
+          "analog_names": "Goat Paddock"
+        },
+        {
+          "cell_key": "g_-18.75_138.75",
+          "analog_names": "Lawn Hill"
+        },
+        {
+          "cell_key": "g_-19.25_127.75",
+          "analog_names": "Wolfe Creek"
+        },
+        {
+          "cell_key": "g_-19.75_133.75",
+          "analog_names": "Kelly West"
+        },
+        {
+          "cell_key": "g_-20.75_134.75",
+          "analog_names": "Amelia Creek"
+        },
+        {
+          "cell_key": "g_-22.25_027.75",
+          "analog_names": "Kgagodi"
+        },
+        {
+          "cell_key": "g_-22.75_125.25",
+          "analog_names": "Veevers"
+        },
+        {
+          "cell_key": "g_-22.75_135.25",
+          "analog_names": "Boxhole"
+        },
+        {
+          "cell_key": "g_-23.75_-46.75",
+          "analog_names": "Colonia"
+        },
+        {
+          "cell_key": "g_-23.75_-68.25",
+          "analog_names": "Monturaqui"
+        },
+        {
+          "cell_key": "g_-23.75_121.75",
+          "analog_names": "Glikson"
+        },
+        {
+          "cell_key": "g_-23.75_124.75",
+          "analog_names": "Connolly Basin"
+        },
+        {
+          "cell_key": "g_-23.75_132.25",
+          "analog_names": "Gosses Bluff"
+        },
+        {
+          "cell_key": "g_-24.75_133.25",
+          "analog_names": "Henbury"
+        },
+        {
+          "cell_key": "g_-25.25_028.25",
+          "analog_names": "Tswaing (formerly Pretoria Saltpan)"
+        },
+        {
+          "cell_key": "g_-25.75_-52.75",
+          "analog_names": "Vista Alegre"
+        },
+        {
+          "cell_key": "g_-25.75_120.75",
+          "analog_names": "Shoemaker (formerly Teague)"
+        },
+        {
+          "cell_key": "g_-26.25_023.75",
+          "analog_names": "Morokweng"
+        },
+        {
+          "cell_key": "g_-26.25_114.75",
+          "analog_names": "Woodleigh"
+        },
+        {
+          "cell_key": "g_-26.75_-52.25",
+          "analog_names": "Vargeao Dome"
+        },
+        {
+          "cell_key": "g_-26.75_027.75",
+          "analog_names": "Vredefort"
+        },
+        {
+          "cell_key": "g_-27.25_118.75",
+          "analog_names": "Yarrabubba"
+        },
+        {
+          "cell_key": "g_-27.25_142.75",
+          "analog_names": "Tookoonooka"
+        },
+        {
+          "cell_key": "g_-27.75_-61.75",
+          "analog_names": "Campo Del Cielo"
+        },
+        {
+          "cell_key": "g_-27.75_016.25",
+          "analog_names": "Roter Kamm"
+        },
+        {
+          "cell_key": "g_-27.75_117.25",
+          "analog_names": "Dalgaranga"
+        },
+        {
+          "cell_key": "g_-27.75_135.25",
+          "analog_names": "Mount Toondina"
+        },
+        {
+          "cell_key": "g_-32.25_135.25",
+          "analog_names": "Acraman"
+        },
+        {
+          "cell_key": "g_-32.75_-64.25",
+          "analog_names": "Rio Cuarto"
+        },
+        {
+          "cell_key": "g_-32.75_024.25",
+          "analog_names": "Kalkkop"
+        },
+        {
+          "cell_key": "g_-34.75_139.25",
+          "analog_names": "Flaxman"
+        },
+        {
+          "cell_key": "g_006.75_-01.25",
+          "analog_names": "Bosumtwi (= Ashanti)"
+        },
+        {
+          "cell_key": "g_017.25_021.75",
+          "analog_names": "Gweni-Fada"
+        },
+        {
+          "cell_key": "g_019.25_019.25",
+          "analog_names": "Aorounga"
+        },
+        {
+          "cell_key": "g_019.75_076.75",
+          "analog_names": "Lonar"
+        },
+        {
+          "cell_key": "g_020.25_-12.75",
+          "analog_names": "Aouelloul"
+        },
+        {
+          "cell_key": "g_021.25_-89.25",
+          "analog_names": "Chicxulub"
+        },
+        {
+          "cell_key": "g_021.75_050.25",
+          "analog_names": "Wabar"
+        },
+        {
+          "cell_key": "g_022.25_026.25",
+          "analog_names": "Kamil"
+        },
+        {
+          "cell_key": "g_022.75_-10.25",
+          "analog_names": "Tenoumer"
+        },
+        {
+          "cell_key": "g_024.75_024.25",
+          "analog_names": "Oasis"
+        },
+        {
+          "cell_key": "g_025.25_078.25",
+          "analog_names": "Dhala"
+        },
+        {
+          "cell_key": "g_026.25_004.25",
+          "analog_names": "Amguid"
+        },
+        {
+          "cell_key": "g_027.75_005.25",
+          "analog_names": "Tin Bider"
+        },
+        {
+          "cell_key": "g_029.25_-07.75",
+          "analog_names": "Ouarkziz"
+        },
+        {
+          "cell_key": "g_030.75_-102.75",
+          "analog_names": "Sierra Madera"
+        },
+        {
+          "cell_key": "g_031.25_-96.25",
+          "analog_names": "Marquez"
+        },
+        {
+          "cell_key": "g_031.75_-05.25",
+          "analog_names": "Agoudal"
+        },
+        {
+          "cell_key": "g_031.75_-102.25",
+          "analog_names": "Odessa"
+        },
+        {
+          "cell_key": "g_032.75_-86.25",
+          "analog_names": "Wetumpka"
+        },
+        {
+          "cell_key": "g_033.25_004.25",
+          "analog_names": "Talemzane (= Maadna)"
+        },
+        {
+          "cell_key": "g_034.75_-115.75",
+          "analog_names": "Amboy"
+        },
+        {
+          "cell_key": "g_035.25_-111.25",
+          "analog_names": "Barringer (= Meteor); Grand Falls"
+        },
+        {
+          "cell_key": "g_035.75_-105.75",
+          "analog_names": "Santa Fe"
+        },
+        {
+          "cell_key": "g_036.25_-85.75",
+          "analog_names": "Flynn Creek"
+        },
+        {
+          "cell_key": "g_036.25_-87.75",
+          "analog_names": "Wells Creek"
+        },
+        {
+          "cell_key": "g_036.25_-98.25",
+          "analog_names": "Ames"
+        },
+        {
+          "cell_key": "g_036.75_-83.75",
+          "analog_names": "Middlesboro"
+        },
+        {
+          "cell_key": "g_037.25_-76.25",
+          "analog_names": "Chesapeake Bay"
+        },
+        {
+          "cell_key": "g_037.75_-91.25",
+          "analog_names": "Crooked Creek"
+        },
+        {
+          "cell_key": "g_037.75_-92.75",
+          "analog_names": "Decaturville"
+        },
+        {
+          "cell_key": "g_037.75_-99.25",
+          "analog_names": "Haviland"
+        },
+        {
+          "cell_key": "g_038.25_-109.75",
+          "analog_names": "Upheaval Dome"
+        },
+        {
+          "cell_key": "g_039.25_-83.25",
+          "analog_names": "Serpent Mound"
+        },
+        {
+          "cell_key": "g_039.25_073.25",
+          "analog_names": "Kara-Kul"
+        },
+        {
+          "cell_key": "g_040.25_123.25",
+          "analog_names": "Xiuyan"
+        },
+        {
+          "cell_key": "g_040.75_-87.25",
+          "analog_names": "Kentland"
+        },
+        {
+          "cell_key": "g_040.75_-89.75",
+          "analog_names": "Glasford"
+        },
+        {
+          "cell_key": "g_041.75_-85.75",
+          "analog_names": "Calvin"
+        },
+        {
+          "cell_key": "g_042.25_-87.75",
+          "analog_names": "Des Plaines"
+        },
+        {
+          "cell_key": "g_042.75_-64.25",
+          "analog_names": "Montagnais"
+        },
+        {
+          "cell_key": "g_042.75_-94.75",
+          "analog_names": "Manson"
+        },
+        {
+          "cell_key": "g_043.25_-106.75",
+          "analog_names": "Cloud Creek"
+        },
+        {
+          "cell_key": "g_043.75_-89.75",
+          "analog_names": "Glover Bluff"
+        },
+        {
+          "cell_key": "g_044.25_-76.75",
+          "analog_names": "Holleford"
+        },
+        {
+          "cell_key": "g_044.25_109.75",
+          "analog_names": "Tabun-Khara-Obo"
+        },
+        {
+          "cell_key": "g_044.75_-112.75",
+          "analog_names": "Beaverhead"
+        },
+        {
+          "cell_key": "g_044.75_-92.25",
+          "analog_names": "Rock Elm"
+        },
+        {
+          "cell_key": "g_045.75_000.75",
+          "analog_names": "Rochechouart"
+        },
+        {
+          "cell_key": "g_046.25_-78.25",
+          "analog_names": "Brent"
+        },
+        {
+          "cell_key": "g_046.25_134.75",
+          "analog_names": "Sikhote Alin"
+        },
+        {
+          "cell_key": "g_046.25_137.75",
+          "analog_names": "Sobolev"
+        },
+        {
+          "cell_key": "g_046.75_-80.75",
+          "analog_names": "Wanapitei"
+        },
+        {
+          "cell_key": "g_046.75_-81.25",
+          "analog_names": "Sudbury"
+        },
+        {
+          "cell_key": "g_047.25_072.75",
+          "analog_names": "Shunak"
+        },
+        {
+          "cell_key": "g_047.75_-103.75",
+          "analog_names": "Red Wing"
+        },
+        {
+          "cell_key": "g_047.75_-70.25",
+          "analog_names": "Charlevoix (=La Malbaie)"
+        },
+        {
+          "cell_key": "g_048.25_032.75",
+          "analog_names": "Zeleny Gai"
+        },
+        {
+          "cell_key": "g_048.25_033.75",
+          "analog_names": "Ternovka"
+        },
+        {
+          "cell_key": "g_048.25_040.75",
+          "analog_names": "Kamensk"
+        },
+        {
+          "cell_key": "g_048.25_060.75",
+          "analog_names": "Zhamanshin"
+        },
+        {
+          "cell_key": "g_048.75_-101.75",
+          "analog_names": "Newporte"
+        },
+        {
+          "cell_key": "g_048.75_-86.75",
+          "analog_names": "Slate Islands"
+        },
+        {
+          "cell_key": "g_048.75_010.25",
+          "analog_names": "Steinheim"
+        },
+        {
+          "cell_key": "g_048.75_010.75",
+          "analog_names": "Ries"
+        },
+        {
+          "cell_key": "g_048.75_032.25",
+          "analog_names": "Boltysh"
+        },
+        {
+          "cell_key": "g_048.75_082.25",
+          "analog_names": "Bigach"
+        },
+        {
+          "cell_key": "g_049.25_029.25",
+          "analog_names": "Ilyinets"
+        },
+        {
+          "cell_key": "g_049.25_032.25",
+          "analog_names": "Boltysh"
+        },
+        {
+          "cell_key": "g_049.25_057.75",
+          "analog_names": "Chiyli"
+        },
+        {
+          "cell_key": "g_049.75_-103.25",
+          "analog_names": "Viewfield"
+        },
+        {
+          "cell_key": "g_049.75_-109.25",
+          "analog_names": "Maple Creek (= White Valley)"
+        },
+        {
+          "cell_key": "g_049.75_-110.25",
+          "analog_names": "Eagle Butte"
+        },
+        {
+          "cell_key": "g_049.75_-74.75",
+          "analog_names": "Presqu'ile"
+        },
+        {
+          "cell_key": "g_049.75_-95.25",
+          "analog_names": "West Hawk"
+        },
+        {
+          "cell_key": "g_049.75_029.25",
+          "analog_names": "Zapadnaya"
+        },
+        {
+          "cell_key": "g_049.75_032.75",
+          "analog_names": "Obolon"
+        },
+        {
+          "cell_key": "g_050.75_-106.75",
+          "analog_names": "Elbow"
+        },
+        {
+          "cell_key": "g_050.75_-73.75",
+          "analog_names": "Ile Rouleau"
+        },
+        {
+          "cell_key": "g_051.25_-68.75",
+          "analog_names": "Manicouagan"
+        },
+        {
+          "cell_key": "g_051.75_-98.75",
+          "analog_names": "Saint Martin"
+        },
+        {
+          "cell_key": "g_051.75_036.25",
+          "analog_names": "Kursk"
+        },
+        {
+          "cell_key": "g_052.25_016.75",
+          "analog_names": "Morasko"
+        },
+        {
+          "cell_key": "g_054.25_-115.75",
+          "analog_names": "Whitecourt"
+        },
+        {
+          "cell_key": "g_054.25_023.75",
+          "analog_names": "Mizarai"
+        },
+        {
+          "cell_key": "g_054.25_027.75",
+          "analog_names": "Logoisk"
+        },
+        {
+          "cell_key": "g_054.75_036.25",
+          "analog_names": "Kaluga"
+        },
+        {
+          "cell_key": "g_054.75_048.25",
+          "analog_names": "Karla"
+        },
+        {
+          "cell_key": "g_055.25_024.75",
+          "analog_names": "Vepriai"
+        },
+        {
+          "cell_key": "g_055.75_-63.25",
+          "analog_names": "Mistastin"
+        },
+        {
+          "cell_key": "g_056.25_-102.75",
+          "analog_names": "Deep Bay"
+        },
+        {
+          "cell_key": "g_056.25_-104.25",
+          "analog_names": "Gow"
+        },
+        {
+          "cell_key": "g_056.25_-74.25",
+          "analog_names": "Clearwater East"
+        },
+        {
+          "cell_key": "g_056.25_014.75",
+          "analog_names": "Mien"
+        },
+        {
+          "cell_key": "g_056.75_023.25",
+          "analog_names": "Dobele"
+        },
+        {
+          "cell_key": "g_056.75_043.75",
+          "analog_names": "Puchezh-Katunki"
+        },
+        {
+          "cell_key": "g_057.25_-66.75",
+          "analog_names": "La Moinerie"
+        },
+        {
+          "cell_key": "g_057.25_016.25",
+          "analog_names": "Hummeln"
+        },
+        {
+          "cell_key": "g_057.75_027.25",
+          "analog_names": "Ilumetsa"
+        },
+        {
+          "cell_key": "g_058.25_-109.25",
+          "analog_names": "Carswell"
+        },
+        {
+          "cell_key": "g_058.25_014.75",
+          "analog_names": "Granby"
+        },
+        {
+          "cell_key": "g_058.25_022.75",
+          "analog_names": "Kaalijarv"
+        },
+        {
+          "cell_key": "g_058.75_017.25",
+          "analog_names": "Tvaren"
+        },
+        {
+          "cell_key": "g_058.75_028.25",
+          "analog_names": "Mishina Gora"
+        },
+        {
+          "cell_key": "g_058.75_061.75",
+          "analog_names": "Ragozinka"
+        },
+        {
+          "cell_key": "g_059.25_006.25",
+          "analog_names": "Ritland"
+        },
+        {
+          "cell_key": "g_059.25_022.75",
+          "analog_names": "Kardla"
+        },
+        {
+          "cell_key": "g_059.25_023.75",
+          "analog_names": "Neugrund"
+        },
+        {
+          "cell_key": "g_059.75_-117.75",
+          "analog_names": "Steen River"
+        },
+        {
+          "cell_key": "g_060.25_-111.25",
+          "analog_names": "Pilot"
+        },
+        {
+          "cell_key": "g_060.25_-75.25",
+          "analog_names": "Couture (= Lac Couture)"
+        },
+        {
+          "cell_key": "g_060.25_020.25",
+          "analog_names": "Lumparn"
+        },
+        {
+          "cell_key": "g_060.25_117.75",
+          "analog_names": "Macha"
+        },
+        {
+          "cell_key": "g_060.75_009.25",
+          "analog_names": "Gardnos"
+        },
+        {
+          "cell_key": "g_061.25_-73.75",
+          "analog_names": "New Quebec (Chubb, Ungava, Pingualuit)"
+        },
+        {
+          "cell_key": "g_061.25_014.75",
+          "analog_names": "Siljan"
+        },
+        {
+          "cell_key": "g_061.25_022.25",
+          "analog_names": "Saaksjarvi"
+        },
+        {
+          "cell_key": "g_061.75_016.75",
+          "analog_names": "Dellen"
+        },
+        {
+          "cell_key": "g_061.75_030.75",
+          "analog_names": "Janisjarvi"
+        },
+        {
+          "cell_key": "g_062.25_024.75",
+          "analog_names": "Keurusselka"
+        },
+        {
+          "cell_key": "g_062.25_025.25",
+          "analog_names": "Karikkoselka"
+        },
+        {
+          "cell_key": "g_062.25_027.25",
+          "analog_names": "Iso-Naakkima"
+        },
+        {
+          "cell_key": "g_062.25_029.25",
+          "analog_names": "Paasselka"
+        },
+        {
+          "cell_key": "g_062.75_-102.75",
+          "analog_names": "Nicholson"
+        },
+        {
+          "cell_key": "g_062.75_014.75",
+          "analog_names": "Lockne"
+        },
+        {
+          "cell_key": "g_062.75_028.25",
+          "analog_names": "Suvasvesi N; Suvasvesi S"
+        },
+        {
+          "cell_key": "g_063.25_014.75",
+          "analog_names": "Lockne"
+        },
+        {
+          "cell_key": "g_063.25_021.75",
+          "analog_names": "Soderfjarden"
+        },
+        {
+          "cell_key": "g_063.25_023.75",
+          "analog_names": "Lappajarvi"
+        },
+        {
+          "cell_key": "g_063.25_033.25",
+          "analog_names": "Suavjarvi"
+        },
+        {
+          "cell_key": "g_064.75_-16.25",
+          "analog_names": "Ritland"
+        },
+        {
+          "cell_key": "g_065.25_028.25",
+          "analog_names": "Saarijarvi"
+        },
+        {
+          "cell_key": "g_065.75_095.75",
+          "analog_names": "Logancha"
+        },
+        {
+          "cell_key": "g_067.75_172.25",
+          "analog_names": "El'gygytgyn"
+        },
+        {
+          "cell_key": "g_069.25_064.25",
+          "analog_names": "Kara"
+        },
+        {
+          "cell_key": "g_071.25_-156.75",
+          "analog_names": "Avak"
+        },
+        {
+          "cell_key": "g_071.25_121.75",
+          "analog_names": "Beyenchime-Salaaty"
+        },
+        {
+          "cell_key": "g_071.75_111.25",
+          "analog_names": "Popigai"
+        },
+        {
+          "cell_key": "g_073.75_029.75",
+          "analog_names": "Mjolnir"
+        },
+        {
+          "cell_key": "g_075.25_-89.75",
+          "analog_names": "Haughton"
+        },
+        {
+          "cell_key": "g_075.75_097.75",
+          "analog_names": "Chukcha"
+        }
+      ]
+    },
+    "not_scanned": {
+      "count": 3,
+      "cells": [
+        {
+          "cell_key": "g_025.25_024.25",
+          "analog_names": "B.P. Structure"
+        },
+        {
+          "cell_key": "g_029.75_038.75",
+          "analog_names": "Saqqar"
+        },
+        {
+          "cell_key": "g_031.25_036.75",
+          "analog_names": "Jebel Waqf as Suwwan"
+        }
+      ]
+    },
+    "score_nan": {
+      "count": 0,
+      "cells": []
+    },
+    "land_fraction_below_0_5": {
+      "count": 0,
+      "cells": []
+    }
+  },
+  "control_sites": [
+    {
+      "name": "Meteor Crater",
+      "cell_key": "g_035.25_-111.25",
+      "status": "not_in_grid",
+      "percentile": null,
+      "reason": "cell_key is absent from the supplied processed grid"
+    },
+    {
+      "name": "Haughton",
+      "cell_key": "g_075.25_-89.75",
+      "status": "not_in_grid",
+      "percentile": null,
+      "reason": "cell_key is absent from the supplied processed grid"
+    }
+  ],
+  "caveats": [
+    "190/192 USGS records are impact crater records.",
+    "analog_for is empty for 191 records, so all scored targets use the same positive cell set.",
+    "The negative set is unlabeled background, not confirmed non-analogs; AUC measures ranking of known analogs against background, not classification accuracy.",
+    "Atacama and the supplied Turkish sites are absent from the USGS known-analogs list.",
+    "This validation is not evidence for volcanic or carbonate analogs."
+  ],
+  "generated_at": "2026-11-15T00:51:01+03:00",
+  "parameters": {
+    "seed": 42,
+    "n_perm": 1000,
+    "n_boot": 1000,
+    "min_positives": 20
+  }
+}

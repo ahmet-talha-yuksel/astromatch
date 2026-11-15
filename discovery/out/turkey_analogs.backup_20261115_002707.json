@@ -1,0 +1,235 @@
+{
+  "schema_version": "0.1-draft",
+  "generated_at": "2026-11-14T20:43:02+03:00",
+  "owner": "Kisi 3 - discovery",
+  "status": "draft_qualitative",
+  "note": "Eslesmeler niteliksel hipotezdir; siralama sonucu Kisi 2 benzerlik motorundan gelir. Sayisal ozellikler features.json'da, region_id ile bagli.",
+  "records": [
+    {
+      "region_id": "E-TR-01",
+      "name": "Salda Gölü",
+      "role": "turkey_candidate_and_reference",
+      "lat": 37.55,
+      "lon": 29.68,
+      "coord_status": "approximate_unverified",
+      "cell_id": "g_037.75_029.75",
+      "shares_cell_with": [],
+      "tags": [
+        "lake",
+        "paleolake",
+        "carbonate"
+      ],
+      "analog_dimensions": [
+        "karbonat",
+        "paleo-göl"
+      ],
+      "candidate_targets": [
+        {
+          "target_id": "T-01",
+          "rationale": "Jezero'da paleo-göl ve karbonat var; Salda karbonat ve göl ortamıdır. Ekip raporunda Jezero ile ilişkisi bilinen referans/doğrulama sahası olarak geçer. Literatür kaynağı teyit edilecek.",
+          "basis": "ekip_raporu_v2"
+        }
+      ],
+      "usgs_listed": false,
+      "limitations": [
+        "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek."
+      ],
+      "features_ref": {
+        "file": "features.json",
+        "region_id": "E-TR-01"
+      },
+      "local_media": [],
+      "status": "draft_qualitative"
+    },
+    {
+      "region_id": "E-TR-02",
+      "name": "Kula Volkanik Alanı",
+      "role": "turkey_candidate",
+      "lat": 38.6,
+      "lon": 28.6,
+      "coord_status": "approximate_unverified",
+      "cell_id": "g_038.75_028.75",
+      "shares_cell_with": [],
+      "tags": [
+        "volcanic_field",
+        "basaltic_cones",
+        "lava_flows"
+      ],
+      "analog_dimensions": [
+        "genç bazaltik koniler",
+        "lav akıntıları"
+      ],
+      "candidate_targets": [
+        {
+          "target_id": "T-03",
+          "rationale": "Marius Hills volkanik dom alanıdır; Kula'da koni ve lav akıntısı yapıları var. Yapı sınıfı düzeyinde nitel benzerlik, nicel doğrulama bekliyor.",
+          "basis": "hipotez"
+        },
+        {
+          "target_id": "T-04",
+          "rationale": "Opsiyonel Tharsis volkanik ovası ile volkanik arazi sınıfı benzerliği; T-04 opsiyonel hedef.",
+          "basis": "hipotez"
+        }
+      ],
+      "usgs_listed": false,
+      "limitations": [
+        "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek."
+      ],
+      "features_ref": {
+        "file": "features.json",
+        "region_id": "E-TR-02"
+      },
+      "local_media": [],
+      "status": "draft_qualitative"
+    },
+    {
+      "region_id": "E-TR-03",
+      "name": "Meke Gölü maarı",
+      "role": "turkey_candidate",
+      "lat": 37.68,
+      "lon": 33.64,
+      "coord_status": "approximate_unverified",
+      "cell_id": "g_037.75_033.75",
+      "shares_cell_with": [
+        "E-TR-04"
+      ],
+      "tags": [
+        "maar",
+        "explosion_crater",
+        "lake"
+      ],
+      "analog_dimensions": [
+        "su-magma etkileşimli patlama krateri"
+      ],
+      "candidate_targets": [
+        {
+          "target_id": "T-03",
+          "rationale": "Volkanik krater morfolojisi düzeyinde zayıf nitel benzerlik; nicel sonuca bırakıldı.",
+          "basis": "hipotez"
+        }
+      ],
+      "usgs_listed": false,
+      "limitations": [
+        "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek.",
+        "Global 0.5° ızgarada aynı hücreye düşer (shares_cell_with)."
+      ],
+      "features_ref": {
+        "file": "features.json",
+        "region_id": "E-TR-03"
+      },
+      "local_media": [],
+      "status": "draft_qualitative"
+    },
+    {
+      "region_id": "E-TR-04",
+      "name": "Acıgöl maarı (Karapınar)",
+      "role": "turkey_candidate",
+      "lat": 37.7,
+      "lon": 33.7,
+      "coord_status": "approximate_unverified",
+      "cell_id": "g_037.75_033.75",
+      "shares_cell_with": [
+        "E-TR-03"
+      ],
+      "tags": [
+        "maar",
+        "explosion_crater"
+      ],
+      "analog_dimensions": [
+        "su-magma etkileşimli patlama krateri"
+      ],
+      "candidate_targets": [
+        {
+          "target_id": "T-03",
+          "rationale": "Volkanik krater morfolojisi düzeyinde zayıf nitel benzerlik; nicel sonuca bırakıldı.",
+          "basis": "hipotez"
+        }
+      ],
+      "usgs_listed": false,
+      "limitations": [
+        "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek.",
+        "Global 0.5° ızgarada aynı hücreye düşer (shares_cell_with)."
+      ],
+      "features_ref": {
+        "file": "features.json",
+        "region_id": "E-TR-04"
+      },
+      "local_media": [],
+      "status": "draft_qualitative"
+    },
+    {
+      "region_id": "E-TR-05",
+      "name": "Hassa lav tüpleri (Hatay)",
+      "role": "turkey_candidate",
+      "lat": 36.8,
+      "lon": 36.5,
+      "coord_status": "approximate_unverified",
+      "cell_id": "g_036.75_036.75",
+      "shares_cell_with": [],
+      "tags": [
+        "lava_tube",
+        "cave"
+      ],
+      "analog_dimensions": [
+        "mağara ve lav tüpü"
+      ],
+      "candidate_targets": [
+        {
+          "target_id": "T-03",
+          "rationale": "Volkanik alan ve lav tüpü morfolojisi düzeyinde nitel benzerlik.",
+          "basis": "hipotez"
+        }
+      ],
+      "usgs_listed": false,
+      "limitations": [
+        "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek.",
+        "Lav tüpü ve çöküntü boyutu onlarca-yüzlerce metredir; 500 m çözünürlüklü DEM metrikleri bunu çözemez, bu boyut bu veri setiyle ölçülemez.",
+        "Türkiye'nin ilk lav tüpü mağarasının 2015'te bulunduğu ve bilimsel olarak az karakterize edildiği bilgisi ekip raporundan alındı, kaynak teyit edilecek.",
+        "Koordinat ~36.5 boylamında hücre sınırında; kesinleşince cell_id yeniden hesaplanmalı."
+      ],
+      "features_ref": {
+        "file": "features.json",
+        "region_id": "E-TR-05"
+      },
+      "local_media": [],
+      "status": "draft_qualitative"
+    },
+    {
+      "region_id": "E-TR-06",
+      "name": "Tuz Gölü",
+      "role": "turkey_candidate",
+      "lat": 38.75,
+      "lon": 33.37,
+      "coord_status": "approximate_unverified",
+      "cell_id": "g_038.75_033.25",
+      "shares_cell_with": [],
+      "tags": [
+        "salt_flat",
+        "evaporite",
+        "wind_processes"
+      ],
+      "analog_dimensions": [
+        "tuz düzlüğü",
+        "evaporitler",
+        "rüzgar süreçleri"
+      ],
+      "candidate_targets": [
+        {
+          "target_id": "T-01",
+          "rationale": "Evaporit ve kurumuş göl ortamı düzeyinde nitel benzerlik; nicel sonuca bırakıldı.",
+          "basis": "hipotez"
+        }
+      ],
+      "usgs_listed": false,
+      "limitations": [
+        "Koordinat yaklaşıktır, DEM'e bakarak merkez teyit edilecek."
+      ],
+      "features_ref": {
+        "file": "features.json",
+        "region_id": "E-TR-06"
+      },
+      "local_media": [],
+      "status": "draft_qualitative"
+    }
+  ]
+}

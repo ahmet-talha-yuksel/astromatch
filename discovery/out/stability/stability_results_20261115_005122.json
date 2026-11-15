@@ -1,0 +1,1338 @@
+{
+  "generated_at": "2026-11-15T00:51:19+03:00",
+  "scope": {
+    "processed_cell_count": 408,
+    "valid_cell_count": 216,
+    "latitude_range": [
+      -24.75,
+      64.75
+    ],
+    "longitude_range": [
+      -69.75,
+      34.75
+    ],
+    "five_degree_bins_top_10": [
+      {
+        "lat_min": 30,
+        "lat_max": 35,
+        "lon_min": 25,
+        "lon_max": 30,
+        "cell_count": 100
+      },
+      {
+        "lat_min": 30,
+        "lat_max": 35,
+        "lon_min": 30,
+        "lon_max": 35,
+        "cell_count": 100
+      },
+      {
+        "lat_min": 35,
+        "lat_max": 40,
+        "lon_min": 25,
+        "lon_max": 30,
+        "cell_count": 100
+      },
+      {
+        "lat_min": 35,
+        "lat_max": 40,
+        "lon_min": 30,
+        "lon_max": 35,
+        "cell_count": 100
+      },
+      {
+        "lat_min": -25,
+        "lat_max": -20,
+        "lon_min": -70,
+        "lon_max": -65,
+        "cell_count": 4
+      },
+      {
+        "lat_min": 60,
+        "lat_max": 65,
+        "lon_min": -20,
+        "lon_max": -15,
+        "cell_count": 4
+      }
+    ],
+    "source_branch": "origin/main",
+    "source_commit": "0c851bf2dbd0d9c5fd398770440da57079851eee",
+    "note": "Kapsam küresel değildir; sonuçlar yalnızca işlenmiş hücreler için geçerlidir."
+  },
+  "scoring_features": [
+    "slope_median_deg",
+    "slope_p90_deg",
+    "flat_fraction",
+    "tri_median_m",
+    "relief_m",
+    "elevation_std_m"
+  ],
+  "noise_levels": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "seed": 42,
+  "runs_per_level": 50,
+  "sigma_modes": {
+    "frozen": {
+      "target_id": "T-02",
+      "sigma_mode": "frozen",
+      "sigma_baseline": {
+        "slope_median_deg": 1.0,
+        "slope_p90_deg": 2.300759512829937,
+        "flat_fraction": 0.055894020000000016,
+        "tri_median_m": 43.470364633828304,
+        "relief_m": 224.62929770130958,
+        "elevation_std_m": 72.51354954989716
+      },
+      "baseline_cell_count": 216,
+      "baseline_top5_cell_ids": [
+        "earth_grid_r240_c429",
+        "earth_grid_r241_c426",
+        "earth_grid_r250_c426",
+        "earth_grid_r258_c426",
+        "earth_grid_r259_c412"
+      ],
+      "baseline_first_cell_id": "earth_grid_r240_c429",
+      "levels": {
+        "1%": {
+          "noise_fraction_of_feature_std": 0.01,
+          "top5_jaccard_mean": 0.8666666666666666,
+          "top5_jaccard_min": 0.6666666666666666,
+          "first_place_retention_rate": 0.76,
+          "spearman_mean": 0.9996705303891946,
+          "spearman_min": 0.9995603063507149,
+          "spearman_runs": 50,
+          "runs": 50,
+          "sigma_values_observed": [
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            }
+          ]
+        },
+        "5%": {
+          "noise_fraction_of_feature_std": 0.05,
+          "top5_jaccard_mean": 0.6249999999999999,
+          "top5_jaccard_min": 0.25,
+          "first_place_retention_rate": 0.34,
+          "spearman_mean": 0.9955830144378877,
+          "spearman_min": 0.9941559742519173,
+          "spearman_runs": 50,
+          "runs": 50,
+          "sigma_values_observed": [
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            }
+          ]
+        },
+        "10%": {
+          "noise_fraction_of_feature_std": 0.1,
+          "top5_jaccard_mean": 0.4165873015873015,
+          "top5_jaccard_min": 0.1111111111111111,
+          "first_place_retention_rate": 0.32,
+          "spearman_mean": 0.9850802197024268,
+          "spearman_min": 0.9812170080817919,
+          "spearman_runs": 50,
+          "runs": 50,
+          "sigma_values_observed": [
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            },
+            {
+              "slope_median_deg": 1.0,
+              "slope_p90_deg": 2.300759512829937,
+              "flat_fraction": 0.055894020000000016,
+              "tri_median_m": 43.470364633828304,
+              "relief_m": 224.62929770130958,
+              "elevation_std_m": 72.51354954989716
+            }
+          ]
+        }
+      }
+    }
+  }
+}

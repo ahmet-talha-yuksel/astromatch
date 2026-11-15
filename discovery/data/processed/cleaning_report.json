@@ -1,0 +1,78 @@
+{
+  "dataset": "Known Terrestrial Analog Sites for Planetary Science",
+  "publisher": "U.S. Geological Survey, Astrogeology Science Center",
+  "author": "Marc A. Hunter",
+  "doi": "10.5066/P9J72921",
+  "source_url": "https://doi.org/10.5066/P9J72921",
+  "sciencebase_item_id": "5f88940b82cebb8c13d912ee",
+  "license": "CC0 1.0 Universal (as marked on the USGS data release page)",
+  "accessed_utc": "2026-11-14T17:24:53.000557+00:00",
+  "source_vector_file": "data\\raw\\extracted\\TerrestrialAnalogs.shp",
+  "source_vector_files_found": [
+    "data\\raw\\extracted\\TerrestrialAnalogs.shp"
+  ],
+  "tabular_files_found": [],
+  "source_crs": "EPSG:3857",
+  "output_crs": "EPSG:4326",
+  "source_fields": [
+    "Name",
+    "AnalogType",
+    "Lat",
+    "Lon",
+    "AnalogBody",
+    "geometry"
+  ],
+  "normalized_field_mapping": {
+    "name": "Name",
+    "latitude": "Lat",
+    "longitude": "Lon"
+  },
+  "geometry_validation": {
+    "input_features": 192,
+    "input_crs": "EPSG:3857",
+    "null_geometry_removed": 0,
+    "empty_geometry_removed": 0,
+    "invalid_geometry_repaired": 0,
+    "invalid_geometry_removed": 0,
+    "duplicate_geometry_removed": 0,
+    "coordinate_outliers_removed": 0
+  },
+  "record_counts": {
+    "before": 192,
+    "after": 192
+  },
+  "output_features": 192,
+  "geometry_types": {
+    "Point": 192
+  },
+  "output_files": [
+    "data\\processed\\usgs_analogs_clean.geojson",
+    "data\\processed\\usgs_analogs_clean.csv"
+  ],
+  "sha256": {
+    "source_files": {
+      "data\\raw\\AnalogSites_metadata (1).xml": "0b38af81da5fd638f830b066c4d6c6626b899ef0c1aad16a4cecef33821ef855",
+      "data\\raw\\extracted\\TerrestrialAnalogs.cpg": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "data\\raw\\extracted\\TerrestrialAnalogs.dbf": "fd62d0b3f71aa029511b9d3b4c812a229d934e1ca70adac00a606fe6591239db",
+      "data\\raw\\extracted\\TerrestrialAnalogs.prj": "f2e7fb14d55bdd8d6a3bc2c272a48729d8f9d0ad72936e20eae6a9a81c2fccd0",
+      "data\\raw\\extracted\\TerrestrialAnalogs.sbn": "836bb438507f882650b58af9593c8a7e75d7a0efdfa50bd7e2a8cc57aa5c3f29",
+      "data\\raw\\extracted\\TerrestrialAnalogs.sbx": "3926c2a17c088a4b5c1f9ebdd0e49df2eef578d4ae33ba8ad0c10ad05f4953f7",
+      "data\\raw\\extracted\\TerrestrialAnalogs.shp": "34268a2480ba5325068291b4fc74368afb3a23eedf7690a10f3706a3f807c790",
+      "data\\raw\\extracted\\TerrestrialAnalogs.shp.xml": "a6b5a3a09071c67c2f4b038a0e846febf89b53a0f8c4087bb7b99a74ab7f583b",
+      "data\\raw\\extracted\\TerrestrialAnalogs.shx": "67bf99cdd9686c704170e7422a1ed9e5c29b15e18daef8445ae66a96713bac6e",
+      "data\\raw\\TerrestrialAnalogs.zip": "931c8f47241ad18f3c21377a9e375806031dc0f9c20bedbb5fcbd7c09e63c818"
+    },
+    "output_files": {
+      "data\\processed\\usgs_analogs_clean.geojson": "f3025c31884347ddc748ec7a6a86a0346d4d0b0fa20517a8730b703307d647f0",
+      "data\\processed\\usgs_analogs_clean.csv": "f1a379cb8075eb3830c6d89a9212dba92416ddec160478c8404421fd1d719448"
+    }
+  },
+  "limitations": [
+    "No missing analog type, planetary target, or site name has been inferred.",
+    "Original source attributes are retained.",
+    "Coordinates are taken from the geometry after reprojection to EPSG:4326.",
+    "The source is a known-sites reference layer, not a complete global candidate grid.",
+    "This script does not assign Salda, Kula, Meke/Acıgöl, Hassa, or Tuz Gölü to USGS records."
+  ],
+  "sciencebase_item_title": "Known Terrestrial Analog Sites for Planetary Science"
+}
