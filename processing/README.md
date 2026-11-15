@@ -1,12 +1,42 @@
 # NASA Data Processing — v2.3
 
-## Analog profile context handoff (partial; not merge ready)
+## Analog Profile: 2025 Dünya iklim bağlamı
 
-`out/real/features.json` now has auxiliary `context` blocks; `out/earth_grid.parquet` has auxiliary `ctx__*` columns. Original features, identifiers and eligibility flags are unchanged. No 2025 Earth observations were acquired: environment and netrc Earthdata authentication were unavailable, so all annual climate fields are null with explicit reasons. The other 192 grid cells carry `cell_not_validated`. Moon context is also null: the inspected Diviner polar resource model does not supply the requested observed surface mean/minimum or PSR mask with a validated window extraction.
+`out/real/features.json` içindeki Dünya kayıtlarının `context` alanları ve
+`out/earth_grid.parquet` dosyasındaki mevcut `ctx__*` kolon sözleşmesi,
+2025'in 12 aylık MOD11C3.061 ve MOD13C2.061 ürünlerinden üretilir.
+16 saha/ölçek kaydı ve doğrulanmış 216 hücre örneklenir; doğrulanmamış
+192 hücre `cell_not_validated` gerekçesiyle null kalır. Kaynak dosyalar ve
+aylık QA sonuçları Git dışında `raw/earth_context/2025/` içinde tutulur.
 
-`out/real/target_profiles.json` contains five target profiles and the 16 existing Earth site/scale IDs. Only claims backed by sources opened during this session are populated; every `verified_by` remains null. Kula, Meke, Hassa, Tuz Golu and Atacama dimensions are unknown in this delivery. `PROFILE_REVIEW.md` lists every sourced claim and gap for human review. `context_report.md` records all 424 Earth record/grid contexts, the eight sites at both scales, unavailable-data reasons and unevaluable sanity checks. `DATA_SOURCES.md` records inspected products.
+```sh
+processing/.venv/bin/python -m processing.scripts.analog_context \
+  --inputs processing/raw/earth_context/2025 \
+  --year 2025 --accessed-on 2026-11-15
+```
 
-Read `out/real/PROFILE_INTEGRATION.md` before integration: current engine adapters cannot consume the requested warnings/profile/human-review/lunar-key contracts. CI currently fails; no engine/backend/frontend changes were made. Historical root/handoff snapshots are not silently repackaged as updated profile products. Reproduction commands and the baseline test comparison are in that integration note.
+Bu komut yerel, tamamlanmış 24 HDF girdisini ister; indirme veya giriş yapmaz.
+Her alan için en az 9 geçerli ay gerekir. Aylık yerel/regional pencere
+ortalamaları ürünün QA ve kalibrasyonuyla, doğal 0.05° CMG merkezlerinden
+hesaplanır. Yıllık ortalamada aylara eşit ağırlık verilir. Gündüz–gece farkı
+aynı ayda aynı geçerli piksellerden alınır; günlük Tmax−Tmin değildir.
+Min/max alanları aylık gece/gündüz ortalamalarının uçlarıdır. IMERG henüz
+sağlanmadığından yağış null ve gerekçelidir. NDVI=0 gerçekten ölçülmüşse
+geçerlidir; eksik gözlemin yerine 0 yazılmaz.
+
+`out/real/context_provenance.json` 24 ürünün hash/dönem/kaynak bilgisini,
+`out/real/context_report.md` kapsamı ve boşluk nedenlerini taşır. Topoğrafik
+özellikler, eski aylık çevre verisi, kimlikler, skor girdileri ve uygunluk
+bayrakları korunur. Bu veri katmanı PR #40'taki yardımcı context formatını
+izler. Ay sıcaklık/PSR alanları ayrıca null değer ve açık nedenlerle taşınır;
+Diviner PRP'nin 2 cm derinlikteki değeri yüzey sıcaklığı sayılmaz.
+`out/real/target_profiles.json` beş hedef ile 16 Dünya saha/ölçek profilini
+içerir. Kaynaklı iddialarda `verified_by` henüz null olduğundan arayüz bunları
+doğrulanmamış olarak gösterir. Yağış bu MODIS işleminin kapsamı dışındadır.
+Mevcut kök/ızgara/ZIP yayın kopyaları da güncellenir; eski hedef QA kararları
+korunarak yalnızca yardımcı veri eklenen dosyanın yeni hash'ine bağlanır.
+Genişletilmiş ızgara ve doğrulama örneğinde bu 408 hücrelik bağlam grubunun
+dışındaki alanlar `outside_current_context_batch` gerekçesiyle boş tutulur.
 
 Güncel ekip teslimi: `out/real/features.json` **21 kayıt** içerir (8 Dünya
 sahası × 2 ölçek, Jezero × 2, Shackleton × 2, Marius Hills regional).

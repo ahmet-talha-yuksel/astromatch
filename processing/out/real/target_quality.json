@@ -1,7 +1,7 @@
 {
   "schema_version": "2.3",
   "kind": "target_quality_decisions",
-  "features_file_sha256": "137d4967374ee9e3942cb52a414babcfad317b5941fbfb46a901139f9eef1611",
+  "features_file_sha256": "6df691b1174162fc408dff06a1c137037c68e4ab1054f84e241d05f1b2f1f60f",
   "decisions": [
     {
       "region_id": "mars_jezero_local",
@@ -149,5 +149,10 @@
     ],
     "legacy_fields_and_decisions_preserved": true,
     "new_descriptors_validated_for_scoring": false
+  },
+  "context_enrichment": {
+    "period": "2025-01..2025-12",
+    "prior_features_file_sha256": "9723bf6e8d35386f66423688861b7ce365e53bdcf7a0c6ecd3c977ffe1e044eb",
+    "non_context_records_and_QA_decisions_preserved": true
   }
 }

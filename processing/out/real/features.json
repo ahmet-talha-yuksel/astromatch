@@ -271,13 +271,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -286,13 +314,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -301,13 +357,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -316,13 +400,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -331,28 +443,94 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.41382841492891803,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 11,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "2025-01: less than half of window area passes QA",
+            "2025-02: less than half of window area passes QA",
+            "2025-03: less than half of window area passes QA",
+            "2025-05: less than half of window area passes QA",
+            "2025-06: less than half of window area passes QA",
+            "2025-07: less than half of window area passes QA",
+            "2025-08: less than half of window area passes QA",
+            "2025-11: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA",
+            "Annual summary covers fewer than 12 quality-accepted months"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            2,
+            2,
+            2,
+            0,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            2,
+            1
+          ],
+          "monthly_values": [
+            0.40398031114226146,
+            0.3825287179212349,
+            0.3544338162285198,
+            null,
+            0.474653572169249,
+            0.4598961091865457,
+            0.3853388139113189,
+            0.35973656663113407,
+            0.3881958413195445,
+            0.40476156147650183,
+            0.4410872542317877,
+            0.4975
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -363,9 +541,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -959,13 +1137,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -974,13 +1180,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -989,13 +1223,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -1004,13 +1266,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -1019,28 +1309,87 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.39826367053816397,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 10,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "2025-04: less than half of window area passes QA",
+            "2025-06: less than half of window area passes QA",
+            "Annual summary covers fewer than 12 quality-accepted months"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            0,
+            6,
+            6,
+            2,
+            6,
+            1,
+            6,
+            6,
+            6,
+            6,
+            6,
+            0
+          ],
+          "monthly_values": [
+            null,
+            0.44076012987012714,
+            0.4802625216642428,
+            0.5446500000000001,
+            0.5747279111592943,
+            0.3702,
+            0.2914150121488924,
+            0.2750311156989833,
+            0.26596498312226474,
+            0.29491351437490737,
+            0.4447115173429272,
+            null
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -1051,9 +1400,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -1329,13 +1678,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -1344,13 +1721,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -1359,13 +1764,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -1374,13 +1807,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -1389,28 +1850,85 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.38761715084372167,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 11,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "Annual summary covers fewer than 12 quality-accepted months"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3,
+            4,
+            4,
+            4,
+            0
+          ],
+          "monthly_values": [
+            0.40317871300810576,
+            0.42447319653892,
+            0.4292442060752635,
+            0.4470406807576774,
+            0.4145109558528571,
+            0.3634653298580103,
+            0.3435407133995068,
+            0.34222438124426824,
+            0.33821670081484934,
+            0.3395931452158047,
+            0.41830063651567523,
+            null
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -1421,9 +1939,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -1699,13 +2217,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -1714,13 +2260,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -1729,13 +2303,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -1744,13 +2346,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -1759,28 +2389,85 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.08177639834838438,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 10,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "Annual summary covers fewer than 12 quality-accepted months"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            4,
+            4,
+            4,
+            0,
+            4,
+            4,
+            4,
+            4,
+            0,
+            4,
+            4,
+            4
+          ],
+          "monthly_values": [
+            0.07844889980881516,
+            0.07727374889763493,
+            0.08064903611568762,
+            null,
+            0.08297401177517467,
+            0.08232398256655916,
+            0.08359895822604621,
+            0.08412376837004529,
+            null,
+            0.08469878297435307,
+            0.08169882191917376,
+            0.08197397283035399
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -1791,9 +2478,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -2069,13 +2756,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -2084,13 +2799,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -2099,13 +2842,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -2114,13 +2885,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -2129,28 +2928,88 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.191835,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 10,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "2025-06: less than half of window area passes QA",
+            "2025-09: less than half of window area passes QA",
+            "2025-11: less than half of window area passes QA",
+            "Annual summary covers fewer than 12 quality-accepted months"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            2,
+            2,
+            2,
+            0,
+            0,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "monthly_values": [
+            0.16755,
+            0.15945,
+            0.19454999999999997,
+            null,
+            null,
+            0.3155,
+            0.16874999999999998,
+            0.16379999999999997,
+            0.23929999999999998,
+            0.15845000000000004,
+            0.18920000000000003,
+            0.1618
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -2161,9 +3020,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -2439,13 +3298,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -2454,13 +3341,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -2469,13 +3384,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -2484,13 +3427,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -2499,13 +3470,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
           "value": null,
@@ -2514,13 +3513,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 6,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -2531,9 +3558,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -2808,14 +3835,43 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 5,
+          "n_pixels": 7,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "2025-05: less than half of window area passes QA"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 5 < 9",
+          "n_accepted_pixels_by_month": [
+            7,
+            0,
+            0,
+            0,
+            3,
+            0,
+            7,
+            0,
+            0,
+            0,
+            4,
+            7
+          ],
+          "monthly_values": [
+            -38.96428571428569,
+            null,
+            null,
+            null,
+            -11.20999999999998,
+            null,
+            9.27857142857146,
+            null,
+            null,
+            null,
+            -25.759999999999973,
+            -39.49857142857141
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -2823,14 +3879,42 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 5,
+          "n_pixels": 7,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 5 < 9",
+          "n_accepted_pixels_by_month": [
+            7,
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7,
+            7
+          ],
+          "monthly_values": [
+            -39.084285714285684,
+            -35.49285714285712,
+            -32.36142857142855,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -26.112857142857116,
+            -39.32428571428569
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -2838,14 +3922,42 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 3,
+          "n_pixels": 7,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 3 < 9",
+          "n_accepted_pixels_by_month": [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            7
+          ],
+          "monthly_values": [
+            0.1200000000000005,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -0.10999999999999233,
+            -0.1742857142857182
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -2853,14 +3965,42 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 5,
+          "n_pixels": 7,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 5 < 9",
+          "n_accepted_pixels_by_month": [
+            7,
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7,
+            7
+          ],
+          "monthly_values": [
+            -39.084285714285684,
+            -35.49285714285712,
+            -32.36142857142855,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -26.112857142857116,
+            -39.32428571428569
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -2868,14 +4008,43 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 5,
+          "n_pixels": 7,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "2025-05: less than half of window area passes QA"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 5 < 9",
+          "n_accepted_pixels_by_month": [
+            7,
+            0,
+            0,
+            0,
+            3,
+            0,
+            7,
+            0,
+            0,
+            0,
+            4,
+            7
+          ],
+          "monthly_values": [
+            -38.96428571428569,
+            null,
+            null,
+            null,
+            -11.20999999999998,
+            null,
+            9.27857142857146,
+            null,
+            null,
+            null,
+            -25.759999999999973,
+            -39.49857142857141
+          ]
         },
         "ndvi_mean": {
           "value": null,
@@ -2883,14 +4052,45 @@
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 3,
+          "n_pixels": 7,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "2025-06: less than half of window area passes QA",
+            "2025-07: less than half of window area passes QA",
+            "2025-08: less than half of window area passes QA"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 3 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.1443,
+            0.1546,
+            0.1557,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -2901,9 +4101,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -3179,13 +4379,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -3194,13 +4422,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -3209,13 +4465,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -3224,13 +4508,41 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -3239,28 +4551,85 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [
             "coarse relative to local window"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.15404183988581924,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 11,
+          "n_pixels": 4,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [
-            "coarse relative to local window"
+            "coarse relative to local window",
+            "Annual summary covers fewer than 12 quality-accepted months"
           ],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            0,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "monthly_values": [
+            null,
+            0.13427525252507652,
+            0.13062514539322587,
+            0.13287520661142624,
+            0.142250826445705,
+            0.15247635445268318,
+            0.1556266758482351,
+            0.15382659932548465,
+            0.16402704315743732,
+            0.17820169880506026,
+            0.18269964799534785,
+            0.16757578818432975
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -3271,9 +4640,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -3549,11 +4918,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -3562,11 +4959,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -3575,11 +5000,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -3588,11 +5041,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -3601,24 +5082,83 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.3771519516023951,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 12,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-04: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            96,
+            94,
+            99,
+            40,
+            70,
+            92,
+            101,
+            96,
+            103,
+            102,
+            82,
+            17
+          ],
+          "monthly_values": [
+            0.36172536434652725,
+            0.34989132767273967,
+            0.3406329340043496,
+            0.4064378462008246,
+            0.49054734169384545,
+            0.4304211528046722,
+            0.36910727838981444,
+            0.3589787085645211,
+            0.35541151865995324,
+            0.36252871771123374,
+            0.3854448407304937,
+            0.31469638844976694
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -3629,9 +5169,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -3908,11 +5448,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -3921,11 +5489,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -3934,11 +5530,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -3947,11 +5571,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -3960,24 +5612,85 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.4318741954092555,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 12,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-01: less than half of window area passes QA",
+            "2025-04: less than half of window area passes QA",
+            "2025-06: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            5,
+            93,
+            94,
+            42,
+            82,
+            44,
+            93,
+            94,
+            93,
+            88,
+            93,
+            23
+          ],
+          "monthly_values": [
+            0.4170266144565051,
+            0.46135493337583844,
+            0.4686035982210114,
+            0.5390119037766635,
+            0.5124198937775314,
+            0.40748700073635863,
+            0.3563823801890128,
+            0.3436979776822526,
+            0.3384303519308214,
+            0.37197452696309363,
+            0.460924552133111,
+            0.5051766116688655
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -3988,9 +5701,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -4267,11 +5980,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 118,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -4280,11 +6021,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 118,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -4293,11 +6062,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 118,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -4306,11 +6103,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 118,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -4319,24 +6144,80 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 118,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.4556979507466621,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 12,
+          "n_pixels": 118,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            108,
+            108,
+            92,
+            110,
+            115,
+            115,
+            112,
+            98,
+            117,
+            114,
+            106,
+            77
+          ],
+          "monthly_values": [
+            0.4470104407802608,
+            0.4449929049167386,
+            0.4421359648990857,
+            0.49295787315566303,
+            0.49905376542495955,
+            0.46335964886344083,
+            0.445711234730477,
+            0.4048887597901718,
+            0.4392394277983927,
+            0.4331437936182781,
+            0.46292953696949907,
+            0.4929520580129779
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -4347,9 +6228,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -4626,11 +6507,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 90,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -4639,11 +6548,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 90,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -4652,11 +6589,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 90,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -4665,11 +6630,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 90,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -4678,24 +6671,83 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 90,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.08327220239100096,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 11,
+          "n_pixels": 90,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-09: less than half of window area passes QA",
+            "Annual summary covers fewer than 12 quality-accepted months"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            88,
+            90,
+            89,
+            0,
+            90,
+            88,
+            88,
+            87,
+            2,
+            88,
+            86,
+            86
+          ],
+          "monthly_values": [
+            0.08006140815847188,
+            0.0787479118665443,
+            0.08323242607115774,
+            null,
+            0.08606809093011426,
+            0.08557750662703034,
+            0.08708510534794033,
+            0.08721007542080379,
+            0.07364410676281966,
+            0.08678209515447634,
+            0.08451187680310653,
+            0.08307362315854533
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -4706,9 +6758,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -4984,12 +7036,42 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 1,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 1 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            3.3900000000000436
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -4998,11 +7080,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -5011,11 +7121,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -5024,11 +7162,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -5036,25 +7202,86 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 1,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
+          "warnings": [
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 1 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            3.3900000000000436
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.259854449370637,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 12,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-03: less than half of window area passes QA",
+            "2025-06: less than half of window area passes QA"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            89,
+            84,
+            45,
+            62,
+            84,
+            50,
+            84,
+            88,
+            70,
+            82,
+            71,
+            75
+          ],
+          "monthly_values": [
+            0.20002220249941402,
+            0.1953649450788361,
+            0.21917273153629602,
+            0.291626494553346,
+            0.3013733131227531,
+            0.3114034089302482,
+            0.3226032558986069,
+            0.31206091097276073,
+            0.28529085031329127,
+            0.2528014130445391,
+            0.21014112110074343,
+            0.21639274539680897
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -5065,9 +7292,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -5343,12 +7570,42 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 1,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 1 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.5837435739967696
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -5357,11 +7614,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -5370,11 +7655,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -5383,11 +7696,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -5395,25 +7736,96 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 1,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
+          "warnings": [
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 1 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.5837435739967696
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.16777885257805872,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 12,
+          "n_pixels": 108,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-01: less than half of window area passes QA",
+            "2025-02: less than half of window area passes QA",
+            "2025-03: less than half of window area passes QA",
+            "2025-04: less than half of window area passes QA",
+            "2025-05: less than half of window area passes QA",
+            "2025-06: less than half of window area passes QA",
+            "2025-07: less than half of window area passes QA",
+            "2025-08: less than half of window area passes QA",
+            "2025-09: less than half of window area passes QA",
+            "2025-10: less than half of window area passes QA",
+            "2025-11: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            39,
+            29,
+            43,
+            41,
+            21,
+            29,
+            36,
+            42,
+            38,
+            39,
+            33,
+            14
+          ],
+          "monthly_values": [
+            0.18492730702604032,
+            0.18415675033874135,
+            0.17955063303198704,
+            0.229211839037514,
+            0.19371048167786034,
+            0.15042574285616486,
+            0.15662305485141753,
+            0.15166142270356797,
+            0.1418278101041928,
+            0.13702209778981767,
+            0.13551749266467167,
+            0.16871159885472933
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -5424,9 +7836,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -5703,25 +8115,94 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 7,
+          "n_pixels": 322,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-02: less than half of window area passes QA",
+            "2025-04: less than half of window area passes QA",
+            "2025-05: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 7 < 9",
+          "n_accepted_pixels_by_month": [
+            167,
+            83,
+            0,
+            3,
+            72,
+            0,
+            203,
+            0,
+            0,
+            0,
+            164,
+            149
+          ],
+          "monthly_values": [
+            -37.53979491091692,
+            -33.115992843987556,
+            null,
+            -20.876666666666637,
+            -11.01698865011088,
+            null,
+            7.355720445546161,
+            null,
+            null,
+            null,
+            -25.111615351651402,
+            -37.691247167566594
+          ]
         },
         "lst_night_mean_c": {
-          "value": null,
+          "value": -22.394776706718513,
           "unit": "degC",
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 9,
+          "n_pixels": 322,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-01: less than half of window area passes QA",
+            "2025-04: less than half of window area passes QA",
+            "2025-07: less than half of window area passes QA",
+            "2025-08: less than half of window area passes QA",
+            "2025-10: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA",
+            "Annual summary covers fewer than 12 quality-accepted months"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            121,
+            222,
+            230,
+            33,
+            0,
+            0,
+            17,
+            8,
+            0,
+            52,
+            193,
+            96
+          ],
+          "monthly_values": [
+            -37.57253713138459,
+            -33.64804949463389,
+            -30.439002692104726,
+            -25.44605522282586,
+            null,
+            null,
+            4.158408689749037,
+            -1.614882951976624,
+            null,
+            -14.15421183568523,
+            -24.828340853213465,
+            -38.00831886839128
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -5729,25 +8210,95 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 5,
+          "n_pixels": 322,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
+          "warnings": [
+            "2025-01: less than half of window area passes QA",
+            "2025-02: less than half of window area passes QA",
+            "2025-07: less than half of window area passes QA",
+            "2025-11: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 5 < 9",
+          "n_accepted_pixels_by_month": [
+            79,
+            62,
+            0,
+            0,
+            0,
+            0,
+            14,
+            0,
+            0,
+            0,
+            102,
+            57
+          ],
+          "monthly_values": [
+            0.14688353919005842,
+            0.6208316005777142,
+            null,
+            null,
+            null,
+            null,
+            4.061914154752784,
+            null,
+            null,
+            null,
+            -0.17056805706326533,
+            0.22609617037899024
+          ]
         },
         "lst_min_month_c": {
-          "value": null,
+          "value": -38.00831886839128,
           "unit": "degC",
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 9,
+          "n_pixels": 322,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
+          "warnings": [
+            "2025-01: less than half of window area passes QA",
+            "2025-04: less than half of window area passes QA",
+            "2025-07: less than half of window area passes QA",
+            "2025-08: less than half of window area passes QA",
+            "2025-10: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA",
+            "Annual summary covers fewer than 12 quality-accepted months"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            121,
+            222,
+            230,
+            33,
+            0,
+            0,
+            17,
+            8,
+            0,
+            52,
+            193,
+            96
+          ],
+          "monthly_values": [
+            -37.57253713138459,
+            -33.64804949463389,
+            -30.439002692104726,
+            -25.44605522282586,
+            null,
+            null,
+            4.158408689749037,
+            -1.614882951976624,
+            null,
+            -14.15421183568523,
+            -24.828340853213465,
+            -38.00831886839128
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -5755,12 +8306,45 @@
           "source": "MOD11C3 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 7,
+          "n_pixels": 322,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
+          "warnings": [
+            "2025-02: less than half of window area passes QA",
+            "2025-04: less than half of window area passes QA",
+            "2025-05: less than half of window area passes QA",
+            "2025-12: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 7 < 9",
+          "n_accepted_pixels_by_month": [
+            167,
+            83,
+            0,
+            3,
+            72,
+            0,
+            203,
+            0,
+            0,
+            0,
+            164,
+            149
+          ],
+          "monthly_values": [
+            -37.53979491091692,
+            -33.115992843987556,
+            null,
+            -20.876666666666637,
+            -11.01698865011088,
+            null,
+            7.355720445546161,
+            null,
+            null,
+            null,
+            -25.111615351651402,
+            -37.691247167566594
+          ]
         },
         "ndvi_mean": {
           "value": null,
@@ -5768,12 +8352,43 @@
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 3,
+          "n_pixels": 322,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-06: less than half of window area passes QA",
+            "2025-07: less than half of window area passes QA"
+          ],
+          "reason": "insufficient_valid_months: 3 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            54,
+            60,
+            183,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.15186794484831856,
+            0.16132938886832202,
+            0.17233224349572057,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -5784,9 +8399,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },
@@ -6063,11 +8678,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_night_mean_c": {
           "value": null,
@@ -6076,11 +8719,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_diurnal_range_c": {
           "value": null,
@@ -6089,11 +8760,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Same accepted day/night pixels per month; not daily Tmax-minus-Tmin.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_min_month_c": {
           "value": null,
@@ -6102,11 +8801,39 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Minimum accepted monthly night mean, not an instantaneous minimum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "lst_max_month_c": {
           "value": null,
@@ -6115,24 +8842,82 @@
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
           "n_valid_months": 0,
-          "n_pixels": null,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QC bits0:1=0, bit2=0, bits6:7=0; scale 0.02 K, subtract 273.15. Not executed: no 2025 inputs.",
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Maximum accepted monthly day mean, not an instantaneous maximum.",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "insufficient_valid_months: 0 < 9",
+          "n_accepted_pixels_by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "monthly_values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
         },
         "ndvi_mean": {
-          "value": null,
+          "value": 0.17825209185937738,
           "unit": "1",
           "source": "MOD13C2 v061",
           "period": "2025-01..2025-12",
           "evidence": "orbital_remote_sensing",
-          "n_valid_months": 0,
-          "n_pixels": null,
+          "n_valid_months": 12,
+          "n_pixels": 99,
           "source_resolution_m": 5550,
-          "method": "Annual aggregation of area-weighted monthly LAEA-window means; QA mandatory=0, usefulness<=2, aerosol!=high, no adjacent/mixed clouds, land bits11:13=001, reliability=0; scale 0.0001. Not executed: no 2025 inputs.",
-          "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "method": "Area-weighted monthly CMG-center means inside the original 10/50 km LAEA window; product-specific QA and calibration from HDF; equal calendar-month weights; minimum 9 valid months. Annual mean of accepted monthly means.",
+          "warnings": [
+            "2025-01: less than half of window area passes QA"
+          ],
+          "reason": null,
+          "n_accepted_pixels_by_month": [
+            37,
+            99,
+            99,
+            99,
+            99,
+            99,
+            97,
+            99,
+            98,
+            99,
+            99,
+            99
+          ],
+          "monthly_values": [
+            0.18661495269633685,
+            0.1587270803163168,
+            0.15627616256806803,
+            0.15605323649274971,
+            0.1659045154089218,
+            0.16967327877084973,
+            0.17321444237215872,
+            0.17650108513749269,
+            0.19031576737341932,
+            0.20456411319336334,
+            0.2037100929141789,
+            0.19747037506867243
+          ]
         },
         "precip_mm_yr": {
           "value": null,
@@ -6143,9 +8928,9 @@
           "n_valid_months": 0,
           "n_pixels": null,
           "source_resolution_m": null,
-          "method": "Monthly mm/hr multiplied by calendar-month hours; require 12 valid months. Not executed: no verified 2025 inputs.",
+          "method": "Not extracted: input_not_supplied: GPM_3IMERGM v07 monthly files",
           "warnings": [],
-          "reason": "earthdata_credentials_unavailable; no authenticated 2025 monthly granules acquired"
+          "reason": "input_not_supplied: GPM_3IMERGM v07 monthly files"
         }
       }
     },

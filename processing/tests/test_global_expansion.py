@@ -23,17 +23,11 @@ def test_selection_is_multicontinent_and_preserves_existing_ids():
 def test_delivered_global_grid_preserves_base_and_gates_quality():
     output=ROOT/'out/global_expansion'
     summary=json.loads((output/'summary.json').read_text())
-    base_table=pq.read_table(ROOT/'out/earth_grid.parquet')
-    base=base_table.select([n for n in base_table.column_names if not n.startswith('ctx__')]).to_pylist()
+    base=pq.read_table(ROOT/'out/earth_grid.parquet').to_pylist()
     combined=pq.read_table(output/'earth_grid_combined.parquet').to_pylist()
     assert combined[:len(base)]==base
     assert len(combined)==1012 and len({r['cell_id'] for r in combined})==1012
-    # The archived combined export predates auxiliary context; its base hash
-    # must bind the original input, whose values the context contract verifies.
-    context_path=ROOT/'out/real/context_provenance.json'
-    expected_hash=(json.loads(context_path.read_text())['grid_input_sha256'] if context_path.exists()
-                   else hashlib.sha256((ROOT/'out/earth_grid.parquet').read_bytes()).hexdigest())
-    assert summary.get('morphology_enrichment',{}).get('base_grid_sha256',summary['original_grid_sha256'])==expected_hash
+    assert summary.get('context_enrichment',{}).get('base_grid_sha256',summary.get('morphology_enrichment',{}).get('base_grid_sha256',summary['original_grid_sha256']))==hashlib.sha256((ROOT/'out/earth_grid.parquet').read_bytes()).hexdigest()
     assert summary['original_grid_unchanged']
     assert sum(r['pilot_area']=='turkey' for r in combined)<len(combined)/2
     records=json.loads((output/'features.json').read_text())['records']

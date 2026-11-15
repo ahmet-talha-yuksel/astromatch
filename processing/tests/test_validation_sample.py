@@ -29,7 +29,10 @@ def test_delivered_sample_preserves_schema_and_order_without_quality_replacement
     pilot=pq.read_table(ROOT/'out/earth_grid.parquet')
     base=pilot.select([n for n in pilot.column_names if not n.startswith('ctx__')]).schema
     table=pq.read_table(ROOT/'out/earth_grid_validation.parquet')
-    assert table.schema.equals(base,check_metadata=True)
+    assert table.select(base.names).schema.equals(base,check_metadata=True)
+    # The independently sampled cells may carry auxiliary context columns;
+    # they must not replace or change the original scoring schema.
+    assert all(name.startswith('ctx__') for name in set(table.column_names)-set(base.names))
     ledger=json.loads((ROOT/'out/validation_sample/ledger.json').read_text())['entries']
     analog=[r for r in ledger if r['group']=='analog']
     background=[r for r in ledger if r['group']=='background']
