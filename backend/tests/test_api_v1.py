@@ -122,6 +122,8 @@ def test_mock_demo_precomputed_without_ranking(client,monkeypatch,tmp_path):
     monkeypatch.setattr(v1,'engine_rank',lambda *args,**kwargs: (_ for _ in ()).throw(AssertionError('rank recomputed')))
     ranked=check_mock(c.get('/api/v1/rank',params={'target_id':'T-01','scale':'local'}))
     assert ranked['top_k']
+    assert all('distance_to_known_km' not in row and 'distance_to_usgs_site_km' in row for row in ranked['full_scores'])
+    assert all(not row['is_known'] for row in ranked['novel_candidates'])
     sites=check_mock(c.get('/api/v1/sites',params={'target_id':'T-01'}))
     assert len(sites['sites'])==8
     heat=check_mock(c.get('/api/v1/heat',params={'target_id':'T-01','scale':'local'}))

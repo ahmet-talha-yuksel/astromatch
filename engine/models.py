@@ -26,6 +26,8 @@ class Region(BaseModel):
     earth_filters: dict[str, float | None] = Field(default_factory=dict)
     quality: dict = Field(default_factory=dict)
     tags: list[str] = Field(default_factory=list)
+    analog_for: list[str] = Field(default_factory=list)
+    source: str | None = None
     processing_version: str | None = None
     data_status: str = 'mock'
     method: str | None = None
