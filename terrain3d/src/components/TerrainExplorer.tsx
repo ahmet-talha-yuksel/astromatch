@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import * as THREE from "three";
 import type { ValidatedTerrainData } from "../types/terrain";
 import { findSurfaceSpawn, moveWithinParcel } from "../geometry/surfaceNavigation";
+import { interpolateTerrainForDisplay } from "../geometry/visualInterpolation";
 import { SURFACE_GRAVITY, groundedJump, launchJump, stepJump } from "../geometry/jumpPhysics";
 import { TerrainMesh } from "./TerrainMesh";
 import { SurfaceRocks } from "./SurfaceRocks";
@@ -16,8 +17,8 @@ type Body = "Earth" | "Mars" | "Moon";
 type HeldKeys = React.MutableRefObject<Set<string>>;
 const bodies: Body[] = ["Earth", "Mars", "Moon"];
 
-export function TerrainExplorer({ terrain, destinations, exaggeration, onClose, showParcelUi = true }: {
-  terrain: ValidatedTerrainData; destinations: ValidatedTerrainData[]; exaggeration: number; onClose: () => void; showParcelUi?: boolean;
+export function TerrainExplorer({ terrain, destinations, exaggeration, onClose, showParcelUi = true, fillMissing = true }: {
+  terrain: ValidatedTerrainData; destinations: ValidatedTerrainData[]; exaggeration: number; onClose: () => void; showParcelUi?: boolean; fillMissing?: boolean;
 }) {
   const [active, setActive] = useState(terrain);
   const [speed, setSpeed] = useState(1);
@@ -26,8 +27,11 @@ export function TerrainExplorer({ terrain, destinations, exaggeration, onClose, 
   const [returnRevision, setReturnRevision] = useState(0);
   const marker = useRef<HTMLSpanElement>(null);
   const parcelStatus = useRef<HTMLSpanElement>(null);
-  const world = useMemo(() => explorationWorld(active, exaggeration), [active, exaggeration]);
+  const [fillGaps, setFillGaps] = useState(fillMissing);
+  const visualTerrain = useMemo(() => fillGaps ? interpolateTerrainForDisplay(active).terrain : active, [active, fillGaps]);
+  const world = useMemo(() => explorationWorld(visualTerrain, exaggeration), [visualTerrain, exaggeration]);
   const jumpRequest = useRef(0);
+  const missingPercent = useMemo(() => 100 * active.heights.filter(h => h === null).length / active.heights.length, [active]);
   const held = useRef(new Set<string>());
   const dialog = useRef<HTMLDivElement>(null);
   const close = useRef<HTMLButtonElement>(null);
@@ -63,7 +67,7 @@ export function TerrainExplorer({ terrain, destinations, exaggeration, onClose, 
   return createPortal(<div ref={dialog} className={`terrain-explorer planet-${active.body.toLowerCase()}`} role="dialog" aria-modal="true" aria-label="Planet terrain explorer">
     <Canvas camera={{ fov: 68, near: 0.0005, far: 300 }} dpr={[1, 1.5]} style={{ touchAction: "none" }}>
       <PlanetEnvironment key={active.body} body={active.body} immersive space />
-      <TerrainMesh terrain={active} colorMode={active.body} verticalExaggeration={exaggeration} />
+      <TerrainMesh terrain={active} fillMissing={fillGaps} colorMode={active.body} verticalExaggeration={exaggeration} />
       <ExplorationContext terrain={active} world={world} />
       <SurfaceRocks terrain={active} exaggeration={exaggeration} />
       <ExplorerCamera terrain={active} world={world} held={held} jumpRequest={jumpRequest} speed={speed} view={view} returnRevision={returnRevision} marker={marker} parcelStatus={parcelStatus} />
@@ -83,11 +87,14 @@ export function TerrainExplorer({ terrain, destinations, exaggeration, onClose, 
       <div className="parcel-map"><span className="parcel-selected" /><span ref={marker} className="parcel-player" /></div>
       <strong><i /> Selected parcel</strong><span ref={parcelStatus}>Inside selected parcel</span>
       <small>Movement stays inside this parcel</small>
+      {missingPercent > 0 && <small className="explorer-nodata">{fillGaps ? "Estimated fill" : "No elevation data"}: {missingPercent.toFixed(2)}%. Not walkable.</small>}
       <button onClick={() => setReturnRevision(value => value + 1)}>Return to parcel</button>
     </aside>}
+    {missingPercent > 0 && showParcelUi === false && <div className="explorer-nodata-note" role="note">{fillGaps ? "Estimated fill" : "No elevation data"}: {missingPercent.toFixed(2)}% · Not walkable</div>}
     <div className="explorer-bottom">
       <div className="explorer-instructions"><strong>{view === "third" ? (showParcelUi ? "Explore the selected parcel." : "Explore the surface.") : "Walk the surface."}</strong><span>Drag to look · WASD / arrows to move · Shift to move faster · Space to jump</span>
         <label>Camera <select aria-label="Explorer camera" value={view} onChange={event => setView(event.target.value as "third" | "first")}><option value="third">Third person</option><option value="first">First person</option></select></label>
+        {missingPercent > 0 && <button className="explorer-fill-toggle" aria-label="Fill missing terrain (visual only)" aria-pressed={fillGaps} onClick={() => setFillGaps(value => !value)}>{fillGaps ? "Show measured gaps" : "Fill gaps (visual estimate)"}</button>}
         <label>Travel speed <select aria-label="POV travel speed" value={speed} onChange={event => setSpeed(Number(event.target.value))}><option value={0.25}>Slow</option><option value={1}>Explore</option><option value={3}>Fast</option></select></label>
         <small>{active.dataType === "synthetic" ? "SYNTHETIC TERRAIN" : "REAL DEM"} · Artistic environment · Relief {exaggeration.toFixed(1)}×</small>
         <span className="sr-only" role="status">Exploring {active.body}: {active.name}</span>

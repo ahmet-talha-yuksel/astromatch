@@ -14,6 +14,8 @@ import { PlanetEnvironment } from "./PlanetEnvironment";
 import { isPlanetSurface, type SurfaceStyle } from "../materials/planetSurface";
 import "./explorer.css";
 import type { TerrainData, ValidatedTerrainData } from "../types/terrain";
+import { interpolateTerrainForDisplay } from "../geometry/visualInterpolation";
+import { surfaceElevation } from "../geometry/surfaceNavigation";
 import { spacingAxes, validateTerrainData } from "../validation/terrain";
 import { loadTerrain } from "../loading/loadTerrain";
 
@@ -58,9 +60,11 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
   const colorMode = display?.colorMode ?? localColorMode;
   const surfaceBody = colorMode === "surface" ? terrain.body : isPlanetSurface(colorMode) ? colorMode : null;
   const [cameraAction, setCameraAction] = useState({ mode: "perspective", revision: 0 });
+  const [fillMissing, setFillMissing] = useState(true);
+  const visualTerrain = useMemo(() => fillMissing ? interpolateTerrainForDisplay(terrain).terrain : terrain, [terrain, fillMissing]);
   const [alien, setAlien] = useState(false);
   const [parcelHovered, setParcelHovered] = useState(false);
-  const context = useMemo(() => explorationWorld(terrain, exaggeration, { worldSpanMeters: display?.worldSpanMeters, elevationOffset: display?.elevationOffset }), [terrain, exaggeration, display?.worldSpanMeters, display?.elevationOffset]);
+  const context = useMemo(() => explorationWorld(visualTerrain, exaggeration, { worldSpanMeters: display?.worldSpanMeters, elevationOffset: display?.elevationOffset }), [visualTerrain, exaggeration, display?.worldSpanMeters, display?.elevationOffset]);
   const [inspection, setInspection] = useState<Inspection | null>(null);
   const spacing = spacingAxes(terrain.cellSizeMeters);
   const { min, max, validCount } = useMemo(() => {
@@ -77,7 +81,7 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
       <Canvas camera={{ position: [9, 9, 13], fov: 45 }} style={{ touchAction: "none" }}>
         <PlanetEnvironment key={surfaceBody ?? terrain.body} body={surfaceBody ?? terrain.body} immersive space />
         <CameraControls world={context} terrain={terrain} action={cameraAction} relief={max - min} exaggeration={exaggeration} elevationOffset={display?.elevationOffset ?? 0} syncKey={display?.syncKey} syncEnabled={display?.syncEnabled} displayWorldSpanMeters={display?.worldSpanMeters} />
-        <TerrainMesh terrain={terrain} highlighted={parcelHovered} onHoverChange={setParcelHovered} verticalExaggeration={exaggeration} colorMode={colorMode} elevationOffset={display?.elevationOffset} colorRange={display?.colorRange} worldSpanMeters={display?.worldSpanMeters} onInspect={point => { const next = pointToInspection(point, terrain, display?.worldSpanMeters); setInspection(previous => sameInspection(previous, next) ? previous : next); }} />
+        <TerrainMesh terrain={terrain} fillMissing={fillMissing} highlighted={parcelHovered} onHoverChange={setParcelHovered} verticalExaggeration={exaggeration} colorMode={colorMode} elevationOffset={display?.elevationOffset} colorRange={display?.colorRange} worldSpanMeters={display?.worldSpanMeters} onInspect={point => { const next = pointToInspection(point, terrain, display?.worldSpanMeters); setInspection(previous => sameInspection(previous, next) ? previous : next); }} />
         <ExplorationContext terrain={terrain} world={context} appearance={surfaceBody ?? terrain.body} overview highlighted={parcelHovered} />
         <OrbitingSpacecraft onDiscover={() => setAlien(value => !value)} discovered={alien} altitude={(max - min + (display?.elevationOffset ?? 0)) * context.scale * exaggeration + 3} radius={Math.max(context.width, context.depth) * 0.85 + 1} />
         {alien && <AlienEncounter world={context} />}
@@ -87,6 +91,10 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
         <span className="overview-parcel-dot" /><span><strong>Selected parcel</strong><small>{terrain.name}</small></span><span aria-hidden="true">⌗</span>
       </button>
       {alien && <div className="alien-message" role="status"><span>UNKNOWN SIGNAL / 👽</span><strong>Greetings, Earthling. Nice parcel!</strong><button aria-label="Dismiss alien" onClick={() => setAlien(false)}>×</button></div>}
+      {validCount < terrain.heights.length && <div className="terrain-nodata-legend" role="note" aria-label="Missing elevation data" data-fill-mode={fillMissing ? "estimated" : "gaps"} title={fillMissing ? "Missing elevations are interpolated for display only. Source measurements, inspection, navigation and scores are unchanged." : "Hatched areas have no measured elevation. They are shown on a reference plane, not filled terrain."}>
+        <span className={fillMissing ? "estimated-swatch" : "nodata-swatch"} aria-hidden="true" /><span><strong>{fillMissing ? "Estimated fill" : "No elevation data"} · {(100 * (terrain.heights.length - validCount) / terrain.heights.length).toFixed(2)}%</strong><small>{fillMissing ? "Interpolated for display only" : "Hatched areas are unmeasured"}</small></span>
+        <button aria-label="Fill missing terrain (visual only)" aria-pressed={fillMissing} onClick={() => { setFillMissing(value => !value); setInspection(null); }}>{fillMissing ? "Show gaps" : "Fill gaps"}</button>
+      </div>}
       <span className="overview-context-note">24 generated parcels · Decorative surroundings</span>
     </div>
     <div className="viewer-tools" aria-label={`${terrain.name} camera controls`}>
@@ -99,7 +107,7 @@ function TerrainScene({ terrain, display, explorationTerrains, exploreRequest, s
     </div>
     {destinations.error && <p role="alert">POV destinations: {destinations.error}</p>}
     {surfaceBody && <p className="surface-disclaimer">{surfaceBody} surface · Artistic material; elevation data unchanged.</p>}
-    {pov && <TerrainExplorer terrain={terrain} destinations={destinations.terrains} exaggeration={exaggeration} onClose={closePov} showParcelUi={showParcelUi} />}
+    {pov && <TerrainExplorer terrain={terrain} fillMissing={fillMissing} destinations={destinations.terrains} exaggeration={exaggeration} onClose={closePov} showParcelUi={showParcelUi} />}
     <label style={{ display: "block", marginTop: 7 }}>Vertical exaggeration: <output>{exaggeration.toFixed(1)}×</output>
       {!display && <input aria-label="Vertical exaggeration" type="range" min="0.5" max="5" step="0.1" value={exaggeration} onChange={e => setExaggeration(Number(e.target.value))} />}
     </label>
@@ -124,6 +132,9 @@ function sameInspection(a: Inspection | null, b: Inspection | null): boolean { r
 function pointToInspection(point: THREE.Vector3, terrain: ValidatedTerrainData, worldSpanMeters?: number): Inspection | null {
   if (!Number.isFinite(point.x) || !Number.isFinite(point.z)) return null;
   const s = spacingAxes(terrain.cellSizeMeters); const scale = 10 / (worldSpanMeters ?? Math.max((terrain.width - 1) * s.x, (terrain.height - 1) * s.y));
+  const u = point.x / ((terrain.width - 1) * s.x * scale) + 0.5;
+  const v = point.z / ((terrain.height - 1) * s.y * scale) + 0.5;
+  if (surfaceElevation(terrain, u, v) === null) return null;
   const col = Math.round(point.x / (s.x * scale) + (terrain.width - 1) / 2), row = Math.round(point.z / (s.y * scale) + (terrain.height - 1) / 2);
   if (row < 0 || col < 0 || row >= terrain.height || col >= terrain.width) return null;
   const elevation = terrain.heights[row * terrain.width + col]; if (elevation === null) return null;

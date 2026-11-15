@@ -337,3 +337,95 @@ test('parcel movement rejects NoData crossed between valid endpoints and allows 
   assert.equal(moveWithinParcel(moon, from, to.u - from.u, to.v - from.v), null);
   assert.equal(parcelSegmentIsValid(moon, { u: 0.1, v: 0.9 }, { u: 0.9, v: 0.9 }), true);
 });
+
+const { createNoDataGeometry } = require('../.test-build/geometry/noDataGeometry.js');
+test('NoData hatching covers exactly the omitted triangles without changing measured terrain', () => {
+  for (const name of ['moon', 'earth']) {
+    const terrain = validateTerrainData(fixture(name));
+    const before = JSON.stringify(terrain);
+    const source = createTerrainGeometry(terrain);
+    const mask = createNoDataGeometry(terrain);
+    const totalFaces = 2 * (terrain.width - 1) * (terrain.height - 1);
+    if (!mask) {
+      assert.equal(source.index.count / 3, totalFaces);
+    } else {
+      assert.equal((source.index.count + mask.index.count) / 3, totalFaces);
+      const footprint = geometry => {
+        const p = geometry.getAttribute('position'), result = new Set();
+        for (let i = 0; i < geometry.index.count; i += 3) {
+          const corners = [0, 1, 2].map(j => {
+            const vertex = geometry.index.getX(i + j);
+            return `${p.getX(vertex).toFixed(5)},${p.getZ(vertex).toFixed(5)}`;
+          }).sort();
+          result.add(corners.join('|'));
+        }
+        return result;
+      };
+      const validFaces = footprint(source), missingFaces = footprint(mask);
+      assert.equal([...missingFaces].filter(face => validFaces.has(face)).length, 0);
+      assert.equal(validFaces.size + missingFaces.size, totalFaces);
+      assert.ok([...mask.getAttribute('position').array].every(Number.isFinite));
+      assert.equal(surfaceElevation(terrain, 1 / 3, 1 / 3), null, 'diagnostic overlay must not create walkable/inspectable elevations');
+      mask.dispose();
+    }
+    assert.equal(JSON.stringify(terrain), before);
+    source.dispose();
+  }
+});
+test('NoData reference plane follows shared scale and datum offset, not missing sample values', () => {
+  const terrain = validateTerrainData(fixture('moon'));
+  const span = Math.max(terrain.horizontalWindowMeters.width, terrain.horizontalWindowMeters.height);
+  const geometry = createNoDataGeometry(terrain, { worldSpanMeters: span * 2, elevationOffset: -25, verticalExaggeration: 2 });
+  const positions = geometry.getAttribute('position');
+  const y = -25 * 10 / (span * 2) * 2 - 0.005;
+  for (let i = 0; i < positions.count; i++) {
+    assert.ok(Math.abs(positions.getY(i) - y) < 1e-6);
+    assert.ok(Math.abs(positions.getX(i)) <= 2.5);
+    assert.ok(Math.abs(positions.getZ(i)) <= 2.5);
+  }
+  geometry.dispose();
+});
+
+const { interpolateTerrainForDisplay, createVisualFillGeometry } = require('../.test-build/geometry/visualInterpolation.js');
+test('visual interpolation fills all gaps without altering observations, source mask or provenance', () => {
+  const terrain = validateTerrainData(fixture('moon'));
+  const original = JSON.stringify(terrain);
+  const display = interpolateTerrainForDisplay(terrain);
+  assert.equal(display.missingCount, terrain.heights.filter(h => h === null).length);
+  assert.equal(display.terrain.dataType, 'synthetic');
+  assert.match(display.terrain.source, /Visualization-only/);
+  const valid = terrain.heights.filter(h => h !== null), low = Math.min(...valid), high = Math.max(...valid);
+  display.terrain.heights.forEach((h, i) => {
+    assert.ok(Number.isFinite(h) && h >= low && h <= high);
+    assert.equal(display.estimatedMask[i], terrain.heights[i] === null);
+    if (terrain.heights[i] !== null) assert.equal(h, terrain.heights[i]);
+  });
+  assert.equal(JSON.stringify(terrain), original);
+  assert.equal(surfaceElevation(terrain, 1 / 3, 1 / 3), null, 'raw NoData stays uninspectable and unwalkable');
+  assert.strictEqual(interpolateTerrainForDisplay(terrain), display);
+});
+test('visual interpolation uses physical X/Y spacing and handles negative or zero elevations', () => {
+  const terrain = validateTerrainData({ ...base(), width: 3, height: 3,
+    heights: [0, 0, 0, 10, null, 20, 100, 100, 100], validMask: [true,true,true,true,false,true,true,true,true],
+    cellSizeMeters: { x: 100, y: 200 }, horizontalWindowMeters: { width: 200, height: 400 } });
+  assert.ok(Math.abs(interpolateTerrainForDisplay(terrain).terrain.heights[4] - 22) < 1e-8);
+  for (const level of [-50, 0, 50]) {
+    const constant = validateTerrainData({ ...terrain, heights: [level,level,level,level,null,null,null,null,null], validMask: [true,true,true,true,false,false,false,false,false] });
+    assert.deepEqual(interpolateTerrainForDisplay(constant).terrain.heights, Array(9).fill(level));
+  }
+  const noGaps = validateTerrainData(fixture('earth'));
+  assert.deepEqual(interpolateTerrainForDisplay(noGaps).terrain.heights, noGaps.heights);
+  assert.equal(interpolateTerrainForDisplay(noGaps).terrain.source, noGaps.source);
+});
+test('filled geometry is continuous with per-sample estimate tags and unchanged raw gap geometry', () => {
+  const terrain = validateTerrainData(fixture('moon'));
+  const raw = createTerrainGeometry(terrain), filled = createVisualFillGeometry(terrain);
+  assert.equal(filled.index.count, 6 * (terrain.width - 1) * (terrain.height - 1));
+  assert.ok(filled.index.count > raw.index.count);
+  const tag = filled.getAttribute('visualEstimate');
+  assert.equal(tag.count, terrain.width * terrain.height);
+  for (let i = 0; i < tag.count; i++) assert.equal(tag.getX(i), terrain.heights[i] === null ? 1 : 0);
+  for (const name of ['position','normal','color','uv','visualEstimate']) assert.ok([...filled.getAttribute(name).array].every(Number.isFinite));
+  assert.equal(createTerrainGeometry(terrain).index.count, raw.index.count);
+  raw.dispose(); filled.dispose();
+});

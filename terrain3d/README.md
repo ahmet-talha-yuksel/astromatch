@@ -106,12 +106,21 @@ Record geographic location/orientation in your upstream product/catalog metadata
 
 - Deliver missing samples as `null` with `validMask[index] = false`.
 - A finite numeric sentinel is also accepted only when masked false; it normalizes
-  to `null`. It never enters elevation/color extrema or GPU vertices.
+  to `null`. It never enters elevation/color extrema or measured-terrain GPU vertices.
 - `null` without a false mask is an error. NaN/Infinity are always rejected,
   including masked entries; they are not valid JSON numbers.
 - Invalid samples produce no vertices. Each triangle is emitted only if all three
   of its samples are valid, preserving independent valid triangles in adjacent cells.
-  Holes are not filled, bridged, converted to zeros or interpolated.
+  The measured DEM holes are not filled, bridged, converted to zeros or interpolated.
+- With visual filling disabled, a separate, unlit hatched diagnostic layer marks the omitted triangle footprints
+  below the minimum displayed valid elevation. This reference plane is **not** an
+  estimated elevation or a terrain surface. It cannot be inspected or walked on.
+  The overview legend reports the missing sample percentage, not the larger missing
+  triangle percentage. POV also labels unavailable elevation data.
+- Visual interpolation is enabled by default in the viewers. It produces a separate,
+  explicitly synthetic display product, keeps measured samples fixed, and labels the
+  estimated fraction. Show gaps / Fill gaps switches between that product and the
+  measured mesh with the diagnostic plane. Source data and scoring never use the fill.
 - At least one valid sample and one fully valid triangle are required. Empty or
   completely disconnected valid data yields a readable validation error.
 - Extreme elevation/spacing/exaggeration combinations that exceed safe GPU float32
@@ -223,7 +232,9 @@ right-drag pan and wheel zoom.
 The vertical exaggeration slider ranges from 0.5× to 5×. It changes only display
 height; source elevations and metadata are never mutated. Elevation gradient and
 neutral shaded modes are available, with a legend showing the valid elevation range
-in meters. NoData samples are excluded from the range and remain holes in the mesh.
+in meters. NoData samples are excluded from the range and remain holes in the measured mesh;
+the display-only interpolation can cover them, or a labelled hatch can mark
+their footprint on a reference plane.
 
 Moving over a valid mesh location shows the original (unexaggerated) elevation and
 local X/Y coordinates in meters, plus terrain name and body. These are local grid
@@ -337,7 +348,9 @@ The Surface menu can override that material without changing the terrain's body 
 elevation data. Elevation gradient and neutral shading remain available. Materials
 are generated locally with seamless color/bump textures and a second detail scale;
 there are no texture downloads or external imagery licenses. These are illustrative
-materials, not geographically registered satellite imagery. NoData holes remain open.
+materials, not geographically registered satellite imagery. NoData holes remain
+excluded from the measured terrain. They can be shown with a diagnostic hatch
+or a clearly labelled display-only estimated fill.
 Texture spacing preserves the terrain's horizontal aspect ratio.
 
 Each viewer has a **POV · Explore surface** button. It opens a full-screen explorer
@@ -432,3 +445,47 @@ Horizontal movement still respects parcel boundaries and NoData while airborne;
 the player cannot jump into terrain above their feet. Return to parcel, terrain
 replacement and planet changes safely reset the jump. A camera-view change preserves
 it. Background-tab frame intervals are capped to avoid a large return-time leap.
+
+
+### Measured Mars coverage and the NoData overlay
+
+For the delivered 50×50 regional heightmaps, the API's actual missing samples are
+583/2500 for Jezero (T-01, 23.32%), 198/2500 for Phoenix (T-04, 7.92%), and
+514/2500 for Arcadia (T-05, 20.56%). These are raw heightmap mask fractions, distinct
+from downstream feature-neighborhood support percentages. A triangle needs three
+valid samples; consequently the omitted triangle fractions are larger: 39.30%,
+16.62%, and 38.17%, respectively. The old black patches showed the background through
+these missing triangles, rather than shadows or real depressions.
+
+The diagnostic hatch makes the gaps explicit without changing elevations, masks,
+provenance, feature extraction, scoring, inspection, or navigation. A continuous
+measured model requires better source coverage. The optional display interpolation described below is a separate
+estimated product and does not improve source coverage, validate a target, or
+change ranking eligibility.
+
+With the integrated frontend and real-data API running, verify against the delivered
+records with `CHROME_PATH="/path/to/chrome" python tests/measured_nodata_check.py`.
+`APP_URL` and `API_URL` override localhost ports 5173 and 8000. The check covers all
+three targets, source-data preservation, POV labels, shaders and the mobile legend,
+and writes both `qa-screens/nodata-t-*.png` and `qa-screens/filled-t-*.png` screenshots.
+
+
+### Display-only gap filling
+
+The viewer starts with **Estimated fill** enabled for missing height samples. **Show
+gaps** restores the untouched measured mesh and its NoData hatching; **Fill gaps**
+restores the continuous display. The same toggle is available in POV. Estimates have
+a subtle warm tint, and the badge always reports the original missing sample fraction.
+
+`visualInterpolation.ts` initializes missing samples from observed neighbors, then
+relaxes only those samples with spacing-aware harmonic neighbor weights. Known
+samples stay exactly fixed. Estimates remain within the valid source elevation range;
+edge gaps are handled, and iteration work is capped for large rasters. This is an
+artistic approximation, not a validated reconstruction or a replacement DEM. A private
+copy is labelled synthetic and is used only by display geometry and camera clearance.
+
+Heights, validMask, provenance, measured-data percentages, elevation extrema and all
+backend features/scores remain unchanged. Inspection checks the original triangle,
+so an estimated face cannot be reported as a measured elevation. Walking and jumping
+still use the original mask and cannot enter estimated-only triangles or leave the
+selected parcel. The camera can look across the filled surface and stays above it.
