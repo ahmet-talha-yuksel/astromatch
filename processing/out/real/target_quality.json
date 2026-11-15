@@ -1,7 +1,7 @@
 {
   "schema_version": "2.3",
   "kind": "target_quality_decisions",
-  "features_file_sha256": "9723bf6e8d35386f66423688861b7ce365e53bdcf7a0c6ecd3c977ffe1e044eb",
+  "features_file_sha256": "137d4967374ee9e3942cb52a414babcfad317b5941fbfb46a901139f9eef1611",
   "decisions": [
     {
       "region_id": "mars_jezero_local",

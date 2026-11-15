@@ -1,4 +1,5 @@
 import json
+import hashlib
 from pathlib import Path
 
 import numpy as np
@@ -172,8 +173,13 @@ def test_root_release_and_handoff_bundle_match_current_outputs():
             record.pop('context', None)
         return doc
     assert without_context((root/'features.json').read_bytes()) == without_context((root/'real/features.json').read_bytes())
-    for name in ('environment.json', 'retrieval.json', 'target_quality.json'):
+    for name in ('environment.json', 'retrieval.json'):
         assert (root/name).read_bytes() == (root/'real'/name).read_bytes()
+    # Context augments only real/features.json, so each quality report binds
+    # to the exact feature file in its own release directory.
+    for release in (root, root/'real'):
+        quality = json.loads((release/'target_quality.json').read_text())
+        assert quality['features_file_sha256'] == hashlib.sha256((release/'features.json').read_bytes()).hexdigest()
     a, b = pq.read_table(root/'earth_grid.parquet'), pq.read_table(root/'pilot_expanded/earth_grid.parquet')
     assert a.select(b.column_names).equals(b)
     for name in ('coverage.geojson','pilot_timing.json'):
