@@ -12,6 +12,9 @@ thermal:
   comparable_pairs:
     - [diviner_diurnal_range_c, lst_diurnal_range_c]
     - [lst_diurnal_range_c, lst_diurnal_range_c]
+    - [surface_temp_mean_c, surface_temp_mean_c]
+    - [surface_temp_max_c, surface_temp_max_c]
+    - [surface_temp_min_c, surface_temp_min_c]
     - [lst_day_mean_c, lst_day_mean_c]
     - [lst_night_mean_c, lst_night_mean_c]
   # The cold override requires actual minima, not a monthly average or mean night value.
